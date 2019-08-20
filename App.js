@@ -1,6 +1,6 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { AppLoading } from 'expo';
+import { AppLoading, ScreenOrientation } from 'expo';
 import { Asset } from 'expo-asset';
 import Constants from 'expo-constants';
 import * as Font from 'expo-font';
@@ -13,6 +13,15 @@ export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
   };
+
+  componentDidMount() {
+    // Allow screen rotation on iPad
+    if (Platform.OS === 'ios' && Platform.isPad) {
+      ScreenOrientation.lockAsync(
+        ScreenOrientation.OrientationLock.ALL
+      );
+    }
+  }
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
