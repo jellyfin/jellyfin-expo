@@ -1,5 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, WebView } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
+import { WebView } from 'react-native-webview';
+import { ScreenOrientation } from 'expo';
+import Url from 'url-parse';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
@@ -13,7 +16,8 @@ const loading = () => (
 
 export default class HomeScreen extends React.Component {
   state = {
-    server: null
+    server: null,
+    isVideoPlaying: false
   };
 
   static navigationOptions = {
@@ -28,8 +32,44 @@ export default class HomeScreen extends React.Component {
     this.setState({ server });
   }
 
+  onNavigationChange(navigation) {
+    const url = new Url(navigation.url);
+    this.setState({
+      url,
+      isVideoPlaying: url.hash && url.hash === '#!/videoosd.html'
+    });
+  }
+
+  async updateScreenOrientation() {
+    let lock;
+    if (this.state.isVideoPlaying) {
+      // Lock to landscape orientation
+      lock = ScreenOrientation.OrientationLock.LANDSCAPE;
+    } else if (Platform.OS === 'ios' && Platform.isPad) {
+      // Allow screen rotation on iPad
+      lock = ScreenOrientation.OrientationLock.ALL;
+    } else {
+      // Lock phone devices to Portrait
+      if (Platform.OS === 'ios') {
+        // Workaround a bug where PORTRAIT orientation lock does not rotate iOS device
+        // https://github.com/expo/expo/issues/4646
+        lock = ScreenOrientation.OrientationLock.PORTRAIT_UP;
+      } else {
+        lock = ScreenOrientation.OrientationLock.PORTRAIT;
+      }
+    }
+    console.log('updateScreenOrientation', lock);
+    ScreenOrientation.lockAsync(lock);
+  }
+
   componentDidMount() {
     this.bootstrapAsync();
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.isVideoPlaying !== this.state.isVideoPlaying) {
+      this.updateScreenOrientation();
+    }
   }
 
   render() {
@@ -41,6 +81,36 @@ export default class HomeScreen extends React.Component {
       <WebView
         source={{ uri: JellyfinValidator.getServerUrl(this.state.server) }}
         style={styles.container}
+
+        // Inject javascript to watch URL hash changes
+        injectedJavaScript={`
+          (function() {
+            function wrap(fn) {
+              return function wrapper() {
+                var res = fn.apply(this, arguments);
+                window.ReactNativeWebView.postMessage('navigationStateChange');
+                return res;
+              }
+            }
+
+            history.pushState = wrap(history.pushState);
+            history.replaceState = wrap(history.replaceState);
+            window.addEventListener('popstate', function() {
+              window.ReactNativeWebView.postMessage('navigationStateChange');
+            });
+          })();
+
+          true;
+        `}
+        onMessage={({ nativeEvent: state }) => {
+          // console.debug('message', state);
+          if (state.data === 'navigationStateChange') {
+            this.onNavigationChange(state);
+          }
+        }}
+
+        // Make scrolling feel faster
+        decelerationRate='normal'
         // Display loading indicator
         startInLoadingState={true}
         renderLoading={loading}

@@ -7,11 +7,11 @@ import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
-import Colors from './constants/Colors'
+import Colors from './constants/Colors';
 
 export default class App extends React.Component {
   state = {
-    isLoadingComplete: false,
+    isLoadingComplete: false
   };
 
   componentDidMount() {
