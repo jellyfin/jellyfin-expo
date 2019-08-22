@@ -49,8 +49,8 @@ SettingsStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? 'ios-options'
-          : 'md-options'
+          ? 'ios-cog'
+          : 'md-cog'
       }
     />
   ),
