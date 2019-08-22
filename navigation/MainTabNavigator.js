@@ -20,19 +20,25 @@ const HomeStack = createStackNavigator({
   defaultNavigationOptions
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  // eslint-disable-next-line react/display-name
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? 'ios-tv'
-          : 'md-tv'
-      }
-    />
-  ),
+HomeStack.navigationOptions = ({ navigation }) => {
+  const tabBarVisible = (navigation.state && navigation.state.routes[0].params) ?
+    navigation.state.routes[0].params.tabBarVisible : true;
+
+  return {
+    tabBarLabel: 'Home',
+    // eslint-disable-next-line react/display-name
+    tabBarIcon: ({ focused }) => (
+      <TabBarIcon
+        focused={focused}
+        name={
+          Platform.OS === 'ios'
+            ? 'ios-tv'
+            : 'md-tv'
+        }
+      />
+    ),
+    tabBarVisible
+  };
 };
 
 const SettingsStack = createStackNavigator({

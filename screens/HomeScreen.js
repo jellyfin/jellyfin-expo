@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
 import Url from 'url-parse';
@@ -68,7 +68,14 @@ export default class HomeScreen extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.isVideoPlaying !== this.state.isVideoPlaying) {
+      // Update the screen orientation
       this.updateScreenOrientation();
+      // Show/hide the bottom tab bar
+      this.props.navigation.setParams({
+        tabBarVisible: !this.state.isVideoPlaying
+      });
+      // Show/hide the status bar
+      StatusBar.setHidden(this.state.isVideoPlaying);
     }
   }
 
