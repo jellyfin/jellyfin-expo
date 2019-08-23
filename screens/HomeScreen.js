@@ -34,9 +34,18 @@ export default class HomeScreen extends React.Component {
 
   onNavigationChange(navigation) {
     const url = new Url(navigation.url);
+    console.debug('navigationChange', url);
+
+    let { isVideoPlaying } = this.state;
+    // Modal windows in the player also trigger hash changes
+    // Ignore any hashes that do not look start with '#!/'
+    if (url.hash && url.hash.startsWith('#!/')) {
+      isVideoPlaying = url.hash === '#!/videoosd.html';
+    }
+
     this.setState({
       url,
-      isVideoPlaying: url.hash && url.hash === '#!/videoosd.html'
+      isVideoPlaying
     });
   }
 
