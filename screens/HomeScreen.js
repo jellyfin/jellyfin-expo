@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
@@ -14,6 +14,7 @@ export default class HomeScreen extends React.Component {
   state = {
     server: null,
     isLoading: true,
+    isRefreshing: false,
     isVideoPlaying: false
   };
 
@@ -44,6 +45,15 @@ export default class HomeScreen extends React.Component {
       url,
       isVideoPlaying
     });
+  }
+
+  onRefresh() {
+    this.setState({
+      isLoading: true,
+      isRefreshing: true
+    });
+    this.webview.reload();
+    this.setState({ isRefreshing: false });
   }
 
   async updateScreenOrientation() {
@@ -90,9 +100,19 @@ export default class HomeScreen extends React.Component {
     const webviewStyle = this.state.isLoading ? styles.loading : styles.container;
 
     return (
-      <View style={styles.container}>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={{flexGrow: 1}}
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.isRefreshing}
+            onRefresh={() => this.onRefresh()}
+          />
+        }
+      >
         {this.state.server && this.state.server.url && (
           <WebView
+            ref={ref => (this.webview = ref)}
             source={{ uri: JellyfinValidator.getServerUrl(this.state.server) }}
             style={webviewStyle}
 
@@ -126,6 +146,7 @@ export default class HomeScreen extends React.Component {
             // Make scrolling feel faster
             decelerationRate='normal'
             // Update state when loading is complete
+            renderLoading={() => <View style={styles.container} />}
             onLoadEnd={() => { this.setState({ isLoading: false }) }}
             // Media playback options to fix video player
             allowsInlineMediaPlayback={true}
@@ -134,7 +155,7 @@ export default class HomeScreen extends React.Component {
             useWebKit={true}
           />
         )}
-      </View>
+      </ScrollView>
     );
   }
 }
