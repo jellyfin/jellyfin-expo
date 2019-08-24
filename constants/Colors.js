@@ -1,11 +1,12 @@
 const backgroundColor = '#101010';
-const headerTintColor = '#fff';
+const textColor = '#fff';
 const tintColor = '#00a4dc';
 
 export default {
+  textColor,
   backgroundColor,
   tintColor,
-  headerTintColor,
+  headerTintColor: textColor,
   tabIconDefault: '#ccc',
   tabIconSelected: tintColor,
   tabBar: '#fefefe',
