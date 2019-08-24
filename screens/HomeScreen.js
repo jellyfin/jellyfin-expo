@@ -9,14 +9,10 @@ import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
 
-// Loading component rendered in webview to avoid flash of white
-const loading = () => (
-  <View style={styles.container} />
-);
-
 export default class HomeScreen extends React.Component {
   state = {
     server: null,
+    isLoading: true,
     isVideoPlaying: false
   };
 
@@ -34,7 +30,7 @@ export default class HomeScreen extends React.Component {
 
   onNavigationChange(navigation) {
     const url = new Url(navigation.url);
-    console.debug('navigationChange', url);
+    console.debug('navigationChange', navigation, url);
 
     let { isVideoPlaying } = this.state;
     // Modal windows in the player also trigger hash changes
@@ -89,53 +85,55 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
-    if (!this.state.server || !this.state.server.url) {
-      return loading();
-    }
+    // Hide webview until loaded
+    const webviewStyle = this.state.isLoading ? styles.loading : styles.container;
 
     return (
-      <WebView
-        source={{ uri: JellyfinValidator.getServerUrl(this.state.server) }}
-        style={styles.container}
+      <View style={styles.container}>
+        {this.state.server && this.state.server.url && (
+          <WebView
+            source={{ uri: JellyfinValidator.getServerUrl(this.state.server) }}
+            style={webviewStyle}
 
-        // Inject javascript to watch URL hash changes
-        injectedJavaScript={`
-          (function() {
-            function wrap(fn) {
-              return function wrapper() {
-                var res = fn.apply(this, arguments);
-                window.ReactNativeWebView.postMessage('navigationStateChange');
-                return res;
+            // Inject javascript to watch URL hash changes
+            injectedJavaScript={`
+              (function() {
+                function wrap(fn) {
+                  return function wrapper() {
+                    var res = fn.apply(this, arguments);
+                    window.ReactNativeWebView.postMessage('navigationStateChange');
+                    return res;
+                  }
+                }
+
+                history.pushState = wrap(history.pushState);
+                history.replaceState = wrap(history.replaceState);
+                window.addEventListener('popstate', function() {
+                  window.ReactNativeWebView.postMessage('navigationStateChange');
+                });
+              })();
+
+              true;
+            `}
+            onMessage={({ nativeEvent: state }) => {
+              // console.debug('message', state);
+              if (state.data === 'navigationStateChange') {
+                this.onNavigationChange(state);
               }
-            }
+            }}
 
-            history.pushState = wrap(history.pushState);
-            history.replaceState = wrap(history.replaceState);
-            window.addEventListener('popstate', function() {
-              window.ReactNativeWebView.postMessage('navigationStateChange');
-            });
-          })();
-
-          true;
-        `}
-        onMessage={({ nativeEvent: state }) => {
-          // console.debug('message', state);
-          if (state.data === 'navigationStateChange') {
-            this.onNavigationChange(state);
-          }
-        }}
-
-        // Make scrolling feel faster
-        decelerationRate='normal'
-        // Display loading indicator
-        startInLoadingState={true}
-        renderLoading={loading}
-        // Media playback options to fix video player
-        allowsInlineMediaPlayback={true}
-        mediaPlaybackRequiresUserAction={false}
-        // Use WKWebView on iOS
-        useWebKit={true}
-      />
+            // Make scrolling feel faster
+            decelerationRate='normal'
+            // Update state when loading is complete
+            onLoadEnd={() => { this.setState({ isLoading: false }) }}
+            // Media playback options to fix video player
+            allowsInlineMediaPlayback={true}
+            mediaPlaybackRequiresUserAction={false}
+            // Use WKWebView on iOS
+            useWebKit={true}
+          />
+        )}
+      </View>
     );
   }
 }
@@ -144,5 +142,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.backgroundColor
+  },
+  loading: {
+    flex: 1,
+    backgroundColor: Colors.backgroundColor,
+    opacity: 0
   }
 });
