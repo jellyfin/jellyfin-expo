@@ -2,6 +2,7 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
+import Constants from 'expo-constants';
 import Url from 'url-parse';
 
 import Colors from '../constants/Colors';
@@ -141,7 +142,9 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor
+    backgroundColor: Colors.backgroundColor,
+    // Padding for the StatusBar
+    paddingTop: Constants.statusBarHeight || 0
   },
   loading: {
     flex: 1,

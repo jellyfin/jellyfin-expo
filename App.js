@@ -2,7 +2,6 @@ import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading, ScreenOrientation } from 'expo';
 import { Asset } from 'expo-asset';
-import Constants from 'expo-constants';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 
@@ -75,8 +74,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor,
-    // Padding for the StatusBar
-    paddingTop: Constants.statusBarHeight || 0
+    backgroundColor: Colors.backgroundColor
   }
 });
