@@ -6,35 +6,22 @@ import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
 
-const DEFAULT_PORT = 8096;
-
 const sanitizeHost = (url = '') => url.trim();
-const sanitizePort = (port = '') => {
-  if (port === '') {
-    return '';
-  }
-  port = Number.parseInt(port, 10);
-  if (Number.isNaN(port)) {
-    return DEFAULT_PORT;
-  }
-  return port;
-}
 
 export default class AddServerScreen extends React.Component {
   state = {
     host: '',
-    port: `${DEFAULT_PORT}`,
     isValidating: false
   }
 
   async onAddServer() {
-    const { host, port } = this.state;
-    console.log('add server', host, port);
-    if (host && port) {
+    const { host } = this.state;
+    console.log('add server', host);
+    if (host) {
       this.setState({ isValidating: true });
 
       // Parse the entered url
-      const url = JellyfinValidator.parseUrl(host, port);
+      const url = JellyfinValidator.parseUrl(host);
       console.log('parsed url', url);
 
       // Validate the server is available
@@ -72,13 +59,6 @@ export default class AddServerScreen extends React.Component {
           textContentType='URL'
           value={this.state.host}
           onChangeText={text => this.setState({ host: sanitizeHost(text) })}
-        />
-        <TextInput
-          style={styles.serverTextInput}
-          keyboardType='number-pad'
-          maxLength={5}
-          value={this.state.port}
-          onChangeText={text => this.setState({ port: `${sanitizePort(text)}` })}
         />
         <Button
           title='Add Server'
