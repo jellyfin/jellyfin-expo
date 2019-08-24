@@ -1,5 +1,5 @@
 import React from 'react';
-import { AsyncStorage, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, AsyncStorage, FlatList, StyleSheet, View } from 'react-native';
 import { Button, colors, ListItem, ThemeProvider } from 'react-native-elements';
 import * as WebBrowser from 'expo-web-browser';
 import PropTypes from 'prop-types';
@@ -79,6 +79,17 @@ export default class SettingsScreen extends React.Component {
     this.props.navigation.navigate('ServerLoading');
   }
 
+  confirmClearStorage() {
+    Alert.alert(
+      'Clear Storage',
+      'Are you sure you want to reset all settings?',
+      [
+        { text: 'Cancel' },
+        { text: 'Clear', onPress: () => this.clearStorage(), style: 'destructive' }
+      ]
+    );
+  }
+
   render() {
     return (
       <ThemeProvider theme={theme}>
@@ -97,7 +108,7 @@ export default class SettingsScreen extends React.Component {
           <Button
             buttonStyle={{ backgroundColor: colors.platform.ios.error }}
             title='Clear Storage'
-            onPress={() => this.clearStorage()}
+            onPress={() => this.confirmClearStorage()}
           />
         </View>
       </ThemeProvider>
