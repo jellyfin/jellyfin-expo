@@ -1,5 +1,6 @@
 import React from 'react';
-import { ActivityIndicator, Button, Image, Platform, StyleSheet, TextInput, View } from 'react-native';
+import { ActivityIndicator, Image, Platform, StyleSheet, View } from 'react-native';
+import { Input, colors } from 'react-native-elements';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
@@ -11,24 +12,34 @@ const sanitizeHost = (url = '') => url.trim();
 export default class AddServerScreen extends React.Component {
   state = {
     host: '',
-    isValidating: false
+    isValidating: false,
+    isValid: true,
+    validationMessage: ''
   }
 
   async onAddServer() {
     const { host } = this.state;
     console.log('add server', host);
     if (host) {
-      this.setState({ isValidating: true });
+      this.setState({
+        isValidating: true,
+        isValid: true,
+        validationMessage: ''
+      });
 
       // Parse the entered url
       const url = JellyfinValidator.parseUrl(host);
       console.log('parsed url', url);
 
       // Validate the server is available
-      const isServerValid = await JellyfinValidator.validate({ url });
-      console.log(`Server is ${isServerValid ? '' : 'not '}valid`);
-      if (!isServerValid) {
-        this.setState({ isValidating: false });
+      const validation = await JellyfinValidator.validate({ url });
+      console.log(`Server is ${validation.isValid ? '' : 'not '}valid`);
+      if (!validation.isValid) {
+        this.setState({
+          isValidating: false,
+          isValid: validation.isValid,
+          validationMessage: validation.message || ''
+        });
         return;
       }
 
@@ -38,35 +49,49 @@ export default class AddServerScreen extends React.Component {
       }]);
       // Navigate to the main screen
       this.props.navigation.navigate('Main');
+    } else {
+      this.setState({
+        isValid: false,
+        validationMessage: 'Server Address cannot be empty'
+      })
     }
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.logoImage}
-          source={require('../assets/images/logowhite.png')}
-          fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300` 
-        />
-        <TextInput
-          style={styles.serverTextInput}
+        <View style={styles.container}>
+          <Image
+            style={styles.logoImage}
+            source={require('../assets/images/logowhite.png')}
+            fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300` 
+          />
+        </View>
+        <Input
+          containerStyle={styles.serverTextContainer}
+          inputContainerStyle={styles.serverTextInput}
+          leftIcon={{
+            name: Platform.OS === 'ios' ? 'ios-globe' : 'md-globe',
+            type: 'ionicon'
+          }}
+          label='Server Address'
+          placeholder='https://jellyfin.media'
+          placeholderTextColor={colors.grey3}
+          rightIcon={this.state.isValidating ? <ActivityIndicator /> : null}
+          selectionColor={Colors.tintColor}
           autoCapitalize='none'
           autoCorrect={false}
           autoCompleteType='off'
           autoFocus={true}
           keyboardType={Platform.OS === 'ios' ? 'url' : 'default'}
+          returnKeyType='go'
           textContentType='URL'
+          editable={!this.state.isValidating}
           value={this.state.host}
+          errorMessage={this.state.isValid ? null : this.state.validationMessage}
           onChangeText={text => this.setState({ host: sanitizeHost(text) })}
+          onSubmitEditing={() => this.onAddServer()}
         />
-        <Button
-          title='Add Server'
-          color={Colors.tintColor}
-          onPress={() => this.onAddServer()}
-        />
-        {this.state.isValidating ? (<ActivityIndicator />) : null}
-        <View style={styles.spacer} />
       </View>
     )
   }
@@ -76,24 +101,24 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: Colors.backgroundColor
   },
   logoImage: {
-    flex: 1,
-    width: '80%',
-    height: null,
-    resizeMode: 'contain'
+    marginBottom: 12,
+    width: '90%',
+    height: undefined,
+    // Aspect ration of the logo
+    aspectRatio: 3.18253
+  },
+  serverTextContainer: {
+    flex: 1.5,
+    alignContent: 'flex-start'
   },
   serverTextInput: {
-    fontSize: 20,
-    margin: 4,
-    width: '100%',
-    borderRadius: 2,
-    padding: 2,
+    marginTop: 8,
+    marginBottom: 12,
     backgroundColor: '#292929',
-    color: '#fff'
-  },
-  spacer: {
-    flex: 1
+    borderBottomWidth: 0
   }
 });

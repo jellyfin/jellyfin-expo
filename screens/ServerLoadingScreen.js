@@ -27,8 +27,8 @@ export default class ServerLoadingScreen extends React.Component {
     if (hasServer) {
       const activeServer = servers[0];
       // Validate the server is online and is a Jellyfin server
-      const isServerValid = await JellyfinValidator.validate(activeServer);
-      console.log('active server', activeServer, isServerValid);
+      const validation = await JellyfinValidator.validate(activeServer);
+      console.log('active server', activeServer, validation.isValid);
       // TODO: Handle invalid server here
     }
 

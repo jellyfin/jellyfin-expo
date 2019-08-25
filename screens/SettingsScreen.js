@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, AsyncStorage, FlatList, StyleSheet, View } from 'react-native';
+import { Alert, AsyncStorage, FlatList, Platform, StyleSheet, View } from 'react-native';
 import { Button, colors, ListItem } from 'react-native-elements';
 import * as WebBrowser from 'expo-web-browser';
 import PropTypes from 'prop-types';
@@ -87,7 +87,7 @@ export default class SettingsScreen extends React.Component {
         </SettingSection>
 
         <Button
-          buttonStyle={{ backgroundColor: colors.platform.ios.error }}
+          buttonStyle={{ backgroundColor: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error }}
           title='Clear Storage'
           onPress={() => this.confirmClearStorage()}
         />

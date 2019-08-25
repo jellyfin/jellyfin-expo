@@ -29,7 +29,10 @@ export default class JellyfinValidator {
   static async validate(server = {}) {
     // Does the server have a valid url?
     if (!server.url || !server.url.origin) {
-      return false;
+      return {
+        isValid: false,
+        message: 'Invalid URL'
+      };
     }
 
     const serverUrl = this.getServerUrl(server);
@@ -46,13 +49,23 @@ export default class JellyfinValidator {
         const versionNumber = responseJson.Version.split('.').map(num => Number.parseInt(num, 10));
         if (versionNumber.length === 3 && versionNumber[0] === 10 && versionNumber[1] < 3) {
           console.log('Is valid old version');
-          return true;
+          return { isValid: true };
         }
       }
 
-      return responseJson.ProductName === 'Jellyfin Server';
+      const isValid = responseJson.ProductName === 'Jellyfin Server';
+      const answer = {
+        isValid
+      };
+      if (!isValid) {
+        answer.message = 'Not a Jellyfin server'
+      }
+      return answer;
     } catch(err) {
-      return false;
+      return {
+        isValid: false,
+        message: 'Could not connect to server'
+      };
     }
   }
 }
