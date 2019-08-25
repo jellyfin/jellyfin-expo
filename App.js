@@ -1,5 +1,6 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { ThemeProvider } from 'react-native-elements';
 import { AppLoading, ScreenOrientation } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
@@ -7,6 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 import Colors from './constants/Colors';
+import Theme from './utils/Theme';
 
 export default class App extends React.Component {
   state = {
@@ -34,10 +36,12 @@ export default class App extends React.Component {
       );
     } else {
       return (
+        <ThemeProvider theme={Theme}>
         <View style={styles.container}>
           {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
           <AppNavigator />
         </View>
+        </ThemeProvider>
       );
     }
   }

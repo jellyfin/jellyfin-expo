@@ -145,8 +145,9 @@ export default class HomeScreen extends React.Component {
 
             // Make scrolling feel faster
             decelerationRate='normal'
-            // Update state when loading is complete
+            // Loading screen is displayed when refreshing
             renderLoading={() => <View style={styles.container} />}
+            // Update state when loading is complete
             onLoadEnd={() => { this.setState({ isLoading: false }) }}
             // Media playback options to fix video player
             allowsInlineMediaPlayback={true}

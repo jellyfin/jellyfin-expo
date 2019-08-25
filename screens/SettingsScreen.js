@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, AsyncStorage, FlatList, StyleSheet, View } from 'react-native';
-import { Button, colors, ListItem, ThemeProvider } from 'react-native-elements';
+import { Button, colors, ListItem } from 'react-native-elements';
 import * as WebBrowser from 'expo-web-browser';
 import PropTypes from 'prop-types';
 
@@ -8,24 +8,6 @@ import SettingSection from '../components/SettingSection';
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
-
-const theme = {
-  Button: {
-    buttonStyle: {
-      backgroundColor: Colors.tintColor
-    }
-  },
-  ListItem: {
-    containerStyle: {
-      backgroundColor: Colors.backgroundColor
-    }
-  },
-  Text: {
-    style: {
-      color: Colors.textColor
-    }
-  }
-};
 
 const keyExtractor = (item, index) => index.toString();
 
@@ -92,26 +74,24 @@ export default class SettingsScreen extends React.Component {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <View style={styles.container}>
-          <SettingSection heading='Servers' />
+      <View style={styles.container}>
+        <SettingSection heading='Servers' />
 
-          <SettingSection heading='Links'>
-            <FlatList
-              keyExtractor={keyExtractor}
-              data={links}
-              renderItem={renderLink}
-              scrollEnabled={false}
-            />
-          </SettingSection>
-
-          <Button
-            buttonStyle={{ backgroundColor: colors.platform.ios.error }}
-            title='Clear Storage'
-            onPress={() => this.confirmClearStorage()}
+        <SettingSection heading='Links'>
+          <FlatList
+            keyExtractor={keyExtractor}
+            data={links}
+            renderItem={renderLink}
+            scrollEnabled={false}
           />
-        </View>
-      </ThemeProvider>
+        </SettingSection>
+
+        <Button
+          buttonStyle={{ backgroundColor: colors.platform.ios.error }}
+          title='Clear Storage'
+          onPress={() => this.confirmClearStorage()}
+        />
+      </View>
     );
   }
 }
