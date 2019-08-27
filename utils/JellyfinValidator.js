@@ -1,42 +1,65 @@
 /* globals fetch */
-import Url from 'url-parse';
+import Url from 'url';
 
 export default class JellyfinValidator {
   static parseUrl(host = '', port = '') {
     if (!host) {
-      throw new Error('host cannot be blank')
+      throw new Error('host cannot be blank');
     }
-    // Parsing seems to fail if a protocol is not set
+
+    // Default the protocol to http if not present
+    // Setting the protocol on the parsed url does not update the href
     if (!host.startsWith('http://') && !host.startsWith('https://')) {
       host = `http://${host}`;
     }
+
     // Parse the host as a url
-    const url = new Url(host);
+    const url = Url.parse(host);
+
+    if (!url.hostname) {
+      throw new Error(`Could not parse hostname for ${host}`);
+    }
+
     // Override the port if provided
     if (port) {
-      url.set('port', port);
+      url.port = port;
     }
     return url;
   }
 
   static getServerUrl(server = {}) {
-    if (!server || !server.url || !server.url.origin) {
+    if (!server || !server.url || !server.url.href) {
       throw new Error(`Cannot get server url for invalid server ${server}`)
     }
-    return `${server.url.origin}${server.url.pathname}`;
+
+    // Strip the query string or hash if present
+    let serverUrl = server.url.href;
+    if (server.url.search || server.url.hash) {
+      const endUrl = server.url.search || server.url.hash;
+      serverUrl = serverUrl.substring(0, serverUrl.indexOf(endUrl));
+    }
+
+    // Ensure the url ends with /
+    if (!serverUrl.endsWith('/')) {
+      serverUrl += '/';
+    }
+
+    console.log('getServerUrl:', serverUrl);
+    return serverUrl;
   }
 
   static async validate(server = {}) {
-    // Does the server have a valid url?
-    if (!server.url || !server.url.origin) {
+    let serverUrl;
+    try {
+      // Does the server have a valid url?
+      serverUrl = this.getServerUrl(server);
+    } catch(err) {
       return {
         isValid: false,
         message: 'Invalid URL'
       };
     }
-
-    const serverUrl = this.getServerUrl(server);
-    const infoUrl = `${serverUrl}/system/info/public`;
+    const infoUrl = `${serverUrl}system/info/public`;
     console.log('info url', infoUrl);
     // Try to fetch the server's public info
     try {

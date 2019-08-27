@@ -3,7 +3,7 @@ import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } fro
 import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
-import Url from 'url-parse';
+import Url from 'url';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
@@ -31,7 +31,7 @@ export default class HomeScreen extends React.Component {
   }
 
   onNavigationChange(navigation) {
-    const url = new Url(navigation.url);
+    const url = Url.parse(navigation.url);
     console.debug('navigationChange', navigation, url);
 
     let { isVideoPlaying } = this.state;
@@ -110,7 +110,7 @@ export default class HomeScreen extends React.Component {
           />
         }
       >
-        {this.state.server && this.state.server.url && (
+        {this.state.server && (
           <WebView
             ref={ref => (this.webview = ref)}
             source={{ uri: JellyfinValidator.getServerUrl(this.state.server) }}

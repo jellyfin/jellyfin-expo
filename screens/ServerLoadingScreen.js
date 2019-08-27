@@ -5,7 +5,6 @@ import { SplashScreen } from 'expo';
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
-import JellyfinValidator from '../utils/JellyfinValidator';
 
 export default class ServerLoadingScreen extends React.Component {
   state = { areResourcesReady: false };
@@ -23,14 +22,6 @@ export default class ServerLoadingScreen extends React.Component {
     const servers = await this.getServers();
     const hasServer = !!servers && servers.length > 0;
     console.info('servers', servers, hasServer);
-
-    if (hasServer) {
-      const activeServer = servers[0];
-      // Validate the server is online and is a Jellyfin server
-      const validation = await JellyfinValidator.validate(activeServer);
-      console.log('active server', activeServer, validation.isValid);
-      // TODO: Handle invalid server here
-    }
 
     // Ensure the splash screen is hidden
     SplashScreen.hide();

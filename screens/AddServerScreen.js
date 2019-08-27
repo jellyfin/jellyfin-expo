@@ -28,8 +28,19 @@ export default class AddServerScreen extends React.Component {
       });
 
       // Parse the entered url
-      const url = JellyfinValidator.parseUrl(host);
-      console.log('parsed url', url);
+      let url;
+      try {
+        url = JellyfinValidator.parseUrl(host);
+        console.log('parsed url', url);
+      } catch(err) {
+        console.info(err);
+        this.setState({
+          isValidating: false,
+          isValid: false,
+          validationMessage: 'Server Address is invalid'
+        });
+        return;
+      }
 
       // Validate the server is available
       const validation = await JellyfinValidator.validate({ url });
