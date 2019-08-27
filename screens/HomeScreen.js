@@ -31,6 +31,10 @@ export default class HomeScreen extends React.Component {
   }
 
   onNavigationChange(navigation) {
+    if (!navigation.url) {
+      console.warn('No url provided to onNavigationChange', navigation);
+      return;
+    }
     const url = Url.parse(navigation.url);
     console.debug('navigationChange', navigation, url);
 
@@ -166,7 +170,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.backgroundColor,
     // Padding for the StatusBar
-    paddingTop: Constants.statusBarHeight || 0
+    paddingTop: Platform.OS === 'ios' ? (Constants.statusBarHeight || 20) : StatusBar.currentHeight
   },
   loading: {
     flex: 1,
