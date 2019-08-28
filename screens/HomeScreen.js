@@ -1,5 +1,6 @@
 import React from 'react';
 import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } from 'react-native';
+import { Button, Text } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
@@ -13,6 +14,7 @@ import JellyfinValidator from '../utils/JellyfinValidator';
 export default class HomeScreen extends React.Component {
   state = {
     server: null,
+    isError: false,
     isLoading: true,
     isRefreshing: false,
     isVideoPlaying: false
@@ -28,6 +30,26 @@ export default class HomeScreen extends React.Component {
       server = server[0];
     }
     this.setState({ server });
+  }
+
+  getErrorView() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.error}>Error contacting Jellyfin server.</Text>
+        <Button
+          buttonStyle={{
+            marginLeft: 15,
+            marginRight: 15
+          }}
+          icon={{
+            name: Platform.OS === 'ios' ? 'ios-refresh' : 'md-refresh',
+            type: 'ionicon'
+          }}
+          title='Try again?'
+          onPress={() => this.onRefresh()}
+        />
+      </View>
+    );
   }
 
   onNavigationChange(navigation) {
@@ -101,7 +123,8 @@ export default class HomeScreen extends React.Component {
 
   render() {
     // Hide webview until loaded
-    const webviewStyle = this.state.isLoading ? styles.loading : styles.container;
+    const webviewStyle = (this.state.isError || this.state.isLoading) ?
+      styles.loading : styles.container;
 
     return (
       <ScrollView
@@ -149,10 +172,19 @@ export default class HomeScreen extends React.Component {
 
             // Make scrolling feel faster
             decelerationRate='normal'
+            // Error screen is displayed if loading fails
+            renderError={() => this.getErrorView()}
             // Loading screen is displayed when refreshing
             renderLoading={() => <View style={styles.container} />}
+            // Update state on loading error
+            onError={() => { this.setState({ isError: true }) }}
             // Update state when loading is complete
-            onLoadEnd={() => { this.setState({ isLoading: false }) }}
+            onLoad={() => {
+              this.setState({
+                isError: false,
+                isLoading: false
+              });
+            }}
             // Media playback options to fix video player
             allowsInlineMediaPlayback={true}
             mediaPlaybackRequiresUserAction={false}
@@ -176,5 +208,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.backgroundColor,
     opacity: 0
+  },
+  error: {
+    fontSize: 17,
+    paddingBottom: 17,
+    textAlign: 'center'
   }
 });
