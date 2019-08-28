@@ -87,7 +87,11 @@ export default class SettingsScreen extends React.Component {
         </SettingSection>
 
         <Button
-          buttonStyle={{ backgroundColor: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error }}
+          buttonStyle={{
+            backgroundColor: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error,
+            marginLeft: 15,
+            marginRight: 15
+          }}
           title='Clear Storage'
           onPress={() => this.confirmClearStorage()}
         />

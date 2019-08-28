@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Text } from 'react-native-elements';
+import { colors, Text } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
 export default class SettingsSection extends React.Component {
@@ -23,12 +23,15 @@ export default class SettingsSection extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 8,
-    marginBottom: 8
+    marginTop: 15,
+    marginBottom: 15
   },
   heading: {
+    color: colors.grey3,
     fontSize: 17,
     fontWeight: '600',
-    marginBottom: 4
+    marginBottom: 12,
+    marginLeft: 15,
+    marginRight: 15
   }
 });
