@@ -5,12 +5,17 @@ import { AppLoading, ScreenOrientation } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import PropTypes from 'prop-types';
 
 import AppNavigator from './navigation/AppNavigator';
 import Colors from './constants/Colors';
 import Theme from './utils/Theme';
 
 export default class App extends React.Component {
+  static propTypes = {
+    skipLoadingScreen: PropTypes.bool
+  };
+
   state = {
     isLoadingComplete: false
   };

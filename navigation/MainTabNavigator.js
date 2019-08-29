@@ -26,7 +26,7 @@ HomeStack.navigationOptions = ({ navigation }) => {
 
   return {
     tabBarLabel: 'Home',
-    // eslint-disable-next-line react/display-name
+    // eslint-disable-next-line react/display-name, react/prop-types
     tabBarIcon: ({ focused }) => (
       <TabBarIcon
         focused={focused}
@@ -49,8 +49,8 @@ const SettingsStack = createStackNavigator({
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-  // eslint-disable-next-line react/display-name
-  tabBarIcon: ({ focused }) => (
+    // eslint-disable-next-line react/display-name, react/prop-types
+    tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
