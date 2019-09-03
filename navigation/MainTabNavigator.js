@@ -37,7 +37,15 @@ HomeStack.navigationOptions = ({ navigation }) => {
         }
       />
     ),
-    tabBarVisible
+    tabBarVisible,
+    tabBarOnPress: ({ navigation, defaultHandler }) => {
+      const goHome = navigation.state && navigation.state.routes[0].params && navigation.state.routes[0].params.goHome;
+      if (navigation.isFocused() && typeof goHome === 'function') {
+        goHome();
+      } else {
+        defaultHandler();
+      }
+    }
   };
 };
 
