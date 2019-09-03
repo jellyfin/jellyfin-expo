@@ -177,16 +177,20 @@ export default class HomeScreen extends React.Component {
                 this.onNavigationChange(state);
               }
             }}
-            onNavigationStateChange={({ url }) => {
+            onNavigationStateChange={async ({ url }) => {
               if (!url) {
                 return;
               }
 
-              if (this.state.serverUrl && !url.startsWith(this.state.serverUrl)) {
+              if ((this.state.serverUrl && !url.startsWith(this.state.serverUrl)) || url.includes('/System/Logs/Log')) {
                 console.log('Opening browser for external url', url);
-                WebBrowser.openBrowserAsync(url, {
-                  toolbarColor: Colors.backgroundColor
-                });
+                try {
+                  await WebBrowser.openBrowserAsync(url, {
+                    toolbarColor: Colors.backgroundColor
+                  });
+                } catch(err) {
+                  console.warn('Error opening browser', err);
+                }
                 this.webview.stopLoading();
               }
             }}
