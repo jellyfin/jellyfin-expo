@@ -4,6 +4,7 @@ import { Button, Text } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
+import * as WebBrowser from 'expo-web-browser';
 import Url from 'url';
 
 import Colors from '../constants/Colors';
@@ -14,6 +15,7 @@ import JellyfinValidator from '../utils/JellyfinValidator';
 export default class HomeScreen extends React.Component {
   state = {
     server: null,
+    serverUrl: null,
     isError: false,
     isLoading: true,
     isRefreshing: false,
@@ -29,7 +31,13 @@ export default class HomeScreen extends React.Component {
     if (server.length > 0) {
       server = server[0];
     }
-    this.setState({ server });
+
+    const serverUrl = JellyfinValidator.getServerUrl(server);
+
+    this.setState({
+      server,
+      serverUrl
+    });
   }
 
   getErrorView() {
@@ -137,10 +145,10 @@ export default class HomeScreen extends React.Component {
           />
         }
       >
-        {this.state.server && (
+        {this.state.serverUrl && (
           <WebView
             ref={ref => (this.webview = ref)}
-            source={{ uri: JellyfinValidator.getServerUrl(this.state.server) }}
+            source={{ uri: this.state.serverUrl }}
             style={webviewStyle}
 
             // Inject javascript to watch URL hash changes
@@ -167,6 +175,23 @@ export default class HomeScreen extends React.Component {
               // console.debug('message', state);
               if (state.data === 'navigationStateChange') {
                 this.onNavigationChange(state);
+              }
+            }}
+            onNavigationStateChange={async ({ url }) => {
+              if (!url) {
+                return;
+              }
+
+              if ((this.state.serverUrl && !url.startsWith(this.state.serverUrl)) || url.includes('/System/Logs/Log')) {
+                console.log('Opening browser for external url', url);
+                try {
+                  await WebBrowser.openBrowserAsync(url, {
+                    toolbarColor: Colors.backgroundColor
+                  });
+                } catch(err) {
+                  console.warn('Error opening browser', err);
+                }
+                this.webview.stopLoading();
               }
             }}
 
