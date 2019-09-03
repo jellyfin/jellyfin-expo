@@ -91,6 +91,9 @@ export default class AddServerScreen extends React.Component {
             type: 'ionicon'
           }}
           label='Server Address'
+          labelStyle={{
+            color: colors.grey4
+          }}
           placeholder='https://jellyfin.media'
           placeholderTextColor={colors.grey3}
           rightIcon={this.state.isValidating ? <ActivityIndicator /> : null}

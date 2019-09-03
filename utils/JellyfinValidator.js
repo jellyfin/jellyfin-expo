@@ -32,6 +32,19 @@ export default class JellyfinValidator {
     return url;
   }
 
+  static async fetchServerInfo(server = {}) {
+    const serverUrl = this.getServerUrl(server);
+    const infoUrl = `${serverUrl}system/info/public`;
+    console.log('info url', infoUrl);
+
+    // Try to fetch the server's public info
+    const response = await fetch(infoUrl);
+    const responseJson = await response.json();
+    console.log('response', responseJson);
+
+    return responseJson;
+  }
+
   static getServerUrl(server = {}) {
     if (!server || !server.url || !server.url.href) {
       throw new Error(`Cannot get server url for invalid server ${server}`)
@@ -54,23 +67,18 @@ export default class JellyfinValidator {
   }
 
   static async validate(server = {}) {
-    let serverUrl;
     try {
       // Does the server have a valid url?
-      serverUrl = this.getServerUrl(server);
+      this.getServerUrl(server);
     } catch(err) {
       return {
         isValid: false,
         message: 'Invalid URL'
       };
     }
-    const infoUrl = `${serverUrl}system/info/public`;
-    console.log('info url', infoUrl);
-    // Try to fetch the server's public info
+
     try {
-      const response = await fetch(infoUrl);
-      const responseJson = await response.json();
-      console.log('response', responseJson);
+      const responseJson = await this.fetchServerInfo(server);
 
       // Versions prior to 10.3.x do not include ProductName so return true if response includes Version < 10.3.x
       if (responseJson.Version) {

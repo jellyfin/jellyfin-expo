@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     marginBottom: 15
   },
   heading: {
-    color: colors.grey3,
+    color: colors.grey4,
     fontSize: 17,
     fontWeight: '600',
     marginBottom: 12,
