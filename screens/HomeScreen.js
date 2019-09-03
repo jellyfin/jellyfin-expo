@@ -73,6 +73,10 @@ export default class HomeScreen extends React.Component {
     });
   }
 
+  onGoHome() {
+    this.webview.injectJavaScript('window.Emby && window.Emby.Page && typeof window.Emby.Page.goHome === "function" && window.Emby.Page.goHome();');
+  }
+
   onRefresh() {
     this.setState({
       isLoading: true,
@@ -105,6 +109,9 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
+    // Expose the goHome method to navigation props
+    this.props.navigation.setParams({ goHome: () => this.onGoHome() });
+    // Bootstrap component state
     this.bootstrapAsync();
   }
 
