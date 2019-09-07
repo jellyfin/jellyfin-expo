@@ -20,52 +20,10 @@ import * as WebBrowser from 'expo-web-browser';
 
 import SettingSection from '../components/SettingSection';
 import Colors from '../constants/Colors';
+import Links from '../constants/Links';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
-
-const links = [
-  {
-    name: 'Jellyfin Website',
-    url: 'https://jellyfin.media/',
-    icon: {
-      name: Platform.OS === 'ios' ? 'ios-globe' : 'md-globe',
-      type: 'ionicon'
-    }
-  },
-  {
-    name: 'Documentation',
-    url: 'https://jellyfin.readthedocs.io/',
-    icon: {
-      name: Platform.OS === 'ios' ? 'ios-book' : 'md-book',
-      type: 'ionicon'
-    }
-  },
-  {
-    name: 'Source Code',
-    url: 'https://github.com/jellyfin/jellyfin-expo',
-    icon: {
-      name: 'logo-github',
-      type: 'ionicon'
-    }
-  },
-  {
-    name: 'Request a Feature',
-    url: 'https://features.jellyfin.org/',
-    icon: {
-      name: Platform.OS === 'ios' ? 'ios-create' : 'md-create',
-      type: 'ionicon'
-    }
-  },
-  {
-    name: 'Report an Issue',
-    url: 'https://github.com/jellyfin/jellyfin-expo/issues',
-    icon: {
-      name: Platform.OS === 'ios' ? 'ios-bug' : 'md-bug',
-      type: 'ionicon'
-    }
-  }
-];
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -234,7 +192,7 @@ export default class SettingsScreen extends React.Component {
         <SettingSection heading='Links'>
           <FlatList
             keyExtractor={this._keyExtractor}
-            data={links}
+            data={Links}
             renderItem={this._renderLink}
             scrollEnabled={false}
           />
