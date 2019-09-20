@@ -152,6 +152,9 @@ export default class HomeScreen extends React.Component {
           />
         }
       >
+        {!this.state.isVideoPlaying && (
+          <View style={styles.statusBarSpacer} />
+        )}
         {this.state.serverUrl && (
           <WebView
             ref={ref => (this.webview = ref)}
@@ -232,14 +235,16 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor,
-    // Padding for the StatusBar
-    paddingTop: Platform.OS === 'ios' ? (Constants.statusBarHeight || 20) : StatusBar.currentHeight
+    backgroundColor: Colors.backgroundColor
   },
   loading: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
     opacity: 0
+  },
+  statusBarSpacer: {
+    backgroundColor: Colors.backgroundColor,
+    height: Constants.statusBarHeight
   },
   error: {
     fontSize: 17,
