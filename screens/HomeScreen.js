@@ -189,7 +189,10 @@ export default class HomeScreen extends React.Component {
                 return;
               }
 
-              if ((this.state.serverUrl && !url.startsWith(this.state.serverUrl)) || url.includes('/System/Logs/Log')) {
+                if ((this.state.serverUrl && 
+                        !url.startsWith(this.state.serverUrl) && 
+                        !url.startsWith(this.state.serverUrl.replace(new RegExp("^http://"),"https://"))) 
+                        || url.includes('/System/Logs/Log')) {
                 console.log('Opening browser for external url', url);
                 try {
                   await WebBrowser.openBrowserAsync(url, {
