@@ -24,8 +24,9 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "org.jellyfin.expo"
     },
-    "description": ""
+    "description": "Jellyfin Expo Client"
   }
 }
