@@ -9,7 +9,7 @@
       "android"
     ],
     "version": "0.1.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "primaryColor": "#00a4dc",
     "icon": "./assets/images/icon.png",
     "splash": {
