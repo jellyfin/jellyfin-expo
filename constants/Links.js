@@ -11,7 +11,7 @@ export default [
   },
   {
     name: 'Documentation',
-    url: 'https://jellyfin.readthedocs.io/',
+    url: 'https://jellyfin.org/docs',
     icon: {
       name: Platform.OS === 'ios' ? 'ios-book' : 'md-book',
       type: 'ionicon'
