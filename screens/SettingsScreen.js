@@ -14,10 +14,11 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { Badge, Button, colors, ListItem, Text } from 'react-native-elements';
+import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elements';
 import Constants from 'expo-constants';
 import * as WebBrowser from 'expo-web-browser';
 
+import ServerInput from '../components/ServerInput';
 import SettingSection from '../components/SettingSection';
 import Colors from '../constants/Colors';
 import Links from '../constants/Links';
@@ -31,6 +32,7 @@ export default class SettingsScreen extends React.Component {
   };
 
   state = {
+    isAddServerVisible: false,
     servers: null
   };
 
@@ -61,7 +63,16 @@ export default class SettingsScreen extends React.Component {
       }}
       subtitle={`Version: ${info.Version}\n${serverUrl}`}
       leftElement={(
-        <Badge status={(online ? 'success' : 'error')} />
+        index === this.state.activeServer ? (
+          <Icon
+            name={(Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark')}
+            type='ionicon'
+            size={24}
+            containerStyle={{ width: 12 }}
+          />
+        ) : (
+          <View style={{ width: 12 }} />
+        )
       )}
       rightElement={(
         <Button
@@ -78,10 +89,18 @@ export default class SettingsScreen extends React.Component {
       )}
       topDivider={index === 0}
       bottomDivider
+      onPress={async () => {
+        this.setState({
+          activeServer: index
+        });
+        await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, index);
+        this.props.navigation.navigate('Home', { activeServer: index });
+      }}
     />);
   };
 
   async bootstrapAsync() {
+    const activeServer = await CachingStorage.getInstance().getItem(StorageKeys.ActiveServer) || 0;
     let servers = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
 
     servers = servers.map(async (server) => {
@@ -119,7 +138,10 @@ export default class SettingsScreen extends React.Component {
 
     console.log('bootstrapAsync', servers);
 
-    this.setState({ servers });
+    this.setState({
+      activeServer,
+      servers
+    });
   }
 
   async deleteServer(index) {
@@ -170,49 +192,73 @@ export default class SettingsScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView
-        style={styles.container}
-        showsVerticalScrollIndicator={false}
-      >
-        <SettingSection heading='Servers'>
-          {
-            this.state.servers ? (
-              <FlatList
-                keyExtractor={this._keyExtractor}
-                data={this.state.servers}
-                renderItem={this._renderServer}
-                scrollEnabled={false}
-              />
-            ) : (
-              <ActivityIndicator />
-            )
-          }
-        </SettingSection>
+      <React.Fragment>
+        <ScrollView
+          style={styles.container}
+          showsVerticalScrollIndicator={false}
+        >
+          <SettingSection heading='Servers'>
+            {
+              this.state.servers ? (
+                <FlatList
+                  keyExtractor={this._keyExtractor}
+                  data={this.state.servers}
+                  renderItem={this._renderServer}
+                  scrollEnabled={false}
+                  extraData={this.state.activeServer}
+                />
+              ) : (
+                <ActivityIndicator />
+              )
+            }
+          </SettingSection>
 
-        <SettingSection heading='Links'>
-          <FlatList
-            keyExtractor={this._keyExtractor}
-            data={Links}
-            renderItem={this._renderLink}
-            scrollEnabled={false}
+          <Button
+            buttonStyle={{ margin: 15 }}
+            title='Add Server'
+            onPress={() => this.setState({ isAddServerVisible: true })}
           />
-        </SettingSection>
 
-        <Button
-          buttonStyle={{
-            backgroundColor: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error,
-            margin: 15
-          }}
-          title='Reset Application'
-          onPress={() => this.onResetApplication()}
-        />
+          <SettingSection heading='Links'>
+            <FlatList
+              keyExtractor={this._keyExtractor}
+              data={Links}
+              renderItem={this._renderLink}
+              scrollEnabled={false}
+            />
+          </SettingSection>
 
-        <View style={styles.infoContainer}>
-          <Text style={styles.infoText}>Jellyfin Expo</Text>
-          <Text style={styles.infoText}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
-          <Text style={styles.infoText}>{`Expo Version: ${Constants.expoVersion}`}</Text>
-        </View>
-      </ScrollView>
+          <Button
+            buttonStyle={{
+              backgroundColor: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error,
+              margin: 15
+            }}
+            title='Reset Application'
+            onPress={() => this.onResetApplication()}
+          />
+
+          <View style={styles.infoContainer}>
+            <Text style={styles.infoText}>{`Jellyfin for ${Platform.OS === 'ios' ? 'iOS' : 'Android'}`}</Text>
+            <Text style={styles.infoText}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
+            <Text style={styles.infoText}>{`Expo Version: ${Constants.expoVersion}`}</Text>
+          </View>
+        </ScrollView>
+
+        <Overlay
+          height={'auto'}
+          isVisible={this.state.isAddServerVisible}
+          onBackdropPress={() => this.setState({ isAddServerVisible: false })}
+        >
+          <ServerInput
+            navigation={this.props.navigation}
+            onSuccess={() => {
+              this.setState({ isAddServerVisible: false });
+              this.bootstrapAsync();
+            }}
+            successScreen={'Home'}
+          />
+        </Overlay>
+      </React.Fragment>
     );
   }
 }

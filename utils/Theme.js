@@ -49,6 +49,12 @@ export default {
       color: colors.grey4
     }
   },
+  Overlay: {
+    windowBackgroundColor: 'rgba(0, 0, 0, .85)',
+    overlayStyle: {
+      backgroundColor: Colors.backgroundColor
+    }
+  },
   Text: {
     style: {
       color: Colors.textColor
