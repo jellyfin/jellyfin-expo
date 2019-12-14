@@ -99,26 +99,16 @@ export default class HomeScreen extends React.Component {
     this.setState({ isRefreshing: false });
   }
 
-  async updateScreenOrientation() {
-    let lock;
+  updateScreenOrientation() {
     if (this.state.isVideoPlaying) {
       // Lock to landscape orientation
-      lock = ScreenOrientation.OrientationLock.LANDSCAPE;
-    } else if (Platform.OS === 'ios' && Platform.isPad) {
-      // Allow screen rotation on iPad
-      lock = ScreenOrientation.OrientationLock.ALL;
+      console.debug('locking orientation to landscape');
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
     } else {
-      // Lock phone devices to Portrait
-      if (Platform.OS === 'ios') {
-        // Workaround a bug where PORTRAIT orientation lock does not rotate iOS device
-        // https://github.com/expo/expo/issues/4646
-        lock = ScreenOrientation.OrientationLock.PORTRAIT_UP;
-      } else {
-        lock = ScreenOrientation.OrientationLock.PORTRAIT;
-      }
+      console.debug('removing orientation lock')
+      // Remove the orientation lock
+      ScreenOrientation.unlockAsync();
     }
-    console.log('updateScreenOrientation', lock);
-    ScreenOrientation.lockAsync(lock);
   }
 
   componentDidMount() {
