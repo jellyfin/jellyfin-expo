@@ -18,14 +18,21 @@
       "backgroundColor": "#101010"
     },
     "updates": {
+      "enabled": false,
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
+      "buildNumber": "3",
       "supportsTablet": true,
-      "bundleIdentifier": "org.jellyfin.expo"
+      "bundleIdentifier": "org.jellyfin.expo",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "audio"
+        ]
+      }
     },
     "description": "Jellyfin Expo Client"
   }
