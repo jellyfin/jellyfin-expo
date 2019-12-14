@@ -9,9 +9,12 @@ import { colors } from 'react-native-elements';
 import Colors from '../constants/Colors';
 
 export default {
-  Button: {
-    buttonStyle: {
-      backgroundColor: Colors.tintColor
+  colors: {
+    primary: Colors.tintColor
+  },
+  Badge: {
+    badgeStyle: {
+      borderWidth: 0
     }
   },
   Icon: {
@@ -36,6 +39,19 @@ export default {
   },
   ListItem: {
     containerStyle: {
+      backgroundColor: Colors.backgroundColor
+    },
+    subtitleStyle: {
+      color: colors.grey4,
+      lineHeight: 21
+    },
+    rightSubtitleStyle: {
+      color: colors.grey4
+    }
+  },
+  Overlay: {
+    windowBackgroundColor: 'rgba(0, 0, 0, .85)',
+    overlayStyle: {
       backgroundColor: Colors.backgroundColor
     }
   },

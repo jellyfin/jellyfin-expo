@@ -33,8 +33,16 @@ export default class HomeScreen extends React.Component {
 
   async bootstrapAsync() {
     let server = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
+    let activeServer = await CachingStorage.getInstance().getItem(StorageKeys.ActiveServer) || 0;
+
+    // If the activeServer is greater than the length of the server array, reset it to 0
+    if (activeServer && server.length && activeServer > server.length - 1) {
+      await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, 0);
+      activeServer = 0;
+    }
+
     if (server.length > 0) {
-      server = server[0];
+      server = server[activeServer];
     }
 
     const serverUrl = JellyfinValidator.getServerUrl(server);
@@ -128,6 +136,12 @@ export default class HomeScreen extends React.Component {
       });
       // Show/hide the status bar
       StatusBar.setHidden(this.state.isVideoPlaying);
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (typeof nextProps.navigation.state.params.activeServer != 'undefined') {
+      this.bootstrapAsync();
     }
   }
 
