@@ -10,21 +10,34 @@ import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
 import * as WebBrowser from 'expo-web-browser';
-import Url from 'url';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
+import NativeShell from '../utils/NativeShell';
+
+const injectedJavaScript = `
+window.ExpoAppInfo = {
+  appName: 'Jellyfin for ${Platform.OS === "ios" ? "iOS" : "Android"}',
+  appVersion: '${Constants.nativeAppVersion}',
+  deviceId: '${Constants.deviceId}',
+  deviceName: '${Constants.deviceName}'
+};
+
+${NativeShell}
+
+true;
+`;
 
 export default class HomeScreen extends React.Component {
   state = {
     server: null,
     serverUrl: null,
     isError: false,
+    isFullscreen: false,
     isLoading: true,
-    isRefreshing: false,
-    isVideoPlaying: false
+    isRefreshing: false
   };
 
   static navigationOptions = {
@@ -73,29 +86,35 @@ export default class HomeScreen extends React.Component {
     );
   }
 
-  onNavigationChange(navigation) {
-    if (!navigation.url) {
-      console.warn('No url provided to onNavigationChange', navigation);
-      return;
-    }
-    const url = Url.parse(navigation.url);
-    console.debug('navigationChange', navigation, url);
-
-    let { isVideoPlaying } = this.state;
-    // Modal windows in the player also trigger hash changes
-    // Ignore any hashes that do not look start with '#!/'
-    if (url.hash && url.hash.startsWith('#!/')) {
-      isVideoPlaying = url.hash === '#!/videoosd.html';
-    }
-
-    this.setState({
-      url,
-      isVideoPlaying
-    });
-  }
-
   onGoHome() {
     this.webview.injectJavaScript('window.Emby && window.Emby.Page && typeof window.Emby.Page.goHome === "function" && window.Emby.Page.goHome();');
+  }
+
+  async onMessage({ nativeEvent: state }) {
+    console.debug('onMessage:', state.data);
+    try {
+      const { event, data } = JSON.parse(state.data);
+      switch (event) {
+        case 'enableFullscreen':
+          this.setState({ isFullscreen: true });
+          break;
+        case 'disableFullscreen':
+          this.setState({ isFullscreen: false });
+          break;
+        case 'openUrl':
+          console.log('Opening browser for external url', data.url);
+          try {
+            await WebBrowser.openBrowserAsync(data.url, {
+              toolbarColor: Colors.backgroundColor
+            });
+          } catch(err) {
+            console.debug('Error opening browser', err);
+          }
+          break;
+      }
+    } catch(ex) {
+      console.warn('Exception handling message', state.data);
+    }
   }
 
   onRefresh() {
@@ -108,7 +127,7 @@ export default class HomeScreen extends React.Component {
   }
 
   updateScreenOrientation() {
-    if (this.state.isVideoPlaying) {
+    if (this.state.isFullscreen) {
       // Lock to landscape orientation
       console.debug('locking orientation to landscape');
       ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -127,15 +146,15 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.isVideoPlaying !== this.state.isVideoPlaying) {
+    if (prevState.isFullscreen !== this.state.isFullscreen) {
       // Update the screen orientation
       this.updateScreenOrientation();
       // Show/hide the bottom tab bar
       this.props.navigation.setParams({
-        tabBarVisible: !this.state.isVideoPlaying
+        tabBarVisible: !this.state.isFullscreen
       });
       // Show/hide the status bar
-      StatusBar.setHidden(this.state.isVideoPlaying);
+      StatusBar.setHidden(this.state.isFullscreen);
     }
   }
 
@@ -161,7 +180,7 @@ export default class HomeScreen extends React.Component {
           />
         }
       >
-        {!this.state.isVideoPlaying && (
+        {!this.state.isFullscreen && (
           <View style={styles.statusBarSpacer} />
         )}
         {this.state.serverUrl && (
@@ -169,54 +188,13 @@ export default class HomeScreen extends React.Component {
             ref={ref => (this.webview = ref)}
             source={{ uri: this.state.serverUrl }}
             style={webviewStyle}
-
             // Inject javascript to watch URL hash changes
-            injectedJavaScript={`
-              (function() {
-                function wrap(fn) {
-                  return function wrapper() {
-                    var res = fn.apply(this, arguments);
-                    window.ReactNativeWebView.postMessage('navigationStateChange');
-                    return res;
-                  }
-                }
-
-                history.pushState = wrap(history.pushState);
-                history.replaceState = wrap(history.replaceState);
-                window.addEventListener('popstate', function() {
-                  window.ReactNativeWebView.postMessage('navigationStateChange');
-                });
-              })();
-
-              true;
-            `}
-            onMessage={({ nativeEvent: state }) => {
-              // console.debug('message', state);
-              if (state.data === 'navigationStateChange') {
-                this.onNavigationChange(state);
-              }
-            }}
-            onNavigationStateChange={async ({ url }) => {
-              if (!url) {
-                return;
-              }
-
-                if ((this.state.serverUrl && 
-                        !url.startsWith(this.state.serverUrl) && 
-                        !url.startsWith(this.state.serverUrl.replace(/^http:\/\//i, "https://"))) 
-                        || url.includes('/System/Logs/Log')) {
-                console.log('Opening browser for external url', url);
-                try {
-                  await WebBrowser.openBrowserAsync(url, {
-                    toolbarColor: Colors.backgroundColor
-                  });
-                } catch(err) {
-                  console.warn('Error opening browser', err);
-                }
-                this.webview.stopLoading();
-              }
-            }}
-
+            // TODO: This should use injectedJavaScriptBeforeContentLoaded when it is available
+            //       in the react-native-webview version supported by Expo. Currently NativeShell
+            //       may not be available when jellyfin-web initially starts =/
+            injectedJavaScript={injectedJavaScript}
+            // Handle messages from NativeShell
+            onMessage={this.onMessage.bind(this)}
             // Make scrolling feel faster
             decelerationRate='normal'
             // Error screen is displayed if loading fails
@@ -224,7 +202,10 @@ export default class HomeScreen extends React.Component {
             // Loading screen is displayed when refreshing
             renderLoading={() => <View style={styles.container} />}
             // Update state on loading error
-            onError={() => { this.setState({ isError: true }) }}
+            onError={({ nativeEvent: state }) => {
+              console.warn('Error', state);
+              this.setState({ isError: true });
+            }}
             // Update state when loading is complete
             onLoad={() => {
               this.setState({
