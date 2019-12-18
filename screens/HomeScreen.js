@@ -155,10 +155,12 @@ export default class HomeScreen extends React.Component {
         style={styles.container}
         contentContainerStyle={{flexGrow: 1}}
         refreshControl={
-          <RefreshControl
-            refreshing={this.state.isRefreshing}
-            onRefresh={() => this.onRefresh()}
-          />
+          Platform.OS === 'ios' ? (
+            <RefreshControl
+              refreshing={this.state.isRefreshing}
+              onRefresh={() => this.onRefresh()}
+            />
+          ) : null
         }
       >
         {!this.state.isVideoPlaying && (
