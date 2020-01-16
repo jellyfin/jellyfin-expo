@@ -71,12 +71,12 @@ window.NativeShell = {
 
     getDeviceProfile: function(profileBuilder) {
       postExpoEvent('AppHost.getDeviceProfile');
-      return profileBuilder();
+      return profileBuilder({ enableMkvProgressive: false });
     },
 
     getSyncProfile: function(profileBuilder) {
       postExpoEvent('AppHost.getSyncProfile');
-      return profileBuilder();
+      return profileBuilder({ enableMkvProgressive: false });
     },
 
     supports: function(command) {
