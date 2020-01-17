@@ -146,6 +146,9 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
+    if (typeof this.props.navigation.state.params.activeServer != 'undefined') {
+      this.bootstrapAsync();
+    }
     if (prevState.isFullscreen !== this.state.isFullscreen) {
       // Update the screen orientation
       this.updateScreenOrientation();
@@ -155,12 +158,6 @@ export default class HomeScreen extends React.Component {
       });
       // Show/hide the status bar
       StatusBar.setHidden(this.state.isFullscreen);
-    }
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (typeof nextProps.navigation.state.params.activeServer != 'undefined') {
-      this.bootstrapAsync();
     }
   }
 
