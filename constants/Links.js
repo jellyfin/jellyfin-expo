@@ -8,7 +8,7 @@ import { Platform } from 'react-native';
 export default [
   {
     name: 'Jellyfin Website',
-    url: 'https://jellyfin.media/',
+    url: 'https://jellyfin.org/',
     icon: {
       name: Platform.OS === 'ios' ? 'ios-globe' : 'md-globe',
       type: 'ionicon'
@@ -16,7 +16,7 @@ export default [
   },
   {
     name: 'Documentation',
-    url: 'https://jellyfin.org/docs',
+    url: 'https://docs.jellyfin.org',
     icon: {
       name: Platform.OS === 'ios' ? 'ios-book' : 'md-book',
       type: 'ionicon'
