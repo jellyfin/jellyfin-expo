@@ -14,12 +14,12 @@ Jellyfin Expo is a mobile app built with <a href="https://expo.io/">Expo</a> pri
    git clone https://github.com/jellyfin/jellyfin-expo.git
    cd jellyfin-expo
    ```
-2. Install build dependencies via npm in the project directory.
+2. Install build dependencies using yarn in the project directory.
    ```sh
-   npm install
+   yarn install
    ```
 3. Start the build tools.
    ```sh
-   npm start
+   yarn start
    ```
 4. Follow the directions in the terminal or browser window to open on a device or emulator.
