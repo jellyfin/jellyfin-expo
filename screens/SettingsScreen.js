@@ -17,6 +17,7 @@ import {
 import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elements';
 import Constants from 'expo-constants';
 import * as WebBrowser from 'expo-web-browser';
+import Url from 'url';
 
 import ServerInput from '../components/ServerInput';
 import SettingSection from '../components/SettingSection';
@@ -56,12 +57,22 @@ export default class SettingsScreen extends React.Component {
   _renderServer = ({ item, index }) => {
     const { info, serverUrl, online = false } = item;
     console.log('renderServer', info, serverUrl, online);
+
+    let title, subtitle;
+    if (info) {
+      title = info.ServerName;
+      subtitle = `Version: ${info.Version}\n${serverUrl}`;
+    } else {
+      title = Url.parse(serverUrl).host;
+      subtitle = `Version: unknown\n${serverUrl}`;
+    }
+
     return (<ListItem
-      title={info.ServerName}
+      title={title}
       titleStyle={{
         marginBottom: 2
       }}
-      subtitle={`Version: ${info.Version}\n${serverUrl}`}
+      subtitle={subtitle}
       leftElement={(
         index === this.state.activeServer ? (
           <Icon
