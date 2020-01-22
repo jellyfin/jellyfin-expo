@@ -146,7 +146,8 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (typeof this.props.navigation.state.params.activeServer != 'undefined') {
+    if (typeof this.props.navigation.state.params.activeServer != 'undefined' &&
+        prevProps.navigation.state.params.activeServer !== this.props.navigation.state.params.activeServer) {
       this.bootstrapAsync();
     }
     if (prevState.isFullscreen !== this.state.isFullscreen) {
