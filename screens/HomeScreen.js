@@ -118,6 +118,9 @@ export default class HomeScreen extends React.Component {
   }
 
   onRefresh() {
+    // Disable pull to refresh when in fullscreen
+    if (this.state.isFullscreen) return;
+
     this.setState({
       isLoading: true,
       isRefreshing: true
