@@ -3,10 +3,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/* globals fetch */
+/* globals fetch, AbortController */
 import Url from 'url';
 
 export default class JellyfinValidator {
+  static TIMEOUT_DURATION = 2000 // timeout request after 2s
+
   static parseUrl(host = '', port = '') {
     if (!host) {
       throw new Error('host cannot be blank');
@@ -38,8 +40,20 @@ export default class JellyfinValidator {
     console.log('info url', infoUrl);
 
     // Try to fetch the server's public info
-    const response = await fetch(infoUrl);
-    const responseJson = await response.json();
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    const request = fetch(infoUrl, { signal });
+
+    const timeoutId = setTimeout(() => {
+      console.log('request timed out, aborting');
+      controller.abort();
+    }, this.TIMEOUT_DURATION);
+
+    const responseJson = await request.then(response => {
+      clearTimeout(timeoutId);
+      return response.json()
+    });
     console.log('response', responseJson);
 
     return responseJson;
