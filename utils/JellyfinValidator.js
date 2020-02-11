@@ -7,7 +7,7 @@
 import Url from 'url';
 
 export default class JellyfinValidator {
-  static TIMEOUT_DURATION = 2000 // timeout request after 2s
+  static TIMEOUT_DURATION = 5000 // timeout request after 5s
 
   static parseUrl(host = '', port = '') {
     if (!host) {
