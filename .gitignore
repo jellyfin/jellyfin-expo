@@ -8,3 +8,4 @@ npm-debug.*
 *.mobileprovision
 .vscode
 .yarn
+.pnp.js
