@@ -7,3 +7,5 @@ npm-debug.*
 *.key
 *.mobileprovision
 .vscode
+.yarn
+.pnp.js
