@@ -16,7 +16,6 @@ import {
 } from 'react-native';
 import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elements';
 import Constants from 'expo-constants';
-import * as WebBrowser from 'expo-web-browser';
 import Url from 'url';
 
 import ServerInput from '../components/ServerInput';
@@ -26,6 +25,7 @@ import Links from '../constants/Links';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
+import { openBrowser } from '../utils/WebBrowser';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
@@ -47,9 +47,7 @@ export default class SettingsScreen extends React.Component {
       bottomDivider
       chevron
       onPress={() => {
-        WebBrowser.openBrowserAsync(item.url, {
-          toolbarColor: Colors.backgroundColor
-        })
+        openBrowser(item.url)
       }}
     />
   )};
