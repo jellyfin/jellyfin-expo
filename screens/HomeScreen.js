@@ -7,8 +7,8 @@ import React from 'react';
 import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
-import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
