@@ -9,13 +9,13 @@ import { Button, Text } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
 import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
-import * as WebBrowser from 'expo-web-browser';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
 import NativeShell from '../utils/NativeShell';
+import { openBrowser } from '../utils/WebBrowser';
 
 const injectedJavaScript = `
 window.ExpoAppInfo = {
@@ -103,13 +103,7 @@ export default class HomeScreen extends React.Component {
           break;
         case 'openUrl':
           console.log('Opening browser for external url', data.url);
-          try {
-            await WebBrowser.openBrowserAsync(data.url, {
-              toolbarColor: Colors.backgroundColor
-            });
-          } catch(err) {
-            console.debug('Error opening browser', err);
-          }
+          openBrowser(data.url);
           break;
       }
     } catch(ex) {
