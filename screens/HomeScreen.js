@@ -186,11 +186,8 @@ export default class HomeScreen extends React.Component {
             ref={ref => (this.webview = ref)}
             source={{ uri: this.state.serverUrl }}
             style={webviewStyle}
-            // Inject javascript to watch URL hash changes
-            // TODO: This should use injectedJavaScriptBeforeContentLoaded when it is available
-            //       in the react-native-webview version supported by Expo. Currently NativeShell
-            //       may not be available when jellyfin-web initially starts =/
-            injectedJavaScript={injectedJavaScript}
+            // Inject javascript for NativeShell
+            injectedJavaScriptBeforeContentLoaded={injectedJavaScript}
             // Handle messages from NativeShell
             onMessage={this.onMessage.bind(this)}
             // Make scrolling feel faster
