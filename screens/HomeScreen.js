@@ -13,6 +13,7 @@ import Constants from 'expo-constants';
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
+import { getSafeDeviceName } from '../utils/Device';
 import JellyfinValidator from '../utils/JellyfinValidator';
 import NativeShell from '../utils/NativeShell';
 import { openBrowser } from '../utils/WebBrowser';
@@ -22,7 +23,7 @@ window.ExpoAppInfo = {
   appName: 'Jellyfin for ${Platform.OS === "ios" ? "iOS" : "Android"}',
   appVersion: '${Constants.nativeAppVersion}',
   deviceId: '${Constants.deviceId}',
-  deviceName: '${Constants.deviceName}'
+  deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
 };
 
 ${NativeShell}
