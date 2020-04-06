@@ -91,7 +91,6 @@ export default class HomeScreen extends React.Component {
   }
 
   async onMessage({ nativeEvent: state }) {
-    console.debug('onMessage:', state.data);
     try {
       const { event, data } = JSON.parse(state.data);
       switch (event) {
@@ -105,6 +104,23 @@ export default class HomeScreen extends React.Component {
           console.log('Opening browser for external url', data.url);
           openBrowser(data.url);
           break;
+        case 'console.debug':
+          console.debug('[Browser Console]', data);
+          break;
+        case 'console.error':
+          console.error('[Browser Console]', data);
+          break;
+        case 'console.info':
+          console.info('[Browser Console]', data);
+          break;
+        case 'console.log':
+          console.log('[Browser Console]', data);
+          break;
+        case 'console.warn':
+          console.warn('[Browser Console]', data);
+          break;
+        default:
+          console.debug('[HomeScreen.onMessage]', event, data);
       }
     } catch(ex) {
       console.warn('Exception handling message', state.data);
