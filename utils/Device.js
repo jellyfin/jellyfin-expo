@@ -4,6 +4,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import Constants from 'expo-constants';
+import * as Device from 'expo-device';
+
+export function getAppName() {
+  return `Jellyfin Mobile (${Device.osName})`;
+}
 
 export function getSafeDeviceName() {
   let safeName = Constants.deviceName
@@ -17,5 +22,5 @@ export function getSafeDeviceName() {
     return safeName;
   }
 
-  return 'Jellyfin Mobile Device';
+  return Device.modelName || 'Jellyfin Mobile Device';
 }

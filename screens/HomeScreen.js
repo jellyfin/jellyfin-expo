@@ -13,14 +13,14 @@ import * as ScreenOrientation from 'expo-screen-orientation';
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
-import { getSafeDeviceName } from '../utils/Device';
+import { getAppName, getSafeDeviceName } from '../utils/Device';
 import JellyfinValidator from '../utils/JellyfinValidator';
 import NativeShell from '../utils/NativeShell';
 import { openBrowser } from '../utils/WebBrowser';
 
 const injectedJavaScript = `
 window.ExpoAppInfo = {
-  appName: 'Jellyfin for ${Platform.OS === "ios" ? "iOS" : "Android"}',
+  appName: '${getAppName()}',
   appVersion: '${Constants.nativeAppVersion}',
   deviceId: '${Constants.deviceId}',
   deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'

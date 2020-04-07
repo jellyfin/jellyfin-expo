@@ -25,6 +25,7 @@ import Links from '../constants/Links';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
+import { getAppName } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
 export default class SettingsScreen extends React.Component {
@@ -247,7 +248,7 @@ export default class SettingsScreen extends React.Component {
           />
 
           <View style={styles.infoContainer}>
-            <Text style={styles.infoText}>{`Jellyfin for ${Platform.OS === 'ios' ? 'iOS' : 'Android'}`}</Text>
+            <Text style={styles.infoText}>{`${getAppName()}`}</Text>
             <Text style={styles.infoText}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
             <Text style={styles.infoText}>{`Expo Version: ${Constants.expoVersion}`}</Text>
           </View>
