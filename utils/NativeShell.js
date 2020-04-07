@@ -33,6 +33,14 @@ const ExpoSupportedFeatures = [
   'fileinput',
 ];
 
+window.console = Object.assign(window.console, {
+  debug: text => postExpoEvent('console.debug', text),
+  error: text => postExpoEvent('console.error', text),
+  info: text => postExpoEvent('console.info', text),
+  log: text => postExpoEvent('console.log', text),
+  warn: text => postExpoEvent('console.warn', text)
+});
+
 window.NativeShell = {
   AppHost: {
     init: function() {
