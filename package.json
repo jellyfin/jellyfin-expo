@@ -35,6 +35,7 @@
     "babel-eslint": "^10.0.2",
     "babel-preset-expo": "^8.1.0",
     "eslint": "^6.1.0",
+    "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",

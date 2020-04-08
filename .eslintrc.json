@@ -8,7 +8,8 @@
         "plugin:react/recommended",
         "plugin:promise/recommended",
         "plugin:import/errors",
-        "plugin:import/warnings"
+        "plugin:import/warnings",
+        "plugin:eslint-comments/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -25,7 +26,8 @@
     "plugins": [
         "react",
         "promise",
-        "import"
+        "import",
+        "eslint-comments"
     ],
     "settings": {
         "react": {
