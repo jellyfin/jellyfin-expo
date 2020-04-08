@@ -10,9 +10,9 @@ import AddServerScreen from '../screens/AddServerScreen';
 import ServerLoadingScreen from '../screens/ServerLoadingScreen';
 
 export default createAppContainer(createSwitchNavigator({
-  ServerLoading: ServerLoadingScreen,
-  AddServer: AddServerScreen,
-  Main: MainTabNavigator
+    ServerLoading: ServerLoadingScreen,
+    AddServer: AddServerScreen,
+    Main: MainTabNavigator
 }, {
-  initialRouteName: 'ServerLoading'
+    initialRouteName: 'ServerLoading'
 }));

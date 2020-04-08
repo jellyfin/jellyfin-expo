@@ -9,55 +9,55 @@ import { colors } from 'react-native-elements';
 import Colors from '../constants/Colors';
 
 export default {
-  colors: {
-    primary: Colors.tintColor
-  },
-  Badge: {
-    badgeStyle: {
-      borderWidth: 0
-    }
-  },
-  Icon: {
-    iconStyle: {
-      color: Colors.textColor
-    }
-  },
-  Input: {
-    inputStyle: {
-      color: Colors.textColor
+    colors: {
+        primary: Colors.tintColor
     },
-    errorStyle: {
-      color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error,
-      fontSize: 16
+    Badge: {
+        badgeStyle: {
+            borderWidth: 0
+        }
     },
-    leftIconContainerStyle: {
-      marginRight: 8
+    Icon: {
+        iconStyle: {
+            color: Colors.textColor
+        }
     },
-    rightIconContainerStyle: {
-      marginRight: 15
-    }
-  },
-  ListItem: {
-    containerStyle: {
-      backgroundColor: Colors.backgroundColor
+    Input: {
+        inputStyle: {
+            color: Colors.textColor
+        },
+        errorStyle: {
+            color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error,
+            fontSize: 16
+        },
+        leftIconContainerStyle: {
+            marginRight: 8
+        },
+        rightIconContainerStyle: {
+            marginRight: 15
+        }
     },
-    subtitleStyle: {
-      color: colors.grey4,
-      lineHeight: 21
+    ListItem: {
+        containerStyle: {
+            backgroundColor: Colors.backgroundColor
+        },
+        subtitleStyle: {
+            color: colors.grey4,
+            lineHeight: 21
+        },
+        rightSubtitleStyle: {
+            color: colors.grey4
+        }
     },
-    rightSubtitleStyle: {
-      color: colors.grey4
+    Overlay: {
+        windowBackgroundColor: 'rgba(0, 0, 0, .85)',
+        overlayStyle: {
+            backgroundColor: Colors.backgroundColor
+        }
+    },
+    Text: {
+        style: {
+            color: Colors.textColor
+        }
     }
-  },
-  Overlay: {
-    windowBackgroundColor: 'rgba(0, 0, 0, .85)',
-    overlayStyle: {
-      backgroundColor: Colors.backgroundColor
-    }
-  },
-  Text: {
-    style: {
-      color: Colors.textColor
-    }
-  }
 };

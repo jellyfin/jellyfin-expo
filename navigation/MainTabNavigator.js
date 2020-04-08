@@ -7,85 +7,85 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import Colors from '../constants/Colors'
+import Colors from '../constants/Colors';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const defaultNavigationOptions = {
-  headerStyle: {
-    backgroundColor: Colors.backgroundColor
-  },
-  headerTintColor: Colors.headerTintColor
-}
+    headerStyle: {
+        backgroundColor: Colors.backgroundColor
+    },
+    headerTintColor: Colors.headerTintColor
+};
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+    Home: HomeScreen
 }, {
-  defaultNavigationOptions
+    defaultNavigationOptions
 });
 
 HomeStack.navigationOptions = ({ navigation }) => {
-  const tabBarVisible = (navigation.state && navigation.state.routes[0].params) ?
-    navigation.state.routes[0].params.tabBarVisible : true;
+    const tabBarVisible = (navigation.state && navigation.state.routes[0].params) ?
+        navigation.state.routes[0].params.tabBarVisible : true;
 
-  return {
-    tabBarLabel: 'Home',
-    // eslint-disable-next-line react/display-name, react/prop-types
-    tabBarIcon: ({ focused }) => (
-      <TabBarIcon
-        focused={focused}
-        name={
-          Platform.OS === 'ios'
-            ? 'ios-tv'
-            : 'md-tv'
+    return {
+        tabBarLabel: 'Home',
+        // eslint-disable-next-line react/display-name, react/prop-types
+        tabBarIcon: ({ focused }) => (
+            <TabBarIcon
+                focused={focused}
+                name={
+                    Platform.OS === 'ios'
+                        ? 'ios-tv'
+                        : 'md-tv'
+                }
+            />
+        ),
+        tabBarVisible,
+        tabBarOnPress: ({ navigation, defaultHandler }) => {
+            const goHome = navigation.state && navigation.state.routes[0].params && navigation.state.routes[0].params.goHome;
+            if (navigation.isFocused() && typeof goHome === 'function') {
+                goHome();
+            } else {
+                defaultHandler();
+            }
         }
-      />
-    ),
-    tabBarVisible,
-    tabBarOnPress: ({ navigation, defaultHandler }) => {
-      const goHome = navigation.state && navigation.state.routes[0].params && navigation.state.routes[0].params.goHome;
-      if (navigation.isFocused() && typeof goHome === 'function') {
-        goHome();
-      } else {
-        defaultHandler();
-      }
-    }
-  };
+    };
 };
 
 const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+    Settings: SettingsScreen
 }, {
-  defaultNavigationOptions
+    defaultNavigationOptions
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+    tabBarLabel: 'Settings',
     // eslint-disable-next-line react/display-name, react/prop-types
     tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? 'ios-cog'
-          : 'md-cog'
-      }
-    />
-  ),
+        <TabBarIcon
+            focused={focused}
+            name={
+                Platform.OS === 'ios'
+                    ? 'ios-cog'
+                    : 'md-cog'
+            }
+        />
+    )
 };
 
 export default createBottomTabNavigator({
-  HomeStack,
-  SettingsStack,
+    HomeStack,
+    SettingsStack
 }, {
-  tabBarOptions: {
-    activeTintColor: Colors.tabIconSelected,
-    inactiveTintColor: Colors.tabIconDefault,
-    style: {
-      backgroundColor: Colors.backgroundColor
-    },
-    // Force toolbar label to be under the icon
-    adaptive: false
-  }
+    tabBarOptions: {
+        activeTintColor: Colors.tabIconSelected,
+        inactiveTintColor: Colors.tabIconDefault,
+        style: {
+            backgroundColor: Colors.backgroundColor
+        },
+        // Force toolbar label to be under the icon
+        adaptive: false
+    }
 });

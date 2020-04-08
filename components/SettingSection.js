@@ -10,33 +10,33 @@ import PropTypes from 'prop-types';
 
 export default class SettingsSection extends React.Component {
   static propTypes = {
-    children: PropTypes.element,
-    heading: PropTypes.string
+      children: PropTypes.element,
+      heading: PropTypes.string
   };
 
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.heading}>
-          {this.props.heading}
-        </Text>
-        {this.props.children}
-      </View>
-    );
+      return (
+          <View style={styles.container}>
+              <Text style={styles.heading}>
+                  {this.props.heading}
+              </Text>
+              {this.props.children}
+          </View>
+      );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 15,
-    marginBottom: 15
-  },
-  heading: {
-    color: colors.grey4,
-    fontSize: 17,
-    fontWeight: '600',
-    marginBottom: 12,
-    marginLeft: 15,
-    marginRight: 15
-  }
+    container: {
+        marginTop: 15,
+        marginBottom: 15
+    },
+    heading: {
+        color: colors.grey4,
+        fontSize: 17,
+        fontWeight: '600',
+        marginBottom: 12,
+        marginLeft: 15,
+        marginRight: 15
+    }
 });
