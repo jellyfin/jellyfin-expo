@@ -6,7 +6,9 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:promise/recommended"
+        "plugin:promise/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -22,7 +24,8 @@
     },
     "plugins": [
         "react",
-        "promise"
+        "promise",
+        "import"
     ],
     "settings": {
         "react": {
