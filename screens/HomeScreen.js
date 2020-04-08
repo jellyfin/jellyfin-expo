@@ -7,20 +7,20 @@ import React from 'react';
 import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
-import { ScreenOrientation } from 'expo';
 import Constants from 'expo-constants';
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
 import CachingStorage from '../utils/CachingStorage';
-import { getSafeDeviceName } from '../utils/Device';
+import { getAppName, getSafeDeviceName } from '../utils/Device';
 import JellyfinValidator from '../utils/JellyfinValidator';
 import NativeShell from '../utils/NativeShell';
 import { openBrowser } from '../utils/WebBrowser';
 
 const injectedJavaScript = `
 window.ExpoAppInfo = {
-  appName: 'Jellyfin for ${Platform.OS === "ios" ? "iOS" : "Android"}',
+  appName: '${getAppName()}',
   appVersion: '${Constants.nativeAppVersion}',
   deviceId: '${Constants.deviceId}',
   deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
@@ -202,11 +202,8 @@ export default class HomeScreen extends React.Component {
             ref={ref => (this.webview = ref)}
             source={{ uri: this.state.serverUrl }}
             style={webviewStyle}
-            // Inject javascript to watch URL hash changes
-            // TODO: This should use injectedJavaScriptBeforeContentLoaded when it is available
-            //       in the react-native-webview version supported by Expo. Currently NativeShell
-            //       may not be available when jellyfin-web initially starts =/
-            injectedJavaScript={injectedJavaScript}
+            // Inject javascript for NativeShell
+            injectedJavaScriptBeforeContentLoaded={injectedJavaScript}
             // Handle messages from NativeShell
             onMessage={this.onMessage.bind(this)}
             // Make scrolling feel faster

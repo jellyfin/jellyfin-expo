@@ -6,9 +6,10 @@
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
-import { AppLoading, ScreenOrientation } from 'expo';
+import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
+import * as ScreenOrientation from 'expo-screen-orientation';
 import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
