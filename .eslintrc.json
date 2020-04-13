@@ -42,7 +42,7 @@
         "comma-dangle": ["error", "never"],
         "comma-spacing": ["error"],
         "eol-last": ["error"],
-        "indent": ["error", 4, { "SwitchCase": 1 }],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
         "keyword-spacing": ["error"],
         "max-statements-per-line": ["error"],
         "no-floating-decimal": ["error"],
