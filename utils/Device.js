@@ -7,20 +7,20 @@ import Constants from 'expo-constants';
 import * as Device from 'expo-device';
 
 export function getAppName() {
-    return `Jellyfin Mobile (${Device.osName})`;
+  return `Jellyfin Mobile (${Device.osName})`;
 }
 
 export function getSafeDeviceName() {
-    let safeName = Constants.deviceName
+  let safeName = Constants.deviceName
     // Replace non-ascii apostrophe with single quote (default on iOS)
-        .replace(/’/g, '\'')
+    .replace(/’/g, '\'')
     // Remove all other non-ascii characters
-        .replace(/[^\x20-\x7E]/g, '')
+    .replace(/[^\x20-\x7E]/g, '')
     // Trim whitespace
-        .trim();
-    if (safeName) {
-        return safeName;
-    }
+    .trim();
+  if (safeName) {
+    return safeName;
+  }
 
-    return Device.modelName || 'Jellyfin Mobile Device';
+  return Device.modelName || 'Jellyfin Mobile Device';
 }

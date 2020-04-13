@@ -15,54 +15,54 @@ export default class ServerLoadingScreen extends React.Component {
   state = { areResourcesReady: false };
 
   constructor(props) {
-      super(props);
-      SplashScreen.preventAutoHide();
+    super(props);
+    SplashScreen.preventAutoHide();
   }
 
   async getServers() {
-      return await CachingStorage.getInstance().getItem(StorageKeys.Servers);
+    return await CachingStorage.getInstance().getItem(StorageKeys.Servers);
   }
 
   async bootstrapAsync() {
-      const servers = await this.getServers();
-      const hasServer = !!servers && servers.length > 0;
-      console.info('servers', servers, hasServer);
+    const servers = await this.getServers();
+    const hasServer = !!servers && servers.length > 0;
+    console.info('servers', servers, hasServer);
 
-      // Ensure the splash screen is hidden
-      SplashScreen.hide();
-      // Navigate to the appropriate screen
-      this.props.navigation.navigate(hasServer ? 'Main' : 'AddServer');
+    // Ensure the splash screen is hidden
+    SplashScreen.hide();
+    // Navigate to the appropriate screen
+    this.props.navigation.navigate(hasServer ? 'Main' : 'AddServer');
   }
 
   componentDidMount() {
-      this.bootstrapAsync();
+    this.bootstrapAsync();
   }
 
   render() {
-      if (!this.state.areResourcesReady) {
-          return null;
-      }
+    if (!this.state.areResourcesReady) {
+      return null;
+    }
 
-      return (
-          <View style={styles.container}>
-              <Image
-                  style={{ flex: 1, resizeMode: 'contain', width: undefined, height: undefined }}
-                  source={require('../assets/images/splash.png')}
-                  onLoadEnd={() => {
-                      // wait for image's content to fully load [`Image#onLoadEnd`] (https://facebook.github.io/react-native/docs/image#onloadend)
-                      SplashScreen.hide();
-                  }}
-                  fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
-              />
-              <ActivityIndicator />
-          </View>
-      );
+    return (
+      <View style={styles.container}>
+        <Image
+          style={{ flex: 1, resizeMode: 'contain', width: undefined, height: undefined }}
+          source={require('../assets/images/splash.png')}
+          onLoadEnd={() => {
+            // wait for image's content to fully load [`Image#onLoadEnd`] (https://facebook.github.io/react-native/docs/image#onloadend)
+            SplashScreen.hide();
+          }}
+          fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
+        />
+        <ActivityIndicator />
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: Colors.backgroundColor
-    }
+  container: {
+    flex: 1,
+    backgroundColor: Colors.backgroundColor
+  }
 });
