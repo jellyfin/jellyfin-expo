@@ -8,4 +8,4 @@ const prefix = 'org.jellyfin.expo';
 export default {
   ActiveServer: `${prefix}:ActiveServer`,
   Servers: `${prefix}:Servers`
-}
+};

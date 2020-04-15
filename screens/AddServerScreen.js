@@ -17,7 +17,7 @@ export default class AddServerScreen extends React.Component {
           <Image
             style={styles.logoImage}
             source={require('../assets/images/logowhite.png')}
-            fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300` 
+            fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
           />
         </View>
         <ServerInput
@@ -25,7 +25,7 @@ export default class AddServerScreen extends React.Component {
           containerStyle={styles.serverTextContainer}
         />
       </View>
-    )
+    );
   }
 }
 

@@ -15,14 +15,14 @@ export async function openBrowser(url, options) {
 
   try {
     await WebBrowser.openBrowserAsync(url, finalOptions);
-  } catch(err) {
+  } catch (err) {
     // Workaround issue where swiping browser closed does not dismiss it.
     // https://github.com/expo/expo/issues/6918
     if (err.message === 'Another WebBrowser is already being presented.') {
       try {
         await WebBrowser.dismissBrowser();
         return WebBrowser.openBrowserAsync(url, finalOptions);
-      } catch(err) {
+      } catch (err) {
         console.warn('Could not dismiss and reopen browser', err);
       }
     } else {

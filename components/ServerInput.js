@@ -44,7 +44,7 @@ export default class ServerInput extends React.Component {
       try {
         url = JellyfinValidator.parseUrl(host);
         console.log('parsed url', url);
-      } catch(err) {
+      } catch (err) {
         console.info(err);
         this.setState({
           isValidating: false,
@@ -70,7 +70,7 @@ export default class ServerInput extends React.Component {
       let servers = await CachingStorage.getInstance().getItem(StorageKeys.Servers) || [];
       servers = servers.concat([{ url }]);
       await CachingStorage.getInstance().setItem(StorageKeys.Servers, servers);
-      await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, servers.length - 1)
+      await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, servers.length - 1);
       // Call the success callback if present
       if (this.props.onSuccess) {
         this.props.onSuccess();
@@ -81,7 +81,7 @@ export default class ServerInput extends React.Component {
       this.setState({
         isValid: false,
         validationMessage: 'Server Address cannot be empty'
-      })
+      });
     }
   }
 

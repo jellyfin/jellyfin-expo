@@ -42,7 +42,7 @@ export default class ServerLoadingScreen extends React.Component {
     if (!this.state.areResourcesReady) {
       return null;
     }
-    
+
     return (
       <View style={styles.container}>
         <Image
@@ -52,7 +52,7 @@ export default class ServerLoadingScreen extends React.Component {
             // wait for image's content to fully load [`Image#onLoadEnd`] (https://facebook.github.io/react-native/docs/image#onloadend)
             SplashScreen.hide();
           }}
-          fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300` 
+          fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
         />
         <ActivityIndicator />
       </View>

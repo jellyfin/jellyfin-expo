@@ -123,7 +123,7 @@ export default class HomeScreen extends React.Component {
         default:
           console.debug('[HomeScreen.onMessage]', event, data);
       }
-    } catch(ex) {
+    } catch (ex) {
       console.warn('Exception handling message', state.data);
     }
   }
@@ -146,7 +146,7 @@ export default class HomeScreen extends React.Component {
       console.debug('locking orientation to landscape');
       ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
     } else {
-      console.debug('removing orientation lock')
+      console.debug('removing orientation lock');
       // Remove the orientation lock
       ScreenOrientation.unlockAsync();
     }

@@ -52,7 +52,7 @@ export default class JellyfinValidator {
 
     const responseJson = await request.then(response => {
       clearTimeout(timeoutId);
-      return response.json()
+      return response.json();
     });
     console.log('response', responseJson);
 
@@ -61,7 +61,7 @@ export default class JellyfinValidator {
 
   static getServerUrl(server = {}) {
     if (!server || !server.url || !server.url.href) {
-      throw new Error(`Cannot get server url for invalid server ${server}`)
+      throw new Error(`Cannot get server url for invalid server ${server}`);
     }
 
     // Strip the query string or hash if present
@@ -84,7 +84,7 @@ export default class JellyfinValidator {
     try {
       // Does the server have a valid url?
       this.getServerUrl(server);
-    } catch(err) {
+    } catch (err) {
       return {
         isValid: false,
         message: 'Invalid URL'
@@ -108,10 +108,10 @@ export default class JellyfinValidator {
         isValid
       };
       if (!isValid) {
-        answer.message = 'Not a Jellyfin server'
+        answer.message = 'Not a Jellyfin server';
       }
       return answer;
-    } catch(err) {
+    } catch (err) {
       return {
         isValid: false,
         message: 'Could not connect to server'

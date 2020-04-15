@@ -1,11 +1,15 @@
 {
     "env": {
-        "es6": true,
+        "es2020": true,
         "node": true
     },
     "extends": [
         "eslint:recommended",
-        "plugin:react/recommended"
+        "plugin:react/recommended",
+        "plugin:promise/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:eslint-comments/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
@@ -16,11 +20,14 @@
         "ecmaFeatures": {
             "jsx": true
         },
-        "ecmaVersion": 2018,
+        "ecmaVersion": 2020,
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "promise",
+        "import",
+        "eslint-comments"
     ],
     "settings": {
         "react": {
@@ -28,6 +35,22 @@
         }
     },
     "rules": {
-        "react/prop-types": ["error", { "ignore": ["navigation"] }]
+        "react/prop-types": ["error", { "ignore": ["navigation"] }],
+
+        "block-spacing": ["error"],
+        "brace-style": ["error"],
+        "comma-dangle": ["error", "never"],
+        "comma-spacing": ["error"],
+        "eol-last": ["error"],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
+        "keyword-spacing": ["error"],
+        "max-statements-per-line": ["error"],
+        "no-floating-decimal": ["error"],
+        "no-multi-spaces": ["error"],
+        "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-trailing-spaces": ["error"],
+        "one-var": ["error", "never"],
+        "semi": ["error"],
+        "space-before-blocks": ["error"]
     }
 }

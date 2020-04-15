@@ -7,7 +7,7 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import Colors from '../constants/Colors'
+import Colors from '../constants/Colors';
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
@@ -17,10 +17,10 @@ const defaultNavigationOptions = {
     backgroundColor: Colors.backgroundColor
   },
   headerTintColor: Colors.headerTintColor
-}
+};
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Home: HomeScreen
 }, {
   defaultNavigationOptions
 });
@@ -55,15 +55,15 @@ HomeStack.navigationOptions = ({ navigation }) => {
 };
 
 const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+  Settings: SettingsScreen
 }, {
   defaultNavigationOptions
 });
 
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Settings',
-    // eslint-disable-next-line react/display-name, react/prop-types
-    tabBarIcon: ({ focused }) => (
+  // eslint-disable-next-line react/display-name, react/prop-types
+  tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
@@ -72,12 +72,12 @@ SettingsStack.navigationOptions = {
           : 'md-cog'
       }
     />
-  ),
+  )
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  SettingsStack,
+  SettingsStack
 }, {
   tabBarOptions: {
     activeTintColor: Colors.tabIconSelected,

@@ -30,7 +30,7 @@ import { openBrowser } from '../utils/WebBrowser';
 
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'Settings',
+    title: 'Settings'
   };
 
   state = {
@@ -40,24 +40,28 @@ export default class SettingsScreen extends React.Component {
 
   _keyExtractor = (item, index) => `${item.name}-${index}`;
 
-  _renderLink = ({ item, index }) => {console.log('renderLink', item); return (
-    <ListItem
-      title={item.name}
-      leftIcon={item.icon}
-      topDivider={index === 0}
-      bottomDivider
-      chevron
-      onPress={() => {
-        openBrowser(item.url)
-      }}
-    />
-  )};
+  _renderLink = ({ item, index }) => {
+    console.log('renderLink', item);
+    return (
+      <ListItem
+        title={item.name}
+        leftIcon={item.icon}
+        topDivider={index === 0}
+        bottomDivider
+        chevron
+        onPress={() => {
+          openBrowser(item.url);
+        }}
+      />
+    );
+  };
 
   _renderServer = ({ item, index }) => {
     const { info, serverUrl, online = false } = item;
     console.log('renderServer', info, serverUrl, online);
 
-    let title, subtitle;
+    let title;
+    let subtitle;
     if (info) {
       title = info.ServerName;
       subtitle = `Version: ${info.Version}\n${serverUrl}`;
@@ -117,7 +121,7 @@ export default class SettingsScreen extends React.Component {
       let serverUrl;
       try {
         serverUrl = JellyfinValidator.getServerUrl(server);
-      } catch(err) {
+      } catch (err) {
         serverUrl = '';
       }
       // Try to fetch the server's public info
@@ -132,7 +136,7 @@ export default class SettingsScreen extends React.Component {
             online: true
           }
         );
-      } catch(err) {
+      } catch (err) {
         return Object.assign(
           {},
           server,
