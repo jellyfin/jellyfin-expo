@@ -39,7 +39,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "expo-cli": "^3.17.17",
+    "expo-cli": "^3.18.2",
     "jest-expo": "^37.0.0"
   },
   "private": true
