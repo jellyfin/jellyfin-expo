@@ -18,6 +18,7 @@ import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elem
 import Constants from 'expo-constants';
 import Url from 'url';
 import { useNavigation } from '@react-navigation/native';
+import PropTypes from 'prop-types';
 
 import ServerInput from '../components/ServerInput';
 import SettingSection from '../components/SettingSection';
@@ -30,9 +31,9 @@ import { getAppName } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
 class SettingsScreen extends React.Component {
-  static navigationOptions = {
-    title: 'Settings'
-  };
+  static propTypes = {
+    navigation: PropTypes.object.isRequired
+  }
 
   state = {
     isAddServerVisible: false,
