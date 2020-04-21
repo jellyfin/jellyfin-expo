@@ -17,6 +17,7 @@ import {
 import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elements';
 import Constants from 'expo-constants';
 import Url from 'url';
+import { useNavigation } from '@react-navigation/native';
 
 import ServerInput from '../components/ServerInput';
 import SettingSection from '../components/SettingSection';
@@ -28,7 +29,7 @@ import JellyfinValidator from '../utils/JellyfinValidator';
 import { getAppName } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
-export default class SettingsScreen extends React.Component {
+class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: 'Settings'
   };
@@ -166,7 +167,7 @@ export default class SettingsScreen extends React.Component {
     // Save to storage cache
     await CachingStorage.getInstance().setItem(StorageKeys.Servers, servers);
     // Navigate to the loading screen
-    this.props.navigation.navigate('ServerLoading');
+    this.props.navigation.navigate('Loading');
   }
 
   async resetApplication() {
@@ -175,7 +176,7 @@ export default class SettingsScreen extends React.Component {
     // Reset the storage cache
     CachingStorage.instance = null;
     // Navigate to the loading screen
-    this.props.navigation.navigate('ServerLoading');
+    this.props.navigation.navigate('Loading');
   }
 
   onDeleteServer(index) {
@@ -264,7 +265,6 @@ export default class SettingsScreen extends React.Component {
           onBackdropPress={() => this.setState({ isAddServerVisible: false })}
         >
           <ServerInput
-            navigation={this.props.navigation}
             onSuccess={() => {
               this.setState({ isAddServerVisible: false });
               this.bootstrapAsync();
@@ -290,3 +290,11 @@ const styles = StyleSheet.create({
     fontSize: 15
   }
 });
+
+// Inject the Navigation Hook as a prop to mimic the legacy behavior
+const SettingsScreenWithNavigation = function(props) {
+  const navigation = useNavigation();
+  return <SettingsScreen {...props} navigation={navigation} />;
+};
+
+export default SettingsScreenWithNavigation;

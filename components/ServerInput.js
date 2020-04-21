@@ -6,6 +6,7 @@
 import React from 'react';
 import { ActivityIndicator, Platform, StyleSheet } from 'react-native';
 import { Input, colors } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 
 import Colors from '../constants/Colors';
@@ -15,7 +16,7 @@ import JellyfinValidator from '../utils/JellyfinValidator';
 
 const sanitizeHost = (url = '') => url.trim();
 
-export default class ServerInput extends React.Component {
+class ServerInput extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
     onSuccess: PropTypes.func,
@@ -126,3 +127,11 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0
   }
 });
+
+// Inject the Navigation Hook as a prop to mimic the legacy behavior
+const ServerInputWithNavigation = function(props) {
+  const navigation = useNavigation();
+  return <ServerInput {...props} navigation={navigation} />;
+};
+
+export default ServerInputWithNavigation;

@@ -7,8 +7,10 @@ import React from 'react';
 import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import PropTypes from 'prop-types';
 
 import Colors from '../constants/Colors';
 import StorageKeys from '../constants/Storage';
@@ -31,7 +33,7 @@ ${NativeShell}
 true;
 `;
 
-export default class HomeScreen extends React.Component {
+class HomeScreen extends React.Component {
   state = {
     server: null,
     serverUrl: null,
@@ -41,9 +43,10 @@ export default class HomeScreen extends React.Component {
     isRefreshing: false
   };
 
-  static navigationOptions = {
-    header: null
-  };
+  static propTypes = {
+    navigation: PropTypes.object.isRequired,
+    route: PropTypes.object.isRequired
+  }
 
   async bootstrapAsync() {
     let server = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
@@ -153,22 +156,29 @@ export default class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    // Expose the goHome method to navigation props
-    this.props.navigation.setParams({ goHome: () => this.onGoHome() });
+    // Override the default tab press behavior so a second press sends the webview home
+    this.props.navigation.addListener('tabPress', e => {
+      if (this.props.navigation.isFocused()) {
+        // Prevent default behavior
+        e.preventDefault();
+
+        this.onGoHome();
+      }
+    });
     // Bootstrap component state
     this.bootstrapAsync();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (typeof this.props.navigation.state.params.activeServer != 'undefined' &&
-        prevProps.navigation.state.params.activeServer !== this.props.navigation.state.params.activeServer) {
+    if (typeof this.props.route.params?.activeServer != 'undefined' &&
+        prevProps.route.params?.activeServer !== this.props.route.params?.activeServer) {
       this.bootstrapAsync();
     }
     if (prevState.isFullscreen !== this.state.isFullscreen) {
       // Update the screen orientation
       this.updateScreenOrientation();
       // Show/hide the bottom tab bar
-      this.props.navigation.setParams({
+      this.props.navigation.setOptions({
         tabBarVisible: !this.state.isFullscreen
       });
       // Show/hide the status bar
@@ -256,3 +266,10 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+
+// Inject the Navigation Hook as a prop to mimic the legacy behavior
+const HomeScreenWithNavigation = function(props) {
+  return <HomeScreen {...props} navigation={useNavigation()} route={useRoute()} />;
+};
+
+export default HomeScreenWithNavigation;
