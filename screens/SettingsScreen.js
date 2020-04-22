@@ -21,7 +21,7 @@ import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 
 import ServerInput from '../components/ServerInput';
-import SettingSection from '../components/SettingSection';
+import SettingsSection from '../components/SettingsSection';
 import Colors from '../constants/Colors';
 import Links from '../constants/Links';
 import StorageKeys from '../constants/Storage';
@@ -213,7 +213,7 @@ class SettingsScreen extends React.Component {
           style={styles.container}
           showsVerticalScrollIndicator={false}
         >
-          <SettingSection heading='Servers'>
+          <SettingsSection heading='Servers'>
             {
               this.state.servers ? (
                 <FlatList
@@ -227,7 +227,7 @@ class SettingsScreen extends React.Component {
                 <ActivityIndicator />
               )
             }
-          </SettingSection>
+          </SettingsSection>
 
           <Button
             buttonStyle={{ margin: 15 }}
@@ -235,14 +235,14 @@ class SettingsScreen extends React.Component {
             onPress={() => this.setState({ isAddServerVisible: true })}
           />
 
-          <SettingSection heading='Links'>
+          <SettingsSection heading='Links'>
             <FlatList
               keyExtractor={this._keyExtractor}
               data={Links}
               renderItem={this._renderLink}
               scrollEnabled={false}
             />
-          </SettingSection>
+          </SettingsSection>
 
           <Button
             buttonStyle={{
