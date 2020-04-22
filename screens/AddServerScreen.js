@@ -21,7 +21,6 @@ export default class AddServerScreen extends React.Component {
           />
         </View>
         <ServerInput
-          navigation={this.props.navigation}
           containerStyle={styles.serverTextContainer}
         />
       </View>

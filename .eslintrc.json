@@ -35,7 +35,7 @@
         }
     },
     "rules": {
-        "react/prop-types": ["error", { "ignore": ["navigation"] }],
+        "react/prop-types": ["error"],
 
         "block-spacing": ["error"],
         "brace-style": ["error"],

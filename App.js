@@ -23,7 +23,7 @@ export default class App extends React.Component {
   };
 
   state = {
-    isLoadingComplete: false
+    isSplashReady: false
   };
 
   componentDidMount() {
@@ -36,25 +36,25 @@ export default class App extends React.Component {
   }
 
   render() {
-    if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
+    if (!this.state.isSplashReady && !this.props.skipLoadingScreen) {
       return (
         <AppLoading
           startAsync={this._loadResourcesAsync}
-          onError={this._handleLoadingError}
-          onFinish={this._handleFinishLoading}
+          onError={console.warn}
+          onFinish={() => this.setState({ isSplashReady: true })}
           autoHideSplash={false}
         />
       );
-    } else {
-      return (
-        <ThemeProvider theme={Theme}>
-          <View style={styles.container}>
-            {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-            <AppNavigator />
-          </View>
-        </ThemeProvider>
-      );
     }
+
+    return (
+      <ThemeProvider theme={Theme}>
+        <View style={styles.container}>
+          {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
+          <AppNavigator />
+        </View>
+      </ThemeProvider>
+    );
   }
 
   _loadImagesAsync = () => {
@@ -73,16 +73,6 @@ export default class App extends React.Component {
       }),
       ...this._loadImagesAsync()
     ]);
-  };
-
-  _handleLoadingError = error => {
-    // In this case, you might want to report the error to your error
-    // reporting service, for example Sentry
-    console.warn(error);
-  };
-
-  _handleFinishLoading = () => {
-    this.setState({ isLoadingComplete: true });
   };
 }
 
