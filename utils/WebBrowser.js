@@ -22,8 +22,8 @@ export async function openBrowser(url, options) {
       try {
         await WebBrowser.dismissBrowser();
         return WebBrowser.openBrowserAsync(url, finalOptions);
-      } catch (err) {
-        console.warn('Could not dismiss and reopen browser', err);
+      } catch (retryErr) {
+        console.warn('Could not dismiss and reopen browser', retryErr);
       }
     } else {
       console.warn('Could not open browser', err);
