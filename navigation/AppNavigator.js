@@ -25,7 +25,7 @@ const theme = {
     ...DarkTheme.colors,
     primary: Colors.tintColor,
     background: Colors.backgroundColor,
-    text: Colors.tabText,
+    text: Colors.textColor,
     border: 'transparent'
   }
 };
@@ -52,6 +52,9 @@ function Main() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
       })}
+      tabBarOptions={{
+        inactiveTintColor: Colors.tabText
+      }}
     >
       <Tab.Screen name='Home' component={HomeScreen} />
       <Tab.Screen name='Settings' component={SettingsScreen} />
