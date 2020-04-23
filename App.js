@@ -27,11 +27,9 @@ export default class App extends React.Component {
   };
 
   componentDidMount() {
-    // Allow screen rotation on iPad
-    if (Platform.OS === 'ios' && Platform.isPad) {
-      ScreenOrientation.lockAsync(
-        ScreenOrientation.OrientationLock.ALL
-      );
+    // Lock portrait orientation on iPhone
+    if (Platform.OS === 'ios' && !Platform.isPad) {
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
     }
   }
 
