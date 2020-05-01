@@ -166,9 +166,17 @@ class SettingsScreen extends React.Component {
     // Remove one server at index
     servers.splice(index, 1);
     // Save to storage cache
+    await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, 0);
     await CachingStorage.getInstance().setItem(StorageKeys.Servers, servers);
-    // Navigate to the loading screen
-    this.props.navigation.navigate('Loading');
+
+    if (servers.length > 0) {
+      // More servers exist, update state and navigate home
+      this.bootstrapAsync();
+      this.props.navigation.navigate('Home', { activeServer: 0 });
+    } else {
+      // No servers are present, navigate to add server screen
+      this.props.navigation.navigate('AddServer');
+    }
   }
 
   async resetApplication() {
@@ -177,7 +185,7 @@ class SettingsScreen extends React.Component {
     // Reset the storage cache
     CachingStorage.instance = null;
     // Navigate to the loading screen
-    this.props.navigation.navigate('Loading');
+    this.props.navigation.navigate('AddServer');
   }
 
   onDeleteServer(index) {

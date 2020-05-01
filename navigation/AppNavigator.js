@@ -85,26 +85,28 @@ function AppNavigator() {
 
   return (
     <NavigationContainer theme={theme}>
-      <Stack.Navigator headerMode='screen' screenOptions={{ headerShown: false }}>
-        {(servers && servers.length > 0) ?
-          <Stack.Screen
-            name='Main'
-            component={Main}
-            options={({ route }) => {
-              const routeName = route.state ?
-                // Get the currently active route name in the tab navigator
-                route.state.routes[route.state.index].name :
-                // If state doesn't exist, we need to default to `screen` param if available, or the initial screen
-                // In our case, it's "Main" as that's the first screen inside the navigator
-                route.params?.screen || 'Main';
-              return ({
-                headerShown: routeName === 'Settings',
-                title: routeName
-              });
-            }}
-          /> :
-          <Stack.Screen name='AddServer' component={AddServerScreen} />
-        }
+      <Stack.Navigator
+        initialRouteName={(servers && servers.length > 0) ? 'Main' : 'AddServer'}
+        headerMode='screen'
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen
+          name='Main'
+          component={Main}
+          options={({ route }) => {
+            const routeName = route.state ?
+              // Get the currently active route name in the tab navigator
+              route.state.routes[route.state.index].name :
+              // If state doesn't exist, we need to default to `screen` param if available, or the initial screen
+              // In our case, it's "Main" as that's the first screen inside the navigator
+              route.params?.screen || 'Main';
+            return ({
+              headerShown: routeName === 'Settings',
+              title: routeName
+            });
+          }}
+        />
+        <Stack.Screen name='AddServer' component={AddServerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
