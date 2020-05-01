@@ -8,7 +8,7 @@
       "ios",
       "android"
     ],
-    "version": "1.1.0",
+    "version": "1.1.1",
     "orientation": "default",
     "primaryColor": "#00a4dc",
     "icon": "./assets/images/icon.png",
@@ -25,7 +25,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "5",
+      "buildNumber": "1",
       "supportsTablet": true,
       "bundleIdentifier": "org.jellyfin.expo",
       "infoPlist": {
