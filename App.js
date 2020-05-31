@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import React from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
@@ -44,7 +45,7 @@ export default class App extends React.Component {
         />
       );
     }
-
+    activateKeepAwake();
     return (
       <ThemeProvider theme={Theme}>
         <View style={styles.container}>
