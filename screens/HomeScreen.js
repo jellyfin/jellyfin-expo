@@ -177,7 +177,7 @@ class HomeScreen extends React.Component {
     }
     if (prevState.isFullscreen !== this.state.isFullscreen) {
       // Update the screen orientation
-      this.updateScreenOrientation();
+      // this.updateScreenOrientation();
       // Show/hide the bottom tab bar
       this.props.navigation.setOptions({
         tabBarVisible: !this.state.isFullscreen

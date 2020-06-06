@@ -28,9 +28,9 @@ export default class App extends React.Component {
 
   componentDidMount() {
     // Lock portrait orientation on iPhone
-    if (Platform.OS === 'ios' && !Platform.isPad) {
-      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
-    }
+    // if (Platform.OS === 'ios' && !Platform.isPad) {
+    //   ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+    // }
   }
 
   render() {
