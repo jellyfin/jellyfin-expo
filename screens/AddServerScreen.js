@@ -13,7 +13,7 @@ export default class AddServerScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.container}>
+        <View style={styles.logoContainer}>
           <Image
             style={styles.logoImage}
             source={require('../assets/images/logowhite.png')}
@@ -30,7 +30,7 @@ export default class AddServerScreen extends React.Component {
 
 const styles = StyleSheet.create({
   serverTextContainer: {
-    flex: 1.5,
+    flex: 1,
     alignContent: 'flex-start'
   },
   container: {
@@ -39,10 +39,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: Colors.backgroundColor
   },
+  logoContainer: {
+    marginTop: 80,
+    marginBottom: 48,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   logoImage: {
-    marginBottom: 12,
     width: '90%',
     height: undefined,
+    maxWidth: 481,
+    maxHeight: 151,
     // Aspect ration of the logo
     aspectRatio: 3.18253
   }
