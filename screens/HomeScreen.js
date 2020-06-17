@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     opacity: 0
   },
   statusBarSpacer: {
-    backgroundColor: Colors.backgroundColor,
+    backgroundColor: Colors.headerBackgroundColor,
     height: Constants.statusBarHeight
   },
   error: {
