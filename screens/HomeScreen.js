@@ -205,6 +205,7 @@ class HomeScreen extends React.Component {
               <RefreshControl
                 refreshing={this.state.isRefreshing}
                 onRefresh={() => this.onRefresh()}
+                tintColor={Colors.tabText}
               />
             ) : null
           }
