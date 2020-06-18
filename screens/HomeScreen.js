@@ -193,56 +193,59 @@ class HomeScreen extends React.Component {
       styles.loading : styles.container;
 
     return (
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={{flexGrow: 1}}
-        refreshControl={
-          Platform.OS === 'ios' ? (
-            <RefreshControl
-              refreshing={this.state.isRefreshing}
-              onRefresh={() => this.onRefresh()}
-            />
-          ) : null
-        }
-      >
+      <View style={styles.container}>
         {!this.state.isFullscreen && (
           <View style={styles.statusBarSpacer} />
         )}
-        {this.state.serverUrl && (
-          <WebView
-            ref={ref => (this.webview = ref)}
-            source={{ uri: this.state.serverUrl }}
-            style={webviewStyle}
-            // Inject javascript for NativeShell
-            injectedJavaScriptBeforeContentLoaded={injectedJavaScript}
-            // Handle messages from NativeShell
-            onMessage={this.onMessage.bind(this)}
-            // Make scrolling feel faster
-            decelerationRate='normal'
-            // Error screen is displayed if loading fails
-            renderError={() => this.getErrorView()}
-            // Loading screen is displayed when refreshing
-            renderLoading={() => <View style={styles.container} />}
-            // Update state on loading error
-            onError={({ nativeEvent: state }) => {
-              console.warn('Error', state);
-              this.setState({ isError: true });
-            }}
-            // Update state when loading is complete
-            onLoad={() => {
-              this.setState({
-                isError: false,
-                isLoading: false
-              });
-            }}
-            // Media playback options to fix video player
-            allowsInlineMediaPlayback={true}
-            mediaPlaybackRequiresUserAction={false}
-            // Use WKWebView on iOS
-            useWebKit={true}
-          />
-        )}
-      </ScrollView>
+        <ScrollView
+          style={styles.container}
+          contentContainerStyle={{flexGrow: 1}}
+          refreshControl={
+            Platform.OS === 'ios' ? (
+              <RefreshControl
+                refreshing={this.state.isRefreshing}
+                onRefresh={() => this.onRefresh()}
+                tintColor={Colors.tabText}
+              />
+            ) : null
+          }
+        >
+          {this.state.serverUrl && (
+            <WebView
+              ref={ref => (this.webview = ref)}
+              source={{ uri: this.state.serverUrl }}
+              style={webviewStyle}
+              // Inject javascript for NativeShell
+              injectedJavaScriptBeforeContentLoaded={injectedJavaScript}
+              // Handle messages from NativeShell
+              onMessage={this.onMessage.bind(this)}
+              // Make scrolling feel faster
+              decelerationRate='normal'
+              // Error screen is displayed if loading fails
+              renderError={() => this.getErrorView()}
+              // Loading screen is displayed when refreshing
+              renderLoading={() => <View style={styles.container} />}
+              // Update state on loading error
+              onError={({ nativeEvent: state }) => {
+                console.warn('Error', state);
+                this.setState({ isError: true });
+              }}
+              // Update state when loading is complete
+              onLoad={() => {
+                this.setState({
+                  isError: false,
+                  isLoading: false
+                });
+              }}
+              // Media playback options to fix video player
+              allowsInlineMediaPlayback={true}
+              mediaPlaybackRequiresUserAction={false}
+              // Use WKWebView on iOS
+              useWebKit={true}
+            />
+          )}
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -258,7 +261,7 @@ const styles = StyleSheet.create({
     opacity: 0
   },
   statusBarSpacer: {
-    backgroundColor: Colors.backgroundColor,
+    backgroundColor: Colors.headerBackgroundColor,
     height: Constants.statusBarHeight
   },
   error: {

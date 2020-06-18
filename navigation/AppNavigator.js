@@ -25,6 +25,7 @@ const theme = {
     ...DarkTheme.colors,
     primary: Colors.tintColor,
     background: Colors.backgroundColor,
+    card: Colors.headerBackgroundColor,
     text: Colors.textColor,
     border: 'transparent'
   }
