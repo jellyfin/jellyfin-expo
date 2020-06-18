@@ -9,6 +9,7 @@ import { Button, Text } from 'react-native-elements';
 import { WebView } from 'react-native-webview';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Constants from 'expo-constants';
+import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import PropTypes from 'prop-types';
 
@@ -107,6 +108,16 @@ class HomeScreen extends React.Component {
         case 'openUrl':
           console.log('Opening browser for external url', data.url);
           openBrowser(data.url);
+          break;
+        case 'updateMediaSession':
+          // Keep the screen awake when music is playing
+          // TODO: Add a setting to disable this
+          activateKeepAwake();
+          break;
+        case 'hideMediaSession':
+          // When music session stops disable keep awake
+          // TODO: Add a setting to disable this
+          deactivateKeepAwake();
           break;
         case 'console.debug':
           console.debug('[Browser Console]', data);
