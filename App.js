@@ -44,7 +44,6 @@ export default class App extends React.Component {
         />
       );
     }
-
     return (
       <ThemeProvider theme={Theme}>
         <View style={styles.container}>
