@@ -154,12 +154,14 @@ class HomeScreen extends React.Component {
     this.setState({ isRefreshing: false });
   }
 
-  updateScreenOrientation() {
+  async updateScreenOrientation() {
     if (Platform.OS === 'ios' && !Platform.isPad) {
       if (this.state.isFullscreen) {
         // Lock to landscape orientation
         // For some reason video apps on iPhone use LANDSCAPE_RIGHT ¯\_(ツ)_/¯
-        ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT);
+        await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT);
+        // Allow either landscape orientation after forcing initial rotation
+        ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
       } else {
         // Restore portrait orientation lock
         ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
