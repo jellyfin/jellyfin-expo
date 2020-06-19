@@ -6,6 +6,7 @@
 import React from 'react';
 import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import Constants from 'expo-constants';
@@ -201,12 +202,13 @@ class HomeScreen extends React.Component {
   }
 
   render() {
+    // When not in fullscreen, the top adjustment is handled by the spacer View
+    const safeAreaStyle = this.state.isFullscreen ? styles.container : { ...styles.container, paddingTop: 0 };
     // Hide webview until loaded
-    const webviewStyle = (this.state.isError || this.state.isLoading) ?
-      styles.loading : styles.container;
+    const webviewStyle = (this.state.isError || this.state.isLoading) ? styles.loading : styles.container;
 
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={safeAreaStyle} >
         {!this.state.isFullscreen && (
           <View style={styles.statusBarSpacer} />
         )}
@@ -258,7 +260,7 @@ class HomeScreen extends React.Component {
             />
           )}
         </ScrollView>
-      </View>
+      </SafeAreaView>
     );
   }
 }
