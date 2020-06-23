@@ -6,6 +6,7 @@
 import React, { useEffect, useState } from 'react';
 import { Platform, StatusBar } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
@@ -56,10 +57,12 @@ function App({ skipLoadingScreen }) {
   }
 
   return (
-    <ThemeProvider theme={Theme}>
-      {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
-      <AppNavigator />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider theme={Theme}>
+        {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
+        <AppNavigator />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
 

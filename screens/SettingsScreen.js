@@ -15,6 +15,7 @@ import {
   View
 } from 'react-native';
 import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elements';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Constants from 'expo-constants';
 import Url from 'url';
 import { useNavigation } from '@react-navigation/native';
@@ -216,7 +217,7 @@ class SettingsScreen extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
+      <SafeAreaView style={{...styles.container, paddingTop: 0}} >
         <ScrollView
           style={styles.container}
           showsVerticalScrollIndicator={false}
@@ -281,7 +282,7 @@ class SettingsScreen extends React.Component {
             successScreen={'Home'}
           />
         </Overlay>
-      </React.Fragment>
+      </SafeAreaView>
     );
   }
 }
