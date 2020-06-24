@@ -3,19 +3,18 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useState } from 'react';
+import React from 'react';
 import { NavigationContainer, DarkTheme } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { observer } from 'mobx-react';
 import { SplashScreen } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 
+import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
-import StorageKeys from '../constants/Storage';
-import CachingStorage from '../utils/CachingStorage';
 import AddServerScreen from '../screens/AddServerScreen';
 import HomeScreen from '../screens/HomeScreen';
-import LoadingScreen from '../screens/LoadingScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 // Customize theme for navigator
@@ -63,23 +62,8 @@ function Main() {
   );
 }
 
-function AppNavigator() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [servers, setServers] = useState(null);
-
-  async function bootstrap() {
-    // Fetch any saved servers
-    const savedServers = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
-    setServers(savedServers);
-    setIsLoading(false);
-  }
-
-  bootstrap();
-
-  // Display the loading screen until bootstrapping is complete
-  if (isLoading) {
-    return <LoadingScreen />;
-  }
+const AppNavigator = observer(() => {
+  const { serverStore } = useStores();
 
   // Ensure the splash screen is hidden when loading is finished
   SplashScreen.hide();
@@ -87,7 +71,7 @@ function AppNavigator() {
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
-        initialRouteName={(servers && servers.length > 0) ? 'Main' : 'AddServer'}
+        initialRouteName={(serverStore.servers.length > 0) ? 'Main' : 'AddServer'}
         headerMode='screen'
         screenOptions={{ headerShown: false }}
       >
@@ -111,6 +95,6 @@ function AppNavigator() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+});
 
 export default AppNavigator;

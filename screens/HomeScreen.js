@@ -9,14 +9,14 @@ import { Button, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import { observer } from 'mobx-react';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import PropTypes from 'prop-types';
 
+import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
-import StorageKeys from '../constants/Storage';
-import CachingStorage from '../utils/CachingStorage';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
 import JellyfinValidator from '../utils/JellyfinValidator';
 import NativeShell from '../utils/NativeShell';
@@ -35,6 +35,7 @@ ${NativeShell}
 true;
 `;
 
+@observer
 class HomeScreen extends React.Component {
   state = {
     server: null,
@@ -47,21 +48,25 @@ class HomeScreen extends React.Component {
 
   static propTypes = {
     navigation: PropTypes.object.isRequired,
-    route: PropTypes.object.isRequired
+    route: PropTypes.object.isRequired,
+    serverStore: PropTypes.object.isRequired,
+    settingStore: PropTypes.object.isRequired
   }
 
   async bootstrapAsync() {
-    let server = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
-    let activeServer = await CachingStorage.getInstance().getItem(StorageKeys.ActiveServer) || 0;
+    const servers = this.props.serverStore.servers;
+    let activeServer = this.props.settingStore.activeServer;
 
     // If the activeServer is greater than the length of the server array, reset it to 0
-    if (activeServer && server.length && activeServer > server.length - 1) {
-      await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, 0);
+    if (activeServer && servers.length && activeServer > servers.length - 1) {
+      // TODO: Verify this updates the store
+      this.props.settingStore.activeServer = 0;
       activeServer = 0;
     }
 
-    if (server.length > 0) {
-      server = server[activeServer];
+    let server;
+    if (servers.length > 0) {
+      server = servers[activeServer];
     }
 
     const serverUrl = JellyfinValidator.getServerUrl(server);
@@ -287,8 +292,9 @@ const styles = StyleSheet.create({
 });
 
 // Inject the Navigation Hook as a prop to mimic the legacy behavior
-const HomeScreenWithNavigation = function(props) {
-  return <HomeScreen {...props} navigation={useNavigation()} route={useRoute()} />;
-};
+const HomeScreenWithNavigation = observer((props) => {
+  const stores = useStores();
+  return <HomeScreen {...props} navigation={useNavigation()} route={useRoute()} {...stores} />;
+});
 
 export default HomeScreenWithNavigation;
