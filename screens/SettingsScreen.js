@@ -168,7 +168,7 @@ class SettingsScreen extends React.Component {
       this.props.navigation.navigate('Home', { activeServer: 0 });
     } else {
       // No servers are present, navigate to add server screen
-      this.props.navigation.navigate('AddServer');
+      this.props.navigation.replace('AddServer');
     }
   }
 
@@ -177,7 +177,7 @@ class SettingsScreen extends React.Component {
     this.props.rootStore.serverStore.servers = [];
     this.props.rootStore.settingStore.activeServer = 0;
     // Navigate to the loading screen
-    this.props.navigation.navigate('AddServer');
+    this.props.navigation.replace('AddServer');
   }
 
   onDeleteServer(index) {
