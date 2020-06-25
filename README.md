@@ -18,7 +18,7 @@
 <a href="https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8" style="display:inline-block;overflow:hidden;background:url(https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-02-09&kind=iossoftware&bubble=ios_apps) no-repeat;width:135px;height:40px;"></a>
 </p>
 
-Jellyfin Mobile is a mobile app built with [Expo](https://expo.io/) primarily targeting iOS devices. We welcome all contributions and pull requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. We use [Github Projects](https://github.com/jellyfin/jellyfin-expo/projects) as a general roadmap for releases.
+Jellyfin Mobile is a mobile app built with [Expo](https://expo.io/) primarily targeting iOS devices. We welcome all contributions and pull requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. We use [GitHub Projects](https://github.com/jellyfin/jellyfin-expo/projects) as a general roadmap for releases.
 
 ## Build Process
 
@@ -41,7 +41,7 @@ Jellyfin Mobile is a mobile app built with [Expo](https://expo.io/) primarily ta
 
 ## FAQ
 
-* **What is the difference between this and other Jellyfin app projects?**
-  * This app (Jellyfin Mobile) is a web wrapper based on Expo with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad.
-  * [Jellyfin Player iOS](https://github.com/jellyfin/jellyfin-client-ios) is a newer effort to create a media playback app in native Swift. It is a work in progress and currently only supports media playback.
-  * [Jellyfin React Client](https://github.com/jellyfin-archive/jellyfin-react-client) an early project to create a single multiplatform app based on React Native. This project has been archived as we have changed direction to utilize native web wrappers on most platforms.
+### What is the difference between this and other Jellyfin app projects?
+* This app (Jellyfin Mobile) is a web wrapper based on Expo with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad.
+* [Jellyfin Player iOS](https://github.com/jellyfin/jellyfin-client-ios) is a newer effort to create a media playback app in native Swift. It is a work in progress and currently only supports media playback.
+* [Jellyfin React Client](https://github.com/jellyfin-archive/jellyfin-react-client) an early project to create a single multiplatform app based on React Native. This project has been archived as we have changed direction to utilize native web wrappers on most platforms.
