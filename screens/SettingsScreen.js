@@ -13,7 +13,7 @@ import {
   StyleSheet,
   View
 } from 'react-native';
-import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elements';
+import { Button, colors, ListItem, Text, Icon } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
@@ -22,7 +22,6 @@ import Url from 'url';
 import PropTypes from 'prop-types';
 
 import { useStores } from '../hooks/useStores';
-import ServerInput from '../components/ServerInput';
 import SettingsSection from '../components/SettingsSection';
 import Colors from '../constants/Colors';
 import Links from '../constants/Links';
@@ -38,7 +37,6 @@ class SettingsScreen extends React.Component {
   }
 
   state = {
-    isAddServerVisible: false,
     servers: null
   };
 
@@ -232,7 +230,7 @@ class SettingsScreen extends React.Component {
           <Button
             buttonStyle={{ margin: 15 }}
             title='Add Server'
-            onPress={() => this.setState({ isAddServerVisible: true })}
+            onPress={() => this.props.navigation.navigate('AddServer')}
           />
 
           <SettingsSection heading='Links'>
@@ -259,20 +257,6 @@ class SettingsScreen extends React.Component {
             <Text style={styles.infoText}>{`Expo Version: ${Constants.expoVersion}`}</Text>
           </View>
         </ScrollView>
-
-        <Overlay
-          height={'auto'}
-          isVisible={this.state.isAddServerVisible}
-          onBackdropPress={() => this.setState({ isAddServerVisible: false })}
-        >
-          <ServerInput
-            onSuccess={() => {
-              this.setState({ isAddServerVisible: false });
-              this.bootstrapAsync();
-            }}
-            successScreen={'Home'}
-          />
-        </Overlay>
       </SafeAreaView>
     );
   }

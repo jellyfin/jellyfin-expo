@@ -91,7 +91,14 @@ const AppNavigator = observer(() => {
             });
           }}
         />
-        <Stack.Screen name='AddServer' component={AddServerScreen} />
+        <Stack.Screen
+          name='AddServer'
+          component={AddServerScreen}
+          options={{
+            headerShown: serverStore.servers.length > 0,
+            title: 'Add Server'
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
