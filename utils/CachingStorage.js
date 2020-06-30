@@ -5,6 +5,10 @@
  */
 import { AsyncStorage } from 'react-native';
 
+/**
+ * AsyncStorage wrapper with in memory caching
+ * @deprecated
+ */
 export default class CachingStorage {
   static instance = null;
 

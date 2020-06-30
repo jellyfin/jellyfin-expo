@@ -7,18 +7,20 @@ import React from 'react';
 import { ActivityIndicator, Platform, StyleSheet } from 'react-native';
 import { Input, colors } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 
+import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
-import StorageKeys from '../constants/Storage';
-import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
 
 const sanitizeHost = (url = '') => url.trim();
 
+@observer
 class ServerInput extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
+    rootStore: PropTypes.object.isRequired,
     onSuccess: PropTypes.func,
     successScreen: PropTypes.string
   }
@@ -67,11 +69,9 @@ class ServerInput extends React.Component {
         return;
       }
 
-      // Save the server details to app storage
-      let servers = await CachingStorage.getInstance().getItem(StorageKeys.Servers) || [];
-      servers = servers.concat([{ url }]);
-      await CachingStorage.getInstance().setItem(StorageKeys.Servers, servers);
-      await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, servers.length - 1);
+      // Save the server details
+      this.props.rootStore.serverStore.addServer({ url });
+      this.props.rootStore.settingStore.activeServer = this.props.rootStore.serverStore.servers.length - 1;
       // Call the success callback if present
       if (this.props.onSuccess) {
         this.props.onSuccess();
@@ -81,7 +81,7 @@ class ServerInput extends React.Component {
         index: 0,
         routes: [{
           name: this.props.successScreen || 'Main',
-          props: { activeServer: servers.length - 1 }
+          props: { activeServer: this.props.rootStore.settingStore.activeServer }
         }]
       });
     } else {
@@ -135,9 +135,9 @@ const styles = StyleSheet.create({
 });
 
 // Inject the Navigation Hook as a prop to mimic the legacy behavior
-const ServerInputWithNavigation = function(props) {
-  const navigation = useNavigation();
-  return <ServerInput {...props} navigation={navigation} />;
-};
+const ServerInputWithNavigation = observer((props) => {
+  const stores = useStores();
+  return <ServerInput {...props} navigation={useNavigation()} {...stores} />;
+});
 
 export default ServerInputWithNavigation;

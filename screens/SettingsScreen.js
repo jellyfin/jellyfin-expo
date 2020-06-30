@@ -7,7 +7,6 @@ import React from 'react';
 import {
   ActivityIndicator,
   Alert,
-  AsyncStorage,
   FlatList,
   Platform,
   ScrollView,
@@ -16,24 +15,26 @@ import {
 } from 'react-native';
 import { Button, colors, ListItem, Text, Icon, Overlay } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { observer } from 'mobx-react';
 import Constants from 'expo-constants';
 import Url from 'url';
-import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 
+import { useStores } from '../hooks/useStores';
 import ServerInput from '../components/ServerInput';
 import SettingsSection from '../components/SettingsSection';
 import Colors from '../constants/Colors';
 import Links from '../constants/Links';
-import StorageKeys from '../constants/Storage';
-import CachingStorage from '../utils/CachingStorage';
 import JellyfinValidator from '../utils/JellyfinValidator';
 import { getAppName } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
+@observer
 class SettingsScreen extends React.Component {
   static propTypes = {
-    navigation: PropTypes.object.isRequired
+    navigation: PropTypes.object.isRequired,
+    rootStore: PropTypes.object.isRequired
   }
 
   state = {
@@ -80,7 +81,7 @@ class SettingsScreen extends React.Component {
       }}
       subtitle={subtitle}
       leftElement={(
-        index === this.state.activeServer ? (
+        index === this.props.rootStore.settingStore.activeServer ? (
           <Icon
             name={(Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark')}
             type='ionicon'
@@ -107,18 +108,14 @@ class SettingsScreen extends React.Component {
       topDivider={index === 0}
       bottomDivider
       onPress={async () => {
-        this.setState({
-          activeServer: index
-        });
-        await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, index);
+        this.props.rootStore.settingStore.activeServer = index;
         this.props.navigation.navigate('Home', { activeServer: index });
       }}
     />);
   };
 
   async bootstrapAsync() {
-    const activeServer = await CachingStorage.getInstance().getItem(StorageKeys.ActiveServer) || 0;
-    let servers = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
+    let { servers } = this.props.rootStore.serverStore;
 
     servers = servers.map(async (server) => {
       let serverUrl;
@@ -156,21 +153,16 @@ class SettingsScreen extends React.Component {
     console.log('bootstrapAsync', servers);
 
     this.setState({
-      activeServer,
       servers
     });
   }
 
   async deleteServer(index) {
-    // Get the current list of servers
-    const servers = this.state.servers;
-    // Remove one server at index
-    servers.splice(index, 1);
-    // Save to storage cache
-    await CachingStorage.getInstance().setItem(StorageKeys.ActiveServer, 0);
-    await CachingStorage.getInstance().setItem(StorageKeys.Servers, servers);
+    // Remove server and update active server
+    this.props.rootStore.serverStore.removeServer(index);
+    this.props.rootStore.settingStore.activeServer = 0;
 
-    if (servers.length > 0) {
+    if (this.props.rootStore.serverStore.servers.length > 0) {
       // More servers exist, update state and navigate home
       this.bootstrapAsync();
       this.props.navigation.navigate('Home', { activeServer: 0 });
@@ -181,10 +173,9 @@ class SettingsScreen extends React.Component {
   }
 
   async resetApplication() {
-    // Remove all storage items used in the app
-    await AsyncStorage.multiRemove(Object.values(StorageKeys));
-    // Reset the storage cache
-    CachingStorage.instance = null;
+    // Reset data in stores
+    this.props.rootStore.serverStore.servers = [];
+    this.props.rootStore.settingStore.activeServer = 0;
     // Navigate to the loading screen
     this.props.navigation.navigate('AddServer');
   }
@@ -230,7 +221,7 @@ class SettingsScreen extends React.Component {
                   data={this.state.servers}
                   renderItem={this._renderServer}
                   scrollEnabled={false}
-                  extraData={this.state.activeServer}
+                  extraData={this.props.rootStore.settingStore.activeServer}
                 />
               ) : (
                 <ActivityIndicator />
@@ -302,9 +293,9 @@ const styles = StyleSheet.create({
 });
 
 // Inject the Navigation Hook as a prop to mimic the legacy behavior
-const SettingsScreenWithNavigation = function(props) {
-  const navigation = useNavigation();
-  return <SettingsScreen {...props} navigation={navigation} />;
-};
+const SettingsScreenWithNavigation = observer((props) => {
+  const stores = useStores();
+  return <SettingsScreen {...props} navigation={useNavigation()} {...stores} />;
+});
 
 export default SettingsScreenWithNavigation;
