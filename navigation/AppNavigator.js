@@ -95,7 +95,7 @@ const AppNavigator = observer(() => {
           name='AddServer'
           component={AddServerScreen}
           options={{
-            headerShown: serverStore.servers.length > 0,
+            headerShown: rootStore.serverStore.servers.length > 0,
             title: 'Add Server'
           }}
         />
