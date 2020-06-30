@@ -63,7 +63,7 @@ function Main() {
 }
 
 const AppNavigator = observer(() => {
-  const { serverStore } = useStores();
+  const { rootStore } = useStores();
 
   // Ensure the splash screen is hidden when loading is finished
   SplashScreen.hide();
@@ -71,7 +71,7 @@ const AppNavigator = observer(() => {
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
-        initialRouteName={(serverStore.servers.length > 0) ? 'Main' : 'AddServer'}
+        initialRouteName={(rootStore.serverStore.servers.length > 0) ? 'Main' : 'AddServer'}
         headerMode='screen'
         screenOptions={{ headerShown: false }}
       >

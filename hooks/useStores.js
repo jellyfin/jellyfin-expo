@@ -5,12 +5,10 @@
  */
 import { createContext, useContext } from 'react';
 
-import ServerStore from '../stores/ServerStore';
-import SettingStore from '../stores/SettingStore';
+import RootStore from '../stores/RootStore';
 
 export const storesContext = createContext({
-  serverStore: new ServerStore(),
-  settingStore: new SettingStore()
+  rootStore: new RootStore()
 });
 
 export const useStores = () => useContext(storesContext);

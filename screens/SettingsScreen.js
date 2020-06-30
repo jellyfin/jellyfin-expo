@@ -34,8 +34,7 @@ import { openBrowser } from '../utils/WebBrowser';
 class SettingsScreen extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
-    serverStore: PropTypes.object.isRequired,
-    settingStore: PropTypes.object.isRequired
+    rootStore: PropTypes.object.isRequired
   }
 
   state = {
@@ -82,7 +81,7 @@ class SettingsScreen extends React.Component {
       }}
       subtitle={subtitle}
       leftElement={(
-        index === this.props.settingStore.activeServer ? (
+        index === this.props.rootStore.settingStore.activeServer ? (
           <Icon
             name={(Platform.OS === 'ios' ? 'ios-checkmark' : 'md-checkmark')}
             type='ionicon'
@@ -109,14 +108,14 @@ class SettingsScreen extends React.Component {
       topDivider={index === 0}
       bottomDivider
       onPress={async () => {
-        this.props.settingStore.activeServer = index;
+        this.props.rootStore.settingStore.activeServer = index;
         this.props.navigation.navigate('Home', { activeServer: index });
       }}
     />);
   };
 
   async bootstrapAsync() {
-    let { servers } = this.props.serverStore;
+    let { servers } = this.props.rootStore.serverStore;
 
     servers = servers.map(async (server) => {
       let serverUrl;
@@ -160,10 +159,10 @@ class SettingsScreen extends React.Component {
 
   async deleteServer(index) {
     // Remove server and update active server
-    this.props.serverStore.removeServer(index);
-    this.props.settingStore.activeServer = 0;
+    this.props.rootStore.serverStore.removeServer(index);
+    this.props.rootStore.settingStore.activeServer = 0;
 
-    if (this.props.serverStore.servers.length > 0) {
+    if (this.props.rootStore.serverStore.servers.length > 0) {
       // More servers exist, update state and navigate home
       this.bootstrapAsync();
       this.props.navigation.navigate('Home', { activeServer: 0 });
@@ -175,8 +174,8 @@ class SettingsScreen extends React.Component {
 
   async resetApplication() {
     // Reset data in stores
-    this.props.serverStore.servers = [];
-    this.props.settingStore.activeServer = 0;
+    this.props.rootStore.serverStore.servers = [];
+    this.props.rootStore.settingStore.activeServer = 0;
     // Navigate to the loading screen
     this.props.navigation.navigate('AddServer');
   }
@@ -222,7 +221,7 @@ class SettingsScreen extends React.Component {
                   data={this.state.servers}
                   renderItem={this._renderServer}
                   scrollEnabled={false}
-                  extraData={this.props.settingStore.activeServer}
+                  extraData={this.props.rootStore.settingStore.activeServer}
                 />
               ) : (
                 <ActivityIndicator />

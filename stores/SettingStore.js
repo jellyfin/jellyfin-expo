@@ -4,13 +4,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { observable } from 'mobx';
-import { persist } from 'mobx-persist';
 
 /**
  * Data store for application settings
  */
 export default class SettingStore {
-  @persist
   @observable
   activeServer = 0
 }

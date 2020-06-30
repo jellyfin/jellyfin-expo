@@ -49,18 +49,16 @@ class HomeScreen extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
     route: PropTypes.object.isRequired,
-    serverStore: PropTypes.object.isRequired,
-    settingStore: PropTypes.object.isRequired
+    rootStore: PropTypes.object.isRequired
   }
 
   async bootstrapAsync() {
-    const servers = this.props.serverStore.servers;
-    let activeServer = this.props.settingStore.activeServer;
+    const servers = this.props.rootStore.serverStore.servers;
+    let activeServer = this.props.rootStore.settingStore.activeServer;
 
     // If the activeServer is greater than the length of the server array, reset it to 0
     if (activeServer && servers.length && activeServer > servers.length - 1) {
-      // TODO: Verify this updates the store
-      this.props.settingStore.activeServer = 0;
+      this.props.rootStore.settingStore.activeServer = 0;
       activeServer = 0;
     }
 

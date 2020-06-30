@@ -20,8 +20,7 @@ const sanitizeHost = (url = '') => url.trim();
 class ServerInput extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
-    serverStore: PropTypes.object.isRequired,
-    settingStore: PropTypes.object.isRequired,
+    rootStore: PropTypes.object.isRequired,
     onSuccess: PropTypes.func,
     successScreen: PropTypes.string
   }
@@ -71,8 +70,8 @@ class ServerInput extends React.Component {
       }
 
       // Save the server details
-      this.props.serverStore.addServer({ url });
-      this.props.settingStore.activeServer = this.props.serverStore.servers.length - 1;
+      this.props.rootStore.serverStore.addServer({ url });
+      this.props.rootStore.settingStore.activeServer = this.props.rootStore.serverStore.servers.length - 1;
       // Call the success callback if present
       if (this.props.onSuccess) {
         this.props.onSuccess();
@@ -82,7 +81,7 @@ class ServerInput extends React.Component {
         index: 0,
         routes: [{
           name: this.props.successScreen || 'Main',
-          props: { activeServer: this.props.settingStore.activeServer }
+          props: { activeServer: this.props.rootStore.settingStore.activeServer }
         }]
       });
     } else {

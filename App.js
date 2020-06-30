@@ -10,7 +10,7 @@ import { AsyncStorage, Platform, StatusBar } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { observer } from 'mobx-react';
-import { create } from 'mobx-persist';
+import { AsyncTrunk } from 'mobx-sync';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
@@ -24,24 +24,35 @@ import AppNavigator from './navigation/AppNavigator';
 import CachingStorage from './utils/CachingStorage';
 import Theme from './utils/Theme';
 
-const hydrate = create({
-  storage: AsyncStorage
-});
-
 const App = observer(({ skipLoadingScreen }) => {
   const [isSplashReady, setIsSplashReady] = useState(false);
-  const { serverStore, settingStore } = useStores();
+  const { rootStore } = useStores();
+
+  const trunk = new AsyncTrunk(rootStore, {
+    storage: AsyncStorage
+  });
 
   const hydrateStores = async () => {
-    // Use data from old location as the initial values
+    // Migrate servers and settings
     // TODO: Remove this for next release
     const servers = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
-    const activeServer = await CachingStorage.getInstance().getItem(StorageKeys.ActiveServer);
-    hydrate('servers', serverStore, servers || []);
-    hydrate('settings', settingStore, { activeServer: activeServer || 0 });
+    if (servers) {
+      const activeServer = await CachingStorage.getInstance().getItem(StorageKeys.ActiveServer) || 0;
 
-    // Remove old data values
-    await AsyncStorage.multiRemove(Object.values(StorageKeys));
+      // Initialize the store with the existing servers and settings
+      await trunk.init({
+        serverStore: { servers },
+        settingStore: { activeServer }
+      });
+
+      // Remove old data values
+      AsyncStorage.multiRemove(Object.values(StorageKeys));
+    } else {
+      // No servers saved in the old method, initialize normally
+      await trunk.init();
+    }
+
+    rootStore.storeLoaded = true;
   };
 
   useEffect(() => {

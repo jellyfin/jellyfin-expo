@@ -4,10 +4,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { action, observable } from 'mobx';
-import { persist } from 'mobx-persist';
 
 export default class ServerStore {
-  @persist('list')
   @observable
   servers = []
 
