@@ -98,19 +98,19 @@ class HomeScreen extends React.Component {
           deactivateKeepAwake();
           break;
         case 'console.debug':
-          // console.debug('[Browser Console]', data);
+          console.debug('[Browser Console]', data);
           break;
         case 'console.error':
-          // console.error('[Browser Console]', data);
+          console.error('[Browser Console]', data);
           break;
         case 'console.info':
-          // console.info('[Browser Console]', data);
+          console.info('[Browser Console]', data);
           break;
         case 'console.log':
-          // console.log('[Browser Console]', data);
+          console.log('[Browser Console]', data);
           break;
         case 'console.warn':
-          // console.warn('[Browser Console]', data);
+          console.warn('[Browser Console]', data);
           break;
         default:
           console.debug('[HomeScreen.onMessage]', event, data);
