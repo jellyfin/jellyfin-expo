@@ -16,7 +16,6 @@ import Colors from '../constants/Colors';
 import AddServerScreen from '../screens/AddServerScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import NewSettingsScreen from '../screens/NewSettingsScreen';
 
 // Customize theme for navigator
 const theme = {
@@ -58,7 +57,7 @@ function Main() {
       }}
     >
       <Tab.Screen name='Home' component={HomeScreen} />
-      <Tab.Screen name='Settings' component={NewSettingsScreen} />
+      <Tab.Screen name='Settings' component={SettingsScreen} />
     </Tab.Navigator>
   );
 }
