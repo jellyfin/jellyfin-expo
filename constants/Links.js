@@ -7,6 +7,7 @@ import { Platform } from 'react-native';
 
 export default [
   {
+    key: 'links-website',
     name: 'Jellyfin Website',
     url: 'https://jellyfin.org/',
     icon: {
@@ -15,6 +16,7 @@ export default [
     }
   },
   {
+    key: 'links-documentation',
     name: 'Documentation',
     url: 'https://docs.jellyfin.org',
     icon: {
@@ -23,6 +25,7 @@ export default [
     }
   },
   {
+    key: 'links-source',
     name: 'Source Code',
     url: 'https://github.com/jellyfin/jellyfin-expo',
     icon: {
@@ -31,6 +34,7 @@ export default [
     }
   },
   {
+    key: 'links-feature',
     name: 'Request a Feature',
     url: 'https://features.jellyfin.org/',
     icon: {
@@ -39,6 +43,7 @@ export default [
     }
   },
   {
+    key: 'links-issue',
     name: 'Report an Issue',
     url: 'https://github.com/jellyfin/jellyfin-expo/issues',
     icon: {

@@ -9780,6 +9780,13 @@ mobx-sync@^3.0.0:
   dependencies:
     tslib "^2.0.0"
 
+mobx-task@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/mobx-task/-/mobx-task-2.0.1.tgz#bd9e335fd2f2cb6738eb6d83cae222d3b41c9d29"
+  integrity sha512-CWAqDYfNi6fKvdaPCO/qbns1VHKVF/yX5MezysieOwld4l+B77XFCDrP+E/W6W46gclPnyVRWllJ0fDYwC7S/g==
+  dependencies:
+    tslib "^1.9.3"
+
 mobx@^5.15.4:
   version "5.15.4"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-5.15.4.tgz#9da1a84e97ba624622f4e55a0bf3300fb931c2ab"

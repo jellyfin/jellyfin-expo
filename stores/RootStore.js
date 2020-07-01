@@ -11,6 +11,12 @@ import SettingStore from "./SettingStore";
 export default class RootStore {
   @ignore
   storeLoaded = false
+
   serverStore = new ServerStore()
   settingStore = new SettingStore()
+
+  reset() {
+    this.serverStore.reset();
+    this.settingStore.reset();
+  }
 }

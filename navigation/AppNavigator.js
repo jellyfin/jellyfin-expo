@@ -16,6 +16,7 @@ import Colors from '../constants/Colors';
 import AddServerScreen from '../screens/AddServerScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import NewSettingsScreen from '../screens/NewSettingsScreen';
 
 // Customize theme for navigator
 const theme = {
@@ -57,7 +58,7 @@ function Main() {
       }}
     >
       <Tab.Screen name='Home' component={HomeScreen} />
-      <Tab.Screen name='Settings' component={SettingsScreen} />
+      <Tab.Screen name='Settings' component={NewSettingsScreen} />
     </Tab.Navigator>
   );
 }
@@ -71,7 +72,7 @@ const AppNavigator = observer(() => {
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
-        initialRouteName={(rootStore.serverStore.servers.length > 0) ? 'Main' : 'AddServer'}
+        initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
         headerMode='screen'
         screenOptions={{ headerShown: false }}
       >
@@ -95,7 +96,7 @@ const AppNavigator = observer(() => {
           name='AddServer'
           component={AddServerScreen}
           options={{
-            headerShown: rootStore.serverStore.servers.length > 0,
+            headerShown: rootStore.serverStore.servers?.length > 0,
             title: 'Add Server'
           }}
         />

@@ -18,7 +18,6 @@ import PropTypes from 'prop-types';
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
-import JellyfinValidator from '../utils/JellyfinValidator';
 import NativeShell from '../utils/NativeShell';
 import { openBrowser } from '../utils/WebBrowser';
 
@@ -38,8 +37,6 @@ true;
 @observer
 class HomeScreen extends React.Component {
   state = {
-    server: null,
-    serverUrl: null,
     isError: false,
     isFullscreen: false,
     isLoading: true,
@@ -50,29 +47,6 @@ class HomeScreen extends React.Component {
     navigation: PropTypes.object.isRequired,
     route: PropTypes.object.isRequired,
     rootStore: PropTypes.object.isRequired
-  }
-
-  async bootstrapAsync() {
-    const servers = this.props.rootStore.serverStore.servers;
-    let activeServer = this.props.rootStore.settingStore.activeServer;
-
-    // If the activeServer is greater than the length of the server array, reset it to 0
-    if (activeServer && servers.length && activeServer > servers.length - 1) {
-      this.props.rootStore.settingStore.activeServer = 0;
-      activeServer = 0;
-    }
-
-    let server;
-    if (servers.length > 0) {
-      server = servers[activeServer];
-    }
-
-    const serverUrl = JellyfinValidator.getServerUrl(server);
-
-    this.setState({
-      server,
-      serverUrl
-    });
   }
 
   getErrorView() {
@@ -124,19 +98,19 @@ class HomeScreen extends React.Component {
           deactivateKeepAwake();
           break;
         case 'console.debug':
-          console.debug('[Browser Console]', data);
+          // console.debug('[Browser Console]', data);
           break;
         case 'console.error':
-          console.error('[Browser Console]', data);
+          // console.error('[Browser Console]', data);
           break;
         case 'console.info':
-          console.info('[Browser Console]', data);
+          // console.info('[Browser Console]', data);
           break;
         case 'console.log':
-          console.log('[Browser Console]', data);
+          // console.log('[Browser Console]', data);
           break;
         case 'console.warn':
-          console.warn('[Browser Console]', data);
+          // console.warn('[Browser Console]', data);
           break;
         default:
           console.debug('[HomeScreen.onMessage]', event, data);
@@ -183,15 +157,9 @@ class HomeScreen extends React.Component {
         this.onGoHome();
       }
     });
-    // Bootstrap component state
-    this.bootstrapAsync();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (typeof this.props.route.params?.activeServer != 'undefined' &&
-        prevProps.route.params?.activeServer !== this.props.route.params?.activeServer) {
-      this.bootstrapAsync();
-    }
     if (prevState.isFullscreen !== this.state.isFullscreen) {
       // Update the screen orientation
       this.updateScreenOrientation();
@@ -209,6 +177,11 @@ class HomeScreen extends React.Component {
     const safeAreaStyle = this.state.isFullscreen ? styles.container : { ...styles.container, paddingTop: 0 };
     // Hide webview until loaded
     const webviewStyle = (this.state.isError || this.state.isLoading) ? styles.loading : styles.container;
+
+    if (!this.props.rootStore.serverStore.servers || this.props.rootStore.serverStore.servers.length === 0) {
+      return null;
+    }
+    const server = this.props.rootStore.serverStore.servers[this.props.rootStore.settingStore.activeServer];
 
     return (
       <SafeAreaView style={safeAreaStyle} >
@@ -228,10 +201,10 @@ class HomeScreen extends React.Component {
             ) : null
           }
         >
-          {this.state.serverUrl && (
+          {server && server.urlString && (
             <WebView
               ref={ref => (this.webview = ref)}
-              source={{ uri: this.state.serverUrl }}
+              source={{ uri: server.urlString }}
               style={webviewStyle}
               // Inject javascript for NativeShell
               injectedJavaScriptBeforeContentLoaded={injectedJavaScript}
