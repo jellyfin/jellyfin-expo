@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React, { useEffect } from 'react';
-import { Alert, AsyncStorage, Platform, SectionList, StyleSheet } from 'react-native';
+import { Alert, AsyncStorage, Platform, SectionList, StyleSheet, View } from 'react-native';
 import { colors, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -14,6 +14,7 @@ import AppInfoFooter from '../components/AppInfoFooter';
 import BrowserListItem from '../components/BrowserListItem';
 import ButtonListItem from '../components/ButtonListItem';
 import ServerListItem from '../components/ServerListItem';
+import SwitchListItem from '../components/SwitchListItem';
 import Colors from '../constants/Colors';
 import Links from '../constants/Links';
 import { useStores } from '../hooks/useStores';
@@ -112,6 +113,24 @@ const SettingsScreen = observer(() => {
         renderItem: ButtonListItem
       },
       {
+        title: 'Settings',
+        data: [
+          {
+            key: 'keep-awake-switch',
+            title: 'Keep Screen Awake',
+            value: rootStore.settingStore.isScreenLockEnabled,
+            onValueChange: value => rootStore.settingStore.isScreenLockEnabled = value
+          },
+          {
+            key: 'rotation-lock-switch',
+            title: 'Rotation Lock',
+            value: rootStore.settingStore.isRotationEnabled,
+            onValueChange: value => rootStore.settingStore.isRotationEnabled = value
+          }
+        ],
+        renderItem: SwitchListItem
+      },
+      {
         title: 'Links',
         data: Links,
         renderItem: BrowserListItem
@@ -142,6 +161,7 @@ const SettingsScreen = observer(() => {
         }}
         renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
         renderSectionHeader={({ section: { title, hideHeader } }) => hideHeader ? null : <Text style={styles.header}>{title}</Text>}
+        renderSectionFooter={() => <View style={styles.footer} />}
         ListFooterComponent={AppInfoFooter}
         showsVerticalScrollIndicator={false}
       />
@@ -162,6 +182,9 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 15,
     marginBottom: 1
+  },
+  footer: {
+    marginBottom: 15
   }
 });
 

@@ -18,7 +18,7 @@ ButtonListItem.propTypes = {
 
 const styles = StyleSheet.create({
   button: {
-    margin: 15
+    marginHorizontal: 15
   }
 });
 

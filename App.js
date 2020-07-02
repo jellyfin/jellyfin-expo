@@ -53,17 +53,26 @@ const App = observer(({ skipLoadingScreen }) => {
     }
 
     rootStore.storeLoaded = true;
+
+    if (typeof rootStore.settingStore.isRotationEnabled === 'undefined') {
+      rootStore.settingStore.isRotationEnabled = Platform.OS === 'ios' && !Platform.isPad;
+      console.info('Initializing rotation lock setting', rootStore.settingStore.isRotationEnabled);
+    }
   };
 
   useEffect(() => {
-    // Lock portrait orientation on iPhone
-    if (Platform.OS === 'ios' && !Platform.isPad) {
-      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
-    }
-
     // Hydrate mobx data stores
     hydrateStores();
   }, []);
+
+  useEffect(() => {
+    console.info('rotation lock setting changed!', rootStore.settingStore.isRotationEnabled);
+    if (rootStore.settingStore.isRotationEnabled) {
+      ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+    } else {
+      ScreenOrientation.unlockAsync();
+    }
+  }, [rootStore.settingStore.isRotationEnabled]);
 
   const loadImagesAsync = () => {
     const images = [
