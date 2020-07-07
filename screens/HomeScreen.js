@@ -89,13 +89,15 @@ class HomeScreen extends React.Component {
           break;
         case 'updateMediaSession':
           // Keep the screen awake when music is playing
-          // TODO: Add a setting to disable this
-          activateKeepAwake();
+          if (this.props.rootStore.settingStore.isScreenLockEnabled) {
+            activateKeepAwake();
+          }
           break;
         case 'hideMediaSession':
           // When music session stops disable keep awake
-          // TODO: Add a setting to disable this
-          deactivateKeepAwake();
+          if (this.props.rootStore.settingStore.isScreenLockEnabled) {
+            deactivateKeepAwake();
+          }
           break;
         case 'console.debug':
           console.debug('[Browser Console]', data);
@@ -133,7 +135,7 @@ class HomeScreen extends React.Component {
   }
 
   async updateScreenOrientation() {
-    if (Platform.OS === 'ios' && !Platform.isPad) {
+    if (this.props.rootStore.settingStore.isRotationEnabled) {
       if (this.state.isFullscreen) {
         // Lock to landscape orientation
         // For some reason video apps on iPhone use LANDSCAPE_RIGHT ¯\_(ツ)_/¯

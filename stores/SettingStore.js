@@ -9,11 +9,28 @@ import { action, observable } from 'mobx';
  * Data store for application settings
  */
 export default class SettingStore {
+  /**
+   * The id of the currently selected server
+   */
   @observable
   activeServer = 0
+
+  /**
+   * Is device rotation enabled
+   */
+  @observable
+  isRotationEnabled
+
+  /**
+   * Is screen lock active when media is playing
+   */
+  @observable
+  isScreenLockEnabled = true
 
   @action
   reset() {
     this.activeServer = 0;
+    this.isRotationEnabled = null;
+    this.isScreenLockEnabled = true;
   }
 }
