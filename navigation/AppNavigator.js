@@ -71,7 +71,7 @@ const AppNavigator = observer(() => {
   return (
     <NavigationContainer theme={theme}>
       <Stack.Navigator
-        initialRouteName={(rootStore.serverStore.servers.length > 0) ? 'Main' : 'AddServer'}
+        initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
         headerMode='screen'
         screenOptions={{ headerShown: false }}
       >
@@ -95,7 +95,7 @@ const AppNavigator = observer(() => {
           name='AddServer'
           component={AddServerScreen}
           options={{
-            headerShown: rootStore.serverStore.servers.length > 0,
+            headerShown: rootStore.serverStore.servers?.length > 0,
             title: 'Add Server'
           }}
         />

@@ -35,7 +35,7 @@ export default class JellyfinValidator {
   }
 
   static async fetchServerInfo(server = {}) {
-    const serverUrl = this.getServerUrl(server);
+    const serverUrl = server.urlString || this.getServerUrl(server);
     const infoUrl = `${serverUrl}system/info/public`;
     console.log('info url', infoUrl);
 
@@ -61,7 +61,7 @@ export default class JellyfinValidator {
 
   static getServerUrl(server = {}) {
     if (!server || !server.url || !server.url.href) {
-      throw new Error(`Cannot get server url for invalid server ${server}`);
+      throw new Error('Cannot get server url for invalid server', server);
     }
 
     // Strip the query string or hash if present
