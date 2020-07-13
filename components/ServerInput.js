@@ -12,6 +12,7 @@ import PropTypes from 'prop-types';
 
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
+import { getIconName } from '../utils/Icons';
 import JellyfinValidator from '../utils/JellyfinValidator';
 
 const sanitizeHost = (url = '') => url.trim();
@@ -97,7 +98,7 @@ class ServerInput extends React.Component {
       <Input
         inputContainerStyle={styles.inputContainerStyle}
         leftIcon={{
-          name: Platform.OS === 'ios' ? 'ios-globe' : 'md-globe',
+          name: getIconName('globe'),
           type: 'ionicon'
         }}
         label='Server Address'

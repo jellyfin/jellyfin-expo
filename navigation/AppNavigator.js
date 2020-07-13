@@ -16,6 +16,7 @@ import Colors from '../constants/Colors';
 import AddServerScreen from '../screens/AddServerScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import { getIconName } from '../utils/Icons';
 
 // Customize theme for navigator
 const theme = {
@@ -36,9 +37,9 @@ const Tab = createBottomTabNavigator();
 function TabIcon(routeName, color, size) {
   let iconName = null;
   if (routeName === 'Home') {
-    iconName = 'ios-tv';
+    iconName = getIconName('tv');
   } else if (routeName === 'Settings') {
-    iconName = 'ios-cog';
+    iconName = getIconName('cog');
   }
 
   return (

@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { Platform } from 'react-native';
+import { getIconName } from '../utils/Icons';
 
 export default [
   {
@@ -11,7 +11,7 @@ export default [
     name: 'Jellyfin Website',
     url: 'https://jellyfin.org/',
     icon: {
-      name: Platform.OS === 'ios' ? 'ios-globe' : 'md-globe',
+      name: getIconName('globe'),
       type: 'ionicon'
     }
   },
@@ -20,7 +20,7 @@ export default [
     name: 'Documentation',
     url: 'https://docs.jellyfin.org',
     icon: {
-      name: Platform.OS === 'ios' ? 'ios-book' : 'md-book',
+      name: getIconName('book'),
       type: 'ionicon'
     }
   },
@@ -38,7 +38,7 @@ export default [
     name: 'Request a Feature',
     url: 'https://features.jellyfin.org/',
     icon: {
-      name: Platform.OS === 'ios' ? 'ios-create' : 'md-create',
+      name: getIconName('create'),
       type: 'ionicon'
     }
   },
@@ -47,7 +47,7 @@ export default [
     name: 'Report an Issue',
     url: 'https://github.com/jellyfin/jellyfin-expo/issues',
     icon: {
-      name: Platform.OS === 'ios' ? 'ios-bug' : 'md-bug',
+      name: getIconName('bug'),
       type: 'ionicon'
     }
   }
