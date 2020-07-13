@@ -9,6 +9,7 @@ import { colors, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
+import { useTranslation } from 'react-i18next';
 
 import AppInfoFooter from '../components/AppInfoFooter';
 import BrowserListItem from '../components/BrowserListItem';
@@ -22,6 +23,7 @@ import { useStores } from '../hooks/useStores';
 const SettingsScreen = observer(() => {
   const { rootStore } = useStores();
   const navigation = useNavigation();
+  const { t } = useTranslation();
 
   useEffect(() => {
     // Fetch server info
@@ -34,12 +36,12 @@ const SettingsScreen = observer(() => {
 
   const onDeleteServer = index => {
     Alert.alert(
-      'Delete Server',
-      'Are you sure you want to delete this server?',
+      t('alerts.deleteServer.title'),
+      t('alerts.deleteServer.description'),
       [
-        { text: 'Cancel' },
+        { text: t('common.cancel') },
         {
-          text: 'Delete',
+          text: t('alerts.deleteServer.confirm'),
           onPress: () => {
             // Remove server and update active server
             rootStore.serverStore.removeServer(index);
@@ -66,12 +68,12 @@ const SettingsScreen = observer(() => {
 
   const onResetApplication = () => {
     Alert.alert(
-      'Reset Application',
-      'Are you sure you want to reset all settings?',
+      t('alerts.resetApplication.title'),
+      t('alerts.resetApplication.description'),
       [
-        { text: 'Cancel' },
+        { text: t('common.cancel') },
         {
-          text: 'Reset',
+          text: t('alerts.resetApplication.confirm'),
           onPress: () => {
             // Reset data in stores
             rootStore.reset();
@@ -97,33 +99,33 @@ const SettingsScreen = observer(() => {
   const getSections = () => {
     return [
       {
-        title: 'Servers',
+        title: t('headings.servers'),
         data: rootStore.serverStore.servers.slice(),
         keyExtractor: (item, index) => `server-${index}`,
         renderItem: AugmentedServerListItem
       },
       {
-        title: 'Add Server',
+        title: t('headings.addServer'),
         hideHeader: true,
         data: [{
           key: 'add-server-button',
-          title: 'Add Server',
+          title: t('headings.addServer'),
           onPress: onAddServer
         }],
         renderItem: ButtonListItem
       },
       {
-        title: 'Settings',
+        title: t('headings.settings'),
         data: [
           {
             key: 'keep-awake-switch',
-            title: 'Keep Screen Awake',
+            title: t('settings.keepAwake'),
             value: rootStore.settingStore.isScreenLockEnabled,
             onValueChange: value => rootStore.settingStore.isScreenLockEnabled = value
           },
           {
             key: 'rotation-lock-switch',
-            title: 'Rotation Lock',
+            title: t('settings.rotationLock'),
             value: rootStore.settingStore.isRotationEnabled,
             onValueChange: value => rootStore.settingStore.isRotationEnabled = value
           }
@@ -131,16 +133,19 @@ const SettingsScreen = observer(() => {
         renderItem: SwitchListItem
       },
       {
-        title: 'Links',
-        data: Links,
+        title: t('headings.links'),
+        data: Links.map(link => ({
+          ...link,
+          name: t(link.name)
+        })),
         renderItem: BrowserListItem
       },
       {
-        title: 'Reset Application',
+        title: t('alerts.resetApplication.title'),
         hideHeader: true,
         data: [{
           key: 'reset-app-button',
-          title: 'Reset Application',
+          title: t('alerts.resetApplication.title'),
           buttonStyle: {
             backgroundColor: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
           },

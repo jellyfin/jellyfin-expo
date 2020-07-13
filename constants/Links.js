@@ -8,7 +8,7 @@ import { getIconName } from '../utils/Icons';
 export default [
   {
     key: 'links-website',
-    name: 'Jellyfin Website',
+    name: 'links.website',
     url: 'https://jellyfin.org/',
     icon: {
       name: getIconName('globe'),
@@ -17,7 +17,7 @@ export default [
   },
   {
     key: 'links-documentation',
-    name: 'Documentation',
+    name: 'links.documentation',
     url: 'https://docs.jellyfin.org',
     icon: {
       name: getIconName('book'),
@@ -26,7 +26,7 @@ export default [
   },
   {
     key: 'links-source',
-    name: 'Source Code',
+    name: 'links.source',
     url: 'https://github.com/jellyfin/jellyfin-expo',
     icon: {
       name: 'logo-github',
@@ -35,7 +35,7 @@ export default [
   },
   {
     key: 'links-feature',
-    name: 'Request a Feature',
+    name: 'links.feature',
     url: 'https://features.jellyfin.org/',
     icon: {
       name: getIconName('create'),
@@ -44,7 +44,7 @@ export default [
   },
   {
     key: 'links-issue',
-    name: 'Report an Issue',
+    name: 'links.issue',
     url: 'https://github.com/jellyfin/jellyfin-expo/issues',
     icon: {
       name: getIconName('bug'),

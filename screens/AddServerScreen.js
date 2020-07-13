@@ -5,28 +5,32 @@
  */
 import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 import ServerInput from '../components/ServerInput';
 import Colors from '../constants/Colors';
 
-export default class AddServerScreen extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logoImage}
-            source={require('../assets/images/logowhite.png')}
-            fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
-          />
-        </View>
-        <ServerInput
-          containerStyle={styles.serverTextContainer}
+const AddServerScreen = () => {
+  const { t } = useTranslation();
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.logoContainer}>
+        <Image
+          style={styles.logoImage}
+          source={require('../assets/images/logowhite.png')}
+          fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
         />
       </View>
-    );
-  }
-}
+      <ServerInput
+        containerStyle={styles.serverTextContainer}
+        label={t('addServer.address')}
+        placeholder='https://jellyfin.org'
+        t={t}
+      />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   serverTextContainer: {
@@ -54,3 +58,5 @@ const styles = StyleSheet.create({
     aspectRatio: 3.18253
   }
 });
+
+export default AddServerScreen;

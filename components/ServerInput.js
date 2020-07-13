@@ -22,6 +22,7 @@ class ServerInput extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
     rootStore: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired,
     onSuccess: PropTypes.func,
     successScreen: PropTypes.string
   }
@@ -53,7 +54,7 @@ class ServerInput extends React.Component {
         this.setState({
           isValidating: false,
           isValid: false,
-          validationMessage: 'Server Address is invalid'
+          validationMessage: this.props.t('addServer.validation.invalid')
         });
         return;
       }
@@ -62,10 +63,11 @@ class ServerInput extends React.Component {
       const validation = await JellyfinValidator.validate({ url });
       console.log(`Server is ${validation.isValid ? '' : 'not '}valid`);
       if (!validation.isValid) {
+        const message = validation.message || 'invalid';
         this.setState({
           isValidating: false,
           isValid: validation.isValid,
-          validationMessage: validation.message || ''
+          validationMessage: this.props.t([`addServer.validation.${message}`, 'addServer.validation.invalid'])
         });
         return;
       }
@@ -88,7 +90,7 @@ class ServerInput extends React.Component {
     } else {
       this.setState({
         isValid: false,
-        validationMessage: 'Server Address cannot be empty'
+        validationMessage: this.props.t('addServer.validation.empty')
       });
     }
   }
@@ -101,11 +103,9 @@ class ServerInput extends React.Component {
           name: getIconName('globe'),
           type: 'ionicon'
         }}
-        label='Server Address'
         labelStyle={{
           color: colors.grey4
         }}
-        placeholder='https://jellyfin.org'
         placeholderTextColor={colors.grey3}
         rightIcon={this.state.isValidating ? <ActivityIndicator /> : null}
         selectionColor={Colors.tintColor}

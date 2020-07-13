@@ -1,0 +1,53 @@
+{
+  "translation": {
+    "common": {
+      "cancel": "Cancel",
+      "unknown": "Unknown"
+    },
+    "headings": {
+      "addServer": "Add Server",
+      "home": "Home",
+      "links": "Links",
+      "servers": "Servers",
+      "settings": "Settings"
+    },
+    "addServer": {
+      "address": "Server Address",
+      "validation": {
+        "empty": "$t(addServer.address) cannot be empty",
+        "invalid": "$t(addServer.address) is invalid",
+        "invalidProduct": "Not a Jellyfin server",
+        "noConnection": "Could not connect to server"
+      }
+    },
+    "home": {
+      "offline": "Error contacting Jellyfin server.",
+      "retry": "Try again?"
+    },
+    "settings": {
+      "version": "Version: {{version}}",
+      "keepAwake": "Keep Screen Awake",
+      "rotationLock": "Rotation Lock",
+      "expoVersion": "Expo Version: {{version}}"
+    },
+    "links": {
+      "website": "Jellyfin Website",
+      "documentation": "Documentation",
+      "source": "Source Code",
+      "feature": "Request a Feature",
+      "issue": "Report an Issue"
+    },
+    "alerts": {
+      "deleteServer": {
+        "title": "Delete Server",
+        "description": "Are you sure you want to delete this server?",
+        "confirm": "Delete"
+      },
+      "resetApplication": {
+        "title": "Reset Application",
+        "description": "Are you sure you want to reset all settings?",
+        "confirm": "Reset"
+      }
+    }
+  }
+}
