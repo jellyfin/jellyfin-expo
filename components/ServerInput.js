@@ -17,8 +17,7 @@ import JellyfinValidator from '../utils/JellyfinValidator';
 
 const sanitizeHost = (url = '') => url.trim();
 
-@observer
-class ServerInput extends React.Component {
+const ServerInput = observer(class ServerInput extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
     rootStore: PropTypes.object.isRequired,
@@ -125,7 +124,8 @@ class ServerInput extends React.Component {
       />
     );
   }
-}
+});
+
 const styles = StyleSheet.create({
   inputContainerStyle: {
     marginTop: 8,
