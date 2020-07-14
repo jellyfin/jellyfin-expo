@@ -18,6 +18,7 @@ import PropTypes from 'prop-types';
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
+import { getIconName } from '../utils/Icons';
 import NativeShell from '../utils/NativeShell';
 import { openBrowser } from '../utils/WebBrowser';
 
@@ -59,7 +60,7 @@ class HomeScreen extends React.Component {
             marginRight: 15
           }}
           icon={{
-            name: Platform.OS === 'ios' ? 'ios-refresh' : 'md-refresh',
+            name: getIconName('refresh'),
             type: 'ionicon'
           }}
           title='Try again?'
