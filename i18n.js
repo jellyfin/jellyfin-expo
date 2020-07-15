@@ -5,7 +5,7 @@ import { initReactI18next } from 'react-i18next';
 import en from './langs/en.json';
 
 const resources = {
-  en: en
+  en: { translation: en }
 };
 
 i18next
