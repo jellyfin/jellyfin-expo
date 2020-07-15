@@ -7,19 +7,23 @@ import React from 'react';
 import { StyleSheet, View, Platform } from 'react-native';
 import { Button, Icon, ListItem, colors } from 'react-native-elements';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { getIconName } from '../utils/Icons';
 
 const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
+  const { t } = useTranslation();
+
   let title;
   let subtitle;
   if (item.info) {
     title = item.info.ServerName;
-    subtitle = `Version: ${item.info.Version}\n${item.urlString}`;
+    subtitle = t('settings.version', { version: item.info.Version });
   } else {
     title = item.url.host;
-    subtitle = `Version: unknown\n${item.urlString}`;
+    subtitle = t('settings.version', { version: t('common.unknown') });
   }
+  subtitle += `\n${item.urlString}`;
 
   return (
     <ListItem

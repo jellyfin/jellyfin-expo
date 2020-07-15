@@ -7,16 +7,21 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colors, Text } from 'react-native-elements';
 import Constants from 'expo-constants';
+import { useTranslation } from 'react-i18next';
 
 import { getAppName } from '../utils/Device';
 
-const AppInfoFooter = () => (
-  <View style={styles.container}>
-    <Text style={styles.text}>{`${getAppName()}`}</Text>
-    <Text style={styles.text}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
-    <Text style={styles.text}>{`Expo Version: ${Constants.expoVersion}`}</Text>
-  </View>
-);
+const AppInfoFooter = () => {
+  const { t } = useTranslation();
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>{`${getAppName()}`}</Text>
+      <Text style={styles.text}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
+      <Text style={styles.text}>{t('settings.expoVersion', { version: Constants.expoVersion })}</Text>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

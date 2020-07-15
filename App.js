@@ -24,6 +24,9 @@ import AppNavigator from './navigation/AppNavigator';
 import CachingStorage from './utils/CachingStorage';
 import Theme from './utils/Theme';
 
+// Import i18n configuration
+import './i18n';
+
 const App = observer(({ skipLoadingScreen }) => {
   const [isSplashReady, setIsSplashReady] = useState(false);
   const { rootStore } = useStores();

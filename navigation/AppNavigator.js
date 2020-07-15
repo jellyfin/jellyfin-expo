@@ -10,6 +10,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { observer } from 'mobx-react';
 import { SplashScreen } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
@@ -48,6 +49,8 @@ function TabIcon(routeName, color, size) {
 }
 
 function Main() {
+  const { t } = useTranslation();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -57,14 +60,27 @@ function Main() {
         inactiveTintColor: Colors.tabText
       }}
     >
-      <Tab.Screen name='Home' component={HomeScreen} />
-      <Tab.Screen name='Settings' component={SettingsScreen} />
+      <Tab.Screen
+        name='Home'
+        component={HomeScreen}
+        options={{
+          title: t('headings.home')
+        }}
+      />
+      <Tab.Screen
+        name='Settings'
+        component={SettingsScreen}
+        options={{
+          title: t('headings.settings')
+        }}
+      />
     </Tab.Navigator>
   );
 }
 
 const AppNavigator = observer(() => {
   const { rootStore } = useStores();
+  const { t } = useTranslation();
 
   // Ensure the splash screen is hidden when loading is finished
   SplashScreen.hide();
@@ -88,7 +104,7 @@ const AppNavigator = observer(() => {
               route.params?.screen || 'Main';
             return ({
               headerShown: routeName === 'Settings',
-              title: routeName
+              title: t(`headings.${routeName.toLowerCase()}`)
             });
           }}
         />
@@ -97,7 +113,7 @@ const AppNavigator = observer(() => {
           component={AddServerScreen}
           options={{
             headerShown: rootStore.serverStore.servers?.length > 0,
-            title: 'Add Server'
+            title: t('headings.addServer')
           }}
         />
       </Stack.Navigator>

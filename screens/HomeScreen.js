@@ -14,6 +14,7 @@ import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
@@ -47,13 +48,16 @@ class HomeScreen extends React.Component {
   static propTypes = {
     navigation: PropTypes.object.isRequired,
     route: PropTypes.object.isRequired,
-    rootStore: PropTypes.object.isRequired
+    rootStore: PropTypes.object.isRequired,
+    t: PropTypes.func.isRequired
   }
 
   getErrorView() {
+    const { t } = this.props;
+
     return (
       <View style={styles.container}>
-        <Text style={styles.error}>Error contacting Jellyfin server.</Text>
+        <Text style={styles.error}>{t('home.offline')}</Text>
         <Button
           buttonStyle={{
             marginLeft: 15,
@@ -63,7 +67,7 @@ class HomeScreen extends React.Component {
             name: getIconName('refresh'),
             type: 'ionicon'
           }}
-          title='Try again?'
+          title={t('home.retry')}
           onPress={() => this.onRefresh()}
         />
       </View>
@@ -268,7 +272,17 @@ const styles = StyleSheet.create({
 // Inject the Navigation Hook as a prop to mimic the legacy behavior
 const HomeScreenWithNavigation = observer((props) => {
   const stores = useStores();
-  return <HomeScreen {...props} navigation={useNavigation()} route={useRoute()} {...stores} />;
+  const translation = useTranslation();
+
+  return (
+    <HomeScreen
+      {...props}
+      navigation={useNavigation()}
+      route={useRoute()}
+      {...stores}
+      {...translation}
+    />
+  );
 });
 
 export default HomeScreenWithNavigation;

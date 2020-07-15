@@ -87,7 +87,7 @@ export default class JellyfinValidator {
     } catch (err) {
       return {
         isValid: false,
-        message: 'Invalid URL'
+        message: 'invalid'
       };
     }
 
@@ -108,13 +108,13 @@ export default class JellyfinValidator {
         isValid
       };
       if (!isValid) {
-        answer.message = 'Not a Jellyfin server';
+        answer.message = 'invalidProduct';
       }
       return answer;
     } catch (err) {
       return {
         isValid: false,
-        message: 'Could not connect to server'
+        message: 'noConnection'
       };
     }
   }
