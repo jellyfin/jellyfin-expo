@@ -3,24 +3,19 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { action, autorun, computed, observable } from 'mobx';
+import { action, autorun, computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 import { task } from 'mobx-task';
 
 import JellyfinValidator from '../utils/JellyfinValidator';
 
 export default class ServerModel {
-  @observable
   id
 
-  @observable
   url
 
-  @ignore
-  @observable
   online = false
 
-  @observable
   info
 
   constructor(id, url, info) {
@@ -33,7 +28,6 @@ export default class ServerModel {
     });
   }
 
-  @computed
   get parseUrlString() {
     try {
       return JellyfinValidator.getServerUrl(this);
@@ -42,12 +36,22 @@ export default class ServerModel {
     }
   }
 
-  @task
-  async fetchInfo() {
+  fetchInfo = task(async () => {
     return await JellyfinValidator.fetchServerInfo(this)
       .then(action(info => {
         this.online = true;
         this.info = info;
       }));
-  }
+  })
 }
+
+decorate(ServerModel, {
+  id: observable,
+  url: observable,
+  online: [
+    ignore,
+    observable
+  ],
+  info: observable,
+  parseUrlString: computed
+});

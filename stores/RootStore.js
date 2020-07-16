@@ -3,13 +3,13 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import { decorate } from 'mobx';
 import { ignore } from 'mobx-sync';
 
 import ServerStore from "./ServerStore";
 import SettingStore from "./SettingStore";
 
 export default class RootStore {
-  @ignore
   storeLoaded = false
 
   serverStore = new ServerStore()
@@ -20,3 +20,7 @@ export default class RootStore {
     this.settingStore.reset();
   }
 }
+
+decorate(RootStore, {
+  storeLoaded: ignore
+});

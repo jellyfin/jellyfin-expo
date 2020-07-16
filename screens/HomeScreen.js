@@ -36,8 +36,7 @@ ${NativeShell}
 true;
 `;
 
-@observer
-class HomeScreen extends React.Component {
+const HomeScreen = observer(class HomeScreen extends React.Component {
   state = {
     isError: false,
     isFullscreen: false,
@@ -246,7 +245,7 @@ class HomeScreen extends React.Component {
       </SafeAreaView>
     );
   }
-}
+});
 
 const styles = StyleSheet.create({
   container: {
