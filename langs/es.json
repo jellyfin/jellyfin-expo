@@ -31,7 +31,9 @@
     },
     "alerts": {
         "resetApplication": {
-            "title": "Restablecer la aplicación"
+            "title": "Restablecer la aplicación",
+            "confirm": "Restablecer",
+            "description": "¿Estás seguro de que quieres restablecer todos los ajustes?"
         },
         "deleteServer": {
             "confirm": "Eliminar",
@@ -43,6 +45,7 @@
         "issue": "Reportar un problema",
         "source": "Código Fuente",
         "documentation": "Documentación",
-        "website": "Sitio web de Jellyfin"
+        "website": "Sitio web de Jellyfin",
+        "feature": "Sugerir nuevas características"
     }
 }
