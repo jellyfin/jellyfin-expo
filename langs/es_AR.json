@@ -11,41 +11,41 @@
         "settings": "Configuraciones"
     },
     "addServer": {
-        "address": "DIrección del servidor",
+        "address": "Dirección del servidor",
         "validation": {
             "empty": "$t(addServer.address) no puede estar vacío",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "invalid": "$t(addServer.address) es inválido",
+            "invalidProduct": "No es un servidor Jellyfin",
+            "noConnection": "No se pudo conectar al servidor"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Error al contactar con el servidor Jellyfin.",
+        "retry": "¿Volver a probar?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Versión: {{version}}",
+        "keepAwake": "Mantener la pantalla activa",
+        "rotationLock": "Bloqueo de rotación",
+        "expoVersion": "Versión de Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "Sitio web de Jellyfin",
+        "documentation": "Documentación",
+        "source": "Código fuente",
+        "feature": "Solicitar una función",
+        "issue": "Reportar un problema"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Eliminar servidor",
+            "description": "¿Estás seguro de que deseas eliminar este servidor?",
+            "confirm": "Eliminar"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Restablecer aplicación",
+            "description": "¿Estás seguro que quieres restablecer todas las configuraciones?",
+            "confirm": "Restablecer"
         }
     }
 }
