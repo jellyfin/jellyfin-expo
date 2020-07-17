@@ -1,2 +1,30 @@
 {
+    "settings": {
+        "keepAwake": "Mantener el dispositivo activado",
+        "version": "Versión: {{version}}"
+    },
+    "home": {
+        "retry": "¿Reintentar?",
+        "offline": "Error al establecer la conexión con el servidor."
+    },
+    "addServer": {
+        "validation": {
+            "noConnection": "No se pudo conectar al servidor",
+            "invalidProduct": "No es un servidor de Jellyfin",
+            "invalid": "$t(addServer.address) no es una dirección válida",
+            "empty": "$t(addServer.address) no puede estar en blanco"
+        },
+        "address": "Dirección del servidor"
+    },
+    "headings": {
+        "settings": "Ajustes",
+        "servers": "Servidores",
+        "links": "Enlaces",
+        "home": "Inicio",
+        "addServer": "Añadir servidor"
+    },
+    "common": {
+        "unknown": "Desconocido",
+        "cancel": "Cancelar"
+    }
 }
