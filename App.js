@@ -6,7 +6,7 @@
 import 'mobx-react-lite/batchingForReactNative';
 
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, Platform, StatusBar } from 'react-native';
+import { AsyncStorage, Platform } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { observer } from 'mobx-react';
@@ -15,10 +15,12 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
 import { useStores } from './hooks/useStores';
+import Colors from './constants/Colors';
 import StorageKeys from './constants/Storage';
 import AppNavigator from './navigation/AppNavigator';
 import CachingStorage from './utils/CachingStorage';
@@ -109,7 +111,10 @@ const App = observer(({ skipLoadingScreen }) => {
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={Theme}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="light-content" />}
+        <StatusBar
+          style="light"
+          backgroundColor={Colors.headerBackgroundColor}
+        />
         <AppNavigator />
       </ThemeProvider>
     </SafeAreaProvider>

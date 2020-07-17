@@ -9,6 +9,7 @@
         "plugin:promise/recommended",
         "plugin:import/errors",
         "plugin:import/warnings",
+        "plugin:import/typescript",
         "plugin:eslint-comments/recommended"
     ],
     "globals": {

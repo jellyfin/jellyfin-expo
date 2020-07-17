@@ -157,7 +157,7 @@ const SettingsScreen = observer(() => {
   };
 
   return (
-    <SafeAreaView style={{...styles.container, paddingTop: 0}} >
+    <SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']} >
       <SectionList
         sections={getSections()}
         extraData={{

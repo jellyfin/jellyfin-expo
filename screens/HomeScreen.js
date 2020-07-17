@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React from 'react';
-import { Platform, RefreshControl, StatusBar, StyleSheet, ScrollView, View } from 'react-native';
+import { Platform, RefreshControl, StyleSheet, ScrollView, View } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { WebView } from 'react-native-webview';
@@ -13,6 +13,7 @@ import { observer } from 'mobx-react';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import { setStatusBarHidden } from 'expo-status-bar';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -174,13 +175,16 @@ const HomeScreen = observer(class HomeScreen extends React.Component {
         tabBarVisible: !this.state.isFullscreen
       });
       // Show/hide the status bar
-      StatusBar.setHidden(this.state.isFullscreen);
+      setStatusBarHidden(this.state.isFullscreen);
     }
   }
 
   render() {
-    // When not in fullscreen, the top adjustment is handled by the spacer View
-    const safeAreaStyle = this.state.isFullscreen ? styles.container : { ...styles.container, paddingTop: 0 };
+    // When not in fullscreen, the top adjustment is handled by the spacer View for iOS
+    const safeAreaEdges = ['right', 'bottom', 'left'];
+    if (Platform.OS !== 'ios' || this.state.isFullscreen) {
+      safeAreaEdges.push('top');
+    }
     // Hide webview until loaded
     const webviewStyle = (this.state.isError || this.state.isLoading) ? styles.loading : styles.container;
 
@@ -190,8 +194,8 @@ const HomeScreen = observer(class HomeScreen extends React.Component {
     const server = this.props.rootStore.serverStore.servers[this.props.rootStore.settingStore.activeServer];
 
     return (
-      <SafeAreaView style={safeAreaStyle} >
-        {!this.state.isFullscreen && (
+      <SafeAreaView style={styles.container} edges={safeAreaEdges} >
+        {Platform.OS === 'ios' && !this.state.isFullscreen && (
           <View style={styles.statusBarSpacer} />
         )}
         <ScrollView
