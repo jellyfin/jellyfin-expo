@@ -1,7 +1,10 @@
 {
     "addServer": {
         "validation": {
-            "empty": "L'adresse du serveur ne peut pas être vide"
+            "empty": "L'adresse du serveur ne peut pas être vide",
+            "noConnection": "Connexion au serveur impossible",
+            "invalidProduct": "Pas un serveur Jellyfin",
+            "invalid": "L'adresse du serveur est invalide"
         },
         "address": "Adresse du serveur"
     },
