@@ -1,7 +1,9 @@
 {
     "settings": {
         "keepAwake": "Mantener el dispositivo activado",
-        "version": "Versión: {{version}}"
+        "version": "Versión: {{version}}",
+        "expoVersion": "Versión de Expo: {{version}}",
+        "rotationLock": "Desactivar la rotación de la pantalla"
     },
     "home": {
         "retry": "¿Reintentar?",
@@ -26,5 +28,21 @@
     "common": {
         "unknown": "Desconocido",
         "cancel": "Cancelar"
+    },
+    "alerts": {
+        "resetApplication": {
+            "title": "Restablecer la aplicación"
+        },
+        "deleteServer": {
+            "confirm": "Eliminar",
+            "description": "¿Estás seguro de que quieres eliminar este servidor?",
+            "title": "Eliminar servidor"
+        }
+    },
+    "links": {
+        "issue": "Reportar un problema",
+        "source": "Código Fuente",
+        "documentation": "Documentación",
+        "website": "Sitio web de Jellyfin"
     }
 }
