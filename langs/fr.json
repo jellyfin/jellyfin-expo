@@ -39,7 +39,7 @@
         "website": "Site Internet de Jellyfin"
     },
     "settings": {
-        "expoVersion": "Expo Version: {{version}}",
+        "expoVersion": "Expo Version : {{version}}",
         "rotationLock": "Rotation verrouillée",
         "keepAwake": "Gardez l'écran éveillé",
         "version": "Version: {{version}}"
