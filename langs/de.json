@@ -1,51 +1,51 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Abbrechen",
+        "unknown": "Unbekannt"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Server hinzufügen",
+        "home": "Startseite",
+        "links": "Links",
+        "servers": "Server",
+        "settings": "Einstellungen"
     },
     "addServer": {
-        "address": "",
+        "address": "Serveradresse",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) kann nicht leer sein",
+            "invalid": "$t(addServer.address) ist ungültig",
+            "invalidProduct": "Kein Jellyfin Server",
+            "noConnection": "Verbindung zum Server nicht möglich"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Fehler bei der Verbindungsaufnahme mit dem Server.",
+        "retry": "Erneut versuchen?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Version: {{version}}",
+        "keepAwake": "Bildschirm angeschaltet lassen",
+        "rotationLock": "Bildschirm nicht drehen",
+        "expoVersion": "Expo Version: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin Website",
+        "documentation": "Dokumentation",
+        "source": "Quellcode",
+        "feature": "Neue Funktion vorschlagen",
+        "issue": "Fehler melden"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Server löschen",
+            "description": "Server wirklich löschen?",
+            "confirm": "Löschen"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "App zurücksetzen",
+            "description": "Wirklich alle Einstellungen zurücksetzen?",
+            "confirm": "Zurücksetzen"
         }
     }
 }
