@@ -8,6 +8,9 @@
 <br/><br/>
 <a href="https://github.com/jellyfin/jellyfin-expo/blob/master/LICENSE"><img alt="MPL-2.0 license" src="https://img.shields.io/github/license/jellyfin/jellyfin-expo"></a>
 <a href="https://github.com/jellyfin/jellyfin-expo/releases"><img alt="Current Release" src="https://img.shields.io/github/release/jellyfin/jellyfin-expo.svg"/></a>
+<a href="https://translate.jellyfin.org/projects/jellyfin/jellyfin-expo/?utm_source=widget">
+<img alt="Translation Status" src="https://translate.jellyfin.org/widgets/jellyfin/-/jellyfin-expo/svg-badge.svg"/>
+</a>
 <br/>
 <a href="https://opencollective.com/jellyfin"><img alt="Donate" src="https://img.shields.io/opencollective/all/jellyfin.svg?label=backers"/></a>
 <a href="https://features.jellyfin.org"><img alt="Feature Requests" src="https://img.shields.io/badge/fider-vote%20on%20features-success.svg"/></a>
@@ -19,6 +22,14 @@
 </p>
 
 Jellyfin Mobile is a mobile app built with [Expo](https://expo.io/) primarily targeting iOS devices. We welcome all contributions and pull requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. We use [GitHub Projects](https://github.com/jellyfin/jellyfin-expo/projects) as a general roadmap for releases.
+
+## Translations
+
+Translations can be improved very easily from our [Weblate](https://translate.jellyfin.org/projects/jellyfin/jellyfin-expo/) instance. Look through the following graphic to see if your native language could use some work!
+
+<a href="https://translate.jellyfin.org/engage/jellyfin/?utm_source=widget">
+<img alt="Detailed Translation Status" src="https://translate.jellyfin.org/widgets/jellyfin/-/jellyfin-expo/multi-auto.svg"/>
+</a>
 
 ## Build Process
 
