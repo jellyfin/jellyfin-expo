@@ -1,2 +1,19 @@
 {
+    "addServer": {
+        "validation": {
+            "empty": "L'adresse du serveur ne peut pas être vide"
+        },
+        "address": "Adresse du serveur"
+    },
+    "headings": {
+        "settings": "Paramètres",
+        "servers": "Serveurs",
+        "links": "Liens",
+        "home": "Accueil",
+        "addServer": "Ajouter un serveur"
+    },
+    "common": {
+        "unknown": "Inconnu",
+        "cancel": "Annuler"
+    }
 }
