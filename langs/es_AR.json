@@ -1,19 +1,19 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Cancelar",
+        "unknown": "Desconocido"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Añadir servidor",
+        "home": "Inicio",
+        "links": "Enlaces",
+        "servers": "Servidores",
+        "settings": "Configuraciones"
     },
     "addServer": {
-        "address": "",
+        "address": "DIrección del servidor",
         "validation": {
-            "empty": "",
+            "empty": "$t(addServer.address) no puede estar vacío",
             "invalid": "",
             "invalidProduct": "",
             "noConnection": ""
