@@ -5,9 +5,9 @@
     },
     "headings": {
         "addServer": "اضافة سيرفر",
-        "home": "الصفحة الأساسية",
+        "home": "الصفحة الرئيسية",
         "links": "رابط",
-        "servers": "سيرفر",
+        "servers": "سيرفرات",
         "settings": "الإعدادات"
     },
     "addServer": {
@@ -20,32 +20,32 @@
         }
     },
     "home": {
-        "offline": "لم نتمكن من الوصول الى سيرفر الجيلي فن",
-        "retry": "الرجاء المحاولة من جديد"
+        "offline": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
+        "retry": "المحاولة من جديد؟"
     },
     "settings": {
-        "version": "النموذج (فيرجن)",
+        "version": "الإصدار: {{version}}",
         "keepAwake": "ابقاء الشاشة شغالة",
         "rotationLock": "قفل دوران الشاشة",
-        "expoVersion": "معرض النموذج"
+        "expoVersion": "إصدار المعرض: {{version}}"
     },
     "links": {
-        "website": "ويبسايت الجيلي فن",
+        "website": "موقع Jellyfin",
         "documentation": "توثيق",
-        "source": "مصدر الرمز (كود)",
+        "source": "مصدر الرمز (Source Code)",
         "feature": "طلب خاصية",
         "issue": "التبليغ عن مشكلة"
     },
     "alerts": {
         "deleteServer": {
-            "title": "الغاء السيرفر",
-            "description": "هل انت متأكد انك تريد إلغاء السيرفر؟",
-            "confirm": "محو"
+            "title": "حذف السيرفر",
+            "description": "هل انت متأكد انك تريد حذف السيرفر؟",
+            "confirm": "حذف"
         },
         "resetApplication": {
-            "title": "إمحاء الذاكرة",
-            "description": "هل انت متأكد انك تريد امحاء الذاكرة؟",
-            "confirm": "إمحاء الذاكرة"
+            "title": "إعادة تعيين إعدادات التطبيق",
+            "description": "هل انت متأكد انك تريد إعادة تعيين إعدادات التطبيق ؟",
+            "confirm": "إعادة تعيين إعدادات التطبيق"
         }
     }
 }
