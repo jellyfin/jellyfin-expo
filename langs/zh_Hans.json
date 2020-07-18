@@ -1,51 +1,51 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "取消",
+        "unknown": "未知"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "添加服务器",
+        "home": "首页",
+        "links": "链接",
+        "servers": "服务器",
+        "settings": "设置"
     },
     "addServer": {
-        "address": "",
+        "address": "服务器地址",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) 不能为空",
+            "invalid": "$t(addServer.address) 无效",
+            "invalidProduct": "不是Jellyfin服务器",
+            "noConnection": "无法连接到服务器"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "联系Jellyfin服务器时出错。",
+        "retry": "是否重试？"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
+        "version": "版本号：{{version}}",
+        "keepAwake": "保持屏幕常亮",
         "rotationLock": "",
         "expoVersion": ""
     },
     "links": {
-        "website": "",
+        "website": "Jellyfin网站",
         "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "source": "源代码",
+        "feature": "功能请求",
+        "issue": "报告问题"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "删除服务器",
+            "description": "您确定要删除此服务器吗？",
+            "confirm": "删除"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "重置本应用",
+            "description": "您确定要重置所有设置吗？",
+            "confirm": "重置"
         }
     }
 }
