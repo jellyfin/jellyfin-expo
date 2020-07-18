@@ -1,10 +1,10 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "الغاء",
+        "unknown": "مجهول"
     },
     "headings": {
-        "addServer": "",
+        "addServer": "اضافة سيرفر",
         "home": "",
         "links": "",
         "servers": "",
