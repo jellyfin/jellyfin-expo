@@ -1,51 +1,51 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Avbryt",
+        "unknown": "Okänd"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Lägg till server",
+        "home": "Hem",
+        "links": "Länkar",
+        "servers": "Servrar",
+        "settings": "Inställningar"
     },
     "addServer": {
-        "address": "",
+        "address": "Server adress",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) kan inte vara tom",
+            "invalid": "$t(addServer.address) är ogilltig",
+            "invalidProduct": "Det är ingen Jellyfin server",
+            "noConnection": "Kunde inte ansluta till servern"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Problem med att koppla upp sig mot Jellyfin servern",
+        "retry": "Testa igen?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Version: {{version}}",
+        "keepAwake": "Håll skärmen vaken",
+        "rotationLock": "Rotationslås",
+        "expoVersion": "Expo Version: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin Hemsida",
+        "documentation": "Dokumentation",
+        "source": "Källkod",
+        "feature": "Begär en funktion",
+        "issue": "Rapportera ett problem"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ta bort server",
+            "description": "Är du säker på att du vill ta bort denna servern?",
+            "confirm": "Ta bort"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Återställ applikationen",
+            "description": "Är du säker på att du vill återställa alla inställningar",
+            "confirm": "Återställ"
         }
     }
 }
