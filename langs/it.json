@@ -27,7 +27,7 @@
         "version": "Versione: {{version}}",
         "keepAwake": "Mantenere lo Schermo Sveglio",
         "rotationLock": "Blocco Della Rotazione",
-        "expoVersion": ""
+        "expoVersion": "Expo Versione:{{version}}"
     },
     "links": {
         "website": "Sito Web Jellyfin",
