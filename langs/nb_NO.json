@@ -1,51 +1,51 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Avbryt",
+        "unknown": "Ukjent"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Legg til server",
+        "home": "Hjem",
+        "links": "Lenker",
+        "servers": "Servere",
+        "settings": "Innstillinger"
     },
     "addServer": {
-        "address": "",
+        "address": "Serveradresse",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "kan ikke være tom",
+            "invalid": "$t(addServer.address) er ugyldig",
+            "invalidProduct": "Ikke en Jellyfin-server",
+            "noConnection": "Kunne ikke koble til serveren"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Problem med å kontakte Jellyfin-serveren.",
+        "retry": "Prøve igjen?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Versjon: {{version}}",
+        "keepAwake": "Hold skjermen våken",
+        "rotationLock": "Rotasjonslås",
+        "expoVersion": "Expo-versjon: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "Nettside",
+        "documentation": "Dokumentasjon",
+        "source": "Kildekode",
+        "feature": "Forespør en funksjon",
+        "issue": "Rapportér en feil"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Slett server",
+            "description": "Er du sikker på at du vil slette denne serveren?",
+            "confirm": "Slett"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Tilbakestill applikasjonen",
+            "description": "Er du sikker på at du vil tilbakestille alle innstillinger?",
+            "confirm": "Tilbakestill"
         }
     }
 }
