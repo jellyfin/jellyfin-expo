@@ -32,20 +32,20 @@
     "links": {
         "website": "Sito Web Jellyfin",
         "documentation": "Documentazione",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "source": "Codice Sorgente",
+        "feature": "Richiedere una Funzionalità",
+        "issue": "Segnala un Problema"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Elimina Server",
+            "description": "Sei sicuro di voler eliminare questo server?",
+            "confirm": "Elimina"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ripristinare l'Applicazione",
+            "description": "Sei sicuro di voler ripristinare tutte le impostazioni?",
+            "confirm": "Ripristina"
         }
     }
 }
