@@ -5,47 +5,47 @@
     },
     "headings": {
         "addServer": "اضافة سيرفر",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "home": "الصفحة الأساسية",
+        "links": "رابط",
+        "servers": "سيرفر",
+        "settings": "الإعدادات"
     },
     "addServer": {
-        "address": "",
+        "address": "رابط السيرفر",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "لا يمكن ان تكون هذه الخانة فارغة $t(addServer.address)",
+            "invalid": "يوجد خطأ في هذه الخانة $t(addServer.address)",
+            "invalidProduct": "ليست سيرفر جيلي فن",
+            "noConnection": "لم نتمكن من الوصول الى السيرفر"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "لم نتمكن من الوصول الى سيرفر الجيلي فن",
+        "retry": "الرجاء المحاولة من جديد"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "النموذج (فيرجن)",
+        "keepAwake": "ابقاء الشاشة شغالة",
+        "rotationLock": "قفل دوران الشاشة",
+        "expoVersion": "معرض النموذج"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "ويبسايت الجيلي فن",
+        "documentation": "توثيق",
+        "source": "مصدر الرمز (كود)",
+        "feature": "طلب خاصية",
+        "issue": "التبليغ عن مشكلة"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "الغاء السيرفر",
+            "description": "هل انت متأكد انك تريد إلغاء السيرفر؟",
+            "confirm": "محو"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "إمحاء الذاكرة",
+            "description": "هل انت متأكد انك تريد امحاء الذاكرة؟",
+            "confirm": "إمحاء الذاكرة"
         }
     }
 }
