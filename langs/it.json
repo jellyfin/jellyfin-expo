@@ -1,37 +1,37 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Cancellare",
+        "unknown": "Sconosciuto"
     },
     "headings": {
-        "addServer": "",
+        "addServer": "Aggiungi server",
         "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "links": "Collegamenti",
+        "servers": "Server",
+        "settings": "Impostazioni"
     },
     "addServer": {
-        "address": "",
+        "address": "Indirizzo Del Server",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(aggiungereServer.indirizzo) non può essere vuoto",
+            "invalid": "$t(aggiungereServer.indirizzo) è non valido",
+            "invalidProduct": "Non un server Jellyfin",
+            "noConnection": "Non è possibile connettersi al server"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Errore durante il contatto con il server Jellyfin.",
+        "retry": "Riprova?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
+        "version": "Versione: {{version}}",
+        "keepAwake": "Mantenere lo Schermo Sveglio",
+        "rotationLock": "Blocco Della Rotazione",
         "expoVersion": ""
     },
     "links": {
-        "website": "",
-        "documentation": "",
+        "website": "Sito Web Jellyfin",
+        "documentation": "Documentazione",
         "source": "",
         "feature": "",
         "issue": ""
