@@ -1,51 +1,51 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Prekliči",
+        "unknown": "Neznano"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Dodaj strežnik",
+        "home": "Domov",
+        "links": "Povezave",
+        "servers": "Strežniki",
+        "settings": "Nastavitve"
     },
     "addServer": {
-        "address": "",
+        "address": "Naslov strežnika",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) ne sme biti prazen",
+            "invalid": "$t(addServer.address) je neveljaven",
+            "invalidProduct": "Ni Jellyfin strežnik",
+            "noConnection": "Povezava s strežnikom ni uspela"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Napaka pri povezovanju z Jellyfin strežnikom.",
+        "retry": "Poskusi znova?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Različica: {{version}}",
+        "keepAwake": "Ohrani zaslon vklopljen",
+        "rotationLock": "Zakleni obračanje",
+        "expoVersion": "Različica Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin spletna stran",
+        "documentation": "Dokumentacija",
+        "source": "Izvorna koda",
+        "feature": "Predlagaj izboljšavo",
+        "issue": "Prijavi napako"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Izbriši strežnik",
+            "description": "Ali ste prepričani, da želite izbrisati ta strežnik?",
+            "confirm": "Izbriši"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ponastavi aplikacijo",
+            "description": "Ali ste prepričani, da želite ponastaviti vse nastavitve?",
+            "confirm": "Ponastavi"
         }
     }
 }
