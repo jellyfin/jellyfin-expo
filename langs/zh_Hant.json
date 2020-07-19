@@ -1,0 +1,51 @@
+{
+    "common": {
+        "cancel": "",
+        "unknown": ""
+    },
+    "headings": {
+        "addServer": "",
+        "home": "",
+        "links": "",
+        "servers": "",
+        "settings": ""
+    },
+    "addServer": {
+        "address": "",
+        "validation": {
+            "empty": "",
+            "invalid": "",
+            "invalidProduct": "",
+            "noConnection": ""
+        }
+    },
+    "home": {
+        "offline": "",
+        "retry": ""
+    },
+    "settings": {
+        "version": "",
+        "keepAwake": "",
+        "rotationLock": "",
+        "expoVersion": ""
+    },
+    "links": {
+        "website": "",
+        "documentation": "",
+        "source": "",
+        "feature": "",
+        "issue": ""
+    },
+    "alerts": {
+        "deleteServer": {
+            "title": "",
+            "description": "",
+            "confirm": ""
+        },
+        "resetApplication": {
+            "title": "",
+            "description": "",
+            "confirm": ""
+        }
+    }
+}
