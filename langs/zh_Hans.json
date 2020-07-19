@@ -20,13 +20,13 @@
         }
     },
     "home": {
-        "offline": "联系Jellyfin服务器时出错。",
+        "offline": "连接Jellyfin服务器时出错。",
         "retry": "是否重试？"
     },
     "settings": {
         "version": "版本号：{{version}}",
         "keepAwake": "保持屏幕常亮",
-        "rotationLock": "",
+        "rotationLock": "旋转锁定",
         "expoVersion": ""
     },
     "links": {
