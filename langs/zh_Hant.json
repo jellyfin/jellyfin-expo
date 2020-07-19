@@ -1,51 +1,51 @@
 {
     "common": {
-        "cancel": "",
+        "cancel": "取消",
         "unknown": ""
     },
     "headings": {
-        "addServer": "",
-        "home": "",
+        "addServer": "添加伺服器",
+        "home": "首頁",
         "links": "",
-        "servers": "",
-        "settings": ""
+        "servers": "伺服器",
+        "settings": "設定"
     },
     "addServer": {
-        "address": "",
+        "address": "伺服器地址",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) 不能為空",
+            "invalid": "$t(addServer.address) 鍵入無效",
+            "invalidProduct": "不是一個Jellyfin伺服器",
+            "noConnection": "連結至伺服器"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "與伺服器聯絡時出錯。",
+        "retry": "再試一次？"
     },
     "settings": {
-        "version": "",
+        "version": "版本：{0}",
         "keepAwake": "",
         "rotationLock": "",
         "expoVersion": ""
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
+        "website": "Jellyfin網站",
+        "documentation": "參考文檔",
+        "source": "源代碼",
         "feature": "",
         "issue": ""
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "刪除伺服器",
+            "description": "您確認要刪除此伺服器嗎？",
+            "confirm": "刪除"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "重設應用程式",
+            "description": "您確認要重設全部設定嗎？",
+            "confirm": "重設"
         }
     }
 }
