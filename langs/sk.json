@@ -1,51 +1,51 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Zrušiť",
+        "unknown": "Neznáme"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Pridať server",
+        "home": "Domov",
+        "links": "Odkazy",
+        "servers": "Servery",
+        "settings": "Nastavenia"
     },
     "addServer": {
-        "address": "",
+        "address": "Adresa serveru",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) nemôže byť prázdna",
+            "invalid": "$t(addServer.address) je neplatná",
+            "invalidProduct": "Nie je Jellyfin server",
+            "noConnection": "Pripojenie k serveru zlyhalo"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Chyba pri pripájaní k Jellyfin serveru.",
+        "retry": "Skúsiť znova?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Verzia: {{version}}",
+        "keepAwake": "Udržiavať zapnutú obrazovku",
+        "rotationLock": "Uzamknúť otáčanie obrazovky",
+        "expoVersion": "Expo verzia: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin webstránka",
+        "documentation": "Dokumentácia",
+        "source": "Zdrojový kód",
+        "feature": "Vyžiadať funkciu",
+        "issue": "Nahlásiť problém"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Odstrániť server",
+            "description": "Ste si naozaj istí, že chcete odstrániť tento server?",
+            "confirm": "Odstrániť"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Resetovať aplikáciu",
+            "description": "Ste si istí, že chcete resetovať všetky nastavenia?",
+            "confirm": "Resetovať"
         }
     }
 }
