@@ -44,7 +44,7 @@
         },
         "resetApplication": {
             "title": "Återställ applikationen",
-            "description": "Är du säker på att du vill återställa alla inställningar",
+            "description": "Är du säker på att du vill återställa alla inställningar?",
             "confirm": "Återställ"
         }
     }
