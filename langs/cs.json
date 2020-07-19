@@ -11,12 +11,12 @@
         "settings": "Nastavení"
     },
     "addServer": {
-        "address": "Adresa Serveru",
+        "address": "Adresa serveru",
         "validation": {
             "empty": "$t(addServer.address) nesmí být prázdná",
             "invalid": "$t(addServer.address) není platná",
             "invalidProduct": "Nejedná se o Jellyfin server",
-            "noConnection": "Připojení k serveru se nezdařilo"
+            "noConnection": "Nelze se připojit k serveru"
         }
     },
     "home": {
@@ -27,25 +27,25 @@
         "version": "Verze: {{version}}",
         "keepAwake": "Ponechat zapnutou obrazovku",
         "rotationLock": "Zámek otočení",
-        "expoVersion": ""
+        "expoVersion": "Expo verze: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin Web",
+        "documentation": "Dokumentace",
+        "source": "Zdrojový kód",
+        "feature": "Zažádat o novou funkci",
+        "issue": "Nahlásit problém"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Odstranit server",
+            "description": "Opravdu chcete odstranit tento server?",
+            "confirm": "Odstranit"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Resetovat aplikaci",
+            "description": "Opravdu chcete resetovat všechna nastavení?",
+            "confirm": "Resetovat"
         }
     }
 }
