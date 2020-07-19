@@ -1,32 +1,32 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Zrušit",
+        "unknown": "Neznámý"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Přidat server",
+        "home": "Domů",
+        "links": "Odkazy",
+        "servers": "Servery",
+        "settings": "Nastavení"
     },
     "addServer": {
-        "address": "",
+        "address": "Adresa Serveru",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) nesmí být prázdná",
+            "invalid": "$t(addServer.address) není platná",
+            "invalidProduct": "Nejedná se o Jellyfin server",
+            "noConnection": "Připojení k serveru se nezdařilo"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Chyba při kontaktování Jellyfin serveru.",
+        "retry": "Zkusit znovu?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
+        "version": "Verze: {{version}}",
+        "keepAwake": "Ponechat zapnutou obrazovku",
+        "rotationLock": "Zámek otočení",
         "expoVersion": ""
     },
     "links": {
