@@ -34,7 +34,8 @@
         "documentation": "Dokumentation",
         "source": "Quellcode",
         "feature": "Neue Funktion vorschlagen",
-        "issue": "Fehler melden"
+        "issue": "Fehler melden",
+        "translate": "Übersetzen"
     },
     "alerts": {
         "deleteServer": {
