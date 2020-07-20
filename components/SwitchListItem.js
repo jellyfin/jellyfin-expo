@@ -8,22 +8,20 @@ import { Switch } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-const SwitchListItem = ({item, index}) => {
-  return (
-    <ListItem
-      title={item.title}
-      subtitle={item.subtitle}
-      rightElement={
-        <Switch
-          value={item.value}
-          onValueChange={item.onValueChange}
-        />
-      }
-      topDivider={index === 0}
-      bottomDivider
-    />
-  );
-};
+const SwitchListItem = ({item, index}) => (
+  <ListItem
+    title={item.title}
+    subtitle={item.subtitle}
+    rightElement={
+      <Switch
+        value={item.value}
+        onValueChange={item.onValueChange}
+      />
+    }
+    topDivider={index === 0}
+    bottomDivider
+  />
+);
 
 SwitchListItem.propTypes = {
   item: PropTypes.object.isRequired,
