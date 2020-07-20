@@ -34,7 +34,8 @@
         "documentation": "Dokumentácia",
         "source": "Zdrojový kód",
         "feature": "Vyžiadať funkciu",
-        "issue": "Nahlásiť problém"
+        "issue": "Nahlásiť problém",
+        "translate": "Preložiť"
     },
     "alerts": {
         "deleteServer": {
