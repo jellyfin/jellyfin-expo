@@ -52,6 +52,9 @@ export default class JellyfinValidator {
 
     const responseJson = await request.then(response => {
       clearTimeout(timeoutId);
+      if (!response.ok) {
+        throw new Error(`Error response status [${response.status}] received from ${infoUrl}`);
+      }
       return response.json();
     });
     console.log('response', responseJson);

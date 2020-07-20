@@ -41,7 +41,10 @@ export default class ServerModel {
       .then(action(info => {
         this.online = true;
         this.info = info;
-      }));
+      }))
+      .catch((err) => {
+        console.warn(err);
+      });
   })
 }
 
