@@ -15,22 +15,22 @@
         "validation": {
             "empty": "$t(addServer.address) nesmí být prázdná",
             "invalid": "$t(addServer.address) není platná",
-            "invalidProduct": "Nejedná se o Jellyfin server",
+            "invalidProduct": "Nejedná se o server Jellyfin",
             "noConnection": "Nelze se připojit k serveru"
         }
     },
     "home": {
-        "offline": "Chyba při kontaktování Jellyfin serveru.",
+        "offline": "Chyba při kontaktování serveru Jellyfin.",
         "retry": "Zkusit znovu?"
     },
     "settings": {
         "version": "Verze: {{version}}",
         "keepAwake": "Ponechat zapnutou obrazovku",
         "rotationLock": "Zámek otočení",
-        "expoVersion": "Expo verze: {{version}}"
+        "expoVersion": "Verze toolkitu Expo: {{version}}"
     },
     "links": {
-        "website": "Jellyfin Web",
+        "website": "Web projektu Jellyfin",
         "documentation": "Dokumentace",
         "source": "Zdrojový kód",
         "feature": "Zažádat o novou funkci",
