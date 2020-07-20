@@ -35,9 +35,11 @@ const SettingsScreen = observer(() => {
   };
 
   const onDeleteServer = index => {
+    const serverName = rootStore.serverStore.servers[index]?.info?.ServerName || rootStore.serverStore.servers[index]?.url.host;
+
     Alert.alert(
       t('alerts.deleteServer.title'),
-      t('alerts.deleteServer.description'),
+      t('alerts.deleteServer.description', { serverName }),
       [
         { text: t('common.cancel') },
         {

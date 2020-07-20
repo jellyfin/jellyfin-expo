@@ -40,7 +40,7 @@
   "alerts": {
     "deleteServer": {
       "title": "Delete Server",
-      "description": "Are you sure you want to delete this server?",
+      "description": "Are you sure you want to delete the server {{serverName}}?",
       "confirm": "Delete"
     },
     "resetApplication": {
