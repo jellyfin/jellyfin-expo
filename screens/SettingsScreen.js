@@ -146,8 +146,8 @@ const SettingsScreen = observer(() => {
         data: [{
           key: 'reset-app-button',
           title: t('alerts.resetApplication.title'),
-          buttonStyle: {
-            backgroundColor: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
+          titleStyle: {
+            color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
           },
           onPress: onResetApplication
         }],
@@ -165,7 +165,9 @@ const SettingsScreen = observer(() => {
           isFetching: rootStore.serverStore.fetchInfo.pending
         }}
         renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
-        renderSectionHeader={({ section: { title, hideHeader } }) => hideHeader ? null : <Text style={styles.header}>{title}</Text>}
+        renderSectionHeader={({ section: { title, hideHeader } }) => (
+          hideHeader ? <View style={styles.emptyHeader} /> : <Text style={styles.header}>{title}</Text>
+        )}
         renderSectionFooter={() => <View style={styles.footer} />}
         ListFooterComponent={AppInfoFooter}
         showsVerticalScrollIndicator={false}
@@ -187,6 +189,9 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 15,
     marginBottom: 1
+  },
+  emptyHeader: {
+    marginTop: 15
   },
   footer: {
     marginBottom: 15
