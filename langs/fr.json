@@ -36,7 +36,8 @@
         "feature": "Demander une fonctionnalité",
         "source": "Code Source",
         "documentation": "Documentation",
-        "website": "Site Internet de Jellyfin"
+        "website": "Site Internet de Jellyfin",
+        "translate": "Traduire"
     },
     "settings": {
         "expoVersion": "Expo Version : {{version}}",
