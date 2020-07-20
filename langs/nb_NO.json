@@ -34,7 +34,8 @@
         "documentation": "Dokumentasjon",
         "source": "Kildekode",
         "feature": "Forespør en funksjon",
-        "issue": "Rapportér en feil"
+        "issue": "Rapportér en feil",
+        "translate": "Oversett"
     },
     "alerts": {
         "deleteServer": {
