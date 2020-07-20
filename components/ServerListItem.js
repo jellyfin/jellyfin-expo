@@ -14,16 +14,9 @@ import { getIconName } from '../utils/Icons';
 const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
   const { t } = useTranslation();
 
-  let title;
-  let subtitle;
-  if (item.info) {
-    title = item.info.ServerName;
-    subtitle = t('settings.version', { version: item.info.Version });
-  } else {
-    title = item.url.host;
-    subtitle = t('settings.version', { version: t('common.unknown') });
-  }
-  subtitle += `\n${item.urlString}`;
+  const title = item?.name;
+  const version = item?.info?.Version || t('common.unknown');
+  const subtitle = `${t('settings.version', { version })}\n${item.urlString}`;
 
   return (
     <ListItem

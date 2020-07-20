@@ -28,6 +28,10 @@ export default class ServerModel {
     });
   }
 
+  get name() {
+    return this.info?.ServerName || this.url?.host;
+  }
+
   get parseUrlString() {
     try {
       return JellyfinValidator.getServerUrl(this);
@@ -56,5 +60,6 @@ decorate(ServerModel, {
     observable
   ],
   info: observable,
+  name: computed,
   parseUrlString: computed
 });
