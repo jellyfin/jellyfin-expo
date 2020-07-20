@@ -34,6 +34,15 @@ export default [
     }
   },
   {
+    key: 'links-translate',
+    name: 'links.translate',
+    url: 'https://translate.jellyfin.org/projects/jellyfin/jellyfin-expo/',
+    icon: {
+      name: 'translate',
+      type: 'material'
+    }
+  },
+  {
     key: 'links-feature',
     name: 'links.feature',
     url: 'https://features.jellyfin.org/',
