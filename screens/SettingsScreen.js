@@ -37,7 +37,7 @@ const SettingsScreen = observer(() => {
   const onDeleteServer = index => {
     Alert.alert(
       t('alerts.deleteServer.title'),
-      t('alerts.deleteServer.description'),
+      t('alerts.deleteServer.description', { serverName: rootStore.serverStore.servers[index]?.name }),
       [
         { text: t('common.cancel') },
         {
