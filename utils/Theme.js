@@ -39,7 +39,7 @@ export default {
   },
   ListItem: {
     containerStyle: {
-      backgroundColor: Colors.backgroundColor
+      backgroundColor: Colors.headerBackgroundColor
     },
     subtitleStyle: {
       color: colors.grey4,
