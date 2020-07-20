@@ -46,6 +46,7 @@
         "source": "Código Fuente",
         "documentation": "Documentación",
         "website": "Sitio web de Jellyfin",
-        "feature": "Sugerir nuevas características"
+        "feature": "Sugerir nuevas características",
+        "translate": "Traducir"
     }
 }
