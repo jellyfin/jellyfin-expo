@@ -40,7 +40,7 @@
     "alerts": {
         "deleteServer": {
             "title": "Odstrániť server",
-            "description": "Ste si naozaj istí, že chcete odstrániť tento server?",
+            "description": "Ste si naozaj istí, že chcete odstrániť server {{serverName}}?",
             "confirm": "Odstrániť"
         },
         "resetApplication": {
