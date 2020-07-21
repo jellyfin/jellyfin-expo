@@ -27,7 +27,7 @@
         },
         "deleteServer": {
             "confirm": "Supprimer",
-            "description": "Voulez-vous vraiment supprimer ce serveur ?",
+            "description": "Voulez-vous vraiment supprimer le serveur {{serverName}} ?",
             "title": "Supprimer le serveur"
         }
     },
