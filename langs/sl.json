@@ -34,12 +34,13 @@
         "documentation": "Dokumentacija",
         "source": "Izvorna koda",
         "feature": "Predlagaj izboljšavo",
-        "issue": "Prijavi napako"
+        "issue": "Prijavi napako",
+        "translate": "Prevedi"
     },
     "alerts": {
         "deleteServer": {
             "title": "Izbriši strežnik",
-            "description": "Ali ste prepričani, da želite izbrisati ta strežnik?",
+            "description": "Ali ste prepričani, da želite izbrisati strežnik {{serverName}}?",
             "confirm": "Izbriši"
         },
         "resetApplication": {
