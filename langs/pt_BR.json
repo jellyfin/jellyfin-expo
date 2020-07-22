@@ -1,17 +1,17 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Cancelar",
+        "unknown": "Desconhecido"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Adicionar servidor",
+        "home": "Inicio",
+        "links": "Links",
+        "servers": "Servidores",
+        "settings": "Configurações"
     },
     "addServer": {
-        "address": "",
+        "address": "Endereço do servidor",
         "validation": {
             "empty": "",
             "invalid": "",
