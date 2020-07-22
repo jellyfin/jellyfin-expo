@@ -13,40 +13,40 @@
     "addServer": {
         "address": "Endereço do servidor",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) não pode estar vazio",
+            "invalid": "$t(addServer.address) é inválido",
+            "invalidProduct": "Não é um servidor Jellyfin",
+            "noConnection": "Não foi possível se conectar ao servidor"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Erro ao entrar em contato com o servidor Jellyfin.",
+        "retry": "Tentar novamente?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Versão: {{version}}",
+        "keepAwake": "Manter a tela ligada",
+        "rotationLock": "Bloqueio de rotação",
+        "expoVersion": "Versão do Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Site do Jellyfin",
+        "documentation": "Documentação",
+        "source": "Código fonte",
+        "translate": "Traduzir",
+        "feature": "Solicitar uma função",
+        "issue": "Reportar um problema"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Deletar servidor",
+            "description": "Tem certeza que deseja deletar o servidor {{serverName}}?",
+            "confirm": "Deletar"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Resetar aplicativo",
+            "description": "Tem certeza que deseja resetar todas as configurações?",
+            "confirm": "Resetar"
         }
     }
 }
