@@ -8,7 +8,7 @@ import { createContext, useContext } from 'react';
 import RootStore from '../stores/RootStore';
 
 export const storesContext = createContext({
-  rootStore: new RootStore()
+	rootStore: new RootStore()
 });
 
 export const useStores = () => useContext(storesContext);

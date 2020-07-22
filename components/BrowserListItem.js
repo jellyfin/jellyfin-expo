@@ -10,25 +10,25 @@ import PropTypes from 'prop-types';
 import { openBrowser } from '../utils/WebBrowser';
 
 const BrowserListItem = ({item, index}) => (
-  <ListItem
-    title={item.name}
-    leftIcon={item.icon}
-    topDivider={index === 0}
-    bottomDivider
-    chevron
-    onPress={() => {
-      openBrowser(item.url);
-    }}
-  />
+	<ListItem
+		title={item.name}
+		leftIcon={item.icon}
+		topDivider={index === 0}
+		bottomDivider
+		chevron
+		onPress={() => {
+			openBrowser(item.url);
+		}}
+	/>
 );
 
 BrowserListItem.propTypes = {
-  item: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired
-  }).isRequired,
-  index: PropTypes.number.isRequired
+	item: PropTypes.shape({
+		name: PropTypes.string.isRequired,
+		icon: PropTypes.string.isRequired,
+		url: PropTypes.string.isRequired
+	}).isRequired,
+	index: PropTypes.number.isRequired
 };
 
 export default BrowserListItem;

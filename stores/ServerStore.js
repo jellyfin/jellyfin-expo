@@ -10,33 +10,33 @@ import { task } from 'mobx-task';
 import ServerModel from '../models/ServerModel';
 
 export default class ServerStore {
-  servers = []
+	servers = []
 
-  addServer(server) {
-    this.servers.push(new ServerModel(this.servers.length, server.url));
-  }
+	addServer(server) {
+		this.servers.push(new ServerModel(this.servers.length, server.url));
+	}
 
-  removeServer(index) {
-    this.servers.splice(index, 1);
-  }
+	removeServer(index) {
+		this.servers.splice(index, 1);
+	}
 
-  reset() {
-    this.servers = [];
-  }
+	reset() {
+		this.servers = [];
+	}
 
-  fetchInfo = task(async () => {
-    await Promise.all(
-      this.servers.map(server => server.fetchInfo())
-    );
-  })
+	fetchInfo = task(async () => {
+		await Promise.all(
+			this.servers.map(server => server.fetchInfo())
+		);
+	})
 }
 
 decorate(ServerStore, {
-  servers: [
-    format(data => data.map(value => new ServerModel(value.id, value.url, value.info))),
-    observable
-  ],
-  addServer: action,
-  removeServer: action,
-  reset: action
+	servers: [
+		format(data => data.map(value => new ServerModel(value.id, value.url, value.info))),
+		observable
+	],
+	addServer: action,
+	removeServer: action,
+	reset: action
 });

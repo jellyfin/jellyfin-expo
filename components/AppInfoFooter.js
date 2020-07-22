@@ -12,25 +12,25 @@ import { useTranslation } from 'react-i18next';
 import { getAppName } from '../utils/Device';
 
 const AppInfoFooter = () => {
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{`${getAppName()}`}</Text>
-      <Text style={styles.text}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
-      <Text style={styles.text}>{t('settings.expoVersion', { version: Constants.expoVersion })}</Text>
-    </View>
-  );
+	return (
+		<View style={styles.container}>
+			<Text style={styles.text}>{`${getAppName()}`}</Text>
+			<Text style={styles.text}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
+			<Text style={styles.text}>{t('settings.expoVersion', { version: Constants.expoVersion })}</Text>
+		</View>
+	);
 };
 
 const styles = StyleSheet.create({
-  container: {
-    margin: 15
-  },
-  text: {
-    color: colors.grey4,
-    fontSize: 15
-  }
+	container: {
+		margin: 15
+	},
+	text: {
+		color: colors.grey4,
+		fontSize: 15
+	}
 });
 
 export default AppInfoFooter;

@@ -9,31 +9,31 @@ import { action, decorate, observable } from 'mobx';
  * Data store for application settings
  */
 export default class SettingStore {
-  /**
-   * The id of the currently selected server
-   */
-  activeServer = 0
+	/**
+	 * The id of the currently selected server
+	 */
+	activeServer = 0
 
-  /**
-   * Is device rotation enabled
-   */
-  isRotationEnabled
+	/**
+	 * Is device rotation enabled
+	 */
+	isRotationEnabled
 
-  /**
-   * Is screen lock active when media is playing
-   */
-  isScreenLockEnabled = true
+	/**
+	 * Is screen lock active when media is playing
+	 */
+	isScreenLockEnabled = true
 
-  reset() {
-    this.activeServer = 0;
-    this.isRotationEnabled = null;
-    this.isScreenLockEnabled = true;
-  }
+	reset() {
+		this.activeServer = 0;
+		this.isRotationEnabled = null;
+		this.isScreenLockEnabled = true;
+	}
 }
 
 decorate(SettingStore, {
-  activeServer: observable,
-  isRotationEnabled: observable,
-  isScreenLockEnabled: observable,
-  reset: action
+	activeServer: observable,
+	isRotationEnabled: observable,
+	isScreenLockEnabled: observable,
+	reset: action
 });

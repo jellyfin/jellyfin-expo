@@ -6,21 +6,21 @@
 import { decorate } from 'mobx';
 import { ignore } from 'mobx-sync';
 
-import ServerStore from "./ServerStore";
-import SettingStore from "./SettingStore";
+import ServerStore from './ServerStore';
+import SettingStore from './SettingStore';
 
 export default class RootStore {
-  storeLoaded = false
+	storeLoaded = false
 
-  serverStore = new ServerStore()
-  settingStore = new SettingStore()
+	serverStore = new ServerStore()
+	settingStore = new SettingStore()
 
-  reset() {
-    this.serverStore.reset();
-    this.settingStore.reset();
-  }
+	reset() {
+		this.serverStore.reset();
+		this.settingStore.reset();
+	}
 }
 
 decorate(RootStore, {
-  storeLoaded: ignore
+	storeLoaded: ignore
 });

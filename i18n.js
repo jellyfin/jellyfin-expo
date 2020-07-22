@@ -19,31 +19,31 @@ import zh_Hans from './langs/zh_Hans.json';
 import zh_Hant from './langs/zh_Hant.json';
 
 const resources = {
-  en: { translation: en },
-  ar: { translation: ar },
-  cs: { translation: cs },
-  da: { translation: da },
-  de: { translation: de },
-  es: { translation: es },
-  'es-AR': { translation: es_AR },
-  fr: { translation: fr },
-  it: { translation: it },
-  'nb-NO': { translation: nb_NO },
-  sk: { translation: sk },
-  sl: { translation: sl },
-  sv: { translation: sv },
-  'zh-Hans': { translation: zh_Hans },
-  'zh-Hant': { translation: zh_Hant }
+	en: { translation: en },
+	ar: { translation: ar },
+	cs: { translation: cs },
+	da: { translation: da },
+	de: { translation: de },
+	es: { translation: es },
+	'es-AR': { translation: es_AR },
+	fr: { translation: fr },
+	it: { translation: it },
+	'nb-NO': { translation: nb_NO },
+	sk: { translation: sk },
+	sl: { translation: sl },
+	sv: { translation: sv },
+	'zh-Hans': { translation: zh_Hans },
+	'zh-Hant': { translation: zh_Hant }
 };
 
 i18next
-  .use(initReactI18next)
-  .init({
-    // debug: true,
-    fallbackLng: 'en',
-    lng: Localization.locale,
-    interpolation: {
-      escapeValue: false
-    },
-    resources
-  });
+	.use(initReactI18next)
+	.init({
+		// debug: true,
+		fallbackLng: 'en',
+		lng: Localization.locale,
+		interpolation: {
+			escapeValue: false
+		},
+		resources
+	});

@@ -9,30 +9,30 @@ import { Button, ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
 const ButtonListItem = ({item, index}) => (
-  <ListItem
-    title={
-      <Button
-        {...item}
-        type='clear'
-        buttonStyle={{ ...styles.button, ...item.buttonStyle }}
-        titleStyle={{ ...styles.title, ...item.titleStyle }}
-      />
-    }
-    topDivider={index === 0}
-    bottomDivider
-  />
+	<ListItem
+		title={
+			<Button
+				{...item}
+				type='clear'
+				buttonStyle={{ ...styles.button, ...item.buttonStyle }}
+				titleStyle={{ ...styles.title, ...item.titleStyle }}
+			/>
+		}
+		topDivider={index === 0}
+		bottomDivider
+	/>
 );
 
 ButtonListItem.propTypes = {
-  item: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired
+	item: PropTypes.object.isRequired,
+	index: PropTypes.number.isRequired
 };
 
 const styles = StyleSheet.create({
-  button: {
-    justifyContent: 'flex-start',
-    padding: 0
-  }
+	button: {
+		justifyContent: 'flex-start',
+		padding: 0
+	}
 });
 
 export default ButtonListItem;
