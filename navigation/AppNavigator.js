@@ -97,11 +97,11 @@ const AppNavigator = observer(() => {
 					component={Main}
 					options={({ route }) => {
 						const routeName = route.state ?
-						// Get the currently active route name in the tab navigator
+							// Get the currently active route name in the tab navigator
 							route.state.routes[route.state.index].name :
-              // If state doesn't exist, we need to default to `screen` param if available, or the initial screen
-              // In our case, it's "Main" as that's the first screen inside the navigator
-              route.params?.screen || 'Main';
+							// If state doesn't exist, we need to default to `screen` param if available, or the initial screen
+							// In our case, it's "Main" as that's the first screen inside the navigator
+							route.params?.screen || 'Main';
 						return ({
 							headerShown: routeName === 'Settings',
 							title: t(`headings.${routeName.toLowerCase()}`)
