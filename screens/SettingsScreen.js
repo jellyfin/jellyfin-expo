@@ -21,181 +21,181 @@ import Links from '../constants/Links';
 import { useStores } from '../hooks/useStores';
 
 const SettingsScreen = observer(() => {
-  const { rootStore } = useStores();
-  const navigation = useNavigation();
-  const { t } = useTranslation();
+	const { rootStore } = useStores();
+	const navigation = useNavigation();
+	const { t } = useTranslation();
 
-  useEffect(() => {
-    // Fetch server info
-    rootStore.serverStore.fetchInfo();
-  }, []);
+	useEffect(() => {
+		// Fetch server info
+		rootStore.serverStore.fetchInfo();
+	}, []);
 
-  const onAddServer = () => {
-    navigation.navigate('AddServer');
-  };
+	const onAddServer = () => {
+		navigation.navigate('AddServer');
+	};
 
-  const onDeleteServer = index => {
-    Alert.alert(
-      t('alerts.deleteServer.title'),
-      t('alerts.deleteServer.description', { serverName: rootStore.serverStore.servers[index]?.name }),
-      [
-        { text: t('common.cancel') },
-        {
-          text: t('alerts.deleteServer.confirm'),
-          onPress: () => {
-            // Remove server and update active server
-            rootStore.serverStore.removeServer(index);
-            rootStore.settingStore.activeServer = 0;
+	const onDeleteServer = index => {
+		Alert.alert(
+			t('alerts.deleteServer.title'),
+			t('alerts.deleteServer.description', { serverName: rootStore.serverStore.servers[index]?.name }),
+			[
+				{ text: t('common.cancel') },
+				{
+					text: t('alerts.deleteServer.confirm'),
+					onPress: () => {
+						// Remove server and update active server
+						rootStore.serverStore.removeServer(index);
+						rootStore.settingStore.activeServer = 0;
 
-            if (rootStore.serverStore.servers.length > 0) {
-              // More servers exist, navigate home
-              navigation.navigate('Home');
-            } else {
-              // No servers are present, navigate to add server screen
-              navigation.replace('AddServer');
-            }
-          },
-          style: 'destructive'
-        }
-      ]
-    );
-  };
+						if (rootStore.serverStore.servers.length > 0) {
+							// More servers exist, navigate home
+							navigation.navigate('Home');
+						} else {
+							// No servers are present, navigate to add server screen
+							navigation.replace('AddServer');
+						}
+					},
+					style: 'destructive'
+				}
+			]
+		);
+	};
 
-  const onSelectServer = index => {
-    rootStore.settingStore.activeServer = index;
-    navigation.navigate('Home');
-  };
+	const onSelectServer = index => {
+		rootStore.settingStore.activeServer = index;
+		navigation.navigate('Home');
+	};
 
-  const onResetApplication = () => {
-    Alert.alert(
-      t('alerts.resetApplication.title'),
-      t('alerts.resetApplication.description'),
-      [
-        { text: t('common.cancel') },
-        {
-          text: t('alerts.resetApplication.confirm'),
-          onPress: () => {
-            // Reset data in stores
-            rootStore.reset();
-            AsyncStorage.clear();
-            // Navigate to the loading screen
-            navigation.replace('AddServer');
-          },
-          style: 'destructive'
-        }
-      ]
-    );
-  };
+	const onResetApplication = () => {
+		Alert.alert(
+			t('alerts.resetApplication.title'),
+			t('alerts.resetApplication.description'),
+			[
+				{ text: t('common.cancel') },
+				{
+					text: t('alerts.resetApplication.confirm'),
+					onPress: () => {
+						// Reset data in stores
+						rootStore.reset();
+						AsyncStorage.clear();
+						// Navigate to the loading screen
+						navigation.replace('AddServer');
+					},
+					style: 'destructive'
+				}
+			]
+		);
+	};
 
-  const AugmentedServerListItem = (props) => (
-    <ServerListItem
-      {...props}
-      activeServer={rootStore.settingStore.activeServer}
-      onDelete={onDeleteServer}
-      onPress={onSelectServer}
-    />
-  );
+	const AugmentedServerListItem = (props) => (
+		<ServerListItem
+			{...props}
+			activeServer={rootStore.settingStore.activeServer}
+			onDelete={onDeleteServer}
+			onPress={onSelectServer}
+		/>
+	);
 
-  const getSections = () => {
-    return [
-      {
-        title: t('headings.servers'),
-        data: rootStore.serverStore.servers.slice(),
-        keyExtractor: (item, index) => `server-${index}`,
-        renderItem: AugmentedServerListItem
-      },
-      {
-        title: t('headings.addServer'),
-        hideHeader: true,
-        data: [{
-          key: 'add-server-button',
-          title: t('headings.addServer'),
-          onPress: onAddServer
-        }],
-        renderItem: ButtonListItem
-      },
-      {
-        title: t('headings.settings'),
-        data: [
-          {
-            key: 'keep-awake-switch',
-            title: t('settings.keepAwake'),
-            value: rootStore.settingStore.isScreenLockEnabled,
-            onValueChange: value => rootStore.settingStore.isScreenLockEnabled = value
-          },
-          {
-            key: 'rotation-lock-switch',
-            title: t('settings.rotationLock'),
-            value: rootStore.settingStore.isRotationEnabled,
-            onValueChange: value => rootStore.settingStore.isRotationEnabled = value
-          }
-        ],
-        renderItem: SwitchListItem
-      },
-      {
-        title: t('headings.links'),
-        data: Links.map(link => ({
-          ...link,
-          name: t(link.name)
-        })),
-        renderItem: BrowserListItem
-      },
-      {
-        title: t('alerts.resetApplication.title'),
-        hideHeader: true,
-        data: [{
-          key: 'reset-app-button',
-          title: t('alerts.resetApplication.title'),
-          titleStyle: {
-            color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
-          },
-          onPress: onResetApplication
-        }],
-        renderItem: ButtonListItem
-      }
-    ];
-  };
+	const getSections = () => {
+		return [
+			{
+				title: t('headings.servers'),
+				data: rootStore.serverStore.servers.slice(),
+				keyExtractor: (item, index) => `server-${index}`,
+				renderItem: AugmentedServerListItem
+			},
+			{
+				title: t('headings.addServer'),
+				hideHeader: true,
+				data: [{
+					key: 'add-server-button',
+					title: t('headings.addServer'),
+					onPress: onAddServer
+				}],
+				renderItem: ButtonListItem
+			},
+			{
+				title: t('headings.settings'),
+				data: [
+					{
+						key: 'keep-awake-switch',
+						title: t('settings.keepAwake'),
+						value: rootStore.settingStore.isScreenLockEnabled,
+						onValueChange: value => rootStore.settingStore.isScreenLockEnabled = value
+					},
+					{
+						key: 'rotation-lock-switch',
+						title: t('settings.rotationLock'),
+						value: rootStore.settingStore.isRotationEnabled,
+						onValueChange: value => rootStore.settingStore.isRotationEnabled = value
+					}
+				],
+				renderItem: SwitchListItem
+			},
+			{
+				title: t('headings.links'),
+				data: Links.map(link => ({
+					...link,
+					name: t(link.name)
+				})),
+				renderItem: BrowserListItem
+			},
+			{
+				title: t('alerts.resetApplication.title'),
+				hideHeader: true,
+				data: [{
+					key: 'reset-app-button',
+					title: t('alerts.resetApplication.title'),
+					titleStyle: {
+						color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
+					},
+					onPress: onResetApplication
+				}],
+				renderItem: ButtonListItem
+			}
+		];
+	};
 
-  return (
-    <SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']} >
-      <SectionList
-        sections={getSections()}
-        extraData={{
-          activeServer: rootStore.settingStore.activeServer,
-          isFetching: rootStore.serverStore.fetchInfo.pending
-        }}
-        renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
-        renderSectionHeader={({ section: { title, hideHeader } }) => (
-          hideHeader ? <View style={styles.emptyHeader} /> : <Text style={styles.header}>{title}</Text>
-        )}
-        renderSectionFooter={() => <View style={styles.footer} />}
-        ListFooterComponent={AppInfoFooter}
-        showsVerticalScrollIndicator={false}
-      />
-    </SafeAreaView>
-  );
+	return (
+		<SafeAreaView style={styles.container} edges={['right', 'bottom', 'left']} >
+			<SectionList
+				sections={getSections()}
+				extraData={{
+					activeServer: rootStore.settingStore.activeServer,
+					isFetching: rootStore.serverStore.fetchInfo.pending
+				}}
+				renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
+				renderSectionHeader={({ section: { title, hideHeader } }) => (
+					hideHeader ? <View style={styles.emptyHeader} /> : <Text style={styles.header}>{title}</Text>
+				)}
+				renderSectionFooter={() => <View style={styles.footer} />}
+				ListFooterComponent={AppInfoFooter}
+				showsVerticalScrollIndicator={false}
+			/>
+		</SafeAreaView>
+	);
 });
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: Colors.backgroundColor
-  },
-  header: {
-    backgroundColor: Colors.backgroundColor,
-    color: colors.grey4,
-    fontSize: 17,
-    fontWeight: '600',
-    paddingVertical: 8,
-    paddingHorizontal: 15,
-    marginBottom: 1
-  },
-  emptyHeader: {
-    marginTop: 15
-  },
-  footer: {
-    marginBottom: 15
-  }
+	container: {
+		flex: 1,
+		backgroundColor: Colors.backgroundColor
+	},
+	header: {
+		backgroundColor: Colors.backgroundColor,
+		color: colors.grey4,
+		fontSize: 17,
+		fontWeight: '600',
+		paddingVertical: 8,
+		paddingHorizontal: 15,
+		marginBottom: 1
+	},
+	emptyHeader: {
+		marginTop: 15
+	},
+	footer: {
+		marginBottom: 15
+	}
 });
 
 export default SettingsScreen;

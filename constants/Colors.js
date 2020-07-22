@@ -8,16 +8,16 @@ const textColor = '#fff';
 const tintColor = '#00a4dc';
 
 export default {
-  textColor,
-  backgroundColor,
-  headerBackgroundColor: '#202020',
-  tintColor,
-  headerTintColor: textColor,
-  tabText: '#ccc',
-  errorBackground: 'red',
-  errorText: textColor,
-  warningBackground: '#EAEB5E',
-  warningText: '#666804',
-  noticeBackground: tintColor,
-  noticeText: textColor
+	textColor,
+	backgroundColor,
+	headerBackgroundColor: '#202020',
+	tintColor,
+	headerTintColor: textColor,
+	tabText: '#ccc',
+	errorBackground: 'red',
+	errorText: textColor,
+	warningBackground: '#EAEB5E',
+	warningText: '#666804',
+	noticeBackground: tintColor,
+	noticeText: textColor
 };

@@ -10,56 +10,56 @@ import { task } from 'mobx-task';
 import JellyfinValidator from '../utils/JellyfinValidator';
 
 export default class ServerModel {
-  id
+	id
 
-  url
+	url
 
-  online = false
+	online = false
 
-  info
+	info
 
-  constructor(id, url, info) {
-    this.id = id;
-    this.url = url;
-    this.info = info;
+	constructor(id, url, info) {
+		this.id = id;
+		this.url = url;
+		this.info = info;
 
-    autorun(() => {
-      this.urlString = this.parseUrlString;
-    });
-  }
+		autorun(() => {
+			this.urlString = this.parseUrlString;
+		});
+	}
 
-  get name() {
-    return this.info?.ServerName || this.url?.host;
-  }
+	get name() {
+		return this.info?.ServerName || this.url?.host;
+	}
 
-  get parseUrlString() {
-    try {
-      return JellyfinValidator.getServerUrl(this);
-    } catch (ex) {
-      return '';
-    }
-  }
+	get parseUrlString() {
+		try {
+			return JellyfinValidator.getServerUrl(this);
+		} catch (ex) {
+			return '';
+		}
+	}
 
-  fetchInfo = task(async () => {
-    return await JellyfinValidator.fetchServerInfo(this)
-      .then(action(info => {
-        this.online = true;
-        this.info = info;
-      }))
-      .catch((err) => {
-        console.warn(err);
-      });
-  })
+	fetchInfo = task(async () => {
+		return await JellyfinValidator.fetchServerInfo(this)
+			.then(action(info => {
+				this.online = true;
+				this.info = info;
+			}))
+			.catch((err) => {
+				console.warn(err);
+			});
+	})
 }
 
 decorate(ServerModel, {
-  id: observable,
-  url: observable,
-  online: [
-    ignore,
-    observable
-  ],
-  info: observable,
-  name: computed,
-  parseUrlString: computed
+	id: observable,
+	url: observable,
+	online: [
+		ignore,
+		observable
+	],
+	info: observable,
+	name: computed,
+	parseUrlString: computed
 });

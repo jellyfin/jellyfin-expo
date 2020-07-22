@@ -21,104 +21,104 @@ import { getIconName } from '../utils/Icons';
 
 // Customize theme for navigator
 const theme = {
-  ...DarkTheme,
-  colors: {
-    ...DarkTheme.colors,
-    primary: Colors.tintColor,
-    background: Colors.backgroundColor,
-    card: Colors.headerBackgroundColor,
-    text: Colors.textColor,
-    border: 'transparent'
-  }
+	...DarkTheme,
+	colors: {
+		...DarkTheme.colors,
+		primary: Colors.tintColor,
+		background: Colors.backgroundColor,
+		card: Colors.headerBackgroundColor,
+		text: Colors.textColor,
+		border: 'transparent'
+	}
 };
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 function TabIcon(routeName, color, size) {
-  let iconName = null;
-  if (routeName === 'Home') {
-    iconName = getIconName('tv');
-  } else if (routeName === 'Settings') {
-    iconName = getIconName('cog');
-  }
+	let iconName = null;
+	if (routeName === 'Home') {
+		iconName = getIconName('tv');
+	} else if (routeName === 'Settings') {
+		iconName = getIconName('cog');
+	}
 
-  return (
-    iconName ? <Ionicons name={iconName} color={color} size={size} /> : null
-  );
+	return (
+		iconName ? <Ionicons name={iconName} color={color} size={size} /> : null
+	);
 }
 
 function Main() {
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 
-  return (
-    <Tab.Navigator
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
-      })}
-      tabBarOptions={{
-        inactiveTintColor: Colors.tabText
-      }}
-    >
-      <Tab.Screen
-        name='Home'
-        component={HomeScreen}
-        options={{
-          title: t('headings.home')
-        }}
-      />
-      <Tab.Screen
-        name='Settings'
-        component={SettingsScreen}
-        options={{
-          title: t('headings.settings')
-        }}
-      />
-    </Tab.Navigator>
-  );
+	return (
+		<Tab.Navigator
+			screenOptions={({ route }) => ({
+				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
+			})}
+			tabBarOptions={{
+				inactiveTintColor: Colors.tabText
+			}}
+		>
+			<Tab.Screen
+				name='Home'
+				component={HomeScreen}
+				options={{
+					title: t('headings.home')
+				}}
+			/>
+			<Tab.Screen
+				name='Settings'
+				component={SettingsScreen}
+				options={{
+					title: t('headings.settings')
+				}}
+			/>
+		</Tab.Navigator>
+	);
 }
 
 const AppNavigator = observer(() => {
-  const { rootStore } = useStores();
-  const { t } = useTranslation();
+	const { rootStore } = useStores();
+	const { t } = useTranslation();
 
-  // Ensure the splash screen is hidden when loading is finished
-  SplashScreen.hide();
+	// Ensure the splash screen is hidden when loading is finished
+	SplashScreen.hide();
 
-  return (
-    <NavigationContainer theme={theme}>
-      <Stack.Navigator
-        initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
-        headerMode='screen'
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen
-          name='Main'
-          component={Main}
-          options={({ route }) => {
-            const routeName = route.state ?
-              // Get the currently active route name in the tab navigator
-              route.state.routes[route.state.index].name :
+	return (
+		<NavigationContainer theme={theme}>
+			<Stack.Navigator
+				initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
+				headerMode='screen'
+				screenOptions={{ headerShown: false }}
+			>
+				<Stack.Screen
+					name='Main'
+					component={Main}
+					options={({ route }) => {
+						const routeName = route.state ?
+						// Get the currently active route name in the tab navigator
+							route.state.routes[route.state.index].name :
               // If state doesn't exist, we need to default to `screen` param if available, or the initial screen
               // In our case, it's "Main" as that's the first screen inside the navigator
               route.params?.screen || 'Main';
-            return ({
-              headerShown: routeName === 'Settings',
-              title: t(`headings.${routeName.toLowerCase()}`)
-            });
-          }}
-        />
-        <Stack.Screen
-          name='AddServer'
-          component={AddServerScreen}
-          options={{
-            headerShown: rootStore.serverStore.servers?.length > 0,
-            title: t('headings.addServer')
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+						return ({
+							headerShown: routeName === 'Settings',
+							title: t(`headings.${routeName.toLowerCase()}`)
+						});
+					}}
+				/>
+				<Stack.Screen
+					name='AddServer'
+					component={AddServerScreen}
+					options={{
+						headerShown: rootStore.serverStore.servers?.length > 0,
+						title: t('headings.addServer')
+					}}
+				/>
+			</Stack.Navigator>
+		</NavigationContainer>
+	);
 });
 
 export default AppNavigator;

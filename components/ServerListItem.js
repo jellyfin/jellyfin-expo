@@ -12,65 +12,65 @@ import { useTranslation } from 'react-i18next';
 import { getIconName } from '../utils/Icons';
 
 const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
-  const { t } = useTranslation();
+	const { t } = useTranslation();
 
-  const title = item?.name;
-  const version = item?.info?.Version || t('common.unknown');
-  const subtitle = `${t('settings.version', { version })}\n${item.urlString}`;
+	const title = item?.name;
+	const version = item?.info?.Version || t('common.unknown');
+	const subtitle = `${t('settings.version', { version })}\n${item.urlString}`;
 
-  return (
-    <ListItem
-      title={title}
-      titleStyle={styles.title}
-      subtitle={subtitle}
-      leftElement={(
-        index === activeServer ? (
-          <Icon
-            name={getIconName('checkmark')}
-            type='ionicon'
-            size={24}
-            containerStyle={styles.leftElement}
-          />
-        ) : (
-          <View style={styles.leftElement} />
-        )
-      )}
-      rightElement={(
-        <Button
-          type='clear'
-          icon={{
-            name: getIconName('trash'),
-            type: 'ionicon',
-            iconStyle: styles.deleteButton
-          }}
-          onPress={() => onDelete(index)}
-        />
-      )}
-      topDivider={index === 0}
-      bottomDivider
-      onPress={() => onPress(index)}
-    />
-  );
+	return (
+		<ListItem
+			title={title}
+			titleStyle={styles.title}
+			subtitle={subtitle}
+			leftElement={(
+				index === activeServer ? (
+					<Icon
+						name={getIconName('checkmark')}
+						type='ionicon'
+						size={24}
+						containerStyle={styles.leftElement}
+					/>
+				) : (
+					<View style={styles.leftElement} />
+				)
+			)}
+			rightElement={(
+				<Button
+					type='clear'
+					icon={{
+						name: getIconName('trash'),
+						type: 'ionicon',
+						iconStyle: styles.deleteButton
+					}}
+					onPress={() => onDelete(index)}
+				/>
+			)}
+			topDivider={index === 0}
+			bottomDivider
+			onPress={() => onPress(index)}
+		/>
+	);
 };
 
 ServerListItem.propTypes = {
-  item: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
-  activeServer: PropTypes.number.isRequired,
-  onDelete: PropTypes.func.isRequired,
-  onPress: PropTypes.func.isRequired
+	item: PropTypes.object.isRequired,
+	index: PropTypes.number.isRequired,
+	activeServer: PropTypes.number.isRequired,
+	onDelete: PropTypes.func.isRequired,
+	onPress: PropTypes.func.isRequired
 };
 
 const styles = StyleSheet.create({
-  title: {
-    marginBottom: 2
-  },
-  leftElement: {
-    width: 12
-  },
-  deleteButton: {
-    color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
-  }
+	title: {
+		marginBottom: 2
+	},
+	leftElement: {
+		width: 12
+	},
+	deleteButton: {
+		color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
+	}
 });
 
 export default ServerListItem;
