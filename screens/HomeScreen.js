@@ -55,7 +55,7 @@ const HomeScreen = observer(() => {
 						tintColor: Colors.tabText,
 						backgroundColor: Colors.headerBackgroundColor,
 						// Android colors
-						colors: [Colors.jellyBlue, Colors.jellyPurple],
+						colors: [Colors.primaryBlue, Colors.primaryPurple],
 						progressBackgroundColor: Colors.backgroundColor
 					}}
 					// Error screen is displayed if loading fails

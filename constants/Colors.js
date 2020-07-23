@@ -5,22 +5,22 @@
  */
 const backgroundColor = '#101010';
 const textColor = '#fff';
-const jellyBlue = '#00a4dc';
-const jellyPurple = '#AA5CC3';
+const primaryBlue = '#00a4dc';
+const primaryPurple = '#AA5CC3';
 
 export default {
-	jellyBlue,
-	jellyPurple,
+	primaryBlue,
+	primaryPurple,
 	textColor,
 	backgroundColor,
 	headerBackgroundColor: '#202020',
-	tintColor: jellyBlue,
+	tintColor: primaryBlue,
 	headerTintColor: textColor,
 	tabText: '#ccc',
 	errorBackground: 'red',
 	errorText: textColor,
 	warningBackground: '#EAEB5E',
 	warningText: '#666804',
-	noticeBackground: jellyBlue,
+	noticeBackground: primaryBlue,
 	noticeText: textColor
 };
