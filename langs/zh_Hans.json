@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "连接Jellyfin服务器时出错。"
+            }
+        },
         "offline": "连接Jellyfin服务器时出错。",
         "retry": "是否重试？"
     },

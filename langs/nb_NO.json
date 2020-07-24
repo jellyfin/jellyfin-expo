@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Problem med å kontakte Jellyfin-serveren."
+            }
+        },
         "offline": "Problem med å kontakte Jellyfin-serveren.",
         "retry": "Prøve igjen?"
     },

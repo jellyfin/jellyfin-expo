@@ -46,6 +46,11 @@
         "version": "Version: {{version}}"
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Erreur lors du contact avec le serveur Jellyfin."
+            }
+        },
         "retry": "Réessayer ?",
         "offline": "Erreur lors du contact avec le serveur Jellyfin."
     }

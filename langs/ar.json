@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "لم نتمكن من الوصول الى سيرفر Jellyfin."
+            }
+        },
         "offline": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
         "retry": "المحاولة من جديد؟"
     },

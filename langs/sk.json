@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Chyba pri pripájaní k Jellyfin serveru."
+            }
+        },
         "offline": "Chyba pri pripájaní k Jellyfin serveru.",
         "retry": "Skúsiť znova?"
     },

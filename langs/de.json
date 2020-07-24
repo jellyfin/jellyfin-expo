@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Fehler bei der Verbindungsaufnahme mit dem Server."
+            }
+        },
         "offline": "Fehler bei der Verbindungsaufnahme mit dem Server.",
         "retry": "Erneut versuchen?"
     },
