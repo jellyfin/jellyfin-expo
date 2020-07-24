@@ -5,19 +5,22 @@
  */
 const backgroundColor = '#101010';
 const textColor = '#fff';
-const tintColor = '#00a4dc';
+const primaryBlue = '#00a4dc';
+const primaryPurple = '#AA5CC3';
 
 export default {
+	primaryBlue,
+	primaryPurple,
 	textColor,
 	backgroundColor,
 	headerBackgroundColor: '#202020',
-	tintColor,
+	tintColor: primaryBlue,
 	headerTintColor: textColor,
 	tabText: '#ccc',
 	errorBackground: 'red',
 	errorText: textColor,
 	warningBackground: '#EAEB5E',
 	warningText: '#666804',
-	noticeBackground: tintColor,
+	noticeBackground: primaryBlue,
 	noticeText: textColor
 };

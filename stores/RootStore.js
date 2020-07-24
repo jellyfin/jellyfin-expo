@@ -3,24 +3,40 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { decorate } from 'mobx';
+import { decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 
 import ServerStore from './ServerStore';
 import SettingStore from './SettingStore';
 
 export default class RootStore {
+	/**
+	 * Has the store been loaded from storage
+	 */
 	storeLoaded = false
+
+	/**
+	 * Is the fullscreen interface active
+	 */
+	isFullscreen = false
 
 	serverStore = new ServerStore()
 	settingStore = new SettingStore()
 
 	reset() {
+		this.isFullscreen = false;
+
 		this.serverStore.reset();
 		this.settingStore.reset();
+
+		this.storeLoaded = true;
 	}
 }
 
 decorate(RootStore, {
-	storeLoaded: ignore
+	storeLoaded: ignore,
+	isFullscreen: [
+		ignore,
+		observable
+	]
 });

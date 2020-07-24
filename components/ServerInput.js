@@ -7,6 +7,7 @@ import React from 'react';
 import { ActivityIndicator, Platform, StyleSheet } from 'react-native';
 import { Input, colors } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import PropTypes from 'prop-types';
 
@@ -33,7 +34,7 @@ const ServerInput = observer(class ServerInput extends React.Component {
 		validationMessage: ''
 	}
 
-	async onAddServer() {
+	onAddServer = action(async () => {
 		const { host } = this.state;
 		console.log('add server', host);
 		if (host) {
@@ -92,7 +93,7 @@ const ServerInput = observer(class ServerInput extends React.Component {
 				validationMessage: this.props.t('addServer.validation.empty')
 			});
 		}
-	}
+	})
 
 	render() {
 		return (

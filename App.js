@@ -79,6 +79,26 @@ const App = observer(({ skipLoadingScreen }) => {
 		}
 	}, [rootStore.settingStore.isRotationEnabled]);
 
+	const updateScreenOrientation = async () => {
+		if (rootStore.settingStore.isRotationEnabled) {
+			if (rootStore.isFullscreen) {
+				// Lock to landscape orientation
+				// For some reason video apps on iPhone use LANDSCAPE_RIGHT ¯\_(ツ)_/¯
+				await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE_RIGHT);
+				// Allow either landscape orientation after forcing initial rotation
+				ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
+			} else {
+				// Restore portrait orientation lock
+				ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
+			}
+		}
+	};
+
+	useEffect(() => {
+		// Update the screen orientation
+		updateScreenOrientation();
+	}, [rootStore.isFullscreen]);
+
 	const loadImagesAsync = () => {
 		const images = [
 			require('./assets/images/splash.png'),
@@ -114,6 +134,7 @@ const App = observer(({ skipLoadingScreen }) => {
 				<StatusBar
 					style="light"
 					backgroundColor={Colors.headerBackgroundColor}
+					hidden={rootStore.isFullscreen}
 				/>
 				<AppNavigator />
 			</ThemeProvider>

@@ -8,6 +8,7 @@ import { Alert, AsyncStorage, Platform, SectionList, StyleSheet, View } from 're
 import { colors, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import { useTranslation } from 'react-i18next';
 
@@ -42,7 +43,7 @@ const SettingsScreen = observer(() => {
 				{ text: t('common.cancel') },
 				{
 					text: t('alerts.deleteServer.confirm'),
-					onPress: () => {
+					onPress: action(() => {
 						// Remove server and update active server
 						rootStore.serverStore.removeServer(index);
 						rootStore.settingStore.activeServer = 0;
@@ -54,17 +55,17 @@ const SettingsScreen = observer(() => {
 							// No servers are present, navigate to add server screen
 							navigation.replace('AddServer');
 						}
-					},
+					}),
 					style: 'destructive'
 				}
 			]
 		);
 	};
 
-	const onSelectServer = index => {
+	const onSelectServer = action(index => {
 		rootStore.settingStore.activeServer = index;
 		navigation.navigate('Home');
-	};
+	});
 
 	const onResetApplication = () => {
 		Alert.alert(
@@ -74,13 +75,13 @@ const SettingsScreen = observer(() => {
 				{ text: t('common.cancel') },
 				{
 					text: t('alerts.resetApplication.confirm'),
-					onPress: () => {
+					onPress: action(() => {
 						// Reset data in stores
 						rootStore.reset();
 						AsyncStorage.clear();
 						// Navigate to the loading screen
 						navigation.replace('AddServer');
-					},
+					}),
 					style: 'destructive'
 				}
 			]
@@ -121,13 +122,13 @@ const SettingsScreen = observer(() => {
 						key: 'keep-awake-switch',
 						title: t('settings.keepAwake'),
 						value: rootStore.settingStore.isScreenLockEnabled,
-						onValueChange: value => rootStore.settingStore.isScreenLockEnabled = value
+						onValueChange: action(value => rootStore.settingStore.isScreenLockEnabled = value)
 					},
 					{
 						key: 'rotation-lock-switch',
 						title: t('settings.rotationLock'),
 						value: rootStore.settingStore.isRotationEnabled,
-						onValueChange: value => rootStore.settingStore.isRotationEnabled = value
+						onValueChange: action(value => rootStore.settingStore.isRotationEnabled = value)
 					}
 				],
 				renderItem: SwitchListItem
