@@ -1,52 +1,52 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Anulează",
+        "unknown": "Necunoscut"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Adaugă Server",
+        "home": "Acasă",
+        "links": "Legături",
+        "servers": "Servere",
+        "settings": "Setări"
     },
     "addServer": {
-        "address": "",
+        "address": "Adresa Serverului",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) nu poate fi gol",
+            "invalid": "$t(addServer.address) este invalidă",
+            "invalidProduct": "Nu este un server Jellyfin",
+            "noConnection": "Nu se poate conecta la server"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Eroare la contactarea serverului Jellyfin.",
+        "retry": "Încearcă din nou?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Versiune: {{version}}",
+        "keepAwake": "Ține ecranul treaz",
+        "rotationLock": "Blocarea rotației",
+        "expoVersion": "Versiune Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Site-ul Jellyfin",
+        "documentation": "Documentație",
+        "source": "Codul Sursă",
+        "translate": "Traduceți",
+        "feature": "Solicitați o caracteristică",
+        "issue": "Raportați o problemă"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Șterge Server",
+            "description": "Sigur doriți să ștergeți serverul {{serverName}}?",
+            "confirm": "Șterge"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Resetați Aplicația",
+            "description": "Sigur doriți să resetați toate setările?",
+            "confirm": "Reset"
         }
     }
 }
