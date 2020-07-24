@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import ErrorView from './ErrorView';
 import { getIconName } from '../utils/Icons';
 
-const OfflineErrorView = ({ errorCode, url, onRetry }) => {
+const HttpErrorView = ({ errorCode, url, onRetry }) => {
 	const { t } = useTranslation();
 
 	return (
@@ -19,8 +19,8 @@ const OfflineErrorView = ({ errorCode, url, onRetry }) => {
 				name: 'cloud-off',
 				type: 'material'
 			}}
-			heading={t([`home.errors.${errorCode}.heading`, 'home.errors.offline.heading'])}
-			message={t([`home.errors.${errorCode}.description`, 'home.errors.offline.description'])}
+			heading={t([`home.errors.${errorCode}.heading`, 'home.errors.http.heading'])}
+			message={t([`home.errors.${errorCode}.description`, 'home.errors.http.description'])}
 			details={[
 				t('home.errorCode', { errorCode }),
 				t('home.errorUrl', { url })
@@ -35,10 +35,10 @@ const OfflineErrorView = ({ errorCode, url, onRetry }) => {
 	);
 };
 
-OfflineErrorView.propTypes = {
+HttpErrorView.propTypes = {
 	onRetry: PropTypes.func.isRequired,
 	errorCode: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 	url: PropTypes.string
 };
 
-export default OfflineErrorView;
+export default HttpErrorView;
