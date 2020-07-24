@@ -15,6 +15,7 @@ import { getAppName, getSafeDeviceName } from '../utils/Device';
 import NativeShell from '../utils/NativeShell';
 import { openBrowser } from '../utils/WebBrowser';
 import RefreshWebView from './RefreshWebView';
+import { Platform } from 'react-native';
 
 const injectedJavaScript = `
 window.ExpoAppInfo = {
@@ -110,7 +111,10 @@ const NativeShellWebView = observer((props) => {
 			ref={webview}
 			source={{ uri: server.urlString }}
 			// Inject javascript for NativeShell
-			injectedJavaScriptBeforeContentLoaded={injectedJavaScript}
+			// This method is preferred, but only supported on iOS currently
+			injectedJavaScriptBeforeContentLoaded={Platform.OS === 'ios' ? injectedJavaScript : null}
+			// Fallback for non-iOS
+			injectedJavaScript={Platform.OS !== 'ios' ? injectedJavaScript : null}
 			onMessage={onMessage}
 			isRefreshing={isRefreshing}
 			onRefresh={onRefresh}
