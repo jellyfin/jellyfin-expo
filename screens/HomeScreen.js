@@ -123,7 +123,7 @@ const HomeScreen = observer(() => {
 					}
 				>
 					<HttpErrorView
-						errorCode={httpErrorStatus.statusCode}
+						errorCode={httpErrorStatus.description || httpErrorStatus.statusCode}
 						url={httpErrorStatus.url}
 						onRetry={() => webview.current?.reload()}
 					/>
