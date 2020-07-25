@@ -29,7 +29,7 @@
         },
         "http": {
             "heading": "Something went wrong!",
-            "description": "The server responded with error code {{statusCode}}."
+            "description": "The Jellyfin server returned an error."
         },
         "offline": {
             "heading": "Server offline?",
