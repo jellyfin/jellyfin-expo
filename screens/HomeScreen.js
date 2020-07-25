@@ -4,15 +4,13 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React, { useEffect, useState, useRef } from 'react';
-import { Platform, StyleSheet, View, RefreshControl } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
 import Constants from 'expo-constants';
 
 import { useStores } from '../hooks/useStores';
-import HttpErrorView from '../components/HttpErrorView';
 import NativeShellWebView from '../components/NativeShellWebView';
 import OfflineErrorView from '../components/OfflineErrorView';
 import Colors from '../constants/Colors';
@@ -31,9 +29,7 @@ const HomeScreen = observer(() => {
 	const navigation = useNavigation();
 
 	const [isLoading, setIsLoading] = useState(true);
-	const [isHttpError, setIsHttpError] = useState(false);
 	const [httpErrorStatus, setHttpErrorStatus] = useState(null);
-	const [isErrorRefreshing, setIsErrorRefreshing] = useState(false);
 
 	const webview = useRef(null);
 
@@ -49,13 +45,22 @@ const HomeScreen = observer(() => {
 		setIsLoading(true);
 	}, [rootStore.settingStore.activeServer]);
 
+	useEffect(() => {
+		if (httpErrorStatus) {
+			navigation.replace('ErrorScreen', {
+				errorCode: httpErrorStatus.description || httpErrorStatus.statusCode,
+				url: httpErrorStatus.url
+			});
+		}
+	}, [httpErrorStatus]);
+
 	// When not in fullscreen, the top adjustment is handled by the spacer View for iOS
 	const safeAreaEdges = ['right', 'bottom', 'left'];
 	if (Platform.OS !== 'ios' || rootStore.isFullscreen) {
 		safeAreaEdges.push('top');
 	}
 	// Hide webview until loaded
-	const webviewStyle = (isLoading || isHttpError) ? StyleSheet.compose(styles.container, styles.loading) : styles.container;
+	const webviewStyle = (isLoading || httpErrorStatus) ? StyleSheet.compose(styles.container, styles.loading) : styles.container;
 
 	if (!rootStore.serverStore.servers || rootStore.serverStore.servers.length === 0) {
 		return null;
@@ -89,12 +94,10 @@ const HomeScreen = observer(() => {
 					}}
 					onHttpError={({ nativeEvent: state }) => {
 						console.warn('HTTP Error', state);
-						setIsHttpError(true);
 						setHttpErrorStatus(state);
 					}}
 					onLoadStart={() => {
 						setIsLoading(true);
-						setIsHttpError(false);
 						setHttpErrorStatus(null);
 					}}
 					// Update state when loading is complete
@@ -102,32 +105,6 @@ const HomeScreen = observer(() => {
 						setIsLoading(false);
 					}}
 				/>
-			)}
-			{isHttpError && (
-				// We need to wrap the ErrorView in a ScrollView to enable the same pull to
-				// refresh behavior as the WebView since network errors render _inside_ the WebView
-				<ScrollView
-					style={styles.error}
-					contentContainerStyle={{ flex: 1 }}
-					refreshControl={
-						<RefreshControl
-							refreshing={isErrorRefreshing}
-							onRefresh={() => {
-								setIsErrorRefreshing(true);
-								webview.current?.reload();
-								setIsErrorRefreshing(false);
-							}}
-							enabled={true}
-							{...refreshControlProps}
-						/>
-					}
-				>
-					<HttpErrorView
-						errorCode={httpErrorStatus.description || httpErrorStatus.statusCode}
-						url={httpErrorStatus.url}
-						onRetry={() => webview.current?.reload()}
-					/>
-				</ScrollView>
 			)}
 		</SafeAreaView>
 	);
@@ -140,11 +117,6 @@ const styles = StyleSheet.create({
 	},
 	loading: {
 		opacity: 0
-	},
-	error: {
-		...StyleSheet.absoluteFill,
-		top: Platform.OS === 'ios' ? Constants.statusBarHeight : 0,
-		flex: 1
 	},
 	statusBarSpacer: {
 		backgroundColor: Colors.headerBackgroundColor,

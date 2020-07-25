@@ -15,6 +15,7 @@ import { useTranslation } from 'react-i18next';
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
 import AddServerScreen from '../screens/AddServerScreen';
+import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { getIconName } from '../utils/Icons';
@@ -32,8 +33,9 @@ const theme = {
 	}
 };
 
-const Stack = createStackNavigator();
+const RootStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+const HomeStack = createStackNavigator();
 
 function TabIcon(routeName, color, size) {
 	let iconName = null;
@@ -45,6 +47,30 @@ function TabIcon(routeName, color, size) {
 
 	return (
 		iconName ? <Ionicons name={iconName} color={color} size={size} /> : null
+	);
+}
+
+function Home() {
+	return (
+		<HomeStack.Navigator
+			mode="modal"
+			screenOptions={{
+				headerShown: false,
+				animationEnabled: false
+			}}
+		>
+			<HomeStack.Screen
+				name='HomeScreen'
+				component={HomeScreen}
+			/>
+			<HomeStack.Screen
+				name="ErrorScreen"
+				component={ErrorScreen}
+				options={{
+					gestureEnabled: false
+				}}
+			/>
+		</HomeStack.Navigator>
 	);
 }
 
@@ -62,7 +88,7 @@ function Main() {
 		>
 			<Tab.Screen
 				name='Home'
-				component={HomeScreen}
+				component={Home}
 				options={{
 					title: t('headings.home')
 				}}
@@ -87,12 +113,12 @@ const AppNavigator = observer(() => {
 
 	return (
 		<NavigationContainer theme={theme}>
-			<Stack.Navigator
+			<RootStack.Navigator
 				initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
 				headerMode='screen'
 				screenOptions={{ headerShown: false }}
 			>
-				<Stack.Screen
+				<RootStack.Screen
 					name='Main'
 					component={Main}
 					options={({ route }) => {
@@ -108,7 +134,7 @@ const AppNavigator = observer(() => {
 						});
 					}}
 				/>
-				<Stack.Screen
+				<RootStack.Screen
 					name='AddServer'
 					component={AddServerScreen}
 					options={{
@@ -116,7 +142,7 @@ const AppNavigator = observer(() => {
 						title: t('headings.addServer')
 					}}
 				/>
-			</Stack.Navigator>
+			</RootStack.Navigator>
 		</NavigationContainer>
 	);
 });

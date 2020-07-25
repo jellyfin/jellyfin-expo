@@ -23,8 +23,7 @@ const ServerInput = observer(class ServerInput extends React.Component {
 		navigation: PropTypes.object.isRequired,
 		rootStore: PropTypes.object.isRequired,
 		t: PropTypes.func.isRequired,
-		onSuccess: PropTypes.func,
-		successScreen: PropTypes.string
+		onSuccess: PropTypes.func
 	}
 
 	state = {
@@ -83,8 +82,11 @@ const ServerInput = observer(class ServerInput extends React.Component {
 			this.props.navigation.replace(
 				'Main',
 				{
-					screen: this.props.successScreen || 'Home',
-					params: { activeServer: this.props.rootStore.settingStore.activeServer }
+					screen: 'Home',
+					params: {
+						screen: 'HomeScreen',
+						params: { activeServer: this.props.rootStore.settingStore.activeServer }
+					}
 				}
 			);
 		} else {
