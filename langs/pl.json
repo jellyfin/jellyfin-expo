@@ -1,52 +1,52 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Anuluj",
+        "unknown": "Nieznane"
     },
     "headings": {
-        "addServer": "",
+        "addServer": "Dodaj Serwer",
         "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "links": "Linki",
+        "servers": "Serwery",
+        "settings": "Ustawienia"
     },
     "addServer": {
-        "address": "",
+        "address": "Adres Serwera",
         "validation": {
-            "empty": "",
-            "invalid": "",
+            "empty": "$t(addServer.address) nie może być pusty",
+            "invalid": "$t(addServer.address) jest nieprawidłowy",
             "invalidProduct": "",
-            "noConnection": ""
+            "noConnection": "Nie udało się połączyć z serwerem"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Błąd przy łączeniu z serwerem Jellyfin.",
+        "retry": "Spróbować ponownie?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Wersja: {{version}}",
+        "keepAwake": "Utrzymuj włączony ekran",
+        "rotationLock": "Zablokuj obrót",
+        "expoVersion": "Wersja Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
+        "website": "Strona Jellyfin",
+        "documentation": "Dokumentacja",
+        "source": "Kod źrodłowy",
+        "translate": "Tłumacz",
         "feature": "",
-        "issue": ""
+        "issue": "Zgłoś błąd"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Usuń Serwer",
+            "description": "Na pewno chcesz usunąć serwer {{serverName}}?",
+            "confirm": "Usuń"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Zresetuj aplikację",
+            "description": "Na pewno chcesz zresetować wszystkie ustawienia?",
+            "confirm": "Resetuj"
         }
     }
 }
