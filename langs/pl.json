@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Błąd przy łączeniu z serwerem Jellyfin."
+            }
+        },
         "offline": "Błąd przy łączeniu z serwerem Jellyfin.",
         "retry": "Spróbować ponownie?"
     },

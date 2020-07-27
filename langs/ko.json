@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "서버 접속문제"
+            }
+        },
         "offline": "서버 접속문제",
         "retry": "다시 시도?"
     },
