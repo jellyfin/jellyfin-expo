@@ -20,7 +20,24 @@
     }
   },
   "home": {
-    "offline": "Error contacting Jellyfin server.",
+    "errors": {
+        "502": {
+            "description": "Unable to reach the Jellyfin server. This is usually because of a proxy configuration error or Jellyfin is offline."
+        },
+        "504": {
+            "description": "Unable to reach the Jellyfin server. This is usually because the proxy timed out while connecting to Jellyfin."
+        },
+        "http": {
+            "heading": "Something went wrong!",
+            "description": "The Jellyfin server returned an error."
+        },
+        "offline": {
+            "heading": "Server offline?",
+            "description": "Error contacting Jellyfin server."
+        }
+    },
+    "errorCode": "Error code: {{errorCode}}",
+    "errorUrl": "URL: {{url}}",
     "retry": "Try again?"
   },
   "settings": {

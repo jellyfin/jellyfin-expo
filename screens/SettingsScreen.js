@@ -50,6 +50,7 @@ const SettingsScreen = observer(() => {
 
 						if (rootStore.serverStore.servers.length > 0) {
 							// More servers exist, navigate home
+							navigation.replace('HomeScreen');
 							navigation.navigate('Home');
 						} else {
 							// No servers are present, navigate to add server screen
@@ -64,6 +65,7 @@ const SettingsScreen = observer(() => {
 
 	const onSelectServer = action(index => {
 		rootStore.settingStore.activeServer = index;
+		navigation.replace('HomeScreen');
 		navigation.navigate('Home');
 	});
 

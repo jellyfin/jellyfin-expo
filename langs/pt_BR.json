@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Erro ao entrar em contato com o servidor Jellyfin."
+            }
+        },
         "offline": "Erro ao entrar em contato com o servidor Jellyfin.",
         "retry": "Tentar novamente?"
     },

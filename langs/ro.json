@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Eroare la contactarea serverului Jellyfin."
+            }
+        },
         "offline": "Eroare la contactarea serverului Jellyfin.",
         "retry": "Încearcă din nou?"
     },

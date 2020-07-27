@@ -6,6 +6,11 @@
         "rotationLock": "Desactivar la rotación de la pantalla"
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Error al establecer la conexión con el servidor."
+            }
+        },
         "retry": "¿Reintentar?",
         "offline": "Error al establecer la conexión con el servidor."
     },

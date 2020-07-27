@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Chyba při kontaktování serveru Jellyfin."
+            }
+        },
         "offline": "Chyba při kontaktování serveru Jellyfin.",
         "retry": "Zkusit znovu?"
     },

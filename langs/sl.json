@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Napaka pri povezovanju z Jellyfin strežnikom."
+            }
+        },
         "offline": "Napaka pri povezovanju z Jellyfin strežnikom.",
         "retry": "Poskusi znova?"
     },

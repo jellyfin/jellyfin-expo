@@ -58,6 +58,18 @@ export default {
 	Text: {
 		style: {
 			color: Colors.textColor
+		},
+		h1Style: {
+			fontSize: 40
+		},
+		h2Style: {
+			fontSize: 34
+		},
+		h3Style: {
+			fontSize: 28
+		},
+		h4Style: {
+			fontSize: 22
 		}
 	}
 };

@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "Problem med att koppla upp sig mot Jellyfin servern"
+            }
+        },
         "offline": "Problem med att koppla upp sig mot Jellyfin servern",
         "retry": "Testa igen?"
     },

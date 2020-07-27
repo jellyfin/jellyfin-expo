@@ -20,6 +20,11 @@
         }
     },
     "home": {
+        "errors": {
+            "offline": {
+                "description": "與伺服器聯絡時出錯。"
+            }
+        },
         "offline": "與伺服器聯絡時出錯。",
         "retry": "再試一次？"
     },
