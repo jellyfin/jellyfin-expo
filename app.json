@@ -10,6 +10,7 @@
     "version": "1.1.2",
     "orientation": "default",
     "primaryColor": "#00a4dc",
+    "backgroundColor": "#101010",
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
