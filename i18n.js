@@ -11,7 +11,11 @@ import es from './langs/es.json';
 import es_AR from './langs/es_AR.json';
 import fr from './langs/fr.json';
 import it from './langs/it.json';
+import ko from './langs/ko.json';
 import nb_NO from './langs/nb_NO.json';
+import pl from './langs/pl.json';
+import pt_BR from './langs/pt_BR.json';
+import ro from './langs/ro.json';
 import sk from './langs/sk.json';
 import sl from './langs/sl.json';
 import sv from './langs/sv.json';
@@ -28,7 +32,11 @@ const resources = {
 	'es-AR': { translation: es_AR },
 	fr: { translation: fr },
 	it: { translation: it },
+	ko: { translation: ko },
 	'nb-NO': { translation: nb_NO },
+	pl: { translation: pl },
+	'pt-BR': { translation: pt_BR },
+	ro: { translation: ro },
 	sk: { translation: sk },
 	sl: { translation: sl },
 	sv: { translation: sv },
