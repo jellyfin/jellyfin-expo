@@ -1,52 +1,52 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Annuleren",
+        "unknown": "Onbekend"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Server toevoegen",
+        "home": "Hoofdpagina",
+        "links": "Links",
+        "servers": "Servers",
+        "settings": "Instellingen"
     },
     "addServer": {
-        "address": "",
+        "address": "Server-adres",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) mag niet leeg zijn",
+            "invalid": "$t(addServer.address) klopt niet",
+            "invalidProduct": "Dit is geen Jellyfin-server",
+            "noConnection": "Kon niet verbinden naar de server"
         }
     },
     "home": {
-        "offline": "",
-        "retry": ""
+        "offline": "Er ging iets fout bij het verbinden met de Jellyfin-server.",
+        "retry": "Opnieuw proberen?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Versie: {{version}}",
+        "keepAwake": "Houd het scherm aan",
+        "rotationLock": "Blokkeer schermrotatie",
+        "expoVersion": "Expo-versie: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Website van Jellyfin",
+        "documentation": "Documentatie",
+        "source": "Broncode",
+        "translate": "Vertaal",
+        "feature": "Verzoek nieuwe functionaliteit",
+        "issue": "Rapporteer een probleem"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Verwijder server",
+            "description": "Weet je zeker dat je de server {{serverName}} wil verwijderen?",
+            "confirm": "Verwijder"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Applicatie-instellingen wissen",
+            "description": "Weet je zeker dat je de applicatie-instellingen wil wissen?",
+            "confirm": "Wis"
         }
     }
 }
