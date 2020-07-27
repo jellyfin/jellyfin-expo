@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, useWindowDimensions } from 'react-native';
 import { Button, Text, Icon } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
@@ -19,30 +19,36 @@ const ErrorView = ({
 	buttonIcon,
 	buttonTitle,
 	onPress
-}) => (
-	<View style={styles.container}>
-		<View style={styles.body}>
-			<Icon
-				name={icon.name}
-				type={icon.type}
-				size={100}
+}) => {
+	const window = useWindowDimensions();
+	const isCompact = window.height < 480;
+	const marginVertical = isCompact ? 20 : 40;
+
+	return (
+		<View style={styles.container}>
+			<View style={styles.body}>
+				<Icon
+					name={icon.name}
+					type={icon.type}
+					size={isCompact ? 60 : 100}
+				/>
+				<Text h2 style={{ ...styles.heading, marginVertical }}>{heading}</Text>
+				<Text style={{ ...styles.message, marginBottom: marginVertical }}>{message}</Text>
+			</View>
+			<View>
+				{details.map((detailText, index) => (
+					<Text key={`errorview-details-${index}`} style={styles.details}>{detailText}</Text>
+				))}
+			</View>
+			<Button
+				containerStyle={styles.footer}
+				icon={buttonIcon}
+				title={buttonTitle}
+				onPress={onPress}
 			/>
-			<Text h2 style={styles.heading}>{heading}</Text>
-			<Text style={styles.message}>{message}</Text>
 		</View>
-		<View>
-			{details.map((detailText, index) => (
-				<Text key={`errorview-details-${index}`} style={styles.details}>{detailText}</Text>
-			))}
-		</View>
-		<Button
-			containerStyle={styles.footer}
-			icon={buttonIcon}
-			title={buttonTitle}
-			onPress={onPress}
-		/>
-	</View>
-);
+	);
+};
 
 ErrorView.propTypes = {
 	icon: PropTypes.shape({
@@ -75,14 +81,12 @@ const styles = StyleSheet.create({
 		marginVertical: 17
 	},
 	heading: {
-		textAlign: 'center',
-		marginVertical: 40
+		textAlign: 'center'
 	},
 	message: {
 		textAlign: 'center',
 		fontSize: 17,
-		marginHorizontal: 20,
-		marginBottom: 40
+		marginHorizontal: 20
 	},
 	details: {
 		fontSize: 15

@@ -15,15 +15,6 @@ import NativeShellWebView from '../components/NativeShellWebView';
 import OfflineErrorView from '../components/OfflineErrorView';
 import Colors from '../constants/Colors';
 
-const refreshControlProps = {
-	// iOS colors
-	tintColor: Colors.tabText,
-	backgroundColor: Colors.headerBackgroundColor,
-	// Android colors
-	colors: [Colors.primaryBlue, Colors.primaryPurple],
-	progressBackgroundColor: Colors.backgroundColor
-};
-
 const HomeScreen = observer(() => {
 	const { rootStore } = useStores();
 	const navigation = useNavigation();
@@ -77,7 +68,14 @@ const HomeScreen = observer(() => {
 					ref={webview}
 					style={webviewStyle}
 					containerStyle={webviewStyle}
-					refreshControlProps={refreshControlProps}
+					refreshControlProps={{
+						// iOS colors
+						tintColor: Colors.tabText,
+						backgroundColor: Colors.headerBackgroundColor,
+						// Android colors
+						colors: [Colors.primaryBlue, Colors.primaryPurple],
+						progressBackgroundColor: Colors.backgroundColor
+					}}
 					// Error screen is displayed if loading fails
 					renderError={errorCode => (
 						<OfflineErrorView
