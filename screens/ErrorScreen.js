@@ -8,20 +8,17 @@ import { Platform, RefreshControl, StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import { useTranslation } from 'react-i18next';
 import Constants from 'expo-constants';
 
 import ErrorView from '../components/ErrorView';
 import Colors from '../constants/Colors';
-import { getIconName } from '../utils/Icons';
 
 const ErrorScreen = () =>{
 	const [isRefreshing, setIsRefreshing] = useState(false);
 
-	const { t } = useTranslation();
 	const navigation = useNavigation();
 	const route = useRoute();
-	const { errorCode, url } = route.params;
+	const { icon, heading, message, details, buttonIcon, buttonTitle } = route.params;
 
 	const safeAreaEdges = ['right', 'bottom', 'left'];
 	if (Platform.OS !== 'ios') {
@@ -57,21 +54,12 @@ const ErrorScreen = () =>{
 				}
 			>
 				<ErrorView
-					icon={{
-						name: 'cloud-off',
-						type: 'material'
-					}}
-					heading={t([`home.errors.${errorCode}.heading`, 'home.errors.http.heading'])}
-					message={t([`home.errors.${errorCode}.description`, 'home.errors.http.description'])}
-					details={[
-						t('home.errorCode', { errorCode }),
-						t('home.errorUrl', { url })
-					]}
-					buttonIcon={{
-						name: getIconName('refresh'),
-						type: 'ionicon'
-					}}
-					buttonTitle={t('home.retry')}
+					icon={icon}
+					heading={heading}
+					message={message}
+					details={details}
+					buttonIcon={buttonIcon}
+					buttonTitle={buttonTitle}
 					onPress={() => navigation.replace('HomeScreen')}
 				/>
 			</ScrollView>

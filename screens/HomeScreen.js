@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React, { useEffect, useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Platform, StyleSheet, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -12,12 +13,14 @@ import Constants from 'expo-constants';
 
 import { useStores } from '../hooks/useStores';
 import NativeShellWebView from '../components/NativeShellWebView';
-import OfflineErrorView from '../components/OfflineErrorView';
+import ErrorView from '../components/ErrorView';
 import Colors from '../constants/Colors';
+import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
 	const { rootStore } = useStores();
 	const navigation = useNavigation();
+	const { t } = useTranslation();
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [httpErrorStatus, setHttpErrorStatus] = useState(null);
@@ -38,9 +41,23 @@ const HomeScreen = observer(() => {
 
 	useEffect(() => {
 		if (httpErrorStatus) {
+			const errorCode = httpErrorStatus.description || httpErrorStatus.statusCode;
 			navigation.replace('ErrorScreen', {
-				errorCode: httpErrorStatus.description || httpErrorStatus.statusCode,
-				url: httpErrorStatus.url
+				icon: {
+					name: 'cloud-off',
+					type: 'material'
+				},
+				heading: t([`home.errors.${errorCode}.heading`, 'home.errors.http.heading']),
+				message: t([`home.errors.${errorCode}.description`, 'home.errors.http.description']),
+				details: [
+					t('home.errorCode', { errorCode }),
+					t('home.errorUrl', { url: httpErrorStatus.url })
+				],
+				buttonIcon: {
+					name: getIconName('refresh'),
+					type: 'ionicon'
+				},
+				buttonTitle: t('home.retry')
 			});
 		}
 	}, [httpErrorStatus]);
@@ -78,10 +95,23 @@ const HomeScreen = observer(() => {
 					}}
 					// Error screen is displayed if loading fails
 					renderError={errorCode => (
-						<OfflineErrorView
-							onRetry={() => webview.current?.reload()}
-							errorCode={errorCode}
-							url={server.urlString}
+						<ErrorView
+							icon={{
+								name: 'cloud-off',
+								type: 'material'
+							}}
+							heading={t([`home.errors.${errorCode}.heading`, 'home.errors.offline.heading'])}
+							message={t([`home.errors.${errorCode}.description`, 'home.errors.offline.description'])}
+							details={[
+								t('home.errorCode', { errorCode }),
+								t('home.errorUrl', { url: server.urlString })
+							]}
+							buttonIcon={{
+								name: getIconName('refresh'),
+								type: 'ionicon'
+							}}
+							buttonTitle={t('home.retry')}
+							onPress={() => webview.current?.reload()}
 						/>
 					)}
 					// Loading screen is displayed when refreshing
