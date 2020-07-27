@@ -56,7 +56,8 @@ function Home() {
 			mode="modal"
 			screenOptions={{
 				headerShown: false,
-				animationEnabled: false
+				animationEnabled: false,
+				animationTypeForReplace: 'pop'
 			}}
 		>
 			<HomeStack.Screen

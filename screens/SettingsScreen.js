@@ -50,8 +50,8 @@ const SettingsScreen = observer(() => {
 
 						if (rootStore.serverStore.servers.length > 0) {
 							// More servers exist, navigate home
-							// FIXME: Should this use replace?
-							navigation.navigate('Main', { screen: 'Home', params: { screen: 'HomeScreen' }});
+							navigation.replace('HomeScreen');
+							navigation.navigate('Home');
 						} else {
 							// No servers are present, navigate to add server screen
 							navigation.replace('AddServer');
@@ -65,8 +65,8 @@ const SettingsScreen = observer(() => {
 
 	const onSelectServer = action(index => {
 		rootStore.settingStore.activeServer = index;
-		// FIXME: Should this use replace?
-		navigation.navigate('Main', { screen: 'Home', params: { screen: 'HomeScreen' }});
+		navigation.replace('HomeScreen');
+		navigation.navigate('Home');
 	});
 
 	const onResetApplication = () => {
