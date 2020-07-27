@@ -1,5 +1,6 @@
 import * as Localization from 'expo-localization';
 import i18next from 'i18next';
+import { I18nManager } from 'react-native';
 import { initReactI18next } from 'react-i18next';
 
 import en from './langs/en.json';
@@ -43,6 +44,9 @@ const resources = {
 	'zh-Hans': { translation: zh_Hans },
 	'zh-Hant': { translation: zh_Hant }
 };
+
+// Ensure RTL layout is enabled for RTL locales
+I18nManager.forceRTL(Localization.isRTL);
 
 i18next
 	.use(initReactI18next)
