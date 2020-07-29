@@ -52,7 +52,7 @@
                 "heading": "Serveur hors ligne ?"
             },
             "502": {
-                "description": "Impossible de contacter le serveur Jellyfin. Cela est peu être dû à une erreur dans la configuration du proxy ou bien que le serveur Jellyfin est hors ligne."
+                "description": "Impossible de contacter le serveur Jellyfin. Ceci peut être dû à une erreur dans la configuration du proxy ou le serveur Jellyfin est hors-ligne."
             },
             "http": {
                 "description": "Le serveur Jellyfin a renvoyé une erreur.",
