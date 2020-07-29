@@ -22,11 +22,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Fehler bei der Verbindungsaufnahme mit dem Server."
+                "description": "Fehler bei der Verbindungsaufnahme mit dem Server.",
+                "heading": "Ist der Server offline?"
+            },
+            "http": {
+                "description": "Der Jellyfin Server hat einen Fehler zurückgegeben.",
+                "heading": "Etwas ist schief gelaufen!"
+            },
+            "504": {
+                "description": "Der Server kann nicht erreicht werden. Möglicherweise ist beim Versuch den Server zu erreichen ein Proxy Timeout aufgetreten."
+            },
+            "502": {
+                "description": "Der Jellyfin Server ist nicht erreichbar. Dies ist meistens ein Fehler in der Proxy Konfiguration oder der Server ist offline."
             }
         },
         "offline": "Fehler bei der Verbindungsaufnahme mit dem Server.",
-        "retry": "Erneut versuchen?"
+        "retry": "Erneut versuchen?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Fehler Code: {{errorCode}}"
     },
     "settings": {
         "version": "Version: {{version}}",
