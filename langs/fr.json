@@ -59,7 +59,7 @@
                 "heading": "Un problème est survenu !"
             },
             "504": {
-                "description": "Impossible de contacter le serveur Jellyfin. Cela peu être dû à une expiration du proxy lors du contact avec le serveur Jellyfin."
+                "description": "Impossible de contacter le serveur Jellyfin. Ceci est généralement dû à une interruption du proxy lors de la connexion avec le serveur Jellyfin."
             }
         },
         "retry": "Réessayer ?",
