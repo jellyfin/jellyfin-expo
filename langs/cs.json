@@ -22,11 +22,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Chyba při kontaktování serveru Jellyfin."
+                "description": "Chyba při kontaktování serveru Jellyfin.",
+                "heading": "Server není spuštěn?"
+            },
+            "http": {
+                "description": "Server Jellyfin vrátil chybu.",
+                "heading": "Něco se nezdařilo!"
+            },
+            "504": {
+                "description": "Kontaktování serveru Jellyfin se nezdařilo. Běžným důvodem je vypršení časového limitu při připojení k Jellyfin přes proxy."
+            },
+            "502": {
+                "description": "Kontaktování serveru Jellyfin se nezdařilo. Běžným důvodem je chyba v nastavení proxy nebo není Jellfyfin spuštěn."
             }
         },
         "offline": "Chyba při kontaktování serveru Jellyfin.",
-        "retry": "Zkusit znovu?"
+        "retry": "Zkusit znovu?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Kód chyby: {{errorCode}}"
     },
     "settings": {
         "version": "Verze: {{version}}",
