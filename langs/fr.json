@@ -48,10 +48,23 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Erreur lors du contact avec le serveur Jellyfin."
+                "description": "Erreur lors du contact avec le serveur Jellyfin.",
+                "heading": "Serveur hors ligne ?"
+            },
+            "502": {
+                "description": "Impossible de contacter le serveur Jellyfin. Cela est peu être dû à une erreur dans la configuration du proxy ou bien que le serveur Jellyfin est hors ligne."
+            },
+            "http": {
+                "description": "Le serveur Jellyfin a renvoyé une erreur.",
+                "heading": "Un problème est survenu !"
+            },
+            "504": {
+                "description": "Impossible de contacter le serveur Jellyfin. Cela peu être dû à une expiration du proxy lors du contact avec le serveur Jellyfin."
             }
         },
         "retry": "Réessayer ?",
-        "offline": "Erreur lors du contact avec le serveur Jellyfin."
+        "offline": "Erreur lors du contact avec le serveur Jellyfin.",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Code erreur: {{errorCode}}"
     }
 }
