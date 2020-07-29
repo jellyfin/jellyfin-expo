@@ -79,12 +79,18 @@ window.NativeShell = {
 
     getDeviceProfile: function(profileBuilder) {
       postExpoEvent('AppHost.getDeviceProfile');
-      return profileBuilder({ enableMkvProgressive: false });
+      return profileBuilder({
+        enableMkvProgressive: false,
+        disableHlsVideoAudioCodecs: ['ac3', 'eac3', 'opus']
+      });
     },
 
     getSyncProfile: function(profileBuilder) {
       postExpoEvent('AppHost.getSyncProfile');
-      return profileBuilder({ enableMkvProgressive: false });
+      return profileBuilder({
+        enableMkvProgressive: false,
+        disableHlsVideoAudioCodecs: ['ac3', 'eac3', 'opus']
+      });
     },
 
     supports: function(command) {
