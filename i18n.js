@@ -14,6 +14,7 @@ import fr from './langs/fr.json';
 import it from './langs/it.json';
 import ko from './langs/ko.json';
 import nb_NO from './langs/nb_NO.json';
+import nl from './langs/nl.json';
 import pl from './langs/pl.json';
 import pt_BR from './langs/pt_BR.json';
 import ro from './langs/ro.json';
@@ -35,6 +36,7 @@ const resources = {
 	it: { translation: it },
 	ko: { translation: ko },
 	'nb-NO': { translation: nb_NO },
+	nl: { translation: nl },
 	pl: { translation: pl },
 	'pt-BR': { translation: pt_BR },
 	ro: { translation: ro },
