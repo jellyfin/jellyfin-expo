@@ -11,22 +11,35 @@
         "settings": "Inställningar"
     },
     "addServer": {
-        "address": "Server adress",
+        "address": "Serveradress",
         "validation": {
             "empty": "$t(addServer.address) kan inte vara tom",
             "invalid": "$t(addServer.address) är ogilltig",
-            "invalidProduct": "Det är ingen Jellyfin server",
+            "invalidProduct": "Inte en Jellyfin-server",
             "noConnection": "Kunde inte ansluta till servern"
         }
     },
     "home": {
         "errors": {
             "offline": {
-                "description": "Problem med att koppla upp sig mot Jellyfin servern"
+                "description": "Fel vid kontakt med Jellyfin servern.",
+                "heading": "Servern nere?"
+            },
+            "http": {
+                "description": "Jellyfin servern svarade med ett felmeddelande.",
+                "heading": "Något gick fel!"
+            },
+            "504": {
+                "description": "Kunde inte nå Jellyfin servern. Detta är oftast på grund av att en proxy inte svarade i tid."
+            },
+            "502": {
+                "description": "Kunde inte nå Jellyfin servern. Detta är oftast på grund av en proxy konfigurations error eller att Jellyfin är nere."
             }
         },
         "offline": "Problem med att koppla upp sig mot Jellyfin servern",
-        "retry": "Testa igen?"
+        "retry": "Försök igen?",
+        "errorUrl": "Länk: {{url}}",
+        "errorCode": "Felkod: {{errorCode}}"
     },
     "settings": {
         "version": "Version: {{version}}",
@@ -35,11 +48,12 @@
         "expoVersion": "Expo Version: {{version}}"
     },
     "links": {
-        "website": "Jellyfin Hemsida",
+        "website": "Jellyfins Hemsida",
         "documentation": "Dokumentation",
         "source": "Källkod",
         "feature": "Begär en funktion",
-        "issue": "Rapportera ett problem"
+        "issue": "Rapportera ett problem",
+        "translate": "Översätt"
     },
     "alerts": {
         "deleteServer": {
@@ -48,9 +62,9 @@
             "confirm": "Ta bort"
         },
         "resetApplication": {
-            "title": "Återställ applikationen",
-            "description": "Är du säker på att du vill återställa alla inställningar?",
-            "confirm": "Återställ"
+            "title": "Nollställ applikationen",
+            "description": "Är du säker på att du vill nollställa alla inställningar?",
+            "confirm": "Nollställ"
         }
     }
 }
