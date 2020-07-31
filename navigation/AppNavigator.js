@@ -3,8 +3,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React from 'react';
-import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import React, { useEffect } from 'react';
+import { NavigationContainer, DarkTheme, useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { observer } from 'mobx-react';
@@ -50,7 +50,17 @@ function TabIcon(routeName, color, size) {
 	);
 }
 
-function Home() {
+const Home = observer(() => {
+	const { rootStore } = useStores();
+	const navigation = useNavigation();
+
+	useEffect(() => {
+		// Show/hide the bottom tab bar
+		navigation.setOptions({
+			tabBarVisible: !rootStore.isFullscreen
+		});
+	}, [rootStore.isFullscreen]);
+
 	return (
 		<HomeStack.Navigator
 			mode="modal"
@@ -73,9 +83,9 @@ function Home() {
 			/>
 		</HomeStack.Navigator>
 	);
-}
+});
 
-function Main() {
+const Main = observer(() => {
 	const { t } = useTranslation();
 
 	return (
@@ -103,7 +113,7 @@ function Main() {
 			/>
 		</Tab.Navigator>
 	);
-}
+});
 
 const AppNavigator = observer(() => {
 	const { rootStore } = useStores();

@@ -27,13 +27,6 @@ const HomeScreen = observer(() => {
 
 	const webview = useRef(null);
 
-	useEffect(() => {
-		// Show/hide the bottom tab bar
-		navigation.setOptions({
-			tabBarVisible: !rootStore.isFullscreen
-		});
-	}, [rootStore.isFullscreen]);
-
 	// Clear the error state when the active server changes
 	useEffect(() => {
 		setIsLoading(true);
