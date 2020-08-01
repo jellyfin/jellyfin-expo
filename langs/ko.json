@@ -13,8 +13,8 @@
     "addServer": {
         "address": "서버 주소",
         "validation": {
-            "empty": "",
-            "invalid": "",
+            "empty": "$t(addServer.address)는 공백일 수 없습니다",
+            "invalid": "$t(addServer.address)이 올바르지 않습니다",
             "invalidProduct": "Jellyfin 서버가 아닙니다",
             "noConnection": "서버에 연결할수 없습니다"
         }
@@ -22,36 +22,49 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "서버 접속문제"
+                "description": "서버 접속문제",
+                "heading": "서버가 오프라인입니까?"
+            },
+            "http": {
+                "description": "Jellyfin 서버에서 오류가 발생했습니다.",
+                "heading": "무언가 잘못되었습니다 !"
+            },
+            "504": {
+                "description": "Jellyfin 서버에 연결할 수 없습니다. 보통 프록시 시간 초과 때문입니다."
+            },
+            "502": {
+                "description": "Jellyfin 서버에 연결할 수 없습니다. 보통 프록시 설정이 잘못되었거나 Jellyfin 서버가 오프라인이기 때문입니다."
             }
         },
         "offline": "서버 접속문제",
-        "retry": "다시 시도?"
+        "retry": "다시 시도?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "에러 코드: {{errorCode}}"
     },
     "settings": {
         "version": "버전: {{version}}",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "keepAwake": "화면이 켜진 상태로 유지하기",
+        "rotationLock": "화면 회전 잠금",
+        "expoVersion": "Expo 버전: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin 웹사이트",
+        "documentation": "문서",
+        "source": "소스 코드",
+        "translate": "번역",
+        "feature": "기능 요청하기",
+        "issue": "이슈 제보"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "서버 제거",
+            "description": "{{serverName}}을 제거하시겠습니까?",
+            "confirm": "제거"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "애플리케이션 재설정",
+            "description": "모든 설정을 재설정하시겠습니까?",
+            "confirm": "재설정"
         }
     }
 }
