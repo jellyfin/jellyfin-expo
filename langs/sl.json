@@ -22,11 +22,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Napaka pri povezovanju z Jellyfin strežnikom."
+                "description": "Napaka pri povezovanju z Jellyfin strežnikom.",
+                "heading": "Ali je strežnik ugasnjen?"
+            },
+            "http": {
+                "description": "Jellyfin strežnik je vrnil napako.",
+                "heading": "Prišlo je do napake!"
+            },
+            "504": {
+                "description": "Strežnika Jellyfin ni možno doseči. To je lahko posledica neodzivnosti proxy strežnika."
+            },
+            "502": {
+                "description": "Strežnika Jellyfin ni možno doseči. To je lahko posledica napačne nastavitve proxy strežnika ali pa je Jellyfin strežnik ugasnjen."
             }
         },
         "offline": "Napaka pri povezovanju z Jellyfin strežnikom.",
-        "retry": "Poskusi znova?"
+        "retry": "Poskusi znova?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Koda napake: {{errorCode}}"
     },
     "settings": {
         "version": "Različica: {{version}}",
