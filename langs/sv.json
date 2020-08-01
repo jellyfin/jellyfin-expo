@@ -14,7 +14,7 @@
         "address": "Serveradress",
         "validation": {
             "empty": "$t(addServer.address) kan inte vara tom",
-            "invalid": "$t(addServer.address) är ogilltig",
+            "invalid": "$t(addServer.address) är ogiltig",
             "invalidProduct": "Inte en Jellyfin-server",
             "noConnection": "Kunde inte ansluta till servern"
         }
