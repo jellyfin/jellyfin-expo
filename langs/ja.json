@@ -1,22 +1,22 @@
 {
     "common": {
-        "cancel": "",
+        "cancel": "キャンセル",
         "unknown": ""
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "サーバーを追加",
+        "home": "ホーム",
+        "links": "リンク",
+        "servers": "サーバー",
+        "settings": "設定"
     },
     "addServer": {
-        "address": "",
+        "address": "サーバーアドレス",
         "validation": {
             "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "invalid": "$t(addServer.address)は無効",
+            "invalidProduct": "Jellyfinのサーバーではない",
+            "noConnection": "接続失敗"
         }
     },
     "home": {
