@@ -27,6 +27,18 @@ const HomeScreen = observer(() => {
 
 	const webview = useRef(null);
 
+	useEffect(() => {
+		// Pressing the Home tab when it is already active navigates to home screen in webview
+		navigation.dangerouslyGetParent()?.addListener('tabPress', e => {
+			if (navigation.isFocused()) {
+				// Prevent default behavior
+				e.preventDefault();
+				// Call the web router to navigate home
+				webview.current?.injectJavaScript('window.Emby && window.Emby.Page && typeof window.Emby.Page.goHome === "function" && window.Emby.Page.goHome();');
+			}
+		});
+	}, []);
+
 	// Clear the error state when the active server changes
 	useEffect(() => {
 		setIsLoading(true);
