@@ -1,3 +1,8 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
 import * as Localization from 'expo-localization';
 import i18next from 'i18next';
 import { I18nManager } from 'react-native';
@@ -12,6 +17,7 @@ import es from './langs/es.json';
 import es_AR from './langs/es_AR.json';
 import fr from './langs/fr.json';
 import it from './langs/it.json';
+import ja from './langs/ja.json';
 import ko from './langs/ko.json';
 import nb_NO from './langs/nb_NO.json';
 import nl from './langs/nl.json';
@@ -34,6 +40,7 @@ const resources = {
 	'es-AR': { translation: es_AR },
 	fr: { translation: fr },
 	it: { translation: it },
+	ja: { translation: ja },
 	ko: { translation: ko },
 	'nb-NO': { translation: nb_NO },
 	nl: { translation: nl },
