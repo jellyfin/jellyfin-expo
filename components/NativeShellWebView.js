@@ -3,8 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect, useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Constants from 'expo-constants';
@@ -33,21 +32,9 @@ true;
 const NativeShellWebView = observer(React.forwardRef(
 	function NativeShellWebView(props, ref) {
 		const { rootStore } = useStores();
-		const navigation = useNavigation();
 		const [isRefreshing, setIsRefreshing] = useState(false);
 
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
-
-		useEffect(() => {
-			navigation.addListener('tabPress', e => {
-				if (navigation.isFocused()) {
-					// Prevent default behavior
-					e.preventDefault();
-					// Call the web router to navigate home
-					ref.current?.injectJavaScript('window.Emby && window.Emby.Page && typeof window.Emby.Page.goHome === "function" && window.Emby.Page.goHome();');
-				}
-			});
-		}, []);
 
 		const onRefresh = () => {
 			// Disable pull to refresh when in fullscreen
