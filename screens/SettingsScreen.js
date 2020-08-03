@@ -100,6 +100,24 @@ const SettingsScreen = observer(() => {
 	);
 
 	const getSections = () => {
+		const settingsData = [{
+			key: 'keep-awake-switch',
+			title: t('settings.keepAwake'),
+			value: rootStore.settingStore.isScreenLockEnabled,
+			onValueChange: action(value => rootStore.settingStore.isScreenLockEnabled = value)
+		}];
+
+		// Orientation lock is not supported on iPad without disabling multitasking
+		// https://docs.expo.io/versions/latest/sdk/screen-orientation/#warning
+		if (Platform.OS !== 'ios' || !Platform.isPad) {
+			settingsData.push({
+				key: 'rotation-lock-switch',
+				title: t('settings.rotationLock'),
+				value: rootStore.settingStore.isRotationEnabled,
+				onValueChange: action(value => rootStore.settingStore.isRotationEnabled = value)
+			});
+		}
+
 		return [
 			{
 				title: t('headings.servers'),
@@ -119,20 +137,7 @@ const SettingsScreen = observer(() => {
 			},
 			{
 				title: t('headings.settings'),
-				data: [
-					{
-						key: 'keep-awake-switch',
-						title: t('settings.keepAwake'),
-						value: rootStore.settingStore.isScreenLockEnabled,
-						onValueChange: action(value => rootStore.settingStore.isScreenLockEnabled = value)
-					},
-					{
-						key: 'rotation-lock-switch',
-						title: t('settings.rotationLock'),
-						value: rootStore.settingStore.isRotationEnabled,
-						onValueChange: action(value => rootStore.settingStore.isRotationEnabled = value)
-					}
-				],
+				data: settingsData,
 				renderItem: SwitchListItem
 			},
 			{
