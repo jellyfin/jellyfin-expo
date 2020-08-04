@@ -8,11 +8,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Error al establecer la conexión con el servidor."
+                "description": "Error al establecer la conexión con el servidor.",
+                "heading": "¿Servidor desconectado?"
+            },
+            "http": {
+                "description": "El servidor devolvió un error.",
+                "heading": "¡Algo fue mal!"
+            },
+            "504": {
+                "description": "No se puede conectar al servidor. Esto ocurre cuando se ha agotado el tiempo de espera del proxy para contactar con el servidor."
+            },
+            "502": {
+                "description": "No se puede conectar al servidor. Esto ocurre cuando el proxy no está configurado correctamente o cuando el servidor está apagado."
             }
         },
         "retry": "¿Reintentar?",
-        "offline": "Error al establecer la conexión con el servidor."
+        "offline": "Error al establecer la conexión con el servidor.",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Código de error: {{errorCode}}"
     },
     "addServer": {
         "validation": {
@@ -42,7 +55,7 @@
         },
         "deleteServer": {
             "confirm": "Eliminar",
-            "description": "¿Estás seguro de que quieres eliminar este servidor?",
+            "description": "¿Estás seguro de que quieres eliminar {{serverName}}?",
             "title": "Eliminar servidor"
         }
     },
