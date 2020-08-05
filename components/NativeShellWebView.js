@@ -96,6 +96,8 @@ const NativeShellWebView = observer(React.forwardRef(
 		return (
 			<RefreshWebView
 				ref={ref}
+				// Allow any origin blocking can break various things like book playback
+				originWhitelist={['*']}
 				source={{ uri: server.urlString }}
 				// Inject javascript for NativeShell
 				// This method is preferred, but only supported on iOS currently
