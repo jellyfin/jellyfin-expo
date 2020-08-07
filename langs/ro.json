@@ -22,11 +22,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Eroare la contactarea serverului Jellyfin."
+                "description": "Eroare la contactarea serverului Jellyfin.",
+                "heading": "Server indisponibil?"
+            },
+            "http": {
+                "description": "Serverul Jellyfin a returnat o eroare.",
+                "heading": "Ceva n-a mers bine!"
+            },
+            "504": {
+                "description": "Imposibil de accesat serverul Jellyfin. Acest lucru se întâmplă, de obicei, deoarece a expirat timpul conectării proxy-ului la Jellyfin."
+            },
+            "502": {
+                "description": "Imposibil de accesat serverul Jellyfin. Acest lucru este de obicei din cauza unei erori de configurare a proxyului sau Jellyfin este offline."
             }
         },
         "offline": "Eroare la contactarea serverului Jellyfin.",
-        "retry": "Încearcă din nou?"
+        "retry": "Încearcă din nou?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Cod de eroare: {{errorCode}}"
     },
     "settings": {
         "version": "Versiune: {{version}}",
