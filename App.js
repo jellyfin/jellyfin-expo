@@ -117,7 +117,7 @@ const App = observer(({ skipLoadingScreen }) => {
 		]);
 	};
 
-	if (!isSplashReady && !skipLoadingScreen) {
+	if (!isSplashReady && !rootStore.storeLoaded && !skipLoadingScreen) {
 		return (
 			<AppLoading
 				startAsync={loadResourcesAsync}

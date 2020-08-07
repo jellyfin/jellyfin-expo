@@ -34,9 +34,6 @@ export default class RootStore {
 }
 
 decorate(RootStore, {
-	storeLoaded: ignore,
-	isFullscreen: [
-		ignore,
-		observable
-	]
+	storeLoaded: [ ignore, observable ],
+	isFullscreen: [ ignore, observable ]
 });
