@@ -20,7 +20,7 @@ const ErrorScreen = () =>{
 	const route = useRoute();
 	const { icon, heading, message, details, buttonIcon, buttonTitle } = route.params;
 
-	const safeAreaEdges = ['right', 'bottom', 'left'];
+	const safeAreaEdges = ['right', 'left'];
 	if (Platform.OS !== 'ios') {
 		safeAreaEdges.push('top');
 	}

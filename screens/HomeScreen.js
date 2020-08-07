@@ -68,9 +68,13 @@ const HomeScreen = observer(() => {
 	}, [httpErrorStatus]);
 
 	// When not in fullscreen, the top adjustment is handled by the spacer View for iOS
-	const safeAreaEdges = ['right', 'bottom', 'left'];
+	const safeAreaEdges = ['right', 'left'];
 	if (Platform.OS !== 'ios' || rootStore.isFullscreen) {
 		safeAreaEdges.push('top');
+	}
+	// Bottom spacer is handled by tab bar except in fullscreen
+	if (rootStore.isFullscreen) {
+		safeAreaEdges.push('bottom');
 	}
 	// Hide webview until loaded
 	const webviewStyle = (isLoading || httpErrorStatus) ? StyleSheet.compose(styles.container, styles.loading) : styles.container;
