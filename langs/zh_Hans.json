@@ -22,29 +22,43 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "连接Jellyfin服务器时出错。"
+                "description": "连接Jellyfin服务器时出错。",
+                "heading": "服务器离线？"
+            },
+            "http": {
+                "description": "Jellyfin 服务器返回了一个错误。",
+                "heading": "出错了！"
+            },
+            "504": {
+                "description": "无法连接到 Jellyfin 服务器。这可能是由于连接到 Jellyfin 服务器时代理超时。"
+            },
+            "502": {
+                "description": "无法连接到 Jellyfin 服务器。这可能是由于代理设置错误或是 Jellyfin 服务器离线。"
             }
         },
         "offline": "连接Jellyfin服务器时出错。",
-        "retry": "是否重试？"
+        "retry": "是否重试？",
+        "errorUrl": "网络地址： {{url}}",
+        "errorCode": "错误代码：{{errorCode}}"
     },
     "settings": {
         "version": "版本号：{{version}}",
         "keepAwake": "保持屏幕常亮",
         "rotationLock": "旋转锁定",
-        "expoVersion": ""
+        "expoVersion": "Expo 版本：{{version}}"
     },
     "links": {
         "website": "Jellyfin网站",
-        "documentation": "",
+        "documentation": "文档",
         "source": "源代码",
         "feature": "功能请求",
-        "issue": "报告问题"
+        "issue": "报告问题",
+        "translate": "翻译"
     },
     "alerts": {
         "deleteServer": {
             "title": "删除服务器",
-            "description": "您确定要删除此服务器吗？",
+            "description": "您确定要删除服务器 {{serverName}} 吗？",
             "confirm": "删除"
         },
         "resetApplication": {
