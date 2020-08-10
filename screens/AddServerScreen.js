@@ -35,7 +35,6 @@ const AddServerScreen = () => {
 				<ServerInput
 					label={t('addServer.address')}
 					placeholder='https://jellyfin.org'
-					t={t}
 				/>
 			</SafeAreaView>
 		</KeyboardAvoidingView>
