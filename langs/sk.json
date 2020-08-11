@@ -38,7 +38,8 @@
         },
         "offline": "Chyba pri pripájaní k Jellyfin serveru.",
         "retry": "Skúsiť znova?",
-        "errorCode": "Kód chyby: {{errorCode}}"
+        "errorCode": "Kód chyby: {{errorCode}}",
+        "errorUrl": "URL: {{url}}"
     },
     "settings": {
         "version": "Verzia: {{version}}",
