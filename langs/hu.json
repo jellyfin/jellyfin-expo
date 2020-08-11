@@ -1,22 +1,22 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Mégsem",
+        "unknown": "Ismeretlen"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Szerver hozzáadása",
+        "home": "Kezdőlap",
+        "links": "Hivatkozások",
+        "servers": "Szerverek",
+        "settings": "Beállítások"
     },
     "addServer": {
-        "address": "",
+        "address": "Szerver címe",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "A $t(addServer.address) nem lehet üres",
+            "invalid": "A $t(addServer.address) hibás",
+            "invalidProduct": "Ez nem egy Jellyfin szerver",
+            "noConnection": "Nem sikerült csatlakozni a szerverhez"
         }
     },
     "home": {
