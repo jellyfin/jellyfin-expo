@@ -25,7 +25,7 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "2",
+      "buildNumber": "3",
       "supportsTablet": true,
       "bundleIdentifier": "org.jellyfin.expo",
       "infoPlist": {
