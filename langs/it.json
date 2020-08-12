@@ -22,11 +22,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Errore durante il contatto con il server Jellyfin."
+                "description": "Errore durante il contatto con il server Jellyfin.",
+                "heading": "Server offline?"
+            },
+            "http": {
+                "description": "Dal server Jellyfin è ritornato un errore.",
+                "heading": "Qualcosa è andato storto!"
+            },
+            "504": {
+                "description": "Impossibile connettersi al server Jellyfin. Questo di solito significa che il proxy è andato in timeout nel tentativo di connettersi a Jellyfin."
+            },
+            "502": {
+                "description": "Impossibile connettersi al server Jellyfin. Questo di solito significa un'errata configurazione del proxy o che Jellyfin è offline."
             }
         },
         "offline": "Errore durante il contatto con il server Jellyfin.",
-        "retry": "Riprova?"
+        "retry": "Riprova?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Codice errore: {{errorCode}}"
     },
     "settings": {
         "version": "Versione: {{version}}",
@@ -39,12 +52,13 @@
         "documentation": "Documentazione",
         "source": "Codice Sorgente",
         "feature": "Richiedere una Funzionalità",
-        "issue": "Segnala un Problema"
+        "issue": "Segnala un Problema",
+        "translate": "Traduci"
     },
     "alerts": {
         "deleteServer": {
             "title": "Elimina Server",
-            "description": "Sei sicuro di voler eliminare questo server?",
+            "description": "Sei sicuro di voler eliminare il server {{serverName}} ?",
             "confirm": "Elimina"
         },
         "resetApplication": {
