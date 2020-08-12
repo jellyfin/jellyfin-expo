@@ -16,6 +16,7 @@ import de from './langs/de.json';
 import es from './langs/es.json';
 import es_AR from './langs/es_AR.json';
 import fr from './langs/fr.json';
+import hu from './langs/hu.json';
 import it from './langs/it.json';
 import ja from './langs/ja.json';
 import ko from './langs/ko.json';
@@ -39,6 +40,7 @@ const resources = {
 	es: { translation: es },
 	'es-AR': { translation: es_AR },
 	fr: { translation: fr },
+	hu: { translation: hu },
 	it: { translation: it },
 	ja: { translation: ja },
 	ko: { translation: ko },
