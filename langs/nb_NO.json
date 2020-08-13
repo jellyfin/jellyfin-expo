@@ -22,11 +22,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Problem med å kontakte Jellyfin-serveren."
+                "description": "Problem med å kontakte Jellyfin-serveren.",
+                "heading": "Er serveren offline?"
+            },
+            "http": {
+                "description": "Jellyfin-serveren returnerte en feil.",
+                "heading": "Noe gikk galt!"
+            },
+            "504": {
+                "description": "Kunne ikke nå Jellyfin-serveren. Dette skyldes vanligvis et tidsavbrudd i proxyen under tilkobling til Jellyfin."
+            },
+            "502": {
+                "description": "Kunne ikke nå Jellyfin-serveren. Dette betyr vanligvis at det er en feil i proxy-konfigurasjonen, eller at Jellyfin er offline."
             }
         },
         "offline": "Problem med å kontakte Jellyfin-serveren.",
-        "retry": "Prøve igjen?"
+        "retry": "Prøve igjen?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Feilkode: {{errorCode}}"
     },
     "settings": {
         "version": "Versjon: {{version}}",
@@ -45,7 +58,7 @@
     "alerts": {
         "deleteServer": {
             "title": "Slett server",
-            "description": "Er du sikker på at du vil slette denne serveren?",
+            "description": "Er du sikker på at du vil slette serveren {{serverName}}?",
             "confirm": "Slett"
         },
         "resetApplication": {
