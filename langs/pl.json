@@ -22,11 +22,24 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Błąd przy łączeniu z serwerem Jellyfin."
+                "description": "Błąd przy łączeniu z serwerem Jellyfin.",
+                "heading": "Serwer jest offline?"
+            },
+            "http": {
+                "description": "Serwer Jellyfin zwrócił błąd.",
+                "heading": "Coś poszło źle!"
+            },
+            "504": {
+                "description": "Nie można połączyć się z serwerem Jellyfin. Dzieje się tak zwykle z powodu przekroczenia limitu czasu serwera proxy podczas łączenia się z Jellyfin."
+            },
+            "502": {
+                "description": "Nie można połączyć się z serwerem Jellyfin. Zwykle jest to spowodowane błędem konfiguracji proxy lub Jellyfin jest w trybie offline."
             }
         },
         "offline": "Błąd przy łączeniu z serwerem Jellyfin.",
-        "retry": "Spróbować ponownie?"
+        "retry": "Spróbować ponownie?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Kod błędu: {{errorCode}}"
     },
     "settings": {
         "version": "Wersja: {{version}}",
@@ -39,7 +52,7 @@
         "documentation": "Dokumentacja",
         "source": "Kod źrodłowy",
         "translate": "Tłumacz",
-        "feature": "",
+        "feature": "Poproś o funkcję",
         "issue": "Zgłoś błąd"
     },
     "alerts": {
