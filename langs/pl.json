@@ -38,7 +38,7 @@
         },
         "offline": "Błąd przy łączeniu z serwerem Jellyfin.",
         "retry": "Spróbować ponownie?",
-        "errorUrl": "URL: {{url}}",
+        "errorUrl": "Link URL: {{url}}",
         "errorCode": "Kod błędu: {{errorCode}}"
     },
     "settings": {
@@ -50,7 +50,7 @@
     "links": {
         "website": "Strona Jellyfin",
         "documentation": "Dokumentacja",
-        "source": "Kod źrodłowy",
+        "source": "Kod źródłowy",
         "translate": "Tłumacz",
         "feature": "Poproś o funkcję",
         "issue": "Zgłoś błąd"
