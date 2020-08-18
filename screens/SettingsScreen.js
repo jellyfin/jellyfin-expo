@@ -113,8 +113,8 @@ const SettingsScreen = observer(() => {
 			settingsData.push({
 				key: 'rotation-lock-switch',
 				title: t('settings.rotationLock'),
-				value: rootStore.settingStore.isRotationEnabled,
-				onValueChange: action(value => rootStore.settingStore.isRotationEnabled = value)
+				value: rootStore.settingStore.isRotationLockEnabled,
+				onValueChange: action(value => rootStore.settingStore.isRotationLockEnabled = value)
 			});
 		}
 

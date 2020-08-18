@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { action, decorate, observable } from 'mobx';
+import { Platform } from 'react-native';
 
 /**
  * Data store for application settings
@@ -15,9 +16,9 @@ export default class SettingStore {
 	activeServer = 0
 
 	/**
-	 * Is device rotation enabled
+	 * Is device rotation lock enabled
 	 */
-	isRotationEnabled
+	isRotationLockEnabled = Platform.OS === 'ios' && !Platform.isPad
 
 	/**
 	 * Is screen lock active when media is playing
@@ -26,14 +27,14 @@ export default class SettingStore {
 
 	reset() {
 		this.activeServer = 0;
-		this.isRotationEnabled = null;
+		this.isRotationLockEnabled = Platform.OS === 'ios' && !Platform.isPad;
 		this.isScreenLockEnabled = true;
 	}
 }
 
 decorate(SettingStore, {
 	activeServer: observable,
-	isRotationEnabled: observable,
+	isRotationLockEnabled: observable,
 	isScreenLockEnabled: observable,
 	reset: action
 });
