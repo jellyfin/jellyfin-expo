@@ -6,7 +6,7 @@
 import 'mobx-react-lite/batchingForReactNative';
 
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, Platform } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { observer } from 'mobx-react';
