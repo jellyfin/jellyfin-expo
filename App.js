@@ -6,7 +6,7 @@
 import 'mobx-react-lite/batchingForReactNative';
 
 import React, { useEffect, useState } from 'react';
-import { AsyncStorage, Platform } from 'react-native';
+import { AsyncStorage } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { observer } from 'mobx-react';
@@ -58,11 +58,6 @@ const App = observer(({ skipLoadingScreen }) => {
 		}
 
 		rootStore.storeLoaded = true;
-
-		if (typeof rootStore.settingStore.isRotationEnabled === 'undefined') {
-			rootStore.settingStore.isRotationEnabled = Platform.OS === 'ios' && !Platform.isPad;
-			console.info('Initializing rotation lock setting', rootStore.settingStore.isRotationEnabled);
-		}
 	};
 
 	useEffect(() => {
@@ -71,16 +66,16 @@ const App = observer(({ skipLoadingScreen }) => {
 	}, []);
 
 	useEffect(() => {
-		console.info('rotation lock setting changed!', rootStore.settingStore.isRotationEnabled);
-		if (rootStore.settingStore.isRotationEnabled) {
+		console.info('rotation lock setting changed!', rootStore.settingStore.isRotationLockEnabled);
+		if (rootStore.settingStore.isRotationLockEnabled) {
 			ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
 		} else {
 			ScreenOrientation.unlockAsync();
 		}
-	}, [rootStore.settingStore.isRotationEnabled]);
+	}, [rootStore.settingStore.isRotationLockEnabled]);
 
 	const updateScreenOrientation = async () => {
-		if (rootStore.settingStore.isRotationEnabled) {
+		if (rootStore.settingStore.isRotationLockEnabled) {
 			if (rootStore.isFullscreen) {
 				// Lock to landscape orientation
 				// For some reason video apps on iPhone use LANDSCAPE_RIGHT ¯\_(ツ)_/¯
