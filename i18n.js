@@ -28,6 +28,7 @@ import ro from './langs/ro.json';
 import sk from './langs/sk.json';
 import sl from './langs/sl.json';
 import sv from './langs/sv.json';
+import ta from './langs/ta.json';
 import zh_Hans from './langs/zh_Hans.json';
 import zh_Hant from './langs/zh_Hant.json';
 
@@ -52,6 +53,7 @@ const resources = {
 	sk: { translation: sk },
 	sl: { translation: sl },
 	sv: { translation: sv },
+	ta: { translation: ta },
 	'zh-Hans': { translation: zh_Hans },
 	'zh-Hant': { translation: zh_Hant }
 };
