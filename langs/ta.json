@@ -1,69 +1,69 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "ரத்துசெய்",
+        "unknown": "தெரியாத"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "சேவையகத்தைச் சேர்க்கவும்",
+        "home": "முகப்பு",
+        "links": "இணைப்புகள்",
+        "servers": "சேவையகங்கள்",
+        "settings": "அமைப்புகள்"
     },
     "addServer": {
-        "address": "",
+        "address": "சேவையக முகவரி",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) காலியாக இருக்க முடியாது",
+            "invalid": "$t(addServer.address) தவறானது",
+            "invalidProduct": "ஜெல்லிஃபின் சேவையகம் அல்ல",
+            "noConnection": "சேவையகத்துடன் இணைக்க முடியவில்லை"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "ஜெல்லிஃபின் சேவையகத்தை அடைய முடியவில்லை. இது வழக்கமாக ப்ராக்ஸி உள்ளமைவு பிழை அல்லது ஜெல்லிஃபின் ஆஃப்லைனில் இருப்பதால் தான்."
             },
             "504": {
-                "description": ""
+                "description": "ஜெல்லிஃபின் சேவையகத்தை அடைய முடியவில்லை. இது வழக்கமாக ஜெல்லிஃபினுடன் இணைக்கும்போது ப்ராக்ஸி நேரம் முடிந்துவிட்டது."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "ஏதோ தவறு நடைபெற்றிருக்கிறது!",
+                "description": "ஜெல்லிஃபின் சேவையகம் ஒரு பிழையை அளித்தது."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "சேவையகம் ஆஃப்லைனில் உள்ளதா?",
+                "description": "ஜெல்லிஃபின் சேவையகத்தை தொடர்பு கொள்வதில் பிழை."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "பிழைக் குறியீடு: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "மீண்டும் முயற்சி செய்?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "பதிப்பு: {{version}}",
+        "keepAwake": "திரையை விழித்திருங்கள்",
+        "rotationLock": "சுழற்சி பூட்டு",
+        "expoVersion": "எக்ஸ்போ பதிப்பு: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "ஜெல்லிஃபின் வலைத்தளம்",
+        "documentation": "ஆவணம்",
+        "source": "மூல குறியீடு",
+        "translate": "மொழிபெயர்",
+        "feature": "அம்சத்தைக் கோருங்கள்",
+        "issue": "ஒரு சிக்கலைப் புகாரளிக்கவும்"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "சேவையகத்தை நீக்கு",
+            "description": "சேவையகத்தை {{serverName}} ஐ நீக்க விரும்புகிறீர்களா?",
+            "confirm": "நீக்கு"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "பயன்பாட்டை மீட்டமை",
+            "description": "எல்லா அமைப்புகளையும் மீட்டமைக்க விரும்புகிறீர்களா?",
+            "confirm": "மீட்டமை"
         }
     }
 }
