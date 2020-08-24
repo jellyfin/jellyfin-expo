@@ -1,69 +1,69 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "انصراف",
+        "unknown": "ناشناخته"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "اضافه کردن سرور",
+        "home": "خانه",
+        "links": "لینک",
+        "servers": "سرورها",
+        "settings": "تنظیمات"
     },
     "addServer": {
-        "address": "",
+        "address": "ادرس سرور",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "ادرس سرور نمیتواند خالی باشد",
+            "invalid": "ادرس سرور معتبر نیست",
+            "invalidProduct": "این یک سرور جلی‌فین نیست",
+            "noConnection": "اتصال به سرور بر قرار نشد"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "امکان دسترسی به سرور جلی‌فین موجود نیست . تنظیمات پروکسی را چک کنید یا سرور جلی‌فین خاموش است"
             },
             "504": {
-                "description": ""
+                "description": "دسترسی به سرور جلی‌فین ممکن نیست پروکسی در زمان مورد نظر متصل نشد"
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "خطایی رخ داد !",
+                "description": "سرور جلی‌فین با خطایی روبرو شد."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "سرور خاموش است؟",
+                "description": "خطایی هنگام اتصال به سرور جلی‌فین رخ داد."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "کد خطا : {{کدخطا}}",
+        "errorUrl": "یو ار ال : {{ url}}",
+        "retry": "دوباره امتحان کنم؟"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
+        "version": "نسخه : {{version}}",
+        "keepAwake": "صفحه را روشن نگه دار",
+        "rotationLock": "قفل چرخش صفحه",
         "expoVersion": ""
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "سایت جلی‌فین",
+        "documentation": "مقالات",
+        "source": "کد منبع",
+        "translate": "ترجمه",
+        "feature": "درخواست یک قابلیت",
+        "issue": "گزارش یک مشکل"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "حذف سرور",
+            "description": "آیا مطمئنید که میخواهید سرور {{serverName}} را حذف کنید؟",
+            "confirm": "حذف"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "بازنشانی تنظیمات اولیه",
+            "description": "آیا مطمئنید که میخواهید تنظیمات را به حالت اولیه برگردانید؟",
+            "confirm": "بازنشانی"
         }
     }
 }
