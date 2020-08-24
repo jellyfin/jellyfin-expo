@@ -22,48 +22,48 @@
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Nem sikerült elérni a Jellyfin szervert. Ez általában hibás proxy beállításnak köszönhető, vagy leállított Jellyfin szervernek."
             },
             "504": {
-                "description": ""
+                "description": "Nem sikerült elérni a Jellyfin szervert. Ez általában annak köszönhető, hogy a proxy nem válaszolt időben miközben a Jellyfin szerverhez csatlakozott."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Valami nem sikerült!",
+                "description": "A Jellyfin szerver hibával válaszolt."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Leállított szerver?",
+                "description": "Hiba a Jellyfin szerverhez kapcsolódás közben."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Hibakód: {{errorCode}}",
+        "errorUrl": "Elérési út: {{url}}",
+        "retry": "Megpróbáljuk újra?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Verzió: {{version}}",
+        "keepAwake": "Tartsa a képernyőt ébren",
+        "rotationLock": "Képernyő irányultság zárolása",
+        "expoVersion": "Expo Verzió: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin weboldala",
+        "documentation": "Dokumentáció",
+        "source": "Forráskód",
+        "translate": "Fordítás",
+        "feature": "Kérj egy új funkciót",
+        "issue": "Hiba jelentése"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Szerver törlése",
+            "description": "Biztos törölni szeretnéd a {{serverName}} szervert?",
+            "confirm": "Törlés"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Alkalmazás alaphelyzetbe állítása",
+            "description": "Biztos, hogy az összes beállítást alaphelyzetbe szeretnéd állítani?",
+            "confirm": "Alaphelyzetbe állítás"
         }
     }
 }
