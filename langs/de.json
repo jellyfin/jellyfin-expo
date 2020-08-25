@@ -27,7 +27,7 @@
             },
             "http": {
                 "description": "Der Jellyfin Server hat einen Fehler zurückgegeben.",
-                "heading": "Etwas ist schief gelaufen!"
+                "heading": "Etwas ist schiefgelaufen!"
             },
             "504": {
                 "description": "Der Server kann nicht erreicht werden. Möglicherweise ist beim Versuch den Server zu erreichen ein Proxy Timeout aufgetreten."
@@ -39,7 +39,7 @@
         "offline": "Fehler bei der Verbindungsaufnahme mit dem Server.",
         "retry": "Erneut versuchen?",
         "errorUrl": "URL: {{url}}",
-        "errorCode": "Fehler Code: {{errorCode}}"
+        "errorCode": "Fehlercode: {{errorCode}}"
     },
     "settings": {
         "version": "Version: {{version}}",
