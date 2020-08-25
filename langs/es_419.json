@@ -1,69 +1,69 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Cancelar",
+        "unknown": "Desconocido"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Agregar servidor",
+        "home": "Inicio",
+        "links": "Enlaces",
+        "servers": "Servidores",
+        "settings": "Configuración"
     },
     "addServer": {
-        "address": "",
+        "address": "Dirección del servidor",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) no puede estar vacío",
+            "invalid": "$t(addServer.address) es inválido",
+            "invalidProduct": "No es un servidor Jellyfin",
+            "noConnection": "No se pudo conectar al servidor"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "No se pudo contactar con el servidor Jellyfin. Esto se debe generalmente a un error de configuración del proxy o a que Jellyfin está fuera de línea."
             },
             "504": {
-                "description": ""
+                "description": "No se pudo contactar con el servidor Jellyfin. Esto se debe generalmente a que se agotó el tiempo de espera del proxy al conectarse a Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "¡Algo salió mal!",
+                "description": "El servidor Jellyfin devolvió un error."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "¿Servidor fuera de línea?",
+                "description": "Error contactando al servidor Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Código de error: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "¿Intentar otra vez?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Versión: {{version}}",
+        "keepAwake": "Mantener la pantalla encendida",
+        "rotationLock": "Bloquear rotación",
+        "expoVersion": "Versión de Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Sitio web de Jellyfin",
+        "documentation": "Documentación",
+        "source": "Código fuente",
+        "translate": "Traducir",
+        "feature": "Solicitar una característica",
+        "issue": "Reportar un problema"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Eliminar servidor",
+            "description": "¿Estás seguro de querer eliminar el servidor {{serverName}}?",
+            "confirm": "Eliminar"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Restablecer aplicación",
+            "description": "¿Estás seguro de querer restablecer toda la configuración?",
+            "confirm": "Restablecer"
         }
     }
 }
