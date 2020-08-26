@@ -1,22 +1,22 @@
 {
     "common": {
-        "cancel": "",
+        "cancel": "Отмена",
         "unknown": ""
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
+        "addServer": "Добавить Сервер",
+        "home": "Главная",
+        "links": "Ссылки",
         "servers": "",
-        "settings": ""
+        "settings": "Настройки"
     },
     "addServer": {
         "address": "",
         "validation": {
             "empty": "",
             "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "invalidProduct": "Не Сервер Jellyfin",
+            "noConnection": "Не могу соединиться с сервером"
         }
     },
     "home": {
@@ -28,20 +28,20 @@
                 "description": ""
             },
             "http": {
-                "heading": "",
+                "heading": "Что-то пошло не так!",
                 "description": ""
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Сервер оффлайн?",
+                "description": "Ошибка при соединении с сервером."
             }
         },
-        "errorCode": "",
+        "errorCode": "Код ошибки: {{errorCode}}",
         "errorUrl": "",
-        "retry": ""
+        "retry": "Попробовать снова?"
     },
     "settings": {
-        "version": "",
+        "version": "Версия: {{version}}",
         "keepAwake": "",
         "rotationLock": "",
         "expoVersion": ""
