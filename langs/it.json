@@ -1,6 +1,6 @@
 {
     "common": {
-        "cancel": "Cancellare",
+        "cancel": "Annulla",
         "unknown": "Sconosciuto"
     },
     "headings": {
@@ -15,7 +15,7 @@
         "validation": {
             "empty": "$t(aggiungereServer.indirizzo) non può essere vuoto",
             "invalid": "$t(aggiungereServer.indirizzo) è non valido",
-            "invalidProduct": "Non un server Jellyfin",
+            "invalidProduct": "Non è un server Jellyfin",
             "noConnection": "Non è possibile connettersi al server"
         }
     },
