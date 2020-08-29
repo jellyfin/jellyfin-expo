@@ -1,67 +1,67 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Отказ",
+        "unknown": "Непознат"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Добави сървър",
+        "home": "Главна",
+        "links": "Връзки",
+        "servers": "Сървъри",
+        "settings": "Настройки"
     },
     "addServer": {
-        "address": "",
+        "address": "Адрес на сървъра",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(добавиСървър.адрес) полето не може да е празно",
+            "invalid": "$t(добавиСървър.адрес) е невлиден",
+            "invalidProduct": "Не е Джелифин сървър",
+            "noConnection": "Връзката със сървъра не е възможна"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Достъпа до Джелифин сървъра е невъзможен.Вероятно не са направени настройките за прокси или сървъра е извън линия."
             },
             "504": {
-                "description": ""
+                "description": "Достъпа до Джелифин сървъра е невъзможен.Вероятно за връзка през прокси сървъра еизтекло."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Има някакъв проблем!",
+                "description": "Джелифин сървъра се натъкна на грешка."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Сървърът е извън линия?",
+                "description": "Грешка при връзката със Джелифин сървъра."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Код на грешката: {{errorCode}}",
+        "errorUrl": "Адрес: {{url}}",
+        "retry": "Опитайте пак?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Версия: {{version}}",
+        "keepAwake": "Екрана да остане включен",
+        "rotationLock": "Заключване на въртенето",
+        "expoVersion": "Версия на Експо: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Сайт на Джелифин",
+        "documentation": "Документация",
+        "source": "Програмен код",
+        "translate": "Превод",
+        "feature": "Заявете функция",
+        "issue": "Докладвайте проблем"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Премахване на сървър",
+            "description": "Сигурни ли сте ,че искате да премахнете сървъра {{serverName}}?",
+            "confirm": "Премахване"
         },
         "resetApplication": {
-            "title": "",
+            "title": "Нулиране на приложението",
             "description": "",
             "confirm": ""
         }
