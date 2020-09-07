@@ -4,53 +4,67 @@
         "unknown": "未知"
     },
     "headings": {
-        "addServer": "添加伺服器",
+        "addServer": "新增伺服器",
         "home": "首頁",
-        "links": "",
+        "links": "連結",
         "servers": "伺服器",
         "settings": "設定"
     },
     "addServer": {
-        "address": "伺服器地址",
+        "address": "伺服器位址",
         "validation": {
             "empty": "$t(addServer.address) 不能為空",
-            "invalid": "$t(addServer.address) 鍵入無效",
-            "invalidProduct": "不是一個Jellyfin伺服器",
-            "noConnection": "連結至伺服器"
+            "invalid": "$t(addServer.address) 無效的位址",
+            "invalidProduct": "驗證失敗：不是合法的 Jellyfin 伺服器",
+            "noConnection": "無法連接至伺服器"
         }
     },
     "home": {
         "errors": {
             "offline": {
-                "description": "與伺服器聯絡時出錯。"
+                "description": "與伺服器聯絡時出錯。",
+                "heading": "伺服器離線中？"
+            },
+            "http": {
+                "description": "Jellyfin 伺服器回報錯誤。",
+                "heading": "有什麼東西搞錯啦！"
+            },
+            "504": {
+                "description": "無法連接至 Jellyfin 伺服器。原因通常是連接至伺服器時，代理伺服器需時過長。"
+            },
+            "502": {
+                "description": "無法連接至 Jellyfin 伺服器。原因通常是代理伺服器設定錯誤或者伺服器離線中。"
             }
         },
         "offline": "與伺服器聯絡時出錯。",
-        "retry": "再試一次？"
+        "retry": "再試一次？",
+        "errorUrl": "網址：{{url}}",
+        "errorCode": "錯誤碼：{{errorCode}}"
     },
     "settings": {
-        "version": "版本：{0}",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "版本：{{version}}",
+        "keepAwake": "保持螢幕常亮（不進入休眠）",
+        "rotationLock": "螢幕旋轉鎖定",
+        "expoVersion": "Expo 版本：{{version}}"
     },
     "links": {
         "website": "Jellyfin網站",
-        "documentation": "參考文檔",
-        "source": "源代碼",
-        "feature": "",
-        "issue": ""
+        "documentation": "說明文件",
+        "source": "軟體原始碼",
+        "feature": "提出新功能要求",
+        "issue": "回報問題給開發者",
+        "translate": "翻譯"
     },
     "alerts": {
         "deleteServer": {
             "title": "刪除伺服器",
-            "description": "您確認要刪除此伺服器嗎？",
+            "description": "您確認要刪除此伺服器 {{serverName}} 嗎？",
             "confirm": "刪除"
         },
         "resetApplication": {
             "title": "重設應用程式",
-            "description": "您確認要重設全部設定嗎？",
-            "confirm": "重設"
+            "description": "警告：您確認要重設全部設定嗎？",
+            "confirm": "確定重設"
         }
     }
 }
