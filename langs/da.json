@@ -1,6 +1,6 @@
 {
     "common": {
-        "cancel": "afbestille",
+        "cancel": "Annuller",
         "unknown": "Ukendt"
     },
     "headings": {
@@ -15,18 +15,31 @@
         "validation": {
             "empty": "$t(addServer.address) kan ikke være tom",
             "invalid": "$t(addServer.address) er ugyldig",
-            "invalidProduct": "Ikke en jellyfin-server",
+            "invalidProduct": "Ikke en Jellyfin server",
             "noConnection": "Kunne ikke få forbindelse til serveren"
         }
     },
     "home": {
         "errors": {
             "offline": {
-                "description": "Fejl ved kontakt med Jellyfin-server."
+                "description": "Fejl ved kontakt med Jellyfin-server.",
+                "heading": "Server offline?"
+            },
+            "502": {
+                "description": "Kan ikke oprette forbindelse til Jellyfin serveren. Dette skyldes ofte en fejl i proxy opsætningen eller at Jellyfin serveren er offline."
+            },
+            "http": {
+                "description": "Jellyfin serveren returnerede en fejl.",
+                "heading": "Noget gik galt!"
+            },
+            "504": {
+                "description": "Kan ikke oprette forbindelse til Jellyfin serveren. Dette skyldes ofte at proxy forbindelsen udløb mens den forbandt til Jellyfin."
             }
         },
         "offline": "Fejl ved kontakt med Jellyfin-server.",
-        "retry": "Prøv igen?"
+        "retry": "Prøv igen?",
+        "errorUrl": "URL: {{url}}",
+        "errorCode": "Fejlkode: {{errorCode}}"
     },
     "settings": {
         "version": "Version: {{version}}",
@@ -39,12 +52,13 @@
         "documentation": "Dokumentation",
         "source": "Kildekode",
         "feature": "Anmod om en funktion",
-        "issue": "Rapporter et problem"
+        "issue": "Rapporter et problem",
+        "translate": "Oversæt"
     },
     "alerts": {
         "deleteServer": {
             "title": "Slet server",
-            "description": "Er du sikker på, at du vil slette denne server?",
+            "description": "Er du sikker på, at du vil slette serveren {{serverName}}?",
             "confirm": "Slet"
         },
         "resetApplication": {
