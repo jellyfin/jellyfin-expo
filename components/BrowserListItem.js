@@ -21,7 +21,6 @@ const BrowserListItem = ({item, index}) => (
 		}}
 	/>
 );
-
 BrowserListItem.propTypes = {
 	item: PropTypes.shape({
 		name: PropTypes.string.isRequired,
