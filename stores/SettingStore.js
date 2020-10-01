@@ -23,12 +23,12 @@ export default class SettingStore {
 	/**
 	 * Is screen lock active when media is playing
 	 */
-	isScreenLockEnabled = Platform.OS === 'ios' ? !(parseInt(Platform.Version, 10) >= 14) : true
+	isScreenLockEnabled = Platform.OS === 'ios' ? (parseInt(Platform.Version, 10) < 14) : true
 
 	reset() {
 		this.activeServer = 0;
 		this.isRotationLockEnabled = Platform.OS === 'ios' && !Platform.isPad;
-		this.isScreenLockEnabled = Platform.OS === 'ios' ? !(parseInt(Platform.Version, 10) >= 14) : true;
+		this.isScreenLockEnabled = Platform.OS === 'ios' ? (parseInt(Platform.Version, 10) < 14) : true;
 	}
 }
 
