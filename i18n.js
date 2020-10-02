@@ -31,6 +31,11 @@ import sv from './langs/sv.json';
 import ta from './langs/ta.json';
 import zh_Hans from './langs/zh_Hans.json';
 import zh_Hant from './langs/zh_Hant.json';
+import bg from './langs/bg.json';
+import es_419 from './langs/es_419.json';
+import es_AR from './langs/es_AR.json';
+import fa from './langs/fa.json';
+import ru from './langs/ru.json';
 
 const resources = {
 	en: { translation: en },
@@ -55,7 +60,12 @@ const resources = {
 	sv: { translation: sv },
 	ta: { translation: ta },
 	'zh-Hans': { translation: zh_Hans },
-	'zh-Hant': { translation: zh_Hant }
+	'zh-Hant': { translation: zh_Hant },
+	bg: { translation: bg },
+	'es-419': { translation: es_419 },
+	'es-AR': { translation: es_AR },
+	fa: { translation: fa },
+	ru: { translation: ru }
 };
 
 // Ensure RTL layout is enabled for RTL locales
