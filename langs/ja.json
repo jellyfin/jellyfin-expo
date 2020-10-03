@@ -1,7 +1,7 @@
 {
     "common": {
         "cancel": "キャンセル",
-        "unknown": ""
+        "unknown": "不明"
     },
     "headings": {
         "addServer": "サーバーを追加",
@@ -63,7 +63,7 @@
         "resetApplication": {
             "title": "",
             "description": "",
-            "confirm": ""
+            "confirm": "リセット"
         }
     }
 }
