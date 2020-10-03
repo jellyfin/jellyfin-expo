@@ -13,7 +13,7 @@
     "addServer": {
         "address": "サーバーアドレス",
         "validation": {
-            "empty": "",
+            "empty": "$t(addServer.address) を空にすることはできません",
             "invalid": "$t(addServer.address)は無効",
             "invalidProduct": "Jellyfinのサーバーではない",
             "noConnection": "接続失敗"
@@ -36,33 +36,33 @@
                 "description": ""
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "エラーコード: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "再試行しますか?"
     },
     "settings": {
-        "version": "",
+        "version": "バージョン: {{version}}",
         "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "rotationLock": "回転ロック",
+        "expoVersion": "Expoバージョン: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfinウェブサイト",
+        "documentation": "ドキュメント",
+        "source": "ソースコード",
+        "translate": "翻訳",
+        "feature": "機能のリクエスト",
+        "issue": "問題の報告"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "サーバーの削除",
+            "description": "サーバー {{serverName}} を削除してもよろしいですか?",
+            "confirm": "削除"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
+            "title": "アプリケーションをリセット",
+            "description": "すべての設定をリセットしてもよろしいですか?",
             "confirm": "リセット"
         }
     }
