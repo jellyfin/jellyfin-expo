@@ -22,18 +22,18 @@
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Jellyfinサーバーに到達できません。プロキシ設定に誤りがあるかJellyfinがオフラインの可能性があります。"
             },
             "504": {
-                "description": ""
+                "description": "Jellyfinサーバーに到達できません。Jellyfinへの接続中にプロキシがタイムアウトした可能性があります。"
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "問題が発生しました!",
+                "description": "Jellyfinサーバーがエラーを返しました。"
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "サーバーはオフラインですか?",
+                "description": "Jellyfinサーバーへ接続中にエラーが発生しました。"
             }
         },
         "errorCode": "エラーコード: {{errorCode}}",
@@ -42,7 +42,7 @@
     },
     "settings": {
         "version": "バージョン: {{version}}",
-        "keepAwake": "",
+        "keepAwake": "画面を消灯しないでください",
         "rotationLock": "回転ロック",
         "expoVersion": "Expoバージョン: {{version}}"
     },
