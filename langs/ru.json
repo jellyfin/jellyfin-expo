@@ -1,69 +1,69 @@
 {
     "common": {
-        "cancel": "Отмена",
-        "unknown": ""
+        "cancel": "Отменить",
+        "unknown": "Неизвестно"
     },
     "headings": {
-        "addServer": "Добавить Сервер",
-        "home": "Главная",
+        "addServer": "Добавить сервер",
+        "home": "Главное",
         "links": "Ссылки",
-        "servers": "",
-        "settings": "Настройки"
+        "servers": "Серверы",
+        "settings": "Параметры"
     },
     "addServer": {
-        "address": "",
+        "address": "Адрес сервера",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "Не Сервер Jellyfin",
-            "noConnection": "Не могу соединиться с сервером"
+            "empty": "$t(addServer.address) не может быть пустым",
+            "invalid": "$t(addServer.address) неверный",
+            "invalidProduct": "Не является Jellyfin-сервером",
+            "noConnection": "Не удаётся соединиться с сервером"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Не удаётся подключиться к Jellyfin-серверу. Обычно это происходит из-за ошибки конфигурации прокси или Jellyfin отключен."
             },
             "504": {
-                "description": ""
+                "description": "Не удаётся подключиться к Jellyfin-серверу. Обычно это происходит из-за истечения времени ожидания прокси при подключении к Jellyfin."
             },
             "http": {
                 "heading": "Что-то пошло не так!",
-                "description": ""
+                "description": "Jellyfin-сервер возвратил ошибку."
             },
             "offline": {
-                "heading": "Сервер оффлайн?",
-                "description": "Ошибка при соединении с сервером."
+                "heading": "Сервер отключен?",
+                "description": "Ошибка связи с Jellyfin-сервером."
             }
         },
         "errorCode": "Код ошибки: {{errorCode}}",
-        "errorUrl": "",
-        "retry": "Попробовать снова?"
+        "errorUrl": "URL: {{url}}",
+        "retry": "Повторить попытку?"
     },
     "settings": {
         "version": "Версия: {{version}}",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "keepAwake": "Держать экран активным",
+        "rotationLock": "Блокировка поворота",
+        "expoVersion": "Версия Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Веб-сайтJellyfin",
+        "documentation": "Документация",
+        "source": "Источник кода",
+        "translate": "Перевести",
+        "feature": "Запрос функции",
+        "issue": "Сообщить о проблеме"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Удалить сервер",
+            "description": "Вы действительно хотите удалить сервер {{serverName}}?",
+            "confirm": "Удалить"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Сброс приложения",
+            "description": "Вы действительно хотите сбросить все параметры?",
+            "confirm": "Сбросить"
         }
     }
 }
