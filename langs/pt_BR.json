@@ -57,13 +57,13 @@
     },
     "alerts": {
         "deleteServer": {
-            "title": "Deletar servidor",
+            "title": "Excluir servidor",
             "description": "Tem certeza que deseja deletar o servidor {{serverName}}?",
             "confirm": "Deletar"
         },
         "resetApplication": {
             "title": "Resetar aplicativo",
-            "description": "Tem certeza que deseja resetar todas as configurações?",
+            "description": "Tem certeza que deseja restaurar todas as configurações?",
             "confirm": "Resetar"
         }
     }
