@@ -77,19 +77,35 @@ window.NativeShell = {
       return 'mobile';
     },
 
-    getDeviceProfile: function(profileBuilder) {
+    getDeviceProfile: function(profileBuilder, profileBuilderVersion) {
+      const audioCodecs = ['opus'];
+      const versionNumber = profileBuilderVersion !== undefined && profileBuilderVersion.split('.').map(num => Number.parseInt(num, 10));
+      const isAc3Eac3Disabled = profileBuilderVersion === undefined || (versionNumber.length === 3 && versionNumber[0] === 10 && versionNumber[1] < 7);
+      if (isAc3Eac3Disabled) {
+          audioCodecs.push('ac3');
+          audioCodecs.push('eac3');
+      }
+
       postExpoEvent('AppHost.getDeviceProfile');
       return profileBuilder({
         enableMkvProgressive: false,
-        disableHlsVideoAudioCodecs: ['opus']
+        disableHlsVideoAudioCodecs: audioCodecs
       });
     },
 
-    getSyncProfile: function(profileBuilder) {
+    getSyncProfile: function(profileBuilder, profileBuilderVersion) {
+      const audioCodecs = ['opus'];
+      const versionNumber = profileBuilderVersion !== undefined && profileBuilderVersion.split('.').map(num => Number.parseInt(num, 10));
+      const isAc3Eac3Disabled = profileBuilderVersion === undefined || (versionNumber.length === 3 && versionNumber[0] === 10 && versionNumber[1] < 7);
+      if (isAc3Eac3Disabled) {
+          audioCodecs.push('ac3');
+          audioCodecs.push('eac3');
+      }
+
       postExpoEvent('AppHost.getSyncProfile');
       return profileBuilder({
         enableMkvProgressive: false,
-        disableHlsVideoAudioCodecs: ['opus']
+        disableHlsVideoAudioCodecs: audioCodecs
       });
     },
 
