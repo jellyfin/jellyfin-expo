@@ -81,7 +81,7 @@ window.NativeShell = {
       postExpoEvent('AppHost.getDeviceProfile');
       return profileBuilder({
         enableMkvProgressive: false,
-        disableHlsVideoAudioCodecs: ['ac3', 'eac3', 'opus']
+        disableHlsVideoAudioCodecs: ['opus']
       });
     },
 
@@ -89,7 +89,7 @@ window.NativeShell = {
       postExpoEvent('AppHost.getSyncProfile');
       return profileBuilder({
         enableMkvProgressive: false,
-        disableHlsVideoAudioCodecs: ['ac3', 'eac3', 'opus']
+        disableHlsVideoAudioCodecs: ['opus']
       });
     },
 
