@@ -40,7 +40,7 @@
     "react-native-reanimated": "~1.9.0",
     "react-native-safe-area-context": "~3.0.7",
     "react-native-screens": "~2.9.0",
-    "react-native-webview": "9.4.0"
+    "react-native-webview": "11.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
