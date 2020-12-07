@@ -34,6 +34,10 @@
         ]
       }
     },
-    "description": "Jellyfin Mobile"
+    "description": "Jellyfin Mobile",
+    "android": {
+      "package": "org.jellyfin.expo"
+    },
+    "entryPoint": "node_modules/expo/AppEntry.js"
   }
 }

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resources>
+  <color name="splashscreen_background">#FFFFFF</color>
+  <color name="activityBackground">#101010</color>
+  <color name="colorPrimary">#00a4dc</color>
+</resources>
