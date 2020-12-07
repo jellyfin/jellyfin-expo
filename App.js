@@ -21,9 +21,7 @@ import PropTypes from 'prop-types';
 
 import { useStores } from './hooks/useStores';
 import Colors from './constants/Colors';
-import StorageKeys from './constants/Storage';
 import AppNavigator from './navigation/AppNavigator';
-import CachingStorage from './utils/CachingStorage';
 import Theme from './utils/Theme';
 
 // Import i18n configuration
@@ -38,24 +36,7 @@ const App = observer(({ skipLoadingScreen }) => {
 	});
 
 	const hydrateStores = async () => {
-		// Migrate servers and settings
-		// TODO: Remove this for next release
-		const servers = await CachingStorage.getInstance().getItem(StorageKeys.Servers);
-		if (servers) {
-			const activeServer = await CachingStorage.getInstance().getItem(StorageKeys.ActiveServer) || 0;
-
-			// Initialize the store with the existing servers and settings
-			await trunk.init({
-				serverStore: { servers },
-				settingStore: { activeServer }
-			});
-
-			// Remove old data values
-			AsyncStorage.multiRemove(Object.values(StorageKeys));
-		} else {
-			// No servers saved in the old method, initialize normally
-			await trunk.init();
-		}
+		await trunk.init();
 
 		rootStore.storeLoaded = true;
 	};
