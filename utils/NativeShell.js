@@ -93,20 +93,10 @@ window.NativeShell = {
       });
     },
 
-    getSyncProfile: function(profileBuilder, profileBuilderVersion) {
-      const audioCodecs = ['opus'];
-      const versionNumber = profileBuilderVersion !== undefined && profileBuilderVersion.split('.').map(num => Number.parseInt(num, 10));
-      const isAc3Eac3Disabled = profileBuilderVersion === undefined || (versionNumber.length === 3 && versionNumber[0] === 10 && versionNumber[1] < 7);
-      if (isAc3Eac3Disabled) {
-          audioCodecs.push('ac3');
-          audioCodecs.push('eac3');
-      }
-
+    // Keep for support server versions < 10.7
+    getSyncProfile: function() {
       postExpoEvent('AppHost.getSyncProfile');
-      return profileBuilder({
-        enableMkvProgressive: false,
-        disableHlsVideoAudioCodecs: audioCodecs
-      });
+      return Promise.resolve({});
     },
 
     supports: function(command) {
