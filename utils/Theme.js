@@ -40,13 +40,12 @@ export default {
 	ListItem: {
 		containerStyle: {
 			backgroundColor: Colors.headerBackgroundColor
-		},
-		subtitleStyle: {
+		}
+	},
+	ListItemSubtitle: {
+		style: {
 			color: colors.grey4,
 			lineHeight: 21
-		},
-		rightSubtitleStyle: {
-			color: colors.grey4
 		}
 	},
 	Overlay: {

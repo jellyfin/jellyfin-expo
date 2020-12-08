@@ -10,17 +10,21 @@ import PropTypes from 'prop-types';
 
 const SwitchListItem = ({item, index}) => (
 	<ListItem
-		title={item.title}
-		subtitle={item.subtitle}
-		rightElement={
-			<Switch
-				value={item.value}
-				onValueChange={item.onValueChange}
-			/>
-		}
 		topDivider={index === 0}
 		bottomDivider
-	/>
+	>
+		<ListItem.Content>
+			<ListItem.Title>{item.title}</ListItem.Title>
+			{(
+				item.subtitle &&
+				<ListItem.Subtitle>{item.subtitle}</ListItem.Subtitle>
+			)}
+		</ListItem.Content>
+		<Switch
+			value={item.value}
+			onValueChange={item.onValueChange}
+		/>
+	</ListItem>
 );
 
 SwitchListItem.propTypes = {

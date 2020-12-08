@@ -20,10 +20,11 @@ const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
 
 	return (
 		<ListItem
-			title={title}
-			titleStyle={styles.title}
-			subtitle={subtitle}
-			leftElement={(
+			topDivider={index === 0}
+			bottomDivider
+			onPress={() => onPress(index)}
+		>
+			{(
 				index === activeServer ? (
 					<Icon
 						name={getIconName('checkmark')}
@@ -35,21 +36,20 @@ const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
 					<View style={styles.leftElement} />
 				)
 			)}
-			rightElement={(
-				<Button
-					type='clear'
-					icon={{
-						name: getIconName('trash'),
-						type: 'ionicon',
-						iconStyle: styles.deleteButton
-					}}
-					onPress={() => onDelete(index)}
-				/>
-			)}
-			topDivider={index === 0}
-			bottomDivider
-			onPress={() => onPress(index)}
-		/>
+			<ListItem.Content>
+				<ListItem.Title style={styles.title}>{title}</ListItem.Title>
+				<ListItem.Subtitle>{subtitle}</ListItem.Subtitle>
+			</ListItem.Content>
+			<Button
+				type='clear'
+				icon={{
+					name: getIconName('trash'),
+					type: 'ionicon',
+					iconStyle: styles.deleteButton
+				}}
+				onPress={() => onDelete(index)}
+			/>
+		</ListItem>
 	);
 };
 
