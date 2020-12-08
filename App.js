@@ -3,8 +3,6 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import 'mobx-react-lite/batchingForReactNative';
-
 import React, { useEffect, useState } from 'react';
 import { AsyncStorage } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
