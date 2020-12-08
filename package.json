@@ -54,7 +54,7 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
-    "expo-cli": "^3.18.2",
+    "expo-cli": "^4.0.8",
     "jest-expo": "^39.0.0",
     "typescript": "~3.9.2"
   },
