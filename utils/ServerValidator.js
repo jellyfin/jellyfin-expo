@@ -6,7 +6,7 @@
 /* globals fetch, AbortController */
 import Url from 'url';
 
-export default class JellyfinValidator {
+export default class ServerValidator {
 	static TIMEOUT_DURATION = 5000 // timeout request after 5s
 
 	static parseUrl(host = '', port = '') {

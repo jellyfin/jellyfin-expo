@@ -7,7 +7,7 @@ import { action, autorun, computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 import { task } from 'mobx-task';
 
-import JellyfinValidator from '../utils/JellyfinValidator';
+import ServerValidator from '../utils/ServerValidator';
 
 export default class ServerModel {
 	id
@@ -34,14 +34,14 @@ export default class ServerModel {
 
 	get parseUrlString() {
 		try {
-			return JellyfinValidator.getServerUrl(this);
+			return ServerValidator.getServerUrl(this);
 		} catch (ex) {
 			return '';
 		}
 	}
 
 	fetchInfo = task(async () => {
-		return await JellyfinValidator.fetchServerInfo(this)
+		return await ServerValidator.fetchServerInfo(this)
 			.then(action(info => {
 				this.online = true;
 				this.info = info;
