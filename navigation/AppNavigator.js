@@ -8,7 +8,7 @@ import { NavigationContainer, DarkTheme, useNavigation } from '@react-navigation
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { observer } from 'mobx-react';
-import { SplashScreen } from 'expo';
+import * as SplashScreen from 'expo-splash-screen';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 
@@ -120,7 +120,7 @@ const AppNavigator = observer(() => {
 	const { t } = useTranslation();
 
 	// Ensure the splash screen is hidden when loading is finished
-	SplashScreen.hide();
+	SplashScreen.hideAsync();
 
 	return (
 		<NavigationContainer theme={theme}>

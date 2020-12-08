@@ -5,9 +5,9 @@
  */
 import * as React from 'react';
 import { ActivityIndicator, Image, StyleSheet, View } from 'react-native';
+import * as SplashScreen from 'expo-splash-screen';
 
 import Colors from '../constants/Colors';
-import { SplashScreen } from 'expo';
 
 const styles = StyleSheet.create({
 	container: {
@@ -28,7 +28,7 @@ function LoadingScreen() {
 			<Image
 				style={styles.splash}
 				source={require('../assets/images/splash.png')}
-				onLoad={() => SplashScreen.hide()}
+				onLoad={() => SplashScreen.hideAsync()}
 				fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
 			/>
 			<ActivityIndicator />
