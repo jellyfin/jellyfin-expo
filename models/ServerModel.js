@@ -7,7 +7,7 @@ import { action, autorun, computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 import { task } from 'mobx-task';
 
-import ServerValidator from '../utils/ServerValidator';
+import { getServerUrl, fetchServerInfo } from '../utils/ServerValidator';
 
 export default class ServerModel {
 	id
@@ -34,14 +34,14 @@ export default class ServerModel {
 
 	get parseUrlString() {
 		try {
-			return ServerValidator.getServerUrl(this);
+			return getServerUrl(this);
 		} catch (ex) {
 			return '';
 		}
 	}
 
 	fetchInfo = task(async () => {
-		return await ServerValidator.fetchServerInfo(this)
+		return await fetchServerInfo(this)
 			.then(action(info => {
 				this.online = true;
 				this.info = info;
