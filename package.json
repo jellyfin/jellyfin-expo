@@ -5,6 +5,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "eject": "expo eject",
+    "lint": "eslint \".\"",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
   "jest": {
