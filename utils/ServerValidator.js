@@ -62,7 +62,7 @@ export const fetchServerInfo = async (server = {}) => {
 };
 
 export const getServerUrl = (server = {}) => {
-	if (!server || !server.url || !server.url.href) {
+	if (!server?.url?.href) {
 		throw new Error('Cannot get server url for invalid server', server);
 	}
 
