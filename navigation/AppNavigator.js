@@ -4,7 +4,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React, { useEffect } from 'react';
-import { NavigationContainer, DarkTheme, useNavigation } from '@react-navigation/native';
+import {
+	NavigationContainer,
+	DarkTheme,
+	getFocusedRouteNameFromRoute,
+	useNavigation
+} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { observer } from 'mobx-react';
@@ -133,9 +138,9 @@ const AppNavigator = observer(() => {
 					name='Main'
 					component={Main}
 					options={({ route }) => {
-						const routeName = route.state ?
+						const routeName =
 							// Get the currently active route name in the tab navigator
-							route.state.routes[route.state.index].name :
+							getFocusedRouteNameFromRoute(route) ||
 							// If state doesn't exist, we need to default to `screen` param if available, or the initial screen
 							// In our case, it's "Main" as that's the first screen inside the navigator
 							route.params?.screen || 'Main';
