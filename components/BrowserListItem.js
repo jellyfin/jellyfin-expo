@@ -4,22 +4,25 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React from 'react';
-import { ListItem } from 'react-native-elements';
+import { Icon, ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
 import { openBrowser } from '../utils/WebBrowser';
 
 const BrowserListItem = ({item, index}) => (
 	<ListItem
-		title={item.name}
-		leftIcon={item.icon}
 		topDivider={index === 0}
 		bottomDivider
-		chevron
 		onPress={() => {
 			openBrowser(item.url);
 		}}
-	/>
+	>
+		<Icon name={item.icon.name} type={item.icon.type} />
+		<ListItem.Content>
+			<ListItem.Title>{item.name}</ListItem.Title>
+		</ListItem.Content>
+		<ListItem.Chevron />
+	</ListItem>
 );
 
 BrowserListItem.propTypes = {

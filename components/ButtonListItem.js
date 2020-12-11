@@ -10,17 +10,18 @@ import PropTypes from 'prop-types';
 
 const ButtonListItem = ({item, index}) => (
 	<ListItem
-		title={
+		topDivider={index === 0}
+		bottomDivider
+	>
+		<ListItem.Content>
 			<Button
 				{...item}
 				type='clear'
 				buttonStyle={{ ...styles.button, ...item.buttonStyle }}
 				titleStyle={{ ...styles.title, ...item.titleStyle }}
 			/>
-		}
-		topDivider={index === 0}
-		bottomDivider
-	/>
+		</ListItem.Content>
+	</ListItem>
 );
 
 ButtonListItem.propTypes = {
