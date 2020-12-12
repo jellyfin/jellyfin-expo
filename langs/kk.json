@@ -1,22 +1,22 @@
 {
     "common": {
         "cancel": "Boldyrmaý",
-        "unknown": ""
+        "unknown": "Belgisiz"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Serverdi ústeý",
+        "home": "Basqy",
+        "links": "Siltemeler",
+        "servers": "Serverler",
+        "settings": "Parametrler"
     },
     "addServer": {
-        "address": "",
+        "address": "Server mekenjaıy",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) bos bolýy múmkin emes",
+            "invalid": "$t(addServer.address) jaramsyz",
+            "invalidProduct": "Jellyfin serveri emes",
+            "noConnection": "Serverge qosylý múmkin bolmady"
         }
     },
     "home": {
@@ -28,42 +28,42 @@
                 "description": ""
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Birdeńe durys bolmady!",
+                "description": "Jellyfin serveri qate qaıtardy."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Server jeliden tys pa?",
+                "description": "Jellyfin serverimen baılanysý qatesi."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Qate kody: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Áreketti qaıtalaımyz ba?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Nusqasy: {{version}}",
+        "keepAwake": "Ekrandy belsendi qaldyrý",
+        "rotationLock": "Aınaldyrý qulpy",
+        "expoVersion": "Expo nusqasy: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin veb-saıty",
+        "documentation": "Qujattama",
+        "source": "Bastapqy kody",
+        "translate": "Tprjimeleý",
+        "feature": "Múmkindik ótinishi",
+        "issue": "Aqaý týraly habarlaý"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Serverdi alastaý",
+            "description": "{{serverName}} serverin shynymen joıǵyńyz kele me?",
+            "confirm": "Joıý"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Qoldanbany ysyrý",
+            "description": "Barlyq parametrlerdi shynymen ysyrǵyńyz kele me?",
+            "confirm": "Ysyrý"
         }
     }
 }
