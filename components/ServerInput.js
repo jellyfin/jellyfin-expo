@@ -90,6 +90,7 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 				name: getIconName('globe'),
 				type: 'ionicon'
 			}}
+			leftIconContainerStyle={styles.leftIconContainerStyle}
 			labelStyle={{
 				color: colors.grey4
 			}}
@@ -119,6 +120,9 @@ const styles = StyleSheet.create({
 		marginBottom: 12,
 		backgroundColor: '#292929',
 		borderBottomWidth: 0
+	},
+	leftIconContainerStyle: {
+		marginLeft: 12
 	}
 });
 
