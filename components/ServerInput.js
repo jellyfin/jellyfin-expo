@@ -14,7 +14,7 @@ import { observer } from 'mobx-react';
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
 import { getIconName } from '../utils/Icons';
-import JellyfinValidator from '../utils/JellyfinValidator';
+import { parseUrl, validateServer } from '../utils/ServerValidator';
 
 const sanitizeHost = (url = '') => url.trim();
 
@@ -38,7 +38,7 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 			// Parse the entered url
 			let url;
 			try {
-				url = JellyfinValidator.parseUrl(host);
+				url = parseUrl(host);
 				console.log('parsed url', url);
 			} catch (err) {
 				console.info(err);
@@ -49,7 +49,7 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 			}
 
 			// Validate the server is available
-			const validation = await JellyfinValidator.validate({ url });
+			const validation = await validateServer({ url });
 			console.log(`Server is ${validation.isValid ? '' : 'not '}valid`);
 			if (!validation.isValid) {
 				const message = validation.message || 'invalid';
