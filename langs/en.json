@@ -31,6 +31,10 @@
             "heading": "Something went wrong!",
             "description": "The Jellyfin server returned an error."
         },
+        "invalidServer": {
+            "heading": "Server is invalid",
+            "description": "Something has happened and the saved server information is invalid. Try removing the server from Settings and add it again."
+        },
         "offline": {
             "heading": "Server offline?",
             "description": "Error contacting Jellyfin server."

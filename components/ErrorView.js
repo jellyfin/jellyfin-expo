@@ -40,12 +40,14 @@ const ErrorView = ({
 					<Text key={`errorview-details-${index}`} style={styles.details}>{detailText}</Text>
 				))}
 			</View>
-			<Button
-				containerStyle={styles.footer}
-				icon={buttonIcon}
-				title={buttonTitle}
-				onPress={onPress}
-			/>
+			{buttonTitle && (
+				<Button
+					containerStyle={styles.footer}
+					icon={buttonIcon}
+					title={buttonTitle}
+					onPress={onPress}
+				/>
+			)}
 		</View>
 	);
 };
@@ -62,8 +64,8 @@ ErrorView.propTypes = {
 		name: PropTypes.string,
 		type: PropTypes.string
 	}),
-	buttonTitle: PropTypes.string.isRequired,
-	onPress: PropTypes.func.isRequired
+	buttonTitle: PropTypes.string,
+	onPress: PropTypes.func
 };
 
 const styles = StyleSheet.create({
