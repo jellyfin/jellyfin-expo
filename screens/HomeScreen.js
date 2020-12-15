@@ -89,7 +89,7 @@ const HomeScreen = observer(() => {
 			{Platform.OS === 'ios' && !rootStore.isFullscreen && (
 				<View style={styles.statusBarSpacer} />
 			)}
-			{server && server.urlString && (
+			{server && server.urlString ? (
 				<NativeShellWebView
 					ref={webview}
 					style={webviewStyle}
@@ -141,6 +141,11 @@ const HomeScreen = observer(() => {
 					onLoadEnd={() => {
 						setIsLoading(false);
 					}}
+				/>
+			) : (
+				<ErrorView
+					heading={t('home.errors.invalidServer.heading')}
+					message={t('home.errors.invalidServer.description')}
 				/>
 			)}
 		</SafeAreaView>
