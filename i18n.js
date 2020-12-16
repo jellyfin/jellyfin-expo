@@ -22,6 +22,7 @@ import fr from './langs/fr.json';
 import hu from './langs/hu.json';
 import it from './langs/it.json';
 import ja from './langs/ja.json';
+import kk from './langs/kk.json';
 import ko from './langs/ko.json';
 import nb_NO from './langs/nb_NO.json';
 import nl from './langs/nl.json';
@@ -51,6 +52,7 @@ const resources = {
 	hu: { translation: hu },
 	it: { translation: it },
 	ja: { translation: ja },
+	kk: { translation: kk },
 	ko: { translation: ko },
 	'nb-NO': { translation: nb_NO },
 	nl: { translation: nl },
