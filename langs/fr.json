@@ -60,6 +60,9 @@
             },
             "504": {
                 "description": "Impossible de contacter le serveur Jellyfin. Ceci est généralement dû à une interruption du proxy lors de la connexion avec le serveur Jellyfin."
+            },
+            "invalidServer": {
+                "heading": "Le serveur est invalide"
             }
         },
         "retry": "Réessayer ?",
