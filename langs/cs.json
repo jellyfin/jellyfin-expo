@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "Kontaktování serveru Jellyfin se nezdařilo. Běžným důvodem je chyba v nastavení proxy nebo není Jellfyfin spuštěn."
+            },
+            "invalidServer": {
+                "description": "Něco se stalo a nyní jsou uložené informace o serveru neplatné. Zkuste server odstranit v Nastavení a znovu ho přidat.",
+                "heading": "Server není platný"
             }
         },
         "offline": "Chyba při kontaktování serveru Jellyfin.",
