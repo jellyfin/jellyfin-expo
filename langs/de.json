@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "Der Jellyfin Server ist nicht erreichbar. Dies ist meistens ein Fehler in der Proxy Konfiguration oder der Server ist offline."
+            },
+            "invalidServer": {
+                "description": "Etwas ist passiert und die gespeicherten Serverinformationen sind ungültig. Versuche den Server von den Einstellungen zu löschen und neu hinzuzufügen.",
+                "heading": "Server ist ungültig"
             }
         },
         "offline": "Fehler bei der Verbindungsaufnahme mit dem Server.",
