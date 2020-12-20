@@ -34,6 +34,9 @@
             "offline": {
                 "heading": "Server jeliden tys pa?",
                 "description": "Jellyfin serverimen baılanysý qatesi."
+            },
+            "invalidServer": {
+                "heading": "Server jaramsyz"
             }
         },
         "errorCode": "Qate kody: {{errorCode}}",
