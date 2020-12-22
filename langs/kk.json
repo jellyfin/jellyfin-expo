@@ -22,10 +22,10 @@
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Jellyfin serverіne jetý múmkіn emes. Ádette, bul proksı teńshelimi qatelіgіnen, nemese Jellyfin derbes kúıdegi sebebinen bolady."
             },
             "504": {
-                "description": ""
+                "description": "Jellyfin serverіne jetý múmkіn emes. Ádette, bul proksıdіń Jellyfin úshin qosylý ýaqyty aıaqtalǵannan bolady."
             },
             "http": {
                 "heading": "Birdeńe durys bolmady!",
@@ -36,7 +36,8 @@
                 "description": "Jellyfin serverimen baılanysý qatesi."
             },
             "invalidServer": {
-                "heading": "Server jaramsyz"
+                "heading": "Server jaramsyz",
+                "description": "Bіrdeńe boldy jáne serverdin saqtalǵan málimetteri jaramsyz. Parametrlerden serverdі alastańyz da, ony qaıtadan ústeńiz."
             }
         },
         "errorCode": "Qate kody: {{errorCode}}",
