@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "No se puede acceder al servidor de Jellyfin. Esto generalmente se debe a un error de configuración del proxy o Jellyfin está fuera de línea."
+            },
+            "invalidServer": {
+                "description": "Algo ha ocurrido y la información guardada del servidor es invalida. Intente remover el servidor de la configuración y volverlo a agregar.",
+                "heading": "Server no Valido"
             }
         },
         "offline": "Error al contactar con el servidor Jellyfin.",
