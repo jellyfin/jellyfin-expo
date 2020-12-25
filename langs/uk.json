@@ -1,73 +1,73 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Скасувати",
+        "unknown": "Невідомий"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Додати Сервер",
+        "home": "Дім",
+        "links": "Ланки",
+        "servers": "Сервери",
+        "settings": "Налаштування"
     },
     "addServer": {
-        "address": "",
+        "address": "Адреса Серверу",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) не може бути пустим",
+            "invalid": "$t(addServer.address) є недійсним",
+            "invalidProduct": "Не є сервером Jellyfin",
+            "noConnection": "Неможливо з‘єднатися із сервером"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Неможливо з‘єднатися із сервером Jellyfin. Зазвичай це стається через помилку налаштування проксі або ж Jellyfin не доступний."
             },
             "504": {
-                "description": ""
+                "description": "Неможливо з‘єднатися із сервером Jellyfin. Зазвичай це стається через те, що вичерпався час з’єднання проксі з Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Щось пішло не так!",
+                "description": "Jellyfin сервер повернув помилку."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Цей сервер недійсний",
+                "description": "Щось сталось і збережена інформація про сервер є недійсною. Спробуй стерти цей сервер з Налаштувань та додати його знову."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Сервер офлайн?",
+                "description": "Проблема з‘єднання з сервером Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Код помилки: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Спробуй ще раз?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "rotationLock": "",
-        "expoVersion": ""
+        "version": "Версія: {{version}}",
+        "keepAwake": "Залишити Екран Активним",
+        "rotationLock": "Замок Обертання",
+        "expoVersion": "Версія Експо: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Jellyfin Вебсайт",
+        "documentation": "Документація",
+        "source": "Першокод",
+        "translate": "Переклад",
+        "feature": "Подати Ідею",
+        "issue": "Повідомити про помилку"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Видалити Сервер",
+            "description": "Ти впевнений що хочеш видалити сервер {{serverName}}?",
+            "confirm": "Видалити"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Перезапустити Застосунок",
+            "description": "Ти впевнений що хочеш скинути всі налаштування?",
+            "confirm": "Перезапустити"
         }
     }
 }
