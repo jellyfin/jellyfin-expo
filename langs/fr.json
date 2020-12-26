@@ -1,7 +1,7 @@
 {
     "addServer": {
         "validation": {
-            "empty": "L'adresse du serveur ne peut pas être vide",
+            "empty": "$t(addServer.address) ne peut pas être vide",
             "noConnection": "Connexion au serveur impossible",
             "invalidProduct": "Pas un serveur Jellyfin",
             "invalid": "L'adresse du serveur est invalide"
@@ -41,7 +41,7 @@
     },
     "settings": {
         "expoVersion": "Expo Version : {{version}}",
-        "rotationLock": "Rotation verrouillée",
+        "rotationLock": "Verrouiller la rotation",
         "keepAwake": "Gardez l'écran éveillé",
         "version": "Version: {{version}}"
     },
@@ -62,7 +62,8 @@
                 "description": "Impossible de contacter le serveur Jellyfin. Ceci est généralement dû à une interruption du proxy lors de la connexion avec le serveur Jellyfin."
             },
             "invalidServer": {
-                "heading": "Le serveur est invalide"
+                "heading": "Le serveur est invalide",
+                "description": "Quelque chose s'est produit et les informations  sauvées sur le serveur sont invalides. Essayez de retirer le serveur des paramètres puis rajouter le de nouveau."
             }
         },
         "retry": "Réessayer ?",
