@@ -31,8 +31,11 @@ ButtonListItem.propTypes = {
 
 const styles = StyleSheet.create({
 	button: {
-		justifyContent: 'flex-start',
 		padding: 0
+	},
+	title: {
+		textAlign: 'auto',
+		width: '100%'
 	}
 });
 
