@@ -4,7 +4,7 @@
             "empty": "$t(addServer.address) ne peut pas être vide",
             "noConnection": "Connexion au serveur impossible",
             "invalidProduct": "Pas un serveur Jellyfin",
-            "invalid": "L'adresse du serveur est invalide"
+            "invalid": "$t(addServer.address) est invalide"
         },
         "address": "Adresse du serveur"
     },
@@ -63,7 +63,7 @@
             },
             "invalidServer": {
                 "heading": "Le serveur est invalide",
-                "description": "Quelque chose s'est produit et les informations  sauvées sur le serveur sont invalides. Essayez de retirer le serveur des paramètres puis rajouter le de nouveau."
+                "description": "Quelque chose s'est produit et les informations sauvées sur le serveur sont invalides. Essayez de retirer le serveur des paramètres puis rajouter le de nouveau."
             }
         },
         "retry": "Réessayer ?",
