@@ -34,6 +34,10 @@
             "offline": {
                 "heading": "Leállított szerver?",
                 "description": "Hiba a Jellyfin szerverhez kapcsolódás közben."
+            },
+            "invalidServer": {
+                "heading": "Érvénytelen szerver",
+                "description": "Valami történt és így az elmett szerver információja érvénytelen. Próbáld meg kitörölni a szervert a Beállításokból, majd add ismét hozzá."
             }
         },
         "errorCode": "Hibakód: {{errorCode}}",
