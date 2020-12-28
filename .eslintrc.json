@@ -12,10 +12,6 @@
         "plugin:import/typescript",
         "plugin:eslint-comments/recommended"
     ],
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
     "parser": "@babel/eslint-parser",
     "parserOptions": {
         "ecmaFeatures": {
@@ -55,5 +51,21 @@
         "semi": ["error"],
         "space-before-blocks": ["error"],
         "space-infix-ops": ["error"]
-    }
+    },
+    "overrides": [
+        {
+            "files": [ "./**/*.js" ],
+            "globals": {
+                "Atomics": "readonly",
+                "SharedArrayBuffer": "readonly"
+            }
+        },
+        {
+            "files": [ "./assets/**/*.staticjs" ],
+            "env": {
+                "node": false,
+                "browser": true
+            }
+        }
+    ]
 }
