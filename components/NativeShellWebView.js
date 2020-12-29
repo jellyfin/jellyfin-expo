@@ -11,23 +11,10 @@ import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 
 import { useStores } from '../hooks/useStores';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
-import NativeShell from '../utils/NativeShell';
+import NativeShellLoader from '../utils/NativeShellLoader';
 import { openBrowser } from '../utils/WebBrowser';
 import RefreshWebView from './RefreshWebView';
 import { Platform } from 'react-native';
-
-const injectedJavaScript = `
-window.ExpoAppInfo = {
-  appName: '${getAppName()}',
-  appVersion: '${Constants.nativeAppVersion}',
-  deviceId: '${Constants.deviceId}',
-  deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
-};
-
-${NativeShell}
-
-true;
-`;
 
 const NativeShellWebView = observer(React.forwardRef(
 	function NativeShellWebView(props, ref) {
@@ -35,6 +22,19 @@ const NativeShellWebView = observer(React.forwardRef(
 		const [isRefreshing, setIsRefreshing] = useState(false);
 
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
+
+		const injectedJavaScript = `
+window.ExpoAppInfo = {
+	appName: '${getAppName()}',
+	appVersion: '${Constants.nativeAppVersion}',
+	deviceId: '${Constants.deviceId}',
+	deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
+};
+
+${NativeShellLoader.NativeShell}
+
+true;
+`;
 
 		const onRefresh = () => {
 			// Disable pull to refresh when in fullscreen

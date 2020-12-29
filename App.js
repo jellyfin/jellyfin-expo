@@ -21,6 +21,7 @@ import { useStores } from './hooks/useStores';
 import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
 import Theme from './utils/Theme';
+import NativeShellLoader from './utils/NativeShellLoader';
 
 // Import i18n configuration
 import './i18n';
@@ -87,7 +88,8 @@ const App = observer(({ skipLoadingScreen }) => {
 				// This is the font that we are using for our tab bar
 				...Ionicons.font
 			}),
-			...loadImagesAsync()
+			...loadImagesAsync(),
+			NativeShellLoader.load()
 		]);
 	};
 
