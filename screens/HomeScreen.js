@@ -6,10 +6,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Platform, StyleSheet, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
-import Constants from 'expo-constants';
 
 import { useStores } from '../hooks/useStores';
 import NativeShellWebView from '../components/NativeShellWebView';
@@ -21,6 +20,7 @@ const HomeScreen = observer(() => {
 	const { rootStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
+	const insets = useSafeAreaInsets();
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [httpErrorStatus, setHttpErrorStatus] = useState(null);
@@ -87,7 +87,10 @@ const HomeScreen = observer(() => {
 	return (
 		<SafeAreaView style={styles.container} edges={safeAreaEdges} >
 			{Platform.OS === 'ios' && !rootStore.isFullscreen && (
-				<View style={styles.statusBarSpacer} />
+				<View style={{
+					...styles.statusBarSpacer,
+					height: insets.top
+				}} />
 			)}
 			{server && server.urlString ? (
 				<NativeShellWebView
@@ -161,8 +164,7 @@ const styles = StyleSheet.create({
 		opacity: 0
 	},
 	statusBarSpacer: {
-		backgroundColor: Colors.headerBackgroundColor,
-		height: Constants.statusBarHeight
+		backgroundColor: Colors.headerBackgroundColor
 	}
 });
 
