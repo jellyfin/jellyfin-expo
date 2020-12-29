@@ -38,6 +38,10 @@
             },
             "504": {
                 "description": "Kan de Jellyfin-server niet bereiken. Dit komt meestal omdat Jellyfin niet snel genoeg de proxy antwoordde tijdens het verbinden."
+            },
+            "invalidServer": {
+                "heading": "Server is ongeldig",
+                "description": "Er is iets mis gegaan en de opgeslagen server informatie is ongeldig. Probeer de server opnieuw toe te voegen vanuit de Instellingen."
             }
         }
     },
@@ -63,7 +67,7 @@
         },
         "resetApplication": {
             "title": "Applicatie-instellingen wissen",
-            "description": "Weet je zeker dat je de applicatie-instellingen wil wissen?",
+            "description": "Weet je zeker dat je alle instellingen wil wissen?",
             "confirm": "Wis"
         }
     }
