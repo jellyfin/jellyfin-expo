@@ -6,7 +6,6 @@
 import React, { useEffect } from 'react';
 import {
 	NavigationContainer,
-	DarkTheme,
 	getFocusedRouteNameFromRoute,
 	useNavigation
 } from '@react-navigation/native';
@@ -24,19 +23,7 @@ import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { getIconName } from '../utils/Icons';
-
-// Customize theme for navigator
-const theme = {
-	...DarkTheme,
-	colors: {
-		...DarkTheme.colors,
-		primary: Colors.tintColor,
-		background: Colors.backgroundColor,
-		card: Colors.headerBackgroundColor,
-		text: Colors.textColor,
-		border: 'transparent'
-	}
-};
+import DarkTheme from '../themes/dark';
 
 const RootStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -128,7 +115,7 @@ const AppNavigator = observer(() => {
 	SplashScreen.hideAsync();
 
 	return (
-		<NavigationContainer theme={theme}>
+		<NavigationContainer theme={DarkTheme.Navigation}>
 			<RootStack.Navigator
 				initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
 				headerMode='screen'

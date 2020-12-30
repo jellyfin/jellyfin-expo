@@ -6,7 +6,7 @@
 import { Platform } from 'react-native';
 import { colors } from 'react-native-elements';
 
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
 export default {
 	colors: {
@@ -14,10 +14,7 @@ export default {
 		...Platform.select({
 			default: colors.platform.android,
 			ios: colors.platform.ios
-		}),
-		primary: Colors.tintColor,
-		black: Colors.textColor,
-		white: Colors.headerBackgroundColor
+		})
 	},
 	Badge: {
 		badgeStyle: {

@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import { useStores } from './hooks/useStores';
 import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
-import Theme from './utils/Theme';
+import DarkTheme from './themes/dark';
 import NativeShellLoader from './utils/NativeShellLoader';
 
 // Import i18n configuration
@@ -106,7 +106,7 @@ const App = observer(({ skipLoadingScreen }) => {
 
 	return (
 		<SafeAreaProvider>
-			<ThemeProvider theme={Theme}>
+			<ThemeProvider theme={DarkTheme.Elements}>
 				<StatusBar
 					style="light"
 					backgroundColor={Colors.headerBackgroundColor}
