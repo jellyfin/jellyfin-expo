@@ -6,6 +6,7 @@
 /**
  * Extensions to the default react-native-elements types to allow for
  * custom properties in themes.
+ * Refs: https://reactnativeelements.com/docs/customization#typescript-definitions-extending-the-default-theme
  */
 type RecursivePartial<T> = { [P in keyof T]?: RecursivePartial<T[P]> };
 
