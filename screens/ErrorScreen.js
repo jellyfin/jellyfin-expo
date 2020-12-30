@@ -6,15 +6,16 @@
 import React, { useState } from 'react';
 import { Platform, RefreshControl, StyleSheet, View } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
-import Constants from 'expo-constants';
 
 import ErrorView from '../components/ErrorView';
 import Colors from '../constants/Colors';
 
 const ErrorScreen = () =>{
 	const [isRefreshing, setIsRefreshing] = useState(false);
+
+	const insets = useSafeAreaInsets();
 
 	const navigation = useNavigation();
 	const route = useRoute();
@@ -26,14 +27,20 @@ const ErrorScreen = () =>{
 	}
 
 	return (
-		<SafeAreaView style={styles.container} edges={safeAreaEdges} >
+		<SafeAreaView style={styles.container} edges={safeAreaEdges} mode='margin' >
 			{Platform.OS === 'ios' && (
-				<View style={styles.statusBarSpacer} />
+				<View style={{
+					...styles.statusBarSpacer,
+					height: insets.top
+				}} />
 			)}
 			{/* We need to wrap the ErrorView in a ScrollView to enable the same pull to */}
 			{/* refresh behavior as the WebView since network errors render _inside_ the WebView */}
 			<ScrollView
-				style={styles.scrollView}
+				style={{
+					...StyleSheet.absoluteFill,
+					top: Platform.OS === 'ios' ? insets.top : 0
+				}}
 				contentContainerStyle={{ flex: 1 }}
 				refreshControl={
 					<RefreshControl
@@ -72,13 +79,8 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: Colors.backgroundColor
 	},
-	scrollView: {
-		...StyleSheet.absoluteFill,
-		top: Platform.OS === 'ios' ? Constants.statusBarHeight : 0
-	},
 	statusBarSpacer: {
-		backgroundColor: Colors.headerBackgroundColor,
-		height: Constants.statusBarHeight
+		backgroundColor: Colors.headerBackgroundColor
 	}
 });
 
