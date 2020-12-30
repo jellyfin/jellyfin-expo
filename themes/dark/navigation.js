@@ -11,10 +11,10 @@ export default {
 	...DarkTheme,
 	colors: {
 		...DarkTheme.colors,
-		primary: Colors.tintColor,
-		background: Colors.backgroundColor,
-		card: Colors.headerBackgroundColor,
-		text: Colors.textColor,
+		primary: Colors.blue,
+		background: Colors.blackish,
+		card: Colors.grey0,
+		text: Colors.white,
 		border: 'transparent'
 	}
 };

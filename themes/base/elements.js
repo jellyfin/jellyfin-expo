@@ -41,7 +41,7 @@ export default {
 	Overlay: {
 		windowBackgroundColor: 'rgba(0, 0, 0, .85)',
 		overlayStyle: {
-			backgroundColor: Colors.backgroundColor
+			backgroundColor: Colors.blackish
 		}
 	}
 };

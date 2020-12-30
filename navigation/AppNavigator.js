@@ -3,7 +3,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { ThemeContext } from 'react-native-elements';
 import {
 	NavigationContainer,
 	getFocusedRouteNameFromRoute,
@@ -17,7 +18,6 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 
 import { useStores } from '../hooks/useStores';
-import Colors from '../constants/Colors';
 import AddServerScreen from '../screens/AddServerScreen';
 import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -79,6 +79,7 @@ const Home = observer(() => {
 
 const Main = observer(() => {
 	const { t } = useTranslation();
+	const { theme } = useContext(ThemeContext);
 
 	return (
 		<Tab.Navigator
@@ -86,7 +87,7 @@ const Main = observer(() => {
 				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
 			})}
 			tabBarOptions={{
-				inactiveTintColor: Colors.tabText
+				inactiveTintColor: theme.colors.grey1
 			}}
 		>
 			<Tab.Screen

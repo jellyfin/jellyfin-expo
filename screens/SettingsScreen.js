@@ -187,10 +187,10 @@ const SettingsScreen = observer(() => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: Colors.backgroundColor
+		backgroundColor: Colors.blackish
 	},
 	header: {
-		backgroundColor: Colors.backgroundColor,
+		backgroundColor: Colors.blackish,
 		color: colors.grey4,
 		fontSize: 17,
 		fontWeight: '600',

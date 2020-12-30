@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
 		...StyleSheet.absoluteFill,
 		flex: 1,
 		paddingHorizontal: 15,
-		backgroundColor: Colors.backgroundColor
+		backgroundColor: Colors.blackish
 	},
 	body: {
 		flexGrow: 1,

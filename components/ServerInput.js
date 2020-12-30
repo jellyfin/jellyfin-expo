@@ -3,16 +3,15 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ActivityIndicator, Platform, StyleSheet } from 'react-native';
-import { Input, colors } from 'react-native-elements';
+import { Input, ThemeContext } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import { useStores } from '../hooks/useStores';
-import Colors from '../constants/Colors';
 import { getIconName } from '../utils/Icons';
 import { parseUrl, validateServer } from '../utils/ServerValidator';
 
@@ -27,6 +26,7 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 	const { rootStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
+	const { theme } = useContext(ThemeContext);
 
 	const onAddServer = action(async () => {
 		console.log('add server', host);
@@ -92,11 +92,11 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 			}}
 			leftIconContainerStyle={styles.leftIconContainerStyle}
 			labelStyle={{
-				color: colors.grey4
+				color: theme.colors.grey4
 			}}
-			placeholderTextColor={colors.grey3}
+			placeholderTextColor={theme.colors.grey3}
 			rightIcon={isValidating ? <ActivityIndicator /> : null}
-			selectionColor={Colors.tintColor}
+			selectionColor={theme.colors.primary}
 			autoCapitalize='none'
 			autoCorrect={false}
 			autoCompleteType='off'

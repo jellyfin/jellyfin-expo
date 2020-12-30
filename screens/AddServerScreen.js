@@ -44,7 +44,7 @@ const AddServerScreen = () => {
 const styles = StyleSheet.create({
 	screen: {
 		flex: 1,
-		backgroundColor: Colors.backgroundColor
+		backgroundColor: Colors.blackish
 	},
 	container: {
 		flex: 1,

@@ -10,8 +10,11 @@ export default {
 	...BaseTheme,
 	colors: {
 		...BaseTheme.colors,
-		primary: Colors.tintColor,
-		black: Colors.textColor,
-		white: Colors.headerBackgroundColor
+		primary: Colors.blue,
+		secondary: Colors.purple,
+		black: Colors.white,
+		white: Colors.grey0,
+		grey0: Colors.grey0,
+		grey1: Colors.grey1
 	}
 };

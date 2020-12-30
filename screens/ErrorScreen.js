@@ -3,8 +3,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Platform, RefreshControl, StyleSheet, View } from 'react-native';
+import { ThemeContext } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -14,6 +15,7 @@ import Colors from '../constants/Colors';
 
 const ErrorScreen = () =>{
 	const [isRefreshing, setIsRefreshing] = useState(false);
+	const { theme } = useContext(ThemeContext);
 
 	const insets = useSafeAreaInsets();
 
@@ -31,6 +33,7 @@ const ErrorScreen = () =>{
 			{Platform.OS === 'ios' && (
 				<View style={{
 					...styles.statusBarSpacer,
+					backgroundColor: theme.colors.grey0,
 					height: insets.top
 				}} />
 			)}
@@ -52,11 +55,11 @@ const ErrorScreen = () =>{
 						}}
 						enabled={true}
 						// iOS colors
-						tintColor={Colors.tabText}
-						backgroundColor={Colors.headerBackgroundColor}
+						tintColor={theme.colors.grey1}
+						backgroundColor={theme.colors.grey0}
 						// Android colors
-						colors={[Colors.primaryBlue, Colors.primaryPurple]}
-						progressBackgroundColor={Colors.backgroundColor}
+						colors={[theme.colors.primary, theme.colors.secondary]}
+						progressBackgroundColor={Colors.blackish}
 					/>
 				}
 			>
@@ -77,10 +80,14 @@ const ErrorScreen = () =>{
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		backgroundColor: Colors.backgroundColor
+		backgroundColor: Colors.blackish
 	},
 	statusBarSpacer: {
+<<<<<<< HEAD
 		backgroundColor: Colors.headerBackgroundColor
+=======
+		height: Constants.statusBarHeight
+>>>>>>> Remove direct color references
 	}
 });
 
