@@ -25,10 +25,16 @@ export default class SettingStore {
 	 */
 	isScreenLockEnabled = Platform.OS === 'ios' ? (parseInt(Platform.Version, 10) < 14) : true
 
+	/**
+	 * Are tab labels enabled
+	 */
+	isTabLabelsEnabled = true
+
 	reset() {
 		this.activeServer = 0;
 		this.isRotationLockEnabled = Platform.OS === 'ios' && !Platform.isPad;
 		this.isScreenLockEnabled = Platform.OS === 'ios' ? (parseInt(Platform.Version, 10) < 14) : true;
+		this.isTabLabelsEnabled = true;
 	}
 }
 
@@ -36,5 +42,6 @@ decorate(SettingStore, {
 	activeServer: observable,
 	isRotationLockEnabled: observable,
 	isScreenLockEnabled: observable,
+	isTabLabelsEnabled: observable,
 	reset: action
 });

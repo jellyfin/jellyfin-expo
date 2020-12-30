@@ -48,6 +48,7 @@
     "version": "Version: {{version}}",
     "keepAwake": "Keep Screen Awake",
     "rotationLock": "Rotation Lock",
+    "tabLabels": "Show Tab Labels",
     "expoVersion": "Expo Version: {{version}}"
   },
   "links": {

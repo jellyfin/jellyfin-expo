@@ -5,6 +5,7 @@
  */
 import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from 'react-native-elements';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
 	NavigationContainer,
 	getFocusedRouteNameFromRoute,
@@ -78,8 +79,13 @@ const Home = observer(() => {
 });
 
 const Main = observer(() => {
+	const { rootStore } = useStores();
+	const insets = useSafeAreaInsets();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
+
+	// Use a smaller height for the tab bar when labels are disabled
+	const tabBarStyle = !rootStore.settingStore.isTabLabelsEnabled ? { height: insets.bottom + 28 } : {};
 
 	return (
 		<Tab.Navigator
@@ -87,7 +93,9 @@ const Main = observer(() => {
 				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
 			})}
 			tabBarOptions={{
-				inactiveTintColor: theme.colors.grey1
+				inactiveTintColor: theme.colors.grey1,
+				showLabel: rootStore.settingStore.isTabLabelsEnabled,
+				style: tabBarStyle
 			}}
 		>
 			<Tab.Screen
