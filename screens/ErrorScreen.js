@@ -38,7 +38,6 @@ const ErrorScreen = () =>{
 		>
 			{Platform.OS === 'ios' && (
 				<View style={{
-					...styles.statusBarSpacer,
 					backgroundColor: theme.colors.grey0,
 					height: insets.top
 				}} />
@@ -86,13 +85,6 @@ const ErrorScreen = () =>{
 const styles = StyleSheet.create({
 	container: {
 		flex: 1
-	},
-	statusBarSpacer: {
-<<<<<<< HEAD
-		backgroundColor: Colors.headerBackgroundColor
-=======
-		height: Constants.statusBarHeight
->>>>>>> Remove direct color references
 	}
 });
 
