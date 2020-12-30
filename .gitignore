@@ -6,6 +6,5 @@ npm-debug.*
 *.p12
 *.key
 *.mobileprovision
-.vscode
 .yarn
 .pnp.js
