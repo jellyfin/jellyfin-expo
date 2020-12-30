@@ -10,24 +10,22 @@ import Colors from '../constants/Colors';
 
 export default {
 	colors: {
-		primary: Colors.tintColor
+		// Use platform default colors from react-native-elements
+		...Platform.select({
+			default: colors.platform.android,
+			ios: colors.platform.ios
+		}),
+		primary: Colors.tintColor,
+		black: Colors.textColor,
+		white: Colors.headerBackgroundColor
 	},
 	Badge: {
 		badgeStyle: {
 			borderWidth: 0
 		}
 	},
-	Icon: {
-		iconStyle: {
-			color: Colors.textColor
-		}
-	},
 	Input: {
-		inputStyle: {
-			color: Colors.textColor
-		},
 		errorStyle: {
-			color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error,
 			fontSize: 16
 		},
 		leftIconContainerStyle: {
@@ -35,11 +33,6 @@ export default {
 		},
 		rightIconContainerStyle: {
 			marginRight: 15
-		}
-	},
-	ListItem: {
-		containerStyle: {
-			backgroundColor: Colors.headerBackgroundColor
 		}
 	},
 	ListItemSubtitle: {
@@ -52,23 +45,6 @@ export default {
 		windowBackgroundColor: 'rgba(0, 0, 0, .85)',
 		overlayStyle: {
 			backgroundColor: Colors.backgroundColor
-		}
-	},
-	Text: {
-		style: {
-			color: Colors.textColor
-		},
-		h1Style: {
-			fontSize: 40
-		},
-		h2Style: {
-			fontSize: 34
-		},
-		h3Style: {
-			fontSize: 28
-		},
-		h4Style: {
-			fontSize: 22
 		}
 	}
 };
