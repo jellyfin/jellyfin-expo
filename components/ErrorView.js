@@ -3,12 +3,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View, useWindowDimensions } from 'react-native';
-import { Button, Text, Icon } from 'react-native-elements';
+import { Button, Icon, Text, ThemeContext } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-import Colors from '../constants/Colors';
 import { getIconName } from '../utils/Icons';
 
 const ErrorView = ({
@@ -23,9 +22,13 @@ const ErrorView = ({
 	const window = useWindowDimensions();
 	const isCompact = window.height < 480;
 	const marginVertical = isCompact ? 20 : 40;
+	const { theme } = useContext(ThemeContext);
 
 	return (
-		<View style={styles.container}>
+		<View style={{
+			...styles.container,
+			backgroundColor: theme.colors.background
+		}}>
 			<View style={styles.body}>
 				<Icon
 					name={icon.name}
@@ -72,8 +75,7 @@ const styles = StyleSheet.create({
 	container: {
 		...StyleSheet.absoluteFill,
 		flex: 1,
-		paddingHorizontal: 15,
-		backgroundColor: Colors.blackish
+		paddingHorizontal: 15
 	},
 	body: {
 		flexGrow: 1,

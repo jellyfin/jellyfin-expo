@@ -10,6 +10,7 @@ export default {
 	...BaseTheme,
 	colors: {
 		...BaseTheme.colors,
+		background: Colors.blackish,
 		primary: Colors.blue,
 		secondary: Colors.purple,
 		black: Colors.white,

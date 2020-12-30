@@ -14,7 +14,6 @@ import { observer } from 'mobx-react';
 import { useStores } from '../hooks/useStores';
 import NativeShellWebView from '../components/NativeShellWebView';
 import ErrorView from '../components/ErrorView';
-import Colors from '../constants/Colors';
 import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
@@ -87,7 +86,13 @@ const HomeScreen = observer(() => {
 	const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
 
 	return (
-		<SafeAreaView style={styles.container} edges={safeAreaEdges} >
+		<SafeAreaView
+			style={{
+				...styles.container,
+				backgroundColor: theme.colors.background
+			}}
+			edges={safeAreaEdges}
+		>
 			{Platform.OS === 'ios' && !rootStore.isFullscreen && (
 				<View style={{
 					backgroundColor: theme.colors.grey0,
@@ -105,7 +110,7 @@ const HomeScreen = observer(() => {
 						backgroundColor: theme.colors.grey0,
 						// Android colors
 						colors: [theme.colors.primary, theme.colors.secondary],
-						progressBackgroundColor: Colors.blackish
+						progressBackgroundColor: theme.colors.background
 					}}
 					// Error screen is displayed if loading fails
 					renderError={errorCode => (
@@ -159,8 +164,7 @@ const HomeScreen = observer(() => {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: Colors.blackish
+		flex: 1
 	},
 	loading: {
 		opacity: 0

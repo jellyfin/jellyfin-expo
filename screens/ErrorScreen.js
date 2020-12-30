@@ -11,7 +11,6 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import ErrorView from '../components/ErrorView';
-import Colors from '../constants/Colors';
 
 const ErrorScreen = () =>{
 	const [isRefreshing, setIsRefreshing] = useState(false);
@@ -29,7 +28,14 @@ const ErrorScreen = () =>{
 	}
 
 	return (
-		<SafeAreaView style={styles.container} edges={safeAreaEdges} mode='margin' >
+		<SafeAreaView
+			style={{
+				...styles.container,
+				backgroundColor: theme.colors.background
+			}}
+			edges={safeAreaEdges}
+			mode='margin'
+		>
 			{Platform.OS === 'ios' && (
 				<View style={{
 					...styles.statusBarSpacer,
@@ -59,7 +65,7 @@ const ErrorScreen = () =>{
 						backgroundColor={theme.colors.grey0}
 						// Android colors
 						colors={[theme.colors.primary, theme.colors.secondary]}
-						progressBackgroundColor={Colors.blackish}
+						progressBackgroundColor={theme.colors.background}
 					/>
 				}
 			>
@@ -79,8 +85,7 @@ const ErrorScreen = () =>{
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: Colors.blackish
+		flex: 1
 	},
 	statusBarSpacer: {
 <<<<<<< HEAD
