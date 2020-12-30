@@ -3,9 +3,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Platform, StyleSheet, View } from 'react-native';
+import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
@@ -13,7 +14,6 @@ import { observer } from 'mobx-react';
 import { useStores } from '../hooks/useStores';
 import NativeShellWebView from '../components/NativeShellWebView';
 import ErrorView from '../components/ErrorView';
-import Colors from '../constants/Colors';
 import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
@@ -21,6 +21,7 @@ const HomeScreen = observer(() => {
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const insets = useSafeAreaInsets();
+	const { theme } = useContext(ThemeContext);
 
 	const [isLoading, setIsLoading] = useState(true);
 	const [httpErrorStatus, setHttpErrorStatus] = useState(null);
@@ -85,10 +86,16 @@ const HomeScreen = observer(() => {
 	const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
 
 	return (
-		<SafeAreaView style={styles.container} edges={safeAreaEdges} >
+		<SafeAreaView
+			style={{
+				...styles.container,
+				backgroundColor: theme.colors.background
+			}}
+			edges={safeAreaEdges}
+		>
 			{Platform.OS === 'ios' && !rootStore.isFullscreen && (
 				<View style={{
-					...styles.statusBarSpacer,
+					backgroundColor: theme.colors.grey0,
 					height: insets.top
 				}} />
 			)}
@@ -99,11 +106,11 @@ const HomeScreen = observer(() => {
 					containerStyle={webviewStyle}
 					refreshControlProps={{
 						// iOS colors
-						tintColor: Colors.tabText,
-						backgroundColor: Colors.headerBackgroundColor,
+						tintColor: theme.colors.grey1,
+						backgroundColor: theme.colors.grey0,
 						// Android colors
-						colors: [Colors.primaryBlue, Colors.primaryPurple],
-						progressBackgroundColor: Colors.backgroundColor
+						colors: [theme.colors.primary, theme.colors.secondary],
+						progressBackgroundColor: theme.colors.background
 					}}
 					// Error screen is displayed if loading fails
 					renderError={errorCode => (
@@ -157,14 +164,10 @@ const HomeScreen = observer(() => {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: Colors.backgroundColor
+		flex: 1
 	},
 	loading: {
 		opacity: 0
-	},
-	statusBarSpacer: {
-		backgroundColor: Colors.headerBackgroundColor
 	}
 });
 

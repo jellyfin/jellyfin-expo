@@ -3,9 +3,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Alert, AsyncStorage, Platform, SectionList, StyleSheet, View } from 'react-native';
-import { colors, Text } from 'react-native-elements';
+import { Text, ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 import { action } from 'mobx';
@@ -17,7 +17,6 @@ import BrowserListItem from '../components/BrowserListItem';
 import ButtonListItem from '../components/ButtonListItem';
 import ServerListItem from '../components/ServerListItem';
 import SwitchListItem from '../components/SwitchListItem';
-import Colors from '../constants/Colors';
 import Links from '../constants/Links';
 import { useStores } from '../hooks/useStores';
 
@@ -25,6 +24,7 @@ const SettingsScreen = observer(() => {
 	const { rootStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
+	const { theme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		// Fetch server info
@@ -155,7 +155,7 @@ const SettingsScreen = observer(() => {
 					key: 'reset-app-button',
 					title: t('alerts.resetApplication.title'),
 					titleStyle: {
-						color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
+						color: theme.colors.error
 					},
 					onPress: onResetApplication
 				}],
@@ -165,7 +165,13 @@ const SettingsScreen = observer(() => {
 	};
 
 	return (
-		<SafeAreaView style={styles.container} edges={['right', 'left']} >
+		<SafeAreaView
+			style={{
+				...styles.container,
+				backgroundColor: theme.colors.background
+			}}
+			edges={['right', 'left']}
+		>
 			<SectionList
 				sections={getSections()}
 				extraData={{
@@ -174,7 +180,13 @@ const SettingsScreen = observer(() => {
 				}}
 				renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
 				renderSectionHeader={({ section: { title, hideHeader } }) => (
-					hideHeader ? <View style={styles.emptyHeader} /> : <Text style={styles.header}>{title}</Text>
+					hideHeader ?
+						<View style={styles.emptyHeader} /> :
+						<Text style={{
+							...styles.header,
+							backgroundColor: theme.colors.background,
+							color: theme.colors.grey4
+						}}>{title}</Text>
 				)}
 				renderSectionFooter={() => <View style={styles.footer} />}
 				ListFooterComponent={AppInfoFooter}
@@ -186,12 +198,9 @@ const SettingsScreen = observer(() => {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
-		backgroundColor: Colors.backgroundColor
+		flex: 1
 	},
 	header: {
-		backgroundColor: Colors.backgroundColor,
-		color: colors.grey4,
 		fontSize: 17,
 		fontWeight: '600',
 		paddingVertical: 8,

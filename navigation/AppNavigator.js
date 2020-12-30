@@ -3,10 +3,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { ThemeContext } from 'react-native-elements';
 import {
 	NavigationContainer,
-	DarkTheme,
 	getFocusedRouteNameFromRoute,
 	useNavigation
 } from '@react-navigation/native';
@@ -18,25 +18,12 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 
 import { useStores } from '../hooks/useStores';
-import Colors from '../constants/Colors';
 import AddServerScreen from '../screens/AddServerScreen';
 import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { getIconName } from '../utils/Icons';
-
-// Customize theme for navigator
-const theme = {
-	...DarkTheme,
-	colors: {
-		...DarkTheme.colors,
-		primary: Colors.tintColor,
-		background: Colors.backgroundColor,
-		card: Colors.headerBackgroundColor,
-		text: Colors.textColor,
-		border: 'transparent'
-	}
-};
+import DarkTheme from '../themes/dark';
 
 const RootStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -92,6 +79,7 @@ const Home = observer(() => {
 
 const Main = observer(() => {
 	const { t } = useTranslation();
+	const { theme } = useContext(ThemeContext);
 
 	return (
 		<Tab.Navigator
@@ -99,7 +87,7 @@ const Main = observer(() => {
 				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
 			})}
 			tabBarOptions={{
-				inactiveTintColor: Colors.tabText
+				inactiveTintColor: theme.colors.grey1
 			}}
 		>
 			<Tab.Screen
@@ -128,7 +116,7 @@ const AppNavigator = observer(() => {
 	SplashScreen.hideAsync();
 
 	return (
-		<NavigationContainer theme={theme}>
+		<NavigationContainer theme={DarkTheme.Navigation}>
 			<RootStack.Navigator
 				initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
 				headerMode='screen'

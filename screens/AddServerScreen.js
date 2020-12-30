@@ -3,22 +3,26 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React from 'react';
+import React, { useContext } from 'react';
 import { Image, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 
 import ServerInput from '../components/ServerInput';
-import Colors from '../constants/Colors';
 
 const AddServerScreen = () => {
 	const { t } = useTranslation();
 	const headerHeight = useHeaderHeight();
+	const { theme } = useContext(ThemeContext);
 
 	return (
 		<KeyboardAvoidingView
-			style={styles.screen}
+			style={{
+				...styles.screen,
+				backgroundColor: theme.colors.background
+			}}
 			behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
 		>
 			<SafeAreaView
@@ -43,8 +47,7 @@ const AddServerScreen = () => {
 
 const styles = StyleSheet.create({
 	screen: {
-		flex: 1,
-		backgroundColor: Colors.backgroundColor
+		flex: 1
 	},
 	container: {
 		flex: 1,

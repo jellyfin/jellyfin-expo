@@ -3,9 +3,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AsyncStorage } from 'react-native';
-import { ThemeProvider } from 'react-native-elements';
+import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { observer } from 'mobx-react';
 import { AsyncTrunk } from 'mobx-sync';
@@ -18,9 +18,8 @@ import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
 import { useStores } from './hooks/useStores';
-import Colors from './constants/Colors';
 import AppNavigator from './navigation/AppNavigator';
-import Theme from './utils/Theme';
+import DarkTheme from './themes/dark';
 import NativeShellLoader from './utils/NativeShellLoader';
 
 // Import i18n configuration
@@ -29,6 +28,7 @@ import './i18n';
 const App = observer(({ skipLoadingScreen }) => {
 	const [isSplashReady, setIsSplashReady] = useState(false);
 	const { rootStore } = useStores();
+	const { theme } = useContext(ThemeContext);
 
 	const trunk = new AsyncTrunk(rootStore, {
 		storage: AsyncStorage
@@ -106,10 +106,10 @@ const App = observer(({ skipLoadingScreen }) => {
 
 	return (
 		<SafeAreaProvider>
-			<ThemeProvider theme={Theme}>
+			<ThemeProvider theme={DarkTheme.Elements}>
 				<StatusBar
 					style="light"
-					backgroundColor={Colors.headerBackgroundColor}
+					backgroundColor={theme.colors.grey0}
 					hidden={rootStore.isFullscreen}
 				/>
 				<AppNavigator />

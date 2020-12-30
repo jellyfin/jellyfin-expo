@@ -9,8 +9,8 @@ import Colors from '../constants/Colors';
 
 export async function openBrowser(url, options) {
 	const finalOptions = Object.assign({
-		toolbarColor: Colors.backgroundColor,
-		controlsColor: Colors.tintColor
+		toolbarColor: Colors.blackish,
+		controlsColor: Colors.blue
 	}, options);
 
 	try {
