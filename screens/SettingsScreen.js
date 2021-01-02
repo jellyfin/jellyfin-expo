@@ -118,6 +118,13 @@ const SettingsScreen = observer(() => {
 			});
 		}
 
+		settingsData.push({
+			key: 'tab-labels-switch',
+			title: t('settings.tabLabels'),
+			value: rootStore.settingStore.isTabLabelsEnabled,
+			onValueChange: action(value => rootStore.settingStore.isTabLabelsEnabled = value)
+		});
+
 		return [
 			{
 				title: t('headings.servers'),
