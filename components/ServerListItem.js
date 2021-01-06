@@ -3,9 +3,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React from 'react';
-import { StyleSheet, View, Platform } from 'react-native';
-import { Button, Icon, ListItem, colors } from 'react-native-elements';
+import React, { useContext } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button, Icon, ListItem, ThemeContext } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -13,6 +13,7 @@ import { getIconName } from '../utils/Icons';
 
 const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
 	const { t } = useTranslation();
+	const { theme } = useContext(ThemeContext);
 
 	const title = item?.name;
 	const version = item?.info?.Version || t('common.unknown');
@@ -45,7 +46,9 @@ const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
 				icon={{
 					name: getIconName('trash'),
 					type: 'ionicon',
-					iconStyle: styles.deleteButton
+					iconStyle: {
+						color: theme.colors.error
+					}
 				}}
 				onPress={() => onDelete(index)}
 			/>
@@ -67,9 +70,6 @@ const styles = StyleSheet.create({
 	},
 	leftElement: {
 		width: 12
-	},
-	deleteButton: {
-		color: Platform.OS === 'ios' ? colors.platform.ios.error : colors.platform.android.error
 	}
 });
 

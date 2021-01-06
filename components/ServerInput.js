@@ -85,14 +85,18 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 
 	return (
 		<Input
-			inputContainerStyle={styles.inputContainerStyle}
+			inputContainerStyle={{
+				...styles.inputContainerStyle,
+				backgroundColor: theme.colors.searchBg
+			}}
 			leftIcon={{
 				name: getIconName('globe'),
-				type: 'ionicon'
+				type: 'ionicon',
+				color: theme.colors.grey3
 			}}
 			leftIconContainerStyle={styles.leftIconContainerStyle}
 			labelStyle={{
-				color: theme.colors.grey4
+				color: theme.colors.grey1
 			}}
 			placeholderTextColor={theme.colors.grey3}
 			rightIcon={isValidating ? <ActivityIndicator /> : null}
@@ -118,7 +122,7 @@ const styles = StyleSheet.create({
 	inputContainerStyle: {
 		marginTop: 8,
 		marginBottom: 12,
-		backgroundColor: '#292929',
+		borderRadius: 3,
 		borderBottomWidth: 0
 	},
 	leftIconContainerStyle: {

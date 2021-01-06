@@ -10,7 +10,9 @@ import Colors from '../../constants/Colors';
 
 export default {
 	colors: {
-		// Use platform default colors from react-native-elements
+		// Start with default colors
+		...colors,
+		// Override with platform defaults
 		...Platform.select({
 			default: colors.platform.android,
 			ios: colors.platform.ios
@@ -34,7 +36,7 @@ export default {
 	},
 	ListItemSubtitle: {
 		style: {
-			color: colors.grey4,
+			color: colors.grey1,
 			lineHeight: 21
 		}
 	},
