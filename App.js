@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import { useStores } from './hooks/useStores';
 import AppNavigator from './navigation/AppNavigator';
 import DarkTheme from './themes/dark';
-import NativeShellLoader from './utils/NativeShellLoader';
+import StaticScriptLoader from './utils/StaticScriptlLoader';
 
 // Import i18n configuration
 import './i18n';
@@ -89,7 +89,7 @@ const App = observer(({ skipLoadingScreen }) => {
 				...Ionicons.font
 			}),
 			...loadImagesAsync(),
-			NativeShellLoader.load()
+			StaticScriptLoader.load()
 		]);
 	};
 

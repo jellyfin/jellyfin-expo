@@ -1,0 +1,32 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+import { Asset } from 'expo-asset';
+import { readAsStringAsync } from 'expo-file-system';
+
+const loadStaticFile = async (asset) => {
+	const [{ localUri }] = await Asset.loadAsync(asset);
+	return await readAsStringAsync(localUri);
+};
+
+class Loader {
+	scripts = {
+		NativeShell: '',
+		ExpoRouterShim: ''
+	}
+
+	async load() {
+		// Load the NativeShell
+		this.scripts.NativeShell = await loadStaticFile(require('../assets/js/NativeShell.staticjs'));
+		// Load the RouterShim
+		this.scripts.ExpoRouterShim = await loadStaticFile(require('../assets/js/ExpoRouterShim.staticjs'));
+
+		return this.scripts;
+	}
+}
+
+const StaticScriptLoader = new Loader();
+
+export default StaticScriptLoader;

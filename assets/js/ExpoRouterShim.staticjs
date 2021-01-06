@@ -1,0 +1,31 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+const getWebRouter = function() {
+	return window.Emby && window.Emby.Page;
+};
+
+window.ExpoRouterShim = {
+	back: function() {
+		const router = getWebRouter();
+		if (router) {
+			try {
+				if (router.canGoBack()) {
+					router.back();
+				} else {
+					window.NativeShell.AppHost.exit();
+				}
+			} catch (ex) {
+				console.error('[ExpoRouterShim] call to back() failed', ex);
+			}
+		}
+	},
+	home: function() {
+		const router = getWebRouter();
+		if (router && typeof router.goHome === 'function') {
+			router.goHome();
+		}
+	}
+};

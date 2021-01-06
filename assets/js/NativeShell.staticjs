@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+
 function postExpoEvent(event, data) {
 	window.ReactNativeWebView.postMessage(JSON.stringify({
 		event: event,
@@ -13,6 +14,7 @@ function postExpoEvent(event, data) {
 // List of supported features as reported in Safari
 const ExpoSupportedFeatures = [
 	// 'filedownload',
+	'exit',
 	'exitmenu',
 	'plugins',
 	'externallinks',

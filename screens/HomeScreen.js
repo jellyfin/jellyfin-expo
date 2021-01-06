@@ -3,12 +3,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useContext, useEffect, useState, useRef } from 'react';
+import React, { useCallback, useContext, useEffect, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Platform, StyleSheet, View } from 'react-native';
+import { BackHandler, Platform, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { observer } from 'mobx-react';
 
 import { useStores } from '../hooks/useStores';
@@ -35,10 +35,25 @@ const HomeScreen = observer(() => {
 				// Prevent default behavior
 				e.preventDefault();
 				// Call the web router to navigate home
-				webview.current?.injectJavaScript('window.Emby && window.Emby.Page && typeof window.Emby.Page.goHome === "function" && window.Emby.Page.goHome();');
+				webview.current?.injectJavaScript('window.ExpoRouterShim && window.ExpoRouterShim.home();');
 			}
 		});
 	}, []);
+
+	useFocusEffect(
+		useCallback(() => {
+			console.log('useCallback');
+			const onBackPress = () => {
+				console.log('onBackPress()');
+				webview.current?.injectJavaScript('window.ExpoRouterShim && window.ExpoRouterShim.back();');
+				return true;
+			};
+
+			BackHandler.addEventListener('hardwareBackPress', onBackPress);
+
+			return () => BackHandler.removeEventListener('hardwareBackPress', onBackPress);
+		}, [webview])
+	);
 
 	// Clear the error state when the active server changes
 	useEffect(() => {

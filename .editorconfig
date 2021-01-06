@@ -4,11 +4,11 @@ root = true
 insert_final_newline = true
 end_of_line = lf
 
-[{*.js, *.json}]
+[{*.js, *.json, *.staticjs}]
 charset = utf-8
 trim_trailing_whitespace = true
 
-[*.js]
+[{*.js, .staticjs}]
 indent_style = tab
 
 [*.json]

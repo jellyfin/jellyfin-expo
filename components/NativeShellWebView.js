@@ -11,10 +11,10 @@ import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 
 import { useStores } from '../hooks/useStores';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
-import NativeShellLoader from '../utils/NativeShellLoader';
+import StaticScriptLoader from '../utils/StaticScriptlLoader';
 import { openBrowser } from '../utils/WebBrowser';
 import RefreshWebView from './RefreshWebView';
-import { Platform } from 'react-native';
+import { BackHandler, Platform } from 'react-native';
 
 const NativeShellWebView = observer(React.forwardRef(
 	function NativeShellWebView(props, ref) {
@@ -31,7 +31,9 @@ window.ExpoAppInfo = {
 	deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
 };
 
-${NativeShellLoader.NativeShell}
+${StaticScriptLoader.scripts.NativeShell}
+
+${StaticScriptLoader.scripts.ExpoRouterShim}
 
 true;
 `;
@@ -48,6 +50,9 @@ true;
 			try {
 				const { event, data } = JSON.parse(state.data);
 				switch (event) {
+					case 'AppHost.exit':
+						BackHandler.exitApp();
+						break;
 					case 'enableFullscreen':
 						rootStore.isFullscreen = true;
 						break;
