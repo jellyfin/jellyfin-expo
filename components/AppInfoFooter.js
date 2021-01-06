@@ -3,9 +3,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { colors, Text } from 'react-native-elements';
+import { Text, ThemeContext } from 'react-native-elements';
 import Constants from 'expo-constants';
 import { useTranslation } from 'react-i18next';
 
@@ -13,12 +13,18 @@ import { getAppName } from '../utils/Device';
 
 const AppInfoFooter = () => {
 	const { t } = useTranslation();
+	const { theme } = useContext(ThemeContext);
+
+	const textStyle = {
+		...styles.text,
+		color: theme.colors.grey1
+	};
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.text}>{`${getAppName()}`}</Text>
-			<Text style={styles.text}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
-			<Text style={styles.text}>{t('settings.expoVersion', { version: Constants.expoVersion })}</Text>
+			<Text style={textStyle}>{`${getAppName()}`}</Text>
+			<Text style={textStyle}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
+			<Text style={textStyle}>{t('settings.expoVersion', { version: Constants.expoVersion })}</Text>
 		</View>
 	);
 };
@@ -28,7 +34,6 @@ const styles = StyleSheet.create({
 		margin: 15
 	},
 	text: {
-		color: colors.grey4,
 		fontSize: 15
 	}
 });

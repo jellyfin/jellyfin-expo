@@ -14,7 +14,6 @@ export default {
 		primary: Colors.blue,
 		background: Colors.blackish,
 		card: Colors.grey0,
-		text: Colors.white,
-		border: 'transparent'
+		text: Colors.white
 	}
 };

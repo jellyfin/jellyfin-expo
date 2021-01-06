@@ -192,7 +192,7 @@ const SettingsScreen = observer(() => {
 						<Text style={{
 							...styles.header,
 							backgroundColor: theme.colors.background,
-							color: theme.colors.grey4
+							color: theme.colors.grey1
 						}}>{title}</Text>
 				)}
 				renderSectionFooter={() => <View style={styles.footer} />}
