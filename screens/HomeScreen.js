@@ -42,9 +42,7 @@ const HomeScreen = observer(() => {
 
 	useFocusEffect(
 		useCallback(() => {
-			console.log('useCallback');
 			const onBackPress = () => {
-				console.log('onBackPress()');
 				webview.current?.injectJavaScript('window.ExpoRouterShim && window.ExpoRouterShim.back();');
 				return true;
 			};
