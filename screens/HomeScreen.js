@@ -14,6 +14,7 @@ import { observer } from 'mobx-react';
 import { useStores } from '../hooks/useStores';
 import NativeShellWebView from '../components/NativeShellWebView';
 import ErrorView from '../components/ErrorView';
+import Colors from '../constants/Colors';
 import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
@@ -102,7 +103,7 @@ const HomeScreen = observer(() => {
 		<SafeAreaView
 			style={{
 				...styles.container,
-				backgroundColor: theme.colors.background
+				backgroundColor: rootStore.isFullscreen ? Colors.black : theme.colors.background
 			}}
 			edges={safeAreaEdges}
 		>
