@@ -49,7 +49,8 @@
         "version": "Versión: {{version}}",
         "keepAwake": "Mantener la pantalla activa",
         "rotationLock": "Bloqueo de rotación",
-        "expoVersion": "Versión de Expo: {{version}}"
+        "expoVersion": "Versión de Expo: {{version}}",
+        "tabLabels": "Mostrar Etiquetas"
     },
     "links": {
         "website": "Sitio web de Jellyfin",
