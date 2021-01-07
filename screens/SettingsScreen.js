@@ -24,7 +24,7 @@ const SettingsScreen = observer(() => {
 	const { rootStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
-	const { theme } = useContext(ThemeContext);
+	const { theme, replaceTheme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		// Fetch server info
@@ -123,6 +123,17 @@ const SettingsScreen = observer(() => {
 			title: t('settings.tabLabels'),
 			value: rootStore.settingStore.isTabLabelsEnabled,
 			onValueChange: action(value => rootStore.settingStore.isTabLabelsEnabled = value)
+		});
+
+		// TODO: This should be able to select from a list not just a switch
+		settingsData.push({
+			key: 'theme-switch',
+			title: t('settings.lightTheme'),
+			value: rootStore.settingStore.themeId === 'light',
+			onValueChange: action(value => {
+				rootStore.settingStore.themeId = value ? 'light' : 'dark';
+				replaceTheme(rootStore.settingStore.theme.Elements);
+			})
 		});
 
 		return [

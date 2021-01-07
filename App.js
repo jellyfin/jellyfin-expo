@@ -19,7 +19,6 @@ import PropTypes from 'prop-types';
 
 import { useStores } from './hooks/useStores';
 import AppNavigator from './navigation/AppNavigator';
-import DarkTheme from './themes/dark';
 import StaticScriptLoader from './utils/StaticScriptlLoader';
 
 // Import i18n configuration
@@ -106,9 +105,9 @@ const App = observer(({ skipLoadingScreen }) => {
 
 	return (
 		<SafeAreaProvider>
-			<ThemeProvider theme={DarkTheme.Elements}>
+			<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
 				<StatusBar
-					style="light"
+					style='light'
 					backgroundColor={theme.colors.grey0}
 					hidden={rootStore.isFullscreen}
 				/>

@@ -3,8 +3,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { action, decorate, observable } from 'mobx';
+import { action, computed, decorate, observable } from 'mobx';
 import { Platform } from 'react-native';
+
+import Themes from '../themes';
 
 /**
  * Data store for application settings
@@ -30,11 +32,18 @@ export default class SettingStore {
 	 */
 	isTabLabelsEnabled = true
 
+	themeId = 'dark'
+
+	get theme() {
+		return Themes[this.themeId];
+	}
+
 	reset() {
 		this.activeServer = 0;
 		this.isRotationLockEnabled = Platform.OS === 'ios' && !Platform.isPad;
 		this.isScreenLockEnabled = Platform.OS === 'ios' ? (parseInt(Platform.Version, 10) < 14) : true;
 		this.isTabLabelsEnabled = true;
+		this.themeId = 'dark';
 	}
 }
 
@@ -43,5 +52,7 @@ decorate(SettingStore, {
 	isRotationLockEnabled: observable,
 	isScreenLockEnabled: observable,
 	isTabLabelsEnabled: observable,
+	themeId: observable,
+	theme: computed,
 	reset: action
 });

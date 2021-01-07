@@ -24,7 +24,6 @@ import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { getIconName } from '../utils/Icons';
-import DarkTheme from '../themes/dark';
 
 const RootStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -124,7 +123,7 @@ const AppNavigator = observer(() => {
 	SplashScreen.hideAsync();
 
 	return (
-		<NavigationContainer theme={DarkTheme.Navigation}>
+		<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
 			<RootStack.Navigator
 				initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
 				headerMode='screen'
