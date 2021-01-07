@@ -48,7 +48,8 @@
         "version": "Nusqasy: {{version}}",
         "keepAwake": "Ekrandy belsendi qaldyrý",
         "rotationLock": "Aınaldyrý qulpy",
-        "expoVersion": "Expo nusqasy: {{version}}"
+        "expoVersion": "Expo nusqasy: {{version}}",
+        "tabLabels": "Qoıyndy japsyrmalaryn kórsetý"
     },
     "links": {
         "website": "Jellyfin veb-saıty",
