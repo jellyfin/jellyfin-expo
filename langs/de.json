@@ -49,7 +49,8 @@
         "version": "Version: {{version}}",
         "keepAwake": "Bildschirm angeschaltet lassen",
         "rotationLock": "Bildschirm nicht drehen",
-        "expoVersion": "Expo Version: {{version}}"
+        "expoVersion": "Expo Version: {{version}}",
+        "tabLabels": "Zeige Tab-Überschriften"
     },
     "links": {
         "website": "Jellyfin Website",
