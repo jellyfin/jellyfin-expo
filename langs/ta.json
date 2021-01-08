@@ -48,7 +48,8 @@
         "version": "பதிப்பு: {{version}}",
         "keepAwake": "திரையை விழித்திருங்கள்",
         "rotationLock": "சுழற்சி பூட்டு",
-        "expoVersion": "எக்ஸ்போ பதிப்பு: {{version}}"
+        "expoVersion": "எக்ஸ்போ பதிப்பு: {{version}}",
+        "tabLabels": "டேப் லேபிள்களைக் காட்டு"
     },
     "links": {
         "website": "ஜெல்லிஃபின் வலைத்தளம்",
