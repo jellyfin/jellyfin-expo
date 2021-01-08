@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "Imposibil de accesat serverul Jellyfin. Acest lucru este de obicei din cauza unei erori de configurare a proxyului sau Jellyfin este offline."
+            },
+            "invalidServer": {
+                "description": "Ceva s-a întâmplat, iar informațiile despre server salvate nu sunt valide. Încercați să eliminați serverul din Setări și să îl adăugați din nou.",
+                "heading": "Serverul este invalid"
             }
         },
         "offline": "Eroare la contactarea serverului Jellyfin.",
@@ -45,7 +49,8 @@
         "version": "Versiune: {{version}}",
         "keepAwake": "Ține ecranul treaz",
         "rotationLock": "Blocarea rotației",
-        "expoVersion": "Versiune Expo: {{version}}"
+        "expoVersion": "Versiune Expo: {{version}}",
+        "tabLabels": "Afișați etichete de filă"
     },
     "links": {
         "website": "Site-ul Jellyfin",
