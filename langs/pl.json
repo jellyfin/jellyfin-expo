@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "Nie można połączyć się z serwerem Jellyfin. Zwykle jest to spowodowane błędem konfiguracji proxy lub Jellyfin jest w trybie offline."
+            },
+            "invalidServer": {
+                "description": "Coś się stało i zapisane informacje o serwerze są nieprawidłowe. Spróbuj usunąć serwer z Ustawień i dodaj go ponownie.",
+                "heading": "Serwer jest nieprawidłowy"
             }
         },
         "offline": "Błąd przy łączeniu z serwerem Jellyfin.",
@@ -45,7 +49,8 @@
         "version": "Wersja: {{version}}",
         "keepAwake": "Utrzymuj włączony ekran",
         "rotationLock": "Zablokuj obrót",
-        "expoVersion": "Wersja Expo: {{version}}"
+        "expoVersion": "Wersja Expo: {{version}}",
+        "tabLabels": "Pokaż etykiety kart"
     },
     "links": {
         "website": "Strona Jellyfin",
