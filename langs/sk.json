@@ -49,7 +49,8 @@
         "version": "Verzia: {{version}}",
         "keepAwake": "Udržiavať zapnutú obrazovku",
         "rotationLock": "Uzamknúť otáčanie obrazovky",
-        "expoVersion": "Expo verzia: {{version}}"
+        "expoVersion": "Expo verzia: {{version}}",
+        "tabLabels": "Zobraziť označenia záložiek"
     },
     "links": {
         "website": "Jellyfin webstránka",
