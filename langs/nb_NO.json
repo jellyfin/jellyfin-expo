@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "Kunne ikke nå Jellyfin-serveren. Dette betyr vanligvis at det er en feil i proxy-konfigurasjonen, eller at Jellyfin er offline."
+            },
+            "invalidServer": {
+                "description": "Noe har skjedd som gjør den lagrede serverinformasjonen er ugyldig. Prøv å fjerne serveren fra Innstillinger, og legg den til igjen.",
+                "heading": "Serveren er ugyldig"
             }
         },
         "offline": "Problem med å kontakte Jellyfin-serveren.",
@@ -45,7 +49,8 @@
         "version": "Versjon: {{version}}",
         "keepAwake": "Hold skjermen våken",
         "rotationLock": "Rotasjonslås",
-        "expoVersion": "Expo-versjon: {{version}}"
+        "expoVersion": "Expo-versjon: {{version}}",
+        "tabLabels": "Vis faneetiketter"
     },
     "links": {
         "website": "Nettside",
