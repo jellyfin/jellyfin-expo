@@ -10,11 +10,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useHeaderHeight } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 
+import { useStores } from '../hooks/useStores';
 import ServerInput from '../components/ServerInput';
 
 const AddServerScreen = () => {
 	const { t } = useTranslation();
 	const headerHeight = useHeaderHeight();
+	const { rootStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	return (
@@ -32,7 +34,11 @@ const AddServerScreen = () => {
 				<View style={styles.logoContainer}>
 					<Image
 						style={styles.logoImage}
-						source={require('../assets/images/logowhite.png')}
+						source={
+							rootStore.settingStore.theme.dark ?
+								require('../assets/images/logowhite.png') :
+								require('../assets/images/logoblack.png')
+						}
 						fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
 					/>
 				</View>
