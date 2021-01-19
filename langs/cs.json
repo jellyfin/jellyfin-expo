@@ -50,7 +50,8 @@
         "keepAwake": "Ponechat zapnutou obrazovku",
         "rotationLock": "Zámek otočení",
         "expoVersion": "Verze toolkitu Expo: {{version}}",
-        "tabLabels": "Zobrazit popisky záložek"
+        "tabLabels": "Zobrazit popisky záložek",
+        "lightTheme": "Použít světlé téma"
     },
     "links": {
         "website": "Web projektu Jellyfin",
