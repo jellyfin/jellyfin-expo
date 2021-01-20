@@ -49,7 +49,8 @@
         "keepAwake": "Держать экран активным",
         "rotationLock": "Блокировка поворота",
         "expoVersion": "Версия Expo: {{version}}",
-        "tabLabels": "Показывать метки вкладок"
+        "tabLabels": "Показывать метки вкладок",
+        "lightTheme": "Использовать светлую тему"
     },
     "links": {
         "website": "Веб-сайтJellyfin",
