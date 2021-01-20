@@ -48,8 +48,10 @@
     "settings": {
         "version": "Versie: {{version}}",
         "keepAwake": "Houd het scherm aan",
-        "rotationLock": "Vergrendel schermrotatie",
-        "expoVersion": "Expo-versie: {{version}}"
+        "rotationLock": "Vergrendel Schermrotatie",
+        "expoVersion": "Expo Versie: {{version}}",
+        "lightTheme": "Gebruik Lichte Modus",
+        "tabLabels": "Toon Tabblad Labels"
     },
     "links": {
         "website": "Jellyfin Website",
