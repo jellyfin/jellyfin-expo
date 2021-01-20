@@ -50,7 +50,8 @@
         "keepAwake": "Mantener la pantalla activa",
         "rotationLock": "Bloqueo de rotación",
         "expoVersion": "Versión de Expo: {{version}}",
-        "tabLabels": "Mostrar Etiquetas"
+        "tabLabels": "Mostrar Etiquetas",
+        "lightTheme": "Usar Tema Ligero"
     },
     "links": {
         "website": "Sitio web de Jellyfin",
