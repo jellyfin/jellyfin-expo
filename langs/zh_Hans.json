@@ -50,7 +50,8 @@
         "keepAwake": "保持屏幕常亮",
         "rotationLock": "旋转锁定",
         "expoVersion": "Expo 版本号：{{version}}",
-        "tabLabels": "显示导航栏图标名称"
+        "tabLabels": "显示导航栏图标名称",
+        "lightTheme": "使用浅色主题"
     },
     "links": {
         "website": "Jellyfin 网站",
