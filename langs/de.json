@@ -50,7 +50,8 @@
         "keepAwake": "Bildschirm angeschaltet lassen",
         "rotationLock": "Bildschirm nicht drehen",
         "expoVersion": "Expo Version: {{version}}",
-        "tabLabels": "Zeige Tab-Überschriften"
+        "tabLabels": "Zeige Tab-Überschriften",
+        "lightTheme": "Helles Design verwenden"
     },
     "links": {
         "website": "Jellyfin Website",
