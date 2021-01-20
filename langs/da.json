@@ -34,6 +34,10 @@
             },
             "504": {
                 "description": "Kan ikke oprette forbindelse til Jellyfin serveren. Dette skyldes ofte at proxy forbindelsen udløb mens den forbandt til Jellyfin."
+            },
+            "invalidServer": {
+                "description": "En fejl er opstået og informationen gemt på serveren er ugyldigt. Prøv at fjerne serveren under Indstillinger og derefter tilføj den igen.",
+                "heading": "Serveren er ugyldig"
             }
         },
         "offline": "Fejl ved kontakt med Jellyfin-server.",
@@ -45,7 +49,9 @@
         "version": "Version: {{version}}",
         "keepAwake": "Hold skærmen vågen",
         "rotationLock": "Rotationslås",
-        "expoVersion": "Expo-version: {{version}}"
+        "expoVersion": "Expo-version: {{version}}",
+        "tabLabels": "Vis faneetiketter",
+        "lightTheme": "Skift til Light Theme (Lyst Tema)"
     },
     "links": {
         "website": "Jellyfin websted",
