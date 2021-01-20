@@ -49,7 +49,8 @@
         "keepAwake": "Ekrandy belsendi qaldyrý",
         "rotationLock": "Aınaldyrý qulpy",
         "expoVersion": "Expo nusqasy: {{version}}",
-        "tabLabels": "Qoıyndy japsyrmalaryn kórsetý"
+        "tabLabels": "Qoıyndy japsyrmalaryn kórsetý",
+        "lightTheme": "Aqshyl taqyrypty paıdalaný"
     },
     "links": {
         "website": "Jellyfin veb-saıty",
