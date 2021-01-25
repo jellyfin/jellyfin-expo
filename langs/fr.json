@@ -43,7 +43,8 @@
         "expoVersion": "Expo Version : {{version}}",
         "rotationLock": "Verrouiller la rotation",
         "keepAwake": "Gardez l'écran éveillé",
-        "version": "Version: {{version}}"
+        "version": "Version: {{version}}",
+        "lightTheme": "Utiliser le thème clair"
     },
     "home": {
         "errors": {
