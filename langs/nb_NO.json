@@ -50,7 +50,8 @@
         "keepAwake": "Hold skjermen våken",
         "rotationLock": "Rotasjonslås",
         "expoVersion": "Expo-versjon: {{version}}",
-        "tabLabels": "Vis faneetiketter"
+        "tabLabels": "Vis faneetiketter",
+        "lightTheme": "Bruk lyst tema"
     },
     "links": {
         "website": "Nettside",
