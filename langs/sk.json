@@ -50,7 +50,8 @@
         "keepAwake": "Udržiavať zapnutú obrazovku",
         "rotationLock": "Uzamknúť otáčanie obrazovky",
         "expoVersion": "Expo verzia: {{version}}",
-        "tabLabels": "Zobraziť označenia záložiek"
+        "tabLabels": "Zobraziť označenia záložiek",
+        "lightTheme": "Použiť svetlú tému"
     },
     "links": {
         "website": "Jellyfin webstránka",
