@@ -50,7 +50,8 @@
         "keepAwake": "Utrzymuj włączony ekran",
         "rotationLock": "Zablokuj obrót",
         "expoVersion": "Wersja Expo: {{version}}",
-        "tabLabels": "Pokaż etykiety kart"
+        "tabLabels": "Pokaż etykiety kart",
+        "lightTheme": "Użyj jasnego motywu"
     },
     "links": {
         "website": "Strona Jellyfin",
