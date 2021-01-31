@@ -44,7 +44,8 @@
         "rotationLock": "Verrouiller la rotation",
         "keepAwake": "Gardez l'écran éveillé",
         "version": "Version: {{version}}",
-        "lightTheme": "Utiliser le thème clair"
+        "lightTheme": "Utiliser le thème clair",
+        "tabLabels": "Afficher le nom des onglets"
     },
     "home": {
         "errors": {
