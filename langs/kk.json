@@ -1,75 +1,75 @@
 {
     "common": {
-        "cancel": "Boldyrmaý",
-        "unknown": "Belgisiz"
+        "cancel": "Boldyrmau",
+        "unknown": "Belgısız"
     },
     "headings": {
-        "addServer": "Serverdi ústeý",
+        "addServer": "Serverdı üsteu",
         "home": "Basqy",
-        "links": "Siltemeler",
+        "links": "Sıltemeler",
         "servers": "Serverler",
         "settings": "Parametrler"
     },
     "addServer": {
-        "address": "Server mekenjaıy",
+        "address": "Server mekenjaiy",
         "validation": {
-            "empty": "$t(addServer.address) bos bolýy múmkin emes",
+            "empty": "$t(addServer.address) bos boluy mümkın emes",
             "invalid": "$t(addServer.address) jaramsyz",
-            "invalidProduct": "Jellyfin serveri emes",
-            "noConnection": "Serverge qosylý múmkin bolmady"
+            "invalidProduct": "Jellyfin serverı emes",
+            "noConnection": "Serverge qosylu mümkın bolmady"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": "Jellyfin serverіne jetý múmkіn emes. Ádette, bul proksı teńshelimi qatelіgіnen, nemese Jellyfin derbes kúıdegi sebebinen bolady."
+                "description": "Jellyfin serverіne jetu mümkіn emes. Ädette, būl proksi teŋşelımı qatelіgіnen, nemese Jellyfin derbes küidegı sebebınen bolady."
             },
             "504": {
-                "description": "Jellyfin serverіne jetý múmkіn emes. Ádette, bul proksıdіń Jellyfin úshin qosylý ýaqyty aıaqtalǵannan bolady."
+                "description": "Jellyfin serverіne jetu mümkіn emes. Ädette, būl proksidіŋ Jellyfin üşın qosylu uaqyty aiaqtalğannan bolady."
             },
             "http": {
-                "heading": "Birdeńe durys bolmady!",
-                "description": "Jellyfin serveri qate qaıtardy."
+                "heading": "Bırdeŋe dūrys bolmady!",
+                "description": "Jellyfin serverı qate qaitardy."
             },
             "offline": {
-                "heading": "Server jeliden tys pa?",
-                "description": "Jellyfin serverimen baılanysý qatesi."
+                "heading": "Server jelıden tys pa?",
+                "description": "Jellyfin serverımen bailanysu qatesı."
             },
             "invalidServer": {
                 "heading": "Server jaramsyz",
-                "description": "Bіrdeńe boldy jáne serverdin saqtalǵan málimetteri jaramsyz. Parametrlerden serverdі alastańyz da, ony qaıtadan ústeńiz."
+                "description": "Bіrdeŋe boldy jäne serverdın saqtalğan mälımetterı jaramsyz. Parametrlerden serverdі alastaŋyz da, ony qaitadan üsteŋız."
             }
         },
         "errorCode": "Qate kody: {{errorCode}}",
         "errorUrl": "URL: {{url}}",
-        "retry": "Áreketti qaıtalaımyz ba?"
+        "retry": "Ärekettı qaitalaimyz ba?"
     },
     "settings": {
-        "version": "Nusqasy: {{version}}",
-        "keepAwake": "Ekrandy belsendi qaldyrý",
-        "rotationLock": "Aınaldyrý qulpy",
-        "expoVersion": "Expo nusqasy: {{version}}",
-        "tabLabels": "Qoıyndy japsyrmalaryn kórsetý",
-        "lightTheme": "Aqshyl taqyrypty paıdalaný"
+        "version": "Nūsqasy: {{versıon}}",
+        "keepAwake": "Ekrandy belsendı qaldyru",
+        "rotationLock": "Ainaldyru qūlpy",
+        "expoVersion": "Expo nūsqasy: {{versıon}}",
+        "tabLabels": "Qoiyndy japsyrmalaryn körsetu",
+        "lightTheme": "Aqşyl taqyrypty paidalanu"
     },
     "links": {
-        "website": "Jellyfin veb-saıty",
-        "documentation": "Qujattama",
+        "website": "Jellyfin veb-saity",
+        "documentation": "Qūjattama",
         "source": "Bastapqy kody",
-        "translate": "Tprjimeleý",
-        "feature": "Múmkindik ótinishi",
-        "issue": "Aqaý týraly habarlaý"
+        "translate": "Tärjımeleu",
+        "feature": "Mümkındık ötınışı",
+        "issue": "Aqau turaly habarlau"
     },
     "alerts": {
         "deleteServer": {
-            "title": "Serverdi alastaý",
-            "description": "{{serverName}} serverin shynymen joıǵyńyz kele me?",
-            "confirm": "Joıý"
+            "title": "Serverdı alastau",
+            "description": "{{serverName}} serverın şynymen joiğyŋyz kele me?",
+            "confirm": "Joiu"
         },
         "resetApplication": {
-            "title": "Qoldanbany ysyrý",
-            "description": "Barlyq parametrlerdi shynymen ysyrǵyńyz kele me?",
-            "confirm": "Ysyrý"
+            "title": "Qoldanbany ysyru",
+            "description": "Barlyq parametrlerdı şynymen ysyrğyŋyz kele me?",
+            "confirm": "Ysyru"
         }
     }
 }
