@@ -48,6 +48,7 @@
     "version": "Version: {{version}}",
     "keepAwake": "Keep Screen Awake",
     "lightTheme": "Use Light Theme",
+    "systemTheme": "Use System Theme",
     "rotationLock": "Rotation Lock",
     "tabLabels": "Show Tab Labels",
     "expoVersion": "Expo Version: {{version}}"

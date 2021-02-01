@@ -12,6 +12,7 @@
     "primaryColor": "#00a4dc",
     "backgroundColor": "#101010",
     "icon": "./assets/images/icon.png",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",

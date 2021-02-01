@@ -5,6 +5,7 @@
  */
 import React, { useContext, useEffect, useState } from 'react';
 import { AsyncStorage } from 'react-native';
+import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { observer } from 'mobx-react';
@@ -17,6 +18,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Ionicons } from '@expo/vector-icons';
 import PropTypes from 'prop-types';
 
+import ThemeSwitcher from './components/ThemeSwitcher';
 import { useStores } from './hooks/useStores';
 import AppNavigator from './navigation/AppNavigator';
 import StaticScriptLoader from './utils/StaticScriptlLoader';
@@ -28,6 +30,8 @@ const App = observer(({ skipLoadingScreen }) => {
 	const [isSplashReady, setIsSplashReady] = useState(false);
 	const { rootStore } = useStores();
 	const { theme } = useContext(ThemeContext);
+
+	rootStore.settingStore.systemThemeId = useColorScheme();
 
 	const trunk = new AsyncTrunk(rootStore, {
 		storage: AsyncStorage
@@ -104,16 +108,19 @@ const App = observer(({ skipLoadingScreen }) => {
 	}
 
 	return (
-		<SafeAreaProvider>
-			<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
-				<StatusBar
-					style='light'
-					backgroundColor={theme.colors.grey0}
-					hidden={rootStore.isFullscreen}
-				/>
-				<AppNavigator />
-			</ThemeProvider>
-		</SafeAreaProvider>
+		<AppearanceProvider>
+			<SafeAreaProvider>
+				<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
+					<ThemeSwitcher />
+					<StatusBar
+						style='light'
+						backgroundColor={theme.colors.grey0}
+						hidden={rootStore.isFullscreen}
+					/>
+					<AppNavigator />
+				</ThemeProvider>
+			</SafeAreaProvider>
+		</AppearanceProvider>
 	);
 });
 
