@@ -7,7 +7,6 @@ import React, { useContext } from 'react';
 import { Image, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useHeaderHeight } from '@react-navigation/stack';
 import { useTranslation } from 'react-i18next';
 
 import { useStores } from '../hooks/useStores';
@@ -15,7 +14,6 @@ import ServerInput from '../components/ServerInput';
 
 const AddServerScreen = () => {
 	const { t } = useTranslation();
-	const headerHeight = useHeaderHeight();
 	const { rootStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
@@ -28,7 +26,7 @@ const AddServerScreen = () => {
 			behavior={Platform.OS == 'ios' ? 'padding' : 'height'}
 		>
 			<SafeAreaView
-				style={{...styles.container, paddingBottom: headerHeight}}
+				style={styles.container}
 				edges={['right', 'bottom', 'left']}
 			>
 				<View style={styles.logoContainer}>
@@ -60,14 +58,15 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-evenly'
 	},
 	logoContainer: {
-		alignItems: 'center'
+		alignSelf: 'center',
+		paddingVertical: 10,
+		minHeight: '40%',
+		maxWidth: '90%'
 	},
 	logoImage: {
-		marginVertical: 10,
-		width: 481,
-		height: 151,
-		maxWidth: '90%',
-		resizeMode: 'contain'
+		flex: 1,
+		resizeMode: 'contain',
+		maxWidth: '100%'
 	}
 });
 
