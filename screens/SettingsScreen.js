@@ -127,7 +127,7 @@ const SettingsScreen = observer(() => {
 
 		settingsData.push({
 			key: 'system-theme-switch',
-			title: 'Use System Theme',
+			title: t('settings.systemTheme'),
 			value: rootStore.settingStore.isSystemThemeEnabled,
 			onValueChange: action(value => rootStore.settingStore.isSystemThemeEnabled = value)
 		});
