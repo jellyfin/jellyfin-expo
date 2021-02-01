@@ -21,6 +21,7 @@ const SwitchListItem = ({item, index}) => (
 			)}
 		</ListItem.Content>
 		<Switch
+			disabled={item.disabled}
 			value={item.value}
 			onValueChange={item.onValueChange}
 		/>

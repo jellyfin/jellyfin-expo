@@ -32,10 +32,24 @@ export default class SettingStore {
 	 */
 	isTabLabelsEnabled = true
 
+	/**
+	 * The user selected theme value
+	 */
 	themeId = 'dark'
 
+	/**
+	 * The system level appearance/theme value
+	 */
+	systemThemeId
+
+	/**
+	 * Should the app use system level theme
+	 */
+	isSystemThemeEnabled = false
+
 	get theme() {
-		return Themes[this.themeId];
+		const id = this.isSystemThemeEnabled && this.systemThemeId ? this.systemThemeId : this.themeId;
+		return Themes[id];
 	}
 
 	reset() {
@@ -44,6 +58,8 @@ export default class SettingStore {
 		this.isScreenLockEnabled = Platform.OS === 'ios' ? (parseInt(Platform.Version, 10) < 14) : true;
 		this.isTabLabelsEnabled = true;
 		this.themeId = 'dark';
+		this.systemThemeId = null;
+		this.isSystemThemeEnabled = false;
 	}
 }
 
@@ -53,6 +69,8 @@ decorate(SettingStore, {
 	isScreenLockEnabled: observable,
 	isTabLabelsEnabled: observable,
 	themeId: observable,
+	systemThemeId: observable,
+	isSystemThemeEnabled: observable,
 	theme: computed,
 	reset: action
 });
