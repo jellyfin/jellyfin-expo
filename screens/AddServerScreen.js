@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
 	logoContainer: {
 		alignSelf: 'center',
 		paddingVertical: 10,
-		minHeight: '40%',
+		height: '40%',
+		maxHeight: 151,
 		maxWidth: '90%'
 	},
 	logoImage: {
