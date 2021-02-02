@@ -60,6 +60,12 @@ const HomeScreen = observer(() => {
 	}, [rootStore.settingStore.activeServer]);
 
 	useEffect(() => {
+		if (rootStore.mediaStore.isActive && rootStore.mediaStore.type === 'Video') {
+			navigation.navigate('VideoPlayer');
+		}
+	}, [rootStore.mediaStore.isActive]);
+
+	useEffect(() => {
 		if (httpErrorStatus) {
 			const errorCode = httpErrorStatus.description || httpErrorStatus.statusCode;
 			navigation.replace('ErrorScreen', {

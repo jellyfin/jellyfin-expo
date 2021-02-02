@@ -6,6 +6,7 @@
 import { decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 
+import MediaStore from './MediaStore';
 import ServerStore from './ServerStore';
 import SettingStore from './SettingStore';
 
@@ -20,12 +21,14 @@ export default class RootStore {
 	 */
 	isFullscreen = false
 
+	mediaStore = new MediaStore()
 	serverStore = new ServerStore()
 	settingStore = new SettingStore()
 
 	reset() {
 		this.isFullscreen = false;
 
+		this.mediaStore.reset();
 		this.serverStore.reset();
 		this.settingStore.reset();
 

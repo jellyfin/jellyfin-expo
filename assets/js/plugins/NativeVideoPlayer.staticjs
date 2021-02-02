@@ -1,0 +1,53 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+class NativeVideoPlayer {
+	name = 'ExpoVideoPlayer';
+	type = 'mediaplayer';
+	id = 'expovideoplayer';
+	priority = -1;
+	isLocalPlayer = true;
+	supportsProgress = false;
+
+	subtitleStreamIndex = -1;
+	audioStreamIndex = -1;
+
+	constructor({ appSettings, events, playbackManager, loading }) {
+		this.appSettings = appSettings;
+		this.events = events;
+		this.playbackManager = playbackManager;
+		this.loading = loading;
+
+		window[this.name] = this;
+
+		// console.warn(`[${this.name}] constructor`);
+	}
+
+	canPlayMediaType(mediaType) {
+		// console.warn(`[${this.name}] canPlayMediaType`);
+		return mediaType === 'Video';
+	}
+
+	canPlayItem() {
+		// console.warn(`[${this.name}] canPlayItem`);
+		return true;
+	}
+
+	currentSrc() {
+		// console.warn(`[${this.name}] currentSrc`);
+	}
+
+	play(options) {
+		postExpoEvent(`${this.name}.play`, options);
+		this.loading.hide();
+	}
+
+	getDeviceProfile() {
+		postExpoEvent(`${this.name}.getDeviceProfile`);
+	}
+}
+
+window.NativeVideoPlayer = () => NativeVideoPlayer;

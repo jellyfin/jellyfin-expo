@@ -4,13 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-function postExpoEvent(event, data) {
-	window.ReactNativeWebView.postMessage(JSON.stringify({
-		event: event,
-		data: data
-	}));
-}
-
 // List of supported features as reported in Safari
 const ExpoSupportedFeatures = [
 	// 'filedownload',
@@ -122,7 +115,9 @@ window.NativeShell = {
 
 	getPlugins: function() {
 		postExpoEvent('getPlugins');
-		return [];
+		return [
+			'NativeVideoPlayer'
+		];
 	},
 
 	openUrl: function(url, target) {

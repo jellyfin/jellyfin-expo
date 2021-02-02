@@ -18,6 +18,7 @@
     "@react-navigation/stack": "^5.2.10",
     "expo": "^39.0.0",
     "expo-asset": "~8.2.0",
+    "expo-av": "~8.6.0",
     "expo-constants": "~9.2.0",
     "expo-device": "~2.3.0",
     "expo-file-system": "~9.2.0",

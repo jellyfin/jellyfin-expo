@@ -24,6 +24,7 @@ import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import { getIconName } from '../utils/Icons';
+import VideoPlayerScreen from '../screens/VideoPlayerScreen';
 
 const RootStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -55,7 +56,7 @@ const Home = observer(() => {
 
 	return (
 		<HomeStack.Navigator
-			mode="modal"
+			mode='modal'
 			screenOptions={{
 				headerShown: false,
 				animationEnabled: false,
@@ -67,7 +68,7 @@ const Home = observer(() => {
 				component={HomeScreen}
 			/>
 			<HomeStack.Screen
-				name="ErrorScreen"
+				name='ErrorScreen'
 				component={ErrorScreen}
 				options={{
 					gestureEnabled: false
@@ -152,6 +153,10 @@ const AppNavigator = observer(() => {
 						headerShown: rootStore.serverStore.servers?.length > 0,
 						title: t('headings.addServer')
 					}}
+				/>
+				<RootStack.Screen
+					name='VideoPlayer'
+					component={VideoPlayerScreen}
 				/>
 			</RootStack.Navigator>
 		</NavigationContainer>

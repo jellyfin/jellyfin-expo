@@ -31,6 +31,15 @@ window.ExpoAppInfo = {
 	deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
 };
 
+function postExpoEvent(event, data) {
+	window.ReactNativeWebView.postMessage(JSON.stringify({
+		event: event,
+		data: data
+	}));
+}
+
+${StaticScriptLoader.scripts.NativeVideoPlayer}
+
 ${StaticScriptLoader.scripts.NativeShell}
 
 ${StaticScriptLoader.scripts.ExpoRouterShim}
@@ -74,6 +83,13 @@ true;
 						if (rootStore.settingStore.isScreenLockEnabled) {
 							deactivateKeepAwake();
 						}
+						break;
+					case 'ExpoVideoPlayer.play':
+						rootStore.mediaStore.type = 'Video';
+						rootStore.mediaStore.uri = data.url;
+						rootStore.mediaStore.posterUri = data.backdropUrl;
+						rootStore.mediaStore.isActive = true;
+						console.debug('PLAY VIDEO =>', data);
 						break;
 					case 'console.debug':
 						// console.debug('[Browser Console]', data);
