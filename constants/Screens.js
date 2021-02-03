@@ -9,6 +9,5 @@ export default {
 	HomeScreen: 'HomeScreen',
 	HomeTab: 'Home',
 	SettingsTab: 'Settings',
-	ErrorScreen: 'ErrorScreen',
-	VideoPlayerScreen: 'VideoPlayerScreen'
+	ErrorScreen: 'ErrorScreen'
 };

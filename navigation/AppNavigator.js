@@ -24,7 +24,6 @@ import AddServerScreen from '../screens/AddServerScreen';
 import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import VideoPlayerScreen from '../screens/VideoPlayerScreen';
 import { getIconName } from '../utils/Icons';
 
 const RootStack = createStackNavigator();
@@ -154,10 +153,6 @@ const AppNavigator = observer(() => {
 						headerShown: rootStore.serverStore.servers?.length > 0,
 						title: t('headings.addServer')
 					}}
-				/>
-				<RootStack.Screen
-					name={Screens.VideoPlayerScreen}
-					component={VideoPlayerScreen}
 				/>
 			</RootStack.Navigator>
 		</NavigationContainer>
