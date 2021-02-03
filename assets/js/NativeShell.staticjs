@@ -78,11 +78,13 @@ window.NativeShell = {
 				audioCodecs.push('eac3');
 			}
 
-			postExpoEvent('AppHost.getDeviceProfile');
-			return profileBuilder({
+			const profile = profileBuilder({
 				enableMkvProgressive: false,
 				disableHlsVideoAudioCodecs: audioCodecs
 			});
+
+			postExpoEvent('AppHost.getDeviceProfile', profile);
+			return profile;
 		},
 
 		// Keep for support server versions < 10.7
