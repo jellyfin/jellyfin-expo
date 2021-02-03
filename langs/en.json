@@ -47,6 +47,7 @@
   "settings": {
     "version": "Version: {{version}}",
     "keepAwake": "Keep Screen Awake",
+    "nativeVideoPlayer": "Use Native Video Player [BETA]",
     "lightTheme": "Use Light Theme",
     "systemTheme": "Use System Theme",
     "rotationLock": "Rotation Lock",

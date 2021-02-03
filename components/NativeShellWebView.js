@@ -31,6 +31,10 @@ window.ExpoAppInfo = {
 	deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
 };
 
+window.ExpoAppSettings = {
+	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled}
+};
+
 function postExpoEvent(event, data) {
 	window.ReactNativeWebView.postMessage(JSON.stringify({
 		event: event,

@@ -114,10 +114,12 @@ window.NativeShell = {
 	},
 
 	getPlugins: function() {
-		postExpoEvent('getPlugins');
-		return [
-			'NativeVideoPlayer'
-		];
+		const plugins = [];
+		if (window.ExpoAppSettings.isNativeVideoPlayerEnabled) {
+			plugins.push('NativeVideoPlayer');
+		}
+		postExpoEvent('getPlugins', plugins);
+		return plugins;
 	},
 
 	openUrl: function(url, target) {

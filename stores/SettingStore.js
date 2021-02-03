@@ -47,6 +47,11 @@ export default class SettingStore {
 	 */
 	isSystemThemeEnabled = false
 
+	/**
+	 * Is the native video player enabled
+	 */
+	isNativeVideoPlayerEnabled = false
+
 	get theme() {
 		const id = this.isSystemThemeEnabled && this.systemThemeId ? this.systemThemeId : this.themeId;
 		return Themes[id];
@@ -60,6 +65,7 @@ export default class SettingStore {
 		this.themeId = 'dark';
 		this.systemThemeId = null;
 		this.isSystemThemeEnabled = false;
+		this.isNativeVideoPlayerEnabled = false;
 	}
 }
 
@@ -71,6 +77,7 @@ decorate(SettingStore, {
 	themeId: observable,
 	systemThemeId: observable,
 	isSystemThemeEnabled: observable,
+	isNativeVideoPlayerEnabled: observable,
 	theme: computed,
 	reset: action
 });

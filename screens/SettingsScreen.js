@@ -119,6 +119,14 @@ const SettingsScreen = observer(() => {
 			});
 		}
 
+		// FIXME: This requires a refresh of the webview for the setting to be applied.
+		settingsData.push({
+			key: 'native-video-switch',
+			title: t('settings.nativeVideoPlayer'),
+			value: rootStore.settingStore.isNativeVideoPlayerEnabled,
+			onValueChange: action(value => rootStore.settingStore.isNativeVideoPlayerEnabled = value)
+		});
+
 		settingsData.push({
 			key: 'tab-labels-switch',
 			title: t('settings.tabLabels'),
