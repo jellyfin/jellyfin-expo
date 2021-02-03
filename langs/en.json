@@ -48,6 +48,7 @@
     "version": "Version: {{version}}",
     "keepAwake": "Keep Screen Awake",
     "nativeVideoPlayer": "Use Native Video Player [BETA]",
+    "minimumServerVersion": "Requires Server Version 10.7+",
     "lightTheme": "Use Light Theme",
     "systemTheme": "Use System Theme",
     "rotationLock": "Rotation Lock",

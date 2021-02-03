@@ -4,17 +4,18 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React, { useState } from 'react';
+import { BackHandler, Platform } from 'react-native';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
+import compareVersions from 'compare-versions';
 
 import { useStores } from '../hooks/useStores';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
 import StaticScriptLoader from '../utils/StaticScriptlLoader';
 import { openBrowser } from '../utils/WebBrowser';
 import RefreshWebView from './RefreshWebView';
-import { BackHandler, Platform } from 'react-native';
 
 const NativeShellWebView = observer(React.forwardRef(
 	function NativeShellWebView(props, ref) {
@@ -22,6 +23,7 @@ const NativeShellWebView = observer(React.forwardRef(
 		const [isRefreshing, setIsRefreshing] = useState(false);
 
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
+		const isPluginSupported = compareVersions.compare(server.info?.Version, '10.7', '>=');
 
 		const injectedJavaScript = `
 window.ExpoAppInfo = {
@@ -32,7 +34,7 @@ window.ExpoAppInfo = {
 };
 
 window.ExpoAppSettings = {
-	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled}
+	isNativeVideoPlayerEnabled: ${isPluginSupported && rootStore.settingStore.isNativeVideoPlayerEnabled}
 };
 
 function postExpoEvent(event, data) {
