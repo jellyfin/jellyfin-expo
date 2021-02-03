@@ -13,6 +13,7 @@ import { observer } from 'mobx-react';
 
 import { useStores } from '../hooks/useStores';
 import Colors from '../constants/Colors';
+import { getIconName } from '../utils/Icons';
 
 const VideoPlayerScreen = observer(() => {
 	const { rootStore } = useStores();
@@ -38,7 +39,19 @@ const VideoPlayerScreen = observer(() => {
 			}}
 		>
 			<Button
-				title='Close'
+				containerStyle={{
+					flexDirection: 'column'
+				}}
+				buttonStyle={{
+					alignSelf: 'flex-start',
+					color: Colors.white
+				}}
+				type='clear'
+				icon={{
+					name: getIconName('close'),
+					type: 'ionicon',
+					size: 26
+				}}
 				onPress={() => {
 					player.current?.unloadAsync();
 					rootStore.mediaStore.isActive = false;
