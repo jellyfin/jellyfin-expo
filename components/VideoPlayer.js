@@ -36,7 +36,7 @@ const VideoPlayer = observer(() => {
 			shouldPlay
 			onReadyForDisplay={() => {
 				player.current?.presentFullscreenPlayer()
-					.catch(console.warn);
+					.catch(console.debug);
 			}}
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
 				if (fullscreenUpdate === Video.FULLSCREEN_UPDATE_PLAYER_DID_DISMISS) {

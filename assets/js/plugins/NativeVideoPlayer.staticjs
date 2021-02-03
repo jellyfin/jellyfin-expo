@@ -42,7 +42,12 @@ class NativeVideoPlayer {
 
 	play(options) {
 		postExpoEvent(`${this.name}.play`, options);
+		// We don't know when the video player is actually
+		// displayed so delay hiding the loading indicator
+		// for a few seconds
+		window.setTimeout(() => {
 		this.loading.hide();
+		}, 5000);
 	}
 
 	getDeviceProfile() {
