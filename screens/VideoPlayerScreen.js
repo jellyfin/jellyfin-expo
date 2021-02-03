@@ -68,7 +68,14 @@ const VideoPlayerScreen = observer(() => {
 				resizeMode='contain'
 				useNativeControls
 				shouldPlay
-				onError={e => Alert.alert(e)}
+				onReadyForDisplay={() => {
+					player.current?.presentFullscreenPlayer()
+						.catch(console.warn);
+				}}
+				onError={e => {
+					console.error(e);
+					Alert.alert(e);
+				}}
 			/>
 		</SafeAreaView>
 	);

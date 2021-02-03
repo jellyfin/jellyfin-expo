@@ -28,7 +28,7 @@ function LoadingScreen() {
 			<Image
 				style={styles.splash}
 				source={require('../assets/images/splash.png')}
-				onLoad={() => SplashScreen.hideAsync()}
+				onLoad={() => SplashScreen.hideAsync().catch(console.debug)}
 				fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
 			/>
 			<ActivityIndicator />

@@ -122,7 +122,7 @@ const AppNavigator = observer(() => {
 	const { t } = useTranslation();
 
 	// Ensure the splash screen is hidden when loading is finished
-	SplashScreen.hideAsync();
+	SplashScreen.hideAsync().catch(console.debug);
 
 	return (
 		<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
