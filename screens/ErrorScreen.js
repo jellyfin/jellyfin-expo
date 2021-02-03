@@ -11,6 +11,7 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useNavigation, useRoute } from '@react-navigation/native';
 
 import ErrorView from '../components/ErrorView';
+import Screens from '../constants/Screens';
 
 const ErrorScreen = () =>{
 	const [isRefreshing, setIsRefreshing] = useState(false);
@@ -55,7 +56,7 @@ const ErrorScreen = () =>{
 						refreshing={isRefreshing}
 						onRefresh={() => {
 							setIsRefreshing(true);
-							navigation.replace('HomeScreen');
+							navigation.replace(Screens.HomeScreen);
 							setIsRefreshing(false);
 						}}
 						enabled={true}
@@ -75,7 +76,7 @@ const ErrorScreen = () =>{
 					details={details}
 					buttonIcon={buttonIcon}
 					buttonTitle={buttonTitle}
-					onPress={() => navigation.replace('HomeScreen')}
+					onPress={() => navigation.replace(Screens.HomeScreen)}
 				/>
 			</ScrollView>
 		</SafeAreaView>

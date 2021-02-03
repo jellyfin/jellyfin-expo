@@ -18,6 +18,7 @@ import ButtonListItem from '../components/ButtonListItem';
 import ServerListItem from '../components/ServerListItem';
 import SwitchListItem from '../components/SwitchListItem';
 import Links from '../constants/Links';
+import Screens from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 
 const SettingsScreen = observer(() => {
@@ -32,7 +33,7 @@ const SettingsScreen = observer(() => {
 	}, []);
 
 	const onAddServer = () => {
-		navigation.navigate('AddServer');
+		navigation.navigate(Screens.AddServerScreen);
 	};
 
 	const onDeleteServer = index => {
@@ -50,11 +51,11 @@ const SettingsScreen = observer(() => {
 
 						if (rootStore.serverStore.servers.length > 0) {
 							// More servers exist, navigate home
-							navigation.replace('HomeScreen');
-							navigation.navigate('Home');
+							navigation.replace(Screens.HomeScreen);
+							navigation.navigate(Screens.HomeTab);
 						} else {
 							// No servers are present, navigate to add server screen
-							navigation.replace('AddServer');
+							navigation.replace(Screens.AddServerScreen);
 						}
 					}),
 					style: 'destructive'
@@ -65,8 +66,8 @@ const SettingsScreen = observer(() => {
 
 	const onSelectServer = action(index => {
 		rootStore.settingStore.activeServer = index;
-		navigation.replace('HomeScreen');
-		navigation.navigate('Home');
+		navigation.replace(Screens.HomeScreen);
+		navigation.navigate(Screens.HomeTab);
 	});
 
 	const onResetApplication = () => {
@@ -82,7 +83,7 @@ const SettingsScreen = observer(() => {
 						rootStore.reset();
 						AsyncStorage.clear();
 						// Navigate to the loading screen
-						navigation.replace('AddServer');
+						navigation.replace(Screens.AddServerScreen);
 					}),
 					style: 'destructive'
 				}

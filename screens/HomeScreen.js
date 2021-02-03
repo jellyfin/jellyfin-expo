@@ -15,6 +15,7 @@ import { useStores } from '../hooks/useStores';
 import NativeShellWebView from '../components/NativeShellWebView';
 import ErrorView from '../components/ErrorView';
 import Colors from '../constants/Colors';
+import Screens from '../constants/Screens';
 import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
@@ -61,14 +62,14 @@ const HomeScreen = observer(() => {
 
 	useEffect(() => {
 		if (rootStore.mediaStore.isActive && rootStore.mediaStore.type === 'Video') {
-			navigation.navigate('VideoPlayer');
+			navigation.navigate(Screens.VideoPlayerScreen);
 		}
 	}, [rootStore.mediaStore.isActive]);
 
 	useEffect(() => {
 		if (httpErrorStatus) {
 			const errorCode = httpErrorStatus.description || httpErrorStatus.statusCode;
-			navigation.replace('ErrorScreen', {
+			navigation.replace(Screens.ErrorScreen, {
 				icon: {
 					name: 'cloud-off',
 					type: 'material'
