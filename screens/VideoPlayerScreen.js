@@ -49,6 +49,7 @@ const VideoPlayerScreen = observer(() => {
 				ref={player}
 				style={styles.container}
 				source={{ uri: rootStore.mediaStore.uri }}
+				positionMillis={rootStore.mediaStore.positionMillis}
 				usePoster
 				posterSource={{ uri: rootStore.mediaStore.posterUri }}
 				resizeMode='contain'

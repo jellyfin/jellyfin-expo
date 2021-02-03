@@ -3,19 +3,27 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { action, decorate, observable } from 'mobx';
+import { action, computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
+
+const TICKS_PER_MS = 10000;
 
 export default class MediaStore {
 	type
 	isActive = false
 	uri
+	positionTicks = 0
 	posterUri
+
+	get positionMillis() {
+		return (this.positionTicks || 0) / TICKS_PER_MS;
+	}
 
 	reset() {
 		this.type = null;
 		this.isActive = false;
 		this.uri = null;
+		this.positionTicks = 0;
 		this.posterUri = null;
 	}
 }
@@ -24,6 +32,8 @@ decorate(MediaStore, {
 	type: [ ignore, observable ],
 	isActive: [ ignore, observable ],
 	uri: [ ignore, observable ],
+	positionTicks: [ ignore, observable ],
+	positionMillis: computed,
 	posterUri: [ ignore, observable ],
 	reset: action
 });
