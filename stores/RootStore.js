@@ -21,12 +21,18 @@ export default class RootStore {
 	 */
 	isFullscreen = false
 
+	/**
+	 * Does the webview require a reload
+	 */
+	isReloadRequired = false
+
 	mediaStore = new MediaStore()
 	serverStore = new ServerStore()
 	settingStore = new SettingStore()
 
 	reset() {
 		this.isFullscreen = false;
+		this.isReloadRequired = false;
 
 		this.mediaStore.reset();
 		this.serverStore.reset();
@@ -38,5 +44,6 @@ export default class RootStore {
 
 decorate(RootStore, {
 	storeLoaded: [ ignore, observable ],
-	isFullscreen: [ ignore, observable ]
+	isFullscreen: [ ignore, observable ],
+	isReloadRequired: [ ignore, observable ]
 });

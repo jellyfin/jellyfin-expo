@@ -116,12 +116,12 @@ window.NativeShell = {
 	},
 
 	getPlugins: function() {
-		const plugins = [];
-		if (window.ExpoAppSettings.isNativeVideoPlayerEnabled) {
-			plugins.push('NativeVideoPlayer');
+		if (!window.ExpoAppSettings.isPluginSupported) {
+			return [];
 		}
-		postExpoEvent('getPlugins', plugins);
-		return plugins;
+		return [
+			'NativeVideoPlayer'
+		];
 	},
 
 	openUrl: function(url, target) {

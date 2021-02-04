@@ -22,18 +22,14 @@ class NativeVideoPlayer {
 		this.loading = loading;
 
 		window[this.name] = this;
-
-		// console.warn(`[${this.name}] constructor`);
 	}
 
 	canPlayMediaType(mediaType) {
-		// console.warn(`[${this.name}] canPlayMediaType`);
 		return mediaType === 'Video';
 	}
 
 	canPlayItem() {
-		// console.warn(`[${this.name}] canPlayItem`);
-		return true;
+		return window.ExpoAppSettings.isNativeVideoPlayerEnabled;
 	}
 
 	currentSrc() {

@@ -12,6 +12,7 @@ import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import compareVersions from 'compare-versions';
 
 import { useStores } from '../hooks/useStores';
+import MediaTypes from '../constants/MediaTypes';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
 import StaticScriptLoader from '../utils/StaticScriptlLoader';
 import { openBrowser } from '../utils/WebBrowser';
@@ -34,7 +35,8 @@ window.ExpoAppInfo = {
 };
 
 window.ExpoAppSettings = {
-	isNativeVideoPlayerEnabled: ${isPluginSupported && rootStore.settingStore.isNativeVideoPlayerEnabled}
+	isPluginSupported: ${isPluginSupported},
+	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled}
 };
 
 function postExpoEvent(event, data) {
@@ -91,7 +93,7 @@ true;
 						}
 						break;
 					case 'ExpoVideoPlayer.play':
-						rootStore.mediaStore.type = 'Video';
+						rootStore.mediaStore.type = MediaTypes.Video;
 						rootStore.mediaStore.uri = data.url;
 						rootStore.mediaStore.posterUri = data.backdropUrl;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;

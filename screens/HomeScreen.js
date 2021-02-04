@@ -62,6 +62,13 @@ const HomeScreen = observer(() => {
 	}, [rootStore.settingStore.activeServer]);
 
 	useEffect(() => {
+		if (rootStore.isReloadRequired) {
+			webview.current?.reload();
+			rootStore.isReloadRequired = false;
+		}
+	}, [rootStore.isReloadRequired]);
+
+	useEffect(() => {
 		if (httpErrorStatus) {
 			const errorCode = httpErrorStatus.description || httpErrorStatus.statusCode;
 			navigation.replace(Screens.ErrorScreen, {
