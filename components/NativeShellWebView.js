@@ -94,7 +94,6 @@ true;
 						rootStore.mediaStore.type = 'Video';
 						rootStore.mediaStore.uri = data.url;
 						rootStore.mediaStore.posterUri = data.backdropUrl;
-						rootStore.mediaStore.isActive = true;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
 						console.debug('PLAY VIDEO =>', Object.keys(data), data.title, data.playerStartPositionTicks);
 						break;

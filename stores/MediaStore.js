@@ -10,7 +10,6 @@ const TICKS_PER_MS = 10000;
 
 export default class MediaStore {
 	type
-	isActive = false
 	uri
 	positionTicks = 0
 	posterUri
@@ -21,7 +20,6 @@ export default class MediaStore {
 
 	reset() {
 		this.type = null;
-		this.isActive = false;
 		this.uri = null;
 		this.positionTicks = 0;
 		this.posterUri = null;
@@ -30,7 +28,6 @@ export default class MediaStore {
 
 decorate(MediaStore, {
 	type: [ ignore, observable ],
-	isActive: [ ignore, observable ],
 	uri: [ ignore, observable ],
 	positionTicks: [ ignore, observable ],
 	positionMillis: computed,
