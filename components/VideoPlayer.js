@@ -9,6 +9,7 @@ import { Audio, Video } from 'expo-av';
 import { observer } from 'mobx-react';
 
 import { useStores } from '../hooks/useStores';
+import MediaTypes from '../constants/MediaTypes';
 
 const VideoPlayer = observer(() => {
 	const { rootStore } = useStores();
@@ -26,7 +27,9 @@ const VideoPlayer = observer(() => {
 	return (
 		<Video
 			ref={player}
-			source={{ uri: rootStore.mediaStore.uri }}
+			source={{
+				uri: rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.uri
+			}}
 			positionMillis={rootStore.mediaStore.positionMillis}
 			volume={1.0}
 			usePoster
@@ -39,10 +42,16 @@ const VideoPlayer = observer(() => {
 					.catch(console.debug);
 			}}
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
-				if (fullscreenUpdate === Video.FULLSCREEN_UPDATE_PLAYER_DID_DISMISS) {
-					rootStore.mediaStore.reset();
-					player.current?.unloadAsync()
-						.catch(console.debug);
+				switch (fullscreenUpdate) {
+					case Video.FULLSCREEN_UPDATE_PLAYER_WILL_PRESENT:
+						rootStore.isFullscreen = true;
+						break;
+					case Video.FULLSCREEN_UPDATE_PLAYER_DID_DISMISS:
+						rootStore.isFullscreen = false;
+						rootStore.mediaStore.reset();
+						player.current?.unloadAsync()
+							.catch(console.debug);
+						break;
 				}
 			}}
 			onError={e => {
