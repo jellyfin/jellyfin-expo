@@ -51,7 +51,8 @@
         "rotationLock": "Uzamknúť otáčanie obrazovky",
         "expoVersion": "Expo verzia: {{version}}",
         "tabLabels": "Zobraziť označenia záložiek",
-        "lightTheme": "Použiť svetlú tému"
+        "lightTheme": "Použiť svetlú tému",
+        "systemTheme": "Použiť systémovú tému"
     },
     "links": {
         "website": "Jellyfin webstránka",
