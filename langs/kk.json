@@ -22,7 +22,7 @@
     "home": {
         "errors": {
             "502": {
-                "description": "Jellyfin serverіne jetu mümkіn emes. Ädette, būl proksi teŋşelımı qatelіgіnen, nemese Jellyfin derbes küidegı sebebınen bolady."
+                "description": "Jellyfin serverıne jetu mümkın emes. Ädette, būnyŋ sebebı proksi teŋşelımderı qatesınen, nemese Jellyfin derbes küinde bolady."
             },
             "504": {
                 "description": "Jellyfin serverіne jetu mümkіn emes. Ädette, būl proksidіŋ Jellyfin üşın qosylu uaqyty aiaqtalğannan bolady."
@@ -45,7 +45,7 @@
         "retry": "Ärekettı qaitalaimyz ba?"
     },
     "settings": {
-        "version": "Nūsqasy: {{versıon}}",
+        "version": "Nūsqasy: {{version}}",
         "keepAwake": "Ekrandy belsendı qaldyru",
         "rotationLock": "Ainaldyru qūlpy",
         "expoVersion": "Expo nūsqasy: {{versıon}}",
