@@ -50,7 +50,8 @@
         "rotationLock": "Ainaldyru qūlpy",
         "expoVersion": "Expo nūsqasy: {{versıon}}",
         "tabLabels": "Qoiyndy japsyrmalaryn körsetu",
-        "lightTheme": "Aqşyl taqyrypty paidalanu"
+        "lightTheme": "Aqşyl taqyrypty paidalanu",
+        "systemTheme": "Jüielik taqyrypty paidalanu"
     },
     "links": {
         "website": "Jellyfin veb-saity",
