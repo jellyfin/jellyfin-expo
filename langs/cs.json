@@ -51,7 +51,8 @@
         "rotationLock": "Zámek otočení",
         "expoVersion": "Verze toolkitu Expo: {{version}}",
         "tabLabels": "Zobrazit popisky záložek",
-        "lightTheme": "Použít světlé téma"
+        "lightTheme": "Použít světlé téma",
+        "systemTheme": "Použít systémový vzhled"
     },
     "links": {
         "website": "Web projektu Jellyfin",
