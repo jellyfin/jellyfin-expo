@@ -51,7 +51,8 @@
         "rotationLock": "Zablokuj obrót",
         "expoVersion": "Wersja Expo: {{version}}",
         "tabLabels": "Pokaż etykiety kart",
-        "lightTheme": "Użyj jasnego motywu"
+        "lightTheme": "Użyj jasnego motywu",
+        "systemTheme": "Użyj motywu systemowego"
     },
     "links": {
         "website": "Strona Jellyfin",
