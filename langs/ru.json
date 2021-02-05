@@ -50,7 +50,8 @@
         "rotationLock": "Блокировка поворота",
         "expoVersion": "Версия Expo: {{version}}",
         "tabLabels": "Показывать метки вкладок",
-        "lightTheme": "Использовать светлую тему"
+        "lightTheme": "Использовать светлую тему",
+        "systemTheme": "Использовать системную тему"
     },
     "links": {
         "website": "Веб-сайтJellyfin",
