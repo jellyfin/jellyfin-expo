@@ -45,7 +45,8 @@
         "keepAwake": "Gardez l'écran éveillé",
         "version": "Version: {{version}}",
         "lightTheme": "Utiliser le thème clair",
-        "tabLabels": "Afficher le nom des onglets"
+        "tabLabels": "Afficher le nom des onglets",
+        "systemTheme": "Utiliser le thème système"
     },
     "home": {
         "errors": {
