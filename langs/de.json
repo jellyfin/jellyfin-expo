@@ -51,7 +51,8 @@
         "rotationLock": "Bildschirm nicht drehen",
         "expoVersion": "Expo Version: {{version}}",
         "tabLabels": "Zeige Tab-Überschriften",
-        "lightTheme": "Helles Design verwenden"
+        "lightTheme": "Helles Design verwenden",
+        "systemTheme": "Benutze Systemdesign"
     },
     "links": {
         "website": "Jellyfin Website",
