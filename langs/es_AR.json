@@ -51,7 +51,8 @@
         "rotationLock": "Bloqueo de rotación",
         "expoVersion": "Versión de Expo: {{version}}",
         "tabLabels": "Mostrar Etiquetas",
-        "lightTheme": "Usar Tema Ligero"
+        "lightTheme": "Usar Tema Ligero",
+        "systemTheme": "Usar tema del sistema"
     },
     "links": {
         "website": "Sitio web de Jellyfin",
