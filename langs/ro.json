@@ -50,7 +50,9 @@
         "keepAwake": "Ține ecranul treaz",
         "rotationLock": "Blocarea rotației",
         "expoVersion": "Versiune Expo: {{version}}",
-        "tabLabels": "Afișați etichete de filă"
+        "tabLabels": "Afișați etichete de filă",
+        "systemTheme": "Folosește tema sistemului",
+        "lightTheme": "Folosește tema luminoasă"
     },
     "links": {
         "website": "Site-ul Jellyfin",
