@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "Não foi possível acessar o servidor Jellyfin. Isso normalmente ocorre devido a erros na configuração de proxy ou o Jellyfin está offline."
+            },
+            "invalidServer": {
+                "description": "Algo aconteceu e as informações do servidor salvas são inválidas. Tente remover o servidor de Configurações e adicioná-lo novamente.",
+                "heading": "Servidor inválido"
             }
         },
         "offline": "Erro ao entrar em contato com o servidor Jellyfin.",
@@ -45,7 +49,10 @@
         "version": "Versão: {{version}}",
         "keepAwake": "Manter a tela ligada",
         "rotationLock": "Bloqueio de rotação",
-        "expoVersion": "Versão do Expo: {{version}}"
+        "expoVersion": "Versão do Expo: {{version}}",
+        "tabLabels": "Mostrar rótulos de guia",
+        "systemTheme": "Usar o tema do sistema",
+        "lightTheme": "Usar tema Light"
     },
     "links": {
         "website": "Site do Jellyfin",
