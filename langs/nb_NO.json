@@ -51,7 +51,8 @@
         "rotationLock": "Rotasjonslås",
         "expoVersion": "Expo-versjon: {{version}}",
         "tabLabels": "Vis faneetiketter",
-        "lightTheme": "Bruk lyst tema"
+        "lightTheme": "Bruk lyst tema",
+        "systemTheme": "Bruk systemdrakt"
     },
     "links": {
         "website": "Nettside",
