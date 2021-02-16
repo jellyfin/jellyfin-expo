@@ -34,8 +34,9 @@
     "rules": {
         "react/prop-types": ["error"],
 
+        "array-callback-return": ["error"],
         "block-spacing": ["error"],
-        "brace-style": ["error"],
+        "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
         "comma-dangle": ["error", "never"],
         "comma-spacing": ["error"],
         "eol-last": ["error"],
@@ -46,11 +47,15 @@
         "no-multi-spaces": ["error"],
         "no-multiple-empty-lines": ["error", { "max": 1 }],
         "no-trailing-spaces": ["error"],
+        "no-var": ["error"],
         "one-var": ["error", "never"],
+        "padded-blocks": ["error", "never"],
+        "prefer-const": ["error", { "destructuring": "all" }],
         "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
         "semi": ["error"],
         "space-before-blocks": ["error"],
-        "space-infix-ops": ["error"]
+        "space-infix-ops": ["error"],
+        "yoda": ["error"]
     },
     "overrides": [
         {
