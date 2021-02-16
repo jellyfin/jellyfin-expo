@@ -48,7 +48,9 @@
         "version": "Verzió: {{version}}",
         "keepAwake": "Tartsa a képernyőt ébren",
         "rotationLock": "Képernyő irányultság zárolása",
-        "expoVersion": "Expo Verzió: {{version}}"
+        "expoVersion": "Expo Verzió: {{version}}",
+        "systemTheme": "Rendszer témájának használata",
+        "lightTheme": "Világos téma használata"
     },
     "links": {
         "website": "Jellyfin weboldala",
