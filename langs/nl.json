@@ -51,7 +51,8 @@
         "rotationLock": "Vergrendel Schermrotatie",
         "expoVersion": "Expo Versie: {{version}}",
         "lightTheme": "Gebruik Lichte Modus",
-        "tabLabels": "Toon Tabblad Labels"
+        "tabLabels": "Toon Tabblad Labels",
+        "systemTheme": "Gebruik systeem thema"
     },
     "links": {
         "website": "Jellyfin Website",
