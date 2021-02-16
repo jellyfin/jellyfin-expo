@@ -11,7 +11,7 @@ export function getAppName() {
 }
 
 export function getSafeDeviceName() {
-	let safeName = Constants.deviceName
+	const safeName = Constants.deviceName
 	// Replace non-ascii apostrophe with single quote (default on iOS)
 		.replace(/’/g, '\'')
 	// Remove all other non-ascii characters
