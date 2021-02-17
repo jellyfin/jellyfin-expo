@@ -50,7 +50,8 @@
         "rotationLock": "Képernyő irányultság zárolása",
         "expoVersion": "Expo Verzió: {{version}}",
         "systemTheme": "Rendszer témájának használata",
-        "lightTheme": "Világos téma használata"
+        "lightTheme": "Világos téma használata",
+        "tabLabels": "Címke fülek megjelenítése"
     },
     "links": {
         "website": "Jellyfin weboldala",
