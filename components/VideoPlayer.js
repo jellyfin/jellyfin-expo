@@ -24,19 +24,24 @@ const VideoPlayer = observer(() => {
 		});
 	}, []);
 
+	useEffect(() => {
+		if (rootStore.mediaStore.type === MediaTypes.Video) {
+			player.current?.loadAsync({
+				uri: rootStore.mediaStore.uri
+			}, {
+				positionMillis: rootStore.mediaStore.positionMillis,
+				shouldPlay: true
+			});
+		}
+	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri ]);
+
 	return (
 		<Video
 			ref={player}
-			source={{
-				uri: rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.uri
-			}}
-			positionMillis={rootStore.mediaStore.positionMillis}
-			volume={1.0}
 			usePoster
 			posterSource={{ uri: rootStore.mediaStore.posterUri }}
 			resizeMode='contain'
 			useNativeControls
-			shouldPlay
 			onReadyForDisplay={() => {
 				player.current?.presentFullscreenPlayer()
 					.catch(console.debug);
