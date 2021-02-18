@@ -10,6 +10,7 @@ import { observer } from 'mobx-react';
 
 import { useStores } from '../hooks/useStores';
 import MediaTypes from '../constants/MediaTypes';
+import { msToTicks } from '../utils/Time';
 
 const VideoPlayer = observer(() => {
 	const { rootStore } = useStores();
@@ -45,6 +46,10 @@ const VideoPlayer = observer(() => {
 			onReadyForDisplay={() => {
 				player.current?.presentFullscreenPlayer()
 					.catch(console.debug);
+			}}
+			onPlaybackStatusUpdate={({ isPlaying, positionMillis }) => {
+				rootStore.mediaStore.isPlaying = isPlaying;
+				rootStore.mediaStore.positionTicks = msToTicks(positionMillis);
 			}}
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
 				switch (fullscreenUpdate) {

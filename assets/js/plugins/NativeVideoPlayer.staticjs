@@ -10,40 +10,131 @@ class NativeVideoPlayer {
 	id = 'expovideoplayer';
 	priority = -1;
 	isLocalPlayer = true;
-	supportsProgress = false;
 
-	subtitleStreamIndex = -1;
-	audioStreamIndex = -1;
+	uri
+	isPlaying = false
+	positionMillis = 0
 
 	constructor({ appSettings, events, playbackManager, loading }) {
+		// local references to web classes
 		this.appSettings = appSettings;
 		this.events = events;
 		this.playbackManager = playbackManager;
 		this.loading = loading;
 
+		// expose this instance to the global scope
 		window[this.name] = this;
 	}
 
+	// Called by web when the player should be destroyed
+	destroy() {
+		// Reset local player state
+		this.streamInfo = null;
+		this.item = null;
+		this.mediaSource = null;
+
+		this.uri = null;
+		this.isPlaying = false;
+		this.positionMillis = 0;
+	}
+
+	// Report playback status changes to web
+	_reportStatus(status) {
+		// The video uri has changed
+		if (status.uri !== this.uri) {
+			this.uri = status.uri;
+
+			if (this.uri === null) {
+				// The uri is null, playback has ended
+				this.streamInfo.ended = true;
+				this._safelyTriggerEvent('stopped');
+			} else {
+				this.streamInfo.started = true;
+			}
+		}
+
+		// Playback has stopped don't report events
+		if (this.uri === null) {
+			return;
+		}
+
+		// The playing state has changed
+		if (status.isPlaying !== this.isPlaying) {
+			this.isPlaying = status.isPlaying;
+			this._safelyTriggerEvent(this.isPlaying ? 'playing' : 'pause');
+		}
+
+		// The playback position has changed
+		if (status.positionMillis !== this.positionMillis) {
+			this.positionMillis = status.positionMillis;
+			this._safelyTriggerEvent('timeupdate');
+		}
+	}
+
+	// Trigger events in web and handle any exceptions
+	_safelyTriggerEvent(event) {
+		try {
+			this.events.trigger(this, event);
+		} catch (ex) {
+			console.error(ex.name + '\n' + ex.message);
+		}
+	}
+
+	// This player only supports video
 	canPlayMediaType(mediaType) {
 		return mediaType === 'Video';
 	}
 
+	// Any video items are supported when enabled
 	canPlayItem() {
 		return window.ExpoAppSettings.isNativeVideoPlayerEnabled;
 	}
 
-	currentSrc() {
-		// console.warn(`[${this.name}] currentSrc`);
+	// Returns the currently playing item
+	currentItem() {
+		return this.item;
 	}
 
-	play(options) {
-		postExpoEvent(`${this.name}.play`, options);
+	// Returns the current media source
+	currentMediaSource() {
+		return this.mediaSource;
+	}
+
+	// Returns the current player position in ms
+	currentTime() {
+		return this.positionMillis;
+	}
+
+	// Dummy method (required by web)
+	isMuted() {
+		return false;
+	}
+
+	// Return the paused state (required by web)
+	paused() {
+		return !this.isPlaying;
+	}
+
+	// Called by web to begin playback
+	play(streamInfo) {
+		postExpoEvent(`${this.name}.play`, streamInfo);
+
+		// Save the currently playing item
+		this.streamInfo = streamInfo;
+		this.item = streamInfo.item;
+		this.mediaSource = streamInfo.mediaSource;
+
 		// We don't know when the video player is actually
 		// displayed so delay hiding the loading indicator
 		// for a few seconds
 		window.setTimeout(() => {
 			this.loading.hide();
 		}, 5000);
+	}
+
+	// Dummy method (required by web)
+	volume() {
+		return 100;
 	}
 
 	getDeviceProfile() {

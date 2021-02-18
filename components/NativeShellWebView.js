@@ -97,7 +97,6 @@ true;
 						rootStore.mediaStore.uri = data.url;
 						rootStore.mediaStore.posterUri = data.backdropUrl;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
-						console.debug('PLAY VIDEO =>', Object.keys(data), data.title, data.playerStartPositionTicks);
 						break;
 					case 'console.debug':
 						// console.debug('[Browser Console]', data);

@@ -6,21 +6,42 @@
 import { action, computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 
-const TICKS_PER_MS = 10000;
+import { ticksToMs } from '../utils/Time';
 
 export default class MediaStore {
+	/**
+	 * The MediaType being played
+	 */
 	type
+
+	/**
+	 * URI of the current media item
+	 */
 	uri
+
+	/**
+	 * Is the media currently playing
+	 */
+	isPlaying = false
+
+	/**
+	 * The current playback position in ticks
+	 */
 	positionTicks = 0
+
+	/**
+	 * The URI of the poster image of the current media item
+	 */
 	posterUri
 
 	get positionMillis() {
-		return (this.positionTicks || 0) / TICKS_PER_MS;
+		return ticksToMs(this.positionTicks);
 	}
 
 	reset() {
 		this.type = null;
 		this.uri = null;
+		this.isPlaying = false;
 		this.positionTicks = 0;
 		this.posterUri = null;
 	}
@@ -29,6 +50,7 @@ export default class MediaStore {
 decorate(MediaStore, {
 	type: [ ignore, observable ],
 	uri: [ ignore, observable ],
+	isPlaying: [ ignore, observable ],
 	positionTicks: [ ignore, observable ],
 	positionMillis: computed,
 	posterUri: [ ignore, observable ],

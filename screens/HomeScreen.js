@@ -56,6 +56,16 @@ const HomeScreen = observer(() => {
 		}, [webview])
 	);
 
+	// Report media updates to the video plugin
+	useEffect(() => {
+		webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify({
+			uri: rootStore.mediaStore.uri,
+			isPlaying: rootStore.mediaStore.isPlaying,
+			positionTicks: rootStore.mediaStore.positionTicks,
+			positionMillis: rootStore.mediaStore.positionMillis
+		})});`);
+	}, [ rootStore.mediaStore.uri, rootStore.mediaStore.isPlaying, rootStore.mediaStore.positionTicks ]);
+
 	// Clear the error state when the active server changes
 	useEffect(() => {
 		setIsLoading(true);
