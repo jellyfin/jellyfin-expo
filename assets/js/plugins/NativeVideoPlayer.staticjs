@@ -45,10 +45,12 @@ class NativeVideoPlayer {
 			this.uri = status.uri;
 
 			if (this.uri === null) {
-				// The uri is null, playback has ended
-				this.streamInfo.ended = true;
+				// The uri is null, tell playbackManager to stop playback
+				this.playbackManager.stop(this);
+				// Notify web that playback has stopped
 				this._safelyTriggerEvent('stopped');
 			} else {
+				// Set flag used by web to show playback has started
 				this.streamInfo.started = true;
 			}
 		}
@@ -127,9 +129,7 @@ class NativeVideoPlayer {
 		// We don't know when the video player is actually
 		// displayed so delay hiding the loading indicator
 		// for a few seconds
-		window.setTimeout(() => {
-			this.loading.hide();
-		}, 5000);
+		return new Promise(resolve => window.setTimeout(resolve, 5000));
 	}
 
 	// Dummy method (required by web)
