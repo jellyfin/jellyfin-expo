@@ -5,17 +5,18 @@
  */
 
 class NativeVideoPlayer {
-	name = 'ExpoVideoPlayer';
-	type = 'mediaplayer';
-	id = 'expovideoplayer';
-	priority = -1;
-	isLocalPlayer = true;
-
-	uri
-	isPlaying = false
-	positionMillis = 0
-
 	constructor({ appSettings, events, playbackManager, loading }) {
+		// declare public fields because iOS < 14 does not support them properly
+		this.name = 'ExpoVideoPlayer';
+		this.type = 'mediaplayer';
+		this.id = 'expovideoplayer';
+		this.priority = -1;
+		this.isLocalPlayer = true;
+
+		this.uri;
+		this.isPlaying = false;
+		this.positionMillis = 0;
+
 		// local references to web classes
 		this.appSettings = appSettings;
 		this.events = events;
@@ -119,7 +120,7 @@ class NativeVideoPlayer {
 
 	// Called by web to begin playback
 	play(streamInfo) {
-		postExpoEvent(`${this.name}.play`, streamInfo);
+		postExpoEvent(this.name + '.play', streamInfo);
 
 		// Save the currently playing item
 		this.streamInfo = streamInfo;
@@ -133,11 +134,11 @@ class NativeVideoPlayer {
 	}
 
 	playPause() {
-		postExpoEvent(`${this.name}.playPause`);
+		postExpoEvent(this.name + '.playPause');
 	}
 
 	stop(destroy) {
-		postExpoEvent(`${this.name}.stop`, destroy);
+		postExpoEvent(this.name + '.stop', destroy);
 		return Promise.resolve();
 	}
 
@@ -147,7 +148,7 @@ class NativeVideoPlayer {
 	}
 
 	getDeviceProfile() {
-		postExpoEvent(`${this.name}.getDeviceProfile`);
+		postExpoEvent(this.name + '.getDeviceProfile');
 	}
 }
 
