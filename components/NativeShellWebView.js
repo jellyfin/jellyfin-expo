@@ -98,6 +98,12 @@ true;
 						rootStore.mediaStore.posterUri = data.backdropUrl;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
 						break;
+					case 'ExpoVideoPlayer.playPause':
+						rootStore.mediaStore.shouldPlayPause = true;
+						break;
+					case 'ExpoVideoPlayer.stop':
+						rootStore.mediaStore.shouldStop = true;
+						break;
 					case 'console.debug':
 						// console.debug('[Browser Console]', data);
 						break;

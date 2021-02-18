@@ -17,6 +17,7 @@ const VideoPlayer = observer(() => {
 
 	const player = useRef(null);
 
+	// Set the audio mode when the video player is created
 	useEffect(() => {
 		Audio.setAudioModeAsync({
 			interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
@@ -25,6 +26,7 @@ const VideoPlayer = observer(() => {
 		});
 	}, []);
 
+	// Update the player when media type or uri changes
 	useEffect(() => {
 		if (rootStore.mediaStore.type === MediaTypes.Video) {
 			player.current?.loadAsync({
@@ -35,6 +37,27 @@ const VideoPlayer = observer(() => {
 			});
 		}
 	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri ]);
+
+	// Update the play/pause state when the store indicates it should
+	useEffect(() => {
+		if (rootStore.mediaStore.shouldPlayPause) {
+			if (rootStore.mediaStore.isPlaying) {
+				player.current?.pauseAsync();
+			} else {
+				player.current?.playAsync();
+			}
+			rootStore.mediaStore.shouldPlayPause = false;
+		}
+	}, [ rootStore.mediaStore.shouldPlayPause ]);
+
+	// Close the player when the store indicates it should stop playback
+	useEffect(() => {
+		if (rootStore.mediaStore.shouldStop) {
+			player.current?.dismissFullscreenPlayer()
+				.catch(console.debug);
+			rootStore.mediaStore.shouldStop = false;
+		}
+	}, [ rootStore.mediaStore.shouldStop ]);
 
 	return (
 		<Video

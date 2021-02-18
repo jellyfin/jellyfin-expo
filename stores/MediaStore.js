@@ -34,6 +34,16 @@ export default class MediaStore {
 	 */
 	posterUri
 
+	/**
+	 * The player should toggle the play/pause state
+	 */
+	shouldPlayPause = false
+
+	/**
+	 * The player should stop playback
+	 */
+	shouldStop = false
+
 	get positionMillis() {
 		return ticksToMs(this.positionTicks);
 	}
@@ -44,6 +54,8 @@ export default class MediaStore {
 		this.isPlaying = false;
 		this.positionTicks = 0;
 		this.posterUri = null;
+		this.shouldPlayPause = false;
+		this.shouldStop = false;
 	}
 }
 
@@ -54,5 +66,7 @@ decorate(MediaStore, {
 	positionTicks: [ ignore, observable ],
 	positionMillis: computed,
 	posterUri: [ ignore, observable ],
+	shouldPlayPause: [ ignore, observable ],
+	shouldStop: [ ignore, observable ],
 	reset: action
 });

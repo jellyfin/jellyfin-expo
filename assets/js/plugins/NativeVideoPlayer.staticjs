@@ -132,6 +132,15 @@ class NativeVideoPlayer {
 		return new Promise(resolve => window.setTimeout(resolve, 5000));
 	}
 
+	playPause() {
+		postExpoEvent(`${this.name}.playPause`);
+	}
+
+	stop(destroy) {
+		postExpoEvent(`${this.name}.stop`, destroy);
+		return Promise.resolve();
+	}
+
 	// Dummy method (required by web)
 	volume() {
 		return 100;
