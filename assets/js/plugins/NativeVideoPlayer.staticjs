@@ -148,7 +148,7 @@ class NativeVideoPlayer {
 	}
 
 	getDeviceProfile() {
-		postExpoEvent(this.name + '.getDeviceProfile');
+		return Promise.resolve(window.ExpoVideoProfile || {});
 	}
 }
 

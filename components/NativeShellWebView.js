@@ -13,7 +13,7 @@ import compareVersions from 'compare-versions';
 
 import { useStores } from '../hooks/useStores';
 import MediaTypes from '../constants/MediaTypes';
-import { getAppName, getSafeDeviceName } from '../utils/Device';
+import { getAppName, getDeviceProfile, getSafeDeviceName } from '../utils/Device';
 import StaticScriptLoader from '../utils/StaticScriptlLoader';
 import { openBrowser } from '../utils/WebBrowser';
 import RefreshWebView from './RefreshWebView';
@@ -38,6 +38,8 @@ window.ExpoAppSettings = {
 	isPluginSupported: ${isPluginSupported},
 	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled}
 };
+
+window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile())};
 
 function postExpoEvent(event, data) {
 	window.ReactNativeWebView.postMessage(JSON.stringify({
