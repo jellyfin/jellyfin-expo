@@ -59,6 +59,7 @@ const HomeScreen = observer(() => {
 	// Report media updates to the video plugin
 	useEffect(() => {
 		webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify({
+			didPlayerCloseManually: rootStore.didPlayerCloseManually,
 			uri: rootStore.mediaStore.uri,
 			isPlaying: rootStore.mediaStore.isPlaying,
 			positionTicks: rootStore.mediaStore.positionTicks,

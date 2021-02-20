@@ -29,6 +29,7 @@ const VideoPlayer = observer(() => {
 	// Update the player when media type or uri changes
 	useEffect(() => {
 		if (rootStore.mediaStore.type === MediaTypes.Video) {
+			rootStore.didPlayerCloseManually = true;
 			player.current?.loadAsync({
 				uri: rootStore.mediaStore.uri
 			}, {
@@ -53,6 +54,7 @@ const VideoPlayer = observer(() => {
 	// Close the player when the store indicates it should stop playback
 	useEffect(() => {
 		if (rootStore.mediaStore.shouldStop) {
+			rootStore.didPlayerCloseManually = false;
 			player.current?.dismissFullscreenPlayer()
 				.catch(console.debug);
 			rootStore.mediaStore.shouldStop = false;
@@ -70,7 +72,13 @@ const VideoPlayer = observer(() => {
 				player.current?.presentFullscreenPlayer()
 					.catch(console.debug);
 			}}
-			onPlaybackStatusUpdate={({ isPlaying, positionMillis }) => {
+			onPlaybackStatusUpdate={({ isPlaying, positionMillis, didJustFinish }) => {
+				if (didJustFinish) {
+					rootStore.didPlayerCloseManually = false;
+					player.current?.dismissFullscreenPlayer()
+						.catch(console.debug);
+					return;
+				}
 				rootStore.mediaStore.isPlaying = isPlaying;
 				rootStore.mediaStore.positionTicks = msToTicks(positionMillis);
 			}}

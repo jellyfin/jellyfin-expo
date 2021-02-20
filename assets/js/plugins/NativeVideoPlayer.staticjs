@@ -46,8 +46,11 @@ class NativeVideoPlayer {
 			this.uri = status.uri;
 
 			if (this.uri === null) {
-				// The uri is null, tell playbackManager to stop playback
-				this.playbackManager.stop(this);
+				// If the player was closed manually,
+				// we need to tell web to stop playback
+				if (status.didPlayerCloseManually) {
+					this.playbackManager.stop(this);
+				}
 				// Notify web that playback has stopped
 				this._safelyTriggerEvent('stopped');
 			} else {

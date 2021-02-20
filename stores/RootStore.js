@@ -26,6 +26,11 @@ export default class RootStore {
 	 */
 	isReloadRequired = false
 
+	/**
+	 * Was the native player closed manually
+	 */
+	didPlayerCloseManually = true
+
 	mediaStore = new MediaStore()
 	serverStore = new ServerStore()
 	settingStore = new SettingStore()
@@ -33,6 +38,7 @@ export default class RootStore {
 	reset() {
 		this.isFullscreen = false;
 		this.isReloadRequired = false;
+		this.didPlayerCloseManually = true;
 
 		this.mediaStore.reset();
 		this.serverStore.reset();
@@ -45,5 +51,6 @@ export default class RootStore {
 decorate(RootStore, {
 	storeLoaded: [ ignore, observable ],
 	isFullscreen: [ ignore, observable ],
-	isReloadRequired: [ ignore, observable ]
+	isReloadRequired: [ ignore, observable ],
+	didPlayerCloseManually: [ ignore, observable ]
 });
