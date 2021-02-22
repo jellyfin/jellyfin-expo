@@ -73,9 +73,26 @@
         "space-infix-ops": ["error"],
         "yoda": ["error"]
     },
+    "ignorePatterns": [ "coverage" ],
     "overrides": [
         {
             "files": [ "./**/*.js" ]
+        },
+        {
+            "files": [ "./**/*.test.js" ],
+            "plugins": [ "jest" ],
+            "env": {
+                "jest/globals": true
+            },
+            "extends": [
+                "plugin:jest/recommended",
+                "plugin:jest/style"
+            ],
+            "rules": {
+                "jest/consistent-test-it": ["error"],
+                "jest/lowercase-name": ["error", { "ignoreTopLevelDescribe": true }],
+                "jest/require-top-level-describe": ["error"]
+            }
         },
         {
             "files": [ "./assets/**/*.staticjs" ],
