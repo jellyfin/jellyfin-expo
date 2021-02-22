@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import Constants from 'expo-constants';
+
 import { getAppName, getSafeDeviceName } from '../Device';
 
 describe('Device', () => {

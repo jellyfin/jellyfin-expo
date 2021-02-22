@@ -5,6 +5,7 @@
  */
 import { Asset } from 'expo-asset';
 import { readAsStringAsync } from 'expo-file-system';
+
 import StaticScriptLoader from '../StaticScriptlLoader';
 
 jest.mock('expo-asset');
