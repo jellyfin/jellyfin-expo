@@ -50,6 +50,7 @@
         "no-floating-decimal": ["error"],
         "no-multi-spaces": ["error"],
         "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-return-await": ["error"],
         "no-trailing-spaces": ["error"],
         "no-var": ["error"],
         "object-curly-spacing": ["error", "always"],
