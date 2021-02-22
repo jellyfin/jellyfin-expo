@@ -19,10 +19,10 @@ describe('WebBrowser', () => {
 		it('should call WebBrowser.openBrowserAsync with default options', async () => {
 			WebBrowser.openBrowserAsync.mockResolvedValue('success');
 
-			await openBrowser('http://foobar');
+			await openBrowser('https://foobar');
 
 			expect(WebBrowser.openBrowserAsync.mock.calls).toHaveLength(1);
-			expect(WebBrowser.openBrowserAsync.mock.calls[0][0]).toBe('http://foobar');
+			expect(WebBrowser.openBrowserAsync.mock.calls[0][0]).toBe('https://foobar');
 			expect(WebBrowser.openBrowserAsync.mock.calls[0][1].toolbarColor).toBe(Colors.blackish);
 			expect(WebBrowser.openBrowserAsync.mock.calls[0][1].controlsColor).toBe(Colors.blue);
 		});
@@ -32,7 +32,7 @@ describe('WebBrowser', () => {
 			WebBrowser.openBrowserAsync.mockRejectedValueOnce(new Error('Another WebBrowser is already being presented.'));
 			WebBrowser.openBrowserAsync.mockResolvedValue('success');
 
-			await openBrowser('http://foobar');
+			await openBrowser('https://foobar');
 
 			expect(WebBrowser.dismissBrowser.mock.calls).toHaveLength(1);
 			expect(WebBrowser.openBrowserAsync.mock.calls).toHaveLength(2);
@@ -42,7 +42,7 @@ describe('WebBrowser', () => {
 			WebBrowser.dismissBrowser.mockRejectedValue('fail');
 			WebBrowser.openBrowserAsync.mockRejectedValue(new Error('Another WebBrowser is already being presented.'));
 
-			await openBrowser('http://foobar');
+			await openBrowser('https://foobar');
 
 			expect(WebBrowser.dismissBrowser.mock.calls).toHaveLength(1);
 			expect(WebBrowser.openBrowserAsync.mock.calls).toHaveLength(1);
@@ -51,7 +51,7 @@ describe('WebBrowser', () => {
 		it('should not retry on other errors', async () => {
 			WebBrowser.openBrowserAsync.mockRejectedValue('fail');
 
-			await openBrowser('http://foobar');
+			await openBrowser('https://foobar');
 
 			expect(WebBrowser.openBrowserAsync.mock.calls).toHaveLength(1);
 		});
