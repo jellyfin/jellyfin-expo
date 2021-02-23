@@ -5,9 +5,14 @@
  */
 import Url from 'url';
 
-import { getServerUrl, parseUrl, validateServer } from '../ServerValidator';
+import { fetchServerInfo, getServerUrl, parseUrl, validateServer } from '../ServerValidator';
 
 describe('ServerValidator', () => {
+	beforeEach(() => {
+		fetch.resetMocks();
+		jest.clearAllMocks();
+	});
+
 	describe('parseUrl()', () => {
 		it('should throw an error if called without host', () => {
 			expect(parseUrl).toThrow('host cannot be blank');
@@ -38,7 +43,20 @@ describe('ServerValidator', () => {
 	});
 
 	describe('fetchServerInfo()', () => {
-		//TODO: Add tests
+		it('should reject on an error response', async () => {
+			fetch.mockResponse(JSON.stringify({ error: 'test' }), { status: 500 });
+
+			await expect(fetchServerInfo({ urlString: 'https://foobar/' }))
+				.rejects
+				.toThrow('Error response status [500] received from https://foobar/system/info/public');
+		});
+
+		it('should return a successful response', async () => {
+			fetch.mockResponse(JSON.stringify({ data: 'ok' }));
+			const serverInfo = await fetchServerInfo({ urlString: 'https://foobar/' });
+
+			expect(serverInfo.data).toBe('ok');
+		});
 	});
 
 	describe('getServerUrl()', () => {
@@ -74,6 +92,34 @@ describe('ServerValidator', () => {
 			expect(result.message).toBe('invalid');
 		});
 
-		// TODO: Add tests
+		it('should return valid for 10.2.x servers', async () => {
+			fetch.mockResponse(JSON.stringify({ Id: 'test', Version: '10.2.0' }));
+
+			const result = await validateServer({ url: Url.parse('https://foobar/') });
+			expect(result.isValid).toBe(true);
+		});
+
+		it('should return valid if product name is "Jellyfin Server"', async () => {
+			fetch.mockResponse(JSON.stringify({ ProductName: 'Jellyfin Server' }));
+
+			const result = await validateServer({ url: Url.parse('https://foobar/') });
+			expect(result.isValid).toBe(true);
+		});
+
+		it('should return invalidProduct message if product name is not "Jellyfin Server"', async () => {
+			fetch.mockResponse(JSON.stringify({ ProductName: 'test', Version: '3.5' }));
+
+			const result = await validateServer({ url: Url.parse('https://foobar/') });
+			expect(result.isValid).toBe(false);
+			expect(result.message).toBe('invalidProduct');
+		});
+
+		it('should return noConnection message if fetch throws error', async () => {
+			fetch.mockResponse(JSON.stringify({ error: 'test' }), { status: 500 });
+
+			const result = await validateServer({ url: Url.parse('https://foobar/') });
+			expect(result.isValid).toBe(false);
+			expect(result.message).toBe('noConnection');
+		});
 	});
 });

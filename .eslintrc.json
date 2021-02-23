@@ -84,6 +84,9 @@
             "env": {
                 "jest/globals": true
             },
+            "globals": {
+                "fetch": "readonly"
+            },
             "extends": [
                 "plugin:jest/recommended",
                 "plugin:jest/style"
