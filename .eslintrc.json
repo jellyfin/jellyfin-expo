@@ -1,7 +1,6 @@
 {
     "env": {
-        "es2020": true,
-        "node": true
+        "react-native/react-native": true
     },
     "extends": [
         "eslint:recommended",
@@ -22,6 +21,7 @@
     },
     "plugins": [
         "react",
+        "react-native",
         "promise",
         "import",
         "eslint-comments"
@@ -34,6 +34,11 @@
     "rules": {
         "react/prop-types": ["error"],
         "jsx-quotes": ["error", "prefer-single"],
+
+        "react-native/no-unused-styles": ["error"],
+        "react-native/split-platform-components": ["error"],
+        "react-native/no-color-literals": ["error"],
+        "react-native/no-raw-text": ["error"],
 
         "array-bracket-spacing": ["error", "always", { "objectsInArrays": false, "arraysInArrays": false }],
         "array-callback-return": ["error"],
@@ -70,11 +75,7 @@
     },
     "overrides": [
         {
-            "files": [ "./**/*.js" ],
-            "globals": {
-                "Atomics": "readonly",
-                "SharedArrayBuffer": "readonly"
-            }
+            "files": [ "./**/*.js" ]
         },
         {
             "files": [ "./assets/**/*.staticjs" ],
@@ -85,8 +86,9 @@
                 "postExpoEvent": "readonly"
             },
             "env": {
-                "node": false,
-                "browser": true
+                "react-native/react-native": false,
+                "browser": true,
+                "es6": true
             }
         }
     ]
