@@ -33,6 +33,7 @@
     },
     "rules": {
         "react/prop-types": ["error"],
+        "jsx-quotes": ["error", "prefer-single"],
 
         "array-bracket-spacing": ["error", "always", { "objectsInArrays": false, "arraysInArrays": false }],
         "array-callback-return": ["error"],
