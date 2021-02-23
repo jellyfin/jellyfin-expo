@@ -30,4 +30,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Run jest
-        run: npx jest --coverage=false
+        run: npx jest
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1
