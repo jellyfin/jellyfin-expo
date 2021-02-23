@@ -10,6 +10,7 @@ trim_trailing_whitespace = true
 
 [{*.js, .staticjs}]
 indent_style = tab
+quote_type = single
 
 [*.json]
 indent_style = space
