@@ -5,7 +5,8 @@
         "expoVersion": "Versión de Expo: {{version}}",
         "rotationLock": "Desactivar la rotación de la pantalla",
         "tabLabels": "Mostrar las Etiquetas de las Pestañas",
-        "lightTheme": "Usar Tema Claro"
+        "lightTheme": "Usar Tema Claro",
+        "systemTheme": "Usar el tema del sistema"
     },
     "home": {
         "errors": {
