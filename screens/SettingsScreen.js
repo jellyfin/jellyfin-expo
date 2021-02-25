@@ -119,16 +119,19 @@ const SettingsScreen = observer(() => {
 			});
 		}
 
-		settingsData.push({
-			key: 'native-video-switch',
-			title: t('settings.nativeVideoPlayer'),
-			subtitle: t('settings.minimumServerVersion'),
-			value: rootStore.settingStore.isNativeVideoPlayerEnabled,
-			onValueChange: action(value => {
-				rootStore.settingStore.isNativeVideoPlayerEnabled = value;
-				rootStore.isReloadRequired = true;
-			})
-		});
+		// TODO: Add Android support for native video player
+		if (Platform.OS === 'ios') {
+			settingsData.push({
+				key: 'native-video-switch',
+				title: t('settings.nativeVideoPlayer'),
+				subtitle: t('settings.minimumServerVersion'),
+				value: rootStore.settingStore.isNativeVideoPlayerEnabled,
+				onValueChange: action(value => {
+					rootStore.settingStore.isNativeVideoPlayerEnabled = value;
+					rootStore.isReloadRequired = true;
+				})
+			});
+		}
 
 		settingsData.push({
 			key: 'tab-labels-switch',
