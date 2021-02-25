@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 import { Audio, Video } from 'expo-av';
 import { observer } from 'mobx-react';
@@ -16,6 +16,9 @@ const VideoPlayer = observer(() => {
 	const { rootStore } = useStores();
 
 	const player = useRef(null);
+	// Local player fullscreen state
+	const [ isPresenting, setIsPresenting ] = useState(false);
+	const [ isDismissing, setIsDismissing ] = useState(false);
 
 	// Set the audio mode when the video player is created
 	useEffect(() => {
@@ -55,11 +58,29 @@ const VideoPlayer = observer(() => {
 	useEffect(() => {
 		if (rootStore.mediaStore.shouldStop) {
 			rootStore.didPlayerCloseManually = false;
-			player.current?.dismissFullscreenPlayer()
-				.catch(console.debug);
+			closeFullscreen();
 			rootStore.mediaStore.shouldStop = false;
 		}
 	}, [ rootStore.mediaStore.shouldStop ]);
+
+	const openFullscreen = () => {
+		if (!isPresenting) {
+			player.current?.presentFullscreenPlayer()
+				.catch(e => {
+					console.error(e);
+					Alert.alert(e);
+				});
+		}
+	};
+
+	const closeFullscreen = () => {
+		if (!isDismissing) {
+			player.current?.dismissFullscreenPlayer()
+				.catch(e => {
+					console.debug(e);
+				});
+		}
+	};
 
 	return (
 		<Video
@@ -68,15 +89,11 @@ const VideoPlayer = observer(() => {
 			posterSource={{ uri: rootStore.mediaStore.posterUri }}
 			resizeMode='contain'
 			useNativeControls
-			onReadyForDisplay={() => {
-				player.current?.presentFullscreenPlayer()
-					.catch(console.debug);
-			}}
+			onReadyForDisplay={openFullscreen}
 			onPlaybackStatusUpdate={({ isPlaying, positionMillis, didJustFinish }) => {
 				if (didJustFinish) {
 					rootStore.didPlayerCloseManually = false;
-					player.current?.dismissFullscreenPlayer()
-						.catch(console.debug);
+					closeFullscreen();
 					return;
 				}
 				rootStore.mediaStore.isPlaying = isPlaying;
@@ -85,9 +102,17 @@ const VideoPlayer = observer(() => {
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
 				switch (fullscreenUpdate) {
 					case Video.FULLSCREEN_UPDATE_PLAYER_WILL_PRESENT:
+						setIsPresenting(true);
 						rootStore.isFullscreen = true;
 						break;
+					case Video.FULLSCREEN_UPDATE_PLAYER_DID_PRESENT:
+						setIsPresenting(false);
+						break;
+					case Video.FULLSCREEN_UPDATE_PLAYER_WILL_DISMISS:
+						setIsDismissing(true);
+						break;
 					case Video.FULLSCREEN_UPDATE_PLAYER_DID_DISMISS:
+						setIsDismissing(false);
 						rootStore.isFullscreen = false;
 						rootStore.mediaStore.reset();
 						player.current?.unloadAsync()
