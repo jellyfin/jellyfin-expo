@@ -1,1 +1,4 @@
 langs/*.json merge=union
+
+# Specify language of .staticjs files for GitHub
+*.staticjs linguist-language=JavaScript
