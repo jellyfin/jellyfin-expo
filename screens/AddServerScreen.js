@@ -27,7 +27,7 @@ const AddServerScreen = () => {
 		>
 			<SafeAreaView
 				style={styles.container}
-				edges={['right', 'bottom', 'left']}
+				edges={[ 'right', 'bottom', 'left' ]}
 			>
 				<View style={styles.logoContainer}>
 					<Image

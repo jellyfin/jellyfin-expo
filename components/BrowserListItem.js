@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 import { openBrowser } from '../utils/WebBrowser';
 
-const BrowserListItem = ({item, index}) => (
+const BrowserListItem = ({ item, index }) => (
 	<ListItem
 		topDivider={index === 0}
 		bottomDivider

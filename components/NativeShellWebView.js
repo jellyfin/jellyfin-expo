@@ -21,7 +21,7 @@ import RefreshWebView from './RefreshWebView';
 const NativeShellWebView = observer(React.forwardRef(
 	function NativeShellWebView(props, ref) {
 		const { rootStore } = useStores();
-		const [isRefreshing, setIsRefreshing] = useState(false);
+		const [ isRefreshing, setIsRefreshing ] = useState(false);
 
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
 		const isPluginSupported = compareVersions.compare(server.info?.Version, '10.7', '>=');
@@ -133,7 +133,7 @@ true;
 			<RefreshWebView
 				ref={ref}
 				// Allow any origin blocking can break various things like book playback
-				originWhitelist={['*']}
+				originWhitelist={[ '*' ]}
 				source={{ uri: server.urlString }}
 				// Inject javascript for NativeShell
 				// This method is preferred, but only supported on iOS currently

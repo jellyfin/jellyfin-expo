@@ -8,7 +8,7 @@ import { Switch } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-const SwitchListItem = ({item, index}) => (
+const SwitchListItem = ({ item, index }) => (
 	<ListItem
 		topDivider={index === 0}
 		bottomDivider

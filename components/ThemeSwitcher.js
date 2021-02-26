@@ -21,7 +21,7 @@ const ThemeSwitcher = () => {
 	useEffect(() => {
 		console.info('theme changed!');
 		replaceTheme(rootStore.settingStore.theme.Elements);
-	}, [rootStore.settingStore.theme]);
+	}, [ rootStore.settingStore.theme ]);
 
 	return <></>;
 };

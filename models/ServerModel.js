@@ -7,7 +7,7 @@ import { action, autorun, computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 import { task } from 'mobx-task';
 
-import { getServerUrl, fetchServerInfo } from '../utils/ServerValidator';
+import { fetchServerInfo, getServerUrl } from '../utils/ServerValidator';
 
 export default class ServerModel {
 	id

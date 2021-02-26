@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 
 import { getIconName } from '../utils/Icons';
 
-const ServerListItem = ({item, index, activeServer, onDelete, onPress}) => {
+const ServerListItem = ({ item, index, activeServer, onDelete, onPress }) => {
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 

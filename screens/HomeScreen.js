@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useCallback, useContext, useEffect, useState, useRef } from 'react';
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BackHandler, Platform, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
@@ -26,8 +26,8 @@ const HomeScreen = observer(() => {
 	const insets = useSafeAreaInsets();
 	const { theme } = useContext(ThemeContext);
 
-	const [isLoading, setIsLoading] = useState(true);
-	const [httpErrorStatus, setHttpErrorStatus] = useState(null);
+	const [ isLoading, setIsLoading ] = useState(true);
+	const [ httpErrorStatus, setHttpErrorStatus ] = useState(null);
 
 	const webview = useRef(null);
 
@@ -53,7 +53,7 @@ const HomeScreen = observer(() => {
 			BackHandler.addEventListener('hardwareBackPress', onBackPress);
 
 			return () => BackHandler.removeEventListener('hardwareBackPress', onBackPress);
-		}, [webview])
+		}, [ webview ])
 	);
 
 	// Report media updates to the video plugin
@@ -70,14 +70,14 @@ const HomeScreen = observer(() => {
 	// Clear the error state when the active server changes
 	useEffect(() => {
 		setIsLoading(true);
-	}, [rootStore.settingStore.activeServer]);
+	}, [ rootStore.settingStore.activeServer ]);
 
 	useEffect(() => {
 		if (rootStore.isReloadRequired) {
 			webview.current?.reload();
 			rootStore.isReloadRequired = false;
 		}
-	}, [rootStore.isReloadRequired]);
+	}, [ rootStore.isReloadRequired ]);
 
 	useEffect(() => {
 		if (httpErrorStatus) {
@@ -87,8 +87,8 @@ const HomeScreen = observer(() => {
 					name: 'cloud-off',
 					type: 'material'
 				},
-				heading: t([`home.errors.${errorCode}.heading`, 'home.errors.http.heading']),
-				message: t([`home.errors.${errorCode}.description`, 'home.errors.http.description']),
+				heading: t([ `home.errors.${errorCode}.heading`, 'home.errors.http.heading' ]),
+				message: t([ `home.errors.${errorCode}.description`, 'home.errors.http.description' ]),
 				details: [
 					t('home.errorCode', { errorCode }),
 					t('home.errorUrl', { url: httpErrorStatus.url })
@@ -100,10 +100,10 @@ const HomeScreen = observer(() => {
 				buttonTitle: t('home.retry')
 			});
 		}
-	}, [httpErrorStatus]);
+	}, [ httpErrorStatus ]);
 
 	// When not in fullscreen, the top adjustment is handled by the spacer View for iOS
-	const safeAreaEdges = ['right', 'left'];
+	const safeAreaEdges = [ 'right', 'left' ];
 	if (Platform.OS !== 'ios' || rootStore.isFullscreen) {
 		safeAreaEdges.push('top');
 	}
@@ -144,7 +144,7 @@ const HomeScreen = observer(() => {
 							tintColor: theme.colors.grey1,
 							backgroundColor: theme.colors.grey0,
 							// Android colors
-							colors: [theme.colors.primary, theme.colors.secondary],
+							colors: [ theme.colors.primary, theme.colors.secondary ],
 							progressBackgroundColor: theme.colors.background
 						}}
 						// Error screen is displayed if loading fails
@@ -154,8 +154,8 @@ const HomeScreen = observer(() => {
 									name: 'cloud-off',
 									type: 'material'
 								}}
-								heading={t([`home.errors.${errorCode}.heading`, 'home.errors.offline.heading'])}
-								message={t([`home.errors.${errorCode}.description`, 'home.errors.offline.description'])}
+								heading={t([ `home.errors.${errorCode}.heading`, 'home.errors.offline.heading' ])}
+								message={t([ `home.errors.${errorCode}.description`, 'home.errors.offline.description' ])}
 								details={[
 									t('home.errorCode', { errorCode }),
 									t('home.errorUrl', { url: server.urlString })
