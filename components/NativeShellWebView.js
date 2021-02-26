@@ -4,17 +4,19 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import React, { useState } from 'react';
+import { BackHandler, Platform } from 'react-native';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
+import compareVersions from 'compare-versions';
 
 import { useStores } from '../hooks/useStores';
-import { getAppName, getSafeDeviceName } from '../utils/Device';
+import MediaTypes from '../constants/MediaTypes';
+import { getAppName, getDeviceProfile, getSafeDeviceName } from '../utils/Device';
 import StaticScriptLoader from '../utils/StaticScriptlLoader';
 import { openBrowser } from '../utils/WebBrowser';
 import RefreshWebView from './RefreshWebView';
-import { BackHandler, Platform } from 'react-native';
 
 const NativeShellWebView = observer(React.forwardRef(
 	function NativeShellWebView(props, ref) {
@@ -22,6 +24,7 @@ const NativeShellWebView = observer(React.forwardRef(
 		const [isRefreshing, setIsRefreshing] = useState(false);
 
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
+		const isPluginSupported = compareVersions.compare(server.info?.Version, '10.7', '>=');
 
 		const injectedJavaScript = `
 window.ExpoAppInfo = {
@@ -30,6 +33,22 @@ window.ExpoAppInfo = {
 	deviceId: '${Constants.deviceId}',
 	deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
 };
+
+window.ExpoAppSettings = {
+	isPluginSupported: ${isPluginSupported},
+	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled}
+};
+
+window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile())};
+
+function postExpoEvent(event, data) {
+	window.ReactNativeWebView.postMessage(JSON.stringify({
+		event: event,
+		data: data
+	}));
+}
+
+${StaticScriptLoader.scripts.NativeVideoPlayer}
 
 ${StaticScriptLoader.scripts.NativeShell}
 
@@ -74,6 +93,18 @@ true;
 						if (rootStore.settingStore.isScreenLockEnabled) {
 							deactivateKeepAwake();
 						}
+						break;
+					case 'ExpoVideoPlayer.play':
+						rootStore.mediaStore.type = MediaTypes.Video;
+						rootStore.mediaStore.uri = data.url;
+						rootStore.mediaStore.posterUri = data.backdropUrl;
+						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
+						break;
+					case 'ExpoVideoPlayer.playPause':
+						rootStore.mediaStore.shouldPlayPause = true;
+						break;
+					case 'ExpoVideoPlayer.stop':
+						rootStore.mediaStore.shouldStop = true;
 						break;
 					case 'console.debug':
 						// console.debug('[Browser Console]', data);

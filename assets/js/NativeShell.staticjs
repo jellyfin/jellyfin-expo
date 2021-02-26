@@ -4,13 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-function postExpoEvent(event, data) {
-	window.ReactNativeWebView.postMessage(JSON.stringify({
-		event: event,
-		data: data
-	}));
-}
-
 // List of supported features as reported in Safari
 const ExpoSupportedFeatures = [
 	// 'filedownload',
@@ -85,11 +78,13 @@ window.NativeShell = {
 				audioCodecs.push('eac3');
 			}
 
-			postExpoEvent('AppHost.getDeviceProfile');
-			return profileBuilder({
+			const profile = profileBuilder({
 				enableMkvProgressive: false,
 				disableHlsVideoAudioCodecs: audioCodecs
 			});
+
+			postExpoEvent('AppHost.getDeviceProfile', profile);
+			return profile;
 		},
 
 		// Keep for support server versions < 10.7
@@ -121,8 +116,12 @@ window.NativeShell = {
 	},
 
 	getPlugins: function() {
-		postExpoEvent('getPlugins');
-		return [];
+		if (!window.ExpoAppSettings.isPluginSupported) {
+			return [];
+		}
+		return [
+			'NativeVideoPlayer'
+		];
 	},
 
 	openUrl: function(url, target) {

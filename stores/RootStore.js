@@ -6,6 +6,7 @@
 import { decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync';
 
+import MediaStore from './MediaStore';
 import ServerStore from './ServerStore';
 import SettingStore from './SettingStore';
 
@@ -20,12 +21,26 @@ export default class RootStore {
 	 */
 	isFullscreen = false
 
+	/**
+	 * Does the webview require a reload
+	 */
+	isReloadRequired = false
+
+	/**
+	 * Was the native player closed manually
+	 */
+	didPlayerCloseManually = true
+
+	mediaStore = new MediaStore()
 	serverStore = new ServerStore()
 	settingStore = new SettingStore()
 
 	reset() {
 		this.isFullscreen = false;
+		this.isReloadRequired = false;
+		this.didPlayerCloseManually = true;
 
+		this.mediaStore.reset();
 		this.serverStore.reset();
 		this.settingStore.reset();
 
@@ -35,5 +50,7 @@ export default class RootStore {
 
 decorate(RootStore, {
 	storeLoaded: [ ignore, observable ],
-	isFullscreen: [ ignore, observable ]
+	isFullscreen: [ ignore, observable ],
+	isReloadRequired: [ ignore, observable ],
+	didPlayerCloseManually: [ ignore, observable ]
 });

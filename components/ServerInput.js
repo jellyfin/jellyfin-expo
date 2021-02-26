@@ -12,6 +12,7 @@ import { action } from 'mobx';
 import { observer } from 'mobx-react';
 
 import { useStores } from '../hooks/useStores';
+import Screens from '../constants/Screens';
 import { getIconName } from '../utils/Icons';
 import { parseUrl, validateServer } from '../utils/ServerValidator';
 
@@ -68,11 +69,11 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 			}
 			// Navigate to the main screen
 			navigation.replace(
-				'Main',
+				Screens.MainScreen,
 				{
-					screen: 'Home',
+					screen: Screens.HomeTab,
 					params: {
-						screen: 'HomeScreen',
+						screen: Screens.HomeScreen,
 						params: { activeServer: rootStore.settingStore.activeServer }
 					}
 				}

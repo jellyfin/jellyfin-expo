@@ -13,11 +13,14 @@ const loadStaticFile = async (asset) => {
 
 class Loader {
 	scripts = {
+		NativeVideoPlayer: '',
 		NativeShell: '',
 		ExpoRouterShim: ''
 	}
 
 	async load() {
+		// Load NativeShell plugins
+		this.scripts.NativeVideoPlayer = await loadStaticFile(require('../assets/js/plugins/NativeVideoPlayer.staticjs'));
 		// Load the NativeShell
 		this.scripts.NativeShell = await loadStaticFile(require('../assets/js/NativeShell.staticjs'));
 		// Load the RouterShim

@@ -67,6 +67,9 @@
         },
         {
             "files": [ "./assets/**/*.staticjs" ],
+            "globals": {
+                "postExpoEvent": "readonly"
+            },
             "env": {
                 "node": false,
                 "browser": true

@@ -15,7 +15,9 @@ import { useStores } from '../hooks/useStores';
 import NativeShellWebView from '../components/NativeShellWebView';
 import ErrorView from '../components/ErrorView';
 import Colors from '../constants/Colors';
+import Screens from '../constants/Screens';
 import { getIconName } from '../utils/Icons';
+import VideoPlayer from '../components/VideoPlayer';
 
 const HomeScreen = observer(() => {
 	const { rootStore } = useStores();
@@ -54,15 +56,33 @@ const HomeScreen = observer(() => {
 		}, [webview])
 	);
 
+	// Report media updates to the video plugin
+	useEffect(() => {
+		webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify({
+			didPlayerCloseManually: rootStore.didPlayerCloseManually,
+			uri: rootStore.mediaStore.uri,
+			isPlaying: rootStore.mediaStore.isPlaying,
+			positionTicks: rootStore.mediaStore.positionTicks,
+			positionMillis: rootStore.mediaStore.positionMillis
+		})});`);
+	}, [ rootStore.mediaStore.uri, rootStore.mediaStore.isPlaying, rootStore.mediaStore.positionTicks ]);
+
 	// Clear the error state when the active server changes
 	useEffect(() => {
 		setIsLoading(true);
 	}, [rootStore.settingStore.activeServer]);
 
 	useEffect(() => {
+		if (rootStore.isReloadRequired) {
+			webview.current?.reload();
+			rootStore.isReloadRequired = false;
+		}
+	}, [rootStore.isReloadRequired]);
+
+	useEffect(() => {
 		if (httpErrorStatus) {
 			const errorCode = httpErrorStatus.description || httpErrorStatus.statusCode;
-			navigation.replace('ErrorScreen', {
+			navigation.replace(Screens.ErrorScreen, {
 				icon: {
 					name: 'cloud-off',
 					type: 'material'
@@ -114,58 +134,61 @@ const HomeScreen = observer(() => {
 				}} />
 			)}
 			{server && server.urlString ? (
-				<NativeShellWebView
-					ref={webview}
-					style={webviewStyle}
-					containerStyle={webviewStyle}
-					refreshControlProps={{
-						// iOS colors
-						tintColor: theme.colors.grey1,
-						backgroundColor: theme.colors.grey0,
-						// Android colors
-						colors: [theme.colors.primary, theme.colors.secondary],
-						progressBackgroundColor: theme.colors.background
-					}}
-					// Error screen is displayed if loading fails
-					renderError={errorCode => (
-						<ErrorView
-							icon={{
-								name: 'cloud-off',
-								type: 'material'
-							}}
-							heading={t([`home.errors.${errorCode}.heading`, 'home.errors.offline.heading'])}
-							message={t([`home.errors.${errorCode}.description`, 'home.errors.offline.description'])}
-							details={[
-								t('home.errorCode', { errorCode }),
-								t('home.errorUrl', { url: server.urlString })
-							]}
-							buttonIcon={{
-								name: getIconName('refresh'),
-								type: 'ionicon'
-							}}
-							buttonTitle={t('home.retry')}
-							onPress={() => webview.current?.reload()}
-						/>
-					)}
-					// Loading screen is displayed when refreshing
-					renderLoading={() => <View style={styles.container} />}
-					// Update state on loading error
-					onError={({ nativeEvent: state }) => {
-						console.warn('Error', state);
-					}}
-					onHttpError={({ nativeEvent: state }) => {
-						console.warn('HTTP Error', state);
-						setHttpErrorStatus(state);
-					}}
-					onLoadStart={() => {
-						setIsLoading(true);
-						setHttpErrorStatus(null);
-					}}
-					// Update state when loading is complete
-					onLoadEnd={() => {
-						setIsLoading(false);
-					}}
-				/>
+				<>
+					<NativeShellWebView
+						ref={webview}
+						style={webviewStyle}
+						containerStyle={webviewStyle}
+						refreshControlProps={{
+							// iOS colors
+							tintColor: theme.colors.grey1,
+							backgroundColor: theme.colors.grey0,
+							// Android colors
+							colors: [theme.colors.primary, theme.colors.secondary],
+							progressBackgroundColor: theme.colors.background
+						}}
+						// Error screen is displayed if loading fails
+						renderError={errorCode => (
+							<ErrorView
+								icon={{
+									name: 'cloud-off',
+									type: 'material'
+								}}
+								heading={t([`home.errors.${errorCode}.heading`, 'home.errors.offline.heading'])}
+								message={t([`home.errors.${errorCode}.description`, 'home.errors.offline.description'])}
+								details={[
+									t('home.errorCode', { errorCode }),
+									t('home.errorUrl', { url: server.urlString })
+								]}
+								buttonIcon={{
+									name: getIconName('refresh'),
+									type: 'ionicon'
+								}}
+								buttonTitle={t('home.retry')}
+								onPress={() => webview.current?.reload()}
+							/>
+						)}
+						// Loading screen is displayed when refreshing
+						renderLoading={() => <View style={styles.container} />}
+						// Update state on loading error
+						onError={({ nativeEvent: state }) => {
+							console.warn('Error', state);
+						}}
+						onHttpError={({ nativeEvent: state }) => {
+							console.warn('HTTP Error', state);
+							setHttpErrorStatus(state);
+						}}
+						onLoadStart={() => {
+							setIsLoading(true);
+							setHttpErrorStatus(null);
+						}}
+						// Update state when loading is complete
+						onLoadEnd={() => {
+							setIsLoading(false);
+						}}
+					/>
+					<VideoPlayer/>
+				</>
 			) : (
 				<ErrorView
 					heading={t('home.errors.invalidServer.heading')}

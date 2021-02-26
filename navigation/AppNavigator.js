@@ -19,6 +19,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 
 import { useStores } from '../hooks/useStores';
+import Screens from '../constants/Screens';
 import AddServerScreen from '../screens/AddServerScreen';
 import ErrorScreen from '../screens/ErrorScreen';
 import HomeScreen from '../screens/HomeScreen';
@@ -31,9 +32,9 @@ const HomeStack = createStackNavigator();
 
 function TabIcon(routeName, color, size) {
 	let iconName = null;
-	if (routeName === 'Home') {
+	if (routeName === Screens.HomeTab) {
 		iconName = getIconName('tv');
-	} else if (routeName === 'Settings') {
+	} else if (routeName === Screens.SettingsTab) {
 		iconName = getIconName('cog');
 	}
 
@@ -55,7 +56,7 @@ const Home = observer(() => {
 
 	return (
 		<HomeStack.Navigator
-			mode="modal"
+			mode='modal'
 			screenOptions={{
 				headerShown: false,
 				animationEnabled: false,
@@ -63,11 +64,11 @@ const Home = observer(() => {
 			}}
 		>
 			<HomeStack.Screen
-				name='HomeScreen'
+				name={Screens.HomeScreen}
 				component={HomeScreen}
 			/>
 			<HomeStack.Screen
-				name="ErrorScreen"
+				name={Screens.ErrorScreen}
 				component={ErrorScreen}
 				options={{
 					gestureEnabled: false
@@ -98,14 +99,14 @@ const Main = observer(() => {
 			}}
 		>
 			<Tab.Screen
-				name='Home'
+				name={Screens.HomeTab}
 				component={Home}
 				options={{
 					title: t('headings.home')
 				}}
 			/>
 			<Tab.Screen
-				name='Settings'
+				name={Screens.SettingsTab}
 				component={SettingsScreen}
 				options={{
 					title: t('headings.settings')
@@ -120,17 +121,17 @@ const AppNavigator = observer(() => {
 	const { t } = useTranslation();
 
 	// Ensure the splash screen is hidden when loading is finished
-	SplashScreen.hideAsync();
+	SplashScreen.hideAsync().catch(console.debug);
 
 	return (
 		<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
 			<RootStack.Navigator
-				initialRouteName={(rootStore.serverStore.servers?.length > 0) ? 'Main' : 'AddServer'}
+				initialRouteName={(rootStore.serverStore.servers?.length > 0) ? Screens.MainScreen : Screens.AddServerScreen}
 				headerMode='screen'
 				screenOptions={{ headerShown: false }}
 			>
 				<RootStack.Screen
-					name='Main'
+					name={Screens.MainScreen}
 					component={Main}
 					options={({ route }) => {
 						const routeName =
@@ -138,15 +139,15 @@ const AppNavigator = observer(() => {
 							getFocusedRouteNameFromRoute(route) ||
 							// If state doesn't exist, we need to default to `screen` param if available, or the initial screen
 							// In our case, it's "Main" as that's the first screen inside the navigator
-							route.params?.screen || 'Main';
+							route.params?.screen || Screens.MainScreen;
 						return ({
-							headerShown: routeName === 'Settings',
+							headerShown: routeName === Screens.SettingsTab,
 							title: t(`headings.${routeName.toLowerCase()}`)
 						});
 					}}
 				/>
 				<RootStack.Screen
-					name='AddServer'
+					name={Screens.AddServerScreen}
 					component={AddServerScreen}
 					options={{
 						headerShown: rootStore.serverStore.servers?.length > 0,
