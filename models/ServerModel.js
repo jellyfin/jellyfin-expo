@@ -40,8 +40,8 @@ export default class ServerModel {
 		}
 	}
 
-	fetchInfo = task(async () => {
-		return await fetchServerInfo(this)
+	fetchInfo = task(() => {
+		return fetchServerInfo(this)
 			.then(action(info => {
 				this.online = true;
 				this.info = info;

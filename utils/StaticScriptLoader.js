@@ -8,7 +8,7 @@ import { readAsStringAsync } from 'expo-file-system';
 
 const loadStaticFile = async (asset) => {
 	const [{ localUri }] = await Asset.loadAsync(asset);
-	return await readAsStringAsync(localUri);
+	return readAsStringAsync(localUri);
 };
 
 class Loader {
