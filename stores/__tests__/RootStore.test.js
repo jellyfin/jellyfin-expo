@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import MediaStore from '../MediaStore';
 import RootStore from '../RootStore';
 import ServerStore from '../ServerStore';
 import SettingStore from '../SettingStore';
@@ -13,6 +14,9 @@ describe('RootStore', () => {
 
 		expect(store.storeLoaded).toBe(false);
 		expect(store.isFullscreen).toBe(false);
+		expect(store.isReloadRequired).toBe(false);
+		expect(store.didPlayerCloseManually).toBe(true);
+		expect(store.mediaStore).toBeInstanceOf(MediaStore);
 		expect(store.serverStore).toBeInstanceOf(ServerStore);
 		expect(store.settingStore).toBeInstanceOf(SettingStore);
 	});
@@ -20,20 +24,29 @@ describe('RootStore', () => {
 	it('should reset to the default values', () => {
 		const store = new RootStore();
 		store.isFullscreen = true;
+		store.isReloadRequired = true;
+		store.didPlayerCloseManually = false;
 
+		store.mediaStore.reset = jest.fn();
 		store.serverStore.reset = jest.fn();
 		store.settingStore.reset = jest.fn();
 
 		expect(store.storeLoaded).toBe(false);
 		expect(store.isFullscreen).toBe(true);
-		expect(store.serverStore.reset.mock.calls).toHaveLength(0);
-		expect(store.settingStore.reset.mock.calls).toHaveLength(0);
+		expect(store.isReloadRequired).toBe(true);
+		expect(store.didPlayerCloseManually).toBe(false);
+		expect(store.mediaStore.reset).not.toHaveBeenCalled();
+		expect(store.serverStore.reset).not.toHaveBeenCalled();
+		expect(store.settingStore.reset).not.toHaveBeenCalled();
 
 		store.reset();
 
 		expect(store.storeLoaded).toBe(true);
 		expect(store.isFullscreen).toBe(false);
-		expect(store.serverStore.reset.mock.calls).toHaveLength(1);
-		expect(store.settingStore.reset.mock.calls).toHaveLength(1);
+		expect(store.isReloadRequired).toBe(false);
+		expect(store.didPlayerCloseManually).toBe(true);
+		expect(store.mediaStore.reset).toHaveBeenCalled();
+		expect(store.serverStore.reset).toHaveBeenCalled();
+		expect(store.settingStore.reset).toHaveBeenCalled();
 	});
 });
