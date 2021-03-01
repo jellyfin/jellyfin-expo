@@ -21,7 +21,7 @@ import PropTypes from 'prop-types';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { useStores } from './hooks/useStores';
 import AppNavigator from './navigation/AppNavigator';
-import StaticScriptLoader from './utils/StaticScriptlLoader';
+import StaticScriptLoader from './utils/StaticScriptLoader';
 
 // Import i18n configuration
 import './i18n';

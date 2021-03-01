@@ -14,7 +14,7 @@ import compareVersions from 'compare-versions';
 import { useStores } from '../hooks/useStores';
 import MediaTypes from '../constants/MediaTypes';
 import { getAppName, getDeviceProfile, getSafeDeviceName } from '../utils/Device';
-import StaticScriptLoader from '../utils/StaticScriptlLoader';
+import StaticScriptLoader from '../utils/StaticScriptLoader';
 import { openBrowser } from '../utils/WebBrowser';
 import RefreshWebView from './RefreshWebView';
 
