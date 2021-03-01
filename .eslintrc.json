@@ -67,6 +67,9 @@
         },
         {
             "files": [ "./assets/**/*.staticjs" ],
+            "extends": [
+                "plugin:compat/recommended"
+            ],
             "globals": {
                 "postExpoEvent": "readonly"
             },

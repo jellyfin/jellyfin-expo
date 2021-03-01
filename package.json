@@ -11,6 +11,10 @@
   "jest": {
     "preset": "jest-expo"
   },
+  "browserslist": [
+      "iOS > 10",
+      "Android >= 5"
+  ],
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.2.6",
@@ -54,6 +58,7 @@
     "@typescript-eslint/parser": "^4.9.1",
     "babel-preset-expo": "^8.3.0",
     "eslint": "^7.4.0",
+    "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-promise": "^4.2.1",
