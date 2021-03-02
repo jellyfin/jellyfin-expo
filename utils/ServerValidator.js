@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/* globals fetch, AbortController */
+/* globals AbortController */
 import Url from 'url';
 
 const TIMEOUT_DURATION = 5000; // timeout request after 5s

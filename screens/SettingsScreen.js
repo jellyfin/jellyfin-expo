@@ -208,7 +208,7 @@ const SettingsScreen = observer(() => {
 				...styles.container,
 				backgroundColor: theme.colors.background
 			}}
-			edges={['right', 'left']}
+			edges={[ 'right', 'left' ]}
 		>
 			<SectionList
 				sections={getSections()}

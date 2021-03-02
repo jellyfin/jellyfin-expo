@@ -5,14 +5,14 @@
  */
 import React, { useState } from 'react';
 import { WebView } from 'react-native-webview';
-import { RefreshControl, Dimensions, StyleSheet } from 'react-native';
+import { Dimensions, RefreshControl, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 
 const RefreshWebView = React.forwardRef(
 	function RefreshWebView({ isRefreshing, onRefresh, refreshControlProps, ...webViewProps }, ref) {
-		const [height, setHeight] = useState(Dimensions.get('screen').height);
-		const [isEnabled, setEnabled] = useState(typeof onRefresh === 'function');
+		const [ height, setHeight ] = useState(Dimensions.get('screen').height);
+		const [ isEnabled, setEnabled ] = useState(typeof onRefresh === 'function');
 
 		return (
 			<ScrollView

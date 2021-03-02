@@ -13,8 +13,8 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import ErrorView from '../components/ErrorView';
 import Screens from '../constants/Screens';
 
-const ErrorScreen = () =>{
-	const [isRefreshing, setIsRefreshing] = useState(false);
+const ErrorScreen = () => {
+	const [ isRefreshing, setIsRefreshing ] = useState(false);
 	const { theme } = useContext(ThemeContext);
 
 	const insets = useSafeAreaInsets();
@@ -23,7 +23,7 @@ const ErrorScreen = () =>{
 	const route = useRoute();
 	const { icon, heading, message, details, buttonIcon, buttonTitle } = route.params;
 
-	const safeAreaEdges = ['right', 'left'];
+	const safeAreaEdges = [ 'right', 'left' ];
 	if (Platform.OS !== 'ios') {
 		safeAreaEdges.push('top');
 	}
@@ -64,7 +64,7 @@ const ErrorScreen = () =>{
 						tintColor={theme.colors.grey1}
 						backgroundColor={theme.colors.grey0}
 						// Android colors
-						colors={[theme.colors.primary, theme.colors.secondary]}
+						colors={[ theme.colors.primary, theme.colors.secondary ]}
 						progressBackgroundColor={theme.colors.background}
 					/>
 				}

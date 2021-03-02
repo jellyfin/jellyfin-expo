@@ -1,7 +1,6 @@
 {
     "env": {
-        "es2020": true,
-        "node": true
+        "react-native/react-native": true
     },
     "extends": [
         "eslint:recommended",
@@ -22,6 +21,7 @@
     },
     "plugins": [
         "react",
+        "react-native",
         "promise",
         "import",
         "eslint-comments"
@@ -33,37 +33,49 @@
     },
     "rules": {
         "react/prop-types": ["error"],
+        "jsx-quotes": ["error", "prefer-single"],
 
+        "react-native/no-unused-styles": ["error"],
+        "react-native/split-platform-components": ["error"],
+        "react-native/no-color-literals": ["error"],
+        "react-native/no-raw-text": ["error"],
+
+        "array-bracket-spacing": ["error", "always", { "objectsInArrays": false, "arraysInArrays": false }],
         "array-callback-return": ["error"],
+        "arrow-spacing": ["error"],
         "block-spacing": ["error"],
         "brace-style": ["error", "1tbs", { "allowSingleLine": true }],
         "comma-dangle": ["error", "never"],
         "comma-spacing": ["error"],
+        "dot-location": ["error", "property" ],
         "eol-last": ["error"],
         "indent": ["error", "tab", { "SwitchCase": 1 }],
         "keyword-spacing": ["error"],
         "max-statements-per-line": ["error"],
+        "no-duplicate-imports": ["error"],
         "no-floating-decimal": ["error"],
         "no-multi-spaces": ["error"],
         "no-multiple-empty-lines": ["error", { "max": 1 }],
+        "no-return-await": ["error"],
         "no-trailing-spaces": ["error"],
         "no-var": ["error"],
+        "object-curly-spacing": ["error", "always"],
         "one-var": ["error", "never"],
         "padded-blocks": ["error", "never"],
         "prefer-const": ["error", { "destructuring": "all" }],
+        "quote-props": ["error", "as-needed"],
         "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
+        "radix": ["error"],
         "semi": ["error"],
+        "sort-imports": ["warn", { "ignoreCase": true, "memberSyntaxSortOrder": ["all", "multiple", "single", "none"], "allowSeparatedGroups": true }],
         "space-before-blocks": ["error"],
+        "space-in-parens": ["error"],
         "space-infix-ops": ["error"],
         "yoda": ["error"]
     },
     "overrides": [
         {
-            "files": [ "./**/*.js" ],
-            "globals": {
-                "Atomics": "readonly",
-                "SharedArrayBuffer": "readonly"
-            }
+            "files": [ "./**/*.js" ]
         },
         {
             "files": [ "./assets/**/*.staticjs" ],
@@ -74,8 +86,9 @@
                 "postExpoEvent": "readonly"
             },
             "env": {
-                "node": false,
-                "browser": true
+                "react-native/react-native": false,
+                "browser": true,
+                "es6": true
             }
         }
     ]

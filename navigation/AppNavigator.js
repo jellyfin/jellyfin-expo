@@ -7,8 +7,8 @@ import React, { useContext, useEffect } from 'react';
 import { ThemeContext } from 'react-native-elements';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import {
-	NavigationContainer,
 	getFocusedRouteNameFromRoute,
+	NavigationContainer,
 	useNavigation
 } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -52,7 +52,7 @@ const Home = observer(() => {
 		navigation.setOptions({
 			tabBarVisible: !rootStore.isFullscreen
 		});
-	}, [rootStore.isFullscreen]);
+	}, [ rootStore.isFullscreen ]);
 
 	return (
 		<HomeStack.Navigator

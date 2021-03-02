@@ -8,7 +8,7 @@ import { StyleSheet } from 'react-native';
 import { Button, ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
 
-const ButtonListItem = ({item, index}) => (
+const ButtonListItem = ({ item, index }) => (
 	<ListItem
 		topDivider={index === 0}
 		bottomDivider

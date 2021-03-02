@@ -27,7 +27,7 @@ import StaticScriptLoader from './utils/StaticScriptLoader';
 import './i18n';
 
 const App = observer(({ skipLoadingScreen }) => {
-	const [isSplashReady, setIsSplashReady] = useState(false);
+	const [ isSplashReady, setIsSplashReady ] = useState(false);
 	const { rootStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
@@ -55,7 +55,7 @@ const App = observer(({ skipLoadingScreen }) => {
 		} else {
 			ScreenOrientation.unlockAsync();
 		}
-	}, [rootStore.settingStore.isRotationLockEnabled]);
+	}, [ rootStore.settingStore.isRotationLockEnabled ]);
 
 	const updateScreenOrientation = async () => {
 		if (rootStore.settingStore.isRotationLockEnabled) {
@@ -75,7 +75,7 @@ const App = observer(({ skipLoadingScreen }) => {
 	useEffect(() => {
 		// Update the screen orientation
 		updateScreenOrientation();
-	}, [rootStore.isFullscreen]);
+	}, [ rootStore.isFullscreen ]);
 
 	const loadImagesAsync = () => {
 		const images = [

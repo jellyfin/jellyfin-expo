@@ -56,7 +56,7 @@ const ServerInput = observer(({ onSuccess, ...props }) => {
 				const message = validation.message || 'invalid';
 				setIsValidating(false);
 				setIsValid(validation.isValid);
-				setValidationMessage(t([`addServer.validation.${message}`, 'addServer.validation.invalid']));
+				setValidationMessage(t([ `addServer.validation.${message}`, 'addServer.validation.invalid' ]));
 				return;
 			}
 
