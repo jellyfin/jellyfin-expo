@@ -1,4 +1,4 @@
-name: Lint
+name: Test
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-  run-eslint:
-    name: Run eslint
+  run-jest:
+    name: Run jest
     runs-on: ubuntu-latest
 
     steps:
@@ -29,5 +29,8 @@ jobs:
       - name: Install Node.js dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Run eslint
-        run: yarn lint
+      - name: Run jest
+        run: npx jest
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1

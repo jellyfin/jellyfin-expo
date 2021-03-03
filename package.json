@@ -9,7 +9,19 @@
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "setupFiles": [
+      "./jest.setup.js"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/metro.config.js",
+      "!**/jest.setup.js"
+    ]
   },
   "browserslist": [
       "iOS > 10",
@@ -61,11 +73,14 @@
     "eslint-plugin-compat": "^3.9.0",
     "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^24.1.5",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-native": "^3.10.0",
     "expo-cli": "^4.0.8",
     "jest-expo": "^39.0.0",
+    "jest-fetch-mock": "^3.0.3",
+    "node-abort-controller": "^1.1.0",
     "typescript": "~3.9.2"
   },
   "private": true
