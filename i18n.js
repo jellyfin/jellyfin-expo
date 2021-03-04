@@ -37,7 +37,7 @@ import ta from './langs/ta.json';
 import zh_Hans from './langs/zh_Hans.json';
 import zh_Hant from './langs/zh_Hant.json';
 
-const resources = {
+export const resources = {
 	en: { translation: en },
 	ar: { translation: ar },
 	bg: { translation: bg },
@@ -82,3 +82,6 @@ i18next
 		},
 		resources
 	});
+
+// Export i18next instance for use in tests
+export default i18next;

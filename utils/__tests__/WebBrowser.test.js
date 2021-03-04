@@ -13,6 +13,7 @@ jest.mock('expo-web-browser');
 describe('WebBrowser', () => {
 	describe('openBrowser()', () => {
 		beforeEach(() => {
+			jest.resetModules();
 			jest.clearAllMocks();
 		});
 
