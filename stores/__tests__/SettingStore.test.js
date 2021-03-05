@@ -5,8 +5,8 @@
  */
 import { Platform } from 'react-native';
 
-import Themes from '../../themes';
 import SettingStore from '../SettingStore';
+import Themes from '../../themes';
 
 jest.mock('react-native/Libraries/Utilities/Platform');
 
@@ -56,6 +56,15 @@ describe('SettingStore', () => {
 		expect(store.theme).toBe(Themes.dark);
 
 		store.systemThemeId = 'light';
+		expect(store.theme).toBe(Themes.light);
+	});
+
+	it('should use the app theme if system theme is "no-preference"', () => {
+		const store = new SettingStore();
+
+		store.isSystemThemeEnabled = true;
+		store.systemThemeId = 'no-preference';
+		store.themeId = 'light';
 		expect(store.theme).toBe(Themes.light);
 	});
 

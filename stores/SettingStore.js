@@ -53,7 +53,7 @@ export default class SettingStore {
 	isNativeVideoPlayerEnabled = false
 
 	get theme() {
-		const id = this.isSystemThemeEnabled && this.systemThemeId ? this.systemThemeId : this.themeId;
+		const id = this.isSystemThemeEnabled && this.systemThemeId && this.systemThemeId !== 'no-preference' ? this.systemThemeId : this.themeId;
 		return Themes[id];
 	}
 
