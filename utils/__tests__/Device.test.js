@@ -6,7 +6,7 @@
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
-import { getAppName, getDeviceProfile, getSafeDeviceName } from '../Device';
+import { getAppName, getDeviceProfile, getSafeDeviceName, isSystemThemeSupported } from '../Device';
 import iOS10Profile from '../profiles/ios10';
 import iOS12Profile from '../profiles/ios12';
 import iOSProfile from '../profiles/ios';
@@ -69,6 +69,34 @@ describe('Device', () => {
 		it('should return the an empty profile for Android devices', () => {
 			Platform.OS = 'android';
 			expect(getDeviceProfile()).toStrictEqual({});
+		});
+	});
+
+	describe('isSystemThemeSupported()', () => {
+		it('should return true for iOS 13+', () => {
+			Platform.Version = '13';
+			expect(isSystemThemeSupported()).toBe(true);
+		});
+
+		it('should return false for iOS 12 or less', () => {
+			Platform.Version = '12';
+			expect(isSystemThemeSupported()).toBe(false);
+		});
+		it('should return true for Android 10+', () => {
+			Platform.OS = 'android';
+			Platform.Version = '10';
+			expect(isSystemThemeSupported()).toBe(true);
+		});
+
+		it('should return false for Android 9 or less', () => {
+			Platform.OS = 'android';
+			Platform.Version = '9';
+			expect(isSystemThemeSupported()).toBe(false);
+		});
+
+		it('should return false on unsupported platforms', () => {
+			Platform.OS = 'web';
+			expect(isSystemThemeSupported()).toBe(false);
 		});
 	});
 });

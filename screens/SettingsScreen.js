@@ -3,22 +3,23 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useContext, useEffect } from 'react';
 import { Alert, AsyncStorage, Platform, SectionList, StyleSheet, View } from 'react-native';
+import React, { useContext, useEffect } from 'react';
 import { Text, ThemeContext } from 'react-native-elements';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 
 import AppInfoFooter from '../components/AppInfoFooter';
 import BrowserListItem from '../components/BrowserListItem';
 import ButtonListItem from '../components/ButtonListItem';
-import ServerListItem from '../components/ServerListItem';
-import SwitchListItem from '../components/SwitchListItem';
+import { isSystemThemeSupported } from '../utils/Device';
 import Links from '../constants/Links';
 import Screens from '../constants/Screens';
+import ServerListItem from '../components/ServerListItem';
+import SwitchListItem from '../components/SwitchListItem';
 import { useStores } from '../hooks/useStores';
 
 const SettingsScreen = observer(() => {
@@ -140,12 +141,14 @@ const SettingsScreen = observer(() => {
 			onValueChange: action(value => rootStore.settingStore.isTabLabelsEnabled = value)
 		});
 
-		settingsData.push({
-			key: 'system-theme-switch',
-			title: t('settings.systemTheme'),
-			value: rootStore.settingStore.isSystemThemeEnabled,
-			onValueChange: action(value => rootStore.settingStore.isSystemThemeEnabled = value)
-		});
+		if (isSystemThemeSupported()) {
+			settingsData.push({
+				key: 'system-theme-switch',
+				title: t('settings.systemTheme'),
+				value: rootStore.settingStore.isSystemThemeEnabled,
+				onValueChange: action(value => rootStore.settingStore.isSystemThemeEnabled = value)
+			});
+		}
 
 		// TODO: This should be able to select from a list not just a switch
 		settingsData.push({

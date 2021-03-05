@@ -3,9 +3,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { Platform } from 'react-native';
-import Constants from 'expo-constants';
 import * as Device from 'expo-device';
+import Constants from 'expo-constants';
+import { Platform } from 'react-native';
 
 import iOS10Profile from './profiles/ios10';
 import iOS12Profile from './profiles/ios12';
@@ -42,4 +42,10 @@ export function getDeviceProfile() {
 	}
 	// TODO: Add Android support
 	return {};
+}
+
+// Does the platform support system level themes: https://docs.expo.io/versions/latest/sdk/appearance/
+export function isSystemThemeSupported() {
+	return (Platform.OS === 'ios' && parseInt(Platform.Version, 10) > 12) ||
+		(Platform.OS === 'android' && parseInt(Platform.Version, 10) > 9);
 }
