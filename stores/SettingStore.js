@@ -54,7 +54,7 @@ export default class SettingStore {
 
 	get theme() {
 		const id = this.isSystemThemeEnabled && this.systemThemeId && this.systemThemeId !== 'no-preference' ? this.systemThemeId : this.themeId;
-		return Themes[id];
+		return Themes[id] || Themes.dark;
 	}
 
 	reset() {

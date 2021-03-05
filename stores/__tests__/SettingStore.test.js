@@ -68,6 +68,13 @@ describe('SettingStore', () => {
 		expect(store.theme).toBe(Themes.light);
 	});
 
+	it('should return the default theme if an invalid theme id is specified', () => {
+		const store = new SettingStore();
+
+		store.themeId = 'invalid';
+		expect(store.theme).toBe(Themes.dark);
+	});
+
 	it('should reset to the default values', () => {
 		const store = new SettingStore();
 		store.activeServer = 99;
