@@ -40,13 +40,13 @@ Translations can be improved very easily from our [Weblate](https://translate.je
    git clone https://github.com/jellyfin/jellyfin-expo.git
    cd jellyfin-expo
    ```
-2. Install build dependencies using yarn in the project directory.
+2. Install build dependencies using **npm** in the project directory.
    ```sh
-   yarn install
+   npm install
    ```
 3. Start the build tools.
    ```sh
-   yarn start
+   npm start
    ```
 4. Follow the directions in the terminal or browser window to open on a device or emulator.
 
@@ -54,5 +54,5 @@ Translations can be improved very easily from our [Weblate](https://translate.je
 
 ### What is the difference between this and other Jellyfin app projects?
 * This app (Jellyfin Mobile) is a web wrapper based on Expo with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad.
-* [Jellyfin Player iOS](https://github.com/jellyfin/jellyfin-client-ios) is a newer effort to create a media playback app in native Swift. It is a work in progress and currently only supports media playback.
+* [Jellyfin Player iOS](https://github.com/jellyfin/jellyfin-client-ios) is a newer effort to create a media playback app in native Swift. It is a work in progress and currently only supports media playback. This project has been archived as there was no interest for maintaining it.
 * [Jellyfin React Client](https://github.com/jellyfin-archive/jellyfin-react-client) is an early project to create a single multiplatform app based on React Native. This project has been archived as we have changed direction to utilize native web wrappers on most platforms.

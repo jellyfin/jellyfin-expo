@@ -24,8 +24,8 @@
     ]
   },
   "browserslist": [
-      "iOS > 10",
-      "Android >= 5"
+    "iOS > 10",
+    "Android >= 5"
   ],
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -84,5 +84,8 @@
     "node-abort-controller": "^1.1.0",
     "typescript": "~3.9.2"
   },
-  "private": true
+  "private": true,
+  "engines": {
+    "yarn": "YARN NO LONGER USED - use npm instead."
+  }
 }

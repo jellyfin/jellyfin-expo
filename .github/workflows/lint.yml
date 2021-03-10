@@ -19,15 +19,23 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          check-latest: true
 
-      - name: Cache dependencies
-        uses: actions/cache@v2
+      - name: Get npm cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache node_modules
+        uses: actions/cache@v2.1.4
+        id: npm-cache
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
 
       - name: Install Node.js dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci --no-audit
 
       - name: Run eslint
-        run: yarn lint
+        run: npm run lint
