@@ -24,7 +24,7 @@ const NativeShellWebView = observer(React.forwardRef(
 		const [ isRefreshing, setIsRefreshing ] = useState(false);
 
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
-		const isPluginSupported = compareVersions.compare(server.info?.Version, '10.7', '>=');
+		const isPluginSupported = !!server.info?.Version && compareVersions.compare(server.info.Version, '10.7', '>=');
 
 		const injectedJavaScript = `
 window.ExpoAppInfo = {
