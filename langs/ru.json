@@ -51,7 +51,9 @@
         "expoVersion": "Версия Expo: {{version}}",
         "tabLabels": "Показывать метки вкладок",
         "lightTheme": "Использовать светлую тему",
-        "systemTheme": "Использовать системную тему"
+        "systemTheme": "Использовать системную тему",
+        "minimumServerVersion": "Требуется версия сервера 10.7+",
+        "nativeVideoPlayer": "Использовать встроенный видеопроигрыватель [BETA]"
     },
     "links": {
         "website": "Веб-сайтJellyfin",
