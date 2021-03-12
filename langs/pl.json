@@ -52,7 +52,9 @@
         "expoVersion": "Wersja Expo: {{version}}",
         "tabLabels": "Pokaż etykiety kart",
         "lightTheme": "Użyj jasnego motywu",
-        "systemTheme": "Użyj motywu systemowego"
+        "systemTheme": "Użyj motywu systemowego",
+        "minimumServerVersion": "Wymaga Serwer Wersji 10.7+",
+        "nativeVideoPlayer": "Użyj natywnego odtwarzacza wideo [BETA]"
     },
     "links": {
         "website": "Strona Jellyfin",
