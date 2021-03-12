@@ -67,4 +67,19 @@ describe('ServerModel', () => {
 
 		expect(server.online).toBe(false);
 	});
+
+	it('should update the online status when fetchInfo fails', async() => {
+		const server = new ServerModel(
+			'testId',
+			Url.parse('https://foobar')
+		);
+
+		fetch.mockResponse(JSON.stringify({ ServerName: 'Test Server' }));
+		await server.fetchInfo();
+		expect(server.online).toBe(true);
+
+		fetch.mockResponse(JSON.stringify({ error: 'test' }), { status: 500 });
+		await server.fetchInfo();
+		expect(server.online).toBe(false);
+	});
 });
