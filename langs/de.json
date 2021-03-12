@@ -52,7 +52,9 @@
         "expoVersion": "Expo Version: {{version}}",
         "tabLabels": "Zeige Tab-Überschriften",
         "lightTheme": "Helles Design verwenden",
-        "systemTheme": "Benutze Systemdesign"
+        "systemTheme": "Benutze Systemdesign",
+        "minimumServerVersion": "Benötigt Serverversion 10.7+",
+        "nativeVideoPlayer": "Verwenden einen nativen Video Player [BETA]"
     },
     "links": {
         "website": "Jellyfin Website",
