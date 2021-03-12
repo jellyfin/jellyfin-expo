@@ -22,10 +22,10 @@
     "home": {
         "errors": {
             "502": {
-                "description": "Jellyfin serverıne jetu mümkın emes. Ädette, būnyŋ sebebı proksi teŋşelımderı qatesınen, nemese Jellyfin derbes küinde bolady."
+                "description": "Jellyfin serverıne jetu mümkın emes. Ädette, būnyŋ sebebı proksi teŋşelımderı qatesınen, nemese Jellyfin derbes küiınde bolady."
             },
             "504": {
-                "description": "Jellyfin serverіne jetu mümkіn emes. Ädette, būl proksidіŋ Jellyfin üşın qosylu uaqyty aiaqtalğannan bolady."
+                "description": "Jellyfin serverıne jetu mümkın emes. Ädette, būl proksidıŋ Jellyfin üşın qosylu uaqyty aiaqtalğannan bolady."
             },
             "http": {
                 "heading": "Bırdeŋe dūrys bolmady!",
@@ -37,7 +37,7 @@
             },
             "invalidServer": {
                 "heading": "Server jaramsyz",
-                "description": "Bіrdeŋe boldy jäne serverdın saqtalğan mälımetterı jaramsyz. Parametrlerden serverdі alastaŋyz da, ony qaitadan üsteŋız."
+                "description": "Bırdeŋe boldy jäne serverdın saqtalğan mälımetterı jaramsyz. Parametrlerden serverdı alastaŋyz da, ony qaitadan üsteŋız."
             }
         },
         "errorCode": "Qate kody: {{errorCode}}",
@@ -53,10 +53,10 @@
         "lightTheme": "Aqşyl taqyrypty paidalanu",
         "systemTheme": "Jüielik taqyrypty paidalanu",
         "minimumServerVersion": "Serverdıŋ 10.7+ nūsqasyn qajet etedı",
-        "nativeVideoPlayer": "Negizgi beine oinatqyşty paidalanu [BETA]"
+        "nativeVideoPlayer": "Negızgı beine oinatqyşty paidalanu [BETA]"
     },
     "links": {
-        "website": "Jellyfin veb-saity",
+        "website": "Jellyfin ueb-saity",
         "documentation": "Qūjattama",
         "source": "Bastapqy kody",
         "translate": "Tärjımeleu",
