@@ -48,6 +48,7 @@ export default class ServerModel {
 			}))
 			.catch((err) => {
 				console.warn(err);
+				this.online = false;
 			});
 	})
 }
