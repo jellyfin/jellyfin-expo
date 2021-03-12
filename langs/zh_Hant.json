@@ -15,7 +15,7 @@
         "validation": {
             "empty": "$t(addServer.address) 不能為空",
             "invalid": "$t(addServer.address) 無效的位址",
-            "invalidProduct": "驗證失敗：不是合法的 Jellyfin 伺服器",
+            "invalidProduct": "不是 Jellyfin 伺服器",
             "noConnection": "無法連接至伺服器"
         }
     },
@@ -23,17 +23,21 @@
         "errors": {
             "offline": {
                 "description": "與伺服器聯絡時出錯。",
-                "heading": "伺服器離線中？"
+                "heading": "伺服器離線？"
             },
             "http": {
                 "description": "Jellyfin 伺服器回報錯誤。",
-                "heading": "有什麼東西搞錯啦！"
+                "heading": "出事啦！"
             },
             "504": {
                 "description": "無法連接至 Jellyfin 伺服器。原因通常是連接至伺服器時，代理伺服器需時過長。"
             },
             "502": {
                 "description": "無法連接至 Jellyfin 伺服器。原因通常是代理伺服器設定錯誤或者伺服器離線中。"
+            },
+            "invalidServer": {
+                "description": "發生不明錯誤，無法儲存伺服器資料。請從設定中移除伺服器並重試。",
+                "heading": "伺服器無效"
             }
         },
         "offline": "與伺服器聯絡時出錯。",
@@ -45,26 +49,29 @@
         "version": "版本：{{version}}",
         "keepAwake": "保持螢幕常亮（不進入休眠）",
         "rotationLock": "螢幕旋轉鎖定",
-        "expoVersion": "Expo 版本：{{version}}"
+        "expoVersion": "Expo 版本：{{version}}",
+        "tabLabels": "顯示分頁標籤",
+        "systemTheme": "使用系統主題",
+        "lightTheme": "使用亮色主題"
     },
     "links": {
-        "website": "Jellyfin網站",
+        "website": "Jellyfin 網站",
         "documentation": "說明文件",
-        "source": "軟體原始碼",
+        "source": "原始碼",
         "feature": "提出新功能要求",
-        "issue": "回報問題給開發者",
+        "issue": "回報問題",
         "translate": "翻譯"
     },
     "alerts": {
         "deleteServer": {
-            "title": "刪除伺服器",
+            "title": "移除伺服器",
             "description": "您確認要刪除此伺服器 {{serverName}} 嗎？",
             "confirm": "刪除"
         },
         "resetApplication": {
             "title": "重設應用程式",
-            "description": "警告：您確認要重設全部設定嗎？",
-            "confirm": "確定重設"
+            "description": "您確認要重設所有設定嗎？",
+            "confirm": "重設"
         }
     }
 }
