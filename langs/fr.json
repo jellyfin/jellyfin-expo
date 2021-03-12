@@ -46,7 +46,9 @@
         "version": "Version: {{version}}",
         "lightTheme": "Utiliser le thème clair",
         "tabLabels": "Afficher le nom des onglets",
-        "systemTheme": "Utiliser le thème système"
+        "systemTheme": "Utiliser le thème système",
+        "minimumServerVersion": "Nécessite une version du serveur 10.7+",
+        "nativeVideoPlayer": "Utiliser le lecteur vidéo natif [BETA]"
     },
     "home": {
         "errors": {
