@@ -51,7 +51,9 @@
         "expoVersion": "Expo nūsqasy: {{versıon}}",
         "tabLabels": "Qoiyndy japsyrmalaryn körsetu",
         "lightTheme": "Aqşyl taqyrypty paidalanu",
-        "systemTheme": "Jüielik taqyrypty paidalanu"
+        "systemTheme": "Jüielik taqyrypty paidalanu",
+        "minimumServerVersion": "Serverdıŋ 10.7+ nūsqasyn qajet etedı",
+        "nativeVideoPlayer": "Negizgi beine oinatqyşty paidalanu [BETA]"
     },
     "links": {
         "website": "Jellyfin veb-saity",
