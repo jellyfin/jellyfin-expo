@@ -51,7 +51,9 @@
         "expoVersion": "எக்ஸ்போ பதிப்பு: {{version}}",
         "tabLabels": "டேப் லேபிள்களைக் காட்டு",
         "lightTheme": "ஒளி பயன்முறைக்கு மாறவும்",
-        "systemTheme": "கணினி தீம் பயன்படுத்தவும்"
+        "systemTheme": "கணினி தீம் பயன்படுத்தவும்",
+        "minimumServerVersion": "சேவையக பதிப்பு 10.7+ தேவை",
+        "nativeVideoPlayer": "நேட்டிவ் வீடியோ பிளேயரைப் பயன்படுத்தவும் [BETA]"
     },
     "links": {
         "website": "ஜெல்லிஃபின் வலைத்தளம்",
