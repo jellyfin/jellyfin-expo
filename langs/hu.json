@@ -51,7 +51,9 @@
         "expoVersion": "Expo Verzió: {{version}}",
         "systemTheme": "Rendszer témájának használata",
         "lightTheme": "Világos téma használata",
-        "tabLabels": "Címke fülek megjelenítése"
+        "tabLabels": "Címke fülek megjelenítése",
+        "minimumServerVersion": "Legalább a 10.7+ szerver verzió szükséges",
+        "nativeVideoPlayer": "Natív videolejátszó használata [BÉTA]"
     },
     "links": {
         "website": "Jellyfin weboldala",
