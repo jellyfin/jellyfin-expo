@@ -52,7 +52,9 @@
         "expoVersion": "Verze toolkitu Expo: {{version}}",
         "tabLabels": "Zobrazit popisky záložek",
         "lightTheme": "Použít světlé téma",
-        "systemTheme": "Použít systémový vzhled"
+        "systemTheme": "Použít systémový vzhled",
+        "minimumServerVersion": "Vyžaduje server verze 10.7 a novější",
+        "nativeVideoPlayer": "Použít nativní přehrávač videa [BETA]"
     },
     "links": {
         "website": "Web projektu Jellyfin",
