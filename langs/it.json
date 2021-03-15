@@ -34,6 +34,10 @@
             },
             "502": {
                 "description": "Impossibile connettersi al server Jellyfin. Questo di solito significa un'errata configurazione del proxy o che Jellyfin è offline."
+            },
+            "invalidServer": {
+                "description": "E' successo qualcosa e le informazioni del server salvate no sono più valide. Prova a rimuovere e riinserire il server nella lista.",
+                "heading": "Server non valido"
             }
         },
         "offline": "Errore durante il contatto con il server Jellyfin.",
@@ -45,7 +49,12 @@
         "version": "Versione: {{version}}",
         "keepAwake": "Mantenere lo Schermo Sveglio",
         "rotationLock": "Blocco Della Rotazione",
-        "expoVersion": "Expo Versione:{{version}}"
+        "expoVersion": "Expo Versione:{{version}}",
+        "tabLabels": "Mostra le etichette delle schede",
+        "systemTheme": "Utilizza tema di sistema",
+        "lightTheme": "Utilizza tema chiaro",
+        "minimumServerVersion": "Richiede server con versione 10.7+",
+        "nativeVideoPlayer": "Utilizza il video player nativo [BETA]"
     },
     "links": {
         "website": "Sito Web Jellyfin",
