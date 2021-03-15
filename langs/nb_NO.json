@@ -52,7 +52,8 @@
         "expoVersion": "Expo-versjon: {{version}}",
         "tabLabels": "Vis faneetiketter",
         "lightTheme": "Bruk lyst tema",
-        "systemTheme": "Bruk systemdrakt"
+        "systemTheme": "Bruk systemdrakt",
+        "minimumServerVersion": "Krever Tjener Versjon 10.7+"
     },
     "links": {
         "website": "Nettside",
