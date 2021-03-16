@@ -52,7 +52,9 @@
         "expoVersion": "Versión de Expo: {{version}}",
         "tabLabels": "Mostrar Etiquetas",
         "lightTheme": "Usar Tema Ligero",
-        "systemTheme": "Usar tema del sistema"
+        "systemTheme": "Usar tema del sistema",
+        "minimumServerVersion": "Requiere la versión de Servidor 10.7+",
+        "nativeVideoPlayer": "Utilizar el Reproductor de Vídeo Nativo [Beta]"
     },
     "links": {
         "website": "Sitio web de Jellyfin",
