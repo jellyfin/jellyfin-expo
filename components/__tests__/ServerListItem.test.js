@@ -50,8 +50,8 @@ describe('ServerListItem', () => {
 				item={{}}
 				index={0}
 				activeServer={1}
-				onDelete={() => {}}
-				onPress={() => {}}
+				onDelete={jest.fn()}
+				onPress={jest.fn()}
 			/>
 		);
 

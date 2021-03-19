@@ -43,7 +43,7 @@ describe('SwitchListItem', () => {
 					subtitle: 'Test Subtitle',
 					disabled: false,
 					value: true,
-					onValueChange: () => {}
+					onValueChange: jest.fn()
 				}}
 			/>
 		);
