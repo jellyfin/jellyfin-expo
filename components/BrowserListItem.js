@@ -29,7 +29,10 @@ const BrowserListItem = ({ item, index }) => (
 BrowserListItem.propTypes = {
 	item: PropTypes.shape({
 		name: PropTypes.string.isRequired,
-		icon: PropTypes.string.isRequired,
+		icon: PropTypes.shape({
+			name: PropTypes.string.isRequired,
+			type: PropTypes.string.isRequired
+		}).isRequired,
 		url: PropTypes.string.isRequired
 	}).isRequired,
 	index: PropTypes.number.isRequired
