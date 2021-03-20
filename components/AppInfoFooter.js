@@ -22,9 +22,15 @@ const AppInfoFooter = () => {
 
 	return (
 		<View style={styles.container}>
-			<Text style={textStyle}>{`${getAppName()}`}</Text>
-			<Text style={textStyle}>{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}</Text>
-			<Text style={textStyle}>{t('settings.expoVersion', { version: Constants.expoVersion })}</Text>
+			<Text testID='app-name' style={textStyle}>
+				{`${getAppName()}`}
+			</Text>
+			<Text testID='app-version' style={textStyle}>
+				{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}
+			</Text>
+			<Text testID='expo-version' style={textStyle}>
+				{t('settings.expoVersion', { version: Constants.expoVersion })}
+			</Text>
 		</View>
 	);
 };

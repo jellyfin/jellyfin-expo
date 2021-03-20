@@ -3,10 +3,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React from 'react';
-import { StyleSheet } from 'react-native';
 import { Button, ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
+import React from 'react';
+import { StyleSheet } from 'react-native';
 
 const ButtonListItem = ({ item, index }) => (
 	<ListItem
@@ -15,6 +15,7 @@ const ButtonListItem = ({ item, index }) => (
 	>
 		<ListItem.Content>
 			<Button
+				testID='button'
 				{...item}
 				type='clear'
 				buttonStyle={{ ...styles.button, ...item.buttonStyle }}

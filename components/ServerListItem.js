@@ -3,9 +3,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import { Button, Icon, ListItem, ThemeContext } from 'react-native-elements';
 import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Button, Icon, ListItem, ThemeContext } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
@@ -21,6 +21,7 @@ const ServerListItem = ({ item, index, activeServer, onDelete, onPress }) => {
 
 	return (
 		<ListItem
+			testID='server-list-item'
 			topDivider={index === 0}
 			bottomDivider
 			onPress={() => onPress(index)}
@@ -28,6 +29,7 @@ const ServerListItem = ({ item, index, activeServer, onDelete, onPress }) => {
 			{(
 				index === activeServer ? (
 					<Icon
+						testID='active-icon'
 						name={getIconName('checkmark')}
 						type='ionicon'
 						size={24}
@@ -38,10 +40,20 @@ const ServerListItem = ({ item, index, activeServer, onDelete, onPress }) => {
 				)
 			)}
 			<ListItem.Content>
-				<ListItem.Title style={styles.title}>{title}</ListItem.Title>
-				<ListItem.Subtitle>{subtitle}</ListItem.Subtitle>
+				<ListItem.Title
+					testID='title'
+					style={styles.title}
+				>
+					{title}
+				</ListItem.Title>
+				<ListItem.Subtitle
+					testID='subtitle'
+				>
+					{subtitle}
+				</ListItem.Subtitle>
 			</ListItem.Content>
 			<Button
+				testID='delete-button'
 				type='clear'
 				icon={{
 					name: getIconName('trash'),
