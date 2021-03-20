@@ -52,7 +52,9 @@
         "expoVersion": "Expo 版本号：{{version}}",
         "tabLabels": "显示导航栏图标名称",
         "lightTheme": "使用浅色主题",
-        "systemTheme": "使用系统主题"
+        "systemTheme": "使用系统主题",
+        "minimumServerVersion": "需要服务器版本为 10.7 或更高",
+        "nativeVideoPlayer": "使用原生视频播放器 [测试版]"
     },
     "links": {
         "website": "Jellyfin 网站",
