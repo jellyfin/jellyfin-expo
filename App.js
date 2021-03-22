@@ -3,20 +3,21 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useContext, useEffect, useState } from 'react';
-import { AsyncStorage } from 'react-native';
-import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
-import { ThemeContext, ThemeProvider } from 'react-native-elements';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { observer } from 'mobx-react';
-import { AsyncTrunk } from 'mobx-sync';
+import { Ionicons } from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
 import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import { StatusBar } from 'expo-status-bar';
-import { Ionicons } from '@expo/vector-icons';
+import { observer } from 'mobx-react';
+import { AsyncTrunk } from 'mobx-sync';
 import PropTypes from 'prop-types';
+import React, { useContext, useEffect, useState } from 'react';
+import { AsyncStorage } from 'react-native';
+import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
+import { ThemeContext, ThemeProvider } from 'react-native-elements';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { useStores } from './hooks/useStores';
@@ -117,7 +118,9 @@ const App = observer(({ skipLoadingScreen }) => {
 						backgroundColor={theme.colors.grey0}
 						hidden={rootStore.isFullscreen}
 					/>
-					<AppNavigator />
+					<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
+						<AppNavigator />
+					</NavigationContainer>
 				</ThemeProvider>
 			</SafeAreaProvider>
 		</AppearanceProvider>
