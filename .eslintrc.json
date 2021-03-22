@@ -43,6 +43,11 @@
         "react-native/no-color-literals": ["error"],
         "react-native/no-raw-text": ["error"],
 
+        "import/order": ["warn", {
+            "alphabetize": { "order": "asc", "caseInsensitive": true },
+            "newlines-between": "always-and-inside-groups"
+        }],
+
         "array-bracket-spacing": ["error", "always", { "objectsInArrays": false, "arraysInArrays": false }],
         "array-callback-return": ["error"],
         "arrow-spacing": ["error"],
@@ -70,7 +75,6 @@
         "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": false }],
         "radix": ["error"],
         "semi": ["error"],
-        "sort-imports": ["warn", { "ignoreCase": true, "memberSyntaxSortOrder": ["all", "multiple", "single", "none"], "allowSeparatedGroups": true }],
         "space-before-blocks": ["error"],
         "space-in-parens": ["error"],
         "space-infix-ops": ["error"],
