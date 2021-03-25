@@ -21,7 +21,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { useStores } from './hooks/useStores';
-import AppNavigator from './navigation/AppNavigator';
+import RootNavigator from './navigation/RootNavigator';
 import StaticScriptLoader from './utils/StaticScriptLoader';
 
 // Import i18n configuration
@@ -119,7 +119,7 @@ const App = observer(({ skipLoadingScreen }) => {
 						hidden={rootStore.isFullscreen}
 					/>
 					<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
-						<AppNavigator />
+						<RootNavigator />
 					</NavigationContainer>
 				</ThemeProvider>
 			</SafeAreaProvider>
