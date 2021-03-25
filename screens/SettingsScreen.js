@@ -242,7 +242,6 @@ const styles = StyleSheet.create({
 		flex: 1
 	},
 	header: {
-		fontSize: 17,
 		fontWeight: '600',
 		paddingVertical: 8,
 		paddingHorizontal: 15,

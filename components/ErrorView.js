@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
 	},
 	message: {
 		textAlign: 'center',
-		fontSize: 17,
 		marginHorizontal: 20
 	},
 	details: {
