@@ -3,13 +3,13 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import * as Device from 'expo-device';
 import Constants from 'expo-constants';
+import * as Device from 'expo-device';
 import { Platform } from 'react-native';
 
+import iOSProfile from './profiles/ios';
 import iOS10Profile from './profiles/ios10';
 import iOS12Profile from './profiles/ios12';
-import iOSProfile from './profiles/ios';
 
 export function getAppName() {
 	return `Jellyfin Mobile (${Device.osName})`;
@@ -42,6 +42,10 @@ export function getDeviceProfile() {
 	}
 	// TODO: Add Android support
 	return {};
+}
+
+export function isCompact({ height = 500 } = {}) {
+	return height < 480;
 }
 
 // Does the platform support system level themes: https://docs.expo.io/versions/latest/sdk/appearance/
