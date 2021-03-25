@@ -21,7 +21,10 @@ const sanitizeHost = (url = '') => url.trim();
 
 const ServerInput = observer(React.forwardRef(
 	// FIXME: eslint fails to parse the propTypes properly here
-	function ServerInput({ onSuccess = () => {}, ...props }, ref) { // eslint-disable-line react/prop-types
+	function ServerInput({
+		onSuccess = () => { /* noop */ }, // eslint-disable-line react/prop-types
+		...props
+	}, ref) {
 		const [ host, setHost ] = useState('');
 		const [ isValidating, setIsValidating ] = useState(false);
 		const [ isValid, setIsValid ] = useState(true);
