@@ -21,7 +21,7 @@ const sanitizeHost = (url = '') => url.trim();
 
 const ServerInput = observer(React.forwardRef(
 	// FIXME: eslint fails to parse the propTypes properly here
-	function ServerInput({ onSuccess, ...props }, ref) { // eslint-disable-line react/prop-types
+	function ServerInput({ onSuccess = () => {}, ...props }, ref) { // eslint-disable-line react/prop-types
 		const [ host, setHost ] = useState('');
 		const [ isValidating, setIsValidating ] = useState(false);
 		const [ isValid, setIsValid ] = useState(true);
@@ -34,57 +34,57 @@ const ServerInput = observer(React.forwardRef(
 
 		const onAddServer = action(async () => {
 			console.log('add server', host);
-			if (host) {
-				setIsValidating(true);
-				setIsValid(true);
-				setValidationMessage('');
-
-				// Parse the entered url
-				let url;
-				try {
-					url = parseUrl(host);
-					console.log('parsed url', url);
-				} catch (err) {
-					console.info(err);
-					setIsValidating(false);
-					setIsValid(false);
-					setValidationMessage(t('addServer.validation.invalid'));
-					return;
-				}
-
-				// Validate the server is available
-				const validation = await validateServer({ url });
-				console.log(`Server is ${validation.isValid ? '' : 'not '}valid`);
-				if (!validation.isValid) {
-					const message = validation.message || 'invalid';
-					setIsValidating(false);
-					setIsValid(validation.isValid);
-					setValidationMessage(t([ `addServer.validation.${message}`, 'addServer.validation.invalid' ]));
-					return;
-				}
-
-				// Save the server details
-				rootStore.serverStore.addServer({ url });
-				rootStore.settingStore.activeServer = rootStore.serverStore.servers.length - 1;
-				// Call the success callback if present
-				if (onSuccess) {
-					onSuccess();
-				}
-				// Navigate to the main screen
-				navigation.replace(
-					Screens.MainScreen,
-					{
-						screen: Screens.HomeTab,
-						params: {
-							screen: Screens.HomeScreen,
-							params: { activeServer: rootStore.settingStore.activeServer }
-						}
-					}
-				);
-			} else {
+			if (!host) {
 				setIsValid(false);
 				setValidationMessage(t('addServer.validation.empty'));
+				return;
 			}
+
+			setIsValidating(true);
+			setIsValid(true);
+			setValidationMessage('');
+
+			// Parse the entered url
+			let url;
+			try {
+				url = parseUrl(host);
+				console.log('parsed url', url);
+			} catch (err) {
+				console.info(err);
+				setIsValidating(false);
+				setIsValid(false);
+				setValidationMessage(t('addServer.validation.invalid'));
+				return;
+			}
+
+			// Validate the server is available
+			const validation = await validateServer({ url });
+			console.log(`Server is ${validation.isValid ? '' : 'not '}valid`);
+			if (!validation.isValid) {
+				const message = validation.message || 'invalid';
+				setIsValidating(false);
+				setIsValid(validation.isValid);
+				setValidationMessage(t([ `addServer.validation.${message}`, 'addServer.validation.invalid' ]));
+				return;
+			}
+
+			// Save the server details
+			rootStore.serverStore.addServer({ url });
+			rootStore.settingStore.activeServer = rootStore.serverStore.servers.length - 1;
+			// Call the success callback
+			onSuccess();
+
+			// Navigate to the main screen
+			navigation.replace(
+				Screens.MainScreen,
+				{
+					screen: Screens.HomeTab,
+					params: {
+						screen: Screens.HomeScreen,
+						params: { activeServer: rootStore.settingStore.activeServer }
+					}
+				}
+			);
 		});
 
 		return (
