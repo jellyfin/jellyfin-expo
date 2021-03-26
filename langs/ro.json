@@ -52,7 +52,9 @@
         "expoVersion": "Versiune Expo: {{version}}",
         "tabLabels": "Afișați etichete de filă",
         "systemTheme": "Folosește tema sistemului",
-        "lightTheme": "Folosește tema luminoasă"
+        "lightTheme": "Folosește tema luminoasă",
+        "minimumServerVersion": "Necesită versiunea de server 10.7+",
+        "nativeVideoPlayer": "Utilizează redarea video nativă [BETA]"
     },
     "links": {
         "website": "Site-ul Jellyfin",
