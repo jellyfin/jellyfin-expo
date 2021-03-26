@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
-import { Icon, ThemeContext } from 'react-native-elements';
+import { Icon, Text, ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import ServerInput from '../components/ServerInput';
@@ -46,17 +46,28 @@ const AddServerScreen = () => {
 				</View>
 				<View>
 					<ServerInput
-						label={t('addServer.address')}
+						label={
+							<View style={styles.labelContainer}>
+								<Text
+									style={{
+										...styles.label,
+										color: theme.colors.grey1
+									}}
+								>
+									{t('addServer.address')}
+								</Text>
+								<Icon
+									type='ionicon'
+									name={getIconName('help-circle')}
+									containerStyle={styles.icon}
+									color={theme.colors.black}
+									onPress={() => {
+										navigation.navigate(Screens.ServerHelpScreen);
+									}}
+								/>
+							</View>
+						}
 						placeholder='https://jellyfin.org'
-					/>
-					<Icon
-						type='ionicon'
-						name={getIconName('help-circle')}
-						containerStyle={styles.icon}
-						color={theme.colors.grey1}
-						onPress={() => {
-							navigation.navigate(Screens.ServerHelpScreen);
-						}}
 					/>
 				</View>
 			</SafeAreaView>
@@ -84,11 +95,16 @@ const styles = StyleSheet.create({
 		resizeMode: 'contain',
 		maxWidth: '100%'
 	},
+	labelContainer: {
+		flexDirection: 'row',
+		alignItems: 'flex-end'
+	},
+	label: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	},
 	icon: {
-		position: 'absolute',
-		top: -14,
-		right: 0,
-		padding: 10
+		paddingHorizontal: 10
 	}
 });
 
