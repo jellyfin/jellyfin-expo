@@ -25,54 +25,54 @@
                 "description": "Није могуће доћи до Jellyfin сервера. То је обично због грешке у конфигурацији проксија или је Jellyfin ван мреже."
             },
             "504": {
-                "description": ""
+                "description": "Није могуће доћи до Jellyfin сервера. То је обично зато што је прокси истекло при повезивању са Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Нешто је кренуло наопако!",
+                "description": "Jellyfin сервер је вратио грешку."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Сервер је неважећи",
+                "description": "Нешто се догодило и сачуване информације о серверу су неважеће. Покушајте да уклоните сервер из подешавања и додајте га поново."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Сервер није на мрежи?",
+                "description": "Грешка при контактирању Jellyfin сервера."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Код грешке: {{errorCode}}",
+        "errorUrl": "Линк: {{url}}",
+        "retry": "Покушајте поново?"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Верзија: {{version}}",
+        "keepAwake": "Нека екран остане укључен",
+        "nativeVideoPlayer": "Користите изворни видео плејер [БЕТА]",
+        "minimumServerVersion": "Захтева верзију сервера 10.7+",
+        "lightTheme": "Користи светлу тему",
+        "systemTheme": "Користи системску тему",
+        "rotationLock": "Закључавање ротације",
+        "tabLabels": "Прикажи ознаке картица",
+        "expoVersion": "Expo верзија: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "feature": "",
-        "issue": ""
+        "website": "Веб локација Jellyfin-а",
+        "documentation": "Документација",
+        "source": "Изворни код",
+        "translate": "Преведи",
+        "feature": "Затражите функцију",
+        "issue": "Пријавите проблем"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Обриши сервер",
+            "description": "Да ли сте сигурни да желите да избришете сервер {{serverName}}?",
+            "confirm": "Обриши"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ресетуј апликацију",
+            "description": "Да ли сте сигурни да желите ресетовати сва подешавања?",
+            "confirm": "Ресетуј"
         }
     }
 }
