@@ -1,0 +1,78 @@
+{
+    "common": {
+        "cancel": "",
+        "unknown": ""
+    },
+    "headings": {
+        "addServer": "",
+        "home": "",
+        "links": "",
+        "servers": "",
+        "settings": ""
+    },
+    "addServer": {
+        "address": "",
+        "validation": {
+            "empty": "",
+            "invalid": "",
+            "invalidProduct": "",
+            "noConnection": ""
+        }
+    },
+    "home": {
+        "errors": {
+            "502": {
+                "description": ""
+            },
+            "504": {
+                "description": ""
+            },
+            "http": {
+                "heading": "",
+                "description": ""
+            },
+            "invalidServer": {
+                "heading": "",
+                "description": ""
+            },
+            "offline": {
+                "heading": "",
+                "description": ""
+            }
+        },
+        "errorCode": "",
+        "errorUrl": "",
+        "retry": ""
+    },
+    "settings": {
+        "version": "",
+        "keepAwake": "",
+        "nativeVideoPlayer": "",
+        "minimumServerVersion": "",
+        "lightTheme": "",
+        "systemTheme": "",
+        "rotationLock": "",
+        "tabLabels": "",
+        "expoVersion": ""
+    },
+    "links": {
+        "website": "",
+        "documentation": "",
+        "source": "",
+        "translate": "",
+        "feature": "",
+        "issue": ""
+    },
+    "alerts": {
+        "deleteServer": {
+            "title": "",
+            "description": "",
+            "confirm": ""
+        },
+        "resetApplication": {
+            "title": "",
+            "description": "",
+            "confirm": ""
+        }
+    }
+}
