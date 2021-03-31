@@ -34,6 +34,10 @@
             "offline": {
                 "heading": "¿Servidor fuera de línea?",
                 "description": "Error contactando al servidor Jellyfin."
+            },
+            "invalidServer": {
+                "description": "Algo ha ocurrido y la información guardada del servidor es invalida. Intente eliminar el server de la configuración y agregarlo nuevamente.",
+                "heading": "El Servidor es invalido"
             }
         },
         "errorCode": "Código de error: {{errorCode}}",
@@ -44,7 +48,12 @@
         "version": "Versión: {{version}}",
         "keepAwake": "Mantener la pantalla encendida",
         "rotationLock": "Bloquear rotación",
-        "expoVersion": "Versión de Expo: {{version}}"
+        "expoVersion": "Versión de Expo: {{version}}",
+        "tabLabels": "Mostrar Etiquetas de Pestañas",
+        "systemTheme": "Utilizar el tema de sistema",
+        "lightTheme": "Utilizar tema liviano",
+        "minimumServerVersion": "Requiere la versión del Servidor 10.7 o superior",
+        "nativeVideoPlayer": "Utilizar el reproductor de video nativo [BETA]"
     },
     "links": {
         "website": "Sitio web de Jellyfin",
