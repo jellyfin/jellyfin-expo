@@ -1,28 +1,28 @@
 {
     "common": {
-        "cancel": "",
-        "unknown": ""
+        "cancel": "Откажи",
+        "unknown": "Непознато"
     },
     "headings": {
-        "addServer": "",
-        "home": "",
-        "links": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Додај сервер",
+        "home": "Почетна",
+        "links": "Линкови",
+        "servers": "Сервери",
+        "settings": "Подешавања"
     },
     "addServer": {
-        "address": "",
+        "address": "Адреса сервера",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) не може бити празно",
+            "invalid": "$t(addServer.address) је неважеће",
+            "invalidProduct": "Није Jellyfin сервер",
+            "noConnection": "Не могу да се повежем на сервер"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Није могуће доћи до Jellyfin сервера. То је обично због грешке у конфигурацији проксија или је Jellyfin ван мреже."
             },
             "504": {
                 "description": ""
