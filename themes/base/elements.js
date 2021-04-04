@@ -45,5 +45,10 @@ export default {
 		overlayStyle: {
 			backgroundColor: Colors.blackish
 		}
+	},
+	Text: {
+		style: {
+			fontSize: 17
+		}
 	}
 };
