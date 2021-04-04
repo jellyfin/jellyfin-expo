@@ -3,11 +3,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import { Button, Icon, Text, ThemeContext } from 'react-native-elements';
-import PropTypes from 'prop-types';
 
+import { isCompact } from '../utils/Device';
 import { getIconName } from '../utils/Icons';
 
 const ErrorView = ({
@@ -20,8 +21,7 @@ const ErrorView = ({
 	onPress
 }) => {
 	const window = useWindowDimensions();
-	const isCompact = window.height < 480;
-	const marginVertical = isCompact ? 20 : 40;
+	const marginVertical = isCompact(window) ? 20 : 40;
 	const { theme } = useContext(ThemeContext);
 
 	return (
@@ -33,7 +33,7 @@ const ErrorView = ({
 				<Icon
 					name={icon.name}
 					type={icon.type}
-					size={isCompact ? 60 : 100}
+					size={isCompact(window) ? 60 : 100}
 				/>
 				<Text h2 style={{ ...styles.heading, marginVertical }}>{heading}</Text>
 				<Text style={{ ...styles.message, marginBottom: marginVertical }}>{message}</Text>

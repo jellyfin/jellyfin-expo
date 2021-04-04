@@ -6,7 +6,7 @@
 import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
-import { getAppName, getDeviceProfile, getSafeDeviceName, isSystemThemeSupported } from '../Device';
+import { getAppName, getDeviceProfile, getSafeDeviceName, isCompact, isSystemThemeSupported } from '../Device';
 import iOS10Profile from '../profiles/ios10';
 import iOS12Profile from '../profiles/ios12';
 import iOSProfile from '../profiles/ios';
@@ -69,6 +69,21 @@ describe('Device', () => {
 		it('should return the an empty profile for Android devices', () => {
 			Platform.OS = 'android';
 			expect(getDeviceProfile()).toStrictEqual({});
+		});
+	});
+
+	describe('isCompact()', () => {
+		it('should return false by default', () => {
+			expect(isCompact()).toBe(false);
+		});
+
+		it('should return false for heights >= 480', () => {
+			expect(isCompact({ height: 480 })).toBe(false);
+			expect(isCompact({ height: 481 })).toBe(false);
+		});
+
+		it('should return true for heights < 480', () => {
+			expect(isCompact({ height: 479 })).toBe(true);
 		});
 	});
 
