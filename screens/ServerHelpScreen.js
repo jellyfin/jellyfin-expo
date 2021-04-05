@@ -6,39 +6,46 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, useWindowDimensions } from 'react-native';
 import { Button, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { QuickStartUrl } from '../constants/Links';
+import { isCompact } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
 const ServerHelpScreen = () => {
 	const navigation = useNavigation();
 	const { t } = useTranslation();
+	const window = useWindowDimensions();
 
 	return (
 		<SafeAreaView
 			style={styles.screen}
 			edges={[ 'right', 'bottom', 'left' ]}
 		>
+			{isCompact(window) ? null : <Image
+				style={styles.icon}
+				source={require('../assets/images/icon-transparent.png')}
+				fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
+			/>}
+
 			<Text h2 style={styles.heading}>
 				{t('serverHelp.heading')}
 			</Text>
 
-			<View style={styles.description}>
-				<Text style={styles.text}>
-					{t('serverHelp.description')}
-				</Text>
+			<Text style={styles.text}>
+				{t('serverHelp.description')}
+			</Text>
 
-				<Button
-					title={t('serverHelp.learnMore')}
-					type='clear'
-					onPress={() => {
-						openBrowser(QuickStartUrl);
-					}}
-				/>
-			</View>
+			<Button
+				style={styles.learnMoreButton}
+				title={t('serverHelp.learnMore')}
+				type='clear'
+				onPress={() => {
+					openBrowser(QuickStartUrl);
+				}}
+			/>
 
 			<Button
 				title={t('common.ok')}
@@ -56,17 +63,26 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 15,
 		flex: 1
 	},
-	heading: {
-		textAlign: 'center'
+	icon: {
+		height: 120,
+		width: 120,
+		alignSelf: 'center',
+		resizeMode: 'contain',
+		marginVertical: 20
 	},
-	description: {
-		flexGrow: 1,
-		justifyContent: 'space-evenly',
-		marginHorizontal: 20
+	heading: {
+		textAlign: 'center',
+		marginBottom: 20
 	},
 	text: {
+		flexGrow: 1,
+		marginHorizontal: 20,
 		textAlign: 'center',
 		lineHeight: 24
+	},
+	learnMoreButton: {
+		marginHorizontal: 40,
+		marginVertical: 20
 	}
 });
 
