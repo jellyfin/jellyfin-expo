@@ -49,6 +49,7 @@
     "keepAwake": "Keep Screen Awake",
     "nativeVideoPlayer": "Use Native Video Player [BETA]",
     "minimumServerVersion": "Requires Server Version 10.7+",
+    "fmp4Support": "Prefer fMP4 in HLS",
     "lightTheme": "Use Light Theme",
     "systemTheme": "Use System Theme",
     "rotationLock": "Rotation Lock",
