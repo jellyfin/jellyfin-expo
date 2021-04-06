@@ -6,8 +6,10 @@
   },
   "headings": {
     "addServer": "Add Server",
+    "appearance": "Appearance",
     "home": "Home",
     "links": "Links",
+    "playback": "Playback",
     "servers": "Servers",
     "settings": "Settings"
   },

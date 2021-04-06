@@ -120,9 +120,11 @@ const SettingsScreen = observer(() => {
 			});
 		}
 
+		const playbackSettingsData = [];
+
 		// TODO: Add Android support for native video player
 		if (Platform.OS === 'ios') {
-			settingsData.push({
+			playbackSettingsData.push({
 				key: 'native-video-switch',
 				title: t('settings.nativeVideoPlayer'),
 				subtitle: t('settings.minimumServerVersion'),
@@ -134,7 +136,7 @@ const SettingsScreen = observer(() => {
 			});
 
 			if (Platform.Version > 12) {
-				settingsData.push({
+				playbackSettingsData.push({
 					key: 'native-video-fmp4-switch',
 					title: t('settings.fmp4Support'),
 					value: rootStore.settingStore.isFmp4Enabled,
@@ -147,15 +149,15 @@ const SettingsScreen = observer(() => {
 			}
 		}
 
-		settingsData.push({
+		const appearanceSettingsData = [{
 			key: 'tab-labels-switch',
 			title: t('settings.tabLabels'),
 			value: rootStore.settingStore.isTabLabelsEnabled,
 			onValueChange: action(value => rootStore.settingStore.isTabLabelsEnabled = value)
-		});
+		}];
 
 		if (isSystemThemeSupported()) {
-			settingsData.push({
+			appearanceSettingsData.push({
 				key: 'system-theme-switch',
 				title: t('settings.systemTheme'),
 				value: rootStore.settingStore.isSystemThemeEnabled,
@@ -164,7 +166,7 @@ const SettingsScreen = observer(() => {
 		}
 
 		// TODO: This should be able to select from a list not just a switch
-		settingsData.push({
+		appearanceSettingsData.push({
 			key: 'theme-switch',
 			title: t('settings.lightTheme'),
 			disabled: rootStore.settingStore.isSystemThemeEnabled,
@@ -192,6 +194,16 @@ const SettingsScreen = observer(() => {
 			{
 				title: t('headings.settings'),
 				data: settingsData,
+				renderItem: SwitchListItem
+			},
+			{
+				title: t('headings.playback'),
+				data: playbackSettingsData,
+				renderItem: SwitchListItem
+			},
+			{
+				title: t('headings.appearance'),
+				data: appearanceSettingsData,
 				renderItem: SwitchListItem
 			},
 			{
@@ -233,16 +245,27 @@ const SettingsScreen = observer(() => {
 					isFetching: rootStore.serverStore.fetchInfo.pending
 				}}
 				renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
-				renderSectionHeader={({ section: { title, hideHeader } }) => (
-					hideHeader ?
-						<View style={styles.emptyHeader} /> :
+				renderSectionHeader={({ section: { data, title, hideHeader } }) => {
+					if (!data || data.length === 0) {
+						return null;
+					}
+					if (hideHeader) {
+						return <View style={styles.emptyHeader} />;
+					}
+					return (
 						<Text style={{
 							...styles.header,
 							backgroundColor: theme.colors.background,
 							color: theme.colors.grey1
 						}}>{title}</Text>
-				)}
-				renderSectionFooter={() => <View style={styles.footer} />}
+					);
+				}}
+				renderSectionFooter={({ section: { data } }) => {
+					if (!data || data.length === 0) {
+						return null;
+					}
+					return <View style={styles.footer} />;
+				}}
 				ListFooterComponent={AppInfoFooter}
 				showsVerticalScrollIndicator={false}
 			/>
