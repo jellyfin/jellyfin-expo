@@ -43,7 +43,7 @@
         "expoVersion": "Expo Version : {{version}}",
         "rotationLock": "Verrouiller la rotation",
         "keepAwake": "Gardez l'écran éveillé",
-        "version": "Version: {{version}}",
+        "version": "Version : {{version}}",
         "lightTheme": "Utiliser le thème clair",
         "tabLabels": "Afficher le nom des onglets",
         "systemTheme": "Utiliser le thème système",
@@ -73,7 +73,7 @@
         },
         "retry": "Réessayer ?",
         "offline": "Erreur lors du contact avec le serveur Jellyfin.",
-        "errorUrl": "URL: {{url}}",
-        "errorCode": "Code erreur: {{errorCode}}"
+        "errorUrl": "URL : {{url}}",
+        "errorCode": "Code erreur : {{errorCode}}"
     }
 }
