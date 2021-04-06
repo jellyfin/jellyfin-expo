@@ -7,9 +7,10 @@ import Constants from 'expo-constants';
 import { Platform } from 'react-native';
 
 import { getAppName, getDeviceProfile, getSafeDeviceName, isCompact, isSystemThemeSupported } from '../Device';
+import iOSProfile from '../profiles/ios';
 import iOS10Profile from '../profiles/ios10';
 import iOS12Profile from '../profiles/ios12';
-import iOSProfile from '../profiles/ios';
+import iOSFmp4Profile from '../profiles/iosFmp4';
 
 jest.mock('react-native/Libraries/Utilities/Platform');
 
@@ -64,6 +65,11 @@ describe('Device', () => {
 		it('should return the correct profile for iOS 13 devices', () => {
 			Platform.Version = '13';
 			expect(getDeviceProfile()).toBe(iOSProfile);
+		});
+
+		it ('should return the correct profile for iOS 13 devices when fMP4 support is enabled', () => {
+			Platform.Version = '13';
+			expect(getDeviceProfile({ enableFmp4: true })).toBe(iOSFmp4Profile);
 		});
 
 		it('should return the an empty profile for Android devices', () => {

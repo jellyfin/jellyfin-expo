@@ -5,8 +5,8 @@
  */
 import { Platform } from 'react-native';
 
-import SettingStore from '../SettingStore';
 import Themes from '../../themes';
+import SettingStore from '../SettingStore';
 
 jest.mock('react-native/Libraries/Utilities/Platform');
 
@@ -26,6 +26,8 @@ describe('SettingStore', () => {
 		expect(store.systemThemeId).toBeUndefined();
 		expect(store.isSystemThemeEnabled).toBe(false);
 		expect(store.theme).toBe(Themes.dark);
+		expect(store.isNativeVideoPlayerEnabled).toBe(false);
+		expect(store.isFmp4Enabled).toBe(false);
 	});
 
 	it('should disable rotation lock for iPad devices', () => {
@@ -84,6 +86,8 @@ describe('SettingStore', () => {
 		store.themeId = 'light';
 		store.systemThemeId = 'dark';
 		store.isSystemThemeEnabled = true;
+		store.isNativeVideoPlayerEnabled = true;
+		store.isFmp4Enabled = true;
 
 		expect(store.activeServer).toBe(99);
 		expect(store.isRotationLockEnabled).toBe(false);
@@ -93,6 +97,8 @@ describe('SettingStore', () => {
 		expect(store.systemThemeId).toBe('dark');
 		expect(store.isSystemThemeEnabled).toBe(true);
 		expect(store.theme).toBe(Themes.dark);
+		expect(store.isNativeVideoPlayerEnabled).toBe(true);
+		expect(store.isFmp4Enabled).toBe(true);
 
 		store.reset();
 
@@ -104,5 +110,7 @@ describe('SettingStore', () => {
 		expect(store.systemThemeId).toBeNull();
 		expect(store.isSystemThemeEnabled).toBe(false);
 		expect(store.theme).toBe(Themes.dark);
+		expect(store.isNativeVideoPlayerEnabled).toBe(false);
+		expect(store.isFmp4Enabled).toBe(false);
 	});
 });

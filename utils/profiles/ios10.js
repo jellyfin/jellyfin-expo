@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import MediaTypes from '../../constants/MediaTypes';
+
 import BaseProfile from './base';
 
 /**

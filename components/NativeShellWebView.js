@@ -3,19 +3,20 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useState } from 'react';
-import { BackHandler, Platform } from 'react-native';
-import { action } from 'mobx';
-import { observer } from 'mobx-react';
+import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
-import compareVersions from 'compare-versions';
+import { action } from 'mobx';
+import { observer } from 'mobx-react';
+import React, { useState } from 'react';
+import { BackHandler, Platform } from 'react-native';
 
-import { useStores } from '../hooks/useStores';
 import MediaTypes from '../constants/MediaTypes';
+import { useStores } from '../hooks/useStores';
 import { getAppName, getDeviceProfile, getSafeDeviceName } from '../utils/Device';
 import StaticScriptLoader from '../utils/StaticScriptLoader';
 import { openBrowser } from '../utils/WebBrowser';
+
 import RefreshWebView from './RefreshWebView';
 
 const NativeShellWebView = observer(React.forwardRef(
@@ -39,7 +40,7 @@ window.ExpoAppSettings = {
 	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled}
 };
 
-window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile())};
+window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile({ enableFmp4: rootStore.settingStore.isFmp4Enabled }))};
 
 function postExpoEvent(event, data) {
 	window.ReactNativeWebView.postMessage(JSON.stringify({

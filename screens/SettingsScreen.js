@@ -132,6 +132,19 @@ const SettingsScreen = observer(() => {
 					rootStore.isReloadRequired = true;
 				})
 			});
+
+			if (Platform.Version > 12) {
+				settingsData.push({
+					key: 'native-video-fmp4-switch',
+					title: t('settings.fmp4Support'),
+					value: rootStore.settingStore.isFmp4Enabled,
+					disabled: !rootStore.settingStore.isNativeVideoPlayerEnabled,
+					onValueChange: action(value => {
+						rootStore.settingStore.isFmp4Enabled = value;
+						rootStore.isReloadRequired = true;
+					})
+				});
+			}
 		}
 
 		settingsData.push({

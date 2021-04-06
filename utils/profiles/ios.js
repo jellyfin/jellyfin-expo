@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import MediaTypes from '../../constants/MediaTypes';
+
 import BaseProfile from './base';
 
 /**
@@ -118,17 +119,6 @@ export default {
 			MaxAudioChannels: '6',
 			Protocol: 'http',
 			Type: MediaTypes.Audio
-		},
-		{
-			AudioCodec: 'aac,mp3,flac,alac',
-			BreakOnNonKeyFrames: true,
-			Container: 'mp4',
-			Context: 'Streaming',
-			MaxAudioChannels: '6',
-			MinSegments: '2',
-			Protocol: 'hls',
-			Type: MediaTypes.Video,
-			VideoCodec: 'hevc,h264'
 		},
 		{
 			AudioCodec: 'aac,mp3',
