@@ -111,6 +111,11 @@ class NativeVideoPlayer {
 		return this.positionMillis;
 	}
 
+	// Dummy method (required by web for live tv)
+	duration() {
+		return null;
+	}
+
 	// Dummy method (required by web)
 	isMuted() {
 		return false;
