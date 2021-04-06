@@ -4,10 +4,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 export default {
+	App: 'App',
 	MainScreen: 'Main',
 	AddServerScreen: 'AddServer',
 	HomeScreen: 'HomeScreen',
 	HomeTab: 'Home',
+	ServerHelpScreen: 'ServerHelpScreen',
 	SettingsTab: 'Settings',
 	ErrorScreen: 'ErrorScreen'
 };

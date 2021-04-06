@@ -3,16 +3,20 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import { useNavigation } from '@react-navigation/native';
 import React, { useContext } from 'react';
-import { Image, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
-import { ThemeContext } from 'react-native-elements';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTranslation } from 'react-i18next';
+import { Image, KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
+import { Icon, Text, ThemeContext } from 'react-native-elements';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { useStores } from '../hooks/useStores';
 import ServerInput from '../components/ServerInput';
+import Screens from '../constants/Screens';
+import { useStores } from '../hooks/useStores';
+import { getIconName } from '../utils/Icons';
 
 const AddServerScreen = () => {
+	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const { rootStore } = useStores();
 	const { theme } = useContext(ThemeContext);
@@ -40,10 +44,32 @@ const AddServerScreen = () => {
 						fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
 					/>
 				</View>
-				<ServerInput
-					label={t('addServer.address')}
-					placeholder='https://jellyfin.org'
-				/>
+				<View>
+					<ServerInput
+						label={
+							<View style={styles.labelContainer}>
+								<Text
+									style={{
+										...styles.label,
+										color: theme.colors.grey1
+									}}
+								>
+									{t('addServer.address')}
+								</Text>
+								<Icon
+									type='ionicon'
+									name={getIconName('help-circle')}
+									containerStyle={styles.icon}
+									color={theme.colors.black}
+									onPress={() => {
+										navigation.navigate(Screens.ServerHelpScreen);
+									}}
+								/>
+							</View>
+						}
+						placeholder='https://jellyfin.org'
+					/>
+				</View>
 			</SafeAreaView>
 		</KeyboardAvoidingView>
 	);
@@ -68,6 +94,17 @@ const styles = StyleSheet.create({
 		flex: 1,
 		resizeMode: 'contain',
 		maxWidth: '100%'
+	},
+	labelContainer: {
+		flexDirection: 'row',
+		alignItems: 'flex-end'
+	},
+	label: {
+		fontSize: 16,
+		fontWeight: 'bold'
+	},
+	icon: {
+		paddingHorizontal: 10
 	}
 });
 

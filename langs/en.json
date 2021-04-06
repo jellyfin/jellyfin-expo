@@ -1,6 +1,7 @@
 {
   "common": {
     "cancel": "Cancel",
+    "ok": "OK",
     "unknown": "Unknown"
   },
   "headings": {
@@ -43,6 +44,11 @@
     "errorCode": "Error code: {{errorCode}}",
     "errorUrl": "URL: {{url}}",
     "retry": "Try again?"
+  },
+  "serverHelp": {
+      "heading": "What is Jellyfin?",
+      "description": "Jellyfin is the volunteer-built media solution. It allows you to host your own media and access it from anywhere.\n\n\nIn order to use this client, you need to host your own Jellyfin server.",
+      "learnMore": "Learn more about how to host your own server"
   },
   "settings": {
     "version": "Version: {{version}}",

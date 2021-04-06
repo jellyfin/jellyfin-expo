@@ -5,6 +5,8 @@
  */
 import { getIconName } from '../utils/Icons';
 
+export const QuickStartUrl = 'https://jellyfin.org/docs/general/quick-start.html';
+
 export default [
 	{
 		key: 'links-website',
