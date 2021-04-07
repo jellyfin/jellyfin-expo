@@ -13,11 +13,14 @@
         "servers": "Serveurs",
         "links": "Liens",
         "home": "Accueil",
-        "addServer": "Ajouter un serveur"
+        "addServer": "Ajouter un serveur",
+        "appearance": "Apparence",
+        "playback": "Lecture"
     },
     "common": {
         "unknown": "Inconnu",
-        "cancel": "Annuler"
+        "cancel": "Annuler",
+        "ok": "OK"
     },
     "alerts": {
         "resetApplication": {
@@ -42,7 +45,7 @@
     "settings": {
         "expoVersion": "Expo Version : {{version}}",
         "rotationLock": "Verrouiller la rotation",
-        "keepAwake": "Gardez l'écran éveillé",
+        "keepAwake": "Garder l'écran allumé",
         "version": "Version : {{version}}",
         "lightTheme": "Utiliser le thème clair",
         "tabLabels": "Afficher le nom des onglets",
@@ -74,6 +77,9 @@
         "retry": "Réessayer ?",
         "offline": "Erreur lors du contact avec le serveur Jellyfin.",
         "errorUrl": "URL : {{url}}",
-        "errorCode": "Code erreur : {{errorCode}}"
+        "errorCode": "Code d'erreur : {{errorCode}}"
+    },
+    "serverHelp": {
+        "heading": "Qu'est-ce que Jellyfin ?"
     }
 }
