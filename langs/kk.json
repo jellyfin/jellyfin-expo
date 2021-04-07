@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Boldyrmau",
-        "unknown": "Belgısız"
+        "unknown": "Belgısız",
+        "ok": "Jaraidy"
     },
     "headings": {
         "addServer": "Serverdı üsteu",
         "home": "Basqy",
         "links": "Sıltemeler",
         "servers": "Serverler",
-        "settings": "Parametrler"
+        "settings": "Parametrler",
+        "playback": "Oinatu",
+        "appearance": "Körınıs"
     },
     "addServer": {
         "address": "Server mekenjaiy",
@@ -53,7 +56,8 @@
         "lightTheme": "Aqşyl taqyrypty paidalanu",
         "systemTheme": "Jüielik taqyrypty paidalanu",
         "minimumServerVersion": "Serverdıŋ 10.7+ nūsqasyn qajet etedı",
-        "nativeVideoPlayer": "Negızgı beine oinatqyşty paidalanu [BETA]"
+        "nativeVideoPlayer": "Negızgı beine oinatqyşty paidalanu [BETA]",
+        "fmp4Support": "HLS ışınde fMP4 üşın qalau"
     },
     "links": {
         "website": "Jellyfin ueb-saity",
@@ -74,5 +78,10 @@
             "description": "Barlyq parametrlerdı şynymen ysyrğyŋyz kele me?",
             "confirm": "Ysyru"
         }
+    },
+    "serverHelp": {
+        "description": "Jellyfın - erıktıler arqyly qūrylğan tasyğyşderektılik şeşım. Būl tasyğyşderekterdı ornalastyruğa jäne kezkelgen jerden qatynauğa mümkındık beredı.\n\n\nBūl tūtynğyşty paidalanu üşın jeke Jellyfın serverıŋızdı ornalastyruyŋyz qajet.",
+        "learnMore": "Jeke serverdı qalay ornalastyru turaly köbırek bılıŋız",
+        "heading": "Jellyfin degenımız ne?"
     }
 }
