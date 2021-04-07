@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Cancelar",
-        "unknown": "Desconocido"
+        "unknown": "Desconocido",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "Añadir servidor",
         "home": "Inicio",
         "links": "Enlaces",
         "servers": "Servidores",
-        "settings": "Configuraciones"
+        "settings": "Configuraciones",
+        "playback": "Reproducción",
+        "appearance": "Apariencia"
     },
     "addServer": {
         "address": "Dirección del servidor",
@@ -54,7 +57,8 @@
         "lightTheme": "Usar Tema Ligero",
         "systemTheme": "Usar tema del sistema",
         "minimumServerVersion": "Requiere la versión de Servidor 10.7+",
-        "nativeVideoPlayer": "Utilizar el Reproductor de Vídeo Nativo [Beta]"
+        "nativeVideoPlayer": "Utilizar el Reproductor de Vídeo Nativo [Beta]",
+        "fmp4Support": "Preferir fMP4 en HLS"
     },
     "links": {
         "website": "Sitio web de Jellyfin",
@@ -75,5 +79,10 @@
             "description": "¿Estás seguro que quieres restablecer todas las configuraciones?",
             "confirm": "Restablecer"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Aprenda mas acerca de tener su propio servidor",
+        "description": "Jellyfin es la solución de medios creada por voluntarios. Este permite que usted administre su propios medios y los acceda desde cualquier lado.\n\n\nPara utilizar este cliente, usted necesita tener su propio servidor Jellyfin.",
+        "heading": "¿Que es Jellyfin?"
     }
 }
