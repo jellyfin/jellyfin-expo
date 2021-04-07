@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Mégsem",
-        "unknown": "Ismeretlen"
+        "unknown": "Ismeretlen",
+        "ok": "Oké"
     },
     "headings": {
         "addServer": "Szerver hozzáadása",
         "home": "Kezdőlap",
         "links": "Hivatkozások",
         "servers": "Szerverek",
-        "settings": "Beállítások"
+        "settings": "Beállítások",
+        "playback": "Lejátszás",
+        "appearance": "Kinézet"
     },
     "addServer": {
         "address": "Szerver címe",
@@ -53,7 +56,8 @@
         "lightTheme": "Világos téma használata",
         "tabLabels": "Címke fülek megjelenítése",
         "minimumServerVersion": "Legalább a 10.7+ szerver verzió szükséges",
-        "nativeVideoPlayer": "Natív videolejátszó használata [BÉTA]"
+        "nativeVideoPlayer": "Natív videolejátszó használata [BÉTA]",
+        "fmp4Support": "fMP4 preferálása HLS-ben"
     },
     "links": {
         "website": "Jellyfin weboldala",
@@ -74,5 +78,10 @@
             "description": "Biztos, hogy az összes beállítást alaphelyzetbe szeretnéd állítani?",
             "confirm": "Alaphelyzetbe állítás"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Tudj meg többet a saját szervered üzemeltetéséről",
+        "description": "A Jellyfin az önkéntesek által épített média megoldás. Lehetővé teszi, hogy saját médiádat tárold, és bárhonnan elérhesd.\n\n\nEnnek a rendszernek a használatához saját Jellyfin szervert kell üzemeltetned.",
+        "heading": "Mi az a Jellyfin?"
     }
 }
