@@ -22,7 +22,7 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Jellyfin 서버에 접속하는 중 오류 발생",
+                "description": "Jellyfin 서버에 접속하는 중 오류 발생.",
                 "heading": "서버가 오프라인입니까?"
             },
             "http": {
