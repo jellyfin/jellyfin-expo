@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "取消",
-        "unknown": "未知"
+        "unknown": "未知",
+        "ok": "确定"
     },
     "headings": {
         "addServer": "添加服务器",
         "home": "首页",
         "links": "链接",
         "servers": "服务器",
-        "settings": "设置"
+        "settings": "设置",
+        "playback": "播放",
+        "appearance": "外观"
     },
     "addServer": {
         "address": "服务器地址",
@@ -54,7 +57,8 @@
         "lightTheme": "使用浅色主题",
         "systemTheme": "使用系统主题",
         "minimumServerVersion": "需要服务器版本为 10.7 或更高",
-        "nativeVideoPlayer": "使用原生视频播放器 [测试版]"
+        "nativeVideoPlayer": "使用原生视频播放器 [测试版]",
+        "fmp4Support": "优先在 HLS 中使用 fMP4"
     },
     "links": {
         "website": "Jellyfin 网站",
@@ -75,5 +79,10 @@
             "description": "您确定要重置所有设置吗？",
             "confirm": "重置"
         }
+    },
+    "serverHelp": {
+        "learnMore": "了解有关如何自建服务器的更多信息",
+        "description": "Jellyfin 是由志愿者构建的媒体解决方案。 它允许您托管自己的媒体并从任何地方访问它。\n\n\n要使用此客户端，您需要拥有自己的 Jellyfin 服务器。",
+        "heading": "什么是 Jellyfin？"
     }
 }
