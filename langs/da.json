@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Annuller",
-        "unknown": "Ukendt"
+        "unknown": "Ukendt",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "Tilføj server",
         "home": "Hjem",
         "links": "Links",
         "servers": "Servere",
-        "settings": "Indstillinger"
+        "settings": "Indstillinger",
+        "playback": "Afspilning",
+        "appearance": "Udseende"
     },
     "addServer": {
         "address": "Serveradresse",
@@ -79,6 +82,7 @@
     },
     "serverHelp": {
         "learnMore": "Lær mere om hvordan du hoster din egen server",
-        "description": "Jellyfin er medie løsning bygget af frivillige. Den tillader dig at hoste dine egne medier og tilgå dem overalt.\n\n\nFor at bruge denne klient skal du hoste din egen Jellyfin server."
+        "description": "Jellyfin er medie løsning bygget af frivillige. Den tillader dig at hoste dine egne medier og tilgå dem overalt.\n\n\nFor at bruge denne klient skal du hoste din egen Jellyfin server.",
+        "heading": "Hvad er Jellyfin?"
     }
 }
