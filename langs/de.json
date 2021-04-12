@@ -71,7 +71,7 @@
     "alerts": {
         "deleteServer": {
             "title": "Server löschen",
-            "description": "Server wirklich löschen?",
+            "description": "Server {{serverName}} wirklich löschen?",
             "confirm": "Löschen"
         },
         "resetApplication": {
