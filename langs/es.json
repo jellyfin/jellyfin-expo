@@ -25,7 +25,7 @@
                 "description": "No se puede conectar al servidor. Esto ocurre cuando el proxy no está configurado correctamente o cuando el servidor está apagado."
             },
             "invalidServer": {
-                "heading": "Servidor no válido ",
+                "heading": "Servidor no válido",
                 "description": "Algo ha ocurrido y la información del servidor guardado no es válida. Prueba a eliminar el servidor en ajustes y vuélvelo a añadir."
             }
         },
