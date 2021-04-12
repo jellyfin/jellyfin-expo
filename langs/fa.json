@@ -13,8 +13,8 @@
     "addServer": {
         "address": "ادرس سرور",
         "validation": {
-            "empty": "ادرس سرور نمیتواند خالی باشد",
-            "invalid": "ادرس سرور معتبر نیست",
+            "empty": "$t(addServer.address)ادرس سرور نمیتواند خالی باشد",
+            "invalid": "$t(addServer.address)ادرس سرور معتبر نیست",
             "invalidProduct": "این یک سرور جلی‌فین نیست",
             "noConnection": "اتصال به سرور بر قرار نشد"
         }
@@ -36,7 +36,7 @@
                 "description": "خطایی هنگام اتصال به سرور جلی‌فین رخ داد."
             }
         },
-        "errorCode": "کد خطا : {{کدخطا}}",
+        "errorCode": "کد خطا : {{errorCode}}",
         "errorUrl": "یو ار ال : {{ url}}",
         "retry": "دوباره امتحان کنم؟"
     },
