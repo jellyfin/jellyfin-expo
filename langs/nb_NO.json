@@ -13,7 +13,7 @@
     "addServer": {
         "address": "Serveradresse",
         "validation": {
-            "empty": "kan ikke være tom",
+            "empty": "$t(addServer.address) kan ikke være tom",
             "invalid": "$t(addServer.address) er ugyldig",
             "invalidProduct": "Ikke en Jellyfin-server",
             "noConnection": "Kunne ikke koble til serveren"
