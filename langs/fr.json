@@ -51,7 +51,8 @@
         "tabLabels": "Afficher le nom des onglets",
         "systemTheme": "Utiliser le thème système",
         "minimumServerVersion": "Nécessite une version du serveur 10.7+",
-        "nativeVideoPlayer": "Utiliser le lecteur vidéo natif [BETA]"
+        "nativeVideoPlayer": "Utiliser le lecteur vidéo natif [BETA]",
+        "fmp4Support": "Préférer fMP4 en HLS"
     },
     "home": {
         "errors": {
@@ -80,6 +81,7 @@
         "errorCode": "Code d'erreur : {{errorCode}}"
     },
     "serverHelp": {
-        "heading": "Qu'est-ce que Jellyfin ?"
+        "heading": "Qu'est-ce que Jellyfin ?",
+        "learnMore": "En savoir plus sur la façon d'héberger votre propre serveur"
     }
 }
