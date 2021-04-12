@@ -13,8 +13,8 @@
     "addServer": {
         "address": "Адрес на сървъра",
         "validation": {
-            "empty": "$t(добавиСървър.адрес) полето не може да е празно",
-            "invalid": "$t(добавиСървър.адрес) е невлиден",
+            "empty": "$t(addServer.address) полето не може да е празно",
+            "invalid": "$t(addServer.address) е невлиден",
             "invalidProduct": "Не е Джелифин сървър",
             "noConnection": "Връзката със сървъра не е възможна"
         }
