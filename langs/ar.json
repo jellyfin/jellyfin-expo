@@ -13,8 +13,8 @@
     "addServer": {
         "address": "عنوان السيرفر",
         "validation": {
-            "empty": "(إضافة عنوان السيرفر) لا يمكن ان يكون فاضي",
-            "invalid": "عنوان السيرفر غير صحيح",
+            "empty": "$t(addServer.address) لا يمكن ان يكون فاضي",
+            "invalid": "$t(addServer.address)عنوان السيرفر غير صحيح",
             "invalidProduct": "ليست سيرفر جيلي فن",
             "noConnection": "لم نتمكن من الوصول الى السيرفر"
         }
@@ -43,7 +43,7 @@
         "offline": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
         "retry": "حاول مرةً اخرى ؟؟",
         "errorUrl": "الرابط: {{url}}",
-        "errorCode": "الكود غلط"
+        "errorCode": "الكود غلط:{{errorCode}}"
     },
     "settings": {
         "version": "الإصدار: {{version}}",
@@ -61,7 +61,7 @@
     "alerts": {
         "deleteServer": {
             "title": "حذف السيرفر",
-            "description": "هل انت متأكد انك تريد حذف السيرفر؟",
+            "description": "هل انت متأكد انك تريد حذف السيرفر{{serverName}}؟",
             "confirm": "حذف"
         },
         "resetApplication": {
