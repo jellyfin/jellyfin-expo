@@ -13,8 +13,8 @@
     "addServer": {
         "address": "Indirizzo Del Server",
         "validation": {
-            "empty": "$t(aggiungereServer.indirizzo) non può essere vuoto",
-            "invalid": "$t(aggiungereServer.indirizzo) è non valido",
+            "empty": "$t(addServer.address) non può essere vuoto",
+            "invalid": "$t(addServer.address) è non valido",
             "invalidProduct": "Non è un server Jellyfin",
             "noConnection": "Non è possibile connettersi al server"
         }
