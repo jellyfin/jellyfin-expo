@@ -58,7 +58,7 @@
     "alerts": {
         "deleteServer": {
             "title": "Ta bort server",
-            "description": "Är du säker på att du vill ta bort denna servern?",
+            "description": "Är du säker på att du vill ta bort denna servern {{serverName}}?",
             "confirm": "Ta bort"
         },
         "resetApplication": {
