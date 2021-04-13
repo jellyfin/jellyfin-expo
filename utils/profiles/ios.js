@@ -18,7 +18,13 @@ export default {
 			AudioCodec: 'aac,mp3,ac3,eac3,flac,alac',
 			Container: 'mp4,m4v',
 			Type: MediaTypes.Video,
-			VideoCodec: 'h264'
+			VideoCodec: 'hevc,h264'
+		},
+		{
+			AudioCodec: 'aac,mp3,ac3,eac3,flac,alac',
+			Container: 'mov',
+			Type: MediaTypes.Video,
+			VideoCodec: 'hevc,h264'
 		},
 		{
 			Container: 'mp3',
