@@ -1,42 +1,42 @@
 {
     "common": {
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "cancel": "Huỷ bỏ",
+        "ok": "Đồng ý",
+        "unknown": "Không xác định"
     },
     "headings": {
-        "addServer": "",
+        "addServer": "Thêm Máy Chủ",
         "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "home": "Trang chủ",
+        "links": "Liên kết",
+        "playback": "Phát lại",
+        "servers": "Máy chủ",
+        "settings": "Cài đặt"
     },
     "addServer": {
-        "address": "",
+        "address": "Địa Chỉ Máy Chủ",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) không thể để trống",
+            "invalid": "$t(addServer.address) không hợp lệ",
+            "invalidProduct": "Không phải máy chủ Jellyfin",
+            "noConnection": "Không thể kết nối tới máy chủ"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Không thể truy cập máy chủ Jellyfin. Điều này thường là do lỗi cấu hình proxy hoặc Jellyfin đang ngoại tuyến."
             },
             "504": {
-                "description": ""
+                "description": "Không thể truy cập máy chủ Jellyfin. Điều này thường là do proxy đã hết thời gian chờ khi kết nối với Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Đã xảy ra lỗi!",
+                "description": "Máy chủ Jellyfin trả lại lỗi."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Máy chủ không hợp lệ",
+                "description": "Đã xảy ra sự cố và thông tin máy chủ đã lưu không hợp lệ. Thử xóa máy chủ khỏi Cài đặt và thêm lại."
             },
             "offline": {
                 "heading": "",
