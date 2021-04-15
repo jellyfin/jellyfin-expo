@@ -82,6 +82,7 @@
     },
     "serverHelp": {
         "heading": "Qu'est-ce que Jellyfin ?",
-        "learnMore": "En savoir plus sur la façon d'héberger votre propre serveur"
+        "learnMore": "En savoir plus sur la façon d'héberger votre propre serveur",
+        "description": "Jellyfin est une solution intégré multi média ouverte. Il permet d'héberger vos média pour un accès de n'importe ou\n\n\nPour utiliser ce client vous devez héberger for propre serveur Jellyfin."
     }
 }
