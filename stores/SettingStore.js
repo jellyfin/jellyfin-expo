@@ -8,11 +8,14 @@ import { action, computed, decorate, observable } from 'mobx';
 import { Platform } from 'react-native';
 
 import Themes from '../themes';
-
 /**
  * Data store for application settings
  */
 export default class SettingStore {
+	#DEFAULT_ROTATION_LOCK_ENABLED = Platform.OS === 'ios' && !Platform.isPad;
+
+	#DEFAULT_SCREEN_LOCK_ENABLED = Platform.OS === 'ios' ? !!Platform.Version && compareVersions.compare(Platform.Version, '14', '<') : true;
+
 	/**
 	 * The id of the currently selected server
 	 */
@@ -21,12 +24,12 @@ export default class SettingStore {
 	/**
 	 * Is device rotation lock enabled
 	 */
-	isRotationLockEnabled = Platform.OS === 'ios' && !Platform.isPad
+	isRotationLockEnabled = this.#DEFAULT_ROTATION_LOCK_ENABLED
 
 	/**
 	 * Is screen lock active when media is playing
 	 */
-	isScreenLockEnabled = Platform.OS === 'ios' ? !!Platform.Version && compareVersions.compare(Platform.Version, '14', '<') : true
+	isScreenLockEnabled = this.#DEFAULT_SCREEN_LOCK_ENABLED
 
 	/**
 	 * Are tab labels enabled
@@ -65,8 +68,8 @@ export default class SettingStore {
 
 	reset() {
 		this.activeServer = 0;
-		this.isRotationLockEnabled = Platform.OS === 'ios' && !Platform.isPad;
-		this.isScreenLockEnabled = Platform.OS === 'ios' ? !!Platform.Version && compareVersions.compare(Platform.Version, '14', '<') : true;
+		this.isRotationLockEnabled = this.#DEFAULT_ROTATION_LOCK_ENABLED;
+		this.isScreenLockEnabled = this.#DEFAULT_SCREEN_LOCK_ENABLED;
 		this.isTabLabelsEnabled = true;
 		this.themeId = 'dark';
 		this.systemThemeId = null;
