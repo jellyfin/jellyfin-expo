@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import * as Device from 'expo-device';
 import { Platform } from 'react-native';
@@ -33,9 +34,9 @@ export function getSafeDeviceName() {
 
 export function getDeviceProfile({ enableFmp4 = false } = {}) {
 	if (Platform.OS === 'ios') {
-		if (parseInt(Platform.Version, 10) < 11) {
+		if (compareVersions.compare(Platform.Version, '11', '<')) {
 			return iOS10Profile;
-		} else if (parseInt(Platform.Version, 10) < 13) {
+		} else if (compareVersions.compare(Platform.Version, '13', '<')) {
 			return iOS12Profile;
 		} else if (enableFmp4) {
 			return iOSFmp4Profile;
@@ -53,6 +54,6 @@ export function isCompact({ height = 500 } = {}) {
 
 // Does the platform support system level themes: https://docs.expo.io/versions/latest/sdk/appearance/
 export function isSystemThemeSupported() {
-	return (Platform.OS === 'ios' && parseInt(Platform.Version, 10) > 12) ||
-		(Platform.OS === 'android' && parseInt(Platform.Version, 10) > 9);
+	return (Platform.OS === 'ios' && compareVersions.compare(Platform.Version, '12', '>')) ||
+		(Platform.OS === 'android' && compareVersions.compare(Platform.Version, '9', '>'));
 }
