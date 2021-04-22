@@ -3,24 +3,25 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { Alert, AsyncStorage, Platform, SectionList, StyleSheet, View } from 'react-native';
-import React, { useContext, useEffect } from 'react';
-import { Text, ThemeContext } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
+import compareVersions from 'compare-versions';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
+import React, { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Alert, AsyncStorage, Platform, SectionList, StyleSheet, View } from 'react-native';
+import { Text, ThemeContext } from 'react-native-elements';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 import AppInfoFooter from '../components/AppInfoFooter';
 import BrowserListItem from '../components/BrowserListItem';
 import ButtonListItem from '../components/ButtonListItem';
-import { isSystemThemeSupported } from '../utils/Device';
-import Links from '../constants/Links';
-import Screens from '../constants/Screens';
 import ServerListItem from '../components/ServerListItem';
 import SwitchListItem from '../components/SwitchListItem';
+import Links from '../constants/Links';
+import Screens from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
+import { isSystemThemeSupported } from '../utils/Device';
 
 const SettingsScreen = observer(() => {
 	const { rootStore } = useStores();
@@ -135,7 +136,7 @@ const SettingsScreen = observer(() => {
 				})
 			});
 
-			if (Platform.Version > 12) {
+			if (compareVersions.compare(Platform.Version, '12', '>')) {
 				playbackSettingsData.push({
 					key: 'native-video-fmp4-switch',
 					title: t('settings.fmp4Support'),
