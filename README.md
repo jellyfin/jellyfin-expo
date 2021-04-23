@@ -11,6 +11,9 @@
 <a href="https://translate.jellyfin.org/projects/jellyfin/jellyfin-expo/?utm_source=widget">
 <img alt="Translation Status" src="https://translate.jellyfin.org/widgets/jellyfin/-/jellyfin-expo/svg-badge.svg"/>
 </a>
+<a href="https://codecov.io/gh/jellyfin/jellyfin-expo">
+<img alt="Codecov" src="https://img.shields.io/codecov/c/github/jellyfin/jellyfin-expo?token=Wk8RS9tDnb">
+</a>
 <br/>
 <a href="https://opencollective.com/jellyfin"><img alt="Donate" src="https://img.shields.io/opencollective/all/jellyfin.svg?label=backers"/></a>
 <a href="https://features.jellyfin.org"><img alt="Feature Requests" src="https://img.shields.io/badge/fider-vote%20on%20features-success.svg"/></a>
