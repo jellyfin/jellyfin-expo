@@ -37,7 +37,7 @@
     "links": {
         "issue": "Signaler un problème",
         "feature": "Demander une fonctionnalité",
-        "source": "Code Source",
+        "source": "Code source",
         "documentation": "Documentation",
         "website": "Site Internet de Jellyfin",
         "translate": "Traduire"
@@ -72,7 +72,7 @@
             },
             "invalidServer": {
                 "heading": "Le serveur est invalide",
-                "description": "Quelque chose s'est produit et les informations sauvées sur le serveur sont invalides. Essayez de retirer le serveur des paramètres puis rajouter le de nouveau."
+                "description": "Quelque chose s'est produit et les informations sauvegardées sur le serveur sont invalides. Essayez de retirer le serveur des Paramètres puis de le rajouter à nouveau."
             }
         },
         "retry": "Réessayer ?",
