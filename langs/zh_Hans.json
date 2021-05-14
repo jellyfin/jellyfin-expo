@@ -40,7 +40,7 @@
             },
             "invalidServer": {
                 "heading": "无效的服务器",
-                "description": "出现了一些问题，导致保存的服务器信息无效。尝试从“设置”中删除服务器，然后再次添加。"
+                "description": "有错误发生，已保存的服务器端信息无效，请尝试从设置中先删除再重新添加。"
             }
         },
         "offline": "连接Jellyfin服务器时出错。",
@@ -56,7 +56,7 @@
         "tabLabels": "显示导航栏图标名称",
         "lightTheme": "使用浅色主题",
         "systemTheme": "使用系统主题",
-        "minimumServerVersion": "需要服务器版本为 10.7 或更高",
+        "minimumServerVersion": "需要服务器版本10.7以上",
         "nativeVideoPlayer": "使用原生视频播放器 [测试版]",
         "fmp4Support": "优先在 HLS 中使用 fMP4"
     },
