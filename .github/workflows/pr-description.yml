@@ -13,4 +13,4 @@ jobs:
         steps:
             - uses: derkinderfietsen/pr-description-enforcer@v1
               with:
-                  repo-token: ${{ secrets.GH_TOKEN }}
+                  repo-token: ${{ secrets.JF_BOT_TOKEN }}
