@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Avbryt",
-        "unknown": "Ukjent"
+        "unknown": "Ukjent",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "Legg til server",
         "home": "Hjem",
         "links": "Lenker",
         "servers": "Servere",
-        "settings": "Innstillinger"
+        "settings": "Innstillinger",
+        "playback": "Avspilling",
+        "appearance": "Utseende"
     },
     "addServer": {
         "address": "Serveradresse",
@@ -74,5 +77,10 @@
             "description": "Er du sikker på at du vil tilbakestille alle innstillinger?",
             "confirm": "Tilbakestill"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Lær mer om hvordan du drifter din egen server",
+        "description": "Jellyfin er medieløsningen laget av frivillige. Den lar deg legge inn dine egne medier og få tilgang til dem fra hvor som helst.\n\n\nFor å kunne bruke denne klienten, må du drifte din egen Jellyfin-server.",
+        "heading": "Hva er Jellyfin?"
     }
 }
