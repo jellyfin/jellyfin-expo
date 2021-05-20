@@ -56,7 +56,9 @@
         "tabLabels": "Vis faneetiketter",
         "lightTheme": "Bruk lyst tema",
         "systemTheme": "Bruk systemdrakt",
-        "minimumServerVersion": "Krever Tjener Versjon 10.7+"
+        "minimumServerVersion": "Krever Tjener Versjon 10.7+",
+        "fmp4Support": "Foretrekk fMP4 i HLS",
+        "nativeVideoPlayer": "Bruk innebygget videospiller [BETA]"
     },
     "links": {
         "website": "Nettside",
