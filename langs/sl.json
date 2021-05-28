@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Prekliči",
-        "unknown": "Neznano"
+        "unknown": "Neznano",
+        "ok": "V redu"
     },
     "headings": {
         "addServer": "Dodaj strežnik",
         "home": "Domov",
         "links": "Povezave",
         "servers": "Strežniki",
-        "settings": "Nastavitve"
+        "settings": "Nastavitve",
+        "playback": "Predvajanje",
+        "appearance": "Izgled"
     },
     "addServer": {
         "address": "Naslov strežnika",
@@ -30,10 +33,14 @@
                 "heading": "Prišlo je do napake!"
             },
             "504": {
-                "description": "Strežnika Jellyfin ni možno doseči. To je lahko posledica neodzivnosti proxy strežnika."
+                "description": "Strežnika Jellyfin ni mogoče doseči. To je lahko posledica neodzivnosti proxy strežnika."
             },
             "502": {
-                "description": "Strežnika Jellyfin ni možno doseči. To je lahko posledica napačne nastavitve proxy strežnika ali pa je Jellyfin strežnik ugasnjen."
+                "description": "Strežnika Jellyfin ni mogoče doseči. To je lahko posledica napačne nastavitve proxy strežnika ali pa je Jellyfin strežnik ugasnjen."
+            },
+            "invalidServer": {
+                "description": "Nekaj se je zgodilo in podatki o shranjenem strežniku so neveljavni. Poskusite odstraniti strežnik iz Nastavitev in ga znova dodajte.",
+                "heading": "Strežnik ni veljaven"
             }
         },
         "offline": "Napaka pri povezovanju z Jellyfin strežnikom.",
@@ -43,9 +50,15 @@
     },
     "settings": {
         "version": "Različica: {{version}}",
-        "keepAwake": "Ohrani zaslon vklopljen",
+        "keepAwake": "Ohrani zaslon buden",
         "rotationLock": "Zakleni obračanje",
-        "expoVersion": "Različica Expo: {{version}}"
+        "expoVersion": "Različica Expo: {{version}}",
+        "tabLabels": "Pokaži oznake zavihkov",
+        "systemTheme": "Uporabi temo sistema",
+        "lightTheme": "Uporabi svetlo temo",
+        "fmp4Support": "Prioritiziraj fMP4 v HLS",
+        "minimumServerVersion": "Zahteva različico strežnika 10.7+",
+        "nativeVideoPlayer": "Uporabi vgrajeni video predvajalnik [BETA]"
     },
     "links": {
         "website": "Jellyfin spletna stran",
@@ -66,5 +79,10 @@
             "description": "Ali ste prepričani, da želite ponastaviti vse nastavitve?",
             "confirm": "Ponastavi"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Preberite več o tem, kako lahko gostite svoj strežnik",
+        "description": "Jellyfin je predstavnostni strežnik, ki ga ustvarja skupnost prostovoljcev. Omogoča vam gostovanje in dostop da vaše predstavnosti od kjerkoli.\n\n\nZa uporabo tega odjemalca potrebujete svoj Jellyfin strežnik.",
+        "heading": "Kaj je Jellyfin?"
     }
 }
