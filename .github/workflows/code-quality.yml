@@ -1,0 +1,77 @@
+name: Code quality
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  eslint:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12
+          check-latest: true
+
+      - name: Get npm cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2.1.6
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Node.js dependencies
+        run: npm ci --no-audit
+
+      - name: Run eslint
+        run: npm run lint
+
+  jest:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12
+          check-latest: true
+
+      - name: Get npm cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm config get cache)"
+
+      - name: Cache dependencies
+        uses: actions/cache@v2.1.6
+        id: npm-cache
+        with:
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Install Node.js dependencies
+        run: npm ci --no-audit
+
+      - name: Run jest
+        run: npx jest
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1.5.0

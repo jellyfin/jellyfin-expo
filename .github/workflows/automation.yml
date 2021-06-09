@@ -1,0 +1,26 @@
+name: Automation
+
+on:
+  push:
+    branches:
+      - master
+  pull_request_target:
+
+jobs:
+  labeling:
+    name: Label merge conflicts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: eps1lon/actions-label-merge-conflict@v2.0.1
+        with:
+          dirtyLabel: 'merge conflict'
+          repoToken: ${{ secrets.JF_BOT_TOKEN }}
+
+  enforce:
+    name: Enforce PR description
+    runs-on: ubuntu-latest
+    steps:
+      - uses: derkinderfietsen/pr-description-enforcer@v1
+        if: ${{ github.event_name == 'pull_request_target' }}
+        with:
+          repo-token: ${{ secrets.JF_BOT_TOKEN }}
