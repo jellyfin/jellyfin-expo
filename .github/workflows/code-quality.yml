@@ -1,4 +1,4 @@
-name: Lint
+name: Code quality
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [ master ]
 
 jobs:
-  run-eslint:
-    name: Run eslint
+  eslint:
+    name: Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -39,3 +39,32 @@ jobs:
 
       - name: Run eslint
         run: npm run lint
+
+  jest:
+    name: Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2.3.4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12
+          check-latest: true
+
+      - name: Cache dependencies
+        uses: actions/cache@v2.1.6
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install Node.js dependencies
+        run: npm ci --no-audit
+
+      - name: Run jest
+        run: npx jest
+
+      - name: Upload coverage
+        uses: codecov/codecov-action@v1.5.0
