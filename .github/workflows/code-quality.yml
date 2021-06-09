@@ -25,7 +25,7 @@ jobs:
         id: npm-cache-dir-path
         run: echo "::set-output name=dir::$(npm config get cache)"
 
-      - name: Cache node_modules
+      - name: Cache dependencies
         uses: actions/cache@v2.1.6
         id: npm-cache
         with:
@@ -54,11 +54,18 @@ jobs:
           node-version: 12
           check-latest: true
 
+      - name: Get npm cache directory path
+        id: npm-cache-dir-path
+        run: echo "::set-output name=dir::$(npm config get cache)"
+
       - name: Cache dependencies
         uses: actions/cache@v2.1.6
+        id: npm-cache
         with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.npm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
 
       - name: Install Node.js dependencies
         run: npm ci --no-audit
