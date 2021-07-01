@@ -1,14 +1,16 @@
 {
     "common": {
         "cancel": "Annulla",
-        "unknown": "Sconosciuto"
+        "unknown": "Sconosciuto",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "Aggiungi server",
         "home": "Home",
         "links": "Collegamenti",
         "servers": "Server",
-        "settings": "Impostazioni"
+        "settings": "Impostazioni",
+        "appearance": "Aspetto"
     },
     "addServer": {
         "address": "Indirizzo Del Server",
@@ -75,5 +77,10 @@
             "description": "Sei sicuro di voler ripristinare tutte le impostazioni?",
             "confirm": "Ripristina"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Leggi come installare il tuo server",
+        "description": "Jellyfin è la soluzione multimediale definitiva sviluppata da volontari. Ti permette di ospitare i tuoi file multimediali e renderli accessibili ovunque.\n\n\nPer utilizzare questo servizio, devi installare il tuo server Jellyfin.",
+        "heading": "Cosa è Jellyfin?"
     }
 }
