@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Annuleren",
-        "unknown": "Onbekend"
+        "unknown": "Onbekend",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "Server toevoegen",
         "home": "Start",
         "links": "Links",
         "servers": "Servers",
-        "settings": "Instellingen"
+        "settings": "Instellingen",
+        "playback": "Afspelen",
+        "appearance": "Uiterlijk"
     },
     "addServer": {
         "address": "Serveradres",
@@ -52,7 +55,9 @@
         "expoVersion": "Expo Versie: {{version}}",
         "lightTheme": "Gebruik Lichte Modus",
         "tabLabels": "Toon Tabblad Labels",
-        "systemTheme": "Gebruik systeem thema"
+        "systemTheme": "Gebruik systeem thema",
+        "minimumServerVersion": "Vereist Server Versie 10.7+",
+        "nativeVideoPlayer": "Gebruik Originele Videospeler [BETA]"
     },
     "links": {
         "website": "Jellyfin Website",
@@ -73,5 +78,10 @@
             "description": "Weet je zeker dat je alle instellingen wil wissen?",
             "confirm": "Wis"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Leer meer over hoe je een eigen server kan hosten",
+        "description": "Jellyfin is de vrijwillig-gebouwde media oplossing. Het maakt het mogelijk om je eigen media content te hosten en vanaf overal te bereiken.\n\n\nOm deze client te kunnen gebruiken, moet je een eigen Jellyfin server hosten.",
+        "heading": "Wat is Jellyfin?"
     }
 }
