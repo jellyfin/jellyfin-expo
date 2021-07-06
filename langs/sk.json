@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Zrušiť",
-        "unknown": "Neznáme"
+        "unknown": "Neznáme",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "Pridať server",
         "home": "Domov",
         "links": "Odkazy",
         "servers": "Servery",
-        "settings": "Nastavenia"
+        "settings": "Nastavenia",
+        "playback": "Prehrávanie",
+        "appearance": "Vzhľad"
     },
     "addServer": {
         "address": "Adresa serveru",
@@ -73,5 +76,8 @@
             "description": "Ste si istí, že chcete resetovať všetky nastavenia?",
             "confirm": "Resetovať"
         }
+    },
+    "serverHelp": {
+        "heading": "Čo je Jellyfin?"
     }
 }
