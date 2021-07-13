@@ -14,7 +14,7 @@
         "appearance": "Apariencia"
     },
     "addServer": {
-        "address": "Dirección del servidor",
+        "address": "servidorDirección del servidor",
         "validation": {
             "empty": "$t(addServer.address) no puede estar vacío",
             "invalid": "$t(addServer.address) es inválido",
