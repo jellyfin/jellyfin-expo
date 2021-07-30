@@ -10,13 +10,14 @@
         "links": "Collegamenti",
         "servers": "Server",
         "settings": "Impostazioni",
-        "appearance": "Aspetto"
+        "appearance": "Aspetto",
+        "playback": "Riproduzione"
     },
     "addServer": {
         "address": "Indirizzo Del Server",
         "validation": {
             "empty": "$t(addServer.address) non può essere vuoto",
-            "invalid": "$t(addServer.address) è non valido",
+            "invalid": "$t(addServer.address) non è valido",
             "invalidProduct": "Non è un server Jellyfin",
             "noConnection": "Non è possibile connettersi al server"
         }
@@ -24,7 +25,7 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Errore durante il contatto con il server Jellyfin.",
+                "description": "Errore nel contattare il server Jellyfin.",
                 "heading": "Server offline?"
             },
             "http": {
@@ -38,25 +39,26 @@
                 "description": "Impossibile connettersi al server Jellyfin. Questo di solito significa un'errata configurazione del proxy o che Jellyfin è offline."
             },
             "invalidServer": {
-                "description": "E' successo qualcosa e le informazioni del server salvate no sono più valide. Prova a rimuovere e riinserire il server nella lista.",
+                "description": "È successo qualcosa e le informazioni del server salvate no sono valide. Prova a rimuovere e reinserire il server nella lista.",
                 "heading": "Server non valido"
             }
         },
         "offline": "Errore durante il contatto con il server Jellyfin.",
-        "retry": "Riprova?",
+        "retry": "Riprovare?",
         "errorUrl": "URL: {{url}}",
         "errorCode": "Codice errore: {{errorCode}}"
     },
     "settings": {
         "version": "Versione: {{version}}",
-        "keepAwake": "Mantenere lo Schermo Sveglio",
+        "keepAwake": "Mantenere lo Schermo Acceso",
         "rotationLock": "Blocco Della Rotazione",
         "expoVersion": "Expo Versione:{{version}}",
         "tabLabels": "Mostra le etichette delle schede",
         "systemTheme": "Utilizza tema di sistema",
-        "lightTheme": "Utilizza tema chiaro",
+        "lightTheme": "Usa il tema chiaro",
         "minimumServerVersion": "Richiede server con versione 10.7+",
-        "nativeVideoPlayer": "Utilizza il video player nativo [BETA]"
+        "nativeVideoPlayer": "Utilizza il video player nativo [BETA]",
+        "fmp4Support": "Preferisci fMP4 in HLS"
     },
     "links": {
         "website": "Sito Web Jellyfin",
@@ -81,6 +83,6 @@
     "serverHelp": {
         "learnMore": "Leggi come installare il tuo server",
         "description": "Jellyfin è la soluzione multimediale definitiva sviluppata da volontari. Ti permette di ospitare i tuoi file multimediali e renderli accessibili ovunque.\n\n\nPer utilizzare questo servizio, devi installare il tuo server Jellyfin.",
-        "heading": "Cosa è Jellyfin?"
+        "heading": "Cos’è Jellyfin?"
     }
 }
