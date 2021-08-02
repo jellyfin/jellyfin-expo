@@ -4,7 +4,7 @@
         "version": "Versión: {{version}}",
         "expoVersion": "Versión de Expo: {{version}}",
         "rotationLock": "Desactivar la rotación de la pantalla",
-        "tabLabels": "Mostrar las Etiquetas de las Pestañas",
+        "tabLabels": "Mostrar las etiquetas de las pestañas",
         "lightTheme": "Usar Tema Claro",
         "systemTheme": "Usar el tema del sistema",
         "fmp4Support": "Preferir fMP4 en HLS",
