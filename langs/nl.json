@@ -57,7 +57,8 @@
         "tabLabels": "Toon Tabblad Labels",
         "systemTheme": "Gebruik systeem thema",
         "minimumServerVersion": "Vereist Server Versie 10.7+",
-        "nativeVideoPlayer": "Gebruik Originele Videospeler [BETA]"
+        "nativeVideoPlayer": "Gebruik Originele Videospeler [BETA]",
+        "fmp4Support": "Verkies fMP4 in HLS"
     },
     "links": {
         "website": "Jellyfin Website",
