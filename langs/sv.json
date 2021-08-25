@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "Avbryt",
-        "unknown": "Okänd"
+        "unknown": "Okänd",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "Lägg till server",
         "home": "Hem",
         "links": "Länkar",
         "servers": "Servrar",
-        "settings": "Inställningar"
+        "settings": "Inställningar",
+        "playback": "Uppspelning",
+        "appearance": "Utseende"
     },
     "addServer": {
         "address": "Serveradress",
@@ -30,10 +33,14 @@
                 "heading": "Något gick fel!"
             },
             "504": {
-                "description": "Kunde inte nå Jellyfin servern. Detta är oftast på grund av att en proxy inte svarade i tid."
+                "description": "Kunde inte nå Jellyfin-servern. Detta är oftast på grund av att en proxy inte svarade i tid."
             },
             "502": {
-                "description": "Kunde inte nå Jellyfin servern. Detta är oftast på grund av en proxy konfigurations error eller att Jellyfin är nere."
+                "description": "Kunde inte nå Jellyfin-servern. Detta är oftast på grund av ett fel i proxykonfigurationen eller att Jellyfin är nere."
+            },
+            "invalidServer": {
+                "description": "Någonting har hänt och den sparade serverinformationen är ogiltig. Pröva att ta bort servern från inställningar och lägg till den igen.",
+                "heading": "Servern är ogiltig"
             }
         },
         "offline": "Problem med att koppla upp sig mot Jellyfin servern",
@@ -45,13 +52,19 @@
         "version": "Version: {{version}}",
         "keepAwake": "Håll skärmen vaken",
         "rotationLock": "Rotationslås",
-        "expoVersion": "Expo Version: {{version}}"
+        "expoVersion": "Expoversion: {{version}}",
+        "minimumServerVersion": "Kräver serverversion 10.7+",
+        "tabLabels": "Visa fliketiketter",
+        "systemTheme": "Andvänd systemtema",
+        "lightTheme": "Använd ljust tema",
+        "fmp4Support": "Föredra fMP4 i HLS",
+        "nativeVideoPlayer": "Använd inbyggd videospelare [BETA]"
     },
     "links": {
         "website": "Jellyfins Hemsida",
         "documentation": "Dokumentation",
         "source": "Källkod",
-        "feature": "Begär en funktion",
+        "feature": "Föreslå en funktion",
         "issue": "Rapportera ett problem",
         "translate": "Översätt"
     },
@@ -66,5 +79,10 @@
             "description": "Är du säker på att du vill nollställa alla inställningar?",
             "confirm": "Nollställ"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Lär dig mer om hur man skapar sin egna server",
+        "description": "Jellyfin är den volontär-byggda medialösningen. Den låter dig göra din egen media tillgänglig från var som helst.\n\n\nFör att använda den här klient-appen behöver du skapa din egna Jellyfin-server.",
+        "heading": "Vad är Jellyfin?"
     }
 }
