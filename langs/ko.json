@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "취소",
-        "unknown": "알수없는"
+        "unknown": "알수없는",
+        "ok": "OK"
     },
     "headings": {
         "addServer": "서버 추가",
         "home": "홈",
         "links": "링크",
         "servers": "서버목록",
-        "settings": "설정"
+        "settings": "설정",
+        "playback": "재생",
+        "appearance": "모양"
     },
     "addServer": {
         "address": "서버 주소",
@@ -22,7 +25,7 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Jellyfin 서버에 접속하는 중 오류 발생.",
+                "description": "Jellyfin 서버에 연결하는 중 오류가 발생했습니다.",
                 "heading": "서버가 오프라인입니까?"
             },
             "http": {
@@ -34,6 +37,10 @@
             },
             "502": {
                 "description": "Jellyfin 서버에 연결할 수 없습니다. 보통 프록시 설정이 잘못되었거나 Jellyfin 서버가 오프라인이기 때문입니다."
+            },
+            "invalidServer": {
+                "description": "문제가 발생하여 저장된 서버 정보가 유효하지 않습니다. 설정에서 서버를 제거하고 다시 추가하십시오.",
+                "heading": "서버가 존재하지 않습니다"
             }
         },
         "offline": "서버 접속문제",
@@ -45,7 +52,13 @@
         "version": "버전: {{version}}",
         "keepAwake": "화면이 켜진 상태로 유지하기",
         "rotationLock": "화면 회전 잠금",
-        "expoVersion": "Expo 버전: {{version}}"
+        "expoVersion": "Expo 버전: {{version}}",
+        "tabLabels": "탭 레이블 표시",
+        "systemTheme": "시스템 테마 사용",
+        "lightTheme": "밝은 테마 사용",
+        "fmp4Support": "HLS에서 fMP4 선호",
+        "minimumServerVersion": "서버 버전 10.7 이상 요구",
+        "nativeVideoPlayer": "네이티브 비디오 재생기 사용 [베타]"
     },
     "links": {
         "website": "Jellyfin 웹사이트",
@@ -66,5 +79,10 @@
             "description": "모든 설정을 재설정하시겠습니까?",
             "confirm": "재설정"
         }
+    },
+    "serverHelp": {
+        "learnMore": "자신만의 서버를 호스트하는 방법에 대해 자세히 알아보기",
+        "description": "젤리핀은 자원봉사자가 만든 미디어 솔루션입니다. 자신만의 미디어를 호스트하고 어디서나 액세스할 수 있습니다.\n\n\n이 클라이언트를 사용하려면 Jellyfin 서버를 직접 호스트해야 합니다.",
+        "heading": "Jellyfin이란?"
     }
 }
