@@ -44,7 +44,8 @@
         "version": "バージョン: {{version}}",
         "keepAwake": "画面を消灯しないでください",
         "rotationLock": "回転ロック",
-        "expoVersion": "Expoバージョン: {{version}}"
+        "expoVersion": "Expoバージョン: {{version}}",
+        "minimumServerVersion": "サーバーバージョン10.7以上が必要です"
     },
     "links": {
         "website": "Jellyfinウェブサイト",
