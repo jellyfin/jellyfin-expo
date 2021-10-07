@@ -82,7 +82,7 @@ export const getServerUrl = (server = {}) => {
 	return serverUrl;
 };
 
-export const validateServer = async(server = {}) => {
+export const validateServer = async (server = {}) => {
 	try {
 		// Does the server have a valid url?
 		getServerUrl(server);

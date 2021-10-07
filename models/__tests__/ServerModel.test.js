@@ -68,7 +68,7 @@ describe('ServerModel', () => {
 		expect(server.online).toBe(false);
 	});
 
-	it('should update the online status when fetchInfo fails', async() => {
+	it('should update the online status when fetchInfo fails', async () => {
 		const server = new ServerModel(
 			'testId',
 			Url.parse('https://foobar')
