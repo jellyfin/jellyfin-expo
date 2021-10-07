@@ -3,21 +3,21 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
+import { observer } from 'mobx-react';
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BackHandler, Platform, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { observer } from 'mobx-react';
 
-import { useStores } from '../hooks/useStores';
-import NativeShellWebView from '../components/NativeShellWebView';
 import ErrorView from '../components/ErrorView';
+import NativeShellWebView from '../components/NativeShellWebView';
+import VideoPlayer from '../components/VideoPlayer';
 import Colors from '../constants/Colors';
 import Screens from '../constants/Screens';
+import { useStores } from '../hooks/useStores';
 import { getIconName } from '../utils/Icons';
-import VideoPlayer from '../components/VideoPlayer';
 
 const HomeScreen = observer(() => {
 	const { rootStore } = useStores();

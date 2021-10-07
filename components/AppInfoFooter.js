@@ -3,11 +3,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import Constants from 'expo-constants';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { Text, ThemeContext } from 'react-native-elements';
-import Constants from 'expo-constants';
-import { useTranslation } from 'react-i18next';
 
 import { getAppName } from '../utils/Device';
 

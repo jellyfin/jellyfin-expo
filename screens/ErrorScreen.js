@@ -3,12 +3,12 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import { Platform, RefreshControl, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNavigation, useRoute } from '@react-navigation/native';
 
 import ErrorView from '../components/ErrorView';
 import Screens from '../constants/Screens';

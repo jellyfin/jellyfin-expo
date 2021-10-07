@@ -3,10 +3,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { ListItem } from 'react-native-elements';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Switch } from 'react-native';
+import { ListItem } from 'react-native-elements';
 
 const SwitchListItem = ({ item, index }) => (
 	<ListItem

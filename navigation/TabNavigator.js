@@ -3,19 +3,20 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useContext } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { observer } from 'mobx-react';
+import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ThemeContext } from 'react-native-elements';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useTranslation } from 'react-i18next';
 
-import { getIconName } from '../utils/Icons';
-import HomeNavigator from './HomeNavigator';
 import Screens from '../constants/Screens';
-import SettingsScreen from '../screens/SettingsScreen';
 import { useStores } from '../hooks/useStores';
+import SettingsScreen from '../screens/SettingsScreen';
+import { getIconName } from '../utils/Icons';
+
+import HomeNavigator from './HomeNavigator';
 
 function TabIcon(routeName, color, size) {
 	let iconName = null;

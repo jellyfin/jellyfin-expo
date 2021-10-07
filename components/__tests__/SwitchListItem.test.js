@@ -5,6 +5,7 @@
  */
 import { fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
+
 import SwitchListItem from '../SwitchListItem';
 
 describe('SwitchListItem', () => {

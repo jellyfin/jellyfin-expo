@@ -6,8 +6,8 @@
 import { fireEvent, render } from '@testing-library/react-native';
 import React from 'react';
 
-import BrowserListItem from '../BrowserListItem';
 import { openBrowser } from '../../utils/WebBrowser';
+import BrowserListItem from '../BrowserListItem';
 
 jest.mock('react-native-elements/src/icons/Icon', () => {
 	const mockComponent = require('react-native/jest/mockComponent');

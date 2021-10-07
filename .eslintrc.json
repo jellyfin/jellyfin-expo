@@ -43,7 +43,7 @@
         "react-native/no-color-literals": ["error"],
         "react-native/no-raw-text": ["error"],
 
-        "import/order": ["warn", {
+        "import/order": ["error", {
             "alphabetize": { "order": "asc", "caseInsensitive": true },
             "newlines-between": "always-and-inside-groups"
         }],

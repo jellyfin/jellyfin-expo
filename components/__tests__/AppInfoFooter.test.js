@@ -3,10 +3,10 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import * as Device from 'expo-device';
-import Constants from 'expo-constants';
-import React from 'react';
 import { render } from '@testing-library/react-native';
+import Constants from 'expo-constants';
+import * as Device from 'expo-device';
+import React from 'react';
 
 import AppInfoFooter from '../AppInfoFooter';
 import '../../i18n';
