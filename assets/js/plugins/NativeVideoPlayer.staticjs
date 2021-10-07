@@ -13,7 +13,7 @@ class NativeVideoPlayer {
 		this.priority = -1;
 		this.isLocalPlayer = true;
 
-		this.uri;
+		this.uri = null;
 		this.isPlaying = false;
 		this.positionMillis = 0;
 
