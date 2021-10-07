@@ -3,13 +3,13 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect, useRef, useState } from 'react';
-import { Alert } from 'react-native';
 import { Audio, Video } from 'expo-av';
 import { observer } from 'mobx-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { Alert } from 'react-native';
 
-import { useStores } from '../hooks/useStores';
 import MediaTypes from '../constants/MediaTypes';
+import { useStores } from '../hooks/useStores';
 import { msToTicks } from '../utils/Time';
 
 const VideoPlayer = observer(() => {

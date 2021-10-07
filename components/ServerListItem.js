@@ -3,11 +3,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { Button, Icon, ListItem, ThemeContext } from 'react-native-elements';
-import React, { useContext } from 'react';
-import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { StyleSheet, View } from 'react-native';
+import { Button, Icon, ListItem, ThemeContext } from 'react-native-elements';
 
 import { getIconName } from '../utils/Icons';
 

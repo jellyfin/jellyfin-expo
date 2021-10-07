@@ -3,15 +3,15 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { observer } from 'mobx-react';
-import { useNavigation } from '@react-navigation/native';
+import React, { useEffect } from 'react';
 
-import ErrorScreen from '../screens/ErrorScreen';
-import HomeScreen from '../screens/HomeScreen';
 import Screens from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
+import ErrorScreen from '../screens/ErrorScreen';
+import HomeScreen from '../screens/HomeScreen';
 
 const HomeStack = createStackNavigator();
 

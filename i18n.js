@@ -5,15 +5,15 @@
  */
 import * as Localization from 'expo-localization';
 import i18next from 'i18next';
-import { I18nManager } from 'react-native';
 import { initReactI18next } from 'react-i18next';
+import { I18nManager } from 'react-native';
 
-import en from './langs/en.json';
 import ar from './langs/ar.json';
 import bg from './langs/bg.json';
 import cs from './langs/cs.json';
 import da from './langs/da.json';
 import de from './langs/de.json';
+import en from './langs/en.json';
 import es from './langs/es.json';
 import es_419 from './langs/es_419.json';
 import es_AR from './langs/es_AR.json';

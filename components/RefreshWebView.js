@@ -3,11 +3,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
-import { WebView } from 'react-native-webview';
 import { Dimensions, RefreshControl, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import PropTypes from 'prop-types';
+import { WebView } from 'react-native-webview';
 
 const RefreshWebView = React.forwardRef(
 	function RefreshWebView({ isRefreshing, onRefresh, refreshControlProps, ...webViewProps }, ref) {
