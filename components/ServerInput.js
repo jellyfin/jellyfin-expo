@@ -98,7 +98,7 @@ const ServerInput = observer(React.forwardRef(
 					backgroundColor: theme.colors.searchBg
 				}}
 				leftIcon={{
-					name: getIconName('globe'),
+					name: getIconName('globe-outline'),
 					type: 'ionicon',
 					color: theme.colors.grey3
 				}}

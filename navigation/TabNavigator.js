@@ -23,7 +23,7 @@ function TabIcon(routeName, color, size) {
 	if (routeName === Screens.HomeTab) {
 		iconName = getIconName('tv');
 	} else if (routeName === Screens.SettingsTab) {
-		iconName = getIconName('cog');
+		iconName = getIconName('cog-outline');
 	}
 
 	return (
