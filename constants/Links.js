@@ -45,15 +45,6 @@ export default [
 		}
 	},
 	{
-		key: 'links-feature',
-		name: 'links.feature',
-		url: 'https://features.jellyfin.org/',
-		icon: {
-			name: getIconName('create'),
-			type: 'ionicon'
-		}
-	},
-	{
 		key: 'links-issue',
 		name: 'links.issue',
 		url: 'https://github.com/jellyfin/jellyfin-expo/issues',
