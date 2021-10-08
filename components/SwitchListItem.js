@@ -5,8 +5,8 @@
  */
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Switch } from 'react-native';
-import { ListItem } from 'react-native-elements';
+import { Switch, View } from 'react-native';
+import { Badge, ListItem } from 'react-native-elements';
 
 const SwitchListItem = ({ item, index }) => (
 	<ListItem
@@ -15,11 +15,21 @@ const SwitchListItem = ({ item, index }) => (
 		bottomDivider
 	>
 		<ListItem.Content>
-			<ListItem.Title
-				testID='title'
-			>
-				{item.title}
-			</ListItem.Title>
+			<View style={{ flexDirection: 'row' }}>
+				<ListItem.Title
+					testID='title'
+				>
+					{item.title}
+				</ListItem.Title>
+				{(
+					item.badge &&
+					<Badge
+						value={item.badge.value}
+						status={item.badge.status}
+						containerStyle={{ marginStart: 8 }}
+					/>
+				)}
+			</View>
 			{(
 				item.subtitle &&
 				<ListItem.Subtitle
