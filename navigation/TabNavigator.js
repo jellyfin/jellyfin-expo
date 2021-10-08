@@ -45,6 +45,7 @@ const TabNavigator = observer(() => {
 	return (
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
+				headerShown: false,
 				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
 			})}
 			tabBarOptions={{
