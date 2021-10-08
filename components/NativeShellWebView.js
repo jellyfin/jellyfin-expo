@@ -154,6 +154,8 @@ true;
 				mediaPlaybackRequiresUserAction={false}
 				// Use WKWebView on iOS
 				useWebKit={true}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
 			/>
 		);
 	}
