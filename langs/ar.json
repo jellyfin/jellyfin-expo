@@ -61,7 +61,7 @@
     "alerts": {
         "deleteServer": {
             "title": "حذف السيرفر",
-            "description": "هل انت متأكد انك تريد حذف السيرفر{{serverName}}؟",
+            "description": "هل انت متأكد انك تريد حذف السيرفر {{serverName}}؟",
             "confirm": "حذف"
         },
         "resetApplication": {
