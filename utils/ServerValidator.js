@@ -3,24 +3,21 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-/* globals AbortController */
-import Url from 'url';
+/* globals AbortController, URL */
+
+import normalizeUrl from 'normalize-url';
 
 const TIMEOUT_DURATION = 5000; // timeout request after 5s
 
 export const parseUrl = (host = '', port = '') => {
-	if (!host) {
+	if (!host?.trim()) {
 		throw new Error('host cannot be blank');
 	}
 
-	// Default the protocol to http if not present
-	// Setting the protocol on the parsed url does not update the href
-	if (!host.startsWith('http://') && !host.startsWith('https://')) {
-		host = `http://${host}`;
-	}
+	host = normalizeUrl(host, { stripWWW: false });
 
 	// Parse the host as a url
-	const url = Url.parse(host);
+	const url = new URL(host);
 
 	if (!url.hostname) {
 		throw new Error(`Could not parse hostname for ${host}`);
