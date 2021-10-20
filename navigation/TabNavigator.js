@@ -21,9 +21,9 @@ import HomeNavigator from './HomeNavigator';
 function TabIcon(routeName, color, size) {
 	let iconName = null;
 	if (routeName === Screens.HomeTab) {
-		iconName = getIconName('tv');
+		iconName = getIconName('tv-outline');
 	} else if (routeName === Screens.SettingsTab) {
-		iconName = getIconName('cog');
+		iconName = getIconName('cog-outline');
 	}
 
 	return (

@@ -13,7 +13,7 @@ export default [
 		name: 'links.website',
 		url: 'https://jellyfin.org/',
 		icon: {
-			name: getIconName('globe'),
+			name: getIconName('globe-outline'),
 			type: 'ionicon'
 		}
 	},

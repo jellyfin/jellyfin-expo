@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
 		marginBottom: 2
 	},
 	leftElement: {
-		width: 12
+		width: 24
 	}
 });
 
