@@ -56,7 +56,7 @@
     "expo-web-browser": "~9.2.0",
     "i18next": "^21.2.4",
     "mobx": "^5.15.4",
-    "mobx-react": "^6.2.2",
+    "mobx-react-lite": "^2.2.2",
     "mobx-sync": "^3.0.0",
     "mobx-task": "^2.0.1",
     "normalize-url": "^7.0.2",

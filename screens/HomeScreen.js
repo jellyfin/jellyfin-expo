@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { BackHandler, Platform, StyleSheet, View } from 'react-native';

@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { createStackNavigator } from '@react-navigation/stack';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 
 import Screens from '../constants/Screens';

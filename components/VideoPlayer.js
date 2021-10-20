@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { Audio, Video } from 'expo-av';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 
