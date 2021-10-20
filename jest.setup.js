@@ -5,7 +5,7 @@
  */
 
 import { enableFetchMocks } from 'jest-fetch-mock';
-import AbortController from 'node-abort-controller';
+import { AbortController } from 'node-abort-controller';
 
 global.AbortController = AbortController;
 
