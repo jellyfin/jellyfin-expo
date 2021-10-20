@@ -33,7 +33,7 @@ export default class ServerStore {
 
 decorate(ServerStore, {
 	servers: [
-		format(data => data.map(value => new ServerModel(value.id, value.url, value.info))),
+		format(data => data.map(value => new ServerModel(value.id, new URL(value.url), value.info))),
 		observable
 	],
 	addServer: action,
