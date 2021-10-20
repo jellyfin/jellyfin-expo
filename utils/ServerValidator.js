@@ -13,14 +13,11 @@ export const parseUrl = (host = '', port = '') => {
 		throw new Error('host cannot be blank');
 	}
 
+	// Normalize the entered url
 	host = normalizeUrl(host, { stripWWW: false });
 
 	// Parse the host as a url
 	const url = new URL(host);
-
-	if (!url.hostname) {
-		throw new Error(`Could not parse hostname for ${host}`);
-	}
 
 	// Override the port if provided
 	if (port) {
