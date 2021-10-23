@@ -1,14 +1,16 @@
 {
     "common": {
         "cancel": "الغاء",
-        "unknown": "مجهول"
+        "unknown": "مجهول",
+        "ok": "حسنا"
     },
     "headings": {
         "addServer": "اضافة سيرفر",
         "home": "الصفحة الرئيسية",
         "links": "رابط",
         "servers": "سيرفرات",
-        "settings": "الإعدادات"
+        "settings": "الإعدادات",
+        "appearance": "المظهر"
     },
     "addServer": {
         "address": "عنوان السيرفر",
@@ -49,14 +51,17 @@
         "version": "الإصدار: {{version}}",
         "keepAwake": "ابقاء الشاشة شغالة",
         "rotationLock": "قفل دوران الشاشة",
-        "expoVersion": "إصدار المعرض: {{version}}"
+        "expoVersion": "إصدار المعرض: {{version}}",
+        "systemTheme": "استخدم حلة النظام",
+        "lightTheme": "استخدم الحلة الفاتحة"
     },
     "links": {
         "website": "موقع Jellyfin",
         "documentation": "توثيق",
         "source": "مصدر الرمز (Source Code)",
         "feature": "طلب خاصية",
-        "issue": "التبليغ عن مشكلة"
+        "issue": "التبليغ عن مشكلة",
+        "translate": "الترجمة"
     },
     "alerts": {
         "deleteServer": {
@@ -69,5 +74,8 @@
             "description": "هل انت متأكد انك تريد إعادة تعيين إعدادات التطبيق ؟",
             "confirm": "إعادة تعيين إعدادات التطبيق"
         }
+    },
+    "serverHelp": {
+        "heading": "ما هو Jellyfin؟"
     }
 }
