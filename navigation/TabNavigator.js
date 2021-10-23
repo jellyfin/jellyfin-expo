@@ -39,19 +39,25 @@ const TabNavigator = observer(() => {
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 
+	const tabBarStyle = {};
+	// Hide the bottom tab bar when in fullscreen view
+	if (rootStore.isFullscreen) {
+		tabBarStyle.display = 'none';
+	}
 	// Use a smaller height for the tab bar when labels are disabled
-	const tabBarStyle = !rootStore.settingStore.isTabLabelsEnabled ? { height: insets.bottom + 28 } : {};
+	if (!rootStore.settingStore.isTabLabelsEnabled) {
+		tabBarStyle.height = insets.bottom + 28;
+	}
 
 	return (
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
-				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size)
+				headerShown: false,
+				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size),
+				tabBarInactiveTintColor: theme.colors.grey1,
+				tabBarShowLabel: rootStore.settingStore.isTabLabelsEnabled,
+				tabBarStyle
 			})}
-			tabBarOptions={{
-				inactiveTintColor: theme.colors.grey1,
-				showLabel: rootStore.settingStore.isTabLabelsEnabled,
-				style: tabBarStyle
-			}}
 		>
 			<Tab.Screen
 				name={Screens.HomeTab}

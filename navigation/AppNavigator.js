@@ -28,8 +28,10 @@ const AppNavigator = observer(() => {
 	return (
 		<AppStack.Navigator
 			initialRouteName={(rootStore.serverStore.servers?.length > 0) ? Screens.MainScreen : Screens.AddServerScreen}
-			headerMode='screen'
-			screenOptions={{ headerShown: false }}
+			screenOptions={{
+				headerMode: 'screen',
+				headerShown: false
+			}}
 		>
 			<AppStack.Screen
 				name={Screens.MainScreen}

@@ -33,7 +33,7 @@ const HomeScreen = observer(() => {
 
 	useEffect(() => {
 		// Pressing the Home tab when it is already active navigates to home screen in webview
-		navigation.dangerouslyGetParent()?.addListener('tabPress', e => {
+		navigation.getParent()?.addListener('tabPress', e => {
 			if (navigation.isFocused()) {
 				// Prevent default behavior
 				e.preventDefault();
