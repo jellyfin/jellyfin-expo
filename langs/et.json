@@ -1,86 +1,86 @@
 {
     "common": {
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "cancel": "Tühista",
+        "ok": "OK",
+        "unknown": "Teadmata"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Lisa server",
+        "appearance": "Välimus",
+        "home": "Kodu",
+        "links": "Lingid",
+        "playback": "Taasesitus",
+        "servers": "Serverid",
+        "settings": "Seaded"
     },
     "addServer": {
-        "address": "",
+        "address": "Serveri aadress",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) ei või olla tühi",
+            "invalid": "$t(addServer.address) on vigane",
+            "invalidProduct": "Pole Jellyfini server",
+            "noConnection": "Serveriga ei saadud ühendust"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Jellyfini serveriga ei saa ühendust. Selle põhjuseks on tavaliselt puhverserveri konfiguratsiooniviga või Jellyfin on võrguühenduseta."
             },
             "504": {
-                "description": ""
+                "description": "Jellyfini serveriga ei saa ühendust. Selle põhjuseks on tavaliselt see, et puhverserver aegus Jellyfiniga ühenduse loomisel."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Midagi läks valesti!",
+                "description": "Jellyfini server andis vea."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Server on kehtetu",
+                "description": "Midagi on juhtunud ja salvestatud serveri info on kehtetu. Proovi server seadetest eemaldada ja lisa see uuesti."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Server võrguühenduseta?",
+                "description": "Jellyfini serveriga ühenduse võtmisel tekkis viga."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Veakood: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Kas proovida uuesti?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Mis on Jellyfin?",
+        "description": "Jellyfin on vabatahtlike loodud meedialahendus. See võimaldab hallata oma meediat ja pääseda sellele kõikjalt juurde.\n\n\nSelle kliendi kasutamiseks pead oma Jellyfini serverit.",
+        "learnMore": "Lisateave oma serveri haldamise kohta"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Versioon: {{version}}",
+        "keepAwake": "Hoia ekraan ärkvel",
+        "nativeVideoPlayer": "Kasutage sisseehitatud videomängijat [BETA]",
+        "minimumServerVersion": "Nõuab serveri versiooni 10.7+",
+        "fmp4Support": "Eelista HLS puhul fMP4",
+        "lightTheme": "Kasuta heledat teemat",
+        "systemTheme": "Kasuta süsteemi teemat",
+        "rotationLock": "Pööramine keelatud",
+        "tabLabels": "Kuva vahekaardi sildid",
+        "expoVersion": "Expo versioon: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Jellyfini veebisait",
+        "documentation": "Dokumentatsioon",
+        "source": "Lähtekood",
+        "translate": "Tõlgi",
+        "issue": "Teata probleemist"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Kustuta server",
+            "description": "Kas olete kindel, et soovid serveri {{serverName}} kustutada?",
+            "confirm": "Kustuta"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Lähtesta rakendus",
+            "description": "Kas olete kindel, et soovid kõik seaded lähtestada?",
+            "confirm": "Lähtesta"
         }
     }
 }
