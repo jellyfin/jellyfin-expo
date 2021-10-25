@@ -3,13 +3,14 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import compareVersions from 'compare-versions';
 import { action } from 'mobx';
 import { observer } from 'mobx-react';
 import React, { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Alert, AsyncStorage, Platform, SectionList, StyleSheet, View } from 'react-native';
+import { Alert, Platform, SectionList, StyleSheet, View } from 'react-native';
 import { Text, ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 

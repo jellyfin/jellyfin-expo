@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
@@ -14,7 +15,6 @@ import { observer } from 'mobx-react';
 import { AsyncTrunk } from 'mobx-sync';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
-import { AsyncStorage } from 'react-native';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
 import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
