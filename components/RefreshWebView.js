@@ -25,6 +25,8 @@ const RefreshWebView = React.forwardRef(
 						{...refreshControlProps}
 					/>
 				}
+				showsVerticalScrollIndicator={false}
+				showsHorizontalScrollIndicator={false}
 				style={styles.view}>
 				<WebView
 					ref={ref}
