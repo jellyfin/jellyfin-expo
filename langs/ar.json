@@ -5,41 +5,41 @@
         "ok": "حسنا"
     },
     "headings": {
-        "addServer": "اضافة سيرفر",
+        "addServer": "اضافة خادم",
         "home": "الصفحة الرئيسية",
         "links": "رابط",
-        "servers": "سيرفرات",
+        "servers": "خوادم",
         "settings": "الإعدادات",
         "appearance": "المظهر"
     },
     "addServer": {
-        "address": "عنوان السيرفر",
+        "address": "عنوان الخادم",
         "validation": {
             "empty": "$t(addServer.address) لا يمكن ان يكون فاضي",
-            "invalid": "$t(addServer.address)عنوان السيرفر غير صحيح",
-            "invalidProduct": "ليست سيرفر جيلي فن",
-            "noConnection": "لم نتمكن من الوصول الى السيرفر"
+            "invalid": "$t(addServer.address)عنوان الخادم غير صحيح",
+            "invalidProduct": "ليست خادم Jellyfin",
+            "noConnection": "لم نتمكن من الوصول الى الخادم"
         }
     },
     "home": {
         "errors": {
             "offline": {
-                "description": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
-                "heading": "السيرفر غير متصل؟"
+                "description": "لم نتمكن من الوصول الى خادم Jellyfin.",
+                "heading": "الخادم غير متصل؟"
             },
             "invalidServer": {
-                "description": "فيه شي حصل وحفظ معلومات سيرفر غير صحيحه .جرب تزيل السيرفر من الاعدادات وتضيفه من جديد.",
-                "heading": "السيرفر غير صحيح"
+                "description": "فيه شي حصل وحفظ معلومات خادم غير صحيحه .جرب تزيل الخادم من الاعدادات وتضيفه من جديد.",
+                "heading": "الخادم غير صحيح"
             },
             "http": {
-                "description": "عرض سيرفر جيليفن خطأ.",
+                "description": "عرض خادم Jellyfin خطأ.",
                 "heading": "فيه شي غلط!"
             },
             "504": {
-                "description": "غير قادر للوصول الى سيرفر جيليفن بسبب انتهاء الوقت المحدد للاتصال بالسيرفر."
+                "description": "غير قادر للوصول الى خادم Jellyfin بسبب انتهاء الوقت المحدد للاتصال بالخادم."
             },
             "502": {
-                "description": "غير قادر للوصول الى سيرفر جيليفن عادةً هذا يحصل بسبب اعدادات البروكسي غير صحيحه او جيلفين نفسه غير متصل."
+                "description": "غير قادر للوصول الى خادم Jellyfin عادةً هذا يحصل بسبب اعدادات البروكسي غير صحيحه او Jellyfin نفسه غير متصل."
             }
         },
         "offline": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
@@ -65,8 +65,8 @@
     },
     "alerts": {
         "deleteServer": {
-            "title": "حذف السيرفر",
-            "description": "هل انت متأكد انك تريد حذف السيرفر {{serverName}}؟",
+            "title": "حذف الخادم",
+            "description": "هل انت متأكد انك تريد حذف الخادم {{serverName}}؟",
             "confirm": "حذف"
         },
         "resetApplication": {
