@@ -1,5 +1,6 @@
 {
   "common": {
+    "beta": "BETA",
     "cancel": "Cancel",
     "ok": "OK",
     "unknown": "Unknown"
@@ -55,7 +56,7 @@
   "settings": {
     "version": "Version: {{version}}",
     "keepAwake": "Keep Screen Awake",
-    "nativeVideoPlayer": "Use Native Video Player [BETA]",
+    "nativeVideoPlayer": "Use Native Video Player",
     "minimumServerVersion": "Requires Server Version 10.7+",
     "fmp4Support": "Prefer fMP4 in HLS",
     "lightTheme": "Use Light Theme",

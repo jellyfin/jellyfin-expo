@@ -128,6 +128,9 @@ const SettingsScreen = observer(() => {
 			playbackSettingsData.push({
 				key: 'native-video-switch',
 				title: t('settings.nativeVideoPlayer'),
+				badge: {
+					value: t('common.beta')
+				},
 				subtitle: t('settings.minimumServerVersion'),
 				value: rootStore.settingStore.isNativeVideoPlayerEnabled,
 				onValueChange: action(value => {
