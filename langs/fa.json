@@ -51,7 +51,7 @@
         "version": "نسخه : {{version}}",
         "keepAwake": "صفحه را روشن نگه دار",
         "rotationLock": "قفل چرخش صفحه",
-        "expoVersion": "{{نسخه}}نسخهExpo:",
+        "expoVersion": "نسخه Expo: {{version}}",
         "tabLabels": "نمایش برچسب های Tab",
         "systemTheme": "از تم سیستم استفاده کنید",
         "lightTheme": "از تم روشن استفاده کنید",
