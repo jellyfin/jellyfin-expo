@@ -1,86 +1,86 @@
 {
     "common": {
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "cancel": "Rezignu",
+        "ok": "Ek",
+        "unknown": "Nekonata"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Aldoni Servilon",
+        "appearance": "Apero",
+        "home": "Hejmo",
+        "links": "Ligiloj",
+        "playback": "Ludado",
+        "servers": "Serviloj",
+        "settings": "Parametroj"
     },
     "addServer": {
-        "address": "",
+        "address": "Servila Adreso",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) ne povas esti malplena",
+            "invalid": "$t(addServer.address) estas nevalida",
+            "invalidProduct": "Ne Jellyfin-servilo",
+            "noConnection": "Ne eblis konekti al servilo"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Ne eblas atingi la Jellyfin-servilon. Ĉi tio kutime estas pro eraro pri prokura agordaro aŭ Jellyfin estas eksterrete."
             },
             "504": {
-                "description": ""
+                "description": "Ne eblas atingi la Jellyfin-servilon. Ĉi tio kutime estas ĉar la prokurilo elĉerpiĝis dum konekto al Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Io misfunkciis!",
+                "description": "La Jellyfin-servilo resendis eraron."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Servilo estas nevalida",
+                "description": "Io okazis kaj la savita servila informo estas nevalida. Provi forigi la servilon de Parametroj kaj aldoni ĝin denove."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Ĉu la servilo eksterrete?",
+                "description": "Eraro kontaktante Jellyfin-servilon."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Erara kodo: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Ĉu provi denove?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Kio estas Jellyfin?",
+        "description": "Jellyfin estas la volontul-konstruita plurmedia solvo. Ĝi permesas vin gastigi viajn proprajn plurmediojn kaj aliri ĝin de ie ajn.\n\n\nPor uzi ĉi tiun klienton, vi devas gastigi vian propran Jellyfin-servilon.",
+        "learnMore": "Lerni pli pri kiel gastigi vian propran servilon"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Versio: {{version}}",
+        "keepAwake": "Konservu Ekranon Veka",
+        "nativeVideoPlayer": "Uzi Operaciuman Videoludilon [BETA]",
+        "minimumServerVersion": "Postulas Servilan Version 10.7+",
+        "fmp4Support": "Preferi fMP4 en HLS",
+        "lightTheme": "Uzi Luman Temon",
+        "systemTheme": "Uzi Sisteman Temon",
+        "rotationLock": "Turnoŝlosigo",
+        "tabLabels": "Montri Tab Etikedojn",
+        "expoVersion": "Versio de Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Jellyfin Retejo",
+        "documentation": "Dokumentado",
+        "source": "Fonto de Kodo",
+        "translate": "Traduki",
+        "issue": "Raporti Problemon"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Forigi Servilon",
+            "description": "Ĉu vi certas, ke vi volas forigi la servilon {{serverName}}?",
+            "confirm": "Forigu"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Restarigi Aplikaĵon",
+            "description": "Ĉu vi certas, ke vi volas restarigi ĉiujn parametrojn?",
+            "confirm": "Restarigu"
         }
     }
 }
