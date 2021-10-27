@@ -27,12 +27,11 @@ const NativeShellWebView = observer(React.forwardRef(
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
 		const isPluginSupported = !!server.info?.Version && compareVersions.compare(server.info.Version, '10.7', '>=');
 
-		// FIXME: Constants.deviceId has been deprecated. We need to generate a unique id instead.
 		const injectedJavaScript = `
 window.ExpoAppInfo = {
 	appName: '${getAppName()}',
 	appVersion: '${Constants.nativeAppVersion}',
-	deviceId: '${Constants.deviceId}',
+	deviceId: '${rootStore.deviceId}',
 	deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
 };
 
