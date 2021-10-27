@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Zrušit",
         "unknown": "Neznámý",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Přidat server",
@@ -57,7 +58,7 @@
         "lightTheme": "Použít světlé téma",
         "systemTheme": "Použít systémový vzhled",
         "minimumServerVersion": "Vyžaduje server verze 10.7 a novější",
-        "nativeVideoPlayer": "Použít nativní přehrávač videa [BETA]",
+        "nativeVideoPlayer": "Použít nativní přehrávač videa",
         "fmp4Support": "Upřednostňovat fMP4 v HLS"
     },
     "links": {
