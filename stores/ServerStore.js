@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { action, decorate, observable } from 'mobx';
-import { format } from 'mobx-sync';
+import { format } from 'mobx-sync-lite';
 import { task } from 'mobx-task';
 
 import ServerModel from '../models/ServerModel';

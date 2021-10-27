@@ -16,7 +16,7 @@ import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import { StatusBar } from 'expo-status-bar';
 import { observer } from 'mobx-react-lite';
-import { AsyncTrunk } from 'mobx-sync';
+import { AsyncTrunk } from 'mobx-sync-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
 import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
