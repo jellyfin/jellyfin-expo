@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Boldyrmau",
         "unknown": "Belgısız",
-        "ok": "Jaraidy"
+        "ok": "Jaraidy",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Serverdı üsteu",
@@ -56,7 +57,7 @@
         "lightTheme": "Aqşyl taqyrypty paidalanu",
         "systemTheme": "Jüielik taqyrypty paidalanu",
         "minimumServerVersion": "Serverdıñ 10.7+ nūsqasyn qajet etedı",
-        "nativeVideoPlayer": "Negızgı beine oinatqyşty paidalanu [BETA]",
+        "nativeVideoPlayer": "Negızgı beine oinatqyşty paidalanu",
         "fmp4Support": "HLS ışınde fMP4 üşın qalau"
     },
     "links": {
