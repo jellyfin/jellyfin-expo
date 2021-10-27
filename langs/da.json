@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Annuller",
         "unknown": "Ukendt",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Tilføj server",
@@ -58,7 +59,7 @@
         "systemTheme": "Skift til standard tema",
         "fmp4Support": "Foretræk fMP4 i HLS",
         "minimumServerVersion": "Kræver Server Version 10.7+",
-        "nativeVideoPlayer": "Brug Indbygget Video Afspiller [BETA]"
+        "nativeVideoPlayer": "Brug den indbyggede video afspiller [BETA]"
     },
     "links": {
         "website": "Jellyfin websted",
