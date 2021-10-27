@@ -33,7 +33,12 @@ export default class ServerStore {
 
 decorate(ServerStore, {
 	servers: [
-		format(data => data.map(value => new ServerModel(value.id, new URL(value.url), value.info))),
+		format(data => data.map(value => {
+			// Migrate from old url format
+			// TODO: Remove migration in next minor release
+			const url = value.url.href || value.url;
+			return new ServerModel(value.id, new URL(url), value.info);
+		})),
 		observable
 	],
 	addServer: action,
