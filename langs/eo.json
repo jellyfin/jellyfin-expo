@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Rezignu",
         "ok": "Ek",
-        "unknown": "Nekonata"
+        "unknown": "Nekonata",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Aldoni Servilon",
@@ -55,7 +56,7 @@
     "settings": {
         "version": "Versio: {{version}}",
         "keepAwake": "Konservu Ekranon Veka",
-        "nativeVideoPlayer": "Uzi Operaciuman Videoludilon [BETA]",
+        "nativeVideoPlayer": "Uzi Operaciuman Videoludilon",
         "minimumServerVersion": "Postulas Servilan Version 10.7+",
         "fmp4Support": "Preferi fMP4 en HLS",
         "lightTheme": "Uzi Luman Temon",
@@ -66,7 +67,7 @@
     },
     "links": {
         "website": "Jellyfin Retejo",
-        "documentation": "Dokumentado",
+        "documentation": "Dokumentaro",
         "source": "Fonto de Kodo",
         "translate": "Traduki",
         "issue": "Raporti Problemon"
