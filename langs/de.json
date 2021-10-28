@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Abbrechen",
         "unknown": "Unbekannt",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Server hinzufügen",
@@ -57,7 +58,7 @@
         "lightTheme": "Helles Design verwenden",
         "systemTheme": "Benutze Systemdesign",
         "minimumServerVersion": "Benötigt Serverversion 10.7+",
-        "nativeVideoPlayer": "Verwenden einen nativen Video Player [BETA]",
+        "nativeVideoPlayer": "Nativen Video-Player verwenden",
         "fmp4Support": "Bevorzugen Sie fMP4 in HLS"
     },
     "links": {
