@@ -58,7 +58,7 @@
         "lightTheme": "Usar tema Light",
         "fmp4Support": "Prefira fMP4 em HLS",
         "minimumServerVersion": "Requer uma versão 10.7+ do servidor",
-        "nativeVideoPlayer": "Usar player nativo [BETA]"
+        "nativeVideoPlayer": "Usar player nativo"
     },
     "links": {
         "website": "Site do Jellyfin",
