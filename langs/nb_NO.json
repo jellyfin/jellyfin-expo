@@ -58,7 +58,7 @@
         "systemTheme": "Bruk systemdrakt",
         "minimumServerVersion": "Krever Tjener Versjon 10.7+",
         "fmp4Support": "Foretrekk fMP4 i HLS",
-        "nativeVideoPlayer": "Bruk innebygget videospiller [BETA]"
+        "nativeVideoPlayer": "Bruk innebygget videospiller"
     },
     "links": {
         "website": "Nettside",
