@@ -57,7 +57,7 @@
         "lightTheme": "Usar Tema Ligero",
         "systemTheme": "Usar tema del sistema",
         "minimumServerVersion": "Requiere la versión de Servidor 10.7+",
-        "nativeVideoPlayer": "Utilizar el Reproductor de Vídeo Nativo [Beta]",
+        "nativeVideoPlayer": "Utilizar el Reproductor de Vídeo Nativo",
         "fmp4Support": "Preferir fMP4 en HLS"
     },
     "links": {
