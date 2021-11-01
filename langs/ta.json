@@ -56,7 +56,7 @@
         "lightTheme": "ஒளி பயன்முறைக்கு மாறவும்",
         "systemTheme": "கணினி தீம் பயன்படுத்தவும்",
         "minimumServerVersion": "சேவையக பதிப்பு 10.7+ தேவை",
-        "nativeVideoPlayer": "நேட்டிவ் வீடியோ பிளேயரைப் பயன்படுத்தவும் [BETA]",
+        "nativeVideoPlayer": "நேட்டிவ் வீடியோ பிளேயரைப் பயன்படுத்தவும்",
         "fmp4Support": "HLS இல் fMP4 ஐ விரும்புங்கள்"
     },
     "links": {
