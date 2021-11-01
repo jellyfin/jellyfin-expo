@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Annulla",
         "unknown": "Sconosciuto",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Aggiungi server",
@@ -57,7 +58,7 @@
         "systemTheme": "Utilizza tema di sistema",
         "lightTheme": "Usa il tema chiaro",
         "minimumServerVersion": "Richiede server con versione 10.7+",
-        "nativeVideoPlayer": "Utilizza il video player nativo [BETA]",
+        "nativeVideoPlayer": "Utilizza il video player nativo",
         "fmp4Support": "Preferisci fMP4 in HLS"
     },
     "links": {
