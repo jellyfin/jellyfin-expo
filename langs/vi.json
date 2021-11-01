@@ -55,7 +55,7 @@
     "settings": {
         "version": "Phiên bản: {{version}}",
         "keepAwake": "Giữ Màn Hình Tỉnh Táo",
-        "nativeVideoPlayer": "Sử Dụng Trình Phát Video Gốc [BETA]",
+        "nativeVideoPlayer": "Sử Dụng Trình Phát Video Gốc",
         "minimumServerVersion": "Yêu Cầu Phiên Bản Máy Chủ 10.7+",
         "fmp4Support": "",
         "lightTheme": "",
