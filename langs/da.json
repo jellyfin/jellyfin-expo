@@ -59,7 +59,7 @@
         "systemTheme": "Skift til standard tema",
         "fmp4Support": "Foretræk fMP4 i HLS",
         "minimumServerVersion": "Kræver Server Version 10.7+",
-        "nativeVideoPlayer": "Brug den indbyggede video afspiller [BETA]"
+        "nativeVideoPlayer": "Brug den indbyggede video afspiller"
     },
     "links": {
         "website": "Jellyfin websted",
