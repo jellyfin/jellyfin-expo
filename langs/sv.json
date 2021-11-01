@@ -58,7 +58,7 @@
         "systemTheme": "Andvänd systemtema",
         "lightTheme": "Använd ljust tema",
         "fmp4Support": "Föredra fMP4 i HLS",
-        "nativeVideoPlayer": "Använd inbyggd videospelare [BETA]"
+        "nativeVideoPlayer": "Använd inbyggd videospelare"
     },
     "links": {
         "website": "Jellyfins Hemsida",
