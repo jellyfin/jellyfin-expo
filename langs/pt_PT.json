@@ -1,87 +1,87 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Cancelar",
+        "ok": "OK",
+        "unknown": "Desconhecido"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Adicionar Servidor",
+        "appearance": "Aparência",
+        "home": "Início",
+        "links": "Links",
+        "playback": "Reprodução",
+        "servers": "Servidores",
+        "settings": "Definições"
     },
     "addServer": {
-        "address": "",
+        "address": "Endereço do Servidor",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) não pode estar vazio",
+            "invalid": "$t(addServer.address) é inválido",
+            "invalidProduct": "Não é servidor de Jellyfin",
+            "noConnection": "Não foi possível conectar ao servidor"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Não foi possível conectar ao servidor Jellyfin. Isto normalmente ocorre devido a erros na configuração de proxy, ou o Jellyfin está offline."
             },
             "504": {
-                "description": ""
+                "description": "Não foi possível conectar ao servidor Jellyfin. Isto normalmente ocorre porque o proxy expirou durante a conexão com o Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Algo correu mal!",
+                "description": "O servidor Jellyfin devolveu um erro."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Servidor inválido",
+                "description": "Ocorreu algo e a informação guardada do servidor é inválida. Tente remover o servidor nas definições e voltar a adicioná-lo."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Servidor offline?",
+                "description": "Erro ao conectar ao servidor Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Código de erro: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Tentar novamente?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "O que é o Jellyfin?",
+        "description": "O Jellyfin é uma solução de multimédia criada por voluntários. Permite-lhe hospedar o sua próprio conteúdo e acedê-lo em qualquer lugar.\n\n\nPara usar este cliente, necessita de hospedar seu próprio servidor Jellyfin.",
+        "learnMore": "Saiba mais sobre como hospedar seu próprio servidor"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Versão: {{version}}",
+        "keepAwake": "Manter o ecrã ligado",
+        "nativeVideoPlayer": "Usar reprodutor nativo",
+        "minimumServerVersion": "Requer uma versão de servidor 10.7+",
+        "fmp4Support": "Preferir fMP4 em HLS",
+        "lightTheme": "Usar tema claro",
+        "systemTheme": "Usar tema de sistema",
+        "rotationLock": "Bloquear rotação",
+        "tabLabels": "Mostrar rótulos de guia",
+        "expoVersion": "Versão Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Site do Jellyfin",
+        "documentation": "Documentação",
+        "source": "Código Fonte",
+        "translate": "Traduzir",
+        "issue": "Relatar um problema"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Apagar servidor",
+            "description": "Tem a certeza que deseja apagar o servidor {{serverName}}?",
+            "confirm": "Apagar"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Restablecer a aplicação",
+            "description": "Tem a certeza que deseja restaurar todas as definições?",
+            "confirm": "Restaurar"
         }
     }
 }
