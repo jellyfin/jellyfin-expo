@@ -55,7 +55,7 @@
     "settings": {
         "version": "Versioon: {{version}}",
         "keepAwake": "Hoia ekraan ärkvel",
-        "nativeVideoPlayer": "Kasutage sisseehitatud videomängijat [BETA]",
+        "nativeVideoPlayer": "Kasutage sisseehitatud videomängijat",
         "minimumServerVersion": "Nõuab serveri versiooni 10.7+",
         "fmp4Support": "Eelista HLS puhul fMP4",
         "lightTheme": "Kasuta heledat teemat",
