@@ -57,7 +57,7 @@
         "lightTheme": "使用浅色主题",
         "systemTheme": "使用系统主题",
         "minimumServerVersion": "需要服务器版本10.7以上",
-        "nativeVideoPlayer": "使用原生视频播放器 [测试版]",
+        "nativeVideoPlayer": "使用原生视频播放器",
         "fmp4Support": "优先在 HLS 中使用 fMP4"
     },
     "links": {
