@@ -47,7 +47,7 @@
     "settings": {
         "version": "Верзија: {{version}}",
         "keepAwake": "Нека екран остане укључен",
-        "nativeVideoPlayer": "Користите изворни видео плејер [БЕТА]",
+        "nativeVideoPlayer": "Користите изворни видео плејер",
         "minimumServerVersion": "Захтева верзију сервера 10.7+",
         "lightTheme": "Користи светлу тему",
         "systemTheme": "Користи системску тему",
