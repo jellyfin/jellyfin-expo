@@ -9,7 +9,7 @@
         "systemTheme": "Usar el tema del sistema",
         "fmp4Support": "Preferir fMP4 en HLS",
         "minimumServerVersion": "Requiere que la versión del servidor sea 10.7+",
-        "nativeVideoPlayer": "Usa el reproductor de video nativo [BETA]"
+        "nativeVideoPlayer": "Usa el reproductor de video nativo"
     },
     "home": {
         "errors": {
