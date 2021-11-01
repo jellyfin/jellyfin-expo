@@ -58,7 +58,7 @@
         "lightTheme": "Uporabi svetlo temo",
         "fmp4Support": "Prioritiziraj fMP4 v HLS",
         "minimumServerVersion": "Zahteva različico strežnika 10.7+",
-        "nativeVideoPlayer": "Uporabi vgrajeni video predvajalnik [BETA]"
+        "nativeVideoPlayer": "Uporabi vgrajeni video predvajalnik"
     },
     "links": {
         "website": "Jellyfin spletna stran",
