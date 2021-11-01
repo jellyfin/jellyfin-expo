@@ -54,7 +54,7 @@
         "systemTheme": "Folosește tema sistemului",
         "lightTheme": "Folosește tema luminoasă",
         "minimumServerVersion": "Necesită versiunea de server 10.7+",
-        "nativeVideoPlayer": "Utilizează redarea video nativă [BETA]"
+        "nativeVideoPlayer": "Utilizează redarea video nativă"
     },
     "links": {
         "website": "Site-ul Jellyfin",
