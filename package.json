@@ -92,7 +92,7 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-native": "^3.10.0",
-    "expo-cli": "^4.12.1",
+    "expo-cli": "^4.12.11",
     "jest-expo": "^42.0.0",
     "jest-fetch-mock": "^3.0.3",
     "node-abort-controller": "^3.0.1",
