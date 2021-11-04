@@ -65,7 +65,6 @@
     "react-i18next": "^11.7.0",
     "react-lifecycles-compat": "^3.0.4",
     "react-native": "0.64.2",
-    "react-native-appearance": "~0.3.3",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-get-random-values": "~1.7.0",
