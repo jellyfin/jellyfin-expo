@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { action, computed, decorate, observable } from 'mobx';
-import { ignore } from 'mobx-sync';
+import { ignore } from 'mobx-sync-lite';
 
 import { ticksToMs } from '../utils/Time';
 

@@ -8,7 +8,7 @@
 import 'react-native-get-random-values';
 
 import { action, decorate, observable } from 'mobx';
-import { ignore } from 'mobx-sync';
+import { ignore } from 'mobx-sync-lite';
 import { v4 as uuidv4 } from 'uuid';
 
 import MediaStore from './MediaStore';
