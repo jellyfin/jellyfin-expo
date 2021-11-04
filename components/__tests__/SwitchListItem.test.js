@@ -12,7 +12,7 @@ describe('SwitchListItem', () => {
 	it('should render correctly and handle change event', () => {
 		const onValueChange = jest.fn();
 
-		const { getByTestId } = render(
+		const { getByTestId, queryByTestId } = render(
 			<SwitchListItem
 				index={0}
 				item={{
@@ -25,6 +25,8 @@ describe('SwitchListItem', () => {
 		);
 
 		expect(getByTestId('title')).toHaveTextContent('Test Switch');
+		expect(queryByTestId('subtitle')).toBeNull();
+		expect(queryByTestId('badge')).toBeNull();
 
 		const switchItem = getByTestId('switch');
 		expect(switchItem).toHaveProp('disabled', false);
@@ -35,16 +37,29 @@ describe('SwitchListItem', () => {
 		expect(onValueChange).toHaveBeenCalled();
 	});
 
+	it('should render a badge if provided', () => {
+		const { getByTestId } = render(
+			<SwitchListItem
+				index={0}
+				item={{
+					title: 'Test Switch',
+					badge: {
+						value: 'Badge'
+					}
+				}}
+			/>
+		);
+
+		expect(getByTestId('badge')).toHaveTextContent('Badge');
+	});
+
 	it('should render subtitle if provided', () => {
 		const { getByTestId } = render(
 			<SwitchListItem
 				index={0}
 				item={{
 					title: 'Test Switch',
-					subtitle: 'Test Subtitle',
-					disabled: false,
-					value: true,
-					onValueChange: jest.fn()
+					subtitle: 'Test Subtitle'
 				}}
 			/>
 		);
