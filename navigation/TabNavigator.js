@@ -5,7 +5,7 @@
  */
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ThemeContext } from 'react-native-elements';

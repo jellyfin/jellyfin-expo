@@ -7,7 +7,7 @@ import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import { action } from 'mobx';
-import { observer } from 'mobx-react';
+import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
 import { BackHandler, Platform } from 'react-native';
 
@@ -19,7 +19,7 @@ import { openBrowser } from '../utils/WebBrowser';
 
 import RefreshWebView from './RefreshWebView';
 
-const NativeShellWebView = observer(React.forwardRef(
+const NativeShellWebView = observer(
 	function NativeShellWebView(props, ref) {
 		const { rootStore } = useStores();
 		const [ isRefreshing, setIsRefreshing ] = useState(false);
@@ -157,7 +157,7 @@ true;
 				showsHorizontalScrollIndicator={false}
 			/>
 		);
-	}
-));
+	}, { forwardRef: true }
+);
 
 export default NativeShellWebView;
