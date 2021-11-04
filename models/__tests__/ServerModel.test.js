@@ -3,7 +3,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import Url from 'url';
+
+import { URL } from 'url';
 
 import ServerModel from '../ServerModel';
 
@@ -16,7 +17,7 @@ describe('ServerModel', () => {
 	it('should create a ServerModel with computed properties', () => {
 		const server = new ServerModel(
 			'testId',
-			Url.parse('https://foobar'),
+			new URL('https://foobar'),
 			{
 				ServerName: 'Test Server'
 			}
@@ -31,7 +32,7 @@ describe('ServerModel', () => {
 	it('should fallback to the url if server name is unavailable', () => {
 		const server = new ServerModel(
 			'testId',
-			Url.parse('https://foobar')
+			new URL('https://foobar')
 		);
 
 		expect(server.name).toBe('foobar');
@@ -48,7 +49,7 @@ describe('ServerModel', () => {
 
 		const server = new ServerModel(
 			'testId',
-			Url.parse('https://foobar')
+			new URL('https://foobar')
 		);
 		await server.fetchInfo();
 
@@ -61,7 +62,7 @@ describe('ServerModel', () => {
 
 		const server = new ServerModel(
 			'testId',
-			Url.parse('https://foobar')
+			new URL('https://foobar')
 		);
 		await server.fetchInfo();
 
@@ -71,7 +72,7 @@ describe('ServerModel', () => {
 	it('should update the online status when fetchInfo fails', async () => {
 		const server = new ServerModel(
 			'testId',
-			Url.parse('https://foobar')
+			new URL('https://foobar')
 		);
 
 		fetch.mockResponse(JSON.stringify({ ServerName: 'Test Server' }));

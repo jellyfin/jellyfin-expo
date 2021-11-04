@@ -3,7 +3,8 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import Url from 'url';
+
+import { URL } from 'url';
 
 import ServerStore from '../ServerStore';
 
@@ -29,12 +30,12 @@ describe('ServerStore', () => {
 	});
 
 	it('should allow servers to be added', () => {
-		store.addServer({ url: Url.parse('https://foobar') });
+		store.addServer({ url: new URL('https://foobar') });
 		expect(store.servers).toHaveLength(1);
 		expect(store.servers[0].id).toBe(0);
 		expect(store.servers[0].url.host).toBe('foobar');
 
-		store.addServer({ url: Url.parse('https://baz') });
+		store.addServer({ url: new URL('https://baz') });
 		expect(store.servers).toHaveLength(2);
 	});
 
@@ -53,8 +54,8 @@ describe('ServerStore', () => {
 	});
 
 	it('should call fetchInfo for each server', () => {
-		store.addServer({ url: Url.parse('https://foobar') });
-		store.addServer({ url: Url.parse('https://baz') });
+		store.addServer({ url: new URL('https://foobar') });
+		store.addServer({ url: new URL('https://baz') });
 		store.fetchInfo();
 
 		expect(mockFetchInfo).toHaveBeenCalledTimes(2);
