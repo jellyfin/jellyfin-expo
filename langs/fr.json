@@ -20,7 +20,8 @@
     "common": {
         "unknown": "Inconnu",
         "cancel": "Annuler",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "alerts": {
         "resetApplication": {
