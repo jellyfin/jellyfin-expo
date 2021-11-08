@@ -58,7 +58,7 @@
         "nativeVideoPlayer": "Sử Dụng Trình Phát Video Gốc",
         "minimumServerVersion": "Yêu Cầu Phiên Bản Máy Chủ 10.7+",
         "fmp4Support": "",
-        "lightTheme": "",
+        "lightTheme": "Dùng Chủ Đề Sáng",
         "systemTheme": "Sử Dụng Chủ Đề Hệ Thống",
         "rotationLock": "Khóa Xoay",
         "tabLabels": "Hiển Thị Nhãn Tab",
@@ -70,18 +70,18 @@
         "source": "Mã Nguồn",
         "translate": "Phiên dịch",
         "feature": "Yêu Cầu Một Tính Năng",
-        "issue": ""
+        "issue": "Báo cáo một vấn đề"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Xóa Máy Chủ",
+            "description": "Bạn có chắc muốn xóa máy chủ không {{serverName}}?",
+            "confirm": "Xóa"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Đặt Lại Ứng Dụng",
+            "description": "Bạn có chắc chắn muốn đặt lại tất cả cài đặt không?",
+            "confirm": "Đặt lại"
         }
     }
 }
