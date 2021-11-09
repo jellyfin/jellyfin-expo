@@ -7,11 +7,6 @@ const { getDefaultConfig } = require('expo/metro-config');
 
 const defaultConfig = getDefaultConfig(__dirname);
 
-module.exports = {
-	resolver: {
-		assetExts: [
-			...defaultConfig.resolver.assetExts,
-			'staticjs'
-		]
-	}
-};
+defaultConfig.resolver.assetExts.push('staticjs');
+
+module.exports = defaultConfig;

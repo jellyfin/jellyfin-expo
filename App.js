@@ -19,7 +19,7 @@ import { observer } from 'mobx-react-lite';
 import { AsyncTrunk } from 'mobx-sync-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
-import { AppearanceProvider, useColorScheme } from 'react-native-appearance';
+import { useColorScheme } from 'react-native';
 import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -113,21 +113,19 @@ const App = observer(({ skipLoadingScreen }) => {
 	}
 
 	return (
-		<AppearanceProvider>
-			<SafeAreaProvider>
-				<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
-					<ThemeSwitcher />
-					<StatusBar
-						style='light'
-						backgroundColor={theme.colors.grey0}
-						hidden={rootStore.isFullscreen}
-					/>
-					<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
-						<RootNavigator />
-					</NavigationContainer>
-				</ThemeProvider>
-			</SafeAreaProvider>
-		</AppearanceProvider>
+		<SafeAreaProvider>
+			<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
+				<ThemeSwitcher />
+				<StatusBar
+					style='light'
+					backgroundColor={theme.colors.grey0}
+					hidden={rootStore.isFullscreen}
+				/>
+				<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
+					<RootNavigator />
+				</NavigationContainer>
+			</ThemeProvider>
+		</SafeAreaProvider>
 	);
 });
 
