@@ -49,6 +49,7 @@ function postExpoEvent(event, data) {
 	}));
 }
 
+${StaticScriptLoader.scripts.NativeAudioPlayer}
 ${StaticScriptLoader.scripts.NativeVideoPlayer}
 
 ${StaticScriptLoader.scripts.NativeShell}
@@ -97,15 +98,23 @@ true;
 							deactivateKeepAwake();
 						}
 						break;
+					case 'ExpoAudioPlayer.play':
+						rootStore.mediaStore.type = MediaTypes.Audio;
+						rootStore.mediaStore.uri = data.url;
+						rootStore.mediaStore.posterUri = data.backdropUrl;
+						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
+						break;
 					case 'ExpoVideoPlayer.play':
 						rootStore.mediaStore.type = MediaTypes.Video;
 						rootStore.mediaStore.uri = data.url;
 						rootStore.mediaStore.posterUri = data.backdropUrl;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
 						break;
+					case 'ExpoAudioPlayer.playPause':
 					case 'ExpoVideoPlayer.playPause':
 						rootStore.mediaStore.shouldPlayPause = true;
 						break;
+					case 'ExpoAudioPlayer.stop':
 					case 'ExpoVideoPlayer.stop':
 						rootStore.mediaStore.shouldStop = true;
 						break;

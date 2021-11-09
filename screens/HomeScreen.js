@@ -11,6 +11,7 @@ import { BackHandler, Platform, StyleSheet, View } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
+import AudioPlayer from '../components/AudioPlayer';
 import ErrorView from '../components/ErrorView';
 import NativeShellWebView from '../components/NativeShellWebView';
 import VideoPlayer from '../components/VideoPlayer';
@@ -187,6 +188,7 @@ const HomeScreen = observer(() => {
 							setIsLoading(false);
 						}}
 					/>
+					<AudioPlayer/>
 					<VideoPlayer/>
 				</>
 			) : (
