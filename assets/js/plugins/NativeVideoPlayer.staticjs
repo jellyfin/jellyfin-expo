@@ -5,7 +5,7 @@
  */
 
 class NativeVideoPlayer {
-	constructor({ appSettings, events, playbackManager, loading }) {
+	constructor({ events, playbackManager, loading }) {
 		// declare public fields because iOS < 14 does not support them properly
 		this.name = 'ExpoVideoPlayer';
 		this.type = 'mediaplayer';
@@ -14,11 +14,10 @@ class NativeVideoPlayer {
 		this.isLocalPlayer = true;
 
 		this.uri = null;
-		this.isPlaying = false;
+		this._isPlaying = false;
 		this.positionMillis = 0;
 
 		// local references to web classes
-		this.appSettings = appSettings;
 		this.events = events;
 		this.playbackManager = playbackManager;
 		this.loading = loading;
@@ -35,7 +34,7 @@ class NativeVideoPlayer {
 		this.mediaSource = null;
 
 		this.uri = null;
-		this.isPlaying = false;
+		this._isPlaying = false;
 		this.positionMillis = 0;
 	}
 
@@ -65,9 +64,9 @@ class NativeVideoPlayer {
 		}
 
 		// The playing state has changed
-		if (status.isPlaying !== this.isPlaying) {
-			this.isPlaying = status.isPlaying;
-			this._safelyTriggerEvent(this.isPlaying ? 'playing' : 'pause');
+		if (status.isPlaying !== this._isPlaying) {
+			this._isPlaying = status.isPlaying;
+			this._safelyTriggerEvent(this._isPlaying ? 'playing' : 'pause');
 		}
 
 		// The playback position has changed
@@ -121,9 +120,14 @@ class NativeVideoPlayer {
 		return false;
 	}
 
+	// Return the playing state (required by web)
+	isPlaying() {
+		return this._isPlaying;
+	}
+
 	// Return the paused state (required by web)
 	paused() {
-		return !this.isPlaying;
+		return !this._isPlaying;
 	}
 
 	// Called by web to begin playback

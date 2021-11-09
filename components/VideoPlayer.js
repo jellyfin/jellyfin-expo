@@ -44,7 +44,7 @@ const VideoPlayer = observer(() => {
 
 	// Update the play/pause state when the store indicates it should
 	useEffect(() => {
-		if (rootStore.mediaStore.shouldPlayPause) {
+		if (rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.shouldPlayPause) {
 			if (rootStore.mediaStore.isPlaying) {
 				player.current?.pauseAsync();
 			} else {
@@ -56,7 +56,7 @@ const VideoPlayer = observer(() => {
 
 	// Close the player when the store indicates it should stop playback
 	useEffect(() => {
-		if (rootStore.mediaStore.shouldStop) {
+		if (rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.shouldStop) {
 			rootStore.didPlayerCloseManually = false;
 			closeFullscreen();
 			rootStore.mediaStore.shouldStop = false;

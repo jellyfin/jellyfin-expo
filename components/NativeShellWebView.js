@@ -55,6 +55,8 @@ ${StaticScriptLoader.scripts.NativeShell}
 
 ${StaticScriptLoader.scripts.ExpoRouterShim}
 
+window.onerror = console.error;
+
 true;
 `;
 
