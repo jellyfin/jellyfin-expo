@@ -2,7 +2,8 @@
     "common": {
         "cancel": "取消",
         "unknown": "未知",
-        "ok": "确定"
+        "ok": "确定",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "添加服务器",
