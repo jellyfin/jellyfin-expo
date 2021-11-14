@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Cancelar",
         "unknown": "Desconhecido",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Adicionar servidor",
