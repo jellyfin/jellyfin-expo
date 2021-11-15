@@ -14,12 +14,12 @@ import ThemeSwitcher from '../ThemeSwitcher';
 // functionality would be very difficult to test properly
 describe('ThemeSwitcher', () => {
 	it('should render', () => {
-		const didRender = render(
+		const { toJSON } = render(
 			<ThemeProvider>
 				<ThemeSwitcher />
 			</ThemeProvider>
 		);
 
-		expect(didRender).toBeTruthy();
+		expect(toJSON()).toMatchSnapshot();
 	});
 });

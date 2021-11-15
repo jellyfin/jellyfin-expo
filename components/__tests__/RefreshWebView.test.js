@@ -13,12 +13,12 @@ import RefreshWebView from '../RefreshWebView';
 // functionality would be very difficult to test properly
 describe('RefreshWebView', () => {
 	it('should render', () => {
-		const didRender = render(
+		const { toJSON } = render(
 			<RefreshWebView
 				isRefreshing={false}
 			/>
 		);
 
-		expect(didRender).toBeTruthy();
+		expect(toJSON()).toMatchSnapshot();
 	});
 });
