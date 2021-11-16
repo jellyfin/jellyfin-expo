@@ -96,7 +96,7 @@
             }
         },
         {
-            "files": [ "./**/*.test.js" ],
+            "files": [ "jest.setup.js", "./**/*.test.js" ],
             "plugins": [ "jest" ],
             "env": {
                 "jest/globals": true
