@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Tühista",
         "ok": "OK",
-        "unknown": "Teadmata"
+        "unknown": "Teadmata",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Lisa server",
