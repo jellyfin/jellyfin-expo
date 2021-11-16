@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NativeShellWebView should render correctly 1`] = `
+<RCTScrollView
+  collapsable={false}
+  onGestureHandlerEvent={[Function]}
+  onGestureHandlerStateChange={[Function]}
+  onLayout={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      enabled={true}
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  showsHorizontalScrollIndicator={false}
+  showsVerticalScrollIndicator={false}
+  style={
+    Object {
+      "flex": 1,
+      "height": "100%",
+    }
+  }
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+            "overflow": "hidden",
+          },
+          undefined,
+        ]
+      }
+    >
+      <RNCWebView
+        allowsInlineMediaPlayback={true}
+        cacheEnabled={true}
+        decelerationRate={0.998}
+        injectedJavaScript={null}
+        injectedJavaScriptBeforeContentLoaded="
+window.ExpoAppInfo = {
+	appName: 'Jellyfin Mobile',
+	appVersion: 'mock',
+	deviceId: 'undefined',
+	deviceName: 'Test Device'
+};
+
+window.ExpoAppSettings = {
+	isPluginSupported: true,
+	isNativeVideoPlayerEnabled: undefined
+};
+
+window.ExpoVideoProfile = {};
+
+function postExpoEvent(event, data) {
+	window.ReactNativeWebView.postMessage(JSON.stringify({
+		event: event,
+		data: data
+	}));
+}
+
+
+
+
+
+
+
+window.onerror = console.error;
+
+true;
+"
+        injectedJavaScriptBeforeContentLoadedForMainFrameOnly={true}
+        injectedJavaScriptForMainFrameOnly={true}
+        javaScriptEnabled={true}
+        mediaPlaybackRequiresUserAction={false}
+        messagingEnabled={true}
+        onContentProcessDidTerminate={[Function]}
+        onHttpError={[Function]}
+        onLoadingError={[Function]}
+        onLoadingFinish={[Function]}
+        onLoadingProgress={[Function]}
+        onLoadingStart={[Function]}
+        onMessage={[Function]}
+        onScroll={[Function]}
+        onShouldStartLoadWithRequest={[Function]}
+        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={false}
+        source={
+          Object {
+            "uri": undefined,
+          }
+        }
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "overflow": "hidden",
+            },
+            Object {
+              "backgroundColor": "#ffffff",
+            },
+            Object {
+              "flex": 1,
+              "height": 1334,
+            },
+          ]
+        }
+        useSharedProcessPool={true}
+        useWebKit={true}
+      />
+    </View>
+  </View>
+</RCTScrollView>
+`;
