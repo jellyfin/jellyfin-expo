@@ -22,6 +22,7 @@ const sanitizeHost = (url = '') => url.trim();
 const ServerInput = observer(
 	// FIXME: eslint fails to parse the propTypes properly here
 	function ServerInput({
+		onError = () => { /* noop */ }, // eslint-disable-line react/prop-types
 		onSuccess = () => { /* noop */ }, // eslint-disable-line react/prop-types
 		...props
 	}, ref) {
@@ -40,6 +41,7 @@ const ServerInput = observer(
 			if (!host) {
 				setIsValid(false);
 				setValidationMessage(t('addServer.validation.empty'));
+				onError();
 				return;
 			}
 
@@ -57,6 +59,7 @@ const ServerInput = observer(
 				setIsValidating(false);
 				setIsValid(false);
 				setValidationMessage(t('addServer.validation.invalid'));
+				onError();
 				return;
 			}
 
@@ -68,6 +71,7 @@ const ServerInput = observer(
 				setIsValidating(false);
 				setIsValid(validation.isValid);
 				setValidationMessage(t([ `addServer.validation.${message}`, 'addServer.validation.invalid' ]));
+				onError();
 				return;
 			}
 
@@ -92,6 +96,7 @@ const ServerInput = observer(
 
 		return (
 			<Input
+				testID='server-input'
 				ref={ref}
 				inputContainerStyle={{
 					...styles.inputContainerStyle,
@@ -128,6 +133,7 @@ const ServerInput = observer(
 );
 
 ServerInput.propTypes = {
+	onError: PropTypes.func,
 	onSuccess: PropTypes.func
 };
 
