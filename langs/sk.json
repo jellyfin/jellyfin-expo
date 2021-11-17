@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Zrušiť",
         "unknown": "Neznáme",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Pridať server",
@@ -55,7 +56,10 @@
         "expoVersion": "Expo verzia: {{version}}",
         "tabLabels": "Zobraziť označenia záložiek",
         "lightTheme": "Použiť svetlú tému",
-        "systemTheme": "Použiť systémovú tému"
+        "systemTheme": "Použiť systémovú tému",
+        "fmp4Support": "Preferovať fMP4 v HLS",
+        "minimumServerVersion": "Vyžaduje verziu serveru 10.7 a novšiu",
+        "nativeVideoPlayer": "Použiť natívny video prehrávač"
     },
     "links": {
         "website": "Jellyfin webstránka",
@@ -78,6 +82,8 @@
         }
     },
     "serverHelp": {
-        "heading": "Čo je Jellyfin?"
+        "heading": "Čo je Jellyfin?",
+        "learnMore": "Dozvedietť sa viac o tom, ako hosťovať svoj vlastný server",
+        "description": "Jellyfin je mediálne riešenie vytvárané dobrovolníkmi. Umožňuje hosťovať vaše vlastné médiá a mať k ním prístup odkiaľkoľvek.\n\n\nAby ste mohli použiť tohoto klienta, je nutné hosťovať svoj vlastný Jellyfin server."
     }
 }
