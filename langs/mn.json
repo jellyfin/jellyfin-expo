@@ -1,18 +1,18 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
+        "beta": "БЕТА",
+        "cancel": "Цуцлах",
         "ok": "",
-        "unknown": ""
+        "unknown": "Тодорхойгүй"
     },
     "headings": {
         "addServer": "",
         "appearance": "",
         "home": "",
         "links": "",
-        "playback": "",
+        "playback": "Тоглуулах",
         "servers": "",
-        "settings": ""
+        "settings": "Тохиргоо"
     },
     "addServer": {
         "address": "",
@@ -32,7 +32,7 @@
                 "description": ""
             },
             "http": {
-                "heading": "",
+                "heading": "Ямар нэгэн зүйл буруугаар эргэсэн!",
                 "description": ""
             },
             "invalidServer": {
@@ -45,7 +45,7 @@
             }
         },
         "errorCode": "",
-        "errorUrl": "",
+        "errorUrl": "URL: {{url}}",
         "retry": ""
     },
     "serverHelp": {
@@ -54,7 +54,7 @@
         "learnMore": ""
     },
     "settings": {
-        "version": "",
+        "version": "Хувилбар: {{version}}",
         "keepAwake": "",
         "nativeVideoPlayer": "",
         "minimumServerVersion": "",
@@ -63,7 +63,7 @@
         "systemTheme": "",
         "rotationLock": "",
         "tabLabels": "",
-        "expoVersion": ""
+        "expoVersion": "Expo Хувилбар: {{version}}"
     },
     "links": {
         "website": "",
