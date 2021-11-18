@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+
 import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
@@ -80,6 +81,15 @@ true;
 						break;
 					case 'disableFullscreen':
 						rootStore.isFullscreen = false;
+						break;
+					case 'downloadFile':
+						console.log('Download item', data);
+						const url = new URL(data.item.url); // eslint-disable-line no-case-declarations
+						// console.log('url', url.searchParams.get('api_key'));
+						rootStore.downloadStore.add({
+							...data.item,
+							apiKey: url.searchParams.get('api_key')
+						});
 						break;
 					case 'openUrl':
 						console.log('Opening browser for external url', data.url);

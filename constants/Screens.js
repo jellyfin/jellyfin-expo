@@ -9,6 +9,7 @@ export default {
 	AddServerScreen: 'AddServer',
 	HomeScreen: 'HomeScreen',
 	HomeTab: 'Home',
+	DownloadsTab: 'Downloads',
 	ServerHelpScreen: 'ServerHelpScreen',
 	SettingsTab: 'Settings',
 	SettingsScreen: 'SettingsScreen',
