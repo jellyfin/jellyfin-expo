@@ -15,7 +15,6 @@ describe('DevSettingsScreen', () => {
 			<DevSettingsScreen />
 		);
 
-		console.log(toJSON());
 		expect(toJSON()).toMatchSnapshot();
 	});
 });
