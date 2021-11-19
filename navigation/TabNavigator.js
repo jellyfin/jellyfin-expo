@@ -13,10 +13,10 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Screens from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
-import SettingsScreen from '../screens/SettingsScreen';
 import { getIconName } from '../utils/Icons';
 
 import HomeNavigator from './HomeNavigator';
+import SettingsNavigator from './SettingsNavigator';
 
 function TabIcon(routeName, color, size) {
 	let iconName = null;
@@ -68,7 +68,7 @@ const TabNavigator = observer(() => {
 			/>
 			<Tab.Screen
 				name={Screens.SettingsTab}
-				component={SettingsScreen}
+				component={SettingsNavigator}
 				options={{
 					title: t('headings.settings')
 				}}

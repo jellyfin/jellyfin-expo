@@ -11,5 +11,7 @@ export default {
 	HomeTab: 'Home',
 	ServerHelpScreen: 'ServerHelpScreen',
 	SettingsTab: 'Settings',
+	SettingsScreen: 'SettingsScreen',
+	DevSettingsScreen: 'DevSettingsScreen',
 	ErrorScreen: 'ErrorScreen'
 };
