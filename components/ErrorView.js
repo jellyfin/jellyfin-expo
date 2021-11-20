@@ -31,20 +31,39 @@ const ErrorView = ({
 		}}>
 			<View style={styles.body}>
 				<Icon
+					testID='error-view-icon'
 					name={icon.name}
 					type={icon.type}
 					size={isCompact(window) ? 60 : 100}
 				/>
-				<Text h2 style={{ ...styles.heading, marginVertical }}>{heading}</Text>
-				<Text style={{ ...styles.message, marginBottom: marginVertical }}>{message}</Text>
+				<Text
+					testID='error-view-heading'
+					h2
+					style={{ ...styles.heading, marginVertical }}
+				>
+					{heading}
+				</Text>
+				<Text
+					testID='error-view-message'
+					style={{ ...styles.message, marginBottom: marginVertical }}
+				>
+					{message}
+				</Text>
 			</View>
-			<View>
+			<View testID='error-view-details'>
 				{details.map((detailText, index) => (
-					<Text key={`errorview-details-${index}`} style={styles.details}>{detailText}</Text>
+					<Text
+						testID='error-view-detail'
+						key={`errorview-details-${index}`}
+						style={styles.details}
+					>
+						{detailText}
+					</Text>
 				))}
 			</View>
 			{buttonTitle && (
 				<Button
+					testID='error-view-button'
 					containerStyle={styles.footer}
 					icon={buttonIcon}
 					title={buttonTitle}

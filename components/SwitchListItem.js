@@ -24,6 +24,7 @@ const SwitchListItem = ({ item, index }) => (
 				{(
 					item.badge &&
 					<Badge
+						testID='badge'
 						value={item.badge.value}
 						status={item.badge.status}
 						containerStyle={{ marginStart: 8 }}
