@@ -4,9 +4,32 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+/* Fetch and AbortController Mocks */
 import { enableFetchMocks } from 'jest-fetch-mock';
 import { AbortController } from 'node-abort-controller';
 
 global.AbortController = AbortController;
 
 enableFetchMocks();
+
+/* React Navigation Mocks */
+import 'react-native-gesture-handler/jestSetup';
+
+jest.mock('react-native-reanimated', () => {
+	const Reanimated = require('react-native-reanimated/mock');
+
+	// The mock for `call` immediately calls the callback which is incorrect
+	// So we override it with a no-op
+	Reanimated.default.call = () => {};
+
+	return Reanimated;
+});
+
+// Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
+jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+
+// Workaround for process failing: https://github.com/react-navigation/react-navigation/issues/9568
+jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
+	default: () => ({ getInitialState: { then: jest.fn() } }),
+	__esModule: true
+}));
