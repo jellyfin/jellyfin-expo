@@ -71,13 +71,15 @@ const TabNavigator = observer(() => {
 					title: t('headings.home')
 				}}
 			/>
-			<Tab.Screen
-				name={Screens.DownloadsTab}
-				component={DownloadScreen}
-				options={{
-					title: t('headings.downloads')
-				}}
-			/>
+			{rootStore.settingStore.isExperimentalDownloadsEnabled && (
+				<Tab.Screen
+					name={Screens.DownloadsTab}
+					component={DownloadScreen}
+					options={{
+						title: t('headings.downloads')
+					}}
+				/>
+			)}
 			<Tab.Screen
 				name={Screens.SettingsTab}
 				component={SettingsNavigator}

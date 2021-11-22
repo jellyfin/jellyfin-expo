@@ -6,7 +6,6 @@
 
 // List of supported features as reported in Safari
 const ExpoSupportedFeatures = [
-	'filedownload',
 	'exit',
 	'exitmenu',
 	'plugins',
@@ -94,7 +93,10 @@ window.NativeShell = {
 		},
 
 		supports: function(command) {
-			const isSupported = command && ExpoSupportedFeatures.indexOf(command.toLowerCase()) != -1;
+			const isSupported = command && (
+				ExpoSupportedFeatures.indexOf(command.toLowerCase()) != -1 ||
+				command === 'filedownload' && window.ExpoAppSettings.isExperimentalDownloadsEnabled
+			);
 			postExpoEvent('AppHost.supports', {
 				command: command,
 				isSupported: isSupported

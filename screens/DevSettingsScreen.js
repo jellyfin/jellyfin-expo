@@ -4,13 +4,19 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+import { action } from 'mobx';
 import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
-import { StyleSheet } from 'react-native';
-import { Text, ThemeContext } from 'react-native-elements';
+import { FlatList, StyleSheet } from 'react-native';
+import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
+import SwitchListItem from '../components/SwitchListItem';
+
+import { useStores } from '../hooks/useStores';
+
 const DevSettingsScreen = observer(() => {
+	const { rootStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	return (
@@ -21,9 +27,26 @@ const DevSettingsScreen = observer(() => {
 			}}
 			edges={[ 'right', 'left' ]}
 		>
-			<Text>
-				This is a place where development features can be enabled.
-			</Text>
+			<FlatList
+				data={[
+					{
+						key: 'experimental-downloads-switch',
+						title: 'File Download Support',
+						badge: {
+							value: 'Experimental',
+							status: 'error'
+						},
+						value: rootStore.settingStore.isExperimentalDownloadsEnabled,
+						onValueChange: action(value => {
+							rootStore.settingStore.isExperimentalDownloadsEnabled = value;
+							rootStore.isReloadRequired = true;
+						})
+					}
+				]}
+				renderItem={SwitchListItem}
+				showsVerticalScrollIndicator={false}
+				contentContainerStyle={styles.listContainer}
+			/>
 		</SafeAreaView>
 	);
 });
@@ -31,6 +54,9 @@ const DevSettingsScreen = observer(() => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1
+	},
+	listContainer: {
+		marginTop: 1
 	}
 });
 
