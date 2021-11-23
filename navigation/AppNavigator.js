@@ -44,7 +44,7 @@ const AppNavigator = observer(() => {
 						// In our case, it's "Main" as that's the first screen inside the navigator
 						route.params?.screen || Screens.MainScreen;
 					return ({
-						headerShown: routeName === Screens.SettingsTab,
+						headerShown: false,
 						title: t(`headings.${routeName.toLowerCase()}`)
 					});
 				}}
