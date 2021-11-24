@@ -76,7 +76,8 @@ const TabNavigator = observer(() => {
 					name={Screens.DownloadsTab}
 					component={DownloadScreen}
 					options={{
-						title: t('headings.downloads')
+						title: t('headings.downloads'),
+						headerShown: true
 					}}
 				/>
 			)}

@@ -86,7 +86,6 @@ true;
 					case 'downloadFile':
 						console.log('Download item', data);
 						const url = new URL(data.item.url); // eslint-disable-line no-case-declarations
-						// console.log('url', url.searchParams.get('api_key'));
 						rootStore.downloadStore.add({
 							...data.item,
 							apiKey: url.searchParams.get('api_key')
