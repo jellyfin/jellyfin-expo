@@ -4,12 +4,14 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+import { useNavigation } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system';
 import * as Sharing from 'expo-sharing';
 import { observer } from 'mobx-react-lite';
 import React, { useContext, useEffect, useState } from 'react';
-import { FlatList, StyleSheet } from 'react-native';
-import { ThemeContext } from 'react-native-elements';
+import { useTranslation } from 'react-i18next';
+import { Alert, FlatList, StyleSheet } from 'react-native';
+import { Button, ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import DownloadListItem from '../components/DownloadListItem';
@@ -19,42 +21,116 @@ const getDownloadDir = download => `${FileSystem.documentDirectory}${download.se
 const getDownloadUri = download => getDownloadDir(download) + encodeURI(download.filename);
 
 async function ensureDirExists(dir) {
-	console.log('ensure directory', dir);
 	const info = await FileSystem.getInfoAsync(dir);
-	console.log('directory info', info);
 	if (!info.exists) {
 		await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
 	}
 }
 
 const DownloadScreen = observer(() => {
+	const navigation = useNavigation();
 	const { rootStore } = useStores();
+	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
+	const [ isEditMode, setIsEditMode ] = useState(false);
 	const [ resumables, setResumables ] = useState([]);
+	const [ selectedItems, setSelectedItems ] = useState([]);
+
+	async function deleteItem(item) {
+		// TODO: Add user messaging on errors
+		try {
+			await FileSystem.deleteAsync(getDownloadDir(item));
+			rootStore.downloadStore.remove(rootStore.downloadStore.downloads.indexOf(item));
+		} catch (e) {
+			console.error('Failed to delete download', e);
+		}
+	}
+
+	function exitEditMode() {
+		setIsEditMode(false);
+		setSelectedItems([]);
+	}
+
+	function onDeleteItems(items) {
+		Alert.alert(
+			'Delete Downloads',
+			'These items will be permanently deleted from this device.',
+			[
+				{
+					text: t('common.cancel'),
+					onPress: exitEditMode
+				},
+				{
+					text: `Delete ${items.length} Downloads`,
+					onPress: async () => {
+						await Promise.all(items.map(deleteItem));
+						exitEditMode();
+					},
+					style: 'destructive'
+				}
+			]
+		);
+	}
+
+	React.useLayoutEffect(() => {
+		navigation.setOptions({
+			headerLeft: () => (
+				isEditMode ?
+					<Button
+						title={t('common.cancel')}
+						type='clear'
+						onPress={exitEditMode}
+						style={styles.leftButton}
+					/> :
+					null
+			),
+			headerRight: () => (
+				isEditMode ?
+					<Button
+						title={t('common.delete')}
+						type='clear'
+						style={styles.rightButton}
+						disabled={selectedItems.length < 1}
+						onPress={() => {
+							onDeleteItems(selectedItems);
+						}}
+					/> :
+					<Button
+						title={t('common.edit')}
+						type='clear'
+						onPress={() => {
+							setIsEditMode(true);
+						}}
+						style={styles.rightButton}
+					/>
+			)
+		});
+	}, [ navigation, isEditMode, selectedItems ]);
 
 	async function downloadFile(download) {
-		console.log('download file', download);
 		await ensureDirExists(getDownloadDir(download));
 
 		const url = download.url;
 		const uri = getDownloadUri(download);
-		console.log('url', url, uri);
 
 		const resumable = FileSystem.createDownloadResumable(
 			url,
 			uri,
 			{},
+			// TODO: Show download progress in ui
 			console.log
 		);
 		setResumables([ ...resumables, resumable ]);
 		try {
-			download.isDownloading = true;
+			rootStore.downloadStore.update(download, { isDownloading: true });
 			await resumable.downloadAsync();
-			download.isDownloading = false;
-			download.isComplete = true;
+			rootStore.downloadStore.update(download, {
+				isDownloading: false,
+				isComplete: true
+			});
 		} catch (e) {
 			console.error('Download failed', e);
-			download.isDownloading = false;
+			rootStore.downloadStore.update(download, { isDownloading: false });
 		}
 	}
 
@@ -73,11 +149,20 @@ const DownloadScreen = observer(() => {
 			edges={[ 'right', 'left' ]}
 		>
 			<FlatList
-				data={rootStore.downloadStore.downloads}
+				data={[ ...rootStore.downloadStore.downloads ]}
 				renderItem={({ item, index }) => (
 					<DownloadListItem
 						item={item}
 						index={index}
+						isEditMode={isEditMode}
+						isSelected={selectedItems.includes(item)}
+						onSelect={() => {
+							if (selectedItems.includes(item)) {
+								setSelectedItems(selectedItems.filter(selected => selected !== item));
+							} else {
+								setSelectedItems([ ...selectedItems, item ]);
+							}
+						}}
 						onShare={async () => {
 							Sharing.shareAsync(
 								await FileSystem.getContentUriAsync(getDownloadUri(item))
@@ -98,6 +183,12 @@ const styles = StyleSheet.create({
 	},
 	listContainer: {
 		marginTop: 1
+	},
+	leftButton: {
+		marginLeft: 8
+	},
+	rightButton: {
+		marginRight: 8
 	}
 });
 

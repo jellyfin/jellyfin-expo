@@ -12,12 +12,28 @@ export default class DownloadStore {
 	add(download) {
 		// Do not allow duplicate downloads
 		if (!this.downloads.find(search => search.serverId === download.serverId && search.itemId === download.itemId)) {
-			this.downloads.push(download);
+			this.downloads = [ ...this.downloads, download ];
 		}
 	}
 
 	remove(index) {
-		this.downloads.splice(index, 1);
+		this.downloads = [
+			...this.downloads.slice(0, index),
+			...this.downloads.slice(index + 1)
+		];
+	}
+
+	update(original, changes = {}) {
+		const index = this.downloads.findIndex(search => search.serverId === original.serverId && search.itemId === original.itemId);
+		if (index > -1) {
+			const updated = {
+				...this.downloads[index],
+				...changes
+			};
+			this.downloads[index] = updated;
+		} else {
+			console.warn('trying to update download missing from store', original);
+		}
 	}
 
 	reset() {
@@ -29,5 +45,6 @@ decorate(DownloadStore, {
 	downloads: [ observable ],
 	add: action,
 	remove: action,
+	update: action,
 	reset: action
 });

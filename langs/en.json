@@ -2,6 +2,8 @@
   "common": {
     "beta": "BETA",
     "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
     "ok": "OK",
     "unknown": "Unknown"
   },
