@@ -1,0 +1,875 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServerInput should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#303337",
+        "borderBottomWidth": 0,
+        "borderColor": "#86939e",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginTop": 8,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 12,
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text />
+          </View>
+        </View>
+      </View>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCompleteType="off"
+      autoCorrect={false}
+      autoFocus={true}
+      editable={true}
+      keyboardType="url"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholderTextColor="#86939e"
+      rejectResponderTermination={true}
+      returnKeyType="go"
+      selectionColor="#2089dc"
+      style={
+        Object {
+          "color": "#242424",
+          "flex": 1,
+          "fontSize": 18,
+          "minHeight": 40,
+        }
+      }
+      testID="server-input"
+      textContentType="URL"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ff190c",
+        "fontSize": 12,
+        "margin": 5,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`ServerInput should show error if parseUrl throws 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#303337",
+        "borderBottomWidth": 0,
+        "borderColor": "#86939e",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginTop": 8,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 12,
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#86939e",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "fontFamily": "ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="iconIcon"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCompleteType="off"
+      autoCorrect={false}
+      autoFocus={true}
+      editable={true}
+      keyboardType="url"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholderTextColor="#86939e"
+      rejectResponderTermination={true}
+      returnKeyType="go"
+      selectionColor="#2089dc"
+      style={
+        Object {
+          "color": "#242424",
+          "flex": 1,
+          "fontSize": 18,
+          "minHeight": 40,
+        }
+      }
+      testID="server-input"
+      textContentType="URL"
+      underlineColorAndroid="transparent"
+      value="test"
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ff190c",
+        "fontSize": 12,
+        "margin": 5,
+      }
+    }
+  >
+    Server Address is invalid
+  </Text>
+</View>
+`;
+
+exports[`ServerInput should show error if url is invalid 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#303337",
+        "borderBottomWidth": 0,
+        "borderColor": "#86939e",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginTop": 8,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 12,
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#86939e",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "fontFamily": "ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="iconIcon"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCompleteType="off"
+      autoCorrect={false}
+      autoFocus={true}
+      editable={true}
+      keyboardType="url"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholderTextColor="#86939e"
+      rejectResponderTermination={true}
+      returnKeyType="go"
+      selectionColor="#2089dc"
+      style={
+        Object {
+          "color": "#242424",
+          "flex": 1,
+          "fontSize": 18,
+          "minHeight": 40,
+        }
+      }
+      testID="server-input"
+      textContentType="URL"
+      underlineColorAndroid="transparent"
+      value="test"
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ff190c",
+        "fontSize": 12,
+        "margin": 5,
+      }
+    }
+  >
+    Server Address is invalid
+  </Text>
+</View>
+`;
+
+exports[`ServerInput should show error when input is blank 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#303337",
+        "borderBottomWidth": 0,
+        "borderColor": "#86939e",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginTop": 8,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 12,
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#86939e",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "fontFamily": "ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="iconIcon"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCompleteType="off"
+      autoCorrect={false}
+      autoFocus={true}
+      editable={true}
+      keyboardType="url"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholderTextColor="#86939e"
+      rejectResponderTermination={true}
+      returnKeyType="go"
+      selectionColor="#2089dc"
+      style={
+        Object {
+          "color": "#242424",
+          "flex": 1,
+          "fontSize": 18,
+          "minHeight": 40,
+        }
+      }
+      testID="server-input"
+      textContentType="URL"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ff190c",
+        "fontSize": 12,
+        "margin": 5,
+      }
+    }
+  >
+    Server Address cannot be empty
+  </Text>
+</View>
+`;
+
+exports[`ServerInput should show error when url is undefined 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#303337",
+        "borderBottomWidth": 0,
+        "borderColor": "#86939e",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginTop": 8,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 12,
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#86939e",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "fontFamily": "ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="iconIcon"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCompleteType="off"
+      autoCorrect={false}
+      autoFocus={true}
+      editable={true}
+      keyboardType="url"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholderTextColor="#86939e"
+      rejectResponderTermination={true}
+      returnKeyType="go"
+      selectionColor="#2089dc"
+      style={
+        Object {
+          "color": "#242424",
+          "flex": 1,
+          "fontSize": 18,
+          "minHeight": 40,
+        }
+      }
+      testID="server-input"
+      textContentType="URL"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ff190c",
+        "fontSize": 12,
+        "margin": 5,
+      }
+    }
+  >
+    Server Address cannot be empty
+  </Text>
+</View>
+`;
+
+exports[`ServerInput should show error when url is whitespace 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#303337",
+        "borderBottomWidth": 0,
+        "borderColor": "#86939e",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginTop": 8,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 12,
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#86939e",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "fontFamily": "ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="iconIcon"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCompleteType="off"
+      autoCorrect={false}
+      autoFocus={true}
+      editable={true}
+      keyboardType="url"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholderTextColor="#86939e"
+      rejectResponderTermination={true}
+      returnKeyType="go"
+      selectionColor="#2089dc"
+      style={
+        Object {
+          "color": "#242424",
+          "flex": 1,
+          "fontSize": 18,
+          "minHeight": 40,
+        }
+      }
+      testID="server-input"
+      textContentType="URL"
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ff190c",
+        "fontSize": 12,
+        "margin": 5,
+      }
+    }
+  >
+    Server Address cannot be empty
+  </Text>
+</View>
+`;
+
+exports[`ServerInput should succeed for valid urls 1`] = `
+<View
+  style={
+    Object {
+      "paddingHorizontal": 10,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#303337",
+        "borderBottomWidth": 0,
+        "borderColor": "#86939e",
+        "borderRadius": 3,
+        "flexDirection": "row",
+        "marginBottom": 12,
+        "marginTop": 8,
+        "transform": Array [
+          Object {
+            "translateX": 0,
+          },
+        ],
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginLeft": 12,
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "overflow": "hidden",
+          }
+        }
+      >
+        <View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": "#86939e",
+                    "fontSize": 24,
+                  },
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  Object {
+                    "fontFamily": "ionicons",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+              testID="iconIcon"
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      autoCompleteType="off"
+      autoCorrect={false}
+      autoFocus={true}
+      editable={false}
+      keyboardType="url"
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholderTextColor="#86939e"
+      rejectResponderTermination={true}
+      returnKeyType="go"
+      selectionColor="#2089dc"
+      style={
+        Object {
+          "color": "#242424",
+          "flex": 1,
+          "fontSize": 18,
+          "minHeight": 40,
+        }
+      }
+      testID="server-input"
+      textContentType="URL"
+      underlineColorAndroid="transparent"
+      value="test"
+    />
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "height": 40,
+          "justifyContent": "center",
+          "marginVertical": 4,
+          "paddingRight": 4,
+        }
+      }
+    >
+      <ActivityIndicator
+        animating={true}
+        color="#999999"
+        hidesWhenStopped={true}
+        size="small"
+      />
+    </View>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#ff190c",
+        "fontSize": 12,
+        "margin": 5,
+      }
+    }
+  />
+</View>
+`;
