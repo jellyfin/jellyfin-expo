@@ -2,7 +2,8 @@
     "common": {
         "cancel": "الغاء",
         "unknown": "مجهول",
-        "ok": "حسنا"
+        "ok": "حسنا",
+        "beta": "نسخة تجريبية"
     },
     "headings": {
         "addServer": "اضافة خادم",
@@ -10,7 +11,8 @@
         "links": "رابط",
         "servers": "خوادم",
         "settings": "الإعدادات",
-        "appearance": "المظهر"
+        "appearance": "المظهر",
+        "playback": "إستمع مرة ثانية"
     },
     "addServer": {
         "address": "عنوان الخادم",
