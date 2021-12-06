@@ -58,7 +58,8 @@
     "common": {
         "unknown": "Desconocido",
         "cancel": "Cancelar",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "alerts": {
         "resetApplication": {
