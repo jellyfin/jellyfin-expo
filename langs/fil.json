@@ -1,87 +1,87 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Kanselahin",
+        "ok": "OK",
+        "unknown": "Hindi alam"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Magdagdag ng Server",
+        "appearance": "Hitsura",
+        "home": "Home",
+        "links": "Mga link",
+        "playback": "Pag-playback",
+        "servers": "Mga server",
+        "settings": "Mga setting"
     },
     "addServer": {
-        "address": "",
+        "address": "Address ng server",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "Ang $t(addServer.address) ay hindi maaaring walang laman",
+            "invalid": "$t(addServer.address) ay hindi wasto",
+            "invalidProduct": "Hindi isang server ng Jellyfin",
+            "noConnection": "Hindi makakonekta sa server"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Hindi maabot ang server ng Jellyfin. Kadalasan ito ay dahil sa isang error sa configuration ng proxy o offline ang Jellyfin."
             },
             "504": {
-                "description": ""
+                "description": "Hindi maabot ang server ng Jellyfin. Ito ay kadalasan dahil nag-time out ang proxy habang kumokonekta sa Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "May nangyaring mali!",
+                "description": "Nagbalik ng error ang server ng Jellyfin."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Hindi wasto ang server",
+                "description": "May nangyari at hindi wasto ang naka-save na impormasyon ng server. Subukang alisin ang server mula sa Mga Setting at idagdag itong muli."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Offline ang server?",
+                "description": "Error sa pakikipag-ugnayan sa server ng Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Error code: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Subukan ulit?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Ano ang Jellyfin?",
+        "description": "Ang Jellyfin ay ang media solution na binuo ng boluntaryo. Binibigyang-daan ka nitong mag-host ng iyong sariling media at i-access ito mula sa kahit saan.\n\n\nUpang magamit ang kliyenteng ito, kailangan mong mag-host ng iyong sariling server ng Jellyfin.",
+        "learnMore": "Matuto nang higit pa tungkol sa kung paano mag-host ng iyong sariling server"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Bersyon: {{version}}",
+        "keepAwake": "Panatilihin Awake ang Screen",
+        "nativeVideoPlayer": "Gumamit ng Native Video Player",
+        "minimumServerVersion": "Nangangailangan ng Bersyon ng Server 10.7+",
+        "fmp4Support": "Mas gusto ang fMP4 sa HLS",
+        "lightTheme": "Gumamit ng Light na Tema",
+        "systemTheme": "Gamitin ang System Theme",
+        "rotationLock": "Lock ng Pag-rotation",
+        "tabLabels": "Ipakita ang Mga Label ng Tab",
+        "expoVersion": "Bersyon ng Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Website ng Jellyfin",
+        "documentation": "Dokumentasyon",
+        "source": "Source Code",
+        "translate": "Isalin",
+        "issue": "Mag-ulat ng Isyu"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Tanggalin ang Server",
+            "description": "Sigurado ka bang gusto mong tanggalin ang server na {{serverName}}?",
+            "confirm": "Tanggalin"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "I-reset ang Application",
+            "description": "Sigurado ka bang gusto mong i-reset ang lahat ng setting?",
+            "confirm": "I-reset"
         }
     }
 }
