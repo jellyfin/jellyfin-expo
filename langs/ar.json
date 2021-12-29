@@ -1,25 +1,25 @@
 {
     "common": {
         "cancel": "الغاء",
-        "unknown": "مجهول",
+        "unknown": "غير معروف",
         "ok": "حسنا",
         "beta": "نسخة تجريبية"
     },
     "headings": {
         "addServer": "اضافة خادم",
         "home": "الصفحة الرئيسية",
-        "links": "رابط",
+        "links": "روابط",
         "servers": "خوادم",
         "settings": "الإعدادات",
         "appearance": "المظهر",
-        "playback": "إستمع مرة ثانية"
+        "playback": "تشغيل"
     },
     "addServer": {
         "address": "عنوان الخادم",
         "validation": {
-            "empty": "$t(addServer.address) لا يمكن ان يكون فاضي",
+            "empty": "$t(addServer.address) لا يمكن ان يكون فارغ",
             "invalid": "$t(addServer.address)عنوان الخادم غير صحيح",
-            "invalidProduct": "ليست خادم Jellyfin",
+            "invalidProduct": "ليست سيرفر Jellyfin",
             "noConnection": "لم نتمكن من الوصول الى الخادم"
         }
     },
@@ -27,42 +27,46 @@
         "errors": {
             "offline": {
                 "description": "لم نتمكن من الوصول الى خادم Jellyfin.",
-                "heading": "الخادم غير متصل؟"
+                "heading": "الخادم غير متوفر"
             },
             "invalidServer": {
-                "description": "فيه شي حصل وحفظ معلومات خادم غير صحيحه .جرب تزيل الخادم من الاعدادات وتضيفه من جديد.",
+                "description": "حدث شيء ما ومعلومات الخادم المحفوظة غير صالحة. حاول إزالة الخادم من الإعدادات وإضافته مرة أخرى.",
                 "heading": "الخادم غير صحيح"
             },
             "http": {
                 "description": "عرض خادم Jellyfin خطأ.",
-                "heading": "فيه شي غلط!"
+                "heading": "هناك خطأ ما!"
             },
             "504": {
                 "description": "غير قادر للوصول الى خادم Jellyfin بسبب انتهاء الوقت المحدد للاتصال بالخادم."
             },
             "502": {
-                "description": "غير قادر للوصول الى خادم Jellyfin عادةً هذا يحصل بسبب اعدادات البروكسي غير صحيحه او Jellyfin نفسه غير متصل."
+                "description": "تعذر الوصول إلى خادم Jellyfin. هذا عادة بسبب خطأ في تكوين الوكيل أو أن Jellyfin غير متصل."
             }
         },
         "offline": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
-        "retry": "حاول مرةً اخرى ؟؟",
+        "retry": "حاول مرةً اخرى؟",
         "errorUrl": "الرابط: {{url}}",
-        "errorCode": "الكود غلط:{{errorCode}}"
+        "errorCode": "رمز الخطأ: {{errorCode}}"
     },
     "settings": {
         "version": "الإصدار: {{version}}",
-        "keepAwake": "ابقاء الشاشة شغالة",
+        "keepAwake": "ابقاء الشاشة فعالة",
         "rotationLock": "قفل دوران الشاشة",
         "expoVersion": "إصدار المعرض: {{version}}",
-        "systemTheme": "استخدم حلة النظام",
-        "lightTheme": "استخدم الحلة الفاتحة"
+        "systemTheme": "استخدم سمة النظام",
+        "lightTheme": "استخدم مظهر فاتح",
+        "tabLabels": "إظهار تسميات الجدولة",
+        "fmp4Support": "تفضيل fMP4 في HLS",
+        "minimumServerVersion": "يتطلب إصدار الخادم 10.7+",
+        "nativeVideoPlayer": "استخدم مشغل الفيديو الأصلي"
     },
     "links": {
         "website": "موقع Jellyfin",
-        "documentation": "توثيق",
+        "documentation": "وثائق",
         "source": "مصدر الرمز (Source Code)",
         "feature": "طلب خاصية",
-        "issue": "التبليغ عن مشكلة",
+        "issue": "بلغ عن خطأ",
         "translate": "الترجمة"
     },
     "alerts": {
@@ -72,12 +76,14 @@
             "confirm": "حذف"
         },
         "resetApplication": {
-            "title": "إعادة تعيين إعدادات التطبيق",
+            "title": "إعادة تعيين التطبيق",
             "description": "هل انت متأكد انك تريد إعادة تعيين إعدادات التطبيق ؟",
-            "confirm": "إعادة تعيين إعدادات التطبيق"
+            "confirm": "إعادة ضبط"
         }
     },
     "serverHelp": {
-        "heading": "ما هو Jellyfin؟"
+        "heading": "ما هو Jellyfin؟",
+        "learnMore": "تعرف على المزيد حول كيفية استضافة الخادم الخاص بك",
+        "description": "جيليفين هو الحل الترفيهي الذي بناه المتطوعون. يسمح لك باستضافة الوسائط الخاصة بك والوصول إليها من أي مكان.\n\nلاستخدام هذا العميل، تحتاج إلى استضافة خادم جيليفين الخاص بك."
     }
 }
