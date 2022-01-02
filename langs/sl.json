@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Prekliči",
         "unknown": "Neznano",
-        "ok": "V redu"
+        "ok": "V redu",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Dodaj strežnik",
