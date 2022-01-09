@@ -1,14 +1,17 @@
 {
     "common": {
         "cancel": "キャンセル",
-        "unknown": "不明"
+        "unknown": "不明",
+        "beta": "ベータ"
     },
     "headings": {
         "addServer": "サーバーを追加",
         "home": "ホーム",
         "links": "リンク",
         "servers": "サーバー",
-        "settings": "設定"
+        "settings": "設定",
+        "playback": "再生",
+        "appearance": "外見"
     },
     "addServer": {
         "address": "サーバーアドレス",
@@ -34,6 +37,10 @@
             "offline": {
                 "heading": "サーバーはオフラインですか?",
                 "description": "Jellyfinサーバーへ接続中にエラーが発生しました。"
+            },
+            "invalidServer": {
+                "description": "何かが起きて、保存されたサーバー情報が無効になっています。設定からサーバーを削除して、再度追加してみてください。",
+                "heading": "サーバーが無効です"
             }
         },
         "errorCode": "エラーコード: {{errorCode}}",
@@ -45,7 +52,12 @@
         "keepAwake": "画面を消灯しないでください",
         "rotationLock": "回転ロック",
         "expoVersion": "Expoバージョン: {{version}}",
-        "minimumServerVersion": "サーバーバージョン10.7以上が必要です"
+        "minimumServerVersion": "サーバーバージョン10.7以上が必要です",
+        "tabLabels": "タブラベルを表示する",
+        "systemTheme": "システムテーマを使用する",
+        "lightTheme": "ライトテーマを使用する",
+        "fmp4Support": "HLSでfMP4を優先する",
+        "nativeVideoPlayer": "ネイティブビデオプレーヤーを使用する"
     },
     "links": {
         "website": "Jellyfinウェブサイト",
@@ -66,5 +78,10 @@
             "description": "すべての設定をリセットしてもよろしいですか?",
             "confirm": "リセット"
         }
+    },
+    "serverHelp": {
+        "learnMore": "あなた自身のサーバーをホストする方法について詳しく知る",
+        "description": "Jellyfinは、ボランティアで作られたメディアソリューションです。自分のメディアをホストし、どこからでもアクセスできるようにします。\n\n\nこのクライアントを使用するためには、あなた自身のJellyfinサーバーをホストする必要があります。",
+        "heading": "Jellyfinとは？"
     }
 }
