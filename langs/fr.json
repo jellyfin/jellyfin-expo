@@ -3,7 +3,7 @@
         "validation": {
             "empty": "$t(addServer.address) ne peut pas être vide",
             "noConnection": "Connexion au serveur impossible",
-            "invalidProduct": "Pas un serveur Jellyfin",
+            "invalidProduct": "Ceci n’est pas un serveur Jellyfin",
             "invalid": "$t(addServer.address) est invalide"
         },
         "address": "Adresse du serveur"
