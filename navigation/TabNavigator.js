@@ -77,7 +77,8 @@ const TabNavigator = observer(() => {
 					component={DownloadScreen}
 					options={{
 						title: t('headings.downloads'),
-						headerShown: true
+						headerShown: true,
+						tabBarBadge: rootStore.downloadStore.newDownloadCount > 0 ? rootStore.downloadStore.newDownloadCount : null
 					}}
 				/>
 			)}

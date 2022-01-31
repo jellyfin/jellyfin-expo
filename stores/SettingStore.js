@@ -67,7 +67,7 @@ export default class SettingStore {
 	isExperimentalNativeAudioPlayerEnabled = false
 
 	/**
-	 * Is experimental download support enabled
+	 * EXPERIMENTAL: Is download support enabled
 	 */
 	isExperimentalDownloadsEnabled = false;
 

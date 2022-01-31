@@ -4,28 +4,19 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system';
-import * as Sharing from 'expo-sharing';
+import { toJS, values } from 'mobx';
 import { observer } from 'mobx-react-lite';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, FlatList, StyleSheet } from 'react-native';
 import { Button, ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import DownloadListItem from '../components/DownloadListItem';
+import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
-
-const getDownloadDir = download => `${FileSystem.documentDirectory}${download.serverId}/${download.itemId}/`;
-const getDownloadUri = download => getDownloadDir(download) + encodeURI(download.filename);
-
-async function ensureDirExists(dir) {
-	const info = await FileSystem.getInfoAsync(dir);
-	if (!info.exists) {
-		await FileSystem.makeDirectoryAsync(dir, { intermediates: true });
-	}
-}
 
 const DownloadScreen = observer(() => {
 	const navigation = useNavigation();
@@ -33,46 +24,46 @@ const DownloadScreen = observer(() => {
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 	const [ isEditMode, setIsEditMode ] = useState(false);
-	const [ resumables, setResumables ] = useState([]);
 	const [ selectedItems, setSelectedItems ] = useState([]);
-
-	async function deleteItem(item) {
-		// TODO: Add user messaging on errors
-		try {
-			await FileSystem.deleteAsync(getDownloadDir(item));
-			rootStore.downloadStore.remove(rootStore.downloadStore.downloads.indexOf(item));
-		} catch (e) {
-			console.error('Failed to delete download', e);
-		}
-	}
 
 	function exitEditMode() {
 		setIsEditMode(false);
 		setSelectedItems([]);
 	}
 
-	function onDeleteItems(items) {
-		Alert.alert(
-			'Delete Downloads',
-			'These items will be permanently deleted from this device.',
-			[
-				{
-					text: t('common.cancel'),
-					onPress: exitEditMode
-				},
-				{
-					text: `Delete ${items.length} Downloads`,
-					onPress: async () => {
-						await Promise.all(items.map(deleteItem));
-						exitEditMode();
-					},
-					style: 'destructive'
-				}
-			]
-		);
-	}
-
 	React.useLayoutEffect(() => {
+		async function deleteItem(download) {
+			// TODO: Add user messaging on errors
+			try {
+				await FileSystem.deleteAsync(download.localPath);
+				rootStore.downloadStore.downloads.delete(download.key);
+				console.log('download "%s" deleted', download.title);
+			} catch (e) {
+				console.error('Failed to delete download', e);
+			}
+		}
+
+		function onDeleteItems(downloads) {
+			Alert.alert(
+				'Delete Downloads',
+				'These items will be permanently deleted from this device.',
+				[
+					{
+						text: t('common.cancel'),
+						onPress: exitEditMode
+					},
+					{
+						text: `Delete ${downloads.length} Downloads`,
+						onPress: async () => {
+							await Promise.all(downloads.map(deleteItem));
+							exitEditMode();
+						},
+						style: 'destructive'
+					}
+				]
+			);
+		}
+
 		navigation.setOptions({
 			headerLeft: () => (
 				isEditMode ?
@@ -98,47 +89,26 @@ const DownloadScreen = observer(() => {
 					<Button
 						title={t('common.edit')}
 						type='clear'
+						style={styles.rightButton}
+						disabled={rootStore.downloadStore.downloads.size < 1}
 						onPress={() => {
 							setIsEditMode(true);
 						}}
-						style={styles.rightButton}
 					/>
 			)
 		});
-	}, [ navigation, isEditMode, selectedItems ]);
+	}, [ navigation, isEditMode, selectedItems, rootStore.downloadStore.downloads ]);
 
-	async function downloadFile(download) {
-		await ensureDirExists(getDownloadDir(download));
-
-		const url = download.url;
-		const uri = getDownloadUri(download);
-
-		const resumable = FileSystem.createDownloadResumable(
-			url,
-			uri,
-			{},
-			// TODO: Show download progress in ui
-			console.log
-		);
-		setResumables([ ...resumables, resumable ]);
-		try {
-			rootStore.downloadStore.update(download, { isDownloading: true });
-			await resumable.downloadAsync();
-			rootStore.downloadStore.update(download, {
-				isDownloading: false,
-				isComplete: true
-			});
-		} catch (e) {
-			console.error('Download failed', e);
-			rootStore.downloadStore.update(download, { isDownloading: false });
-		}
-	}
-
-	useEffect(() => {
-		rootStore.downloadStore.downloads
-			.filter(download => !download.isComplete && !download.isDownloading)
-			.forEach(downloadFile);
-	}, [ rootStore.downloadStore.downloads ]);
+	useFocusEffect(
+		useCallback(() => {
+			rootStore.downloadStore.downloads
+				.forEach(download => {
+					if (download.isNew) {
+						download.isNew = !download.isComplete;
+					}
+				});
+		}, [ rootStore.downloadStore.downloads ])
+	);
 
 	return (
 		<SafeAreaView
@@ -149,7 +119,8 @@ const DownloadScreen = observer(() => {
 			edges={[ 'right', 'left' ]}
 		>
 			<FlatList
-				data={[ ...rootStore.downloadStore.downloads ]}
+				data={values(rootStore.downloadStore.downloads)}
+				extraData={toJS(rootStore.downloadStore.downloads)}
 				renderItem={({ item, index }) => (
 					<DownloadListItem
 						item={item}
@@ -163,14 +134,14 @@ const DownloadScreen = observer(() => {
 								setSelectedItems([ ...selectedItems, item ]);
 							}
 						}}
-						onShare={async () => {
-							Sharing.shareAsync(
-								await FileSystem.getContentUriAsync(getDownloadUri(item))
-							);
+						onPlay={async () => {
+							item.isNew = false;
+							rootStore.mediaStore.type = MediaTypes.Video;
+							rootStore.mediaStore.uri = item.uri;
 						}}
 					/>
 				)}
-				keyExtractor={(item, index) => `download-${index}-${item.serverId}-${item.itemId}`}
+				keyExtractor={(item, index) => `download-${index}-${item.key}`}
 				contentContainerStyle={styles.listContainer}
 			/>
 		</SafeAreaView>

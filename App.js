@@ -12,6 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
+import * as FileSystem from 'expo-file-system';
 import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import { StatusBar } from 'expo-status-bar';
@@ -26,6 +27,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { useStores } from './hooks/useStores';
 import RootNavigator from './navigation/RootNavigator';
+import { ensurePathExists } from './utils/File';
 import StaticScriptLoader from './utils/StaticScriptLoader';
 
 // Import i18n configuration
@@ -81,6 +83,44 @@ const App = observer(({ skipLoadingScreen }) => {
 		// Update the screen orientation
 		updateScreenOrientation();
 	}, [ rootStore.isFullscreen ]);
+
+	useEffect(() => {
+		const downloadFile = async (download) => {
+			console.debug('[App] downloading "%s"', download.filename);
+			await ensurePathExists(download.localPath);
+
+			const url = download.getStreamUrl(rootStore.deviceId);
+
+			const resumable = FileSystem.createDownloadResumable(
+				url.toString(),
+				download.uri,
+				{},
+				(/*{ totalBytesWritten }*/) => {
+					// FIXME: We should save the download progress in the model for display
+					// but this needs throttling
+				}
+			);
+
+			// TODO: The resumable should be saved to allow pausing/resuming downloads
+
+			try {
+				download.isDownloading = true;
+				await resumable.downloadAsync();
+				download.isComplete = true;
+				download.isDownloading = false;
+			} catch (e) {
+				console.error('[App] Download failed', e);
+				download.isDownloading = false;
+			}
+		};
+
+		rootStore.downloadStore.downloads
+			.forEach(download => {
+				if (!download.isComplete && !download.isDownloading) {
+					downloadFile(download);
+				}
+			});
+	}, [ rootStore.deviceId, rootStore.downloadStore.downloads.size ]);
 
 	const loadImagesAsync = () => {
 		const images = [

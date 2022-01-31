@@ -11,7 +11,7 @@ import { Button, ListItem } from 'react-native-elements';
 
 import { getIconName } from '../utils/Icons';
 
-const DownloadListItem = ({ item, index, onSelect, onShare, isEditMode = false, isSelected = false }) => (
+const DownloadListItem = ({ item, index, onSelect, onPlay, isEditMode = false, isSelected = false }) => (
 	<ListItem
 		topDivider={index === 0}
 		bottomDivider
@@ -23,17 +23,18 @@ const DownloadListItem = ({ item, index, onSelect, onShare, isEditMode = false, 
 			/>
 		}
 		<ListItem.Content>
-			<ListItem.Title>{item.title || item.fileName || item.itemId}</ListItem.Title>
+			<ListItem.Title>{item.title}</ListItem.Title>
+			<ListItem.Subtitle>{item.localFilename}</ListItem.Subtitle>
 		</ListItem.Content>
 		{item.isComplete ?
 			<Button
 				type='clear'
 				icon={{
-					name: getIconName('share-outline'),
+					name: getIconName('play'),
 					type: 'ionicon'
 				}}
 				disabled={isEditMode}
-				onPress={() => onShare(item)}
+				onPress={() => onPlay(item)}
 			/> : <ActivityIndicator />
 		}
 	</ListItem>
@@ -43,7 +44,7 @@ DownloadListItem.propTypes = {
 	item: PropTypes.object.isRequired,
 	index: PropTypes.number.isRequired,
 	onSelect: PropTypes.func.isRequired,
-	onShare: PropTypes.func.isRequired,
+	onPlay: PropTypes.func.isRequired,
 	isEditMode: PropTypes.bool,
 	isSelected: PropTypes.bool
 };
