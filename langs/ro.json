@@ -1,14 +1,18 @@
 {
     "common": {
         "cancel": "Anulează",
-        "unknown": "Necunoscut"
+        "unknown": "Necunoscut",
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Adaugă Server",
         "home": "Acasă",
         "links": "Legături",
         "servers": "Servere",
-        "settings": "Setări"
+        "settings": "Setări",
+        "playback": "Redare",
+        "appearance": "Aspect"
     },
     "addServer": {
         "address": "Adresa Serverului",
@@ -54,7 +58,8 @@
         "systemTheme": "Folosește tema sistemului",
         "lightTheme": "Folosește tema luminoasă",
         "minimumServerVersion": "Necesită versiunea de server 10.7+",
-        "nativeVideoPlayer": "Utilizează redarea video nativă"
+        "nativeVideoPlayer": "Utilizează redarea video nativă",
+        "fmp4Support": "Preferați fMP4 în HLS"
     },
     "links": {
         "website": "Site-ul Jellyfin",
@@ -75,5 +80,10 @@
             "description": "Sigur doriți să resetați toate setările?",
             "confirm": "Reset"
         }
+    },
+    "serverHelp": {
+        "learnMore": "Aflați mai multe despre cum să va găzduiți propriul server",
+        "description": "Jellyfin este solutia media construită de voluntari. Acesta vă permite să gazduiți propriul conținut media de și să il accesați de oriunde.\n\n\nPentru a utiliza acest client, trebuie să vă găzduiți propriul server Jellyfin.",
+        "heading": "Ce este Jellyfin?"
     }
 }
