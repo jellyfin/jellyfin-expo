@@ -32,16 +32,24 @@ const AudioPlayer = observer(() => {
 
 	// Update the player when media type or uri changes
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Audio) {
-			setPlayer(Audio.Sound.createAsync({
-				uri: rootStore.mediaStore.uri
+		const createPlayer = async ({ uri, positionMillis }) => {
+			const { sound } = Audio.Sound.createAsync({
+				uri
 			}, {
-				positionMillis: rootStore.mediaStore.positionMillis,
+				positionMillis,
 				shouldPlay: true
 			}, ({ isPlaying, positionMillis }) => {
 				rootStore.mediaStore.isPlaying = isPlaying;
 				rootStore.mediaStore.positionTicks = msToTicks(positionMillis);
-			}));
+			});
+			setPlayer(sound);
+		};
+
+		if (rootStore.mediaStore.type === MediaTypes.Audio) {
+			createPlayer({
+				uri: rootStore.mediaStore.uri,
+				positionMillis: rootStore.mediaStore.positionMillis
+			});
 		}
 	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri ]);
 
@@ -49,9 +57,9 @@ const AudioPlayer = observer(() => {
 	useEffect(() => {
 		if (rootStore.mediaStore.type === MediaTypes.Audio && rootStore.mediaStore.shouldPlayPause) {
 			if (rootStore.mediaStore.isPlaying) {
-				player.current?.pauseAsync();
+				player?.pauseAsync();
 			} else {
-				player.current?.playAsync();
+				player?.playAsync();
 			}
 			rootStore.mediaStore.shouldPlayPause = false;
 		}

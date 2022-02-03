@@ -92,9 +92,7 @@ class NativeAudioPlayer {
 
 	// Any audio items are supported when enabled
 	canPlayItem() {
-		// return window.ExpoAppSettings.isNativeAudioPlayerEnabled;
-		// FIXME: Add setting for this also
-		return true;
+		return window.ExpoAppSettings.isExperimentalNativeAudioPlayerEnabled;
 	}
 
 	// Returns the currently playing item
