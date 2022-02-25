@@ -6,11 +6,11 @@
         "beta": "BETA"
     },
     "headings": {
-        "addServer": "Sunucu Ekle",
+        "addServer": "Sunucu ekle",
         "appearance": "Görünüm",
-        "home": "Ana Sayfa",
+        "home": "Ev",
         "links": "Linkler",
-        "playback": "Oynatma",
+        "playback": "Geri çalma",
         "servers": "Sunucular",
         "settings": "Ayarlar"
     },
@@ -58,7 +58,7 @@
         "keepAwake": "Ekranı Açık Tut",
         "nativeVideoPlayer": "Yerel Video Oynatıcıyı Kullan",
         "minimumServerVersion": "Sunucu Sürümü 10.7+ gerektirir",
-        "fmp4Support": "HLS'de fMP4'ü tercih et",
+        "fmp4Support": "HLS'de fMP4'ü tercih edin",
         "lightTheme": "Açık Temayı Kullan",
         "systemTheme": "Sistem Temasını Kullan",
         "rotationLock": "Döndürme Kilidi",
