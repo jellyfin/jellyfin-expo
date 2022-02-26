@@ -2,7 +2,8 @@
     "common": {
         "cancel": "انصراف",
         "unknown": "ناشناخته",
-        "ok": "خوب"
+        "ok": "خوب",
+        "beta": "بتا"
     },
     "headings": {
         "addServer": "اضافه کردن سرور",
