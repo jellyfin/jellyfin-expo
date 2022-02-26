@@ -2,7 +2,7 @@
     "common": {
         "cancel": "انصراف",
         "unknown": "ناشناخته",
-        "ok": "خوب",
+        "ok": "تایید",
         "beta": "بتا"
     },
     "headings": {
@@ -17,8 +17,8 @@
     "addServer": {
         "address": "ادرس سرور",
         "validation": {
-            "empty": "$t(addServer.address)ادرس سرور نمیتواند خالی باشد",
-            "invalid": "$t(addServer.address)ادرس سرور معتبر نیست",
+            "empty": "$t(addServer.address)آدرس سرور نمیتواند خالی باشد",
+            "invalid": "$t(addServer.address)آدرس سرور معتبر نیست",
             "invalidProduct": "این یک سرور جلی‌فین نیست",
             "noConnection": "اتصال به سرور بر قرار نشد"
         }
@@ -29,7 +29,7 @@
                 "description": "دسترسی به سرور Jellyfin امکان پذیر نیست. این معمولاً به دلیل خطای پیکربندی پروکسی است یا Jellyfin آفلاین است."
             },
             "504": {
-                "description": "دسترسی به سرور Jellyfin امکان پذیر نیست. این معمولاً به این دلیل است که زمان اتصال پروکسی هنگام اتصال به Jellyfin به پایان رسیده است."
+                "description": "دسترسی به سرور Jellyfin امکان پذیر نیست. این معمولاً به این دلیل است که مهلت زمانی پروکسی هنگام اتصال به Jellyfin به پایان رسیده است."
             },
             "http": {
                 "heading": "مشکلی پیش آمد!",
@@ -58,7 +58,7 @@
         "lightTheme": "از تم روشن استفاده کنید",
         "fmp4Support": "fMP4 را در HLS ترجیح دهید",
         "minimumServerVersion": "به نسخه 10.7+ سرور نیاز دارد",
-        "nativeVideoPlayer": "استفاده از پخش کننده ویدیوی بومی [BETA]"
+        "nativeVideoPlayer": "استفاده از پخش کننده ویدیوی بومی"
     },
     "links": {
         "website": "سایت جلی‌فین",
