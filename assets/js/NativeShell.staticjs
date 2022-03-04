@@ -8,7 +8,6 @@
 const ExpoSupportedFeatures = [
 	// 'filedownload',
 	'exit',
-	'exitmenu',
 	'plugins',
 	'externallinks',
 	'externalpremium',
