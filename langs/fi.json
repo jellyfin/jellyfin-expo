@@ -1,87 +1,87 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Peruuta",
+        "ok": "OK",
+        "unknown": "Tuntematon"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Lisää palvelin",
+        "appearance": "Ulkoasu",
+        "home": "Koti",
+        "links": "Linkit",
+        "playback": "Toisto",
+        "servers": "Palvelimet",
+        "settings": "Asetukset"
     },
     "addServer": {
-        "address": "",
+        "address": "Palvelimen osoite",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) ei voi olla tyhjä",
+            "invalid": "$t(addServer.address) ei ole kelvollinen",
+            "invalidProduct": "Ei ole Jellyfin palvelin",
+            "noConnection": "Ei voida yhdistää palvelimeen"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Ei voida yhdistää Jellyfin palvelimeen. Tämä useimmiten johtuu välityspalvelimen määrittelyvirheestä tai Jellyfin ei ole verkossa."
             },
             "504": {
-                "description": ""
+                "description": "Ei voida yhdistää Jellyfin palvelimeen. Tämä useimmiten johtuu välityspalvelimen aikakatkaisusta yhdistäessä Jellyfin palvelimeen."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Jokin meni pieleen!",
+                "description": "Jellyfin palvelin palautti virheen."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Palvelin ei ole kelvollinen",
+                "description": "Jotain on tapahtunut ja tallennetut palvelintiedot eivät ole kelvollisia. Kokeile poistaa palvelin asetuksista ja lisää se uudelleen."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Palvelin verkottomassa tilassa?",
+                "description": "Virhe yhdistäessä Jellyfin palvelimeen."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Virhekoodi: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Yritä uudelleen?"
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "Mikä on Jellyfin?",
         "description": "",
-        "learnMore": ""
+        "learnMore": "Lue lisää oman palvelimesi isännöimisestä"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
+        "version": "Versio: {{version}}",
+        "keepAwake": "Pidä näyttö päällä",
+        "nativeVideoPlayer": "Käytä natiivia videotoistinta",
+        "minimumServerVersion": "Vaatii palvelinversion 10.7+",
+        "fmp4Support": "Suosi fMP4 kun käytetään HLS",
+        "lightTheme": "Käytä vaaleaa teemaa",
+        "systemTheme": "Käytä järjestelmän teemaa",
+        "rotationLock": "Kierron lukitus",
         "tabLabels": "",
-        "expoVersion": ""
+        "expoVersion": "Expo versio: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Jellyfin verkkosivu",
+        "documentation": "Dokumentaatio",
+        "source": "Lähdekoodi",
+        "translate": "Käännä",
+        "issue": "Raportoi ongelmasta"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Poista palvelin",
+            "description": "Haluatko varmasti poistaa palvelimen {{serverName}}?",
+            "confirm": "Poista"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Nollaa sovellus",
+            "description": "Haluatko varmasti nollata kaikki asetukset?",
+            "confirm": "Nollaa"
         }
     }
 }
