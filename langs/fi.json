@@ -50,7 +50,7 @@
     },
     "serverHelp": {
         "heading": "Mikä on Jellyfin?",
-        "description": "",
+        "description": "Jellyfin on vapaaehtoisten kehittämä mediaratkaisu. Sen avulla jaat ja käytät mediasisältöäsi mistä tahansa.\n\n\nTämä asiakassovellus edellyttää oman Jellyfin-palvelimen asennusta ja määritystä.",
         "learnMore": "Lue lisää oman palvelimesi isännöimisestä"
     },
     "settings": {
@@ -62,7 +62,7 @@
         "lightTheme": "Käytä vaaleaa teemaa",
         "systemTheme": "Käytä järjestelmän teemaa",
         "rotationLock": "Kierron lukitus",
-        "tabLabels": "",
+        "tabLabels": "Näytä välilehtien tunnisteet",
         "expoVersion": "Expo versio: {{version}}"
     },
     "links": {
