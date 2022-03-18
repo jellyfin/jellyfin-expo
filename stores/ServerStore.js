@@ -6,6 +6,7 @@
 import { action, decorate, observable } from 'mobx';
 import { format } from 'mobx-sync-lite';
 import { task } from 'mobx-task';
+import { v4 as uuidv4 } from 'uuid';
 
 import ServerModel from '../models/ServerModel';
 
@@ -13,7 +14,7 @@ export default class ServerStore {
 	servers = []
 
 	addServer(server) {
-		this.servers.push(new ServerModel(this.servers.length, server.url));
+		this.servers.push(new ServerModel(uuidv4(), server.url));
 	}
 
 	removeServer(index) {
