@@ -63,6 +63,13 @@ class NativeAudioPlayer {
 			return;
 		}
 
+		// Playback has stopped
+		if (status.isFinished) {
+			this._isPlaying = false;
+			this._safelyTriggerEvent('stopped');
+			return;
+		}
+
 		// The playing state has changed
 		if (status.isPlaying !== this._isPlaying) {
 			this._isPlaying = status.isPlaying;

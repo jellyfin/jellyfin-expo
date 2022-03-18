@@ -63,6 +63,7 @@ const HomeScreen = observer(() => {
 		const status = {
 			didPlayerCloseManually: rootStore.didPlayerCloseManually,
 			uri: rootStore.mediaStore.uri,
+			isFinished: rootStore.mediaStore.isFinished,
 			isPlaying: rootStore.mediaStore.isPlaying,
 			positionTicks: rootStore.mediaStore.positionTicks,
 			positionMillis: rootStore.mediaStore.positionMillis
@@ -73,7 +74,13 @@ const HomeScreen = observer(() => {
 		} else if (rootStore.mediaStore.type === MediaTypes.Video) {
 			webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify(status)});`);
 		}
-	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri, rootStore.mediaStore.isPlaying, rootStore.mediaStore.positionTicks ]);
+	}, [
+		rootStore.mediaStore.type,
+		rootStore.mediaStore.uri,
+		rootStore.mediaStore.isFinished,
+		rootStore.mediaStore.isPlaying,
+		rootStore.mediaStore.positionTicks
+	]);
 
 	// Clear the error state when the active server changes
 	useEffect(() => {

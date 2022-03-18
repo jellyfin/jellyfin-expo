@@ -38,7 +38,12 @@ const AudioPlayer = observer(() => {
 			}, {
 				positionMillis,
 				shouldPlay: true
-			}, ({ isPlaying, positionMillis: positionMs }) => {
+			}, ({
+				isPlaying,
+				positionMillis: positionMs,
+				didJustFinish
+			}) => {
+				rootStore.mediaStore.isFinished = didJustFinish;
 				rootStore.mediaStore.isPlaying = isPlaying;
 				rootStore.mediaStore.positionTicks = msToTicks(positionMs);
 			});
