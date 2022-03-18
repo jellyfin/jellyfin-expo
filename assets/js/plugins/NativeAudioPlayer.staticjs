@@ -156,6 +156,9 @@ class NativeAudioPlayer {
 
 	stop(destroy) {
 		postExpoEvent(this.name + '.stop', destroy);
+		if (destroy) {
+			this.destroy();
+		}
 		return Promise.resolve();
 	}
 
