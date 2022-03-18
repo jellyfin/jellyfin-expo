@@ -50,7 +50,8 @@ window.ExpoAppInfo = {
 
 window.ExpoAppSettings = {
 	isPluginSupported: true,
-	isNativeVideoPlayerEnabled: undefined
+	isNativeVideoPlayerEnabled: undefined,
+	isExperimentalNativeAudioPlayerEnabled: undefined
 };
 
 window.ExpoVideoProfile = {};
@@ -61,6 +62,7 @@ function postExpoEvent(event, data) {
 		data: data
 	}));
 }
+
 
 
 
