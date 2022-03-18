@@ -16,6 +16,7 @@ import ErrorView from '../components/ErrorView';
 import NativeShellWebView from '../components/NativeShellWebView';
 import VideoPlayer from '../components/VideoPlayer';
 import Colors from '../constants/Colors';
+import MediaTypes from '../constants/MediaTypes';
 import Screens from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 import { getIconName } from '../utils/Icons';
@@ -59,14 +60,20 @@ const HomeScreen = observer(() => {
 
 	// Report media updates to the video plugin
 	useEffect(() => {
-		webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify({
+		const status = {
 			didPlayerCloseManually: rootStore.didPlayerCloseManually,
 			uri: rootStore.mediaStore.uri,
 			isPlaying: rootStore.mediaStore.isPlaying,
 			positionTicks: rootStore.mediaStore.positionTicks,
 			positionMillis: rootStore.mediaStore.positionMillis
-		})});`);
-	}, [ rootStore.mediaStore.uri, rootStore.mediaStore.isPlaying, rootStore.mediaStore.positionTicks ]);
+		};
+
+		if (rootStore.mediaStore.type === MediaTypes.Audio) {
+			webview.current?.injectJavaScript(`window.ExpoAudioPlayer && window.ExpoAudioPlayer._reportStatus(${JSON.stringify(status)});`);
+		} else if (rootStore.mediaStore.type === MediaTypes.Video) {
+			webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify(status)});`);
+		}
+	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri, rootStore.mediaStore.isPlaying, rootStore.mediaStore.positionTicks ]);
 
 	// Clear the error state when the active server changes
 	useEffect(() => {

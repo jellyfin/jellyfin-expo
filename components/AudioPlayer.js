@@ -33,7 +33,7 @@ const AudioPlayer = observer(() => {
 	// Update the player when media type or uri changes
 	useEffect(() => {
 		const createPlayer = async ({ uri, positionMillis }) => {
-			const { sound } = Audio.Sound.createAsync({
+			const { sound } = await Audio.Sound.createAsync({
 				uri
 			}, {
 				positionMillis,

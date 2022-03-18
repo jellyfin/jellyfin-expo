@@ -117,7 +117,7 @@ class NativeAudioPlayer {
 
 	// Dummy method (required by web for live tv)
 	duration() {
-		return 1;
+		return null;
 	}
 
 	// Dummy method (required by web)
