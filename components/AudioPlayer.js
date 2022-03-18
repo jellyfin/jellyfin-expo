@@ -38,9 +38,9 @@ const AudioPlayer = observer(() => {
 			}, {
 				positionMillis,
 				shouldPlay: true
-			}, ({ isPlaying, positionMillis }) => {
+			}, ({ isPlaying, positionMillis: positionMs }) => {
 				rootStore.mediaStore.isPlaying = isPlaying;
-				rootStore.mediaStore.positionTicks = msToTicks(positionMillis);
+				rootStore.mediaStore.positionTicks = msToTicks(positionMs);
 			});
 			setPlayer(sound);
 		};
