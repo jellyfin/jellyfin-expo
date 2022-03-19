@@ -14,6 +14,7 @@ class NativeAudioPlayer {
 		this.isLocalPlayer = true;
 
 		this.uri = null;
+		this._isStarting = false;
 		this._isPlaying = false;
 		this.positionMillis = 0;
 
@@ -34,6 +35,7 @@ class NativeAudioPlayer {
 		this.mediaSource = null;
 
 		this.uri = null;
+		this._isStarting = false;
 		this._isPlaying = false;
 		this.positionMillis = 0;
 	}
@@ -73,7 +75,15 @@ class NativeAudioPlayer {
 		// The playing state has changed
 		if (status.isPlaying !== this._isPlaying) {
 			this._isPlaying = status.isPlaying;
-			this._safelyTriggerEvent(this._isPlaying ? 'playing' : 'pause');
+
+			if (this._isStarting) {
+				// Send 'playing' event when playback initially starts
+				this._safelyTriggerEvent('playing');
+				this._isStarting = false;
+			} else {
+				// If playback already started send 'pause' or 'unpause' event
+				this._safelyTriggerEvent(this._isPlaying ? 'unpause' : 'pause');
+			}
 		}
 
 		// The playback position has changed
@@ -144,6 +154,7 @@ class NativeAudioPlayer {
 
 	// Called by web to begin playback
 	play(streamInfo) {
+		this._isStarting = true;
 		postExpoEvent(this.name + '.play', streamInfo);
 
 		// Save the currently playing item
