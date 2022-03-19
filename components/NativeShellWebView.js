@@ -65,6 +65,10 @@ true;
 		const onRefresh = () => {
 			// Disable pull to refresh when in fullscreen
 			if (rootStore.isFullscreen) return;
+
+			// Stop media playback in native players
+			rootStore.mediaStore.shouldStop = true;
+
 			setIsRefreshing(true);
 			ref.current?.reload();
 			setIsRefreshing(false);
