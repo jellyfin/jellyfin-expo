@@ -35,9 +35,9 @@ export default class MediaStore {
 	positionTicks = 0
 
 	/**
-	 * The URI of the poster image of the current media item
+	 * The URI of the backdrop image of the current media item
 	 */
-	posterUri
+	backdropUri
 
 	/**
 	 * The player should toggle the play/pause state
@@ -59,7 +59,7 @@ export default class MediaStore {
 		this.isFinished = false;
 		this.isPlaying = false;
 		this.positionTicks = 0;
-		this.posterUri = null;
+		this.backdropUri = null;
 		this.shouldPlayPause = false;
 		this.shouldStop = false;
 	}
@@ -72,7 +72,7 @@ decorate(MediaStore, {
 	isPlaying: [ ignore, observable ],
 	positionTicks: [ ignore, observable ],
 	positionMillis: computed,
-	posterUri: [ ignore, observable ],
+	backdropUri: [ ignore, observable ],
 	shouldPlayPause: [ ignore, observable ],
 	shouldStop: [ ignore, observable ],
 	reset: action

@@ -16,7 +16,7 @@ describe('MediaStore', () => {
 		expect(store.isPlaying).toBe(false);
 		expect(store.positionTicks).toBe(0);
 		expect(store.positionMillis).toBe(0);
-		expect(store.posterUri).toBeUndefined();
+		expect(store.backdropUri).toBeUndefined();
 		expect(store.shouldPlayPause).toBe(false);
 		expect(store.shouldStop).toBe(false);
 	});
@@ -28,7 +28,7 @@ describe('MediaStore', () => {
 		store.isFinished = true;
 		store.isPlaying = true;
 		store.positionTicks = 3423000;
-		store.posterUri = 'https://foobar';
+		store.backdropUri = 'https://foobar';
 		store.shouldPlayPause = true;
 		store.shouldStop = true;
 
@@ -38,7 +38,7 @@ describe('MediaStore', () => {
 		expect(store.isPlaying).toBe(true);
 		expect(store.positionTicks).toBe(3423000);
 		expect(store.positionMillis).toBe(342.3);
-		expect(store.posterUri).toBe('https://foobar');
+		expect(store.backdropUri).toBe('https://foobar');
 		expect(store.shouldPlayPause).toBe(true);
 		expect(store.shouldStop).toBe(true);
 
@@ -49,7 +49,7 @@ describe('MediaStore', () => {
 		expect(store.isPlaying).toBe(false);
 		expect(store.positionTicks).toBe(0);
 		expect(store.positionMillis).toBe(0);
-		expect(store.posterUri).toBeNull();
+		expect(store.backdropUri).toBeNull();
 		expect(store.shouldPlayPause).toBe(false);
 		expect(store.shouldStop).toBe(false);
 	});

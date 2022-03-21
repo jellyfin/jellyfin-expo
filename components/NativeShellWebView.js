@@ -106,13 +106,13 @@ true;
 					case 'ExpoAudioPlayer.play':
 						rootStore.mediaStore.type = MediaTypes.Audio;
 						rootStore.mediaStore.uri = data.url;
-						rootStore.mediaStore.posterUri = data.backdropUrl;
+						rootStore.mediaStore.backdropUri = data.backdropUrl;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
 						break;
 					case 'ExpoVideoPlayer.play':
 						rootStore.mediaStore.type = MediaTypes.Video;
 						rootStore.mediaStore.uri = data.url;
-						rootStore.mediaStore.posterUri = data.backdropUrl;
+						rootStore.mediaStore.backdropUri = data.backdropUrl;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
 						break;
 					case 'ExpoAudioPlayer.playPause':
