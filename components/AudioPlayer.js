@@ -20,7 +20,10 @@ const AudioPlayer = observer(() => {
 	// Set the audio mode when the audio player is created
 	useEffect(() => {
 		Audio.setAudioModeAsync({
+			staysActiveInBackground: true,
 			interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+			playThroughEarpieceAndroid: false,
+			shouldDuckAndroid: true,
 			interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
 			playsInSilentModeIOS: true
 		});
