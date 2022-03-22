@@ -94,13 +94,6 @@ describe('ServerValidator', () => {
 			expect(result.message).toBe('invalid');
 		});
 
-		it('should return valid for 10.2.x servers', async () => {
-			fetch.mockResponse(JSON.stringify({ Id: 'test', Version: '10.2.0' }));
-
-			const result = await validateServer({ url: new URL('https://foobar/') });
-			expect(result.isValid).toBe(true);
-		});
-
 		it('should return valid if product name is "Jellyfin Server"', async () => {
 			fetch.mockResponse(JSON.stringify({ ProductName: 'Jellyfin Server' }));
 
