@@ -32,7 +32,7 @@ describe('ServerStore', () => {
 	it('should allow servers to be added', () => {
 		store.addServer({ url: new URL('https://foobar') });
 		expect(store.servers).toHaveLength(1);
-		expect(store.servers[0].id).toBe(0);
+		expect(store.servers[0].id).toBeDefined();
 		expect(store.servers[0].url.host).toBe('foobar');
 
 		store.addServer({ url: new URL('https://baz') });
@@ -43,7 +43,7 @@ describe('ServerStore', () => {
 		store.removeServer(0);
 
 		expect(store.servers).toHaveLength(1);
-		expect(store.servers[0].id).toBe(1);
+		expect(store.servers[0].id).toBeDefined();
 		expect(store.servers[0].url.host).toBe('baz');
 	});
 
