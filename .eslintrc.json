@@ -137,6 +137,24 @@
                 "browser": true,
                 "es6": true
             }
+        },
+        {
+            "files": [
+                "./**/*.ts",
+                "./**/*.tsx"
+            ],
+            "parser": "@typescript-eslint/parser",
+            "plugins": [ "@typescript-eslint" ],
+            "extends": [
+                "eslint:recommended",
+                "plugin:@typescript-eslint/recommended",
+                "plugin:react/recommended",
+                "plugin:promise/recommended",
+                "plugin:import/errors",
+                "plugin:import/warnings",
+                "plugin:import/typescript",
+                "plugin:eslint-comments/recommended"
+            ]
         }
     ]
 }
