@@ -1,87 +1,87 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Canslo",
+        "ok": "Iawn",
+        "unknown": "Anhysbys"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Adio Gweinydd",
+        "appearance": "Edrychiad",
+        "home": "Cartref",
+        "links": "Dolenni",
+        "playback": "Chwarae Nôl",
+        "servers": "Gweinyddion",
+        "settings": "Gosodiadau"
     },
     "addServer": {
-        "address": "",
+        "address": "Cyfeiriad y Gweinydd",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "Ni all $t(addServer.address) fod yn wag",
+            "invalid": "Mae $t(addServer.address) yn annilys",
+            "invalidProduct": "Ddim yn weinydd Jellyfin",
+            "noConnection": "Methu cysylltu â'r gweinydd"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Methu cyrraedd y gweinydd Jellyfin. Mae hyn fel arfer oherwydd gwall gosodiadau procsi neu mae Jellyfin all-lein."
             },
             "504": {
-                "description": ""
+                "description": "Methu cyrraedd y gweinydd Jellyfin. Mae hyn fel arfer oherwydd bod y procsi wedi methu pan yn cysylltu â Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Aeth rhywbeth o'i le!",
+                "description": "Derbyniwyd gwall o'r gweinydd Jellyfin."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Gweinydd yn annilys",
+                "description": "Mae'r wybodaeth gweinydd a safiwyd yn annilys. Ceisiwch dynnu'r gweinydd o'r Gosodiadau a'i hychwanegu eto."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Gweinydd all-lein?",
+                "description": "Gwall wrth gysylltu â'r gweinydd Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Cod gwall: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Ceisio eto?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Beth yw Jellyfin?",
+        "description": "Mae Jellyfin yn system cyfryngau a adeiladwyd gan wirfoddolwr. Mae'n caniatáu ichi gynnal eich cyfryngau eich hun a chael mynediad ato o unrhyw le.\n\n\nEr mwyn defnyddio'r cleient hwn, mae angen i chi gynnal gweinydd Jellyfin eich hun.",
+        "learnMore": "Dysgwch fwy am sut i gynnal eich gweinydd eich hun"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Fersiwn: {{version}}",
+        "keepAwake": "Cadw Sgrin yn effro",
+        "nativeVideoPlayer": "Defnyddiwch Chwaraewr Fideo y System",
+        "minimumServerVersion": "Angen Fersiwn Gweinyddwr 10.7+",
+        "fmp4Support": "Defnyddio fMP4 yn HLS",
+        "lightTheme": "Defnyddio Thema Golau",
+        "systemTheme": "Defnyddio Thema System",
+        "rotationLock": "Cloi Cylchdroi",
+        "tabLabels": "Dangos Labeli Tab",
+        "expoVersion": "Fersiwn Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Gwefan Jellyfin",
+        "documentation": "Dogfennaeth",
+        "source": "Ffynhonnell Cod",
+        "translate": "Cyfieithu",
+        "issue": "Cofnodi mater"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Dileu gweinydd",
+            "description": "Ydych chi'n siwr eich bod am ddileu y gweinydd {{serverName}}?",
+            "confirm": "Dileu"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ailosod y rhaglen",
+            "description": "Ydych chi'n siwr eich fod am ailosod pob gosodiad?",
+            "confirm": "Ailosod"
         }
     }
 }
