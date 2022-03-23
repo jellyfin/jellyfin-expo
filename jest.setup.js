@@ -8,6 +8,12 @@
 import { enableFetchMocks } from 'jest-fetch-mock';
 import { AbortController } from 'node-abort-controller';
 
+// DOMException is not polyfilled in released version of jest-fetch-mock
+// refs: https://github.com/jefflau/jest-fetch-mock/pull/160
+if (typeof DOMException === 'undefined') {
+	global.DOMException = require('domexception');
+}
+
 global.AbortController = AbortController;
 
 enableFetchMocks();
