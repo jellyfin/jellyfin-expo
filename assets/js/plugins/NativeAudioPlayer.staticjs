@@ -65,10 +65,12 @@ class NativeAudioPlayer {
 			return;
 		}
 
-		// Playback has stopped
+		// Playback has finished and should be reported as stopped
 		if (status.isFinished) {
-			this._isPlaying = false;
-			this._safelyTriggerEvent('stopped');
+			if (this._isPlaying) {
+				this._isPlaying = false;
+				this._safelyTriggerEvent('stopped');
+			}
 			return;
 		}
 

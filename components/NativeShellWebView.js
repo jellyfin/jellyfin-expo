@@ -104,15 +104,11 @@ true;
 						}
 						break;
 					case 'ExpoAudioPlayer.play':
-						rootStore.mediaStore.type = MediaTypes.Audio;
-						rootStore.mediaStore.uri = data.url;
-						rootStore.mediaStore.backdropUri = data.backdropUrl;
-						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
-						break;
 					case 'ExpoVideoPlayer.play':
-						rootStore.mediaStore.type = MediaTypes.Video;
+						rootStore.mediaStore.type = event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video;
 						rootStore.mediaStore.uri = data.url;
 						rootStore.mediaStore.backdropUri = data.backdropUrl;
+						rootStore.mediaStore.isFinished = false;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
 						break;
 					case 'ExpoAudioPlayer.playPause':
