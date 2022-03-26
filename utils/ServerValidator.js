@@ -6,6 +6,8 @@
 
 import normalizeUrl from 'normalize-url';
 
+import { fetchWithTimeout } from './Fetch';
+
 const TIMEOUT_DURATION = 5000; // timeout request after 5s
 
 export const parseUrl = (host = '', port = '') => {
@@ -31,24 +33,13 @@ export const fetchServerInfo = async (server = {}) => {
 	const infoUrl = `${serverUrl}system/info/public`;
 	console.log('info url', infoUrl);
 
-	// Try to fetch the server's public info
-	const controller = new AbortController();
-	const { signal } = controller;
-
-	const request = fetch(infoUrl, { signal });
-
-	const timeoutId = setTimeout(() => {
-		console.log('request timed out, aborting');
-		controller.abort();
-	}, TIMEOUT_DURATION);
-
-	const responseJson = await request.then(response => {
-		clearTimeout(timeoutId);
-		if (!response.ok) {
-			throw new Error(`Error response status [${response.status}] received from ${infoUrl}`);
-		}
-		return response.json();
-	});
+	const responseJson = await fetchWithTimeout(infoUrl, TIMEOUT_DURATION)
+		.then(response => {
+			if (!response.ok) {
+				throw new Error(`Error response status [${response.status}] received from ${infoUrl}`);
+			}
+			return response.json();
+		});
 	console.log('response', responseJson);
 
 	return responseJson;
