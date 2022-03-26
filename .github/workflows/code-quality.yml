@@ -40,6 +40,27 @@ jobs:
       - name: Run eslint
         run: npm run lint
 
+  typescript:
+    name: TypeScript Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: 12
+          check-latest: true
+          cache: npm
+
+      - name: Install Node.js dependencies
+        run: npm ci --no-audit
+
+      - name: Run TypeScript Build
+        run: npx tsc --noEmit
+
   jest:
     name: Test
     runs-on: ubuntu-latest
