@@ -59,7 +59,7 @@
         "systemTheme": "Benutze Systemdesign",
         "minimumServerVersion": "Benötigt Serverversion 10.7+",
         "nativeVideoPlayer": "Nativen Video-Player verwenden",
-        "fmp4Support": "Bevorzugen Sie fMP4 in HLS"
+        "fmp4Support": "fMP4 in HLS bevorzugen"
     },
     "links": {
         "website": "Jellyfin Website",
@@ -82,8 +82,8 @@
         }
     },
     "serverHelp": {
-        "learnMore": "Erfahren Sie mehr darüber, wie Sie Ihren eigenen Server betreiben können",
-        "description": "Jellyfin ist die von Freiwilligen gebaute Medienlösung. Sie ermöglicht es Ihnen, Ihre eigenen Medien zu hosten und von überall darauf zuzugreifen.\n\n\nUm diesen Client nutzen zu können, müssen Sie Ihren eigenen Jellyfin-Server betreiben.",
+        "learnMore": "Erfahre mehr darüber, wie du deinen eigenen Server betreiben kannst",
+        "description": "Jellyfin ist die von Freiwilligen gebaute Medienlösung. Sie ermöglicht es dir, deine eigenen Medien zu hosten und von überall darauf zuzugreifen.\n\n\nUm diesen Client nutzen zu können, musst du deinen eigenen Jellyfin-Server betreiben.",
         "heading": "Was ist Jellyfin?"
     }
 }
