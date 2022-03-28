@@ -39,3 +39,7 @@ jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
 	default: () => ({ getInitialState: { then: jest.fn() } }),
 	__esModule: true
 }));
+
+/* Safe Area Context Mocks */
+import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
+jest.mock('react-native-safe-area-context', () => mockSafeAreaContext);
