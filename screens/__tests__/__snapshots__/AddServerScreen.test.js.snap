@@ -1,0 +1,212 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddServerScreen should render correctly 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Array [
+      Object {
+        "backgroundColor": undefined,
+        "flex": 1,
+      },
+      Object {
+        "paddingBottom": 0,
+      },
+    ]
+  }
+>
+  <RNCSafeAreaView
+    edges={
+      Array [
+        "right",
+        "bottom",
+        "left",
+      ]
+    }
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "space-evenly",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignSelf": "center",
+          "height": "40%",
+          "maxHeight": 151,
+          "maxWidth": "90%",
+          "paddingVertical": 10,
+        }
+      }
+    >
+      <Image
+        fadeDuration={0}
+        source={1}
+        style={
+          Object {
+            "flex": 1,
+            "maxWidth": "100%",
+            "resizeMode": "contain",
+          }
+        }
+      />
+    </View>
+    <View>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#43484d",
+                "fontSize": 16,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Server Address
+          </Text>
+          <View
+            style={
+              Object {
+                "overflow": "hidden",
+                "paddingHorizontal": 10,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "justifyContent": "center",
+                  }
+                }
+              >
+                <Text />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#303337",
+              "borderBottomWidth": 0,
+              "borderColor": "#86939e",
+              "borderRadius": 3,
+              "flexDirection": "row",
+              "marginBottom": 12,
+              "marginTop": 8,
+              "transform": Array [
+                Object {
+                  "translateX": 0,
+                },
+              ],
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "height": 40,
+                "justifyContent": "center",
+                "marginLeft": 12,
+                "marginVertical": 4,
+                "paddingRight": 4,
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "overflow": "hidden",
+                }
+              }
+            >
+              <View>
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "justifyContent": "center",
+                    }
+                  }
+                >
+                  <Text />
+                </View>
+              </View>
+            </View>
+          </View>
+          <TextInput
+            allowFontScaling={true}
+            autoCapitalize="none"
+            autoCompleteType="off"
+            autoCorrect={false}
+            autoFocus={true}
+            editable={true}
+            keyboardType="url"
+            onChangeText={[Function]}
+            onSubmitEditing={[Function]}
+            placeholder="https://jellyfin.org"
+            placeholderTextColor="#86939e"
+            rejectResponderTermination={true}
+            returnKeyType="go"
+            selectionColor="#2089dc"
+            style={
+              Object {
+                "color": "#242424",
+                "flex": 1,
+                "fontSize": 18,
+                "minHeight": 40,
+              }
+            }
+            testID="server-input"
+            textContentType="URL"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#ff190c",
+              "fontSize": 12,
+              "margin": 5,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RNCSafeAreaView>
+</View>
+`;
