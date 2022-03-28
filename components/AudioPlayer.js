@@ -29,6 +29,7 @@ const AudioPlayer = observer(() => {
 		});
 
 		return () => {
+			player?.stopAsync();
 			player?.unloadAsync();
 		};
 	}, []);
@@ -36,29 +37,36 @@ const AudioPlayer = observer(() => {
 	// Update the player when media type or uri changes
 	useEffect(() => {
 		const createPlayer = async ({ uri, positionMillis }) => {
-			const { sound } = await Audio.Sound.createAsync({
-				uri
-			}, {
-				positionMillis,
-				shouldPlay: true
-			}, ({
-				isPlaying,
-				positionMillis: positionMs,
-				didJustFinish
-			}) => {
-				if (
-					didJustFinish === undefined ||
-					isPlaying === undefined ||
-					positionMs === undefined ||
-					rootStore.mediaStore.isFinished
-				) {
-					return;
-				}
-				rootStore.mediaStore.isFinished = didJustFinish;
-				rootStore.mediaStore.isPlaying = isPlaying;
-				rootStore.mediaStore.positionTicks = msToTicks(positionMs);
-			});
-			setPlayer(sound);
+			const { isLoaded } = await player?.getStatusAsync() || { isLoaded: false };
+			if (isLoaded) {
+				// If the player is already loaded, seek to the correct position
+				player.setPositionAsync(positionMillis);
+			} else {
+				// Create the player if not already loaded
+				const { sound } = await Audio.Sound.createAsync({
+					uri
+				}, {
+					positionMillis,
+					shouldPlay: true
+				}, ({
+					isPlaying,
+					positionMillis: positionMs,
+					didJustFinish
+				}) => {
+					if (
+						didJustFinish === undefined ||
+						isPlaying === undefined ||
+						positionMs === undefined ||
+						rootStore.mediaStore.isFinished
+					) {
+						return;
+					}
+					rootStore.mediaStore.isFinished = didJustFinish;
+					rootStore.mediaStore.isPlaying = isPlaying;
+					rootStore.mediaStore.positionTicks = msToTicks(positionMs);
+				});
+				setPlayer(sound);
+			}
 		};
 
 		if (rootStore.mediaStore.type === MediaTypes.Audio) {
