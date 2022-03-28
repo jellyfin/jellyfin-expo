@@ -42,6 +42,15 @@ class NativeAudioPlayer {
 
 	// Report playback status changes to web
 	_reportStatus(status) {
+		// Playback has finished and should be reported as stopped
+		if (status.isFinished) {
+			if (this._isPlaying) {
+				this._isPlaying = false;
+				this._safelyTriggerEvent('stopped');
+			}
+			return;
+		}
+
 		// The item uri has changed
 		if (status.uri !== this.uri) {
 			this.uri = status.uri;
@@ -62,15 +71,6 @@ class NativeAudioPlayer {
 
 		// Playback has stopped don't report events
 		if (this.uri === null) {
-			return;
-		}
-
-		// Playback has finished and should be reported as stopped
-		if (status.isFinished) {
-			if (this._isPlaying) {
-				this._isPlaying = false;
-				this._safelyTriggerEvent('stopped');
-			}
 			return;
 		}
 
