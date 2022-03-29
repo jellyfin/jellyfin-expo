@@ -4,6 +4,10 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
+/* AsyncStorage Mock */
+import mockAsyncStorage from '@react-native-async-storage/async-storage/jest/async-storage-mock';
+jest.mock('@react-native-async-storage/async-storage', () => mockAsyncStorage);
+
 /* Fetch and AbortController Mocks */
 import { enableFetchMocks } from 'jest-fetch-mock';
 import { AbortController } from 'node-abort-controller';
