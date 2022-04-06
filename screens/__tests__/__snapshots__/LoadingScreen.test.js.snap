@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingScreen should render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#101010",
+      "flex": 1,
+    }
+  }
+>
+  <Image
+    fadeDuration={0}
+    onLoad={[Function]}
+    source={1}
+    style={
+      Object {
+        "flex": 1,
+        "height": undefined,
+        "resizeMode": "contain",
+        "width": undefined,
+      }
+    }
+  />
+  <ActivityIndicator
+    animating={true}
+    color="#999999"
+    hidesWhenStopped={true}
+    size="small"
+  />
+</View>
+`;
