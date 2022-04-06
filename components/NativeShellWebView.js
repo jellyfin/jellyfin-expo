@@ -37,7 +37,8 @@ window.ExpoAppInfo = {
 
 window.ExpoAppSettings = {
 	isPluginSupported: ${isPluginSupported},
-	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled}
+	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled},
+	isExperimentalNativeAudioPlayerEnabled: ${rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled}
 };
 
 window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile({ enableFmp4: rootStore.settingStore.isFmp4Enabled }))};
@@ -49,6 +50,7 @@ function postExpoEvent(event, data) {
 	}));
 }
 
+${StaticScriptLoader.scripts.NativeAudioPlayer}
 ${StaticScriptLoader.scripts.NativeVideoPlayer}
 
 ${StaticScriptLoader.scripts.NativeShell}
@@ -63,6 +65,10 @@ true;
 		const onRefresh = () => {
 			// Disable pull to refresh when in fullscreen
 			if (rootStore.isFullscreen) return;
+
+			// Stop media playback in native players
+			rootStore.mediaStore.shouldStop = true;
+
 			setIsRefreshing(true);
 			ref.current?.reload();
 			setIsRefreshing(false);
@@ -97,15 +103,19 @@ true;
 							deactivateKeepAwake();
 						}
 						break;
+					case 'ExpoAudioPlayer.play':
 					case 'ExpoVideoPlayer.play':
-						rootStore.mediaStore.type = MediaTypes.Video;
+						rootStore.mediaStore.type = event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video;
 						rootStore.mediaStore.uri = data.url;
-						rootStore.mediaStore.posterUri = data.backdropUrl;
+						rootStore.mediaStore.backdropUri = data.backdropUrl;
+						rootStore.mediaStore.isFinished = false;
 						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
 						break;
+					case 'ExpoAudioPlayer.playPause':
 					case 'ExpoVideoPlayer.playPause':
 						rootStore.mediaStore.shouldPlayPause = true;
 						break;
+					case 'ExpoAudioPlayer.stop':
 					case 'ExpoVideoPlayer.stop':
 						rootStore.mediaStore.shouldStop = true;
 						break;

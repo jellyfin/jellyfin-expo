@@ -119,6 +119,7 @@ window.NativeShell = {
 			return [];
 		}
 		return [
+			'NativeAudioPlayer',
 			'NativeVideoPlayer'
 		];
 	},

@@ -12,10 +12,11 @@ describe('MediaStore', () => {
 
 		expect(store.type).toBeUndefined();
 		expect(store.uri).toBeUndefined();
+		expect(store.isFinished).toBe(false);
 		expect(store.isPlaying).toBe(false);
 		expect(store.positionTicks).toBe(0);
 		expect(store.positionMillis).toBe(0);
-		expect(store.posterUri).toBeUndefined();
+		expect(store.backdropUri).toBeUndefined();
 		expect(store.shouldPlayPause).toBe(false);
 		expect(store.shouldStop).toBe(false);
 	});
@@ -24,28 +25,31 @@ describe('MediaStore', () => {
 		const store = new MediaStore();
 		store.type = MediaTypes.Video;
 		store.uri = 'https://foobar';
+		store.isFinished = true;
 		store.isPlaying = true;
 		store.positionTicks = 3423000;
-		store.posterUri = 'https://foobar';
+		store.backdropUri = 'https://foobar';
 		store.shouldPlayPause = true;
 		store.shouldStop = true;
 
 		expect(store.type).toBe(MediaTypes.Video);
 		expect(store.uri).toBe('https://foobar');
+		expect(store.isFinished).toBe(true);
 		expect(store.isPlaying).toBe(true);
 		expect(store.positionTicks).toBe(3423000);
 		expect(store.positionMillis).toBe(342.3);
-		expect(store.posterUri).toBe('https://foobar');
+		expect(store.backdropUri).toBe('https://foobar');
 		expect(store.shouldPlayPause).toBe(true);
 		expect(store.shouldStop).toBe(true);
 
 		store.reset();
 		expect(store.type).toBeNull();
 		expect(store.uri).toBeNull();
+		expect(store.isFinished).toBe(false);
 		expect(store.isPlaying).toBe(false);
 		expect(store.positionTicks).toBe(0);
 		expect(store.positionMillis).toBe(0);
-		expect(store.posterUri).toBeNull();
+		expect(store.backdropUri).toBeNull();
 		expect(store.shouldPlayPause).toBe(false);
 		expect(store.shouldStop).toBe(false);
 	});

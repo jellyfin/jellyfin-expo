@@ -86,7 +86,7 @@ const VideoPlayer = observer(() => {
 		<Video
 			ref={player}
 			usePoster
-			posterSource={{ uri: rootStore.mediaStore.posterUri }}
+			posterSource={{ uri: rootStore.mediaStore.backdropUri }}
 			resizeMode='contain'
 			useNativeControls
 			onReadyForDisplay={openFullscreen}

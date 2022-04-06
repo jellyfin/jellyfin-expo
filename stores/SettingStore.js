@@ -61,6 +61,11 @@ export default class SettingStore {
 	 */
 	isFmp4Enabled = false;
 
+	/**
+	 * EXPERIMENTAL: Is the native audio player enabled
+	 */
+	isExperimentalNativeAudioPlayerEnabled = false
+
 	get theme() {
 		const id = this.isSystemThemeEnabled && this.systemThemeId && this.systemThemeId !== 'no-preference' ? this.systemThemeId : this.themeId;
 		return Themes[id] || Themes.dark;
@@ -76,6 +81,8 @@ export default class SettingStore {
 		this.isSystemThemeEnabled = false;
 		this.isNativeVideoPlayerEnabled = false;
 		this.isFmp4Enabled = false;
+
+		this.isExperimentalNativeAudioPlayerEnabled = false;
 	}
 }
 
@@ -89,6 +96,7 @@ decorate(SettingStore, {
 	isSystemThemeEnabled: observable,
 	isNativeVideoPlayerEnabled: observable,
 	isFmp4Enabled: observable,
+	isExperimentalNativeAudioPlayerEnabled: observable,
 	theme: computed,
 	reset: action
 });
