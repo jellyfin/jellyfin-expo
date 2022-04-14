@@ -17,8 +17,8 @@
     "addServer": {
         "address": "عنوان الخادم",
         "validation": {
-            "empty": "$t(addServer.address) لا يمكن ان يكون فارغ",
-            "invalid": "$t(addServer.address)عنوان الخادم غير صحيح",
+            "empty": "لا يمكن ان يكون $t(addServer.address) فارغاً",
+            "invalid": "$t(addServer.address) غير صالح",
             "invalidProduct": "ليست سيرفر Jellyfin",
             "noConnection": "لم نتمكن من الوصول الى الخادم"
         }
@@ -26,22 +26,22 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "لم نتمكن من الوصول الى خادم Jellyfin.",
+                "description": "حدث خطأ اثناء الوصول لخادم Jellyfin.",
                 "heading": "هل الخادم غير متوفر؟"
             },
             "invalidServer": {
                 "description": "حدث شيء ما ومعلومات الخادم المحفوظة غير صالحة. حاول إزالة الخادم من الإعدادات وإضافته مرة أخرى.",
-                "heading": "الخادم غير صحيح"
+                "heading": "الخادم غير صالح"
             },
             "http": {
-                "description": "عرض خادم Jellyfin خطأ.",
+                "description": "ارجع خادم Jellyfin خطأ.",
                 "heading": "هناك خطأ ما!"
             },
             "504": {
-                "description": "غير قادر للوصول الى خادم Jellyfin بسبب انتهاء الوقت المحدد للاتصال بالخادم."
+                "description": "غير قادر للوصول الى خادم Jellyfin. هذا عادة بسبب انتهاء الوقت المحدد للاتصال بالخادم اثناء الاتصال بالخادم."
             },
             "502": {
-                "description": "تعذر الوصول إلى خادم Jellyfin. هذا عادة بسبب خطأ في تكوين الوكيل أو أن Jellyfin غير متصل."
+                "description": "تعذر الوصول إلى خادم Jellyfin. هذا عادة بسبب خطأ في اعدادات الوكيل (proxy ) أو أن Jellyfin غير متصل بالانترنت."
             }
         },
         "offline": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
@@ -54,9 +54,9 @@
         "keepAwake": "ابقاء الشاشة فعالة",
         "rotationLock": "قفل دوران الشاشة",
         "expoVersion": "إصدار المعرض: {{version}}",
-        "systemTheme": "استخدم سمة النظام",
+        "systemTheme": "استخدم مظهر النظام",
         "lightTheme": "استخدم مظهر فاتح",
-        "tabLabels": "إظهار تسميات الجدولة",
+        "tabLabels": "إظهار عناوين التبويبات",
         "fmp4Support": "تفضيل fMP4 في HLS",
         "minimumServerVersion": "يتطلب إصدار الخادم 10.7+",
         "nativeVideoPlayer": "استخدم مشغل الفيديو الأصلي"
