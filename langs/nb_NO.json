@@ -2,7 +2,8 @@
     "common": {
         "cancel": "Avbryt",
         "unknown": "Ukjent",
-        "ok": "OK"
+        "ok": "OK",
+        "beta": "BETA"
     },
     "headings": {
         "addServer": "Legg til server",
