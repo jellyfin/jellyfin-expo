@@ -136,6 +136,7 @@ const DownloadScreen = observer(() => {
 						}}
 						onPlay={async () => {
 							item.isNew = false;
+							rootStore.mediaStore.isLocalFile = true;
 							rootStore.mediaStore.type = MediaTypes.Video;
 							rootStore.mediaStore.uri = item.uri;
 						}}

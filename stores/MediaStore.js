@@ -25,6 +25,11 @@ export default class MediaStore {
 	isFinished = false
 
 	/**
+	 * Is the media a local file (not streaming media)
+	 */
+	isLocalFile = false
+
+	/**
 	 * Is the media currently playing
 	 */
 	isPlaying = false
@@ -57,6 +62,7 @@ export default class MediaStore {
 		this.type = null;
 		this.uri = null;
 		this.isFinished = false;
+		this.isLocalFile = false;
 		this.isPlaying = false;
 		this.positionTicks = 0;
 		this.backdropUri = null;
@@ -69,6 +75,7 @@ decorate(MediaStore, {
 	type: [ ignore, observable ],
 	uri: [ ignore, observable ],
 	isFinished: [ ignore, observable ],
+	isLocalFile: [ ignore, observable ],
 	isPlaying: [ ignore, observable ],
 	positionTicks: [ ignore, observable ],
 	positionMillis: computed,

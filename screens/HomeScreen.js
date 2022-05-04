@@ -58,26 +58,29 @@ const HomeScreen = observer(() => {
 		}, [ webview ])
 	);
 
-	// Report media updates to the video plugin
+	// Report media updates to the audio/video plugin
 	useEffect(() => {
-		const status = {
-			didPlayerCloseManually: rootStore.didPlayerCloseManually,
-			uri: rootStore.mediaStore.uri,
-			isFinished: rootStore.mediaStore.isFinished,
-			isPlaying: rootStore.mediaStore.isPlaying,
-			positionTicks: rootStore.mediaStore.positionTicks,
-			positionMillis: rootStore.mediaStore.positionMillis
-		};
+		if (!rootStore.mediaStore.isLocalFile) {
+			const status = {
+				didPlayerCloseManually: rootStore.didPlayerCloseManually,
+				uri: rootStore.mediaStore.uri,
+				isFinished: rootStore.mediaStore.isFinished,
+				isPlaying: rootStore.mediaStore.isPlaying,
+				positionTicks: rootStore.mediaStore.positionTicks,
+				positionMillis: rootStore.mediaStore.positionMillis
+			};
 
-		if (rootStore.mediaStore.type === MediaTypes.Audio) {
-			webview.current?.injectJavaScript(`window.ExpoAudioPlayer && window.ExpoAudioPlayer._reportStatus(${JSON.stringify(status)});`);
-		} else if (rootStore.mediaStore.type === MediaTypes.Video) {
-			webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify(status)});`);
+			if (rootStore.mediaStore.type === MediaTypes.Audio) {
+				webview.current?.injectJavaScript(`window.ExpoAudioPlayer && window.ExpoAudioPlayer._reportStatus(${JSON.stringify(status)});`);
+			} else if (rootStore.mediaStore.type === MediaTypes.Video) {
+				webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify(status)});`);
+			}
 		}
 	}, [
 		rootStore.mediaStore.type,
 		rootStore.mediaStore.uri,
 		rootStore.mediaStore.isFinished,
+		rootStore.mediaStore.isLocalFile,
 		rootStore.mediaStore.isPlaying,
 		rootStore.mediaStore.positionTicks
 	]);

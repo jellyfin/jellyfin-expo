@@ -13,6 +13,7 @@ describe('MediaStore', () => {
 		expect(store.type).toBeUndefined();
 		expect(store.uri).toBeUndefined();
 		expect(store.isFinished).toBe(false);
+		expect(store.isLocalFile).toBe(false);
 		expect(store.isPlaying).toBe(false);
 		expect(store.positionTicks).toBe(0);
 		expect(store.positionMillis).toBe(0);
@@ -26,6 +27,7 @@ describe('MediaStore', () => {
 		store.type = MediaTypes.Video;
 		store.uri = 'https://foobar';
 		store.isFinished = true;
+		store.isLocalFile = true;
 		store.isPlaying = true;
 		store.positionTicks = 3423000;
 		store.backdropUri = 'https://foobar';
@@ -35,6 +37,7 @@ describe('MediaStore', () => {
 		expect(store.type).toBe(MediaTypes.Video);
 		expect(store.uri).toBe('https://foobar');
 		expect(store.isFinished).toBe(true);
+		expect(store.isLocalFile).toBe(true);
 		expect(store.isPlaying).toBe(true);
 		expect(store.positionTicks).toBe(3423000);
 		expect(store.positionMillis).toBe(342.3);
@@ -46,6 +49,7 @@ describe('MediaStore', () => {
 		expect(store.type).toBeNull();
 		expect(store.uri).toBeNull();
 		expect(store.isFinished).toBe(false);
+		expect(store.isLocalFile).toBe(false);
 		expect(store.isPlaying).toBe(false);
 		expect(store.positionTicks).toBe(0);
 		expect(store.positionMillis).toBe(0);
