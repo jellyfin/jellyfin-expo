@@ -9,6 +9,26 @@ import { format } from 'mobx-sync-lite';
 
 import DownloadModel from '../models/DownloadModel';
 
+export const DESERIALIZER = (data: unknown) => {
+	const deserialized = new Map<string, DownloadModel>();
+	Object.entries(data).forEach(([ key, dl ]) => {
+		const model = new DownloadModel(
+			dl.itemId,
+			dl.serverId,
+			dl.serverUrl,
+			dl.apiKey,
+			dl.title,
+			dl.filename,
+			dl.downloadUrl
+		);
+		model.isComplete = dl.isComplete;
+		// isDownloading is ignored
+		model.isNew = dl.isNew;
+		deserialized.set(key, model);
+	});
+	return deserialized;
+};
+
 export default class DownloadStore {
 	downloads = new Map<string, DownloadModel>();
 
@@ -38,27 +58,7 @@ export default class DownloadStore {
 
 decorate(DownloadStore, {
 	downloads: [
-		format(
-			data => {
-				const deserialized = new Map<string, DownloadModel>();
-				Object.entries(data).forEach(([ key, dl ]) => {
-					const model = new DownloadModel(
-						dl.itemId,
-						dl.serverId,
-						dl.serverUrl,
-						dl.apiKey,
-						dl.title,
-						dl.filename,
-						dl.downloadUrl
-					);
-					model.isComplete = dl.isComplete;
-					// isDownloading is ignored
-					model.isNew = dl.isNew;
-					deserialized.set(key, model);
-				});
-				return deserialized;
-			}
-		),
+		format(DESERIALIZER),
 		observable
 	],
 	newDownloadCount: computed,
