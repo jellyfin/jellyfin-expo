@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { action, autorun, computed, decorate, observable } from 'mobx';
+import { action, computed, decorate, observable } from 'mobx';
 import { format } from 'mobx-sync-lite';
 
 import DownloadModel from '../models/DownloadModel';
@@ -31,12 +31,6 @@ export const DESERIALIZER = (data: unknown) => {
 
 export default class DownloadStore {
 	downloads = new Map<string, DownloadModel>();
-
-	constructor() {
-		autorun(() => {
-			console.debug('[DEBUG] DownloadStore', this.downloads);
-		});
-	}
 
 	get newDownloadCount() {
 		return Array.from(this.downloads.values())

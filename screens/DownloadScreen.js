@@ -37,9 +37,9 @@ const DownloadScreen = observer(() => {
 			try {
 				await FileSystem.deleteAsync(download.localPath);
 				rootStore.downloadStore.downloads.delete(download.key);
-				console.log('download "%s" deleted', download.title);
+				console.log('[DownloadScreen] download "%s" deleted', download.title);
 			} catch (e) {
-				console.error('Failed to delete download', e);
+				console.error('[DownloadScreen] Failed to delete download', e);
 			}
 		}
 
