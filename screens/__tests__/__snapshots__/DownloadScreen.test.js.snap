@@ -178,7 +178,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                     "fontSize": 17,
                   }
                 }
-                testID="listItemTitle"
+                testID="title"
               >
                 title
               </Text>
@@ -190,7 +190,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                     "fontSize": 15,
                   }
                 }
-                testID="listItemTitle"
+                testID="subtitle"
               >
                 file name.mp4
               </Text>
@@ -207,6 +207,7 @@ exports[`DownloadScreen should render correctly 1`] = `
               color="#999999"
               hidesWhenStopped={true}
               size="small"
+              testID="loading-indicator"
             />
           </View>
         </View>
@@ -310,7 +311,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                     "fontSize": 17,
                   }
                 }
-                testID="listItemTitle"
+                testID="title"
               >
                 other title
               </Text>
@@ -322,7 +323,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                     "fontSize": 15,
                   }
                 }
-                testID="listItemTitle"
+                testID="subtitle"
               >
                 other file name.mp4
               </Text>
@@ -339,6 +340,7 @@ exports[`DownloadScreen should render correctly 1`] = `
               color="#999999"
               hidesWhenStopped={true}
               size="small"
+              testID="loading-indicator"
             />
           </View>
         </View>

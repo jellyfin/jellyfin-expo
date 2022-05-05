@@ -18,16 +18,22 @@ const DownloadListItem = ({ item, index, onSelect, onPlay, isEditMode = false, i
 	>
 		{isEditMode &&
 			<ListItem.CheckBox
+				testID='select-checkbox'
 				onPress={() => onSelect(item)}
 				checked={isSelected}
 			/>
 		}
 		<ListItem.Content>
-			<ListItem.Title>{item.title}</ListItem.Title>
-			<ListItem.Subtitle>{item.localFilename}</ListItem.Subtitle>
+			<ListItem.Title testID='title'>
+				{item.title}
+			</ListItem.Title>
+			<ListItem.Subtitle testID='subtitle'>
+				{item.localFilename}
+			</ListItem.Subtitle>
 		</ListItem.Content>
 		{item.isComplete ?
 			<Button
+				testID='play-button'
 				type='clear'
 				icon={{
 					name: getIconName('play'),
@@ -35,7 +41,8 @@ const DownloadListItem = ({ item, index, onSelect, onPlay, isEditMode = false, i
 				}}
 				disabled={isEditMode}
 				onPress={() => onPlay(item)}
-			/> : <ActivityIndicator />
+			/> :
+			<ActivityIndicator testID='loading-indicator' />
 		}
 	</ListItem>
 );
