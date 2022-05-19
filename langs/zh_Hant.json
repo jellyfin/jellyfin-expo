@@ -1,19 +1,23 @@
 {
     "common": {
         "cancel": "取消",
-        "unknown": "未知"
+        "unknown": "未知",
+        "ok": "確定",
+        "beta": "測試版"
     },
     "headings": {
         "addServer": "新增伺服器",
         "home": "首頁",
         "links": "連結",
         "servers": "伺服器",
-        "settings": "設定"
+        "settings": "設定",
+        "playback": "播放",
+        "appearance": "顯示"
     },
     "addServer": {
         "address": "伺服器位址",
         "validation": {
-            "empty": "$t(addServer.address) 不能為空",
+            "empty": "$t(addServer.address) 不能為空白",
             "invalid": "$t(addServer.address) 無效的位址",
             "invalidProduct": "不是 Jellyfin 伺服器",
             "noConnection": "無法連接至伺服器"
@@ -47,12 +51,14 @@
     },
     "settings": {
         "version": "版本：{{version}}",
-        "keepAwake": "保持螢幕常亮（不進入休眠）",
+        "keepAwake": "保持螢幕恆亮（不進入休眠）",
         "rotationLock": "螢幕旋轉鎖定",
         "expoVersion": "Expo 版本：{{version}}",
         "tabLabels": "顯示分頁標籤",
         "systemTheme": "使用系統主題",
-        "lightTheme": "使用亮色主題"
+        "lightTheme": "使用亮色主題",
+        "minimumServerVersion": "需要伺服器版本 10.7+",
+        "nativeVideoPlayer": "使用原生影片播放器"
     },
     "links": {
         "website": "Jellyfin 網站",
@@ -73,5 +79,10 @@
             "description": "您確認要重設所有設定嗎？",
             "confirm": "重設"
         }
+    },
+    "serverHelp": {
+        "learnMore": "瞭解有關如何託管您自己的伺服器的更多資訊",
+        "description": "Jellyfin是志願者構建的媒體解決方案。 它允許您託管自己的媒體，並從任何地方存取。\n\n\n要使用此程式，您需要擁有自己的Jellyfin伺服器。",
+        "heading": "Jellyfin 是什麼?"
     }
 }
