@@ -1,26 +1,26 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "ok": "",
+        "beta": "BETA",
+        "cancel": "Batal",
+        "ok": "OK",
         "unknown": ""
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Tambahkan Server",
+        "appearance": "Tampilan",
+        "home": "Beranda",
+        "links": "Tautan",
+        "playback": "Pemutaran",
+        "servers": "Server",
+        "settings": "Pengaturan"
     },
     "addServer": {
-        "address": "",
+        "address": "Alamat Server",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) tidak boleh kosong",
+            "invalid": "$t(addServer.address) tidak valid",
+            "invalidProduct": "Bukan sebuah server Jellyfin",
+            "noConnection": "Tidak dapat menghubungi server"
         }
     },
     "home": {
@@ -32,51 +32,51 @@
                 "description": ""
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Terjadi kesalahan!",
+                "description": "Server Jellyfin mengembalikan kesalahan."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Server tidak valid",
+                "description": "Sesuatu terjadi dan informasi server yang tersimpan tidak valid. Coba menghapus server dari Pengaturan dan menambahkannya kembali."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Server luring?",
+                "description": "Terjadi kesalahan saat menghubungi server Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Kode kesalahan: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Coba lagi?"
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "Apa itu Jellyfin?",
         "description": "",
         "learnMore": ""
     },
     "settings": {
-        "version": "",
+        "version": "Version: {{version}}",
         "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
+        "nativeVideoPlayer": "Gunakan Pemutar Video Native",
+        "minimumServerVersion": "Membutuhkan Server Versi 10.7+",
+        "fmp4Support": "Utamakan fMP4 pada HLS",
+        "lightTheme": "Gunakan Tema Cerah",
+        "systemTheme": "Gunakan Tema Sistem",
         "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "tabLabels": "Tampilkan Label Tab",
+        "expoVersion": "Versi Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Situs Web Jellyfin",
+        "documentation": "Dokumentasi",
+        "source": "Kode Sumber",
+        "translate": "Terjemahkan",
+        "issue": "Laporkan Masalah"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Hapus Server",
+            "description": "Apakah Anda yakin ingin menghapus server {{serverName}}?",
+            "confirm": "Hapus"
         },
         "resetApplication": {
             "title": "",
