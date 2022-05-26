@@ -10,6 +10,13 @@ import { v4 as uuidv4 } from 'uuid';
 
 import ServerModel from '../models/ServerModel';
 
+export const DESERIALIZER = data => data.map(server => {
+	// Migrate from old url format
+	// TODO: Remove migration in next minor release
+	const url = server.url.href || server.url;
+	return new ServerModel(server.id, new URL(url), server.info);
+});
+
 export default class ServerStore {
 	servers = []
 
@@ -34,12 +41,7 @@ export default class ServerStore {
 
 decorate(ServerStore, {
 	servers: [
-		format(data => data.map(value => {
-			// Migrate from old url format
-			// TODO: Remove migration in next minor release
-			const url = value.url.href || value.url;
-			return new ServerModel(value.id, new URL(url), value.info);
-		})),
+		format(DESERIALIZER),
 		observable
 	],
 	addServer: action,

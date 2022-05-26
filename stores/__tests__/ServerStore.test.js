@@ -6,7 +6,9 @@
 
 import { URL } from 'url';
 
-import ServerStore from '../ServerStore';
+import ServerModel from '../../models/ServerModel';
+
+import ServerStore, { DESERIALIZER } from '../ServerStore';
 
 const mockFetchInfo = jest.fn();
 jest.mock('../../models/ServerModel', () => {
@@ -59,5 +61,36 @@ describe('ServerStore', () => {
 		store.fetchInfo();
 
 		expect(mockFetchInfo).toHaveBeenCalledTimes(2);
+	});
+});
+
+describe('DESERIALIZER', () => {
+	it('should deserialize to a list of ServerModels', () => {
+		const serialized = [
+			{
+				id: 'TEST1',
+				url: { href: 'https://1.example.com' },
+				info: null
+			},
+			{
+				id: 'TEST2',
+				url: 'https://2.example.com/',
+				info: null
+			}
+		];
+
+		const deserialized = DESERIALIZER(serialized);
+
+		expect(deserialized).toHaveLength(2);
+
+		expect(deserialized[0]).toBeInstanceOf(ServerModel);
+		expect(deserialized[0].id).toBe(serialized[0].id);
+		expect(deserialized[0].url).toBeInstanceOf(URL);
+		expect(deserialized[0].url.href).toBe('https://1.example.com/');
+
+		expect(deserialized[1]).toBeInstanceOf(ServerModel);
+		expect(deserialized[1].id).toBe(serialized[1].id);
+		expect(deserialized[1].url).toBeInstanceOf(URL);
+		expect(deserialized[1].url.href).toBe('https://2.example.com/');
 	});
 });
