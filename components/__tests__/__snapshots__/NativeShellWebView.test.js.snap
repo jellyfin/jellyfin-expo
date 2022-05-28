@@ -51,7 +51,8 @@ window.ExpoAppInfo = {
 window.ExpoAppSettings = {
 	isPluginSupported: true,
 	isNativeVideoPlayerEnabled: undefined,
-	isExperimentalNativeAudioPlayerEnabled: undefined
+	isExperimentalNativeAudioPlayerEnabled: undefined,
+	isExperimentalDownloadsEnabled: undefined
 };
 
 window.ExpoVideoProfile = {};

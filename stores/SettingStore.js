@@ -66,6 +66,11 @@ export default class SettingStore {
 	 */
 	isExperimentalNativeAudioPlayerEnabled = false
 
+	/**
+	 * EXPERIMENTAL: Is download support enabled
+	 */
+	isExperimentalDownloadsEnabled = false;
+
 	get theme() {
 		const id = this.isSystemThemeEnabled && this.systemThemeId && this.systemThemeId !== 'no-preference' ? this.systemThemeId : this.themeId;
 		return Themes[id] || Themes.dark;
@@ -83,6 +88,7 @@ export default class SettingStore {
 		this.isFmp4Enabled = false;
 
 		this.isExperimentalNativeAudioPlayerEnabled = false;
+		this.isExperimentalDownloadsEnabled = false;
 	}
 }
 
@@ -97,6 +103,7 @@ decorate(SettingStore, {
 	isNativeVideoPlayerEnabled: observable,
 	isFmp4Enabled: observable,
 	isExperimentalNativeAudioPlayerEnabled: observable,
+	isExperimentalDownloadsEnabled: observable,
 	theme: computed,
 	reset: action
 });

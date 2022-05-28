@@ -3,6 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+
 import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
@@ -13,6 +14,7 @@ import { BackHandler, Platform } from 'react-native';
 
 import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
+import DownloadModel from '../models/DownloadModel';
 import { getAppName, getDeviceProfile, getSafeDeviceName } from '../utils/Device';
 import StaticScriptLoader from '../utils/StaticScriptLoader';
 import { openBrowser } from '../utils/WebBrowser';
@@ -38,7 +40,8 @@ window.ExpoAppInfo = {
 window.ExpoAppSettings = {
 	isPluginSupported: ${isPluginSupported},
 	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled},
-	isExperimentalNativeAudioPlayerEnabled: ${rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled}
+	isExperimentalNativeAudioPlayerEnabled: ${rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled},
+	isExperimentalDownloadsEnabled: ${rootStore.settingStore.isExperimentalDownloadsEnabled}
 };
 
 window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile({ enableFmp4: rootStore.settingStore.isFmp4Enabled }))};
@@ -86,6 +89,22 @@ true;
 						break;
 					case 'disableFullscreen':
 						rootStore.isFullscreen = false;
+						break;
+					case 'downloadFile':
+						console.log('Download item', data);
+						/* eslint-disable no-case-declarations */
+						const url = new URL(data.item.url);
+						const apiKey = url.searchParams.get('api_key');
+						/* eslint-enable no-case-declarations */
+						rootStore.downloadStore.add(new DownloadModel(
+							data.item.itemId,
+							data.item.serverId,
+							server.urlString,
+							apiKey,
+							data.item.title,
+							data.item.filename,
+							data.item.url
+						));
 						break;
 					case 'openUrl':
 						console.log('Opening browser for external url', data.url);

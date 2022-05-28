@@ -11,6 +11,7 @@ import { action, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync-lite';
 import { v4 as uuidv4 } from 'uuid';
 
+import DownloadStore from './DownloadStore';
 import MediaStore from './MediaStore';
 import ServerStore from './ServerStore';
 import SettingStore from './SettingStore';
@@ -41,6 +42,7 @@ export default class RootStore {
 	 */
 	didPlayerCloseManually = true
 
+	downloadStore = new DownloadStore()
 	mediaStore = new MediaStore()
 	serverStore = new ServerStore()
 	settingStore = new SettingStore()
@@ -52,6 +54,7 @@ export default class RootStore {
 		this.isReloadRequired = false;
 		this.didPlayerCloseManually = true;
 
+		this.downloadStore.reset();
 		this.mediaStore.reset();
 		this.serverStore.reset();
 		this.settingStore.reset();

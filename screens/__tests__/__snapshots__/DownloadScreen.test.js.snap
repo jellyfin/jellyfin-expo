@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DevSettingsScreen should render correctly 1`] = `
+exports[`DownloadScreen should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
     Array [
@@ -24,28 +24,38 @@ exports[`DevSettingsScreen should render correctly 1`] = `
     data={
       Array [
         Object {
-          "badge": Object {
-            "status": "error",
-            "value": "Experimental",
-          },
-          "key": "experimental-audio-player-switch",
-          "onValueChange": [Function],
-          "title": "Native Audio Player",
-          "value": false,
+          "__mobx_sync_versions__": undefined,
+          "apiKey": "api-key",
+          "downloadUrl": "https://example.com/download",
+          "filename": "file name.mkv",
+          "isComplete": false,
+          "isNew": true,
+          "itemId": "item-id",
+          "serverId": "server-id",
+          "serverUrl": "https://example.com/",
+          "title": "title",
         },
         Object {
-          "badge": Object {
-            "status": "error",
-            "value": "Experimental",
-          },
-          "key": "experimental-downloads-switch",
-          "onValueChange": [Function],
-          "title": "File Download Support",
-          "value": false,
+          "__mobx_sync_versions__": undefined,
+          "apiKey": "api-key",
+          "downloadUrl": "https://test2.example.com/download",
+          "filename": "other file name.mkv",
+          "isComplete": false,
+          "isNew": true,
+          "itemId": "item-id-2",
+          "serverId": "server-id",
+          "serverUrl": "https://test2.example.com/",
+          "title": "other title",
         },
       ]
     }
     disableVirtualization={false}
+    extraData={
+      Object {
+        "server-id_item-id": [Circular],
+        "server-id_item-id-2": [Circular],
+      }
+    }
     getItem={[Function]}
     getItemCount={[Function]}
     horizontal={false}
@@ -62,7 +72,6 @@ exports[`DevSettingsScreen should render correctly 1`] = `
     removeClippedSubviews={false}
     renderItem={[Function]}
     scrollEventThrottle={50}
-    showsVerticalScrollIndicator={false}
     stickyHeaderIndices={Array []}
     updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
@@ -73,9 +82,7 @@ exports[`DevSettingsScreen should render correctly 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <View
-          testID="switch-list-item"
-        >
+        <View>
           <View
             style={
               Object {
@@ -163,62 +170,30 @@ exports[`DevSettingsScreen should render correctly 1`] = `
                 }
               }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "flexDirection": "row",
+                    "backgroundColor": "transparent",
+                    "color": "#242424",
+                    "fontSize": 17,
                   }
                 }
+                testID="title"
               >
-                <Text
-                  style={
-                    Object {
-                      "backgroundColor": "transparent",
-                      "color": "#242424",
-                      "fontSize": 17,
-                    }
+                title
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "color": "#242424",
+                    "fontSize": 15,
                   }
-                  testID="title"
-                >
-                  Native Audio Player
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "marginStart": 8,
-                    }
-                  }
-                >
-                  <View
-                    style={
-                      Object {
-                        "alignItems": "center",
-                        "alignSelf": "center",
-                        "backgroundColor": "#ff190c",
-                        "borderColor": "#fff",
-                        "borderRadius": 9,
-                        "borderWidth": 0.5,
-                        "height": 18,
-                        "justifyContent": "center",
-                        "minWidth": 18,
-                      }
-                    }
-                    testID="badge"
-                  >
-                    <Text
-                      style={
-                        Object {
-                          "color": "white",
-                          "fontSize": 12,
-                          "paddingHorizontal": 4,
-                        }
-                      }
-                    >
-                      Experimental
-                    </Text>
-                  </View>
-                </View>
-              </View>
+                }
+                testID="subtitle"
+              >
+                file name.mp4
+              </Text>
             </View>
             <View
               style={
@@ -227,19 +202,12 @@ exports[`DevSettingsScreen should render correctly 1`] = `
                 }
               }
             />
-            <RCTSwitch
-              accessibilityRole="switch"
-              onChange={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "height": 31,
-                  "width": 51,
-                }
-              }
-              testID="switch"
-              value={false}
+            <ActivityIndicator
+              animating={true}
+              color="#999999"
+              hidesWhenStopped={true}
+              size="small"
+              testID="loading-indicator"
             />
           </View>
         </View>
@@ -248,9 +216,7 @@ exports[`DevSettingsScreen should render correctly 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <View
-          testID="switch-list-item"
-        >
+        <View>
           <View
             style={
               Object {
@@ -337,62 +303,30 @@ exports[`DevSettingsScreen should render correctly 1`] = `
                 }
               }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "flexDirection": "row",
+                    "backgroundColor": "transparent",
+                    "color": "#242424",
+                    "fontSize": 17,
                   }
                 }
+                testID="title"
               >
-                <Text
-                  style={
-                    Object {
-                      "backgroundColor": "transparent",
-                      "color": "#242424",
-                      "fontSize": 17,
-                    }
+                other title
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "transparent",
+                    "color": "#242424",
+                    "fontSize": 15,
                   }
-                  testID="title"
-                >
-                  File Download Support
-                </Text>
-                <View
-                  style={
-                    Object {
-                      "marginStart": 8,
-                    }
-                  }
-                >
-                  <View
-                    style={
-                      Object {
-                        "alignItems": "center",
-                        "alignSelf": "center",
-                        "backgroundColor": "#ff190c",
-                        "borderColor": "#fff",
-                        "borderRadius": 9,
-                        "borderWidth": 0.5,
-                        "height": 18,
-                        "justifyContent": "center",
-                        "minWidth": 18,
-                      }
-                    }
-                    testID="badge"
-                  >
-                    <Text
-                      style={
-                        Object {
-                          "color": "white",
-                          "fontSize": 12,
-                          "paddingHorizontal": 4,
-                        }
-                      }
-                    >
-                      Experimental
-                    </Text>
-                  </View>
-                </View>
-              </View>
+                }
+                testID="subtitle"
+              >
+                other file name.mp4
+              </Text>
             </View>
             <View
               style={
@@ -401,19 +335,12 @@ exports[`DevSettingsScreen should render correctly 1`] = `
                 }
               }
             />
-            <RCTSwitch
-              accessibilityRole="switch"
-              onChange={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "height": 31,
-                  "width": 51,
-                }
-              }
-              testID="switch"
-              value={false}
+            <ActivityIndicator
+              animating={true}
+              color="#999999"
+              hidesWhenStopped={true}
+              size="small"
+              testID="loading-indicator"
             />
           </View>
         </View>

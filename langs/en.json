@@ -2,12 +2,15 @@
   "common": {
     "beta": "BETA",
     "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
     "ok": "OK",
     "unknown": "Unknown"
   },
   "headings": {
     "addServer": "Add Server",
     "appearance": "Appearance",
+    "downloads": "Downloads",
     "home": "Home",
     "links": "Links",
     "playback": "Playback",

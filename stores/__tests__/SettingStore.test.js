@@ -28,6 +28,7 @@ describe('SettingStore', () => {
 		expect(store.theme).toBe(Themes.dark);
 		expect(store.isNativeVideoPlayerEnabled).toBe(false);
 		expect(store.isFmp4Enabled).toBe(false);
+		expect(store.isExperimentalDownloadsEnabled).toBe(false);
 	});
 
 	it('should disable rotation lock for iPad devices', () => {
@@ -88,6 +89,7 @@ describe('SettingStore', () => {
 		store.isSystemThemeEnabled = true;
 		store.isNativeVideoPlayerEnabled = true;
 		store.isFmp4Enabled = true;
+		store.isExperimentalDownloadsEnabled = true;
 
 		expect(store.activeServer).toBe(99);
 		expect(store.isRotationLockEnabled).toBe(false);
@@ -99,6 +101,7 @@ describe('SettingStore', () => {
 		expect(store.theme).toBe(Themes.dark);
 		expect(store.isNativeVideoPlayerEnabled).toBe(true);
 		expect(store.isFmp4Enabled).toBe(true);
+		expect(store.isExperimentalDownloadsEnabled).toBe(true);
 
 		store.reset();
 
@@ -112,5 +115,6 @@ describe('SettingStore', () => {
 		expect(store.theme).toBe(Themes.dark);
 		expect(store.isNativeVideoPlayerEnabled).toBe(false);
 		expect(store.isFmp4Enabled).toBe(false);
+		expect(store.isExperimentalDownloadsEnabled).toBe(false);
 	});
 });

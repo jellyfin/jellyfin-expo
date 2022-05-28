@@ -41,6 +41,19 @@ const DevSettingsScreen = observer(() => {
 							rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled = value;
 							rootStore.isReloadRequired = true;
 						})
+					},
+					{
+						key: 'experimental-downloads-switch',
+						title: 'File Download Support',
+						badge: {
+							value: 'Experimental',
+							status: 'error'
+						},
+						value: rootStore.settingStore.isExperimentalDownloadsEnabled,
+						onValueChange: action(value => {
+							rootStore.settingStore.isExperimentalDownloadsEnabled = value;
+							rootStore.isReloadRequired = true;
+						})
 					}
 				]}
 				renderItem={SwitchListItem}

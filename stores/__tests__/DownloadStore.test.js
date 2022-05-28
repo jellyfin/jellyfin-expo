@@ -1,0 +1,134 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+import DownloadModel from '../../models/DownloadModel';
+import DownloadStore, { DESERIALIZER } from '../DownloadStore';
+
+const TEST_MODEL = new DownloadModel(
+	'item-id',
+	'server-id',
+	'https://example.com/',
+	'api-key',
+	'title',
+	'file name.mkv',
+	'https://example.com/download'
+);
+
+const TEST_MODEL_2 = new DownloadModel(
+	'item-id-2',
+	'server-id',
+	'https://test2.example.com/',
+	'api-key',
+	'other title',
+	'other file name.mkv',
+	'https://test2.example.com/download'
+);
+
+describe('DownloadStore', () => {
+	const store = new DownloadStore();
+
+	it('should initialize with an empty map', () => {
+		expect(store.downloads.size).toBe(0);
+	});
+
+	it('should allow models to be added', () => {
+		store.add(TEST_MODEL);
+		expect(store.downloads.size).toBe(1);
+		expect(store.downloads.get(TEST_MODEL.key)).toBe(TEST_MODEL);
+
+		store.add(TEST_MODEL_2);
+		expect(store.downloads.size).toBe(2);
+		expect(store.downloads.get(TEST_MODEL_2.key)).toBe(TEST_MODEL_2);
+	});
+
+	it('should prevent duplicate entries', () => {
+		const duplicate = new DownloadModel(
+			'item-id',
+			'server-id',
+			'https://example.com/',
+			'api-key',
+			'duplicate title',
+			'duplicate file name.mkv',
+			'https://example.com/download'
+		);
+
+		expect(store.downloads.size).toBe(2);
+		store.add(duplicate);
+		expect(store.downloads.size).toBe(2);
+		expect(store.downloads.get(duplicate.key)).toBe(TEST_MODEL);
+	});
+
+	it('should return the number of new downloads', () => {
+		expect(store.newDownloadCount).toBe(2);
+		TEST_MODEL.isNew = false;
+		expect(store.newDownloadCount).toBe(1);
+		TEST_MODEL_2.isNew = false;
+		expect(store.newDownloadCount).toBe(0);
+	});
+
+	it('should reset', () => {
+		expect(store.downloads.size).toBe(2);
+		store.reset();
+		expect(store.downloads.size).toBe(0);
+	});
+});
+
+describe('DESERIALIZER', () => {
+	it('should deserialize to a Map of DownloadModels', () => {
+		const serialized = {
+			'server-id_item-id-1': {
+				itemId: 'item-id-1',
+				serverId: 'server-id',
+				serverUrl: 'https://example.com/',
+				apiKey: 'api-key',
+				title: 'title 1',
+				filename: 'file name 1.mkv',
+				downloadUrl: 'https://example.com/download',
+				isComplete: false,
+				isNew: true
+			},
+			'server-id_item-id-2': {
+				itemId: 'item-id-2',
+				serverId: 'server-id',
+				serverUrl: 'https://example.com/',
+				apiKey: 'api-key',
+				title: 'title 2',
+				filename: 'file name 2.mkv',
+				downloadUrl: 'https://example.com/download',
+				isComplete: true,
+				isNew: false
+			}
+		};
+
+		const deserialized = DESERIALIZER(serialized);
+
+		expect(deserialized.size).toBe(2);
+
+		const model1 = deserialized.get('server-id_item-id-1');
+		expect(model1).toBeInstanceOf(DownloadModel);
+		expect(model1.itemId).toBe('item-id-1');
+		expect(model1.serverId).toBe('server-id');
+		expect(model1.serverUrl).toBe('https://example.com/');
+		expect(model1.apiKey).toBe('api-key');
+		expect(model1.title).toBe('title 1');
+		expect(model1.filename).toBe('file name 1.mkv');
+		expect(model1.downloadUrl).toBe('https://example.com/download');
+		expect(model1.isComplete).toBe(false);
+		expect(model1.isNew).toBe(true);
+
+		const model2 = deserialized.get('server-id_item-id-2');
+		expect(model2).toBeInstanceOf(DownloadModel);
+		expect(model2.itemId).toBe('item-id-2');
+		expect(model2.serverId).toBe('server-id');
+		expect(model2.serverUrl).toBe('https://example.com/');
+		expect(model2.apiKey).toBe('api-key');
+		expect(model2.title).toBe('title 2');
+		expect(model2.filename).toBe('file name 2.mkv');
+		expect(model2.downloadUrl).toBe('https://example.com/download');
+		expect(model2.isComplete).toBe(true);
+		expect(model2.isNew).toBe(false);
+	});
+});

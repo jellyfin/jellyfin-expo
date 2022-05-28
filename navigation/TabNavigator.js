@@ -13,6 +13,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import Screens from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
+import DownloadScreen from '../screens/DownloadScreen';
 import { getIconName } from '../utils/Icons';
 
 import HomeNavigator from './HomeNavigator';
@@ -22,8 +23,12 @@ function TabIcon(routeName, color, size) {
 	let iconName = null;
 	if (routeName === Screens.HomeTab) {
 		iconName = getIconName('tv-outline');
+	} else if (routeName === Screens.DownloadsTab) {
+		iconName = 'download-outline';
 	} else if (routeName === Screens.SettingsTab) {
 		iconName = getIconName('cog-outline');
+	} else {
+		iconName = 'help-circle-outline';
 	}
 
 	return (
@@ -66,6 +71,17 @@ const TabNavigator = observer(() => {
 					title: t('headings.home')
 				}}
 			/>
+			{rootStore.settingStore.isExperimentalDownloadsEnabled && (
+				<Tab.Screen
+					name={Screens.DownloadsTab}
+					component={DownloadScreen}
+					options={{
+						title: t('headings.downloads'),
+						headerShown: true,
+						tabBarBadge: rootStore.downloadStore.newDownloadCount > 0 ? rootStore.downloadStore.newDownloadCount : null
+					}}
+				/>
+			)}
 			<Tab.Screen
 				name={Screens.SettingsTab}
 				component={SettingsNavigator}
