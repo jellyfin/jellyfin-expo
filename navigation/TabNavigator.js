@@ -19,16 +19,20 @@ import { getIconName } from '../utils/Icons';
 import HomeNavigator from './HomeNavigator';
 import SettingsNavigator from './SettingsNavigator';
 
-function TabIcon(routeName, color, size) {
+function TabIcon(routeName, focused, color, size) {
 	let iconName = null;
 	if (routeName === Screens.HomeTab) {
-		iconName = getIconName('tv-outline');
+		iconName = getIconName('tv');
 	} else if (routeName === Screens.DownloadsTab) {
-		iconName = 'download-outline';
+		iconName = 'download';
 	} else if (routeName === Screens.SettingsTab) {
-		iconName = getIconName('cog-outline');
+		iconName = getIconName('cog');
 	} else {
-		iconName = 'help-circle-outline';
+		iconName = 'help-circle';
+	}
+
+	if (!focused) {
+		iconName += '-outline';
 	}
 
 	return (
@@ -58,7 +62,7 @@ const TabNavigator = observer(() => {
 		<Tab.Navigator
 			screenOptions={({ route }) => ({
 				headerShown: false,
-				tabBarIcon: ({ color, size }) => TabIcon(route.name, color, size),
+				tabBarIcon: ({ focused, color, size }) => TabIcon(route.name, focused, color, size),
 				tabBarInactiveTintColor: theme.colors.grey1,
 				tabBarShowLabel: rootStore.settingStore.isTabLabelsEnabled,
 				tabBarStyle
