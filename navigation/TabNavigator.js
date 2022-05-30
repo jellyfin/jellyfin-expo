@@ -8,6 +8,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Platform } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -54,7 +55,7 @@ const TabNavigator = observer(() => {
 		tabBarStyle.display = 'none';
 	}
 	// Use a smaller height for the tab bar when labels are disabled
-	if (!rootStore.settingStore.isTabLabelsEnabled) {
+	if (!rootStore.settingStore.isTabLabelsEnabled && !Platform.isPad) {
 		tabBarStyle.height = insets.bottom + 28;
 	}
 
