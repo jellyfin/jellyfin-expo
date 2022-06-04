@@ -3,7 +3,9 @@
         "cancel": "Rezignu",
         "ok": "Ek",
         "unknown": "Nekonata",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Redaktu",
+        "delete": "Forigu"
     },
     "headings": {
         "addServer": "Aldoni Servilon",
@@ -12,7 +14,8 @@
         "links": "Ligiloj",
         "playback": "Ludado",
         "servers": "Serviloj",
-        "settings": "Parametroj"
+        "settings": "Parametroj",
+        "downloads": "Elŝutaĵoj"
     },
     "addServer": {
         "address": "Servila Adreso",
