@@ -3,7 +3,9 @@
         "cancel": "Boldyrmau",
         "unknown": "Belgısız",
         "ok": "Jaraidy",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Öñdeu",
+        "delete": "Joiu"
     },
     "headings": {
         "addServer": "Serverdı üsteu",
@@ -12,7 +14,8 @@
         "servers": "Serverler",
         "settings": "Parametrler",
         "playback": "Oinatu",
-        "appearance": "Körınıs"
+        "appearance": "Körınıs",
+        "downloads": "Jükteuler"
     },
     "addServer": {
         "address": "Server mekenjaiy",
