@@ -3,7 +3,9 @@
         "cancel": "Отменить",
         "unknown": "Неизвестно",
         "ok": "Ок",
-        "beta": "БЕТА"
+        "beta": "БЕТА",
+        "edit": "Править",
+        "delete": "Удалить"
     },
     "headings": {
         "addServer": "Добавить сервер",
@@ -12,7 +14,8 @@
         "servers": "Серверы",
         "settings": "Параметры",
         "playback": "Воспроизведение",
-        "appearance": "Вид"
+        "appearance": "Вид",
+        "downloads": "Загрузки"
     },
     "addServer": {
         "address": "Адрес сервера",
