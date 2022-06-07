@@ -15,13 +15,16 @@
         "home": "Accueil",
         "addServer": "Ajouter un serveur",
         "appearance": "Apparence",
-        "playback": "Lecture"
+        "playback": "Lecture",
+        "downloads": "Téléchargements"
     },
     "common": {
         "unknown": "Inconnu",
         "cancel": "Annuler",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Modifier",
+        "delete": "Supprimer"
     },
     "alerts": {
         "resetApplication": {
