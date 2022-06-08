@@ -3,7 +3,9 @@
         "cancel": "Mégsem",
         "unknown": "Ismeretlen",
         "ok": "Oké",
-        "beta": "BÉTA"
+        "beta": "BÉTA",
+        "edit": "Szerkesztés",
+        "delete": "Törlés"
     },
     "headings": {
         "addServer": "Szerver hozzáadása",
@@ -12,7 +14,8 @@
         "servers": "Szerverek",
         "settings": "Beállítások",
         "playback": "Lejátszás",
-        "appearance": "Kinézet"
+        "appearance": "Kinézet",
+        "downloads": "Letöltések"
     },
     "addServer": {
         "address": "Szerver címe",
