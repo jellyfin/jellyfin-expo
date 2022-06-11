@@ -3,7 +3,9 @@
         "cancel": "Avbryt",
         "unknown": "Okänd",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Redigera",
+        "delete": "Radera"
     },
     "headings": {
         "addServer": "Lägg till server",
@@ -12,7 +14,8 @@
         "servers": "Servrar",
         "settings": "Inställningar",
         "playback": "Uppspelning",
-        "appearance": "Utseende"
+        "appearance": "Utseende",
+        "downloads": "Nedladdningar"
     },
     "addServer": {
         "address": "Serveradress",
