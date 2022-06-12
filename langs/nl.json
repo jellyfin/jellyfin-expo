@@ -3,7 +3,9 @@
         "cancel": "Annuleren",
         "unknown": "Onbekend",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Bewerken",
+        "delete": "Verwijderen"
     },
     "headings": {
         "addServer": "Server toevoegen",
