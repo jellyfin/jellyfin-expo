@@ -3,7 +3,9 @@
         "beta": "BETA",
         "cancel": "Peruuta",
         "ok": "OK",
-        "unknown": "Tuntematon"
+        "unknown": "Tuntematon",
+        "edit": "Muokkaa",
+        "delete": "Poista"
     },
     "headings": {
         "addServer": "Lisää palvelin",
@@ -12,7 +14,8 @@
         "links": "Linkit",
         "playback": "Toisto",
         "servers": "Palvelimet",
-        "settings": "Asetukset"
+        "settings": "Asetukset",
+        "downloads": "Lataukset"
     },
     "addServer": {
         "address": "Palvelimen osoite",
