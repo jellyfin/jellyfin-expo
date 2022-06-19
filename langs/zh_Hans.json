@@ -3,7 +3,9 @@
         "cancel": "取消",
         "unknown": "未知",
         "ok": "确定",
-        "beta": "BETAtgwedf"
+        "beta": "BETAtgwedf",
+        "edit": "编辑",
+        "delete": "删除"
     },
     "headings": {
         "addServer": "添加服务器",
@@ -12,7 +14,8 @@
         "servers": "服务器",
         "settings": "设置",
         "playback": "播放",
-        "appearance": "外观"
+        "appearance": "外观",
+        "downloads": "下载"
     },
     "addServer": {
         "address": "服务器地址",
