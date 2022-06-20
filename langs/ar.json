@@ -3,7 +3,9 @@
         "cancel": "الغاء",
         "unknown": "غير معروف",
         "ok": "حسنا",
-        "beta": "نسخة تجريبية"
+        "beta": "نسخة تجريبية",
+        "edit": "تعديل",
+        "delete": "حذف"
     },
     "headings": {
         "addServer": "اضافة خادم",
@@ -12,7 +14,8 @@
         "servers": "خوادم",
         "settings": "الإعدادات",
         "appearance": "المظهر",
-        "playback": "تشغيل"
+        "playback": "تشغيل",
+        "downloads": "التحميلات"
     },
     "addServer": {
         "address": "عنوان الخادم",
