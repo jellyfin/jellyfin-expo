@@ -3,7 +3,9 @@
         "cancel": "Zrušit",
         "unknown": "Neznámý",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Upravit",
+        "delete": "odstranit"
     },
     "headings": {
         "addServer": "Přidat server",
@@ -12,7 +14,8 @@
         "servers": "Servery",
         "settings": "Nastavení",
         "playback": "Přehrávání",
-        "appearance": "Vzhled"
+        "appearance": "Vzhled",
+        "downloads": "Stahování"
     },
     "addServer": {
         "address": "Adresa serveru",
