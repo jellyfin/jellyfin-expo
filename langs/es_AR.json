@@ -3,7 +3,9 @@
         "cancel": "Cancelar",
         "unknown": "Desconocido",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Editar",
+        "delete": "Borrar"
     },
     "headings": {
         "addServer": "Añadir servidor",
@@ -12,7 +14,8 @@
         "servers": "Servidores",
         "settings": "Configuraciones",
         "playback": "Reproducción",
-        "appearance": "Apariencia"
+        "appearance": "Apariencia",
+        "downloads": "Descargas"
     },
     "addServer": {
         "address": "Dirección del servidor",
