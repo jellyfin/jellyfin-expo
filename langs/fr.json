@@ -29,12 +29,12 @@
     "alerts": {
         "resetApplication": {
             "confirm": "Réinitialiser",
-            "description": "Voulez-vous vraiment réinitialiser tous les paramètres ?",
+            "description": "Voulez-vous vraiment réinitialiser tous les paramètres ?",
             "title": "Réinitialiser l'application"
         },
         "deleteServer": {
             "confirm": "Supprimer",
-            "description": "Voulez-vous vraiment supprimer le serveur {{serverName}} ?",
+            "description": "Voulez-vous vraiment supprimer le serveur {{serverName}} ?",
             "title": "Supprimer le serveur"
         }
     },
@@ -62,31 +62,31 @@
         "errors": {
             "offline": {
                 "description": "Erreur lors du contact avec le serveur Jellyfin.",
-                "heading": "Serveur hors ligne ?"
+                "heading": "Serveur hors-ligne ?"
             },
             "502": {
                 "description": "Impossible de contacter le serveur Jellyfin. Ceci peut être dû à une erreur dans la configuration du proxy ou le serveur Jellyfin est hors-ligne."
             },
             "http": {
                 "description": "Le serveur Jellyfin a renvoyé une erreur.",
-                "heading": "Un problème est survenu !"
+                "heading": "Un problème est survenu !"
             },
             "504": {
                 "description": "Impossible de contacter le serveur Jellyfin. Ceci est généralement dû à une interruption du proxy lors de la connexion avec le serveur Jellyfin."
             },
             "invalidServer": {
                 "heading": "Le serveur est invalide",
-                "description": "Quelque chose s'est produit et les informations sauvegardées sur le serveur sont invalides. Essayez de retirer le serveur des Paramètres puis de le rajouter à nouveau."
+                "description": "Quelque chose s'est produit et les informations sauvegardées sur le serveur sont invalides. Essayez de retirer le serveur des paramètres puis de le rajouter à nouveau."
             }
         },
-        "retry": "Réessayer ?",
+        "retry": "Réessayer ?",
         "offline": "Erreur lors du contact avec le serveur Jellyfin.",
         "errorUrl": "URL : {{url}}",
         "errorCode": "Code d'erreur : {{errorCode}}"
     },
     "serverHelp": {
-        "heading": "Qu'est-ce que Jellyfin ?",
+        "heading": "Qu'est-ce que Jellyfin ?",
         "learnMore": "En savoir plus sur la façon d'héberger votre propre serveur",
-        "description": "Jellyfin est une solution intégré multi média ouverte. Il permet d'héberger vos média pour un accès de n'importe ou\n\n\nPour utiliser ce client vous devez héberger for propre serveur Jellyfin."
+        "description": "Jellyfin est une solution multimédia libre et ouverte. Elle permet d'héberger vos médias pour y accéder de n'importe où.\n\n\nAfin d'utiliser ce client vous devez héberger votre propre serveur Jellyfin."
     }
 }
