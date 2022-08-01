@@ -3,7 +3,9 @@
         "cancel": "Anulează",
         "unknown": "Necunoscut",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Editează",
+        "delete": "Șterge"
     },
     "headings": {
         "addServer": "Adaugă Server",
@@ -12,7 +14,8 @@
         "servers": "Servere",
         "settings": "Setări",
         "playback": "Redare",
-        "appearance": "Aspect"
+        "appearance": "Aspect",
+        "downloads": "Descărcări"
     },
     "addServer": {
         "address": "Adresa Serverului",
