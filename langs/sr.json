@@ -3,7 +3,9 @@
         "cancel": "Откажи",
         "unknown": "Непознато",
         "ok": "УРЕДУ",
-        "beta": "БЕТА"
+        "beta": "БЕТА",
+        "edit": "Измени",
+        "delete": "Избриши"
     },
     "headings": {
         "addServer": "Додај сервер",
@@ -12,7 +14,8 @@
         "servers": "Сервери",
         "settings": "Подешавања",
         "playback": "Репродукција",
-        "appearance": "Изглед"
+        "appearance": "Изглед",
+        "downloads": "Преузимања"
     },
     "addServer": {
         "address": "Адреса сервера",
