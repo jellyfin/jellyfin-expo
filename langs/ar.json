@@ -22,8 +22,8 @@
         "validation": {
             "empty": "لا يمكن ان يكون $t(addServer.address) فارغاً",
             "invalid": "$t(addServer.address) غير صالح",
-            "invalidProduct": "ليست سيرفر Jellyfin",
-            "noConnection": "لم نتمكن من الوصول الى الخادم"
+            "invalidProduct": "ليس من ضمن خوادم Jellyfin",
+            "noConnection": "فشلت محاولة الاتصال في الخادم"
         }
     },
     "home": {
@@ -44,7 +44,7 @@
                 "description": "غير قادر للوصول الى خادم Jellyfin. هذا عادة بسبب انتهاء الوقت المحدد للاتصال بالخادم اثناء الاتصال بالخادم."
             },
             "502": {
-                "description": "تعذر الوصول إلى خادم Jellyfin. هذا عادة بسبب خطأ في اعدادات الوكيل (proxy ) أو أن Jellyfin غير متصل بالانترنت."
+                "description": "فشل الاتصال في خادم Jellyfin. يعود السبب في معظم الأوقات إلى سوء في اعدادات الـ(proxy)، أو أن Jellyfin غير متصل في الإنترنت."
             }
         },
         "offline": "لم نتمكن من الوصول الى سيرفر Jellyfin.",
@@ -69,7 +69,7 @@
         "documentation": "وثائق",
         "source": "مصدر الرمز (Source Code)",
         "feature": "طلب خاصية",
-        "issue": "بلغ عن خطأ",
+        "issue": "أبلغ عن خطأ",
         "translate": "الترجمة"
     },
     "alerts": {
