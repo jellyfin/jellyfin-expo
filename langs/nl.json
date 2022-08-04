@@ -14,7 +14,8 @@
         "servers": "Servers",
         "settings": "Instellingen",
         "playback": "Afspelen",
-        "appearance": "Uiterlijk"
+        "appearance": "Uiterlijk",
+        "downloads": "Downloads"
     },
     "addServer": {
         "address": "Serveradres",
