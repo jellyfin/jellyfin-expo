@@ -53,13 +53,16 @@
         "home": "Inicio",
         "addServer": "Añadir servidor",
         "playback": "Reproducción",
-        "appearance": "Apariencia"
+        "appearance": "Apariencia",
+        "downloads": "Descargas"
     },
     "common": {
         "unknown": "Desconocido",
         "cancel": "Cancelar",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Editar",
+        "delete": "Eliminar"
     },
     "alerts": {
         "resetApplication": {
