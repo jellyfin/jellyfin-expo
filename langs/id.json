@@ -3,7 +3,9 @@
         "beta": "BETA",
         "cancel": "Batal",
         "ok": "OK",
-        "unknown": ""
+        "unknown": "Tidak Diketahui",
+        "edit": "Edit",
+        "delete": "Hapus"
     },
     "headings": {
         "addServer": "Tambahkan Server",
@@ -12,7 +14,8 @@
         "links": "Tautan",
         "playback": "Pemutaran",
         "servers": "Server",
-        "settings": "Pengaturan"
+        "settings": "Pengaturan",
+        "downloads": "Unduhan"
     },
     "addServer": {
         "address": "Alamat Server",
@@ -26,10 +29,10 @@
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Tidak dapat menjangkau server Jellyfin. Ini biasanya karena kesalahan konfigurasi proxy atau Jellyfin sedang offline."
             },
             "504": {
-                "description": ""
+                "description": "Tidak dapat menjangkau server Jellyfin. Ini biasanya karena proxy kehabisan waktu saat menghubungkan ke Jellyfin."
             },
             "http": {
                 "heading": "Terjadi kesalahan!",
@@ -50,18 +53,18 @@
     },
     "serverHelp": {
         "heading": "Apa itu Jellyfin?",
-        "description": "",
-        "learnMore": ""
+        "description": "Jellyfin adalah solusi media yang dibuat oleh sukarelawan. Ini memungkinkan Anda untuk meng-host media Anda sendiri dan mengaksesnya dari mana saja.\n\n\nUntuk menggunakan klien ini, Anda perlu meng-host server Jellyfin Anda sendiri.",
+        "learnMore": "Pelajari lebih lanjut tentang cara meng-host server Anda sendiri"
     },
     "settings": {
         "version": "Version: {{version}}",
-        "keepAwake": "",
+        "keepAwake": "Biarkan Layar Menyala",
         "nativeVideoPlayer": "Gunakan Pemutar Video Native",
         "minimumServerVersion": "Membutuhkan Server Versi 10.7+",
         "fmp4Support": "Utamakan fMP4 pada HLS",
         "lightTheme": "Gunakan Tema Cerah",
         "systemTheme": "Gunakan Tema Sistem",
-        "rotationLock": "",
+        "rotationLock": "Kunci Rotasi",
         "tabLabels": "Tampilkan Label Tab",
         "expoVersion": "Versi Expo: {{version}}"
     },
@@ -79,9 +82,9 @@
             "confirm": "Hapus"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Reset Aplikasi",
+            "description": "Anda yakin ingin menyetel ulang semua setelan?",
+            "confirm": "Reset"
         }
     }
 }
