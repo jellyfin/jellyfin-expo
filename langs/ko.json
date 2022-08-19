@@ -2,7 +2,10 @@
     "common": {
         "cancel": "취소",
         "unknown": "알수없는",
-        "ok": "OK"
+        "ok": "OK",
+        "delete": "삭제",
+        "beta": "베타",
+        "edit": "편집"
     },
     "headings": {
         "addServer": "서버 추가",
@@ -11,7 +14,8 @@
         "servers": "서버목록",
         "settings": "설정",
         "playback": "재생",
-        "appearance": "모양"
+        "appearance": "모양",
+        "downloads": "다운로드"
     },
     "addServer": {
         "address": "서버 주소",
