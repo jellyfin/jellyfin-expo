@@ -3,7 +3,9 @@
         "cancel": "Avbryt",
         "unknown": "Ukjent",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Rediger",
+        "delete": "Slett"
     },
     "headings": {
         "addServer": "Legg til server",
@@ -12,7 +14,8 @@
         "servers": "Servere",
         "settings": "Innstillinger",
         "playback": "Avspilling",
-        "appearance": "Utseende"
+        "appearance": "Utseende",
+        "downloads": "Nedlastinger"
     },
     "addServer": {
         "address": "Serveradresse",
