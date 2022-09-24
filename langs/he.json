@@ -1,25 +1,29 @@
 {
     "common": {
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "cancel": "בטל",
+        "ok": "אישור",
+        "unknown": "לא ידוע",
+        "edit": "ערוך",
+        "delete": "מחק",
+        "beta": "בטא"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "הוסף שרת",
+        "appearance": "נראות",
+        "home": "בית",
+        "links": "לינקים",
+        "playback": "ניגון",
+        "servers": "שרתים",
+        "settings": "הגדרות",
+        "downloads": "הורדות"
     },
     "addServer": {
-        "address": "",
+        "address": "כתובת שרת",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) לא יכולה להיות ריקה",
+            "invalid": "$t(addServer.address) לא תקינה",
+            "invalidProduct": "לא שרת Jellyfin",
+            "noConnection": "לא אפשרי להתחבר לשרת"
         }
     },
     "home": {
@@ -31,7 +35,7 @@
                 "description": ""
             },
             "http": {
-                "heading": "",
+                "heading": "משהו השתבש!",
                 "description": ""
             },
             "invalidServer": {
@@ -48,12 +52,12 @@
         "retry": ""
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "מה זה Jellyfin?",
         "description": "",
         "learnMore": ""
     },
     "settings": {
-        "version": "",
+        "version": "גרסא: {{version}}",
         "keepAwake": "",
         "nativeVideoPlayer": "",
         "minimumServerVersion": "",
