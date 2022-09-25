@@ -3,21 +3,24 @@
         "cancel": "İptal",
         "ok": "Tamam",
         "unknown": "Bilinmeyen",
-        "beta": "BETA"
+        "beta": "BETA",
+        "edit": "Düzenle",
+        "delete": "Sil"
     },
     "headings": {
         "addServer": "Sunucu ekle",
         "appearance": "Görünüm",
-        "home": "Ev",
+        "home": "Ana Dizin",
         "links": "Linkler",
-        "playback": "Geri çalma",
+        "playback": "Oynatma",
         "servers": "Sunucular",
-        "settings": "Ayarlar"
+        "settings": "Ayarlar",
+        "downloads": "İndirmeler"
     },
     "addServer": {
         "address": "Sunucu Adresi",
         "validation": {
-            "empty": "$t(addServer.address) boş olamaz",
+            "empty": "$t(addServer.address) Boş Olamaz",
             "invalid": "$t(addServer.address) geçersiz",
             "invalidProduct": "Jellyfin sunucusu değil",
             "noConnection": "Sunucuya bağlanılamadı"
@@ -32,8 +35,8 @@
                 "description": "Jellyfin sunucusuna ulaşılamıyor. Bunun nedeni genellikle proxy'nin Jellyfin'e bağlanırken zaman aşımına uğramasıdır."
             },
             "http": {
-                "heading": "Bir şeyler yanlış gitti!",
-                "description": "Jellyfin sunucusu bir hata döndürdü."
+                "heading": "Bir şeylerde hata var!",
+                "description": "Jellyfin sunucu kısmında hata var."
             },
             "invalidServer": {
                 "heading": "Sunucu geçersiz",
@@ -51,15 +54,15 @@
     "serverHelp": {
         "heading": "Jellyfin nedir?",
         "description": "Jellyfin, gönüllü olarak oluşturulmuş medya çözümüdür. Kendi medyanızı barındırmanıza ve her yerden erişmenize olanak tanır.\n\n\nBu istemciyi kullanmak için kendi Jellyfin sunucunuzu barındırmanız gerekir.",
-        "learnMore": "Kendi sunucunuzu nasıl barındıracağınız hakkında daha fazla bilgi edinin"
+        "learnMore": "Kendi sunucunuzu nasıl yaratacağınız hakkında daha fazla bilgi edinin"
     },
     "settings": {
         "version": "Sürüm: {{version}}",
         "keepAwake": "Ekranı Açık Tut",
-        "nativeVideoPlayer": "Yerel Video Oynatıcıyı Kullan",
+        "nativeVideoPlayer": "Dahili Video Oynatıcıyı Kullan",
         "minimumServerVersion": "Sunucu Sürümü 10.7+ gerektirir",
         "fmp4Support": "HLS'de fMP4'ü tercih edin",
-        "lightTheme": "Açık Temayı Kullan",
+        "lightTheme": "Açık Renkli Temayı Kullan",
         "systemTheme": "Sistem Temasını Kullan",
         "rotationLock": "Döndürme Kilidi",
         "tabLabels": "Sekme Etiketlerini Göster",
