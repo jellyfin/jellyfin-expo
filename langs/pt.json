@@ -1,49 +1,49 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Cancelar",
+        "delete": "Apagar",
+        "edit": "Editar",
+        "ok": "OK",
+        "unknown": "Desconhecido"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
+        "addServer": "Adicionar Servidor",
+        "appearance": "Aparência",
+        "downloads": "Transferências",
         "home": "",
         "links": "",
         "playback": "",
-        "servers": "",
-        "settings": ""
+        "servers": "Servidores",
+        "settings": "Definições"
     },
     "addServer": {
-        "address": "",
+        "address": "Endereço do Servidor",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) não pode estar vazio",
+            "invalid": "$t(addServer.address) é inválido",
+            "invalidProduct": "Não é um servidor Jellyfin",
+            "noConnection": "Não conseguiu conectar ao servidor"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Não foi possível alcançar o servidor Jellyfin. Isto, geralmente, é devido a um erro de configuração da proxy ou o Jellyfin está offline."
             },
             "504": {
-                "description": ""
+                "description": "Não foi possível alcançar o servidor Jellyfin. Isso geralmente ocorre quando a proxy expira durante a conexão com o Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Algo de errado aconteceu!",
+                "description": "O servidor Jellyfin retornou um erro."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Servidor é inválido",
+                "description": "Algo aconteceu e a informação guardada do servidor é inválida. Tenter remover o servidor das definições e adicioná-lo novamente."
             },
             "offline": {
-                "heading": "",
+                "heading": "Servidor offline?",
                 "description": ""
             }
         },
