@@ -39,53 +39,53 @@
                 "description": ""
             },
             "invalidServer": {
-                "heading": "",
+                "heading": "השרת אינו תקין",
                 "description": ""
             },
             "offline": {
-                "heading": "",
+                "heading": "השרת במצב לא מקוון ?",
                 "description": ""
             }
         },
         "errorCode": "",
         "errorUrl": "",
-        "retry": ""
+        "retry": "נסה שוב ?"
     },
     "serverHelp": {
         "heading": "מה זה Jellyfin?",
         "description": "",
-        "learnMore": ""
+        "learnMore": "למד עוד על איך לארח שרת משלך"
     },
     "settings": {
         "version": "גרסא: {{version}}",
         "keepAwake": "",
-        "nativeVideoPlayer": "",
+        "nativeVideoPlayer": "השתמש בנגן מדיה מקורי",
         "minimumServerVersion": "",
         "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
+        "lightTheme": "השתמש בערכת נושא בהירה",
+        "systemTheme": "השתמש בערכת נושא של המערכת",
+        "rotationLock": "נעילת סיבוב",
+        "tabLabels": "הצג",
         "expoVersion": ""
     },
     "links": {
         "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
+        "documentation": "תיעוד",
+        "source": "קוד מקור",
+        "translate": "תרגם",
         "feature": "",
-        "issue": ""
+        "issue": "דווח על בעיה"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
+            "title": "מחק שרת",
             "description": "",
-            "confirm": ""
+            "confirm": "מחק"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "אפס את האפליקציה",
+            "description": "האם אתה בטוח שברצונך לאפס את כל ההגדרות?",
+            "confirm": "אפס"
         }
     }
 }
