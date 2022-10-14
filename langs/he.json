@@ -40,15 +40,15 @@
             },
             "invalidServer": {
                 "heading": "השרת אינו תקין",
-                "description": ""
+                "description": "משהו התרחש והמידע השמור על השרת אינו חוקי. נסה להסיר את השרת מההגדרות ולהוסיף אותו בחזרה."
             },
             "offline": {
                 "heading": "השרת במצב לא מקוון ?",
                 "description": ""
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
+        "errorCode": "קוד שגיאה : {{errorCode}}",
+        "errorUrl": "כתובת אתר: {{url}}",
         "retry": "נסה שוב ?"
     },
     "serverHelp": {
@@ -58,15 +58,15 @@
     },
     "settings": {
         "version": "גרסא: {{version}}",
-        "keepAwake": "",
+        "keepAwake": "שמור על המסך ער",
         "nativeVideoPlayer": "השתמש בנגן מדיה מקורי",
-        "minimumServerVersion": "",
+        "minimumServerVersion": "דורש שרת עם גרסה +10.7",
         "fmp4Support": "",
         "lightTheme": "השתמש בערכת נושא בהירה",
-        "systemTheme": "השתמש בערכת נושא של המערכת",
+        "systemTheme": "השתמש בערכת נושא המועדפת של המערכת",
         "rotationLock": "נעילת סיבוב",
         "tabLabels": "הצג",
-        "expoVersion": ""
+        "expoVersion": "גרסת Expo: {{version}}"
     },
     "links": {
         "website": "",
@@ -79,7 +79,7 @@
     "alerts": {
         "deleteServer": {
             "title": "מחק שרת",
-            "description": "",
+            "description": "האם אתה בטוח שברצונך למחוק את השרת {{serverName}}?",
             "confirm": "מחק"
         },
         "resetApplication": {
