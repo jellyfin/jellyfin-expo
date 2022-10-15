@@ -1,27 +1,27 @@
 {
     "common": {
-        "cancel": "בטל",
-        "ok": "אישור",
+        "cancel": "ביטול",
+        "ok": "אוקי",
         "unknown": "לא ידוע",
         "edit": "ערוך",
         "delete": "מחק",
-        "beta": "בטא"
+        "beta": "BETA"
     },
     "headings": {
-        "addServer": "הוסף שרת",
-        "appearance": "נראות",
-        "home": "בית",
-        "links": "לינקים",
-        "playback": "ניגון",
+        "addServer": "הוספת שרת",
+        "appearance": "מראה",
+        "home": "ראשי",
+        "links": "קישורים",
+        "playback": "נגן",
         "servers": "שרתים",
         "settings": "הגדרות",
         "downloads": "הורדות"
     },
     "addServer": {
-        "address": "כתובת שרת",
+        "address": "כתובת השרת",
         "validation": {
-            "empty": "$t(addServer.address) לא יכולה להיות ריקה",
-            "invalid": "$t(addServer.address) לא תקינה",
+            "empty": "$t(addServer.address) לא יכול להיות ריק",
+            "invalid": "$t(addServer.address) לא תקין",
             "invalidProduct": "לא שרת Jellyfin",
             "noConnection": "לא אפשרי להתחבר לשרת"
         }
