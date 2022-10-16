@@ -30,7 +30,7 @@
     ]
   },
   "browserslist": [
-    "iOS > 10",
+    "iOS > 11",
     "Android >= 5"
   ],
   "dependencies": {
