@@ -3,7 +3,9 @@
         "cancel": "取消",
         "unknown": "未知",
         "ok": "確定",
-        "beta": "測試版"
+        "beta": "測試版",
+        "delete": "刪除",
+        "edit": "編輯"
     },
     "headings": {
         "addServer": "新增伺服器",
@@ -12,7 +14,8 @@
         "servers": "伺服器",
         "settings": "設定",
         "playback": "播放",
-        "appearance": "顯示"
+        "appearance": "顯示",
+        "downloads": "下載"
     },
     "addServer": {
         "address": "伺服器位址",
