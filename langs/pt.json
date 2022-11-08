@@ -11,9 +11,9 @@
         "addServer": "Adicionar Servidor",
         "appearance": "Aparência",
         "downloads": "Transferências",
-        "home": "",
-        "links": "",
-        "playback": "",
+        "home": "Página inicial",
+        "links": "Links",
+        "playback": "Reprodução",
         "servers": "Servidores",
         "settings": "Definições"
     },
@@ -44,47 +44,47 @@
             },
             "offline": {
                 "heading": "Servidor offline?",
-                "description": ""
+                "description": "Erro ao comunicar com o servidor do Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Código de erro: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Tente novamente?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "O que é o Jellyfin?",
+        "description": "Jellyfin é a solução multimédia criada através de voluntariado. Permite que alojes a tua própria multimédia e a acedas de qualquer lugar.\n\n\nPara usar este cliente tens que alojar o teu próprio servidor do Jellyfin.",
+        "learnMore": "Saber mais sobre como alojar o teu próprio servidor"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Versão: {{version}}",
+        "keepAwake": "Manter o ecrã ligado",
+        "nativeVideoPlayer": "Usar o reprodutor de vídeo nativo",
+        "minimumServerVersion": "Necessita de versão do servidor superior a 10.7",
+        "fmp4Support": "Preferir fMP4 em HLS",
+        "lightTheme": "Usar o tema claro",
+        "systemTheme": "Usar o tema de sistema",
+        "rotationLock": "Bloquear rotação",
+        "tabLabels": "Mostrar legendas dos painéis",
+        "expoVersion": "Versão do Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Site do Jellyfin",
+        "documentation": "Documentação",
+        "source": "Código Fonte",
+        "translate": "Traduzir",
+        "issue": "Reportar um problema"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Apagar Servidor",
+            "description": "Tem a certeza que pretende apagar o servidor, {{serverName}}?",
+            "confirm": "Apagar"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Redefinir Aplicação",
+            "description": "Tem a certeza que pretende redefinir todas as definições?",
+            "confirm": "Redefinir"
         }
     }
 }
