@@ -3,7 +3,9 @@
         "cancel": "Tühista",
         "ok": "OK",
         "unknown": "Teadmata",
-        "beta": "BETA"
+        "beta": "BETA",
+        "delete": "Kustuta",
+        "edit": "Muuda"
     },
     "headings": {
         "addServer": "Lisa server",
@@ -12,7 +14,8 @@
         "links": "Lingid",
         "playback": "Taasesitus",
         "servers": "Serverid",
-        "settings": "Seaded"
+        "settings": "Seaded",
+        "downloads": "Allalaadimised"
     },
     "addServer": {
         "address": "Serveri aadress",
