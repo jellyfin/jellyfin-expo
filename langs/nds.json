@@ -1,42 +1,45 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "Beta",
+        "cancel": "Abbrechen",
+        "ok": "Ok",
+        "unknown": "Unbekannt",
+        "edit": "Bearbeiten",
+        "delete": "Löschen"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Server hinzufügen",
+        "appearance": "Erscheinungsbild",
+        "home": "Start",
+        "links": "Verknüpfungen",
+        "playback": "Wiedergabe",
+        "servers": "Servers",
+        "settings": "Einstellungen",
+        "downloads": "Downloads"
     },
     "addServer": {
-        "address": "",
+        "address": "Server Adresse",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) kann nicht leer sein",
+            "invalid": "$t(addServer.address) ist ungültig",
+            "invalidProduct": "Kein Jellyfin Server",
+            "noConnection": "Konnte nicht zum Server verbinden"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Konnte den Jellyfin Server nicht erreichen. Entweder ist Jellyfin nicht online oder der Proxy ist falsch konfiguriert."
             },
             "504": {
-                "description": ""
+                "description": "Konnte den Jellyfin Server nicht erreichen. Dies tritt meistens auf, wenn der Proxy zu lange keine Antwort erhält."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Etwas ist schiefgelaufen!",
+                "description": "Der Jellyfin Server hat mit einem Fehler geantwortet."
             },
             "invalidServer": {
-                "heading": "",
+                "heading": "Server ist ungültig",
                 "description": ""
             },
             "offline": {
