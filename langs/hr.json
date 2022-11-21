@@ -32,59 +32,59 @@
                 "description": "U ovom trenutku nije moguće doći do Jellyfin servera. Problem inače nastaje zbog greške u konfiguraciji proxy-a ili Jellyfin servis nije dostupan."
             },
             "504": {
-                "description": ""
+                "description": "Nije moguće pristupiti Jellyfin serveru. To je obično zato što je proxy istekao tijekom povezivanja na Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Nešto je pošlo po zlu!",
+                "description": "Jellyfin server je vratio grešku."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Server je nevažeći",
+                "description": "Nešto se dogodilo i spremljene informacije servera su nevažeće. Pokušajte ukloniti server iz postavki i dodajte ga ponovo."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Server nije na mreži?",
+                "description": "Pogreška pri kontaktiranju Jellyfin servera."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Greška: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Pokušajte ponovno?"
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "Što je Jellyfin?",
         "description": "",
-        "learnMore": ""
+        "learnMore": "Saznajte više o tome kako host-ati vlastiti server"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Verzija: {{version}}",
+        "keepAwake": "Drži zaslon budnim",
+        "nativeVideoPlayer": "Koristite izvorni video player",
+        "minimumServerVersion": "Zahtijeva verziju servera 10.7+",
+        "fmp4Support": "Preferiraj fMP4 u HLS-u",
+        "lightTheme": "Koristite svijetlu temu",
+        "systemTheme": "Koristite temu sustava",
+        "rotationLock": "Zaključavanje rotacije",
+        "tabLabels": "Prikaži oznake kartica",
+        "expoVersion": "Expo verzija: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Jellyfin web stranica",
+        "documentation": "Dokumentacija",
+        "source": "Izvorni kod",
+        "translate": "Prevedi",
+        "issue": "Prijaviti problem"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Izbriši server",
+            "description": "Jeste li sigurni da želite izbrisati server {{serverName}}?",
+            "confirm": "Izbriši"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ponovno postavljanje aplikacije",
+            "description": "Jeste li sigurni da želite poništiti sve postavke?",
+            "confirm": "Resetiraj"
         }
     }
 }
