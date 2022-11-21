@@ -61,7 +61,8 @@
         "systemTheme": "使用系統主題",
         "lightTheme": "使用亮色主題",
         "minimumServerVersion": "需要伺服器版本 10.7+",
-        "nativeVideoPlayer": "使用原生影片播放器"
+        "nativeVideoPlayer": "使用原生影片播放器",
+        "fmp4Support": "優先在 HLS 中使用 fMP4"
     },
     "links": {
         "website": "Jellyfin 網站",
@@ -84,7 +85,7 @@
         }
     },
     "serverHelp": {
-        "learnMore": "瞭解有關如何託管您自己的伺服器的更多資訊",
+        "learnMore": "瞭解如何託管自己的伺服器",
         "description": "Jellyfin是志願者構建的媒體解決方案。 它允許您託管自己的媒體，並從任何地方存取。\n\n\n要使用此程式，您需要擁有自己的Jellyfin伺服器。",
         "heading": "Jellyfin 是什麼?"
     }
