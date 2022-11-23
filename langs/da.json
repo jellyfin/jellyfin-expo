@@ -3,7 +3,9 @@
         "cancel": "Annuller",
         "unknown": "Ukendt",
         "ok": "OK",
-        "beta": "BETA"
+        "beta": "BETA",
+        "delete": "Slet",
+        "edit": "Rediger"
     },
     "headings": {
         "addServer": "Tilføj server",
@@ -12,7 +14,8 @@
         "servers": "Servere",
         "settings": "Indstillinger",
         "playback": "Afspilning",
-        "appearance": "Udseende"
+        "appearance": "Udseende",
+        "downloads": "Overførsler"
     },
     "addServer": {
         "address": "Serveradresse",
@@ -41,7 +44,7 @@
             },
             "invalidServer": {
                 "description": "En fejl er opstået og informationen gemt på serveren er ugyldigt. Prøv at fjerne serveren under Indstillinger og derefter tilføj den igen.",
-                "heading": "Serveren er ugyldig"
+                "heading": "Server er ugyldig"
             }
         },
         "offline": "Fejl ved kontakt med Jellyfin-server.",
