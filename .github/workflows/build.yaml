@@ -1,0 +1,64 @@
+name: Build app
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build-ios:
+    name: Build iOS app
+    # if: github.event.pull_request.draft == false
+    runs-on: macos-12
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      # - name: Select Xcode version
+      #   run: sudo xcode-select -s /Applications/Xcode_13.4.1.app
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3.5.1
+        with:
+          node-version: 14
+          check-latest: true
+          cache: npm
+
+      - name: Set up CocoaPods cache
+        uses: actions/cache@v3
+        with:
+          path: ios/Pods
+          key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-pods-
+
+      - name: Install Node.js dependencies
+        run: npm ci --no-audit
+
+      - name: Run expo prebuild
+        run: npx expo-cli prebuild --clean --platform ios
+
+      - name: Build app
+        run: |
+          cd ios
+          xcodebuild archive \
+            -workspace "Jellyfin.xcworkspace" \
+            -scheme "Jellyfin" \
+            -configuration Release \
+            -archivePath build/Jellyfin.xcarchive \
+            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+
+      - name: Build app archive
+        run: |
+          cd ios/build
+          ls -Alh Jellyfin.xcarchive/Products
+          cp -r Jellyfin.xcarchive/Products/Applications ./Payload
+          zip -r Jellyfin.ipa Payload
+
+      - name: Upload app archive
+        uses: actions/upload-artifact@v3
+        with:
+          name: archive
+          path: ios/build/Jellyfin.ipa
