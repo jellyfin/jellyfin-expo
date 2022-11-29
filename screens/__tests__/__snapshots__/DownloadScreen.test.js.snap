@@ -49,7 +49,6 @@ exports[`DownloadScreen should render correctly 1`] = `
         },
       ]
     }
-    disableVirtualization={false}
     extraData={
       Object {
         "server-id_item-id": [Circular],
@@ -58,13 +57,10 @@ exports[`DownloadScreen should render correctly 1`] = `
     }
     getItem={[Function]}
     getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
     keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
     onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
     onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
     onMomentumScrollEnd={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
@@ -73,9 +69,7 @@ exports[`DownloadScreen should render correctly 1`] = `
     renderItem={[Function]}
     scrollEventThrottle={50}
     stickyHeaderIndices={Array []}
-    updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
   >
     <View>
       <View
@@ -203,10 +197,6 @@ exports[`DownloadScreen should render correctly 1`] = `
               }
             />
             <ActivityIndicator
-              animating={true}
-              color="#999999"
-              hidesWhenStopped={true}
-              size="small"
               testID="loading-indicator"
             />
           </View>
@@ -336,10 +326,6 @@ exports[`DownloadScreen should render correctly 1`] = `
               }
             />
             <ActivityIndicator
-              animating={true}
-              color="#999999"
-              hidesWhenStopped={true}
-              size="small"
               testID="loading-indicator"
             />
           </View>

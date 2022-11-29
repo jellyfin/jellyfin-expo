@@ -111,6 +111,7 @@ true;
             },
           ]
         }
+        textInteractionEnabled={true}
         useSharedProcessPool={true}
         useWebKit={true}
       />

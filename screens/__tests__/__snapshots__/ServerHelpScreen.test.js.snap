@@ -82,6 +82,7 @@ In order to use this client, you need to host your own Jellyfin server.
         }
       }
       accessible={true}
+      collapsable={false}
       focusable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
@@ -151,6 +152,7 @@ In order to use this client, you need to host your own Jellyfin server.
         }
       }
       accessible={true}
+      collapsable={false}
       focusable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}

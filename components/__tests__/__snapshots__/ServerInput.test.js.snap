@@ -10,6 +10,7 @@ exports[`ServerInput should render correctly 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -63,7 +64,6 @@ exports[`ServerInput should render correctly 1`] = `
       </View>
     </View>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       autoCompleteType="off"
       autoCorrect={false}
@@ -73,7 +73,6 @@ exports[`ServerInput should render correctly 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholderTextColor="#86939e"
-      rejectResponderTermination={true}
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
@@ -112,6 +111,7 @@ exports[`ServerInput should show error if parseUrl throws 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -161,6 +161,7 @@ exports[`ServerInput should show error if parseUrl throws 1`] = `
           >
             <Text
               allowFontScaling={false}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -187,7 +188,6 @@ exports[`ServerInput should show error if parseUrl throws 1`] = `
       </View>
     </View>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       autoCompleteType="off"
       autoCorrect={false}
@@ -197,7 +197,6 @@ exports[`ServerInput should show error if parseUrl throws 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholderTextColor="#86939e"
-      rejectResponderTermination={true}
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
@@ -238,6 +237,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -287,6 +287,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
           >
             <Text
               allowFontScaling={false}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -313,7 +314,6 @@ exports[`ServerInput should show error if url is invalid 1`] = `
       </View>
     </View>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       autoCompleteType="off"
       autoCorrect={false}
@@ -323,7 +323,6 @@ exports[`ServerInput should show error if url is invalid 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholderTextColor="#86939e"
-      rejectResponderTermination={true}
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
@@ -364,6 +363,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -413,6 +413,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
           >
             <Text
               allowFontScaling={false}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -439,7 +440,6 @@ exports[`ServerInput should show error when input is blank 1`] = `
       </View>
     </View>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       autoCompleteType="off"
       autoCorrect={false}
@@ -449,7 +449,6 @@ exports[`ServerInput should show error when input is blank 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholderTextColor="#86939e"
-      rejectResponderTermination={true}
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
@@ -490,6 +489,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -539,6 +539,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
           >
             <Text
               allowFontScaling={false}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -565,7 +566,6 @@ exports[`ServerInput should show error when url is undefined 1`] = `
       </View>
     </View>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       autoCompleteType="off"
       autoCorrect={false}
@@ -575,7 +575,6 @@ exports[`ServerInput should show error when url is undefined 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholderTextColor="#86939e"
-      rejectResponderTermination={true}
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
@@ -616,6 +615,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -665,6 +665,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
           >
             <Text
               allowFontScaling={false}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -691,7 +692,6 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
       </View>
     </View>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       autoCompleteType="off"
       autoCorrect={false}
@@ -701,7 +701,6 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholderTextColor="#86939e"
-      rejectResponderTermination={true}
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
@@ -742,6 +741,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -791,6 +791,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
           >
             <Text
               allowFontScaling={false}
+              selectable={false}
               style={
                 Array [
                   Object {
@@ -817,7 +818,6 @@ exports[`ServerInput should succeed for valid urls 1`] = `
       </View>
     </View>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       autoCompleteType="off"
       autoCorrect={false}
@@ -827,7 +827,6 @@ exports[`ServerInput should succeed for valid urls 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholderTextColor="#86939e"
-      rejectResponderTermination={true}
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
@@ -854,12 +853,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
         }
       }
     >
-      <ActivityIndicator
-        animating={true}
-        color="#999999"
-        hidesWhenStopped={true}
-        size="small"
-      />
+      <ActivityIndicator />
     </View>
   </View>
   <Text

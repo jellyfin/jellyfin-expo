@@ -22,11 +22,6 @@ exports[`LoadingScreen should render correctly 1`] = `
       }
     }
   />
-  <ActivityIndicator
-    animating={true}
-    color="#999999"
-    hidesWhenStopped={true}
-    size="small"
-  />
+  <ActivityIndicator />
 </View>
 `;

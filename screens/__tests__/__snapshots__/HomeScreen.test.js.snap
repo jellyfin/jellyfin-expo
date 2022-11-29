@@ -175,14 +175,14 @@ exports[`HomeScreen should render correctly 1`] = `
     }
   >
     <ViewManagerAdapter_ExpoVideoView
+      onError={[Function]}
+      onFullscreenUpdate={[Function]}
+      onLoad={[Function]}
+      onLoadStart={[Function]}
+      onReadyForDisplay={[Function]}
+      onStatusUpdate={[Function]}
       proxiedProperties={
         Object {
-          "onError": [Function],
-          "onFullscreenUpdate": [Function],
-          "onLoad": [Function],
-          "onLoadStart": [Function],
-          "onReadyForDisplay": [Function],
-          "onStatusUpdate": [Function],
           "resizeMode": "mock",
           "source": undefined,
           "status": Object {},
