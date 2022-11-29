@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { Audio } from 'expo-av';
+import { Audio, InterruptionModeAndroid, InterruptionModeIOS } from 'expo-av';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
 
@@ -21,10 +21,10 @@ const AudioPlayer = observer(() => {
 	useEffect(() => {
 		Audio.setAudioModeAsync({
 			staysActiveInBackground: true,
-			interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+			interruptionModeAndroid: InterruptionModeAndroid.DoNotMix,
 			playThroughEarpieceAndroid: false,
 			shouldDuckAndroid: true,
-			interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+			interruptionModeIOS: InterruptionModeIOS.DoNotMix,
 			playsInSilentModeIOS: true
 		});
 

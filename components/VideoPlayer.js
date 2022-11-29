@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { Audio, Video } from 'expo-av';
+import { Audio, InterruptionModeAndroid, InterruptionModeIOS, Video } from 'expo-av';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from 'react-native';
@@ -23,8 +23,8 @@ const VideoPlayer = observer(() => {
 	// Set the audio mode when the video player is created
 	useEffect(() => {
 		Audio.setAudioModeAsync({
-			interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-			interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+			interruptionModeAndroid: InterruptionModeAndroid.DoNotMix,
+			interruptionModeIOS: InterruptionModeIOS.DoNotMix,
 			playsInSilentModeIOS: true
 		});
 	}, []);
