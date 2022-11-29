@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import Constants from 'expo-constants';
+import * as Device from 'expo-device';
 import { Platform } from 'react-native';
 
 import { getAppName, getDeviceProfile, getSafeDeviceName, isCompact, isSystemThemeSupported } from '../Device';
@@ -40,9 +41,9 @@ describe('Device', () => {
 			expect(getSafeDeviceName()).toBe('iPhone');
 		});
 
-		it('should return a default name if device name only contains non-ascii and whitespace characters', () => {
+		it('should return the device model name if device name only contains non-ascii and whitespace characters', () => {
 			Constants.deviceName = '  🌮😂 ';
-			expect(getSafeDeviceName()).toBe('Jellyfin Mobile Device');
+			expect(getSafeDeviceName()).toBe(Device.modelName);
 		});
 	});
 
