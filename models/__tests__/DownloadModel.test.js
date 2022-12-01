@@ -26,6 +26,7 @@ describe('DownloadModel', () => {
 
 		expect(download.apiKey).toBe('api-key');
 		expect(download.itemId).toBe('item-id');
+		expect(download.sessionId).toBe('uuid-0');
 		expect(download.serverId).toBe('server-id');
 		expect(download.serverUrl).toBe('https://example.com/');
 
@@ -42,6 +43,6 @@ describe('DownloadModel', () => {
 		expect(download.localFilename).toBe('file name.mp4');
 		expect(download.localPath).toBe(`${DOCUMENT_DIRECTORY}server-id/item-id/`);
 		expect(download.uri).toBe(`${DOCUMENT_DIRECTORY}server-id/item-id/file%20name.mp4`);
-		expect(download.getStreamUrl('device-id').toString()).toBe('https://example.com/Videos/item-id/stream.mp4?deviceId=device-id&api_key=api-key&videoCodec=hevc%2Ch264&audioCodec=aac%2Cmp3%2Cac3%2Ceac3%2Cflac%2Calac&maxAudioChannels=6');
+		expect(download.getStreamUrl('device-id').toString()).toBe('https://example.com/Videos/item-id/stream.mp4?deviceId=device-id&api_key=api-key&playSessionId=uuid-0&videoCodec=hevc%2Ch264&audioCodec=aac%2Cmp3%2Cac3%2Ceac3%2Cflac%2Calac&maxAudioChannels=6');
 	});
 });

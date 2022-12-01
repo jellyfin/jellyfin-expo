@@ -47,3 +47,11 @@ jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
 /* Safe Area Context Mocks */
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
 jest.mock('react-native-safe-area-context', () => mockSafeAreaContext);
+
+/* UUID Mocks */
+jest.mock('uuid', () => {
+	let value = 0;
+	return {
+		v4: () => `uuid-${value++}`
+	};
+});
