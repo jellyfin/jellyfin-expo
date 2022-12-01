@@ -65,6 +65,7 @@ exports[`RefreshWebView should render 1`] = `
             },
           ]
         }
+        textInteractionEnabled={true}
         useSharedProcessPool={true}
       />
     </View>

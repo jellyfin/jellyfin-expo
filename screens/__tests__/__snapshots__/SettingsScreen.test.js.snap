@@ -171,7 +171,6 @@ exports[`SettingsScreen should render correctly 1`] = `
         },
       ]
     }
-    disableVirtualization={false}
     extraData={
       Object {
         "activeServer": undefined,
@@ -180,13 +179,10 @@ exports[`SettingsScreen should render correctly 1`] = `
     }
     getItem={[Function]}
     getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
     keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
     onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
     onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
     onMomentumScrollEnd={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
@@ -202,8 +198,6 @@ exports[`SettingsScreen should render correctly 1`] = `
         9,
       ]
     }
-    updateCellsBatchingPeriod={50}
-    windowSize={21}
   >
     <View>
       <View

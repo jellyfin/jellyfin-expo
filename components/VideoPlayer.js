@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { Audio, Video } from 'expo-av';
+import { Audio, InterruptionModeAndroid, InterruptionModeIOS, Video, VideoFullscreenUpdate } from 'expo-av';
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from 'react-native';
@@ -23,8 +23,8 @@ const VideoPlayer = observer(() => {
 	// Set the audio mode when the video player is created
 	useEffect(() => {
 		Audio.setAudioModeAsync({
-			interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
-			interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+			interruptionModeAndroid: InterruptionModeAndroid.DoNotMix,
+			interruptionModeIOS: InterruptionModeIOS.DoNotMix,
 			playsInSilentModeIOS: true
 		});
 	}, []);
@@ -101,17 +101,17 @@ const VideoPlayer = observer(() => {
 			}}
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
 				switch (fullscreenUpdate) {
-					case Video.FULLSCREEN_UPDATE_PLAYER_WILL_PRESENT:
+					case VideoFullscreenUpdate.PLAYER_WILL_PRESENT:
 						setIsPresenting(true);
 						rootStore.isFullscreen = true;
 						break;
-					case Video.FULLSCREEN_UPDATE_PLAYER_DID_PRESENT:
+					case VideoFullscreenUpdate.PLAYER_DID_PRESENT:
 						setIsPresenting(false);
 						break;
-					case Video.FULLSCREEN_UPDATE_PLAYER_WILL_DISMISS:
+					case VideoFullscreenUpdate.PLAYER_WILL_DISMISS:
 						setIsDismissing(true);
 						break;
-					case Video.FULLSCREEN_UPDATE_PLAYER_DID_DISMISS:
+					case VideoFullscreenUpdate.PLAYER_DID_DISMISS:
 						setIsDismissing(false);
 						rootStore.isFullscreen = false;
 						rootStore.mediaStore.reset();
