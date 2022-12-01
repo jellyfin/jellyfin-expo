@@ -134,6 +134,7 @@ const App = observer(({ skipLoadingScreen }) => {
 
 			// TODO: The resumable should be saved to allow pausing/resuming downloads
 
+			// Download the file
 			try {
 				download.isDownloading = true;
 				await resumable.downloadAsync();
@@ -145,20 +146,21 @@ const App = observer(({ skipLoadingScreen }) => {
 
 				// TODO: If a download fails, we should probably remove it from the queue
 				download.isDownloading = false;
-			} finally {
-				const serverUrl = download.serverUrl.endsWith('/') ? download.serverUrl.slice(0, -1) : download.serverUrl;
-				const api = rootStore.sdk.createApi(serverUrl, download.apiKey);
-				console.log('[App] Reporting download stopped', download.sessionId);
-				getPlaystateApi(api)
-					.reportPlaybackStopped({
-						playbackStopInfo: {
-							PlaySessionId: download.sessionId
-						}
-					})
-					.catch(err => {
-						console.error('[App] Failed reporting download stopped', err.response || err.request || err.message);
-					});
 			}
+
+			// Report download has stopped
+			const serverUrl = download.serverUrl.endsWith('/') ? download.serverUrl.slice(0, -1) : download.serverUrl;
+			const api = rootStore.sdk.createApi(serverUrl, download.apiKey);
+			console.log('[App] Reporting download stopped', download.sessionId);
+			getPlaystateApi(api)
+				.reportPlaybackStopped({
+					playbackStopInfo: {
+						PlaySessionId: download.sessionId
+					}
+				})
+				.catch(err => {
+					console.error('[App] Failed reporting download stopped', err.response || err.request || err.message);
+				});
 		};
 
 		rootStore.downloadStore.downloads
