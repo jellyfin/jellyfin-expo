@@ -52,7 +52,7 @@ export default class RootStore {
 	settingStore = new SettingStore()
 
 	get sdk() {
-		return (new Jellyfin({
+		return new Jellyfin({
 			clientInfo: {
 				name: getAppName(),
 				version: Constants.nativeAppVersion
@@ -61,7 +61,7 @@ export default class RootStore {
 				name: getSafeDeviceName(),
 				id: this.deviceId
 			}
-		}));
+		});
 	}
 
 	reset() {
