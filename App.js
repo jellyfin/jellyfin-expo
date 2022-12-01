@@ -10,11 +10,11 @@ import 'react-native-url-polyfill/auto';
 import { Ionicons } from '@expo/vector-icons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
-import AppLoading from 'expo-app-loading';
 import { Asset } from 'expo-asset';
 import * as FileSystem from 'expo-file-system';
 import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
+import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { observer } from 'mobx-react-lite';
 import { AsyncTrunk } from 'mobx-sync-lite';
@@ -40,6 +40,8 @@ const App = observer(({ skipLoadingScreen }) => {
 
 	rootStore.settingStore.systemThemeId = useColorScheme();
 
+	SplashScreen.preventAutoHideAsync();
+
 	const trunk = new AsyncTrunk(rootStore, {
 		storage: AsyncStorage
 	});
@@ -50,9 +52,37 @@ const App = observer(({ skipLoadingScreen }) => {
 		rootStore.storeLoaded = true;
 	};
 
+	const loadImages = () => {
+		const images = [
+			require('./assets/images/splash.png'),
+			require('./assets/images/logowhite.png')
+		];
+		return images.map(image => Asset.fromModule(image).downloadAsync());
+	};
+
+	const loadResources = async () => {
+		try {
+			await Promise.all([
+				Font.loadAsync({
+					// This is the font that we are using for our tab bar
+					...Ionicons.font
+				}),
+				...loadImages(),
+				StaticScriptLoader.load()
+			]);
+		} catch (err) {
+			console.warn('[App] Failed loading resources', err);
+		}
+
+		setIsSplashReady(true);
+	};
+
 	useEffect(() => {
 		// Hydrate mobx data stores
 		hydrateStores();
+
+		// Load app resources
+		loadResources();
 	}, []);
 
 	useEffect(() => {
@@ -122,34 +152,8 @@ const App = observer(({ skipLoadingScreen }) => {
 			});
 	}, [ rootStore.deviceId, rootStore.downloadStore.downloads.size ]);
 
-	const loadImagesAsync = () => {
-		const images = [
-			require('./assets/images/splash.png'),
-			require('./assets/images/logowhite.png')
-		];
-		return images.map(image => Asset.fromModule(image).downloadAsync());
-	};
-
-	const loadResourcesAsync = async () => {
-		return Promise.all([
-			Font.loadAsync({
-				// This is the font that we are using for our tab bar
-				...Ionicons.font
-			}),
-			...loadImagesAsync(),
-			StaticScriptLoader.load()
-		]);
-	};
-
 	if (!(isSplashReady && rootStore.storeLoaded) && !skipLoadingScreen) {
-		return (
-			<AppLoading
-				startAsync={loadResourcesAsync}
-				onError={console.warn}
-				onFinish={() => setIsSplashReady(true)}
-				autoHideSplash={false}
-			/>
-		);
+		return null;
 	}
 
 	return (
