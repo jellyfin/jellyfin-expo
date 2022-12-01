@@ -147,16 +147,12 @@ const App = observer(({ skipLoadingScreen }) => {
 				download.isDownloading = false;
 			} finally {
 				const serverUrl = download.serverUrl.endsWith('/') ? download.serverUrl.slice(0, -1) : download.serverUrl;
-				const api = rootStore.sdk.createApi(serverUrl);
+				const api = rootStore.sdk.createApi(serverUrl, download.apiKey);
 				console.log('[App] Reporting download stopped', download.sessionId);
 				getPlaystateApi(api)
 					.reportPlaybackStopped({
 						playbackStopInfo: {
 							PlaySessionId: download.sessionId
-						}
-					}, {
-						query: {
-							api_key: download.apiKey
 						}
 					})
 					.catch(err => {
