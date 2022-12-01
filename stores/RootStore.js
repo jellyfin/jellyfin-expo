@@ -7,9 +7,13 @@
 // polyfill crypto.getRandomValues
 import 'react-native-get-random-values';
 
-import { action, decorate, observable } from 'mobx';
+import { Jellyfin } from '@jellyfin/sdk';
+import Constants from 'expo-constants';
+import { action, computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync-lite';
 import { v4 as uuidv4 } from 'uuid';
+
+import { getAppName, getSafeDeviceName } from '../utils/Device';
 
 import DownloadStore from './DownloadStore';
 import MediaStore from './MediaStore';
@@ -47,6 +51,19 @@ export default class RootStore {
 	serverStore = new ServerStore()
 	settingStore = new SettingStore()
 
+	get sdk() {
+		return (new Jellyfin({
+			clientInfo: {
+				name: getAppName(),
+				version: Constants.nativeAppVersion
+			},
+			deviceInfo: {
+				name: getSafeDeviceName(),
+				id: this.deviceId
+			}
+		}));
+	}
+
 	reset() {
 		this.deviceId = uuidv4();
 
@@ -69,5 +86,6 @@ decorate(RootStore, {
 	isFullscreen: [ ignore, observable ],
 	isReloadRequired: [ ignore, observable ],
 	didPlayerCloseManually: [ ignore, observable ],
+	sdk: computed,
 	reset: action
 });
