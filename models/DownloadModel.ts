@@ -7,6 +7,7 @@
 import * as FileSystem from 'expo-file-system';
 import { computed, decorate, observable } from 'mobx';
 import { ignore } from 'mobx-sync-lite';
+import { v4 as uuidv4 } from 'uuid';
 
 export default class DownloadModel {
 	isComplete = false
@@ -15,6 +16,8 @@ export default class DownloadModel {
 
 	apiKey: string
 	itemId: string
+	/** The "play" session ID for reporting a download has stopped. */
+	sessionId = uuidv4()
 	serverId: string
 	serverUrl: string
 
@@ -61,6 +64,7 @@ export default class DownloadModel {
 		const streamParams = new URLSearchParams({
 			deviceId,
 			api_key: this.apiKey,
+			playSessionId: this.sessionId,
 			// TODO: add mediaSourceId to support alternate media versions
 			videoCodec: 'hevc,h264',
 			audioCodec: 'aac,mp3,ac3,eac3,flac,alac',
@@ -79,6 +83,7 @@ decorate(DownloadModel, {
 	isNew: observable,
 	apiKey: observable,
 	itemId: observable,
+	sessionId: observable,
 	serverId: observable,
 	serverUrl: observable,
 	title: observable,

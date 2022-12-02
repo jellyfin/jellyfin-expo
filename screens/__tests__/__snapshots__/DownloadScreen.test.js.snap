@@ -33,6 +33,7 @@ exports[`DownloadScreen should render correctly 1`] = `
           "itemId": "item-id",
           "serverId": "server-id",
           "serverUrl": "https://example.com/",
+          "sessionId": "uuid-0",
           "title": "title",
         },
         Object {
@@ -45,6 +46,7 @@ exports[`DownloadScreen should render correctly 1`] = `
           "itemId": "item-id-2",
           "serverId": "server-id",
           "serverUrl": "https://test2.example.com/",
+          "sessionId": "uuid-1",
           "title": "other title",
         },
       ]

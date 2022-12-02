@@ -8,6 +8,7 @@
 import 'react-native-url-polyfill/auto';
 
 import { Ionicons } from '@expo/vector-icons';
+import { getPlaystateApi } from '@jellyfin/sdk/lib/utils/api/playstate-api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import { Asset } from 'expo-asset';
@@ -20,7 +21,7 @@ import { observer } from 'mobx-react-lite';
 import { AsyncTrunk } from 'mobx-sync-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
-import { useColorScheme } from 'react-native';
+import { Alert, useColorScheme } from 'react-native';
 import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
@@ -133,6 +134,7 @@ const App = observer(({ skipLoadingScreen }) => {
 
 			// TODO: The resumable should be saved to allow pausing/resuming downloads
 
+			// Download the file
 			try {
 				download.isDownloading = true;
 				await resumable.downloadAsync();
@@ -140,8 +142,25 @@ const App = observer(({ skipLoadingScreen }) => {
 				download.isDownloading = false;
 			} catch (e) {
 				console.error('[App] Download failed', e);
+				Alert.alert('Download Failed', `"${download.title}" failed to download.`);
+
+				// TODO: If a download fails, we should probably remove it from the queue
 				download.isDownloading = false;
 			}
+
+			// Report download has stopped
+			const serverUrl = download.serverUrl.endsWith('/') ? download.serverUrl.slice(0, -1) : download.serverUrl;
+			const api = rootStore.sdk.createApi(serverUrl, download.apiKey);
+			console.log('[App] Reporting download stopped', download.sessionId);
+			getPlaystateApi(api)
+				.reportPlaybackStopped({
+					playbackStopInfo: {
+						PlaySessionId: download.sessionId
+					}
+				})
+				.catch(err => {
+					console.error('[App] Failed reporting download stopped', err.response || err.request || err.message);
+				});
 		};
 
 		rootStore.downloadStore.downloads
