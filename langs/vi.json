@@ -2,7 +2,9 @@
     "common": {
         "cancel": "Huỷ bỏ",
         "ok": "Đồng ý",
-        "unknown": "Không xác định"
+        "unknown": "Không xác định",
+        "delete": "Xoá",
+        "beta": "Bản thử nghiệm"
     },
     "headings": {
         "addServer": "Thêm Máy Chủ",
