@@ -2,9 +2,9 @@
     "common": {
         "cancel": "취소",
         "unknown": "알수없는",
-        "ok": "OK",
+        "ok": "확인",
         "delete": "삭제",
-        "beta": "베타",
+        "beta": "Beta",
         "edit": "편집"
     },
     "headings": {
@@ -62,7 +62,7 @@
         "lightTheme": "밝은 테마 사용",
         "fmp4Support": "HLS에서 fMP4 선호",
         "minimumServerVersion": "서버 버전 10.7 이상 요구",
-        "nativeVideoPlayer": "네이티브 비디오 재생기 사용 [베타]"
+        "nativeVideoPlayer": "네이티브 비디오 플레이어 사용"
     },
     "links": {
         "website": "Jellyfin 웹사이트",
