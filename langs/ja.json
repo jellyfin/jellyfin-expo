@@ -2,7 +2,10 @@
     "common": {
         "cancel": "キャンセル",
         "unknown": "不明",
-        "beta": "ベータ"
+        "beta": "ベータ",
+        "ok": "OK",
+        "edit": "編集",
+        "delete": "削除"
     },
     "headings": {
         "addServer": "サーバーを追加",
@@ -11,7 +14,8 @@
         "servers": "サーバー",
         "settings": "設定",
         "playback": "再生",
-        "appearance": "外見"
+        "appearance": "外見",
+        "downloads": "ダウンロード"
     },
     "addServer": {
         "address": "サーバーアドレス",
