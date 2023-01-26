@@ -69,7 +69,7 @@
         "expoVersion": "גרסת Expo: {{version}}"
     },
     "links": {
-        "website": "",
+        "website": "אתר jellyfin",
         "documentation": "תיעוד",
         "source": "קוד מקור",
         "translate": "תרגם",
