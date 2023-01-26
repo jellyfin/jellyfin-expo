@@ -1,18 +1,18 @@
 {
     "common": {
-        "cancel": "ביטול",
+        "cancel": "בטל",
         "ok": "אוקי",
         "unknown": "לא ידוע",
-        "edit": "ערוך",
+        "edit": "עריכה",
         "delete": "מחק",
         "beta": "BETA"
     },
     "headings": {
-        "addServer": "הוספת שרת",
+        "addServer": "הוסף שרץ",
         "appearance": "מראה",
         "home": "ראשי",
         "links": "קישורים",
-        "playback": "נגן",
+        "playback": "השמעה",
         "servers": "שרתים",
         "settings": "הגדרות",
         "downloads": "הורדות"
@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "לא יכול להגיע לשרת Jellyfin. זה בדרך כלל קורה מכיוון שיש שגיאה בהגדרת ה-proxy או ש-Jellyfin לא מחובר"
             },
             "504": {
                 "description": ""
