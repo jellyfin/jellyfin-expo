@@ -8,7 +8,7 @@
         "beta": "BETA"
     },
     "headings": {
-        "addServer": "הוסף שרץ",
+        "addServer": "הוסף שרת",
         "appearance": "מראה",
         "home": "ראשי",
         "links": "קישורים",
@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "502": {
-                "description": "לא יכול להגיע לשרת Jellyfin. זה בדרך כלל קורה מכיוון שיש שגיאה בהגדרת ה-proxy או ש-Jellyfin לא מחובר"
+                "description": "לא יכול להגיע לשרת Jellyfin. זה בדרך כלל קורה מכיוון שיש שגיאה בהגדרת ה-proxy או ש-Jellyfin לא מחובר."
             },
             "504": {
                 "description": ""
@@ -69,7 +69,7 @@
         "expoVersion": "גרסת Expo: {{version}}"
     },
     "links": {
-        "website": "אתר jellyfin",
+        "website": "אתר Jellyfin",
         "documentation": "תיעוד",
         "source": "קוד מקור",
         "translate": "תרגם",
