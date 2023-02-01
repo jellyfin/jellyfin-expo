@@ -3,7 +3,9 @@
         "cancel": "انصراف",
         "unknown": "ناشناخته",
         "ok": "تایید",
-        "beta": "بتا"
+        "beta": "بتا",
+        "delete": "حذف",
+        "edit": "ویرایش"
     },
     "headings": {
         "addServer": "اضافه کردن سرور",
@@ -12,7 +14,8 @@
         "servers": "سرورها",
         "settings": "تنظیمات",
         "playback": "پخش",
-        "appearance": "ظاهر"
+        "appearance": "ظاهر",
+        "downloads": "دانلود ها"
     },
     "addServer": {
         "address": "ادرس سرور",
