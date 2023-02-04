@@ -43,7 +43,7 @@
                 "description": ""
             },
             "offline": {
-                "heading": "",
+                "heading": "Server nicht erreichbar?",
                 "description": ""
             }
         },
@@ -57,34 +57,34 @@
         "learnMore": ""
     },
     "settings": {
-        "version": "",
+        "version": "Version: {{version}}",
         "keepAwake": "",
         "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
+        "minimumServerVersion": "Benötigt Server Version 10.7+",
         "fmp4Support": "",
         "lightTheme": "",
         "systemTheme": "",
         "rotationLock": "",
-        "tabLabels": "",
+        "tabLabels": "Tab Labels anzeigen",
         "expoVersion": ""
     },
     "links": {
-        "website": "",
+        "website": "Jellyfin Website",
         "documentation": "",
-        "source": "",
-        "translate": "",
+        "source": "Quellcode",
+        "translate": "Übersetzen",
         "issue": ""
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Server entfernen",
+            "description": "Sind Sie sicher, dass Sie den Server {{serverName}} entfernen wollen?",
+            "confirm": "Löschen"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Applikation zurücksetzen",
+            "description": "Sind Sie sicher, dass Sie alle Einstellungen zurücksetzen wollen?",
+            "confirm": "Zurücksetzen"
         }
     }
 }
