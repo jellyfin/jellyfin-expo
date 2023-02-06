@@ -1,90 +1,90 @@
 {
     "common": {
         "beta": "Бета",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "cancel": "Адмяніць",
+        "delete": "Выдаліць",
+        "edit": "Рэдагаваць",
+        "ok": "Добра",
+        "unknown": "Невядомы"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Дадаць сервер",
+        "appearance": "Знешні выгляд",
+        "downloads": "Загрузкі",
+        "home": "Дадому",
+        "links": "Спасылкі",
+        "playback": "Прайграванне",
+        "servers": "Серверы",
+        "settings": "Налады"
     },
     "addServer": {
-        "address": "",
+        "address": "Адрас сервера",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) не можа быць пустым",
+            "invalid": "$t(addServer.address) няправільны",
+            "invalidProduct": "Не сервер Jellyfin",
+            "noConnection": "Немагчыма падключыцца да сервера"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Немагчыма звязацца з серверам Jellyfin. Звычайна гэта адбываецца з-за памылкі канфігурацыі проксі або Jellyfin знаходзіцца ў аўтаномным рэжыме."
             },
             "504": {
-                "description": ""
+                "description": "Немагчыма звязацца з серверам Jellyfin. Звычайна гэта адбываецца таму, што час чакання проксі-сервера скончыўся падчас падключэння да Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Нешта пайшло не так!",
+                "description": "Сервер Jellyfin вярнуў памылку."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Сервер несапраўдны",
+                "description": "Нешта здарылася, і захаваная інфармацыя аб серверы несапраўдная. Паспрабуйце выдаліць сервер з налад і дадаць яго зноў."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Сервер па-за сеткай?",
+                "description": "Памылка сувязі з серверам Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Код памылкі: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Паспрабаваць яшчэ?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Што такое Jellyfin?",
+        "description": "Jellyfin - гэта медыя-рашэнне, створанае валанцёрамі. Гэта дазваляе вам размяшчаць свае ўласныя мультымедыя і атрымліваць да іх доступ з любога месца.\n\n\nКаб выкарыстоўваць гэты кліент, вам трэба размясціць свой уласны сервер Jellyfin.",
+        "learnMore": "Даведайцеся больш аб тым, як размясціць уласны сервер"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Версія: {{version}}",
+        "keepAwake": "Трымаць экран актыўным",
+        "nativeVideoPlayer": "Выкарыстоўваць ўласны відэапрайгравальнік",
+        "minimumServerVersion": "Патрабуецца версія сервера 10.7+",
+        "fmp4Support": "Аддаць перавагу fMP4 у HLS",
+        "lightTheme": "Выкарыстоўваць светлую тэму",
+        "systemTheme": "Выкарыстоўваць сістэмную тэму",
+        "rotationLock": "Блакаванне кручэння",
+        "tabLabels": "Паказаць меткі ўкладак",
+        "expoVersion": "Версія Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Сайт Jellyfin",
+        "documentation": "Дакументацыя",
+        "source": "Зыходны код",
+        "translate": "Перакласці",
+        "issue": "Паведаміць аб праблеме"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Выдаліць сервер",
+            "description": "Вы ўпэўнены, што хочаце выдаліць сервер {{serverName}}?",
+            "confirm": "Выдаліць"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Скінуць прыкладанне",
+            "description": "Вы ўпэўнены, што хочаце скінуць усе налады?",
+            "confirm": "Скінуць"
         }
     }
 }
