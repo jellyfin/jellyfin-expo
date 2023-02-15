@@ -55,17 +55,17 @@
     "settings": {
         "version": "Versie: {{version}}",
         "keepAwake": "Houd het scherm aan",
-        "rotationLock": "Vergrendel Schermrotatie",
-        "expoVersion": "Expo Versie: {{version}}",
+        "rotationLock": "Vergrendel schermrotatie",
+        "expoVersion": "Expo versie: {{version}}",
         "lightTheme": "Gebruik Lichte Modus",
-        "tabLabels": "Toon Tabblad Labels",
+        "tabLabels": "Toon tabblad labels",
         "systemTheme": "Gebruik systeem thema",
-        "minimumServerVersion": "Vereist Server Versie 10.7+",
-        "nativeVideoPlayer": "Gebruik Originele Videospeler",
-        "fmp4Support": "Verkies fMP4 in HLS"
+        "minimumServerVersion": "Vereist server versie 10.7+",
+        "nativeVideoPlayer": "Gebruik originele videospeler",
+        "fmp4Support": "Prefereer fMP4 in HLS"
     },
     "links": {
-        "website": "Jellyfin Website",
+        "website": "Jellyfin website",
         "documentation": "Documentatie",
         "source": "Broncode",
         "translate": "Vertalen",
