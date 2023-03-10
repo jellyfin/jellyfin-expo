@@ -3,6 +3,8 @@
 exports[`RefreshWebView should render 1`] = `
 <RCTScrollView
   collapsable={false}
+  handlerTag={1}
+  handlerType="NativeViewGestureHandler"
   onGestureHandlerEvent={[Function]}
   onGestureHandlerStateChange={[Function]}
   onLayout={[Function]}
@@ -39,7 +41,7 @@ exports[`RefreshWebView should render 1`] = `
         injectedJavaScriptBeforeContentLoadedForMainFrameOnly={true}
         injectedJavaScriptForMainFrameOnly={true}
         javaScriptEnabled={true}
-        messagingEnabled={false}
+        messagingEnabled={true}
         onContentProcessDidTerminate={[Function]}
         onHttpError={[Function]}
         onLoadingError={[Function]}
