@@ -28,7 +28,7 @@ describe('Device', () => {
 
 	describe('getSafeDeviceName()', () => {
 		it('should return safe device names unchanged', () => {
-			expect(getSafeDeviceName()).toBe('Test Phone');
+			expect(getSafeDeviceName()).toBe(Constants.deviceName);
 		});
 
 		it('should change the iOS default apostrophe to an ascii single quote', () => {

@@ -31,6 +31,8 @@ exports[`ErrorScreen should render correctly 1`] = `
         "flex": 1,
       }
     }
+    handlerTag={1}
+    handlerType="NativeViewGestureHandler"
     onGestureHandlerEvent={[Function]}
     onGestureHandlerStateChange={[Function]}
     refreshControl={
