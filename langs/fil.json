@@ -3,7 +3,9 @@
         "beta": "BETA",
         "cancel": "Kanselahin",
         "ok": "OK",
-        "unknown": "Hindi alam"
+        "unknown": "Hindi alam",
+        "delete": "I-delete",
+        "edit": "I-edit"
     },
     "headings": {
         "addServer": "Magdagdag ng Server",
@@ -12,7 +14,8 @@
         "links": "Mga link",
         "playback": "Pag-playback",
         "servers": "Mga server",
-        "settings": "Mga setting"
+        "settings": "Mga setting",
+        "downloads": "Mga Download"
     },
     "addServer": {
         "address": "Address ng server",
