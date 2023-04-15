@@ -53,8 +53,8 @@
     },
     "serverHelp": {
         "heading": "Što je Jellyfin?",
-        "description": "",
-        "learnMore": "Saznajte više o tome kako host-ati vlastiti server"
+        "description": "Jellyfin je medijsko rješenje koje su izradili volonteri. Omogućuje vam ugošćavanje vlastitih medija i pristup s bilo kojeg mjesta\n\n\nKako biste koristili ovaj klijent, trebate ugostiti vlastiti Jellyfin server.",
+        "learnMore": "Saznajte više o tome kako hostirati vlastiti server"
     },
     "settings": {
         "version": "Verzija: {{version}}",
@@ -65,7 +65,7 @@
         "lightTheme": "Koristite svijetlu temu",
         "systemTheme": "Koristite temu sustava",
         "rotationLock": "Zaključavanje rotacije",
-        "tabLabels": "Prikaži oznake kartica",
+        "tabLabels": "Pokaži oznake kartica",
         "expoVersion": "Expo verzija: {{version}}"
     },
     "links": {
