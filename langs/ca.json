@@ -1,90 +1,90 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Cancel·lar",
+        "delete": "Eliminar",
+        "edit": "Editar",
+        "ok": "OK",
+        "unknown": "Desconegut"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Afegir servidor",
+        "appearance": "Aparença",
+        "downloads": "Descarregues",
+        "home": "Inici",
+        "links": "Enllaços",
+        "playback": "Reproducció",
+        "servers": "Servidors",
+        "settings": "Configuració"
     },
     "addServer": {
-        "address": "",
+        "address": "Direcció del servidor",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) no pot estar en blanc",
+            "invalid": "$t(addServer.address) és invàlid",
+            "invalidProduct": "No és un servidor de Jellyfin",
+            "noConnection": "No s'ha pogut connectar al servidor"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "No es pot accedir al servidor de Jellyfin. Normalment, això passa per algun error de configuració de proxy o perquè el Jellyfin està fora de línia."
             },
             "504": {
-                "description": ""
+                "description": "No es pot accedir al servidor de Jellyfin. Normalment, això passa perquè s'ha esgotat el temps de connexió entre el proxy i Jellyfin."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Alguna cosa ha anat malament!",
+                "description": "El servidor Jellyfin ha retornat un error."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Servidor invàlid",
+                "description": "Ha passat alguna cosa i la informació del servidor desada no és vàlida. Proveu d'eliminar el servidor des de la Configuració i afegiu-lo de nou."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Servidor desconnectat?",
+                "description": "S'ha produït un error en contactar amb el servidor Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Codi d'error: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Tornar a provar?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Què és el Jellyfin?",
+        "description": "Jellyfin és la solució multimèdia creada per voluntaris. Us permet allotjar els vostres propis mitjans i accedir-hi des de qualsevol lloc.\n\n\nPer utilitzar aquest client, heu d'allotjar el vostre propi servidor Jellyfin.",
+        "learnMore": "Obteniu més informació sobre com allotjar el vostre propi servidor"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Versió: {{version}}",
+        "keepAwake": "Mantén la pantalla encesa",
+        "nativeVideoPlayer": "Utilitzeu el reproductor de vídeo natiu",
+        "minimumServerVersion": "Requereix la versió de servidor 10.7+",
+        "fmp4Support": "Preferir fMP4 en HLS",
+        "lightTheme": "Utilitzar Tema Clar",
+        "systemTheme": "Utilitzar el tema del sistema",
+        "rotationLock": "Bloqueig de rotació",
+        "tabLabels": "Mostra les etiquetes de les pestanyes",
+        "expoVersion": "Versió d'Expo: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Lloc web de Jellyfin",
+        "documentation": "Documentació",
+        "source": "Codi Font",
+        "translate": "Traduir",
+        "issue": "Informar d'un problema"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Eliminar servidor",
+            "description": "Estàs segur que vols eliminar el servidor {{serverName}}?",
+            "confirm": "Eliminar"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Restableix l'aplicació",
+            "description": "Estàs segur que vols restablir totes les configuracions?",
+            "confirm": "Restablir"
         }
     }
 }
