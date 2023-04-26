@@ -29,6 +29,7 @@
     "ios": {
       "buildNumber": "5.5.0.0",
       "supportsTablet": true,
+      "requireFullScreen": false,
       "bundleIdentifier": "org.jellyfin.expo",
       "infoPlist": {
         "UIBackgroundModes": [
