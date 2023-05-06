@@ -3,7 +3,9 @@
         "beta": "BETA",
         "cancel": "Canslo",
         "ok": "Iawn",
-        "unknown": "Anhysbys"
+        "unknown": "Anhysbys",
+        "edit": "Golygu",
+        "delete": "Dileu"
     },
     "headings": {
         "addServer": "Adio Gweinydd",
@@ -12,7 +14,8 @@
         "links": "Dolenni",
         "playback": "Chwarae Nôl",
         "servers": "Gweinyddion",
-        "settings": "Gosodiadau"
+        "settings": "Gosodiadau",
+        "downloads": "Lawrlwythiadau"
     },
     "addServer": {
         "address": "Cyfeiriad y Gweinydd",
