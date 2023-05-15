@@ -20,7 +20,7 @@
     "addServer": {
         "address": "Serveradresse",
         "validation": {
-            "empty": "$t(addServer.address) kann nicht leer sein",
+            "empty": "$t(addServer.address) darf nicht leer sein",
             "invalid": "$t(addServer.address) ist ungültig",
             "invalidProduct": "Kein Jellyfin Server",
             "noConnection": "Verbindung zum Server nicht möglich"
@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Fehler bei der Verbindungsaufnahme mit dem Server.",
+                "description": "Fehler bei der Verbindungsaufnahme mit dem Jellyfin Server.",
                 "heading": "Ist der Server offline?"
             },
             "http": {
@@ -43,7 +43,7 @@
                 "description": "Der Jellyfin Server ist nicht erreichbar. Dies ist meistens ein Fehler in der Proxy Konfiguration oder der Server ist offline."
             },
             "invalidServer": {
-                "description": "Etwas ist passiert und die gespeicherten Serverinformationen sind ungültig. Versuche den Server von den Einstellungen zu löschen und neu hinzuzufügen.",
+                "description": "Etwas ist passiert und die gespeicherten Serverinformationen sind ungültig. Versuche den Server von den Einstellungen zu entfernen und neu hinzuzufügen.",
                 "heading": "Server ist ungültig"
             }
         },
@@ -55,12 +55,12 @@
     "settings": {
         "version": "Version: {{version}}",
         "keepAwake": "Bildschirm angeschaltet lassen",
-        "rotationLock": "Bildschirm nicht drehen",
+        "rotationLock": "Bildschirmrotation sperren",
         "expoVersion": "Expo Version: {{version}}",
         "tabLabels": "Zeige Tab-Überschriften",
         "lightTheme": "Helles Design verwenden",
-        "systemTheme": "Benutze Systemdesign",
-        "minimumServerVersion": "Benötigt Serverversion 10.7+",
+        "systemTheme": "Systemdesign verwenden",
+        "minimumServerVersion": "Erfordert die Serverversion 10.7+",
         "nativeVideoPlayer": "Nativen Video-Player verwenden",
         "fmp4Support": "fMP4 in HLS bevorzugen"
     },
@@ -79,8 +79,8 @@
             "confirm": "Löschen"
         },
         "resetApplication": {
-            "title": "App zurücksetzen",
-            "description": "Wirklich alle Einstellungen zurücksetzen?",
+            "title": "Applikation zurücksetzen",
+            "description": "Sind Sie sicher, dass Sie alle Einstellungen zurücksetzen möchten?",
             "confirm": "Zurücksetzen"
         }
     },
