@@ -1,29 +1,29 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Atšaukti",
+        "delete": "Ištrinti",
+        "edit": "Redaguoti",
+        "ok": "OK",
+        "unknown": "Nežinomas"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Pridėti Serverį",
+        "appearance": "Išvaizda",
+        "downloads": "Atsiuntimai",
+        "home": "Pagrindinis",
+        "links": "Nuorodos",
+        "playback": "Atkūrimas",
+        "servers": "Serveriai",
+        "settings": "Nustatymai"
     },
     "addServer": {
-        "address": "",
+        "address": "Serverio Adresas",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) negali būti tuščias",
+            "invalid": "$t(addServer.address) yra netinkamas",
+            "invalidProduct": "Ne Jellyfin serveris",
+            "noConnection": "Nepavyko prisijungti prie serverio"
         }
     },
     "home": {
@@ -35,56 +35,56 @@
                 "description": ""
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Kažkas nutiko ne taip!",
+                "description": "Jellyfin serveris gražino klaidą."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Serveris netinkamas",
+                "description": "Kažkas ne taip nutiko ir išsaugota serverio informacija yra netinkama. Pabandykite Nustatymuose pašalinti serverį ir pridėti jį iš naujo."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Serveris išjungtas?",
+                "description": "Klaida bandant pasiekti Jellyfin serverį."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Klaidos kodas: {{errorCode}}",
+        "errorUrl": "Adresas: {{url}}",
+        "retry": "Bandyti iš naujo?"
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "Kas yra Jellyfin?",
         "description": "",
-        "learnMore": ""
+        "learnMore": "Sužinokite daugiau kaip pasileisti savo serverį"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
+        "version": "Versija: {{version}}",
+        "keepAwake": "Neleisti ekranui užmigti",
+        "nativeVideoPlayer": "Naudoti numatytą vaizdo grotuvą",
+        "minimumServerVersion": "Reikalinga Serverio Versija 10.7+",
         "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
+        "lightTheme": "Naudoti šviesią temą",
+        "systemTheme": "Naudoti Sisteminę temą",
+        "rotationLock": "Neleisti apsiversti",
         "tabLabels": "",
-        "expoVersion": ""
+        "expoVersion": "Expo Versija: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Jellyfin Tinklalapis",
+        "documentation": "Dokumentacija",
+        "source": "Išnašų kodas",
+        "translate": "Išversti",
+        "issue": "Pranešti apie problemą"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ištrinti serverį",
+            "description": "Ar tikrai nori ištrinti serverį {{serverName}}?",
+            "confirm": "Ištrinti"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Nustatyti aplikaciją iš naujo",
+            "description": "Ar jūs tikrai norite nustatyti visus nustatymus iš naujo?",
+            "confirm": "Atstatyti"
         }
     }
 }
