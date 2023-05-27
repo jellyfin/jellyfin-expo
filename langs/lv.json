@@ -1,90 +1,90 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Atcelt",
+        "delete": "Dzēst",
+        "edit": "Rediģēt",
+        "ok": "OK",
+        "unknown": "Nezināms"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Pievienot Serveri",
+        "appearance": "Izskats",
+        "downloads": "Lejupielādes",
+        "home": "Sākums",
+        "links": "Saites",
+        "playback": "Atskaņošana",
+        "servers": "Serveri",
+        "settings": "Iestatījumi"
     },
     "addServer": {
-        "address": "",
+        "address": "Servera Adrese",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) nevar būt tukšs",
+            "invalid": "$t(addServer.address) ir nederīgs",
+            "invalidProduct": "Nav Jellyfin serveris",
+            "noConnection": "Nevar izveidot savienojumu ar serveri"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Nav iespējams sasniegt Jellyfin serveri. Parasti tā iemesls ir starpniekservera konfigurācijas kļūda vai Jellyfin ir bezsaistē."
             },
             "504": {
-                "description": ""
+                "description": "Nav iespējams sasniegt Jellyfin serveri. Parasti tas notiek tāpēc, ka starpniekservera savienojums ar Jellyfin ir sasniedzis noilgumu."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Kaut kas nogāja greizi!",
+                "description": "Jellyfin serveris atgrieza kļūdu."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Serveris ir nederīgs",
+                "description": "Kaut kas ir noticis, saglabātā servera informācija ir nederīga. Mēģiniet noņemt serveri no \"Iestatījumi\" un pievienot to no jauna."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Serveris bezsaistē?",
+                "description": "Kļūda, sazinoties ar Jellyfin serveri."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Kļūdas kods: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Mēģināt vēlreiz?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Kas ir Jellyfin?",
+        "description": "Jellyfin ir brīvprātīgo izstrādāts mediju risinājums. Tas ļauj uzturēt savu multividi un piekļūt tai no jebkuras vietas.\n\n\nLai izmantotu šo klientu, jums ir jāuztur savs Jellyfin serveris.",
+        "learnMore": "Uzziniet vairāk par to, kā uzturēt savu serveri"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": "",
-        "expoVersion": ""
+        "version": "Versija: {{version}}",
+        "keepAwake": "Uzturēt Ekrānu Nomodā",
+        "nativeVideoPlayer": "Izmantot Iebūvēto Video Atskaņotāju",
+        "minimumServerVersion": "Nepieciešama Servera Versija 10.7+",
+        "fmp4Support": "Dot priekšroku fMP4 izmantojot HLS",
+        "lightTheme": "Izmantot Gaišo Tēmu",
+        "systemTheme": "Izmantot Sistēmas Tēmu",
+        "rotationLock": "Rotācijas Bloķēšana",
+        "tabLabels": "Rādīt Cilņu Etiķetes",
+        "expoVersion": "Expo Versija: {{version}}"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "issue": ""
+        "website": "Jellyfin tīmekļa vietne",
+        "documentation": "Dokumentācija",
+        "source": "Avota Kods",
+        "translate": "Tulkot",
+        "issue": "Ziņot par problēmu"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Izdzēst Serveri",
+            "description": "Vai esat pārliecināts, ka vēlaties dzēst serveri: {{serverName}}?",
+            "confirm": "Izdzēst"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Atiestatīt Aplikāciju",
+            "description": "Vai esat pārliecināts, ka vēlaties atiestatīt visus iestatījumus?",
+            "confirm": "Atiestatīt"
         }
     }
 }
