@@ -1,20 +1,20 @@
 {
     "common": {
-        "beta": "zh",
-        "cancel": "Cancel",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "zh/cn",
+        "cancel": "…Cancel",
+        "delete": "zh/cn",
+        "edit": "zh/cn",
+        "ok": "🆗",
+        "unknown": "未知"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
+        "addServer": "正价服务器",
+        "appearance": "提示",
+        "downloads": "⏬",
+        "home": "首页",
+        "links": "链接",
+        "playback": "再生",
+        "servers": "服务器",
         "settings": ""
     },
     "addServer": {
