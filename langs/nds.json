@@ -13,12 +13,12 @@
         "home": "Start",
         "links": "Verknüpfungen",
         "playback": "Wiedergabe",
-        "servers": "Servers",
+        "servers": "Server",
         "settings": "Einstellungen",
         "downloads": "Downloads"
     },
     "addServer": {
-        "address": "Server Adresse",
+        "address": "Serveradresse",
         "validation": {
             "empty": "$t(addServer.address) kann nicht leer sein",
             "invalid": "$t(addServer.address) ist ungültig",
@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "502": {
-                "description": "Konnte den Jellyfin Server nicht erreichen. Entweder ist Jellyfin nicht online oder der Proxy ist falsch konfiguriert."
+                "description": "Konnte den Jellyfin Server nicht erreichen. Dies passiert normalerweise wenn Jellyfin nicht online oder der Proxy falsch konfiguriert ist."
             },
             "504": {
                 "description": "Konnte den Jellyfin Server nicht erreichen. Dies tritt meistens auf, wenn der Proxy zu lange keine Antwort erhält."
@@ -40,40 +40,40 @@
             },
             "invalidServer": {
                 "heading": "Server ist ungültig",
-                "description": ""
+                "description": "Etwas ist passiert und die gespeicherten Serverinformationen sind ungültig. Versuchen Sie, den Server in den Einstellungen zu entfernen und fügen Sie ihn erneut hinzu."
             },
             "offline": {
                 "heading": "Server nicht erreichbar?",
-                "description": ""
+                "description": "Fehler bei der Verbindung zum Jellyfin-Server."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Fehlercode: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Erneut versuchen?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Was ist Jellyfin?",
+        "description": "Jellyfin ist eine von Freiwilligen entwickelte Lösung für Medien. Es ermöglicht Ihnen, Ihre eigenen Medien zu hosten und von überall darauf zuzugreifen.\n\nUm diesen Client zu verwenden, müssen Sie Ihren eigenen Jellyfin-Server hosten.",
+        "learnMore": "Erfahren Sie mehr darüber, wie Sie Ihren eigenen Server hosten können."
     },
     "settings": {
         "version": "Version: {{version}}",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
+        "keepAwake": "Bildschirm aktiv halten",
+        "nativeVideoPlayer": "Nativen Videoplayer verwenden",
         "minimumServerVersion": "Benötigt Server Version 10.7+",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
+        "fmp4Support": "Bevorzuge fMP4 in HLS.",
+        "lightTheme": "Helles Farbschema benutzen",
+        "systemTheme": "Systemfarbschema benutzen",
+        "rotationLock": "Ausrichtungssperre",
         "tabLabels": "Tab Labels anzeigen",
         "expoVersion": ""
     },
     "links": {
         "website": "Jellyfin Website",
-        "documentation": "",
+        "documentation": "Dokumentation",
         "source": "Quellcode",
         "translate": "Übersetzen",
-        "issue": ""
+        "issue": "Ein Problem melden"
     },
     "alerts": {
         "deleteServer": {
