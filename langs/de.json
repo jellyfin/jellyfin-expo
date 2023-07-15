@@ -22,25 +22,25 @@
         "validation": {
             "empty": "$t(addServer.address) darf nicht leer sein",
             "invalid": "$t(addServer.address) ist ungültig",
-            "invalidProduct": "Kein Jellyfin Server",
+            "invalidProduct": "Kein Jellyfin-Server",
             "noConnection": "Verbindung zum Server nicht möglich"
         }
     },
     "home": {
         "errors": {
             "offline": {
-                "description": "Fehler bei der Verbindungsaufnahme mit dem Jellyfin Server.",
+                "description": "Fehler bei der Verbindungsaufnahme mit dem Jellyfin-Server.",
                 "heading": "Ist der Server offline?"
             },
             "http": {
-                "description": "Der Jellyfin Server hat einen Fehler zurückgegeben.",
+                "description": "Der Jellyfin-Server hat einen Fehler zurückgegeben.",
                 "heading": "Etwas ist schiefgelaufen!"
             },
             "504": {
-                "description": "Der Server kann nicht erreicht werden. Möglicherweise ist beim Versuch den Server zu erreichen ein Proxy Timeout aufgetreten."
+                "description": "Der Jellyfin-Server ist nicht erreichbar. In der Regel tritt dies durch eine Zeitüberschreitung des Proxys auf, während eine Verbindung zu Jellyfin aufgebaut werden sollte."
             },
             "502": {
-                "description": "Der Jellyfin Server ist nicht erreichbar. Dies ist meistens ein Fehler in der Proxy Konfiguration oder der Server ist offline."
+                "description": "Der Jellyfin-Server ist nicht erreichbar. Dies ist meistens ein Fehler in der Proxykonfiguration oder der Server ist offline."
             },
             "invalidServer": {
                 "description": "Etwas ist passiert und die gespeicherten Serverinformationen sind ungültig. Versuche den Server von den Einstellungen zu entfernen und neu hinzuzufügen.",
@@ -56,8 +56,8 @@
         "version": "Version: {{version}}",
         "keepAwake": "Bildschirm angeschaltet lassen",
         "rotationLock": "Bildschirmrotation sperren",
-        "expoVersion": "Expo Version: {{version}}",
-        "tabLabels": "Zeige Tab-Überschriften",
+        "expoVersion": "Expo-Version: {{version}}",
+        "tabLabels": "Tab-Überschriften anzeigen",
         "lightTheme": "Helles Design verwenden",
         "systemTheme": "Systemdesign verwenden",
         "minimumServerVersion": "Erfordert die Serverversion 10.7+",
@@ -65,7 +65,7 @@
         "fmp4Support": "fMP4 in HLS bevorzugen"
     },
     "links": {
-        "website": "Jellyfin Website",
+        "website": "Jellyfin-Webseite",
         "documentation": "Dokumentation",
         "source": "Quellcode",
         "feature": "Neue Funktion vorschlagen",
