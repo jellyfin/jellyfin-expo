@@ -1,14 +1,14 @@
 {
     "common": {
-        "cancel": "בטל",
-        "ok": "אוקי",
+        "cancel": "ביטול",
+        "ok": "אישור",
         "unknown": "לא ידוע",
         "edit": "עריכה",
-        "delete": "מחק",
+        "delete": "מחיקה",
         "beta": "BETA"
     },
     "headings": {
-        "addServer": "הוסף שרת",
+        "addServer": "הוספת שרת",
         "appearance": "מראה",
         "home": "ראשי",
         "links": "קישורים",
@@ -23,7 +23,7 @@
             "empty": "$t(addServer.address) לא יכול להיות ריק",
             "invalid": "$t(addServer.address) לא תקין",
             "invalidProduct": "לא שרת Jellyfin",
-            "noConnection": "לא אפשרי להתחבר לשרת"
+            "noConnection": "אי אפשר להתחבר לשרת"
         }
     },
     "home": {
@@ -32,11 +32,11 @@
                 "description": "לא יכול להגיע לשרת Jellyfin. זה בדרך כלל קורה מכיוון שיש שגיאה בהגדרת ה-proxy או ש-Jellyfin לא מחובר."
             },
             "504": {
-                "description": ""
+                "description": "לא ניתן להגיע לשרת ה־Jellyfin. זה בדרך כלל קורה כיוון שהחיבור למתווך לא צלח בעת ההתחברות ל־Jellyfin."
             },
             "http": {
                 "heading": "משהו השתבש!",
-                "description": ""
+                "description": "שרת ה־Jellyfin החזיר שגיאה."
             },
             "invalidServer": {
                 "heading": "השרת אינו תקין",
@@ -44,12 +44,12 @@
             },
             "offline": {
                 "heading": "השרת במצב לא מקוון ?",
-                "description": ""
+                "description": "שגיאה ביצירת קשר עם שרת ה־Jellyfin."
             }
         },
         "errorCode": "קוד שגיאה : {{errorCode}}",
         "errorUrl": "כתובת אתר: {{url}}",
-        "retry": "נסה שוב ?"
+        "retry": "לנסות שוב?"
     },
     "serverHelp": {
         "heading": "מה זה Jellyfin?",
