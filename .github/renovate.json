@@ -32,5 +32,19 @@
     "react-native-screens",
     "react-native-webview",
     "typescript"
+  ],
+  "packageRules": [
+    {
+        "matchPackageNames": [ "mobx" ],
+        "allowedVersions": "<6"
+    },
+    {
+        "matchPackageNames": [ "mobx-react-lite" ],
+        "allowedVersions": "<3"
+    },
+    {
+        "matchPackageNames": [ "mobx-task" ],
+        "allowedVersions": "<3"
+    }
   ]
 }
