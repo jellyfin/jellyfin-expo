@@ -53,20 +53,20 @@
     },
     "serverHelp": {
         "heading": "מה זה Jellyfin?",
-        "description": "",
+        "description": "Jellyfin הוא פתרון המדיה שמבוסס על מאמצי מתנדבים. מאפשר לך לארח את המדיה שלך ולגשת אליה מכל מקום.\n\n\nכדי להשתמש בלקוח הזה, יש לארח שרת Jellyfin משלך.",
         "learnMore": "למד עוד על איך לארח שרת משלך"
     },
     "settings": {
         "version": "גרסא: {{version}}",
         "keepAwake": "שמור על המסך ער",
-        "nativeVideoPlayer": "השתמש בנגן מדיה מקורי",
+        "nativeVideoPlayer": "להשתמש בנגן מדיה מקורי",
         "minimumServerVersion": "דורש שרת עם גרסה +10.7",
-        "fmp4Support": "",
+        "fmp4Support": "להעדיף fMP4 ב־HLS",
         "lightTheme": "השתמש בערכת נושא בהירה",
         "systemTheme": "השתמש בערכת נושא המועדפת של המערכת",
         "rotationLock": "נעילת סיבוב",
         "tabLabels": "הצג",
-        "expoVersion": "גרסת Expo: {{version}}"
+        "expoVersion": "גרסת Expo:‏ {{version}}"
     },
     "links": {
         "website": "אתר Jellyfin",
