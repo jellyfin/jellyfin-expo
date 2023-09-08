@@ -11,7 +11,7 @@ jobs:
     name: Label merge conflicts
     runs-on: ubuntu-latest
     steps:
-      - uses: eps1lon/actions-label-merge-conflict@v2.1.0
+      - uses: eps1lon/actions-label-merge-conflict@fd1f295ee7443d13745804bc49fe158e240f6c6e # v2.1.0
         with:
           dirtyLabel: 'merge conflict'
           repoToken: ${{ secrets.JF_BOT_TOKEN }}
