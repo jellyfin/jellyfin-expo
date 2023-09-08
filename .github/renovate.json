@@ -1,0 +1,50 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "github>jellyfin/.github//renovate-presets/nodejs"
+  ],
+  "ignoreDeps": [
+    "@babel/core",
+    "@react-native-async-storage/async-storage",
+    "@types/react",
+    "babel-preset-expo",
+    "expo",
+    "expo-asset",
+    "expo-av",
+    "expo-constants",
+    "expo-device",
+    "expo-file-system",
+    "expo-font",
+    "expo-keep-awake",
+    "expo-localization",
+    "expo-screen-orientation",
+    "expo-splash-screen",
+    "expo-status-bar",
+    "expo-web-browser",
+    "jest",
+    "jest-expo",
+    "react",
+    "react-native",
+    "react-native-gesture-handler",
+    "react-native-get-random-values",
+    "react-native-reanimated",
+    "react-native-safe-area-context",
+    "react-native-screens",
+    "react-native-webview",
+    "typescript"
+  ],
+  "packageRules": [
+    {
+        "matchPackageNames": [ "mobx" ],
+        "allowedVersions": "<6"
+    },
+    {
+        "matchPackageNames": [ "mobx-react-lite" ],
+        "allowedVersions": "<3"
+    },
+    {
+        "matchPackageNames": [ "mobx-task" ],
+        "allowedVersions": "<3"
+    }
+  ]
+}
