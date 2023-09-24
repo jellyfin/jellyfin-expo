@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "502": {
-                "description": "Konnte den Jellyfin Server nicht erreichen. Dies passiert normalerweise wenn Jellyfin nicht online oder der Proxy falsch konfiguriert ist."
+                "description": "Dat Jellyfin-Server kann ni opfungen warrn. Dat löppt in de Rägel doran, dat de Proxy-Futschernüüng nich richtig instellt is oder dat Jellyfin nich online is."
             },
             "504": {
                 "description": "Konnte den Jellyfin Server nicht erreichen. Dies tritt meistens auf, wenn der Proxy zu lange keine Antwort erhält."
@@ -53,20 +53,20 @@
     },
     "serverHelp": {
         "heading": "Was ist Jellyfin?",
-        "description": "Jellyfin ist eine von Freiwilligen entwickelte Lösung für Medien. Es ermöglicht Ihnen, Ihre eigenen Medien zu hosten und von überall darauf zuzugreifen.\n\nUm diesen Client zu verwenden, müssen Sie Ihren eigenen Jellyfin-Server hosten.",
-        "learnMore": "Erfahren Sie mehr darüber, wie Sie Ihren eigenen Server hosten können."
+        "description": "Jellyfin is de vriewillig opbootene Medienlöösung. Du kannst dien eegen Medien hosten un överall dorup togräpen.\n\n\nÖm disse Klient to bruken, bruukst du dien eegen Jellyfin-Server to hosten.",
+        "learnMore": "Mehr över dat Hosten dien eegenen Server leern"
     },
     "settings": {
         "version": "Version: {{version}}",
         "keepAwake": "Bildschirm aktiv halten",
         "nativeVideoPlayer": "Nativen Videoplayer verwenden",
         "minimumServerVersion": "Benötigt Server Version 10.7+",
-        "fmp4Support": "Bevorzuge fMP4 in HLS.",
+        "fmp4Support": "Vörträcke fMP4 in HLS",
         "lightTheme": "Helles Farbschema benutzen",
         "systemTheme": "Systemfarbschema benutzen",
         "rotationLock": "Ausrichtungssperre",
-        "tabLabels": "Tab Labels anzeigen",
-        "expoVersion": ""
+        "tabLabels": "Tabblääder wiesen",
+        "expoVersion": "Expo Vörsch: {{version}}"
     },
     "links": {
         "website": "Jellyfin Website",
