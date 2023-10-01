@@ -1,20 +1,20 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Batal",
+        "delete": "Padam",
+        "edit": "Edit",
+        "ok": "OK",
+        "unknown": "Tidak Diketahui"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
+        "addServer": "Tambah pelayan",
+        "appearance": "Rupa",
+        "downloads": "Download",
+        "home": "Rumah",
+        "links": "pautan",
         "playback": "",
-        "servers": "",
+        "servers": "Pelayan",
         "settings": ""
     },
     "addServer": {
