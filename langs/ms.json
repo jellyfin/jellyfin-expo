@@ -15,7 +15,7 @@
         "links": "pautan",
         "playback": "",
         "servers": "Pelayan",
-        "settings": ""
+        "settings": "Tetapan"
     },
     "addServer": {
         "address": "Server Address",
