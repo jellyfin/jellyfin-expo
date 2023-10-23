@@ -3,7 +3,9 @@
         "cancel": "ரத்துசெய்",
         "unknown": "தெரியாத",
         "ok": "சரி",
-        "beta": "பீட்டா"
+        "beta": "பீட்டா",
+        "delete": "நீக்கு",
+        "edit": "மாற்று"
     },
     "headings": {
         "addServer": "சேவையகத்தைச் சேர்க்கவும்",
@@ -12,7 +14,8 @@
         "servers": "சேவையகங்கள்",
         "settings": "அமைப்புகள்",
         "playback": "பின்னணி",
-        "appearance": "தோற்றம்"
+        "appearance": "தோற்றம்",
+        "downloads": "பதிவிறக்கங்கள்"
     },
     "addServer": {
         "address": "சேவையக முகவரி",
