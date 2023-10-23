@@ -1,18 +1,18 @@
 {
     "common": {
         "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "cancel": "Anullo",
+        "delete": "Fshi",
+        "edit": "Ndrysho",
+        "ok": "OK",
+        "unknown": "E Panjohur"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
+        "addServer": "Shto Server",
+        "appearance": "Pamja",
+        "downloads": "Shkarkimet",
+        "home": "Shtëpia",
+        "links": "Linqe",
         "playback": "",
         "servers": "",
         "settings": ""
