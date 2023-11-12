@@ -29,10 +29,10 @@
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Nepavyko pasiekti Jellyfin serverio. Tai dažniausiai nutinka dėl tarpinio serverio konfigūracijos klaidos arba nes Jellyfin nėra paleista."
             },
             "504": {
-                "description": ""
+                "description": "Nepavyko pasiekti Jellyfin serverio. Tai dažniausiai nutinka nes baigėsi tarpinio serverio laikas skirtas prisijungti prie Jellyfin."
             },
             "http": {
                 "heading": "Kažkas nutiko ne taip!",
@@ -65,7 +65,7 @@
         "lightTheme": "Naudoti šviesią temą",
         "systemTheme": "Naudoti Sisteminę temą",
         "rotationLock": "Neleisti apsiversti",
-        "tabLabels": "",
+        "tabLabels": "Rodyti Skilčių Etiketes",
         "expoVersion": "Expo Versija: {{version}}"
     },
     "links": {
