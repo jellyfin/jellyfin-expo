@@ -8,7 +8,7 @@
         "delete": "Sil"
     },
     "headings": {
-        "addServer": "Sunucu ekle",
+        "addServer": "Sunucu Ekle",
         "appearance": "Görünüm",
         "home": "Ana Ekran",
         "links": "Linkler",
@@ -20,7 +20,7 @@
     "addServer": {
         "address": "Sunucu Adresi",
         "validation": {
-            "empty": "$t(addServer.address) Boş Olamaz",
+            "empty": "$t(addServer.address) boş olamaz",
             "invalid": "$t(addServer.address) geçersiz",
             "invalidProduct": "Jellyfin sunucusu değil",
             "noConnection": "Sunucuya bağlanılamadı"
@@ -35,12 +35,12 @@
                 "description": "Jellyfin sunucusuna ulaşılamıyor. Bunun nedeni genellikle proxy'nin Jellyfin'e bağlanırken zaman aşımına uğramasıdır."
             },
             "http": {
-                "heading": "Bir şeylerde hata var!",
-                "description": "Jellyfin sunucu kısmında hata var."
+                "heading": "Bir sorun oluştu!",
+                "description": "Jellyfin sunucusu hata verdi."
             },
             "invalidServer": {
                 "heading": "Sunucu geçersiz",
-                "description": "Bir şey oldu ve kaydedilen sunucu bilgileri geçersiz. Sunucuyu Ayarlar'dan kaldırmayı deneyin ve tekrar ekleyin."
+                "description": "Bir şey oldu ve kaydedilen sunucu bilgileri geçersiz. Sunucuyu Ayarlar'dan kaldırmayı ve tekrar eklemeyi deneyin."
             },
             "offline": {
                 "heading": "Sunucu çevrimdışı mı?",
