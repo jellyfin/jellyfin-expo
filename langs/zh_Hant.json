@@ -21,7 +21,7 @@
         "address": "伺服器位址",
         "validation": {
             "empty": "$t(addServer.address) 不能為空白",
-            "invalid": "$t(addServer.address) 無效的位址",
+            "invalid": "$t(addServer.address) 是無效的位址",
             "invalidProduct": "不是 Jellyfin 伺服器",
             "noConnection": "無法連接至伺服器"
         }
