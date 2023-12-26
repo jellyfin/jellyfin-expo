@@ -47,12 +47,12 @@
                 "description": ""
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Խաբանման համար: {{errorCode}}",
+        "errorUrl": "Հասցե` {{url}}",
+        "retry": "Կրկի՟ն փորձել"
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "Ի՟նչ է Jellyfin-ը",
         "description": "",
         "learnMore": ""
     },
