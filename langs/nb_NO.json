@@ -59,13 +59,13 @@
         "expoVersion": "Expo-versjon: {{version}}",
         "tabLabels": "Vis faneetiketter",
         "lightTheme": "Bruk lyst tema",
-        "systemTheme": "Bruk systemdrakt",
-        "minimumServerVersion": "Krever Tjener Versjon 10.7+",
+        "systemTheme": "Bruk systemtema",
+        "minimumServerVersion": "Krever server versjon 10.7+",
         "fmp4Support": "Foretrekk fMP4 i HLS",
         "nativeVideoPlayer": "Bruk innebygget videospiller"
     },
     "links": {
-        "website": "Nettside",
+        "website": "Jellyfin nettside",
         "documentation": "Dokumentasjon",
         "source": "Kildekode",
         "feature": "Forespør en funksjon",
