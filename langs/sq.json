@@ -1,6 +1,6 @@
 {
     "common": {
-        "beta": "",
+        "beta": "BETA",
         "cancel": "Anullo",
         "delete": "Fshi",
         "edit": "Ndrysho",
@@ -13,78 +13,78 @@
         "downloads": "Shkarkimet",
         "home": "Shtëpia",
         "links": "Linqe",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "playback": "Ripërsërite",
+        "servers": "Servera",
+        "settings": "Cilësimet"
     },
     "addServer": {
         "address": "Adresa e serverit",
         "validation": {
-            "empty": "",
-            "invalid": "",
+            "empty": "$t(addServer.address) nuk mund të lihet bosh",
+            "invalid": "$t(addServer.address) është i pavlefshëm",
             "invalidProduct": "",
-            "noConnection": ""
+            "noConnection": "Nuk mund të lidhet me serverin"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "E pamundur të arrij tek serveri Jellyfin. Kjo zakonisht si pasoj i një gabimi në konfigurimin proxy ose Jellyfin është offline."
             },
             "504": {
                 "description": ""
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Diçka shkoj gabim!",
+                "description": "Serveri Jellyfin ktheu një gabim."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Server është i pavlefshëm",
+                "description": "Diçka ndodhi dhe informacionet e ruajtura të serverit janë të pavlefshme. Provoni të hiqni serverin nga Cilësimet dhe ta vendosni përsëri."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Serveri jashtë linje?",
+                "description": "Gabim gjatë kontaktit me serverin Jellyfin."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Kodi i gabimit: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Provoni përsëri?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Çfarë është Jellyfin?",
+        "description": "Jellyfin është një zgjidhje mediash e ndërtuar vullnetarisht. Ajo ju lejon juve të strehoni median tuaj dhe aksesoni atë nga kudo.\n\nNë mënyrë që ta përdorni këtë, ju duhet të strehoni serverin tuaj Jellyfin.",
+        "learnMore": "Mësoni më shumë sesi mund te strehoni serverin tuaj"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "minimumServerVersion": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
+        "version": "Versioni: {{version}}",
+        "keepAwake": "Mbajeni ekranin zgjuar",
+        "nativeVideoPlayer": "Përdorni  Video Player-in e vetë",
+        "minimumServerVersion": "Nevojitet Versioni 10.7+ i Serverit",
+        "fmp4Support": "Prefer fMP4 in HLS",
+        "lightTheme": "Përdor Temën e Bardhë",
+        "systemTheme": "Përdor Temën e Sistemit",
         "rotationLock": "",
         "tabLabels": "",
         "expoVersion": ""
     },
     "links": {
-        "website": "",
-        "documentation": "",
+        "website": "Jellyfin Website",
+        "documentation": "Dokumentacion",
         "source": "",
-        "translate": "",
-        "issue": ""
+        "translate": "Përkthe",
+        "issue": "Raporto një Problem"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Fshije Serverin",
+            "description": "Jeni i sigurt që dëshironi të fshini serverin {{serverName}}?",
+            "confirm": "Fshi"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Rivendos Aplikimet",
+            "description": "Jeni i sigurt që doni të rivendosni të gjitha cilësimet?",
+            "confirm": "Rivendos"
         }
     }
 }
