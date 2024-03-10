@@ -2,13 +2,13 @@
     "common": {
         "beta": "BETA",
         "cancel": "Cancelar",
-        "delete": "Apagar",
+        "delete": "Eliminar",
         "edit": "Editar",
         "ok": "OK",
         "unknown": "Desconhecido"
     },
     "headings": {
-        "addServer": "Adicionar Servidor",
+        "addServer": "Adicionar servidor",
         "appearance": "Aparência",
         "downloads": "Transferências",
         "home": "Página inicial",
