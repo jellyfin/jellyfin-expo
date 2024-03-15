@@ -55,7 +55,7 @@
     "expo-splash-screen": "~0.16.2",
     "expo-status-bar": "~1.4.0",
     "expo-web-browser": "~11.0.0",
-    "i18next": "21.10.0",
+    "i18next": "23.10.1",
     "mobx": "5.15.7",
     "mobx-react-lite": "2.2.2",
     "mobx-sync-lite": "3.1.0",
