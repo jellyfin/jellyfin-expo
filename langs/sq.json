@@ -59,7 +59,7 @@
     "settings": {
         "version": "Versioni: {{version}}",
         "keepAwake": "Mbajeni ekranin zgjuar",
-        "nativeVideoPlayer": "Përdorni  Video Player-in e vetë",
+        "nativeVideoPlayer": "Përdorni Video Player-in e vetë",
         "minimumServerVersion": "Nevojitet Versioni 10.7+ i Serverit",
         "fmp4Support": "Prefer fMP4 in HLS",
         "lightTheme": "Përdor Temën e Bardhë",
