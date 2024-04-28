@@ -55,17 +55,17 @@
     "settings": {
         "version": "Versie: {{version}}",
         "keepAwake": "Houd het scherm aan",
-        "rotationLock": "Vergrendel schermrotatie",
-        "expoVersion": "Expo versie: {{version}}",
-        "lightTheme": "Gebruik Lichte Modus",
+        "rotationLock": "Rotatievergrendeling",
+        "expoVersion": "Expo-versie: {{version}}",
+        "lightTheme": "Gebruik licht thema",
         "tabLabels": "Toon tabblad labels",
-        "systemTheme": "Gebruik systeem thema",
-        "minimumServerVersion": "Vereist server versie 10.7+",
+        "systemTheme": "Gebruik systeemthema",
+        "minimumServerVersion": "Vereist serverversie 10.7+",
         "nativeVideoPlayer": "Gebruik originele videospeler",
         "fmp4Support": "Prefereer fMP4 in HLS"
     },
     "links": {
-        "website": "Jellyfin website",
+        "website": "Jellyfin-website",
         "documentation": "Documentatie",
         "source": "Broncode",
         "translate": "Vertalen",
@@ -86,7 +86,7 @@
     },
     "serverHelp": {
         "learnMore": "Leer meer over hoe je een eigen server kan hosten",
-        "description": "Jellyfin is de vrijwillig-gebouwde media oplossing. Het maakt het mogelijk om je eigen media content te hosten en vanaf overal te bereiken.\n\n\nOm deze client te kunnen gebruiken, moet je een eigen Jellyfin server hosten.",
+        "description": "Jellyfin is de door vrijwilligers gebouwde media-oplossing. Het maakt het mogelijk om je eigen media-inhoud te hosten en vanaf overal te bereiken.\n\n\nOm deze client te kunnen gebruiken, moet je een eigen Jellyfin server hosten.",
         "heading": "Wat is Jellyfin?"
     }
 }
