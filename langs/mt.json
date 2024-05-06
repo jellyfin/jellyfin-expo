@@ -1,29 +1,29 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Ikkanċella",
+        "delete": "Ħassar",
+        "edit": "Editja",
+        "ok": "OK",
+        "unknown": "Mhux magħruf"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Żid Server",
+        "appearance": "Dehra",
+        "downloads": "Downloads",
+        "home": "Home",
+        "links": "Links",
+        "playback": "Playback",
+        "servers": "Servers",
+        "settings": "Settings"
     },
     "addServer": {
-        "address": "",
+        "address": "Indirizz tas-Server",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) ma jistax ikun vojt",
+            "invalid": "$t(addServer.address) mhux validu",
+            "invalidProduct": "Mhux Jellyfin server",
+            "noConnection": "Ma setax jaqbad mas-server"
         }
     },
     "home": {
