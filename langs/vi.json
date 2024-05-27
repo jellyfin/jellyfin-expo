@@ -4,7 +4,8 @@
         "ok": "Đồng ý",
         "unknown": "Không xác định",
         "delete": "Xoá",
-        "beta": "Bản thử nghiệm"
+        "beta": "Bản thử nghiệm",
+        "edit": "Sửa"
     },
     "headings": {
         "addServer": "Thêm Máy Chủ",
@@ -13,7 +14,8 @@
         "links": "Liên kết",
         "playback": "Phát lại",
         "servers": "Máy chủ",
-        "settings": "Cài đặt"
+        "settings": "Cài đặt",
+        "downloads": "Tải xuống"
     },
     "addServer": {
         "address": "Địa Chỉ Máy Chủ",
