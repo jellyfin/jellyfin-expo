@@ -104,7 +104,7 @@
   },
   "private": true,
   "engines": {
-    "node": "16.x",
+    "node": ">=20.0.0",
     "yarn": "YARN NO LONGER USED - use npm instead."
   }
 }
