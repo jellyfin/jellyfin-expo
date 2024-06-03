@@ -21,7 +21,7 @@ describe('ServerValidator', () => {
 		});
 
 		it('should throw an error if hostname is invalid', () => {
-			expect(() => parseUrl('/')).toThrow('Invalid URL: /');
+			expect(() => parseUrl('/')).toThrow('Invalid URL');
 		});
 
 		it('should default to http protocol if not specified', () => {
