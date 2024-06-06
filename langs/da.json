@@ -43,7 +43,7 @@
                 "description": "Kan ikke oprette forbindelse til Jellyfin serveren. Dette skyldes ofte at proxy forbindelsen udløb mens den forbandt til Jellyfin."
             },
             "invalidServer": {
-                "description": "En fejl er opstået og informationen gemt på serveren er ugyldigt. Prøv at fjerne serveren under Indstillinger og derefter tilføj den igen.",
+                "description": "Noget er sket og den gemte server information er ugyldig. Prøv at fjern serveren via Indstillinger og tilføj den igen.",
                 "heading": "Server er ugyldig"
             }
         },
