@@ -33,6 +33,15 @@ exports[`VideoPlayer should render correctly 1`] = `
         "top": 0,
       }
     }
+    videoStyle={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
   />
   <Image
     source={
