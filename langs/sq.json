@@ -22,7 +22,7 @@
         "validation": {
             "empty": "$t(addServer.address) nuk mund të lihet bosh",
             "invalid": "$t(addServer.address) është i pavlefshëm",
-            "invalidProduct": "",
+            "invalidProduct": "Nuk është server Jellyfin",
             "noConnection": "Nuk mund të lidhet me serverin"
         }
     },
@@ -61,17 +61,17 @@
         "keepAwake": "Mbajeni ekranin zgjuar",
         "nativeVideoPlayer": "Përdorni Video Player-in e vetë",
         "minimumServerVersion": "Nevojitet Versioni 10.7+ i Serverit",
-        "fmp4Support": "Prefer fMP4 in HLS",
+        "fmp4Support": "Prefero fMP4 në HLS",
         "lightTheme": "Përdor Temën e Bardhë",
         "systemTheme": "Përdor Temën e Sistemit",
-        "rotationLock": "",
+        "rotationLock": "Bllokim i Rrotullimit",
         "tabLabels": "",
-        "expoVersion": ""
+        "expoVersion": "Versioni Expo: {{version}}"
     },
     "links": {
-        "website": "Jellyfin Website",
+        "website": "Websiti i Jellyfin",
         "documentation": "Dokumentacion",
-        "source": "",
+        "source": "Kodi fillestar",
         "translate": "Përkthe",
         "issue": "Raporto një Problem"
     },
