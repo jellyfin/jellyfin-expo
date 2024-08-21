@@ -55,5 +55,5 @@ export function isCompact({ height = 500 } = {}) {
 // Does the platform support system level themes: https://docs.expo.io/versions/latest/sdk/appearance/
 export function isSystemThemeSupported() {
 	return (Platform.OS === 'ios' && compareVersions.compare(Platform.Version, '12', '>')) ||
-		(Platform.OS === 'android' && compareVersions.compare(Platform.Version, '9', '>'));
+		(Platform.OS === 'android' && compareVersions.compare(String(Platform.Version), '9', '>'));
 }
