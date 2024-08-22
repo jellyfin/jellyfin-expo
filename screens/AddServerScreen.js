@@ -38,8 +38,8 @@ const AddServerScreen = () => {
 						style={styles.logoImage}
 						source={
 							rootStore.settingStore.theme.dark ?
-								require('../assets/images/logowhite.png') :
-								require('../assets/images/logoblack.png')
+								require('../assets/images/logo-dark.png') :
+								require('../assets/images/logo-light.png')
 						}
 						fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
 					/>
