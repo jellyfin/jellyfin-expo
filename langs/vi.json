@@ -48,7 +48,7 @@
             }
         },
         "errorCode": "Mã lỗi: {{errorCode}}",
-        "errorUrl": "",
+        "errorUrl": "URL: {{url}}",
         "retry": "Thử lại?"
     },
     "serverHelp": {
