@@ -1,55 +1,55 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Hætta við",
+        "delete": "Eyða",
+        "edit": "Breyta",
+        "ok": "OK",
+        "unknown": "Óþekkt"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Bæta við þjón",
+        "appearance": "Útlit",
+        "downloads": "Niðurhöl",
+        "home": "Heim",
+        "links": "Hlekkir",
+        "playback": "Endurspilun",
+        "servers": "Þjónar",
+        "settings": "Stillingar"
     },
     "addServer": {
-        "address": "",
+        "address": "Slóð á þjón",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) má ekki vera tóm",
+            "invalid": "$t(addServer.address) er ógild",
+            "invalidProduct": "Ekki Jellyfin þjónn",
+            "noConnection": "Náði ekki sambandi við þjón"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Náði ekki sambandi við Jellifyn þjón. Þetta stafar yfirleitt af villu í uppsetningu á miðlara eða slökkt er á Jellyfin."
             },
             "504": {
                 "description": ""
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Eitthvað fór úrskeiðis!",
+                "description": "Jellyfin vefþjóninn skilaði villu."
             },
             "invalidServer": {
                 "heading": "",
                 "description": ""
             },
             "offline": {
-                "heading": "",
+                "heading": "Slökkt á vefþjón?",
                 "description": ""
             }
         },
-        "errorCode": "",
+        "errorCode": "Villukóði: {{errorCode}}",
         "errorUrl": "",
-        "retry": ""
+        "retry": "Reyna aftur?"
     },
     "serverHelp": {
         "heading": "",
