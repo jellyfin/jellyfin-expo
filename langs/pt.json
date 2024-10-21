@@ -40,7 +40,7 @@
             },
             "invalidServer": {
                 "heading": "Servidor é inválido",
-                "description": "Algo aconteceu e a informação guardada do servidor é inválida. Tenter remover o servidor das definições e adicioná-lo novamente."
+                "description": "Aconteceu alguma coisa e as informações do servidor guardadas são inválidas. Tenta remover o servidor das Definições e adicioná-lo novamente."
             },
             "offline": {
                 "heading": "Servidor offline?",
@@ -77,9 +77,9 @@
     },
     "alerts": {
         "deleteServer": {
-            "title": "Apagar Servidor",
-            "description": "Tem a certeza que pretende apagar o servidor, {{serverName}}?",
-            "confirm": "Apagar"
+            "title": "Eliminar servidor",
+            "description": "Tens a certeza que pretende eliminar o servidor {{serverName}}?",
+            "confirm": "Eliminar"
         },
         "resetApplication": {
             "title": "Redefinir Aplicação",
