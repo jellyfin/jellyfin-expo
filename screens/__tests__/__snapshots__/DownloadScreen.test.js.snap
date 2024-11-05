@@ -3,13 +3,15 @@
 exports[`DownloadScreen should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
-    Array [
-      "right",
-      "left",
-    ]
+    {
+      "bottom": "off",
+      "left": "additive",
+      "right": "additive",
+      "top": "off",
+    }
   }
   style={
-    Object {
+    {
       "backgroundColor": undefined,
       "flex": 1,
     }
@@ -17,13 +19,13 @@ exports[`DownloadScreen should render correctly 1`] = `
 >
   <RCTScrollView
     contentContainerStyle={
-      Object {
+      {
         "marginTop": 1,
       }
     }
     data={
-      Array [
-        Object {
+      [
+        {
           "__mobx_sync_versions__": undefined,
           "apiKey": "api-key",
           "downloadUrl": "https://example.com/download",
@@ -36,7 +38,7 @@ exports[`DownloadScreen should render correctly 1`] = `
           "sessionId": "uuid-0",
           "title": "title",
         },
-        Object {
+        {
           "__mobx_sync_versions__": undefined,
           "apiKey": "api-key",
           "downloadUrl": "https://test2.example.com/download",
@@ -52,7 +54,7 @@ exports[`DownloadScreen should render correctly 1`] = `
       ]
     }
     extraData={
-      Object {
+      {
         "server-id_item-id": [Circular],
         "server-id_item-id-2": [Circular],
       }
@@ -69,19 +71,20 @@ exports[`DownloadScreen should render correctly 1`] = `
     onScrollEndDrag={[Function]}
     removeClippedSubviews={false}
     renderItem={[Function]}
-    scrollEventThrottle={50}
-    stickyHeaderIndices={Array []}
-    viewabilityConfigCallbackPairs={Array []}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={[]}
+    viewabilityConfigCallbackPairs={[]}
   >
     <View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
                 "borderBottomWidth": 0.5,
@@ -95,8 +98,8 @@ exports[`DownloadScreen should render correctly 1`] = `
           >
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "flex-start",
                     "flex": 1,
                     "justifyContent": "center",
@@ -105,8 +108,8 @@ exports[`DownloadScreen should render correctly 1`] = `
                 ]
               }
               theme={
-                Object {
-                  "colors": Object {
+                {
+                  "colors": {
                     "black": "#242424",
                     "disabled": "hsl(208, 8%, 90%)",
                     "divider": "#bcbbc1",
@@ -118,8 +121,8 @@ exports[`DownloadScreen should render correctly 1`] = `
                     "grey4": "#bdc6cf",
                     "grey5": "#e1e8ee",
                     "greyOutline": "#bbb",
-                    "platform": Object {
-                      "android": Object {
+                    "platform": {
+                      "android": {
                         "error": "#f44336",
                         "grey": "rgba(0, 0, 0, 0.54)",
                         "primary": "#2196f3",
@@ -128,7 +131,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                         "success": "#4caf50",
                         "warning": "#ffeb3b",
                       },
-                      "default": Object {
+                      "default": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -137,7 +140,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "ios": Object {
+                      "ios": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -146,7 +149,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "web": Object {
+                      "web": {
                         "error": "#ff190c",
                         "grey": "#393e42",
                         "primary": "#2089dc",
@@ -168,7 +171,7 @@ exports[`DownloadScreen should render correctly 1`] = `
             >
               <Text
                 style={
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                     "color": "#242424",
                     "fontSize": 17,
@@ -180,7 +183,7 @@ exports[`DownloadScreen should render correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                     "color": "#242424",
                     "fontSize": 15,
@@ -193,7 +196,7 @@ exports[`DownloadScreen should render correctly 1`] = `
             </View>
             <View
               style={
-                Object {
+                {
                   "paddingLeft": 16,
                 }
               }
@@ -205,13 +208,14 @@ exports[`DownloadScreen should render correctly 1`] = `
         </View>
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
                 "borderBottomWidth": 0.5,
@@ -224,8 +228,8 @@ exports[`DownloadScreen should render correctly 1`] = `
           >
             <View
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "flex-start",
                     "flex": 1,
                     "justifyContent": "center",
@@ -234,8 +238,8 @@ exports[`DownloadScreen should render correctly 1`] = `
                 ]
               }
               theme={
-                Object {
-                  "colors": Object {
+                {
+                  "colors": {
                     "black": "#242424",
                     "disabled": "hsl(208, 8%, 90%)",
                     "divider": "#bcbbc1",
@@ -247,8 +251,8 @@ exports[`DownloadScreen should render correctly 1`] = `
                     "grey4": "#bdc6cf",
                     "grey5": "#e1e8ee",
                     "greyOutline": "#bbb",
-                    "platform": Object {
-                      "android": Object {
+                    "platform": {
+                      "android": {
                         "error": "#f44336",
                         "grey": "rgba(0, 0, 0, 0.54)",
                         "primary": "#2196f3",
@@ -257,7 +261,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                         "success": "#4caf50",
                         "warning": "#ffeb3b",
                       },
-                      "default": Object {
+                      "default": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -266,7 +270,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "ios": Object {
+                      "ios": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -275,7 +279,7 @@ exports[`DownloadScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "web": Object {
+                      "web": {
                         "error": "#ff190c",
                         "grey": "#393e42",
                         "primary": "#2089dc",
@@ -297,7 +301,7 @@ exports[`DownloadScreen should render correctly 1`] = `
             >
               <Text
                 style={
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                     "color": "#242424",
                     "fontSize": 17,
@@ -309,7 +313,7 @@ exports[`DownloadScreen should render correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                     "color": "#242424",
                     "fontSize": 15,
@@ -322,7 +326,7 @@ exports[`DownloadScreen should render correctly 1`] = `
             </View>
             <View
               style={
-                Object {
+                {
                   "paddingLeft": 16,
                 }
               }

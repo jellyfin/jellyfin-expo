@@ -23,6 +23,7 @@ describe('ServerInput', () => {
 		jest.clearAllMocks();
 	});
 
+	TypeError: Cannot read properties of null (reading 'useReducer')
 	it('should render correctly', async () => {
 		const { toJSON } = render(
 			<NavigationContainer>
