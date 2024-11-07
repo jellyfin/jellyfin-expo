@@ -47,6 +47,14 @@ target 'Jellyfin' do
         end
       end
     end
+
+    # This is necessary for Xcode 15 compatibility
+    # https://github.com/facebook/react-native/issues/37748#issuecomment-1580589448
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= ['$(inherited)', '_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION']
+      end
+    end
   end
 
   post_integrate do |installer|
