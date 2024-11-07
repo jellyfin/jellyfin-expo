@@ -29,7 +29,6 @@ jest.mock('@react-navigation/native', () => {
 
 describe('AppInfoFooter', () => {
 	it('should render correctly', () => {
-		Constants.expoVersion = '39.0.0';
 		Constants.nativeAppVersion = '1.0.0';
 		Constants.nativeBuildVersion = '1.0.0.0';
 		Device.osName = 'Test OS'; // eslint-disable-line no-import-assign, import/namespace
@@ -45,6 +44,5 @@ describe('AppInfoFooter', () => {
 		fireEvent(appName, 'onLongPress');
 		expect(mockNavigate).toHaveBeenCalledWith(Screens.DevSettingsScreen);
 		expect(getByTestId('app-version')).toHaveTextContent('1.0.0 (1.0.0.0)');
-		expect(getByTestId('expo-version')).toHaveTextContent('Expo Version: 39.0.0');
 	});
 });
