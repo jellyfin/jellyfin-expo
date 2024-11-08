@@ -720,17 +720,6 @@ exports[`SettingsScreen should render correctly 1`] = `
           >
             mock (mock)
           </Text>
-          <Text
-            style={
-              Object {
-                "color": "#43484d",
-                "fontSize": 15,
-              }
-            }
-            testID="expo-version"
-          >
-            Expo Version: mock
-          </Text>
         </View>
       </View>
     </View>

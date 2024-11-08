@@ -7,7 +7,6 @@
 import { useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import React, { useContext } from 'react';
-import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { Text, ThemeContext } from 'react-native-elements';
 
@@ -16,7 +15,6 @@ import { getAppName } from '../utils/Device';
 
 const AppInfoFooter = () => {
 	const navigation = useNavigation();
-	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 
 	const textStyle = {
@@ -37,9 +35,6 @@ const AppInfoFooter = () => {
 			</Text>
 			<Text testID='app-version' style={textStyle}>
 				{`${Constants.nativeAppVersion} (${Constants.nativeBuildVersion})`}
-			</Text>
-			<Text testID='expo-version' style={textStyle}>
-				{t('settings.expoVersion', { version: Constants.expoVersion })}
 			</Text>
 		</View>
 	);
