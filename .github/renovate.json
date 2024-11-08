@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>jellyfin/.github//renovate-presets/nodejs"
+    "github>jellyfin/.github//renovate-presets/nodejs",
+    ":dependencyDashboard"
   ],
   "ignoreDeps": [
     "@babel/core",
