@@ -132,7 +132,6 @@ const SettingsScreen = observer(() => {
 				badge: {
 					value: t('common.beta')
 				},
-				subtitle: t('settings.minimumServerVersion'),
 				value: rootStore.settingStore.isNativeVideoPlayerEnabled,
 				onValueChange: action(value => {
 					rootStore.settingStore.isNativeVideoPlayerEnabled = value;
