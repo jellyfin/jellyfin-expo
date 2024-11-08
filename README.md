@@ -18,7 +18,6 @@
 <a href="https://opencollective.com/jellyfin"><img alt="Donate" src="https://img.shields.io/opencollective/all/jellyfin.svg?label=backers"/></a>
 <a href="https://features.jellyfin.org"><img alt="Feature Requests" src="https://img.shields.io/badge/fider-vote%20on%20features-success.svg"/></a>
 <a href="https://matrix.to/#/+jellyfin:matrix.org"><img alt="Chat on Matrix" src="https://img.shields.io/matrix/jellyfin:matrix.org.svg?logo=matrix"/></a>
-<a href="https://www.reddit.com/r/jellyfin"><img alt="Join our Subreddit" src="https://img.shields.io/badge/reddit-r%2Fjellyfin-%23FF5700.svg"/></a>
 <br/><br/>
 <a href="https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8"><img width="135" src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-02-09&kind=iossoftware&bubble=ios_apps" alt="Download on the App Store"/></a>
 </p>
@@ -66,5 +65,3 @@ Translations can be improved very easily from our [Weblate](https://translate.je
 |:-:|:-:|:-:|-|
 | [Jellyfin Mobile](https://github.com/jellyfin/jellyfin-expo) | ✅ Active | iOS, iPadOS | The app in this repository. It is a web wrapper based on Expo (React Native) with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad. |
 | [Swiftfin](https://github.com/jellyfin/swiftfin) | ✅ Active | iOS, iPadOS, tvOS | Swiftfin is a modern video client. Designed in Swift to maximize direct play with the power of VLC and look native on all classes of Apple devices. The beta is available on the [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728). |
-| [Jellyfin Player iOS](https://github.com/jellyfin-archive/jellyfin-client-ios) | ❌ Archived | iOS, iPadOS | An effort to create a media playback app in native Swift. It only supported media playback. This project has been archived as there was no interest for maintaining it. |
-| [Jellyfin React Client](https://github.com/jellyfin-archive/jellyfin-react-client) | ❌ Archived | iOS, iPadOS | An early project to create a single multiplatform app based on React Native. This project has been archived as we have changed direction to utilize native web wrappers on most platforms. |
