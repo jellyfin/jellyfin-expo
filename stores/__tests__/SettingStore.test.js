@@ -27,7 +27,7 @@ describe('SettingStore', () => {
 		expect(store.isSystemThemeEnabled).toBe(false);
 		expect(store.theme).toBe(Themes.dark);
 		expect(store.isNativeVideoPlayerEnabled).toBe(false);
-		expect(store.isFmp4Enabled).toBe(false);
+		expect(store.isFmp4Enabled).toBe(true);
 		expect(store.isExperimentalDownloadsEnabled).toBe(false);
 	});
 
@@ -88,7 +88,7 @@ describe('SettingStore', () => {
 		store.systemThemeId = 'dark';
 		store.isSystemThemeEnabled = true;
 		store.isNativeVideoPlayerEnabled = true;
-		store.isFmp4Enabled = true;
+		store.isFmp4Enabled = false;
 		store.isExperimentalDownloadsEnabled = true;
 
 		expect(store.activeServer).toBe(99);
@@ -100,7 +100,7 @@ describe('SettingStore', () => {
 		expect(store.isSystemThemeEnabled).toBe(true);
 		expect(store.theme).toBe(Themes.dark);
 		expect(store.isNativeVideoPlayerEnabled).toBe(true);
-		expect(store.isFmp4Enabled).toBe(true);
+		expect(store.isFmp4Enabled).toBe(false);
 		expect(store.isExperimentalDownloadsEnabled).toBe(true);
 
 		store.reset();
@@ -114,7 +114,7 @@ describe('SettingStore', () => {
 		expect(store.isSystemThemeEnabled).toBe(false);
 		expect(store.theme).toBe(Themes.dark);
 		expect(store.isNativeVideoPlayerEnabled).toBe(false);
-		expect(store.isFmp4Enabled).toBe(false);
+		expect(store.isFmp4Enabled).toBe(true);
 		expect(store.isExperimentalDownloadsEnabled).toBe(false);
 	});
 });

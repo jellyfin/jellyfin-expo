@@ -59,7 +59,7 @@ export default class SettingStore {
 	/**
 	 * Is fMP4 enabled for the native video player
 	 */
-	isFmp4Enabled = false;
+	isFmp4Enabled = true;
 
 	/**
 	 * EXPERIMENTAL: Is the native audio player enabled
@@ -85,7 +85,7 @@ export default class SettingStore {
 		this.systemThemeId = null;
 		this.isSystemThemeEnabled = false;
 		this.isNativeVideoPlayerEnabled = false;
-		this.isFmp4Enabled = false;
+		this.isFmp4Enabled = true;
 
 		this.isExperimentalNativeAudioPlayerEnabled = false;
 		this.isExperimentalDownloadsEnabled = false;
