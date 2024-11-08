@@ -63,7 +63,6 @@ exports[`SettingsScreen should render correctly 1`] = `
               },
               "key": "native-video-switch",
               "onValueChange": [Function],
-              "subtitle": "Requires Server Version 10.7+",
               "title": "Use Native Video Player",
               "value": undefined,
             },
