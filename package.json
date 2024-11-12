@@ -5,7 +5,7 @@
     "start": "expo start --dev-client",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "eject": "expo prebuild",
+    "build": "expo prebuild --platform ios",
     "lint": "eslint \".\"",
     "test": "jest --watchAll"
   },
@@ -43,7 +43,7 @@
     "@react-navigation/native-stack": "6.9.12",
     "@react-navigation/stack": "6.3.16",
     "compare-versions": "3.6.0",
-    "expo": "46.0.21",
+    "expo": "~46.0.21",
     "expo-asset": "~8.6.3",
     "expo-av": "~12.0.4",
     "expo-constants": "~13.2.4",
