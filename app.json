@@ -5,8 +5,7 @@
     "owner": "jellyfin",
     "privacy": "unlisted",
     "platforms": [
-      "ios",
-      "android"
+      "ios"
     ],
     "version": "1.5.0",
     "orientation": "default",
@@ -32,8 +31,10 @@
       "requireFullScreen": false,
       "bundleIdentifier": "org.jellyfin.expo",
       "infoPlist": {
+        "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera.",
         "UIBackgroundModes": [
-          "audio"
+          "audio",
+          "fetch"
         ]
       }
     },
