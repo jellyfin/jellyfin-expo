@@ -1,0 +1,30 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+before_all do
+  # FIXME: Enable git check
+  # ensure_git_status_clean
+end
+
+platform :ios do
+  desc "Publish beta to TestFlight"
+  lane :beta do |options|
+    xcodes(version: "15.4")
+
+    # FIXME: Build and publish the app
+    # build_app(scheme: "Jellyfin",
+    #           workspace: "ios/Jellyfin.xcworkspace",
+    #           configuration: "Release")
+  end
+end
