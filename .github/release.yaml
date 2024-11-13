@@ -1,0 +1,19 @@
+changelog:
+  categories:
+    - title: ✨ New features
+      labels:
+        - feature
+    - title: 🐛 Bug fixes
+      labels:
+        - bug
+    - title: 🔧 Additional changes
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - bug
+          - dependencies
+          - feature
+    - title: ⬆️ Dependency upgrades
+      labels:
+        - dependencies
