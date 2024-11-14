@@ -204,6 +204,11 @@ const HomeScreen = observer(() => {
 						onLoadEnd={() => {
 							setIsLoading(false);
 						}}
+						// Reload the webview if the process terminated in the background
+						// refs: https://github.com/react-native-webview/react-native-webview/blob/1d8205af06dbb0bad0d8f208bb2a37ce5f732fd3/docs/Reference.md#oncontentprocessdidterminate
+						onContentProcessDidTerminate={() => {
+							webview.current?.reload();
+						}}
 					/>
 					<AudioPlayer/>
 					<VideoPlayer/>
