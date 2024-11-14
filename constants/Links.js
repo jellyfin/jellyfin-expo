@@ -20,7 +20,7 @@ export default [
 	{
 		key: 'links-documentation',
 		name: 'links.documentation',
-		url: 'https://docs.jellyfin.org',
+		url: 'https://jellyfin.org/docs/',
 		icon: {
 			name: getIconName('book'),
 			type: 'ionicon'
@@ -45,11 +45,11 @@ export default [
 		}
 	},
 	{
-		key: 'links-issue',
-		name: 'links.issue',
-		url: 'https://github.com/jellyfin/jellyfin-expo/issues',
+		key: 'links-help',
+		name: 'links.help',
+		url: 'https://jellyfin.org/docs/general/getting-help',
 		icon: {
-			name: getIconName('bug'),
+			name: getIconName('help-buoy'),
 			type: 'ionicon'
 		}
 	}

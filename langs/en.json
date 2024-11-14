@@ -71,7 +71,7 @@
     "documentation": "Documentation",
     "source": "Source Code",
     "translate": "Translate",
-    "issue": "Report an Issue"
+    "help": "Getting Help"
   },
   "alerts": {
     "deleteServer": {
