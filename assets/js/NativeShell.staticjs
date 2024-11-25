@@ -69,6 +69,7 @@ window.NativeShell = {
 
 		getDeviceProfile: function(profileBuilder) {
 			const profile = profileBuilder({
+				audioChannels: 6,
 				enableMkvProgressive: false,
 				disableHlsVideoAudioCodecs: [ 'opus' ]
 			});
