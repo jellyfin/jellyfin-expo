@@ -74,7 +74,8 @@
         "source": "Kaynak Kodu",
         "translate": "Çevir",
         "feature": "",
-        "issue": "Sorun Bildir"
+        "issue": "Sorun Bildir",
+        "help": "Yardım Alma"
     },
     "alerts": {
         "deleteServer": {
