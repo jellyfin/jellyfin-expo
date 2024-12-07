@@ -70,7 +70,8 @@
         "source": "源代码",
         "feature": "功能请求",
         "issue": "报告问题",
-        "translate": "翻译"
+        "translate": "翻译",
+        "help": "获取帮助"
     },
     "alerts": {
         "deleteServer": {
