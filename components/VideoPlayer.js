@@ -13,7 +13,7 @@ import { useStores } from '../hooks/useStores';
 import { msToTicks } from '../utils/Time';
 
 const VideoPlayer = observer(() => {
-	const { rootStore } = useStores();
+	const { rootStore, mediaStore } = useStores();
 
 	const player = useRef(null);
 	// Local player fullscreen state
@@ -31,37 +31,37 @@ const VideoPlayer = observer(() => {
 
 	// Update the player when media type or uri changes
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Video) {
+		if (mediaStore.type === MediaTypes.Video) {
 			rootStore.didPlayerCloseManually = true;
 			player.current?.loadAsync({
-				uri: rootStore.mediaStore.uri
+				uri: mediaStore.uri
 			}, {
-				positionMillis: rootStore.mediaStore.positionMillis,
+				positionMillis: mediaStore.positionMillis,
 				shouldPlay: true
 			});
 		}
-	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri ]);
+	}, [ mediaStore.type, mediaStore.uri ]);
 
 	// Update the play/pause state when the store indicates it should
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.shouldPlayPause) {
-			if (rootStore.mediaStore.isPlaying) {
+		if (mediaStore.type === MediaTypes.Video && mediaStore.shouldPlayPause) {
+			if (mediaStore.isPlaying) {
 				player.current?.pauseAsync();
 			} else {
 				player.current?.playAsync();
 			}
-			rootStore.mediaStore.shouldPlayPause = false;
+			mediaStore.shouldPlayPause = false;
 		}
-	}, [ rootStore.mediaStore.shouldPlayPause ]);
+	}, [ mediaStore.shouldPlayPause ]);
 
 	// Close the player when the store indicates it should stop playback
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.shouldStop) {
+		if (mediaStore.type === MediaTypes.Video && mediaStore.shouldStop) {
 			rootStore.didPlayerCloseManually = false;
 			closeFullscreen();
-			rootStore.mediaStore.shouldStop = false;
+			mediaStore.shouldStop = false;
 		}
-	}, [ rootStore.mediaStore.shouldStop ]);
+	}, [ mediaStore.shouldStop ]);
 
 	const openFullscreen = () => {
 		if (!isPresenting) {
@@ -86,7 +86,7 @@ const VideoPlayer = observer(() => {
 		<Video
 			ref={player}
 			usePoster
-			posterSource={{ uri: rootStore.mediaStore.backdropUri }}
+			posterSource={{ uri: mediaStore.backdropUri }}
 			resizeMode='contain'
 			useNativeControls
 			onReadyForDisplay={openFullscreen}
@@ -96,8 +96,8 @@ const VideoPlayer = observer(() => {
 					closeFullscreen();
 					return;
 				}
-				rootStore.mediaStore.isPlaying = isPlaying;
-				rootStore.mediaStore.positionTicks = msToTicks(positionMillis);
+				mediaStore.isPlaying = isPlaying;
+				mediaStore.positionTicks = msToTicks(positionMillis);
 			}}
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
 				switch (fullscreenUpdate) {
@@ -114,7 +114,7 @@ const VideoPlayer = observer(() => {
 					case VideoFullscreenUpdate.PLAYER_DID_DISMISS:
 						setIsDismissing(false);
 						rootStore.isFullscreen = false;
-						rootStore.mediaStore.reset();
+						mediaStore.reset();
 						player.current?.unloadAsync()
 							.catch(console.debug);
 						break;

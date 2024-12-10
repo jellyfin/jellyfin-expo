@@ -22,7 +22,7 @@ import { useStores } from '../hooks/useStores';
 import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
-	const { rootStore, serverStore } = useStores();
+	const { rootStore, serverStore, mediaStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const insets = useSafeAreaInsets();
@@ -60,29 +60,29 @@ const HomeScreen = observer(() => {
 
 	// Report media updates to the audio/video plugin
 	useEffect(() => {
-		if (!rootStore.mediaStore.isLocalFile) {
+		if (!mediaStore.isLocalFile) {
 			const status = {
 				didPlayerCloseManually: rootStore.didPlayerCloseManually,
-				uri: rootStore.mediaStore.uri,
-				isFinished: rootStore.mediaStore.isFinished,
-				isPlaying: rootStore.mediaStore.isPlaying,
-				positionTicks: rootStore.mediaStore.positionTicks,
-				positionMillis: rootStore.mediaStore.positionMillis
+				uri: mediaStore.uri,
+				isFinished: mediaStore.isFinished,
+				isPlaying: mediaStore.isPlaying,
+				positionTicks: mediaStore.positionTicks,
+				positionMillis: mediaStore.positionMillis
 			};
 
-			if (rootStore.mediaStore.type === MediaTypes.Audio) {
+			if (mediaStore.type === MediaTypes.Audio) {
 				webview.current?.injectJavaScript(`window.ExpoAudioPlayer && window.ExpoAudioPlayer._reportStatus(${JSON.stringify(status)});`);
-			} else if (rootStore.mediaStore.type === MediaTypes.Video) {
+			} else if (mediaStore.type === MediaTypes.Video) {
 				webview.current?.injectJavaScript(`window.ExpoVideoPlayer && window.ExpoVideoPlayer._reportStatus(${JSON.stringify(status)});`);
 			}
 		}
 	}, [
-		rootStore.mediaStore.type,
-		rootStore.mediaStore.uri,
-		rootStore.mediaStore.isFinished,
-		rootStore.mediaStore.isLocalFile,
-		rootStore.mediaStore.isPlaying,
-		rootStore.mediaStore.positionTicks
+		mediaStore.type,
+		mediaStore.uri,
+		mediaStore.isFinished,
+		mediaStore.isLocalFile,
+		mediaStore.isPlaying,
+		mediaStore.positionTicks
 	]);
 
 	// Clear the error state when the active server changes

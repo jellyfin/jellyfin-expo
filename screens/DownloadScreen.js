@@ -18,7 +18,7 @@ import { useStores } from '../hooks/useStores';
 
 const DownloadScreen = () => {
 	const navigation = useNavigation();
-	const { rootStore, downloadStore } = useStores();
+	const { downloadStore, mediaStore } = useStores();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 	const [ isEditMode, setIsEditMode ] = useState(false);
@@ -137,9 +137,9 @@ const DownloadScreen = () => {
 						}}
 						onPlay={async () => {
 							item.isNew = false;
-							rootStore.mediaStore.isLocalFile = true;
-							rootStore.mediaStore.type = MediaTypes.Video;
-							rootStore.mediaStore.uri = item.uri;
+							mediaStore.isLocalFile = true;
+							mediaStore.type = MediaTypes.Video;
+							mediaStore.uri = item.uri;
 						}}
 					/>
 				)}

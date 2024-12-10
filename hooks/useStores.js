@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { useDownloadStore } from '../stores/DownloadStore';
+import { useMediaStore } from '../stores/MediaStore';
 import { useRootStore } from '../stores/RootStore';
 import { useServerStore } from '../stores/ServerStore';
 
@@ -12,4 +13,5 @@ export const useStores = () => ({
   rootStore: useRootStore(),
   downloadStore: useDownloadStore(),
   serverStore: useServerStore(),
+  mediaStore: useMediaStore()
 })

@@ -23,7 +23,7 @@ import RefreshWebView from './RefreshWebView';
 
 const NativeShellWebView = observer(
 	function NativeShellWebView(props, ref) {
-		const { rootStore, downloadStore, serverStore } = useStores();
+		const { rootStore, downloadStore, serverStore, mediaStore } = useStores();
 		const [ isRefreshing, setIsRefreshing ] = useState(false);
 
 		const server = serverStore.servers[rootStore.settingStore.activeServer];
@@ -70,7 +70,7 @@ true;
 			if (rootStore.isFullscreen) return;
 
 			// Stop media playback in native players
-			rootStore.mediaStore.shouldStop = true;
+			mediaStore.shouldStop = true;
 
 			setIsRefreshing(true);
 			ref.current?.reload();
@@ -124,19 +124,19 @@ true;
 						break;
 					case 'ExpoAudioPlayer.play':
 					case 'ExpoVideoPlayer.play':
-						rootStore.mediaStore.type = event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video;
-						rootStore.mediaStore.uri = data.url;
-						rootStore.mediaStore.backdropUri = data.backdropUrl;
-						rootStore.mediaStore.isFinished = false;
-						rootStore.mediaStore.positionTicks = data.playerStartPositionTicks;
+						mediaStore.type = event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video;
+						mediaStore.uri = data.url;
+						mediaStore.backdropUri = data.backdropUrl;
+						mediaStore.isFinished = false;
+						mediaStore.positionTicks = data.playerStartPositionTicks;
 						break;
 					case 'ExpoAudioPlayer.playPause':
 					case 'ExpoVideoPlayer.playPause':
-						rootStore.mediaStore.shouldPlayPause = true;
+						mediaStore.shouldPlayPause = true;
 						break;
 					case 'ExpoAudioPlayer.stop':
 					case 'ExpoVideoPlayer.stop':
-						rootStore.mediaStore.shouldStop = true;
+						mediaStore.shouldStop = true;
 						break;
 					case 'console.debug':
 						// console.debug('[Browser Console]', data);
