@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { createStackNavigator } from '@react-navigation/stack';
-import { observer } from 'mobx-react-lite';
 import React from 'react';
 
 import Screens from '../constants/Screens';
@@ -13,7 +12,7 @@ import HomeScreen from '../screens/HomeScreen';
 
 const HomeStack = createStackNavigator();
 
-const HomeNavigator = observer(() => {
+const HomeNavigator = () => {
 	return (
 		<HomeStack.Navigator
 			screenOptions={{
@@ -36,6 +35,6 @@ const HomeNavigator = observer(() => {
 			/>
 		</HomeStack.Navigator>
 	);
-});
+}
 
 export default HomeNavigator;

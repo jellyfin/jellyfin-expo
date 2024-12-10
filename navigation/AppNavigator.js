@@ -6,7 +6,6 @@
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import * as SplashScreen from 'expo-splash-screen';
-import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -18,7 +17,7 @@ import TabNavigator from './TabNavigator';
 
 const AppStack = createStackNavigator();
 
-const AppNavigator = observer(() => {
+const AppNavigator = () => {
 	const { rootStore, serverStore } = useStores();
 	const { t } = useTranslation();
 
@@ -59,6 +58,6 @@ const AppNavigator = observer(() => {
 			/>
 		</AppStack.Navigator>
 	);
-});
+}
 
 export default AppNavigator;

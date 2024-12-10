@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { Audio, InterruptionModeAndroid, InterruptionModeIOS, Video, VideoFullscreenUpdate } from 'expo-av';
-import { observer } from 'mobx-react-lite';
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 
@@ -12,7 +11,7 @@ import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
 import { msToTicks } from '../utils/Time';
 
-const VideoPlayer = observer(() => {
+const VideoPlayer = () => {
 	const { rootStore, mediaStore } = useStores();
 
 	const player = useRef(null);
@@ -126,6 +125,6 @@ const VideoPlayer = observer(() => {
 			}}
 		/>
 	);
-});
+}
 
 export default VideoPlayer;

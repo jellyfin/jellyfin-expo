@@ -5,7 +5,6 @@
  */
 import { useNavigation } from '@react-navigation/native';
 import { action } from 'mobx';
-import { observer } from 'mobx-react-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,9 +18,8 @@ import { parseUrl, validateServer } from '../utils/ServerValidator';
 
 const sanitizeHost = (url = '') => url.trim();
 
-const ServerInput = observer(
-	// FIXME: eslint fails to parse the propTypes properly here
-	function ServerInput({
+// FIXME: eslint fails to parse the propTypes properly here
+const ServerInput = function ServerInput({
 		onError = () => { /* noop */ }, // eslint-disable-line react/prop-types
 		onSuccess = () => { /* noop */ }, // eslint-disable-line react/prop-types
 		...props
@@ -129,8 +127,7 @@ const ServerInput = observer(
 				{...props}
 			/>
 		);
-	}, { forwardRef: true }
-);
+}
 
 ServerInput.propTypes = {
 	onError: PropTypes.func,
@@ -149,4 +146,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default ServerInput;
+export default React.forwardRef(ServerInput);

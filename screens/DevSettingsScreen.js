@@ -5,7 +5,6 @@
  */
 
 import { action } from 'mobx';
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
@@ -15,7 +14,7 @@ import SwitchListItem from '../components/SwitchListItem';
 
 import { useStores } from '../hooks/useStores';
 
-const DevSettingsScreen = observer(() => {
+const DevSettingsScreen = () => {
 	const { rootStore, settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
@@ -62,7 +61,7 @@ const DevSettingsScreen = observer(() => {
 			/>
 		</SafeAreaView>
 	);
-});
+}
 
 const styles = StyleSheet.create({
 	container: {

@@ -8,7 +8,6 @@ import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import { action } from 'mobx';
-import { observer } from 'mobx-react-lite';
 import React, { useState } from 'react';
 import { BackHandler, Platform } from 'react-native';
 
@@ -21,15 +20,14 @@ import { openBrowser } from '../utils/WebBrowser';
 
 import RefreshWebView from './RefreshWebView';
 
-const NativeShellWebView = observer(
-	function NativeShellWebView(props, ref) {
-		const { rootStore, downloadStore, serverStore, mediaStore, settingStore } = useStores();
-		const [ isRefreshing, setIsRefreshing ] = useState(false);
+const NativeShellWebView = (props) => {
+	const { rootStore, downloadStore, serverStore, mediaStore, settingStore } = useStores();
+	const [ isRefreshing, setIsRefreshing ] = useState(false);
 
-		const server = serverStore.servers[settingStore.activeServer];
-		const isPluginSupported = !!server.info?.Version && compareVersions.compare(server.info.Version, '10.7', '>=');
+	const server = serverStore.servers[settingStore.activeServer];
+	const isPluginSupported = !!server.info?.Version && compareVersions.compare(server.info.Version, '10.7', '>=');
 
-		const injectedJavaScript = `
+	const injectedJavaScript = `
 window.ExpoAppInfo = {
 	appName: '${getAppName()}',
 	appVersion: '${Constants.nativeAppVersion}',
@@ -65,130 +63,129 @@ window.onerror = console.error;
 true;
 `;
 
-		const onRefresh = () => {
-			// Disable pull to refresh when in fullscreen
-			if (rootStore.isFullscreen) return;
+	const onRefresh = () => {
+		// Disable pull to refresh when in fullscreen
+		if (rootStore.isFullscreen) return;
 
-			// Stop media playback in native players
-			mediaStore.shouldStop = true;
+		// Stop media playback in native players
+		mediaStore.shouldStop = true;
 
-			setIsRefreshing(true);
-			ref.current?.reload();
-			setIsRefreshing(false);
-		};
+		setIsRefreshing(true);
+		ref.current?.reload();
+		setIsRefreshing(false);
+	};
 
-		const onMessage = action(({ nativeEvent: state }) => {
-			try {
-				const { event, data } = JSON.parse(state.data);
-				switch (event) {
-					case 'AppHost.exit':
-						BackHandler.exitApp();
-						break;
-					case 'enableFullscreen':
-						rootStore.isFullscreen = true;
-						break;
-					case 'disableFullscreen':
-						rootStore.isFullscreen = false;
-						break;
-					case 'downloadFile':
-						console.log('Download item', data);
-						/* eslint-disable no-case-declarations */
-						const url = new URL(data.item.url);
-						const apiKey = url.searchParams.get('api_key');
-						/* eslint-enable no-case-declarations */
-						downloadStore.add(new DownloadModel(
-							data.item.itemId,
-							data.item.serverId,
-							server.urlString,
-							apiKey,
-							data.item.title,
-							data.item.filename,
-							data.item.url
-						));
-						break;
-					case 'openUrl':
-						console.log('Opening browser for external url', data.url);
-						openBrowser(data.url);
-						break;
-					case 'updateMediaSession':
-						// Keep the screen awake when music is playing
-						if (settingStore.isScreenLockEnabled) {
-							activateKeepAwake();
-						}
-						break;
-					case 'hideMediaSession':
-						// When music session stops disable keep awake
-						if (settingStore.isScreenLockEnabled) {
-							deactivateKeepAwake();
-						}
-						break;
-					case 'ExpoAudioPlayer.play':
-					case 'ExpoVideoPlayer.play':
-						mediaStore.type = event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video;
-						mediaStore.uri = data.url;
-						mediaStore.backdropUri = data.backdropUrl;
-						mediaStore.isFinished = false;
-						mediaStore.positionTicks = data.playerStartPositionTicks;
-						break;
-					case 'ExpoAudioPlayer.playPause':
-					case 'ExpoVideoPlayer.playPause':
-						mediaStore.shouldPlayPause = true;
-						break;
-					case 'ExpoAudioPlayer.stop':
-					case 'ExpoVideoPlayer.stop':
-						mediaStore.shouldStop = true;
-						break;
-					case 'console.debug':
-						// console.debug('[Browser Console]', data);
-						break;
-					case 'console.error':
-						console.error('[Browser Console]', data);
-						break;
-					case 'console.info':
-						// console.info('[Browser Console]', data);
-						break;
-					case 'console.log':
-						// console.log('[Browser Console]', data);
-						break;
-					case 'console.warn':
-						console.warn('[Browser Console]', data);
-						break;
-					default:
-						console.debug('[HomeScreen.onMessage]', event, data);
-				}
-			} catch (ex) {
-				console.warn('Exception handling message', state.data);
+	const onMessage = action(({ nativeEvent: state }) => {
+		try {
+			const { event, data } = JSON.parse(state.data);
+			switch (event) {
+				case 'AppHost.exit':
+					BackHandler.exitApp();
+					break;
+				case 'enableFullscreen':
+					rootStore.isFullscreen = true;
+					break;
+				case 'disableFullscreen':
+					rootStore.isFullscreen = false;
+					break;
+				case 'downloadFile':
+					console.log('Download item', data);
+					/* eslint-disable no-case-declarations */
+					const url = new URL(data.item.url);
+					const apiKey = url.searchParams.get('api_key');
+					/* eslint-enable no-case-declarations */
+					downloadStore.add(new DownloadModel(
+						data.item.itemId,
+						data.item.serverId,
+						server.urlString,
+						apiKey,
+						data.item.title,
+						data.item.filename,
+						data.item.url
+					));
+					break;
+				case 'openUrl':
+					console.log('Opening browser for external url', data.url);
+					openBrowser(data.url);
+					break;
+				case 'updateMediaSession':
+					// Keep the screen awake when music is playing
+					if (settingStore.isScreenLockEnabled) {
+						activateKeepAwake();
+					}
+					break;
+				case 'hideMediaSession':
+					// When music session stops disable keep awake
+					if (settingStore.isScreenLockEnabled) {
+						deactivateKeepAwake();
+					}
+					break;
+				case 'ExpoAudioPlayer.play':
+				case 'ExpoVideoPlayer.play':
+					mediaStore.type = event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video;
+					mediaStore.uri = data.url;
+					mediaStore.backdropUri = data.backdropUrl;
+					mediaStore.isFinished = false;
+					mediaStore.positionTicks = data.playerStartPositionTicks;
+					break;
+				case 'ExpoAudioPlayer.playPause':
+				case 'ExpoVideoPlayer.playPause':
+					mediaStore.shouldPlayPause = true;
+					break;
+				case 'ExpoAudioPlayer.stop':
+				case 'ExpoVideoPlayer.stop':
+					mediaStore.shouldStop = true;
+					break;
+				case 'console.debug':
+					// console.debug('[Browser Console]', data);
+					break;
+				case 'console.error':
+					console.error('[Browser Console]', data);
+					break;
+				case 'console.info':
+					// console.info('[Browser Console]', data);
+					break;
+				case 'console.log':
+					// console.log('[Browser Console]', data);
+					break;
+				case 'console.warn':
+					console.warn('[Browser Console]', data);
+					break;
+				default:
+					console.debug('[HomeScreen.onMessage]', event, data);
 			}
-		});
+		} catch (ex) {
+			console.warn('Exception handling message', state.data);
+		}
+	});
 
-		return (
-			<RefreshWebView
-				ref={ref}
-				// Allow any origin blocking can break various things like book playback
-				originWhitelist={[ '*' ]}
-				source={{ uri: server.urlString }}
-				// Inject javascript for NativeShell
-				// This method is preferred, but only supported on iOS currently
-				injectedJavaScriptBeforeContentLoaded={Platform.OS === 'ios' ? injectedJavaScript : null}
-				// Fallback for non-iOS
-				injectedJavaScript={Platform.OS !== 'ios' ? injectedJavaScript : null}
-				onMessage={onMessage}
-				isRefreshing={isRefreshing}
-				onRefresh={onRefresh}
-				// Pass through additional props
-				{...props}
-				// Make scrolling feel faster
-				decelerationRate='normal'
-				// Media playback options to fix video player
-				allowsInlineMediaPlayback={true}
-				mediaPlaybackRequiresUserAction={false}
-				// Use WKWebView on iOS
-				useWebKit={true}
-				showsVerticalScrollIndicator={false}
-				showsHorizontalScrollIndicator={false}
-			/>
-		);
-	}, { forwardRef: true }
-);
+	return (
+		<RefreshWebView
+			// ref={ref}
+			// Allow any origin blocking can break various things like book playback
+			originWhitelist={[ '*' ]}
+			source={{ uri: server.urlString }}
+			// Inject javascript for NativeShell
+			// This method is preferred, but only supported on iOS currently
+			injectedJavaScriptBeforeContentLoaded={Platform.OS === 'ios' ? injectedJavaScript : null}
+			// Fallback for non-iOS
+			injectedJavaScript={Platform.OS !== 'ios' ? injectedJavaScript : null}
+			onMessage={onMessage}
+			isRefreshing={isRefreshing}
+			onRefresh={onRefresh}
+			// Pass through additional props
+			{...props}
+			// Make scrolling feel faster
+			decelerationRate='normal'
+			// Media playback options to fix video player
+			allowsInlineMediaPlayback={true}
+			mediaPlaybackRequiresUserAction={false}
+			// Use WKWebView on iOS
+			useWebKit={true}
+			showsVerticalScrollIndicator={false}
+			showsHorizontalScrollIndicator={false}
+		/>
+	);
+}
 
-export default NativeShellWebView;
+export default React.forwardRef(NativeShellWebView);

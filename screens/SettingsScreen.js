@@ -7,7 +7,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import compareVersions from 'compare-versions';
 import { action } from 'mobx';
-import { observer } from 'mobx-react-lite';
 import React, { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Platform, SectionList, StyleSheet, View } from 'react-native';
@@ -24,7 +23,7 @@ import Screens from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 import { isSystemThemeSupported } from '../utils/Device';
 
-const SettingsScreen = observer(() => {
+const SettingsScreen = () => {
 	const { rootStore, serverStore, settingStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
@@ -275,7 +274,7 @@ const SettingsScreen = observer(() => {
 			/>
 		</SafeAreaView>
 	);
-});
+}
 
 const styles = StyleSheet.create({
 	container: {

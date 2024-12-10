@@ -5,7 +5,6 @@
  */
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Platform } from 'react-native';
@@ -43,7 +42,7 @@ function TabIcon(routeName, focused, color, size) {
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = observer(() => {
+const TabNavigator = () => {
 	const { rootStore, downloadStore, settingStore } = useStores();
 	const insets = useSafeAreaInsets();
 	const { t } = useTranslation();
@@ -96,6 +95,6 @@ const TabNavigator = observer(() => {
 			/>
 		</Tab.Navigator>
 	);
-});
+}
 
 export default TabNavigator;

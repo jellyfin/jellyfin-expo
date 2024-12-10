@@ -5,14 +5,13 @@
  */
 
 import { Audio, InterruptionModeAndroid, InterruptionModeIOS } from 'expo-av';
-import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
 
 import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
 import { msToTicks } from '../utils/Time';
 
-const AudioPlayer = observer(() => {
+const AudioPlayer = () => {
 	const { mediaStore } = useStores();
 
 	const [ player, setPlayer ] = useState();
@@ -99,6 +98,6 @@ const AudioPlayer = observer(() => {
 	}, [ mediaStore.shouldStop ]);
 
 	return <></>;
-});
+};
 
 export default AudioPlayer;

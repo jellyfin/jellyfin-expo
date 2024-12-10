@@ -17,7 +17,6 @@ import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { observer } from 'mobx-react-lite';
 import { AsyncTrunk } from 'mobx-sync-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
@@ -34,7 +33,7 @@ import StaticScriptLoader from './utils/StaticScriptLoader';
 // Import i18n configuration
 import './i18n';
 
-const App = observer(({ skipLoadingScreen }) => {
+const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
 	const { rootStore, downloadStore, settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
@@ -190,7 +189,7 @@ const App = observer(({ skipLoadingScreen }) => {
 			</ThemeProvider>
 		</SafeAreaProvider>
 	);
-});
+};
 
 App.propTypes = {
 	skipLoadingScreen: PropTypes.bool
