@@ -4,9 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-// import { action, computed, decorate, observable } from 'mobx';
-// import { format } from 'mobx-sync-lite';
-
 import DownloadModel from '../models/DownloadModel';
 import { create } from 'zustand';
 
@@ -60,34 +57,3 @@ export const useDownloadStore = create<State & Actions>()((set, get) => ({
 	},
 	reset: () => set({downloads: new Map()})
 }))
-
-// export default class DownloadStore {
-// 	downloads = new Map<string, DownloadModel>();
-
-// 	get newDownloadCount() {
-// 		return Array.from(this.downloads.values())
-// 			.filter(d => d.isNew)
-// 			.length;
-// 	}
-
-// 	add(download: DownloadModel) {
-// 		// Do not allow duplicate downloads
-// 		if (!this.downloads.has(download.key)) {
-// 			this.downloads.set(download.key, download);
-// 		}
-// 	}
-
-// 	reset() {
-// 		this.downloads = new Map();
-// 	}
-// }
-
-// decorate(DownloadStore, {
-// 	downloads: [
-// 		format(DESERIALIZER),
-// 		observable
-// 	],
-// 	newDownloadCount: computed,
-// 	add: action,
-// 	reset: action
-// });
