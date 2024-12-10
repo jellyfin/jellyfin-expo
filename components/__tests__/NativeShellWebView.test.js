@@ -14,9 +14,9 @@ import NativeShellWebView from '../NativeShellWebView';
 jest.mock('../../hooks/useStores');
 useStores.mockImplementation(() => ({
 	rootStore: {
-		settingStore: {
-			activeServer: 0
-		}
+	},
+	settingStore: {
+		activeServer: 0
 	},
 	serverStore: {
 		servers: [{

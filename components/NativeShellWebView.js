@@ -23,10 +23,10 @@ import RefreshWebView from './RefreshWebView';
 
 const NativeShellWebView = observer(
 	function NativeShellWebView(props, ref) {
-		const { rootStore, downloadStore, serverStore, mediaStore } = useStores();
+		const { rootStore, downloadStore, serverStore, mediaStore, settingStore } = useStores();
 		const [ isRefreshing, setIsRefreshing ] = useState(false);
 
-		const server = serverStore.servers[rootStore.settingStore.activeServer];
+		const server = serverStore.servers[settingStore.activeServer];
 		const isPluginSupported = !!server.info?.Version && compareVersions.compare(server.info.Version, '10.7', '>=');
 
 		const injectedJavaScript = `
@@ -39,12 +39,12 @@ window.ExpoAppInfo = {
 
 window.ExpoAppSettings = {
 	isPluginSupported: ${isPluginSupported},
-	isNativeVideoPlayerEnabled: ${rootStore.settingStore.isNativeVideoPlayerEnabled},
-	isExperimentalNativeAudioPlayerEnabled: ${rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled},
-	isExperimentalDownloadsEnabled: ${rootStore.settingStore.isExperimentalDownloadsEnabled}
+	isNativeVideoPlayerEnabled: ${settingStore.isNativeVideoPlayerEnabled},
+	isExperimentalNativeAudioPlayerEnabled: ${settingStore.isExperimentalNativeAudioPlayerEnabled},
+	isExperimentalDownloadsEnabled: ${settingStore.isExperimentalDownloadsEnabled}
 };
 
-window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile({ enableFmp4: rootStore.settingStore.isFmp4Enabled }))};
+window.ExpoVideoProfile = ${JSON.stringify(getDeviceProfile({ enableFmp4: settingStore.isFmp4Enabled }))};
 
 function postExpoEvent(event, data) {
 	window.ReactNativeWebView.postMessage(JSON.stringify({
@@ -112,13 +112,13 @@ true;
 						break;
 					case 'updateMediaSession':
 						// Keep the screen awake when music is playing
-						if (rootStore.settingStore.isScreenLockEnabled) {
+						if (settingStore.isScreenLockEnabled) {
 							activateKeepAwake();
 						}
 						break;
 					case 'hideMediaSession':
 						// When music session stops disable keep awake
-						if (rootStore.settingStore.isScreenLockEnabled) {
+						if (settingStore.isScreenLockEnabled) {
 							deactivateKeepAwake();
 						}
 						break;

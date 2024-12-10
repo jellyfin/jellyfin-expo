@@ -8,9 +8,7 @@
  */
 import { Jellyfin } from '@jellyfin/sdk';
 
-import MediaStore from '../MediaStore';
 import { useRootStore } from '../RootStore';
-import SettingStore from '../SettingStore';
 
 import { renderHook, act } from '@testing-library/react'
 
@@ -25,8 +23,6 @@ describe('RootStore', () => {
 
 		expect(store.getApi()).toBeInstanceOf(Jellyfin);
 		expect(store.getApi().deviceInfo.id).toBe(store.deviceId);
-
-		expect(store.settingStore).toBeInstanceOf(SettingStore);
 	});
 
 	it('should reset to the default values', () => {
@@ -38,13 +34,11 @@ describe('RootStore', () => {
 			storeHook.result.current.didPlayerCloseManually = false;
 		})
 
-		storeHook.result.current.settingStore.reset = jest.fn();
 
 		expect(storeHook.result.current.storeLoaded).toBe(false);
 		expect(storeHook.result.current.isFullscreen).toBe(true);
 		expect(storeHook.result.current.isReloadRequired).toBe(true);
 		expect(storeHook.result.current.didPlayerCloseManually).toBe(false);
-		expect(storeHook.result.current.settingStore.reset).not.toHaveBeenCalled();
 
 		act(() => {
 			storeHook.result.current.reset();
@@ -54,6 +48,5 @@ describe('RootStore', () => {
 		expect(storeHook.result.current.isFullscreen).toBe(false);
 		expect(storeHook.result.current.isReloadRequired).toBe(false);
 		expect(storeHook.result.current.didPlayerCloseManually).toBe(true);
-		expect(storeHook.result.current.settingStore.reset).toHaveBeenCalled();
 	});
 });

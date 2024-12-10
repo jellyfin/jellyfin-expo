@@ -2,11 +2,16 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * 
+ * @jest-environment jsdom
+ * @jest-environment-options {"url": "https://jestjs.io/"}
  */
 import { Platform } from 'react-native';
 
 import Themes from '../../themes';
-import SettingStore from '../SettingStore';
+import SettingStore, { useSettingStore } from '../SettingStore';
+import { renderHook } from '@testing-library/react';
+import { act } from '@testing-library/react-native';
 
 jest.mock('react-native/Libraries/Utilities/Platform');
 
@@ -16,105 +21,126 @@ describe('SettingStore', () => {
 	});
 
 	it('should initialize with default values', () => {
-		const store = new SettingStore();
-
-		expect(store.activeServer).toBe(0);
-		expect(store.isRotationLockEnabled).toBe(true);
-		expect(store.isScreenLockEnabled).toBe(false);
-		expect(store.isTabLabelsEnabled).toBe(true);
-		expect(store.themeId).toBe('dark');
-		expect(store.systemThemeId).toBeUndefined();
-		expect(store.isSystemThemeEnabled).toBe(false);
-		expect(store.theme).toBe(Themes.dark);
-		expect(store.isNativeVideoPlayerEnabled).toBe(false);
-		expect(store.isFmp4Enabled).toBe(true);
-		expect(store.isExperimentalDownloadsEnabled).toBe(false);
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => {
+			store.result.current.reset()
+		})
+		expect(store.result.current.activeServer).toBe(0);
+		expect(store.result.current.isRotationLockEnabled).toBe(true);
+		expect(store.result.current.isScreenLockEnabled).toBe(false);
+		expect(store.result.current.isTabLabelsEnabled).toBe(true);
+		expect(store.result.current.themeId).toBe('dark');
+		expect(store.result.current.systemThemeId).toBeNull();
+		expect(store.result.current.isSystemThemeEnabled).toBe(false);
+		expect(store.result.current.getTheme()).toBe(Themes.dark);
+		expect(store.result.current.isNativeVideoPlayerEnabled).toBe(false);
+		expect(store.result.current.isFmp4Enabled).toBe(true);
+		expect(store.result.current.isExperimentalDownloadsEnabled).toBe(false);
 	});
 
 	it('should disable rotation lock for iPad devices', () => {
 		Platform.isPad = true;
-		const store = new SettingStore();
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => {
+			store.result.current.reset()
+		})
+		store.rerender()
 
-		expect(store.isRotationLockEnabled).toBe(false);
+		expect(store.result.current.isRotationLockEnabled).toBe(false);
 	});
 
 	it('should enable screen lock on older iOS versions', () => {
 		Platform.Version = '13';
-		const store = new SettingStore();
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => {
+			store.result.current.reset()
+		})
 
-		expect(store.isScreenLockEnabled).toBe(true);
+		expect(store.result.current.isScreenLockEnabled).toBe(true);
 	});
 
 	it('should enable screen lock on non-iOS platforms', () => {
 		Platform.OS = 'android';
-		const store = new SettingStore();
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => {
+			store.result.current.reset()
+		})
 
-		expect(store.isScreenLockEnabled).toBe(true);
+		expect(store.result.current.isScreenLockEnabled).toBe(true);
 	});
 
 	it('should use the system theme when enabled', () => {
-		const store = new SettingStore();
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => { store.result.current.reset() })
+		act(() => { store.result.current.isSystemThemeEnabled = true })
 
-		store.isSystemThemeEnabled = true;
-		expect(store.theme).toBe(Themes.dark);
+		expect(store.result.current.getTheme()).toBe(Themes.dark);
 
-		store.systemThemeId = 'light';
-		expect(store.theme).toBe(Themes.light);
+		act(() => { store.result.current.systemThemeId = 'light'; })
+		expect(store.result.current.getTheme()).toBe(Themes.light);
 	});
 
 	it('should use the app theme if system theme is "no-preference"', () => {
-		const store = new SettingStore();
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => { store.result.current.reset() })
 
-		store.isSystemThemeEnabled = true;
-		store.systemThemeId = 'no-preference';
-		store.themeId = 'light';
-		expect(store.theme).toBe(Themes.light);
+		act(() => {
+			store.result.current.isSystemThemeEnabled = true;
+			store.result.current.systemThemeId = 'no-preference';
+			store.result.current.themeId = 'light';
+		})
+
+		expect(store.result.current.getTheme()).toBe(Themes.light);
 	});
 
 	it('should return the default theme if an invalid theme id is specified', () => {
-		const store = new SettingStore();
-
-		store.themeId = 'invalid';
-		expect(store.theme).toBe(Themes.dark);
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => { store.result.current.reset() })
+		act(() => { store.result.current.themeId = 'invalid' })
+		expect(store.result.current.getTheme()).toBe(Themes.dark);
 	});
 
 	it('should reset to the default values', () => {
-		const store = new SettingStore();
-		store.activeServer = 99;
-		store.isRotationLockEnabled = false;
-		store.isScreenLockEnabled = true;
-		store.isTabLabelsEnabled = false;
-		store.themeId = 'light';
-		store.systemThemeId = 'dark';
-		store.isSystemThemeEnabled = true;
-		store.isNativeVideoPlayerEnabled = true;
-		store.isFmp4Enabled = false;
-		store.isExperimentalDownloadsEnabled = true;
+		const store = renderHook(() => useSettingStore((state) => state))
+		act(() => { store.result.current.reset() })
 
-		expect(store.activeServer).toBe(99);
-		expect(store.isRotationLockEnabled).toBe(false);
-		expect(store.isScreenLockEnabled).toBe(true);
-		expect(store.isTabLabelsEnabled).toBe(false);
-		expect(store.themeId).toBe('light');
-		expect(store.systemThemeId).toBe('dark');
-		expect(store.isSystemThemeEnabled).toBe(true);
-		expect(store.theme).toBe(Themes.dark);
-		expect(store.isNativeVideoPlayerEnabled).toBe(true);
-		expect(store.isFmp4Enabled).toBe(false);
-		expect(store.isExperimentalDownloadsEnabled).toBe(true);
+		act(() => {
+			store.result.current.activeServer = 99;
+			store.result.current.isRotationLockEnabled = false;
+			store.result.current.isScreenLockEnabled = true;
+			store.result.current.isTabLabelsEnabled = false;
+			store.result.current.themeId = 'light';
+			store.result.current.systemThemeId = 'dark';
+			store.result.current.isSystemThemeEnabled = true;
+			store.result.current.isNativeVideoPlayerEnabled = true;
+			store.result.current.isFmp4Enabled = false;
+			store.result.current.isExperimentalDownloadsEnabled = true;
+		})
 
-		store.reset();
+		expect(store.result.current.activeServer).toBe(99);
+		expect(store.result.current.isRotationLockEnabled).toBe(false);
+		expect(store.result.current.isScreenLockEnabled).toBe(true);
+		expect(store.result.current.isTabLabelsEnabled).toBe(false);
+		expect(store.result.current.themeId).toBe('light');
+		expect(store.result.current.systemThemeId).toBe('dark');
+		expect(store.result.current.isSystemThemeEnabled).toBe(true);
+		expect(store.result.current.getTheme()).toBe(Themes.dark);
+		expect(store.result.current.isNativeVideoPlayerEnabled).toBe(true);
+		expect(store.result.current.isFmp4Enabled).toBe(false);
+		expect(store.result.current.isExperimentalDownloadsEnabled).toBe(true);
 
-		expect(store.activeServer).toBe(0);
-		expect(store.isRotationLockEnabled).toBe(true);
-		expect(store.isScreenLockEnabled).toBe(false);
-		expect(store.isTabLabelsEnabled).toBe(true);
-		expect(store.themeId).toBe('dark');
-		expect(store.systemThemeId).toBeNull();
-		expect(store.isSystemThemeEnabled).toBe(false);
-		expect(store.theme).toBe(Themes.dark);
-		expect(store.isNativeVideoPlayerEnabled).toBe(false);
-		expect(store.isFmp4Enabled).toBe(true);
-		expect(store.isExperimentalDownloadsEnabled).toBe(false);
+		act(() => { store.result.current.reset() })
+
+		expect(store.result.current.activeServer).toBe(0);
+		expect(store.result.current.isRotationLockEnabled).toBe(true);
+		expect(store.result.current.isScreenLockEnabled).toBe(false);
+		expect(store.result.current.isTabLabelsEnabled).toBe(true);
+		expect(store.result.current.themeId).toBe('dark');
+		expect(store.result.current.systemThemeId).toBeNull();
+		expect(store.result.current.isSystemThemeEnabled).toBe(false);
+		expect(store.result.current.getTheme()).toBe(Themes.dark);
+		expect(store.result.current.isNativeVideoPlayerEnabled).toBe(false);
+		expect(store.result.current.isFmp4Enabled).toBe(true);
+		expect(store.result.current.isExperimentalDownloadsEnabled).toBe(false);
 	});
 });

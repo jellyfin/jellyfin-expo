@@ -27,9 +27,9 @@ jest.mock('../../components/NativeShellWebView', () => 'NativeShellWebView');
 jest.mock('../../hooks/useStores');
 useStores.mockImplementation(() => ({
 	rootStore: {
-		settingStore: {
-			activeServer: 0
-		}
+	},
+	settingStore: {
+		activeServer: 0
 	},
 	mediaStore: {},
 	serverStore: {
@@ -59,8 +59,8 @@ describe('HomeScreen', () => {
 	it('should render null when no servers are present', () => {
 		useStores.mockImplementationOnce(() => ({
 			rootStore: {
-				settingStore: {}
 			},
+			settingStore: {},
 			mediaStore: {},
 			serverStore: {},
 		}));
@@ -80,10 +80,9 @@ describe('HomeScreen', () => {
 
 	it('should render ErrorView when invalid server exists', () => {
 		useStores.mockImplementationOnce(() => ({
-			rootStore: {
-				settingStore: {
-					activeServer: 0
-				}
+			rootStore: {},
+			settingStore: {
+				activeServer: 0
 			},
 			mediaStore: {},
 			serverStore: {

@@ -22,7 +22,7 @@ import { useStores } from '../hooks/useStores';
 import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
-	const { rootStore, serverStore, mediaStore } = useStores();
+	const { rootStore, serverStore, mediaStore, settingStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const insets = useSafeAreaInsets();
@@ -88,7 +88,7 @@ const HomeScreen = observer(() => {
 	// Clear the error state when the active server changes
 	useEffect(() => {
 		setIsLoading(true);
-	}, [ rootStore.settingStore.activeServer ]);
+	}, [ settingStore.activeServer ]);
 
 	useEffect(() => {
 		if (rootStore.isReloadRequired) {
@@ -135,7 +135,7 @@ const HomeScreen = observer(() => {
 	if (!serverStore.servers || serverStore.servers.length === 0) {
 		return null;
 	}
-	const server = serverStore.servers[rootStore.settingStore.activeServer];
+	const server = serverStore.servers[settingStore.activeServer];
 
 	return (
 		<SafeAreaView

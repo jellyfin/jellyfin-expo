@@ -25,7 +25,7 @@ import { useStores } from '../hooks/useStores';
 import { isSystemThemeSupported } from '../utils/Device';
 
 const SettingsScreen = observer(() => {
-	const { rootStore, serverStore } = useStores();
+	const { rootStore, serverStore, settingStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
@@ -50,7 +50,7 @@ const SettingsScreen = observer(() => {
 					onPress: action(() => {
 						// Remove server and update active server
 						serverStore.removeServer(index);
-						rootStore.settingStore.activeServer = 0;
+						settingStore.activeServer = 0;
 
 						if (serverStore.servers.length > 0) {
 							// More servers exist, navigate home
@@ -68,7 +68,7 @@ const SettingsScreen = observer(() => {
 	};
 
 	const onSelectServer = action(index => {
-		rootStore.settingStore.activeServer = index;
+		settingStore.activeServer = index;
 		navigation.replace(Screens.HomeScreen);
 		navigation.navigate(Screens.HomeTab);
 	});
@@ -97,7 +97,7 @@ const SettingsScreen = observer(() => {
 	const AugmentedServerListItem = (props) => (
 		<ServerListItem
 			{...props}
-			activeServer={rootStore.settingStore.activeServer}
+			activeServer={settingStore.activeServer}
 			onDelete={onDeleteServer}
 			onPress={onSelectServer}
 		/>
@@ -107,8 +107,8 @@ const SettingsScreen = observer(() => {
 		const settingsData = [{
 			key: 'keep-awake-switch',
 			title: t('settings.keepAwake'),
-			value: rootStore.settingStore.isScreenLockEnabled,
-			onValueChange: action(value => rootStore.settingStore.isScreenLockEnabled = value)
+			value: settingStore.isScreenLockEnabled,
+			onValueChange: action(value => settingStore.isScreenLockEnabled = value)
 		}];
 
 		// Orientation lock is not supported on iPad without disabling multitasking
@@ -117,8 +117,8 @@ const SettingsScreen = observer(() => {
 			settingsData.push({
 				key: 'rotation-lock-switch',
 				title: t('settings.rotationLock'),
-				value: rootStore.settingStore.isRotationLockEnabled,
-				onValueChange: action(value => rootStore.settingStore.isRotationLockEnabled = value)
+				value: settingStore.isRotationLockEnabled,
+				onValueChange: action(value => settingStore.isRotationLockEnabled = value)
 			});
 		}
 
@@ -132,9 +132,9 @@ const SettingsScreen = observer(() => {
 				badge: {
 					value: t('common.beta')
 				},
-				value: rootStore.settingStore.isNativeVideoPlayerEnabled,
+				value: settingStore.isNativeVideoPlayerEnabled,
 				onValueChange: action(value => {
-					rootStore.settingStore.isNativeVideoPlayerEnabled = value;
+					settingStore.isNativeVideoPlayerEnabled = value;
 					rootStore.isReloadRequired = true;
 				})
 			});
@@ -143,10 +143,10 @@ const SettingsScreen = observer(() => {
 				playbackSettingsData.push({
 					key: 'native-video-fmp4-switch',
 					title: t('settings.fmp4Support'),
-					value: rootStore.settingStore.isFmp4Enabled,
-					disabled: !rootStore.settingStore.isNativeVideoPlayerEnabled,
+					value: settingStore.isFmp4Enabled,
+					disabled: !settingStore.isNativeVideoPlayerEnabled,
 					onValueChange: action(value => {
-						rootStore.settingStore.isFmp4Enabled = value;
+						settingStore.isFmp4Enabled = value;
 						rootStore.isReloadRequired = true;
 					})
 				});
@@ -156,16 +156,16 @@ const SettingsScreen = observer(() => {
 		const appearanceSettingsData = [{
 			key: 'tab-labels-switch',
 			title: t('settings.tabLabels'),
-			value: rootStore.settingStore.isTabLabelsEnabled,
-			onValueChange: action(value => rootStore.settingStore.isTabLabelsEnabled = value)
+			value: settingStore.isTabLabelsEnabled,
+			onValueChange: action(value => settingStore.isTabLabelsEnabled = value)
 		}];
 
 		if (isSystemThemeSupported()) {
 			appearanceSettingsData.push({
 				key: 'system-theme-switch',
 				title: t('settings.systemTheme'),
-				value: rootStore.settingStore.isSystemThemeEnabled,
-				onValueChange: action(value => rootStore.settingStore.isSystemThemeEnabled = value)
+				value: settingStore.isSystemThemeEnabled,
+				onValueChange: action(value => settingStore.isSystemThemeEnabled = value)
 			});
 		}
 
@@ -173,9 +173,9 @@ const SettingsScreen = observer(() => {
 		appearanceSettingsData.push({
 			key: 'theme-switch',
 			title: t('settings.lightTheme'),
-			disabled: rootStore.settingStore.isSystemThemeEnabled,
-			value: rootStore.settingStore.themeId === 'light',
-			onValueChange: action(value => rootStore.settingStore.themeId = value ? 'light' : 'dark')
+			disabled: settingStore.isSystemThemeEnabled,
+			value: settingStore.themeId === 'light',
+			onValueChange: action(value => settingStore.themeId = value ? 'light' : 'dark')
 		});
 
 		return [
@@ -245,7 +245,7 @@ const SettingsScreen = observer(() => {
 			<SectionList
 				sections={getSections()}
 				extraData={{
-					activeServer: rootStore.settingStore.activeServer,
+					activeServer: settingStore.activeServer,
 					isFetching: serverStore.fetchInfo.pending
 				}}
 				renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}

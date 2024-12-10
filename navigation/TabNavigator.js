@@ -44,7 +44,7 @@ function TabIcon(routeName, focused, color, size) {
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = observer(() => {
-	const { rootStore, downloadStore } = useStores();
+	const { rootStore, downloadStore, settingStore } = useStores();
 	const insets = useSafeAreaInsets();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
@@ -55,7 +55,7 @@ const TabNavigator = observer(() => {
 		tabBarStyle.display = 'none';
 	}
 	// Use a smaller height for the tab bar when labels are disabled
-	if (!rootStore.settingStore.isTabLabelsEnabled && !Platform.isPad) {
+	if (!settingStore.isTabLabelsEnabled && !Platform.isPad) {
 		tabBarStyle.height = insets.bottom + 28;
 	}
 
@@ -65,7 +65,7 @@ const TabNavigator = observer(() => {
 				headerShown: false,
 				tabBarIcon: ({ focused, color, size }) => TabIcon(route.name, focused, color, size),
 				tabBarInactiveTintColor: theme.colors.grey1,
-				tabBarShowLabel: rootStore.settingStore.isTabLabelsEnabled,
+				tabBarShowLabel: settingStore.isTabLabelsEnabled,
 				tabBarStyle
 			})}
 		>
@@ -76,7 +76,7 @@ const TabNavigator = observer(() => {
 					title: t('headings.home')
 				}}
 			/>
-			{rootStore.settingStore.isExperimentalDownloadsEnabled && (
+			{settingStore.isExperimentalDownloadsEnabled && (
 				<Tab.Screen
 					name={Screens.DownloadsTab}
 					component={DownloadScreen}

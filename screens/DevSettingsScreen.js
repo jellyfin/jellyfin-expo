@@ -16,7 +16,7 @@ import SwitchListItem from '../components/SwitchListItem';
 import { useStores } from '../hooks/useStores';
 
 const DevSettingsScreen = observer(() => {
-	const { rootStore } = useStores();
+	const { rootStore, settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	return (
@@ -36,9 +36,9 @@ const DevSettingsScreen = observer(() => {
 							value: 'Experimental',
 							status: 'error'
 						},
-						value: rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled,
+						value: settingStore.isExperimentalNativeAudioPlayerEnabled,
 						onValueChange: action(value => {
-							rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled = value;
+							settingStore.isExperimentalNativeAudioPlayerEnabled = value;
 							rootStore.isReloadRequired = true;
 						})
 					},
@@ -49,9 +49,9 @@ const DevSettingsScreen = observer(() => {
 							value: 'Experimental',
 							status: 'error'
 						},
-						value: rootStore.settingStore.isExperimentalDownloadsEnabled,
+						value: settingStore.isExperimentalDownloadsEnabled,
 						onValueChange: action(value => {
-							rootStore.settingStore.isExperimentalDownloadsEnabled = value;
+							settingStore.isExperimentalDownloadsEnabled = value;
 							rootStore.isReloadRequired = true;
 						})
 					}

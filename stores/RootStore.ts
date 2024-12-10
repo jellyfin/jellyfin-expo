@@ -12,7 +12,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { getAppName, getSafeDeviceName } from '../utils/Device';
 
-import SettingStore from './SettingStore';
 import { create } from 'zustand';
 
 type State = {
@@ -21,7 +20,6 @@ type State = {
 	isFullscreen: boolean,
 	isReloadRequired: boolean,
 	didPlayerCloseManually: boolean,
-	settingStore: SettingStore,
 }
 
 type Actions = {
@@ -37,7 +35,6 @@ const initialState: State = {
 	isFullscreen: false,
 	isReloadRequired: false,
 	didPlayerCloseManually: true,
-	settingStore: new SettingStore()
 }
 
 export const useRootStore = create<State & Actions>()((set, get) => ({
@@ -52,9 +49,7 @@ export const useRootStore = create<State & Actions>()((set, get) => ({
 			id: get().deviceId
 		}
 	}),
-	reset: () => {
-		get().settingStore.reset()
-
+	reset: () => { // TODO: Confirm instances of this reset call reset all the other states as well
 		set({
 			deviceId: uuidv4(),
 			isFullscreen: false,

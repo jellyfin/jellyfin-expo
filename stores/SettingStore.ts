@@ -51,7 +51,7 @@ type Actions = {
 
 export type SettingStore = State & Actions
 
-const initialState: State = {
+const initialState: () => State = () => ({
 	activeServer: 0,
 	isRotationLockEnabled: Platform.OS === 'ios' && !Platform.isPad,
 	isScreenLockEnabled: Platform.OS === 'ios' 
@@ -65,10 +65,10 @@ const initialState: State = {
 	isExperimentalNativeAudioPlayerEnabled: false,
 	isExperimentalDownloadsEnabled: false,
 	systemThemeId: null,
-}
+})
 
 export const useSettingStore = create<SettingStore>()((set, get) => ({
-	...initialState,
+	...initialState(),
 	getTheme: () => {
 		const state = get()
 		const id = state.isSystemThemeEnabled 
@@ -79,5 +79,7 @@ export const useSettingStore = create<SettingStore>()((set, get) => ({
 		//@ts-ignore TODO: This is because Themes doesn't have type hints.
 		return Themes[id] || Themes.dark;
 	},
-	reset: () => null
+	reset: () => {
+		set({ ...initialState() })
+	}
 }))

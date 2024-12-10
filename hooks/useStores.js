@@ -7,11 +7,13 @@ import { useDownloadStore } from '../stores/DownloadStore';
 import { useMediaStore } from '../stores/MediaStore';
 import { useRootStore } from '../stores/RootStore';
 import { useServerStore } from '../stores/ServerStore';
+import { useSettingStore } from '../stores/SettingStore';
 
 // Compatibility for zustand conversion
 export const useStores = () => ({ 
   rootStore: useRootStore(),
   downloadStore: useDownloadStore(),
   serverStore: useServerStore(),
-  mediaStore: useMediaStore()
+  mediaStore: useMediaStore(),
+  settingStore: useSettingStore()
 })

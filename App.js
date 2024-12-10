@@ -36,10 +36,10 @@ import './i18n';
 
 const App = observer(({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
-	const { rootStore, downloadStore } = useStores();
+	const { rootStore, downloadStore, settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
-	rootStore.settingStore.systemThemeId = useColorScheme();
+	settingStore.systemThemeId = useColorScheme();
 
 	SplashScreen.preventAutoHideAsync();
 
@@ -87,16 +87,16 @@ const App = observer(({ skipLoadingScreen }) => {
 	}, []);
 
 	useEffect(() => {
-		console.info('rotation lock setting changed!', rootStore.settingStore.isRotationLockEnabled);
-		if (rootStore.settingStore.isRotationLockEnabled) {
+		console.info('rotation lock setting changed!', settingStore.isRotationLockEnabled);
+		if (settingStore.isRotationLockEnabled) {
 			ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
 		} else {
 			ScreenOrientation.unlockAsync();
 		}
-	}, [ rootStore.settingStore.isRotationLockEnabled ]);
+	}, [ settingStore.isRotationLockEnabled ]);
 
 	const updateScreenOrientation = async () => {
-		if (rootStore.settingStore.isRotationLockEnabled) {
+		if (settingStore.isRotationLockEnabled) {
 			if (rootStore.isFullscreen) {
 				// Lock to landscape orientation
 				// For some reason video apps on iPhone use LANDSCAPE_RIGHT ¯\_(ツ)_/¯
@@ -177,14 +177,14 @@ const App = observer(({ skipLoadingScreen }) => {
 
 	return (
 		<SafeAreaProvider>
-			<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
+			<ThemeProvider theme={settingStore.getTheme().Elements}>
 				<ThemeSwitcher />
 				<StatusBar
 					style='light'
 					backgroundColor={theme.colors.grey0}
 					hidden={rootStore.isFullscreen}
 				/>
-				<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
+				<NavigationContainer theme={settingStore.getTheme().Navigation}>
 					<RootNavigator />
 				</NavigationContainer>
 			</ThemeProvider>
