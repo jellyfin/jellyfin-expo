@@ -19,7 +19,7 @@ import TabNavigator from './TabNavigator';
 const AppStack = createStackNavigator();
 
 const AppNavigator = observer(() => {
-	const { rootStore } = useStores();
+	const { rootStore, serverStore } = useStores();
 	const { t } = useTranslation();
 
 	// Ensure the splash screen is hidden when loading is finished
@@ -27,7 +27,7 @@ const AppNavigator = observer(() => {
 
 	return (
 		<AppStack.Navigator
-			initialRouteName={(rootStore.serverStore.servers?.length > 0) ? Screens.MainScreen : Screens.AddServerScreen}
+			initialRouteName={(serverStore.servers?.length > 0) ? Screens.MainScreen : Screens.AddServerScreen}
 			screenOptions={{
 				headerMode: 'screen',
 				headerShown: false
@@ -53,7 +53,7 @@ const AppNavigator = observer(() => {
 				name={Screens.AddServerScreen}
 				component={AddServerScreen}
 				options={{
-					headerShown: rootStore.serverStore.servers?.length > 0,
+					headerShown: serverStore.servers?.length > 0,
 					title: t('headings.addServer')
 				}}
 			/>

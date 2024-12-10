@@ -13,7 +13,6 @@ import { v4 as uuidv4 } from 'uuid';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
 
 import MediaStore from './MediaStore';
-import ServerStore from './ServerStore';
 import SettingStore from './SettingStore';
 import { create } from 'zustand';
 
@@ -24,7 +23,6 @@ type State = {
 	isReloadRequired: boolean,
 	didPlayerCloseManually: boolean,
 	mediaStore: MediaStore,
-	serverStore: ServerStore,
 	settingStore: SettingStore,
 }
 
@@ -42,7 +40,6 @@ const initialState: State = {
 	isReloadRequired: false,
 	didPlayerCloseManually: true,
 	mediaStore: new MediaStore(),
-	serverStore: new ServerStore(),
 	settingStore: new SettingStore()
 }
 
@@ -60,7 +57,6 @@ export const useRootStore = create<State & Actions>()((set, get) => ({
 	}),
 	reset: () => {
 		get().mediaStore.reset()
-		get().serverStore.reset()
 		get().settingStore.reset()
 
 		set({

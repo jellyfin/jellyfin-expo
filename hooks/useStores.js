@@ -5,9 +5,11 @@
  */
 import { useDownloadStore } from '../stores/DownloadStore';
 import { useRootStore } from '../stores/RootStore';
+import { useServerStore } from '../stores/ServerStore';
 
 // Compatibility for zustand conversion
 export const useStores = () => ({ 
   rootStore: useRootStore(),
-  downloadStore: useDownloadStore()
+  downloadStore: useDownloadStore(),
+  serverStore: useServerStore(),
 })

@@ -23,10 +23,10 @@ import RefreshWebView from './RefreshWebView';
 
 const NativeShellWebView = observer(
 	function NativeShellWebView(props, ref) {
-		const { rootStore, downloadStore } = useStores();
+		const { rootStore, downloadStore, serverStore } = useStores();
 		const [ isRefreshing, setIsRefreshing ] = useState(false);
 
-		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
+		const server = serverStore.servers[rootStore.settingStore.activeServer];
 		const isPluginSupported = !!server.info?.Version && compareVersions.compare(server.info.Version, '10.7', '>=');
 
 		const injectedJavaScript = `

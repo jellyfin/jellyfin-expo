@@ -31,7 +31,7 @@ const ServerInput = observer(
 		const [ isValid, setIsValid ] = useState(true);
 		const [ validationMessage, setValidationMessage ] = useState('');
 
-		const { rootStore } = useStores();
+		const { rootStore, serverStore } = useStores();
 		const navigation = useNavigation();
 		const { t } = useTranslation();
 		const { theme } = useContext(ThemeContext);
@@ -76,8 +76,8 @@ const ServerInput = observer(
 			}
 
 			// Save the server details
-			rootStore.serverStore.addServer({ url });
-			rootStore.settingStore.activeServer = rootStore.serverStore.servers.length - 1;
+			serverStore.addServer({ url });
+			rootStore.settingStore.activeServer = serverStore.servers.length - 1;
 			// Call the success callback
 			onSuccess();
 

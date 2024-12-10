@@ -29,7 +29,6 @@ describe('RootStore', () => {
 		expect(store.getApi().deviceInfo.id).toBe(store.deviceId);
 
 		expect(store.mediaStore).toBeInstanceOf(MediaStore);
-		expect(store.serverStore).toBeInstanceOf(ServerStore);
 		expect(store.settingStore).toBeInstanceOf(SettingStore);
 	});
 
@@ -43,7 +42,6 @@ describe('RootStore', () => {
 		})
 
 		storeHook.result.current.mediaStore.reset = jest.fn();
-		storeHook.result.current.serverStore.reset = jest.fn();
 		storeHook.result.current.settingStore.reset = jest.fn();
 
 		expect(storeHook.result.current.storeLoaded).toBe(false);
@@ -51,7 +49,6 @@ describe('RootStore', () => {
 		expect(storeHook.result.current.isReloadRequired).toBe(true);
 		expect(storeHook.result.current.didPlayerCloseManually).toBe(false);
 		expect(storeHook.result.current.mediaStore.reset).not.toHaveBeenCalled();
-		expect(storeHook.result.current.serverStore.reset).not.toHaveBeenCalled();
 		expect(storeHook.result.current.settingStore.reset).not.toHaveBeenCalled();
 
 		act(() => {
@@ -63,7 +60,6 @@ describe('RootStore', () => {
 		expect(storeHook.result.current.isReloadRequired).toBe(false);
 		expect(storeHook.result.current.didPlayerCloseManually).toBe(true);
 		expect(storeHook.result.current.mediaStore.reset).toHaveBeenCalled();
-		expect(storeHook.result.current.serverStore.reset).toHaveBeenCalled();
 		expect(storeHook.result.current.settingStore.reset).toHaveBeenCalled();
 	});
 });

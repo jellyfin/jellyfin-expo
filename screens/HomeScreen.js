@@ -22,7 +22,7 @@ import { useStores } from '../hooks/useStores';
 import { getIconName } from '../utils/Icons';
 
 const HomeScreen = observer(() => {
-	const { rootStore } = useStores();
+	const { rootStore, serverStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const insets = useSafeAreaInsets();
@@ -132,10 +132,10 @@ const HomeScreen = observer(() => {
 	// Hide webview until loaded
 	const webviewStyle = (isLoading || httpErrorStatus) ? StyleSheet.compose(styles.container, styles.loading) : styles.container;
 
-	if (!rootStore.serverStore.servers || rootStore.serverStore.servers.length === 0) {
+	if (!serverStore.servers || serverStore.servers.length === 0) {
 		return null;
 	}
-	const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
+	const server = serverStore.servers[rootStore.settingStore.activeServer];
 
 	return (
 		<SafeAreaView

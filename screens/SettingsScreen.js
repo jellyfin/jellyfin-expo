@@ -25,14 +25,14 @@ import { useStores } from '../hooks/useStores';
 import { isSystemThemeSupported } from '../utils/Device';
 
 const SettingsScreen = observer(() => {
-	const { rootStore } = useStores();
+	const { rootStore, serverStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 
 	useEffect(() => {
 		// Fetch server info
-		rootStore.serverStore.fetchInfo();
+		serverStore.fetchInfo();
 	}, []);
 
 	const onAddServer = () => {
@@ -42,17 +42,17 @@ const SettingsScreen = observer(() => {
 	const onDeleteServer = index => {
 		Alert.alert(
 			t('alerts.deleteServer.title'),
-			t('alerts.deleteServer.description', { serverName: rootStore.serverStore.servers[index]?.name }),
+			t('alerts.deleteServer.description', { serverName: serverStore.servers[index]?.name }),
 			[
 				{ text: t('common.cancel') },
 				{
 					text: t('alerts.deleteServer.confirm'),
 					onPress: action(() => {
 						// Remove server and update active server
-						rootStore.serverStore.removeServer(index);
+						serverStore.removeServer(index);
 						rootStore.settingStore.activeServer = 0;
 
-						if (rootStore.serverStore.servers.length > 0) {
+						if (serverStore.servers.length > 0) {
 							// More servers exist, navigate home
 							navigation.replace(Screens.HomeScreen);
 							navigation.navigate(Screens.HomeTab);
@@ -181,7 +181,7 @@ const SettingsScreen = observer(() => {
 		return [
 			{
 				title: t('headings.servers'),
-				data: rootStore.serverStore.servers.slice(),
+				data: serverStore.servers.slice(),
 				keyExtractor: (item, index) => `server-${index}`,
 				renderItem: AugmentedServerListItem
 			},
@@ -246,7 +246,7 @@ const SettingsScreen = observer(() => {
 				sections={getSections()}
 				extraData={{
 					activeServer: rootStore.settingStore.activeServer,
-					isFetching: rootStore.serverStore.fetchInfo.pending
+					isFetching: serverStore.fetchInfo.pending // TODO: .pending is a hang-over from mobx. If the data is not used, it doesn't matter, but if it needs to be used, a hook needs to be written around this missing property
 				}}
 				renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
 				renderSectionHeader={({ section: { data, title, hideHeader } }) => {

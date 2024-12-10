@@ -28,16 +28,16 @@ jest.mock('../../hooks/useStores');
 useStores.mockImplementation(() => ({
 	rootStore: {
 		mediaStore: {},
-		serverStore: {
-			servers: [
-				{
-					urlString: 'https://example.com'
-				}
-			]
-		},
 		settingStore: {
 			activeServer: 0
 		}
+	},
+	serverStore: {
+		servers: [
+			{
+				urlString: 'https://example.com'
+			}
+		]
 	}
 }));
 
@@ -60,9 +60,9 @@ describe('HomeScreen', () => {
 		useStores.mockImplementationOnce(() => ({
 			rootStore: {
 				mediaStore: {},
-				serverStore: {},
 				settingStore: {}
-			}
+			},
+			serverStore: {},
 		}));
 
 		const { toJSON } = render(
@@ -82,12 +82,12 @@ describe('HomeScreen', () => {
 		useStores.mockImplementationOnce(() => ({
 			rootStore: {
 				mediaStore: {},
-				serverStore: {
-					servers: [{}]
-				},
 				settingStore: {
 					activeServer: 0
 				}
+			},
+			serverStore: {
+				servers: [{}]
 			}
 		}));
 

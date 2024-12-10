@@ -22,11 +22,11 @@ jest.mock('react-native-elements/dist/buttons/Button', () => 'Button');
 jest.mock('../../hooks/useStores');
 useStores.mockImplementation(() => ({
 	rootStore: {
-		serverStore: {
-			fetchInfo: jest.fn(),
-			servers: []
-		},
 		settingStore: {}
+	},
+	serverStore: {
+		fetchInfo: jest.fn(),
+		servers: []
 	}
 }));
 

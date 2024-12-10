@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { action, autorun, computed, decorate, observable } from 'mobx';
-import { ignore } from 'mobx-sync-lite';
 import { task } from 'mobx-task';
 
 import { fetchServerInfo, getServerUrl } from '../utils/ServerValidator';
@@ -22,10 +21,7 @@ export default class ServerModel {
 		this.id = id;
 		this.url = url;
 		this.info = info;
-
-		autorun(() => {
-			this.urlString = this.parseUrlString;
-		});
+		this.urlString = this.parseUrlString;
 	}
 
 	get name() {
@@ -40,7 +36,11 @@ export default class ServerModel {
 		}
 	}
 
-	fetchInfo = task(() => {
+	/**
+	 * Development note -- this was originally wrapped in mobx task(), which provides some state tracking on asynchronous operations.
+	 * This has been re-implemented with an async call
+	 */
+	fetchInfo = async () => {
 		return fetchServerInfo(this)
 			.then(action(info => {
 				this.online = true;
@@ -50,17 +50,17 @@ export default class ServerModel {
 				console.warn(err);
 				this.online = false;
 			});
-	})
+	}
 }
 
-decorate(ServerModel, {
-	id: observable,
-	url: observable,
-	online: [
-		ignore,
-		observable
-	],
-	info: observable,
-	name: computed,
-	parseUrlString: computed
-});
+// decorate(ServerModel, {
+// 	id: observable,
+// 	url: observable,
+// 	online: [
+// 		ignore,
+// 		observable
+// 	],
+// 	info: observable,
+// 	name: computed,
+// 	parseUrlString: computed
+// });
