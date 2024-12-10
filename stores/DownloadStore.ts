@@ -4,10 +4,11 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { action, computed, decorate, observable } from 'mobx';
-import { format } from 'mobx-sync-lite';
+// import { action, computed, decorate, observable } from 'mobx';
+// import { format } from 'mobx-sync-lite';
 
 import DownloadModel from '../models/DownloadModel';
+import { create } from 'zustand';
 
 export const DESERIALIZER = (data: unknown) => {
 	const deserialized = new Map<string, DownloadModel>();
@@ -29,33 +30,64 @@ export const DESERIALIZER = (data: unknown) => {
 	return deserialized;
 };
 
-export default class DownloadStore {
-	downloads = new Map<string, DownloadModel>();
-
-	get newDownloadCount() {
-		return Array.from(this.downloads.values())
-			.filter(d => d.isNew)
-			.length;
-	}
-
-	add(download: DownloadModel) {
-		// Do not allow duplicate downloads
-		if (!this.downloads.has(download.key)) {
-			this.downloads.set(download.key, download);
-		}
-	}
-
-	reset() {
-		this.downloads = new Map();
-	}
+type State = {
+	downloads: Map<String, DownloadModel>,
 }
 
-decorate(DownloadStore, {
-	downloads: [
-		format(DESERIALIZER),
-		observable
-	],
-	newDownloadCount: computed,
-	add: action,
-	reset: action
-});
+type Actions = {
+	getNewDownloadCount: () => number,
+	add: (v: DownloadModel) => void,
+	reset: () => void
+}
+
+export type DownloadStore = State & Actions
+
+const initialState: State = {
+	downloads: new Map<String, DownloadModel>()
+}
+
+export const useDownloadStore = create<State & Actions>()((set, get) => ({
+	...initialState,
+	getNewDownloadCount: () => Array
+		.from(get().downloads.values())
+		.filter(d => d.isNew)
+		.length,
+	add: (download) => { 
+		const downloads = get().downloads
+		if (!downloads.has(download.key)) {
+			set({downloads: new Map([...downloads, [download.key, download]])})
+		}
+	},
+	reset: () => set({downloads: new Map()})
+}))
+
+// export default class DownloadStore {
+// 	downloads = new Map<string, DownloadModel>();
+
+// 	get newDownloadCount() {
+// 		return Array.from(this.downloads.values())
+// 			.filter(d => d.isNew)
+// 			.length;
+// 	}
+
+// 	add(download: DownloadModel) {
+// 		// Do not allow duplicate downloads
+// 		if (!this.downloads.has(download.key)) {
+// 			this.downloads.set(download.key, download);
+// 		}
+// 	}
+
+// 	reset() {
+// 		this.downloads = new Map();
+// 	}
+// }
+
+// decorate(DownloadStore, {
+// 	downloads: [
+// 		format(DESERIALIZER),
+// 		observable
+// 	],
+// 	newDownloadCount: computed,
+// 	add: action,
+// 	reset: action
+// });

@@ -6,8 +6,6 @@
 
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import * as FileSystem from 'expo-file-system';
-import { toJS, values } from 'mobx';
-import { observer } from 'mobx-react-lite';
 import React, { useCallback, useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, FlatList, StyleSheet } from 'react-native';
@@ -18,9 +16,9 @@ import DownloadListItem from '../components/DownloadListItem';
 import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
 
-const DownloadScreen = observer(() => {
+const DownloadScreen = () => {
 	const navigation = useNavigation();
-	const { rootStore } = useStores();
+	const { rootStore, downloadStore } = useStores();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 	const [ isEditMode, setIsEditMode ] = useState(false);
@@ -36,7 +34,7 @@ const DownloadScreen = observer(() => {
 			// TODO: Add user messaging on errors
 			try {
 				await FileSystem.deleteAsync(download.localPath);
-				rootStore.downloadStore.downloads.delete(download.key);
+				downloadStore.downloads.delete(download.key);
 				console.log('[DownloadScreen] download "%s" deleted', download.title);
 			} catch (e) {
 				console.error('[DownloadScreen] Failed to delete download', e);
@@ -90,25 +88,28 @@ const DownloadScreen = observer(() => {
 						title={t('common.edit')}
 						type='clear'
 						style={styles.rightButton}
-						disabled={rootStore.downloadStore.downloads.size < 1}
+						disabled={downloadStore.downloads.size < 1}
 						onPress={() => {
 							setIsEditMode(true);
 						}}
 					/>
 			)
 		});
-	}, [ navigation, isEditMode, selectedItems, rootStore.downloadStore.downloads ]);
+	}, [ navigation, isEditMode, selectedItems, downloadStore.downloads ]);
 
 	useFocusEffect(
 		useCallback(() => {
-			rootStore.downloadStore.downloads
+			downloadStore.downloads
 				.forEach(download => {
 					if (download.isNew) {
 						download.isNew = !download.isComplete;
 					}
 				});
-		}, [ rootStore.downloadStore.downloads ])
+		}, [ downloadStore.downloads ])
 	);
+
+	const downloadList = []
+	downloadStore.downloads.forEach(download => downloadList.push(download))
 
 	return (
 		<SafeAreaView
@@ -119,8 +120,8 @@ const DownloadScreen = observer(() => {
 			edges={[ 'right', 'left' ]}
 		>
 			<FlatList
-				data={values(rootStore.downloadStore.downloads)}
-				extraData={toJS(rootStore.downloadStore.downloads)}
+				data={downloadList}
+				extraData={downloadStore.downloads}
 				renderItem={({ item, index }) => (
 					<DownloadListItem
 						item={item}
@@ -147,7 +148,7 @@ const DownloadScreen = observer(() => {
 			/>
 		</SafeAreaView>
 	);
-});
+};
 
 const styles = StyleSheet.create({
 	container: {

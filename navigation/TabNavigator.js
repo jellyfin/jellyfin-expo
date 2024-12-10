@@ -44,7 +44,7 @@ function TabIcon(routeName, focused, color, size) {
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = observer(() => {
-	const { rootStore } = useStores();
+	const { rootStore, downloadStore } = useStores();
 	const insets = useSafeAreaInsets();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
@@ -83,7 +83,7 @@ const TabNavigator = observer(() => {
 					options={{
 						title: t('headings.downloads'),
 						headerShown: true,
-						tabBarBadge: rootStore.downloadStore.newDownloadCount > 0 ? rootStore.downloadStore.newDownloadCount : null
+						tabBarBadge: downloadStore.newDownloadCount > 0 ? downloadStore.newDownloadCount : null
 					}}
 				/>
 			)}

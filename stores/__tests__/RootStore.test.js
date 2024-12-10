@@ -1,11 +1,10 @@
 /**
- * @jest-environment jsdom
- * @jest-environment-options {"url": "https://jestjs.io/"}
- */
-/**
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * 
+ * @jest-environment jsdom
+ * @jest-environment-options {"url": "https://jestjs.io/"}
  */
 import { Jellyfin } from '@jellyfin/sdk';
 
@@ -29,7 +28,6 @@ describe('RootStore', () => {
 		expect(store.getApi()).toBeInstanceOf(Jellyfin);
 		expect(store.getApi().deviceInfo.id).toBe(store.deviceId);
 
-		expect(store.downloadStore).toBeInstanceOf(DownloadStore);
 		expect(store.mediaStore).toBeInstanceOf(MediaStore);
 		expect(store.serverStore).toBeInstanceOf(ServerStore);
 		expect(store.settingStore).toBeInstanceOf(SettingStore);
@@ -44,7 +42,6 @@ describe('RootStore', () => {
 			storeHook.result.current.didPlayerCloseManually = false;
 		})
 
-		storeHook.result.current.downloadStore.reset = jest.fn();
 		storeHook.result.current.mediaStore.reset = jest.fn();
 		storeHook.result.current.serverStore.reset = jest.fn();
 		storeHook.result.current.settingStore.reset = jest.fn();
@@ -53,7 +50,6 @@ describe('RootStore', () => {
 		expect(storeHook.result.current.isFullscreen).toBe(true);
 		expect(storeHook.result.current.isReloadRequired).toBe(true);
 		expect(storeHook.result.current.didPlayerCloseManually).toBe(false);
-		expect(storeHook.result.current.downloadStore.reset).not.toHaveBeenCalled();
 		expect(storeHook.result.current.mediaStore.reset).not.toHaveBeenCalled();
 		expect(storeHook.result.current.serverStore.reset).not.toHaveBeenCalled();
 		expect(storeHook.result.current.settingStore.reset).not.toHaveBeenCalled();
@@ -66,7 +62,6 @@ describe('RootStore', () => {
 		expect(storeHook.result.current.isFullscreen).toBe(false);
 		expect(storeHook.result.current.isReloadRequired).toBe(false);
 		expect(storeHook.result.current.didPlayerCloseManually).toBe(true);
-		expect(storeHook.result.current.downloadStore.reset).toHaveBeenCalled();
 		expect(storeHook.result.current.mediaStore.reset).toHaveBeenCalled();
 		expect(storeHook.result.current.serverStore.reset).toHaveBeenCalled();
 		expect(storeHook.result.current.settingStore.reset).toHaveBeenCalled();

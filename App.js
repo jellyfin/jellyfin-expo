@@ -36,7 +36,7 @@ import './i18n';
 
 const App = observer(({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
-	const { rootStore } = useStores();
+	const { rootStore, downloadStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	rootStore.settingStore.systemThemeId = useColorScheme();
@@ -163,13 +163,13 @@ const App = observer(({ skipLoadingScreen }) => {
 				});
 		};
 
-		rootStore.downloadStore.downloads
+		downloadStore.downloads
 			.forEach(download => {
 				if (!download.isComplete && !download.isDownloading) {
 					downloadFile(download);
 				}
 			});
-	}, [ rootStore.deviceId, rootStore.downloadStore.downloads.size ]);
+	}, [ rootStore.deviceId, downloadStore.downloads.size ]);
 
 	if (!(isSplashReady && rootStore.storeLoaded) && !skipLoadingScreen) {
 		return null;

@@ -23,7 +23,7 @@ import RefreshWebView from './RefreshWebView';
 
 const NativeShellWebView = observer(
 	function NativeShellWebView(props, ref) {
-		const { rootStore } = useStores();
+		const { rootStore, downloadStore } = useStores();
 		const [ isRefreshing, setIsRefreshing ] = useState(false);
 
 		const server = rootStore.serverStore.servers[rootStore.settingStore.activeServer];
@@ -96,7 +96,7 @@ true;
 						const url = new URL(data.item.url);
 						const apiKey = url.searchParams.get('api_key');
 						/* eslint-enable no-case-declarations */
-						rootStore.downloadStore.add(new DownloadModel(
+						downloadStore.add(new DownloadModel(
 							data.item.itemId,
 							data.item.serverId,
 							server.urlString,

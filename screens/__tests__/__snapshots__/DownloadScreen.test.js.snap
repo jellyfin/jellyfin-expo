@@ -23,12 +23,12 @@ exports[`DownloadScreen should render correctly 1`] = `
     }
     data={
       Array [
-        Object {
-          "__mobx_sync_versions__": undefined,
+        DownloadModel {
           "apiKey": "api-key",
           "downloadUrl": "https://example.com/download",
           "filename": "file name.mkv",
           "isComplete": false,
+          "isDownloading": false,
           "isNew": true,
           "itemId": "item-id",
           "serverId": "server-id",
@@ -36,12 +36,12 @@ exports[`DownloadScreen should render correctly 1`] = `
           "sessionId": "uuid-0",
           "title": "title",
         },
-        Object {
-          "__mobx_sync_versions__": undefined,
+        DownloadModel {
           "apiKey": "api-key",
           "downloadUrl": "https://test2.example.com/download",
           "filename": "other file name.mkv",
           "isComplete": false,
+          "isDownloading": false,
           "isNew": true,
           "itemId": "item-id-2",
           "serverId": "server-id",
@@ -52,9 +52,33 @@ exports[`DownloadScreen should render correctly 1`] = `
       ]
     }
     extraData={
-      Object {
-        "server-id_item-id": [Circular],
-        "server-id_item-id-2": [Circular],
+      Map {
+        "server-id_item-id" => DownloadModel {
+          "apiKey": "api-key",
+          "downloadUrl": "https://example.com/download",
+          "filename": "file name.mkv",
+          "isComplete": false,
+          "isDownloading": false,
+          "isNew": true,
+          "itemId": "item-id",
+          "serverId": "server-id",
+          "serverUrl": "https://example.com/",
+          "sessionId": "uuid-0",
+          "title": "title",
+        },
+        "server-id_item-id-2" => DownloadModel {
+          "apiKey": "api-key",
+          "downloadUrl": "https://test2.example.com/download",
+          "filename": "other file name.mkv",
+          "isComplete": false,
+          "isDownloading": false,
+          "isNew": true,
+          "itemId": "item-id-2",
+          "serverId": "server-id",
+          "serverUrl": "https://test2.example.com/",
+          "sessionId": "uuid-1",
+          "title": "other title",
+        },
       }
     }
     getItem={[Function]}

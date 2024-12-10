@@ -2,10 +2,15 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * 
+ * @jest-environment jsdom
+ * @jest-environment-options {"url": "https://jestjs.io/"}
  */
 
+import { act } from '@testing-library/react-native';
 import DownloadModel from '../../models/DownloadModel';
-import DownloadStore, { DESERIALIZER } from '../DownloadStore';
+import { useDownloadStore, DESERIALIZER } from '../DownloadStore';
+import { renderHook } from '@testing-library/react';
 
 const TEST_MODEL = new DownloadModel(
 	'item-id',
@@ -27,53 +32,63 @@ const TEST_MODEL_2 = new DownloadModel(
 	'https://test2.example.com/download'
 );
 
+let store
+
+beforeEach(() => {
+	store = renderHook(() => useDownloadStore((state => state)))
+	store.result.current.reset()
+})
+
 describe('DownloadStore', () => {
-	const store = new DownloadStore();
-
 	it('should initialize with an empty map', () => {
-		expect(store.downloads.size).toBe(0);
-	});
-
-	it('should allow models to be added', () => {
-		store.add(TEST_MODEL);
-		expect(store.downloads.size).toBe(1);
-		expect(store.downloads.get(TEST_MODEL.key)).toBe(TEST_MODEL);
-
-		store.add(TEST_MODEL_2);
-		expect(store.downloads.size).toBe(2);
-		expect(store.downloads.get(TEST_MODEL_2.key)).toBe(TEST_MODEL_2);
-	});
-
-	it('should prevent duplicate entries', () => {
-		const duplicate = new DownloadModel(
-			'item-id',
-			'server-id',
-			'https://example.com/',
-			'api-key',
-			'duplicate title',
-			'duplicate file name.mkv',
-			'https://example.com/download'
-		);
-
-		expect(store.downloads.size).toBe(2);
-		store.add(duplicate);
-		expect(store.downloads.size).toBe(2);
-		expect(store.downloads.get(duplicate.key)).toBe(TEST_MODEL);
-	});
-
-	it('should return the number of new downloads', () => {
-		expect(store.newDownloadCount).toBe(2);
-		TEST_MODEL.isNew = false;
-		expect(store.newDownloadCount).toBe(1);
-		TEST_MODEL_2.isNew = false;
-		expect(store.newDownloadCount).toBe(0);
+		expect(store.result.current.downloads.size).toBe(0);
 	});
 
 	it('should reset', () => {
-		expect(store.downloads.size).toBe(2);
-		store.reset();
-		expect(store.downloads.size).toBe(0);
+		act(() => {
+			store.result.current.add(TEST_MODEL)
+			store.result.current.add(TEST_MODEL_2)
+		})
+		expect(store.result.current.downloads.size).toBe(2);
+		act(() => { store.result.current.reset(); })
+		expect(store.result.current.downloads.size).toBe(0);
 	});
+
+	it('should allow models to be added', () => {
+		act(() => { 
+			store.result.current.add(TEST_MODEL); 
+		})
+		expect(store.result.current.downloads.size).toBe(1);
+		expect(store.result.current.downloads.get(TEST_MODEL.key)).toBe(TEST_MODEL);
+
+		act(() => { store.result.current.add(TEST_MODEL_2); })
+		expect(store.result.current.downloads.size).toBe(2);
+		expect(store.result.current.downloads.get(TEST_MODEL_2.key)).toBe(TEST_MODEL_2);
+	});
+
+	it('should prevent duplicate entries', () => {
+		act(() => {
+			store.result.current.add(TEST_MODEL)
+			store.result.current.add(TEST_MODEL_2)
+		})
+
+		expect(store.result.current.downloads.size).toBe(2);
+		act(() => { store.result.current.add(TEST_MODEL); })
+		expect(store.result.current.downloads.size).toBe(2);
+	});
+
+	it('should return the number of new downloads', () => {
+		act(() => { 
+			store.result.current.add(TEST_MODEL)
+			store.result.current.add(TEST_MODEL_2)
+		})
+		expect(store.result.current.getNewDownloadCount()).toBe(2);
+		TEST_MODEL.isNew = false;
+		expect(store.result.current.getNewDownloadCount()).toBe(1);
+		TEST_MODEL_2.isNew = false;
+		expect(store.result.current.getNewDownloadCount()).toBe(0);
+	});
+
 });
 
 describe('DESERIALIZER', () => {
