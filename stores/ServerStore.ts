@@ -49,41 +49,9 @@ export const useServerStore = create<State & Actions>()((set, get) => ({
 		set({ servers })
 	},
 	reset: () => set({servers: []}),
-	fetchInfo: async () => { // Mobx provided a `.pending` member on the return type of this. May be we need to do something else with its promise
+	fetchInfo: async () => {
 		await Promise.all(
 			get().servers.map(server => server.fetchInfo())
 		)
 	}
 }))
-
-// export default class ServerStore {
-// 	servers = []
-
-// 	addServer(server) {
-// 		this.servers.push(new ServerModel(uuidv4(), server.url));
-// 	}
-
-// 	removeServer(index) {
-// 		this.servers.splice(index, 1);
-// 	}
-
-// 	reset() {
-// 		this.servers = [];
-// 	}
-
-// 	fetchInfo = task(async () => {
-// 		await Promise.all(
-// 			this.servers.map(server => server.fetchInfo())
-// 		);
-// 	})
-// }
-
-// decorate(ServerStore, {
-// 	servers: [
-// 		format(DESERIALIZER),
-// 		observable
-// 	],
-// 	addServer: action,
-// 	removeServer: action,
-// 	reset: action
-// });

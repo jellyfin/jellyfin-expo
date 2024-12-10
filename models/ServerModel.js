@@ -37,8 +37,11 @@ export default class ServerModel {
 	}
 
 	/**
-	 * Development note -- this was originally wrapped in mobx task(), which provides some state tracking on asynchronous operations.
-	 * This has been re-implemented with an async call
+	 * Development note -- this was originally wrapped in mobx task(), which 
+	 * provides some state tracking on asynchronous operations. This has been 
+	 * re-implemented with a direct async call, but if the .pending property is
+	 * actively needed, a fetch hook will need to be written around this to track
+	 * the status of the request.
 	 */
 	fetchInfo = async () => {
 		return fetchServerInfo(this)
@@ -52,15 +55,3 @@ export default class ServerModel {
 			});
 	}
 }
-
-// decorate(ServerModel, {
-// 	id: observable,
-// 	url: observable,
-// 	online: [
-// 		ignore,
-// 		observable
-// 	],
-// 	info: observable,
-// 	name: computed,
-// 	parseUrlString: computed
-// });

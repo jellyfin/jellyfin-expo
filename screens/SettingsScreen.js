@@ -246,7 +246,7 @@ const SettingsScreen = observer(() => {
 				sections={getSections()}
 				extraData={{
 					activeServer: rootStore.settingStore.activeServer,
-					isFetching: serverStore.fetchInfo.pending // TODO: .pending is a hang-over from mobx. If the data is not used, it doesn't matter, but if it needs to be used, a hook needs to be written around this missing property
+					isFetching: serverStore.fetchInfo.pending
 				}}
 				renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
 				renderSectionHeader={({ section: { data, title, hideHeader } }) => {
