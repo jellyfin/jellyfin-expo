@@ -38,18 +38,16 @@ describe('RootStore', () => {
 	it('should reset to the default values', () => {
 		const storeHook = renderHook(() => useRootStore((state) => state))
 
-		store = storeHook.result.current
-
 		act(() => {
 			storeHook.result.current.isFullscreen = true;
 			storeHook.result.current.isReloadRequired = true;
 			storeHook.result.current.didPlayerCloseManually = false;
 		})
 
-		store.downloadStore.reset = jest.fn();
-		store.mediaStore.reset = jest.fn();
-		store.serverStore.reset = jest.fn();
-		store.settingStore.reset = jest.fn();
+		storeHook.result.current.downloadStore.reset = jest.fn();
+		storeHook.result.current.mediaStore.reset = jest.fn();
+		storeHook.result.current.serverStore.reset = jest.fn();
+		storeHook.result.current.settingStore.reset = jest.fn();
 
 		expect(storeHook.result.current.storeLoaded).toBe(false);
 		expect(storeHook.result.current.isFullscreen).toBe(true);
@@ -61,7 +59,7 @@ describe('RootStore', () => {
 		expect(storeHook.result.current.settingStore.reset).not.toHaveBeenCalled();
 
 		act(() => {
-			store.reset();
+			storeHook.result.current.reset();
 		})
 
 		expect(storeHook.result.current.storeLoaded).toBe(true);
