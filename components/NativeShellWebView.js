@@ -7,7 +7,6 @@
 import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
-import { action } from 'mobx';
 import React, { useState } from 'react';
 import { BackHandler, Platform } from 'react-native';
 
@@ -75,7 +74,7 @@ true;
 		setIsRefreshing(false);
 	};
 
-	const onMessage = action(({ nativeEvent: state }) => {
+	const onMessage = ({ nativeEvent: state }) => {
 		try {
 			const { event, data } = JSON.parse(state.data);
 			switch (event) {
@@ -157,7 +156,7 @@ true;
 		} catch (ex) {
 			console.warn('Exception handling message', state.data);
 		}
-	});
+	};
 
 	return (
 		<RefreshWebView

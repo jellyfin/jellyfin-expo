@@ -45,10 +45,10 @@ export default class ServerModel {
 	 */
 	fetchInfo = async () => {
 		return fetchServerInfo(this)
-			.then(action(info => {
+			.then((info) => {
 				this.online = true;
 				this.info = info;
-			}))
+			})
 			.catch((err) => {
 				console.warn(err);
 				this.online = false;

@@ -6,7 +6,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import compareVersions from 'compare-versions';
-import { action } from 'mobx';
 import React, { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Platform, SectionList, StyleSheet, View } from 'react-native';
@@ -46,7 +45,7 @@ const SettingsScreen = () => {
 				{ text: t('common.cancel') },
 				{
 					text: t('alerts.deleteServer.confirm'),
-					onPress: action(() => {
+					onPress: () => {
 						// Remove server and update active server
 						serverStore.removeServer(index);
 						settingStore.activeServer = 0;
@@ -59,18 +58,18 @@ const SettingsScreen = () => {
 							// No servers are present, navigate to add server screen
 							navigation.replace(Screens.AddServerScreen);
 						}
-					}),
+					},
 					style: 'destructive'
 				}
 			]
 		);
 	};
 
-	const onSelectServer = action(index => {
+	const onSelectServer = (index) => {
 		settingStore.activeServer = index;
 		navigation.replace(Screens.HomeScreen);
 		navigation.navigate(Screens.HomeTab);
-	});
+	};
 
 	const onResetApplication = () => {
 		Alert.alert(
@@ -80,13 +79,13 @@ const SettingsScreen = () => {
 				{ text: t('common.cancel') },
 				{
 					text: t('alerts.resetApplication.confirm'),
-					onPress: action(() => {
+					onPress: () => {
 						// Reset data in stores
 						rootStore.reset();
 						AsyncStorage.clear();
 						// Navigate to the loading screen
 						navigation.replace(Screens.AddServerScreen);
-					}),
+					},
 					style: 'destructive'
 				}
 			]
@@ -107,7 +106,7 @@ const SettingsScreen = () => {
 			key: 'keep-awake-switch',
 			title: t('settings.keepAwake'),
 			value: settingStore.isScreenLockEnabled,
-			onValueChange: action(value => settingStore.isScreenLockEnabled = value)
+			onValueChange: (value) => settingStore.isScreenLockEnabled = value
 		}];
 
 		// Orientation lock is not supported on iPad without disabling multitasking
@@ -117,7 +116,7 @@ const SettingsScreen = () => {
 				key: 'rotation-lock-switch',
 				title: t('settings.rotationLock'),
 				value: settingStore.isRotationLockEnabled,
-				onValueChange: action(value => settingStore.isRotationLockEnabled = value)
+				onValueChange: (value) => settingStore.isRotationLockEnabled = value
 			});
 		}
 
@@ -132,10 +131,10 @@ const SettingsScreen = () => {
 					value: t('common.beta')
 				},
 				value: settingStore.isNativeVideoPlayerEnabled,
-				onValueChange: action(value => {
+				onValueChange: (value) => {
 					settingStore.isNativeVideoPlayerEnabled = value;
 					rootStore.isReloadRequired = true;
-				})
+				}
 			});
 
 			if (compareVersions.compare(Platform.Version, '12', '>')) {
@@ -144,10 +143,10 @@ const SettingsScreen = () => {
 					title: t('settings.fmp4Support'),
 					value: settingStore.isFmp4Enabled,
 					disabled: !settingStore.isNativeVideoPlayerEnabled,
-					onValueChange: action(value => {
+					onValueChange: (value) => {
 						settingStore.isFmp4Enabled = value;
 						rootStore.isReloadRequired = true;
-					})
+					}
 				});
 			}
 		}
@@ -156,7 +155,7 @@ const SettingsScreen = () => {
 			key: 'tab-labels-switch',
 			title: t('settings.tabLabels'),
 			value: settingStore.isTabLabelsEnabled,
-			onValueChange: action(value => settingStore.isTabLabelsEnabled = value)
+			onValueChange: (value) => settingStore.isTabLabelsEnabled = value
 		}];
 
 		if (isSystemThemeSupported()) {
@@ -164,7 +163,7 @@ const SettingsScreen = () => {
 				key: 'system-theme-switch',
 				title: t('settings.systemTheme'),
 				value: settingStore.isSystemThemeEnabled,
-				onValueChange: action(value => settingStore.isSystemThemeEnabled = value)
+				onValueChange: (value) => settingStore.isSystemThemeEnabled = value
 			});
 		}
 
@@ -174,7 +173,7 @@ const SettingsScreen = () => {
 			title: t('settings.lightTheme'),
 			disabled: settingStore.isSystemThemeEnabled,
 			value: settingStore.themeId === 'light',
-			onValueChange: action(value => settingStore.themeId = value ? 'light' : 'dark')
+			onValueChange: (value) => settingStore.themeId = value ? 'light' : 'dark'
 		});
 
 		return [

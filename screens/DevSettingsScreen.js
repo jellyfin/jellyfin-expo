@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { action } from 'mobx';
 import React, { useContext } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
@@ -36,10 +35,10 @@ const DevSettingsScreen = () => {
 							status: 'error'
 						},
 						value: settingStore.isExperimentalNativeAudioPlayerEnabled,
-						onValueChange: action(value => {
+						onValueChange: (value) => {
 							settingStore.isExperimentalNativeAudioPlayerEnabled = value;
 							rootStore.isReloadRequired = true;
-						})
+						}
 					},
 					{
 						key: 'experimental-downloads-switch',
@@ -49,10 +48,10 @@ const DevSettingsScreen = () => {
 							status: 'error'
 						},
 						value: settingStore.isExperimentalDownloadsEnabled,
-						onValueChange: action(value => {
+						onValueChange: (value) => {
 							settingStore.isExperimentalDownloadsEnabled = value;
 							rootStore.isReloadRequired = true;
-						})
+						}
 					}
 				]}
 				renderItem={SwitchListItem}

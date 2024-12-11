@@ -34,7 +34,7 @@ const ServerInput = function ServerInput({
 		const { t } = useTranslation();
 		const { theme } = useContext(ThemeContext);
 
-		const onAddServer = action(async () => {
+		const onAddServer = async () => {
 			console.log('add server', host);
 			if (!host) {
 				setIsValid(false);
@@ -90,7 +90,7 @@ const ServerInput = function ServerInput({
 					}
 				}
 			);
-		});
+		};
 
 		return (
 			<Input
