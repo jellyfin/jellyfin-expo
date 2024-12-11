@@ -33,10 +33,19 @@ type Actions = {
 export type RootStore = State & Actions
 
 const initialState: State = {
+	/** Generate a random unique device id */
 	deviceId: uuidv4(),
+
+	/** Has the store been loaded from storage */
 	storeLoaded: false,
+
+	/** Is the fullscreen interface active */
 	isFullscreen: false,
+
+	/** Does the webview require a reload */
 	isReloadRequired: false,
+
+	/** Was the native player closed manually */
 	didPlayerCloseManually: true,
 }
 
