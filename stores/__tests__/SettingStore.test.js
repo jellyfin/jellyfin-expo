@@ -9,7 +9,7 @@
 import { Platform } from 'react-native';
 
 import Themes from '../../themes';
-import SettingStore, { useSettingStore } from '../SettingStore';
+import { useSettingStore } from '../SettingStore';
 import { renderHook } from '@testing-library/react';
 import { act } from '@testing-library/react-native';
 
@@ -72,11 +72,11 @@ describe('SettingStore', () => {
 	it('should use the system theme when enabled', () => {
 		const store = renderHook(() => useSettingStore((state) => state))
 		act(() => { store.result.current.reset() })
-		act(() => { store.result.current.isSystemThemeEnabled = true })
+		act(() => { store.result.current.set({isSystemThemeEnabled: true }) })
 
 		expect(store.result.current.getTheme()).toBe(Themes.dark);
 
-		act(() => { store.result.current.systemThemeId = 'light'; })
+		act(() => { store.result.current.set({ systemThemeId: 'light' }) })
 		expect(store.result.current.getTheme()).toBe(Themes.light);
 	});
 
@@ -85,9 +85,11 @@ describe('SettingStore', () => {
 		act(() => { store.result.current.reset() })
 
 		act(() => {
-			store.result.current.isSystemThemeEnabled = true;
-			store.result.current.systemThemeId = 'no-preference';
-			store.result.current.themeId = 'light';
+			store.result.current.set({
+				isSystemThemeEnabled: true,
+				systemThemeId: 'no-preference',
+				themeId: 'light'
+			})
 		})
 
 		expect(store.result.current.getTheme()).toBe(Themes.light);
@@ -105,16 +107,18 @@ describe('SettingStore', () => {
 		act(() => { store.result.current.reset() })
 
 		act(() => {
-			store.result.current.activeServer = 99;
-			store.result.current.isRotationLockEnabled = false;
-			store.result.current.isScreenLockEnabled = true;
-			store.result.current.isTabLabelsEnabled = false;
-			store.result.current.themeId = 'light';
-			store.result.current.systemThemeId = 'dark';
-			store.result.current.isSystemThemeEnabled = true;
-			store.result.current.isNativeVideoPlayerEnabled = true;
-			store.result.current.isFmp4Enabled = false;
-			store.result.current.isExperimentalDownloadsEnabled = true;
+			store.result.current.set({
+				activeServer: 99,
+				isRotationLockEnabled: false,
+				isScreenLockEnabled: true,
+				isTabLabelsEnabled: false,
+				themeId: 'light',
+				systemThemeId: 'dark',
+				isSystemThemeEnabled: true,
+				isNativeVideoPlayerEnabled: true,
+				isFmp4Enabled: false,
+				isExperimentalDownloadsEnabled: true
+			})
 		})
 
 		expect(store.result.current.activeServer).toBe(99);

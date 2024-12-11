@@ -29,9 +29,11 @@ describe('RootStore', () => {
 		const storeHook = renderHook(() => useRootStore((state) => state))
 
 		act(() => {
-			storeHook.result.current.isFullscreen = true;
-			storeHook.result.current.isReloadRequired = true;
-			storeHook.result.current.didPlayerCloseManually = false;
+			storeHook.result.current.set({
+				isFullscreen: true,
+				isReloadRequired: true,
+				didPlayerCloseManually: false
+			})
 		})
 
 

@@ -33,15 +33,17 @@ describe('MediaStore', () => {
 		const store = renderHook(() => useMediaStore((state) => state))
 
 		act(() => {
-			store.result.current.type = MediaTypes.Video;
-			store.result.current.uri = 'https://foobar';
-			store.result.current.isFinished = true;
-			store.result.current.isLocalFile = true;
-			store.result.current.isPlaying = true;
-			store.result.current.positionTicks = 3423000;
-			store.result.current.backdropUri = 'https://foobar';
-			store.result.current.shouldPlayPause = true;
-			store.result.current.shouldStop = true;
+			store.result.current.set({
+				type: MediaTypes.Video,
+				uri: 'https://foobar',
+				isFinished: true,
+				isLocalFile: true,
+				isPlaying: true,
+				positionTicks: 3423000,
+				backdropUri: 'https://foobar',
+				shouldPlayPause: true,
+				shouldStop: true,
+			})
 		})
 
 		expect(store.result.current.type).toBe(MediaTypes.Video);
