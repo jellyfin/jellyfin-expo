@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { useNavigation } from '@react-navigation/native';
-import { action } from 'mobx';
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
