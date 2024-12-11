@@ -133,7 +133,7 @@ const SettingsScreen = () => {
 				value: settingStore.isNativeVideoPlayerEnabled,
 				onValueChange: (value) => {
 					settingStore.set({isNativeVideoPlayerEnabled: value});
-					rootStore.isReloadRequired = true;
+					rootStore.set({isReloadRequired: true});
 				}
 			});
 
@@ -145,7 +145,7 @@ const SettingsScreen = () => {
 					disabled: !settingStore.isNativeVideoPlayerEnabled,
 					onValueChange: (value) => {
 						settingStore.set({isFmp4Enabled: value});
-						rootStore.isReloadRequired = true;
+						rootStore.set({isReloadRequired: true});
 					}
 				});
 			}

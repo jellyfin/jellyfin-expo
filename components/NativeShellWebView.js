@@ -82,10 +82,10 @@ true;
 					BackHandler.exitApp();
 					break;
 				case 'enableFullscreen':
-					rootStore.isFullscreen = true;
+					rootStore.set({isFullscreen: true});
 					break;
 				case 'disableFullscreen':
-					rootStore.isFullscreen = false;
+					rootStore.set({isFullscreen: false});
 					break;
 				case 'downloadFile':
 					console.log('Download item', data);

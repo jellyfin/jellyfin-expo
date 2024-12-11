@@ -49,7 +49,7 @@ const App = ({ skipLoadingScreen }) => {
 	const hydrateStores = async () => {
 		await trunk.init();
 
-		rootStore.storeLoaded = true;
+		rootStore.set({storeLoaded: true});
 	};
 
 	const loadImages = () => {
