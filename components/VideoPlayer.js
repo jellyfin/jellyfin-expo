@@ -49,7 +49,7 @@ const VideoPlayer = () => {
 			} else {
 				player.current?.playAsync();
 			}
-			mediaStore.shouldPlayPause = false;
+			mediaStore.set({shouldPlayPause: false});
 		}
 	}, [ mediaStore.shouldPlayPause ]);
 
@@ -58,7 +58,7 @@ const VideoPlayer = () => {
 		if (mediaStore.type === MediaTypes.Video && mediaStore.shouldStop) {
 			rootStore.set({didPlayerCloseManually: false});
 			closeFullscreen();
-			mediaStore.shouldStop = false;
+			mediaStore.set({shouldStop: false});
 		}
 	}, [ mediaStore.shouldStop ]);
 
@@ -95,8 +95,10 @@ const VideoPlayer = () => {
 					closeFullscreen();
 					return;
 				}
-				mediaStore.isPlaying = isPlaying;
-				mediaStore.positionTicks = msToTicks(positionMillis);
+				mediaStore.set({
+					isPlaying: isPlaying,
+					positionTicks: msToTicks(positionMillis)
+				});
 			}}
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
 				switch (fullscreenUpdate) {

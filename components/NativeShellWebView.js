@@ -67,7 +67,7 @@ true;
 		if (rootStore.isFullscreen) return;
 
 		// Stop media playback in native players
-		mediaStore.shouldStop = true;
+		mediaStore.set({shouldStop: true});
 
 		setIsRefreshing(true);
 		ref.current?.reload();
@@ -121,19 +121,21 @@ true;
 					break;
 				case 'ExpoAudioPlayer.play':
 				case 'ExpoVideoPlayer.play':
-					mediaStore.type = event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video;
-					mediaStore.uri = data.url;
-					mediaStore.backdropUri = data.backdropUrl;
-					mediaStore.isFinished = false;
-					mediaStore.positionTicks = data.playerStartPositionTicks;
+					mediaStore.set({
+						type: event === 'ExpoAudioPlayer.play' ? MediaTypes.Audio : MediaTypes.Video,
+						uri: data.url,
+						backdropUri: data.backdropUrl,
+						isFinished: false,
+						positionTicks: data.playerStartPositionTicks
+					});
 					break;
 				case 'ExpoAudioPlayer.playPause':
 				case 'ExpoVideoPlayer.playPause':
-					mediaStore.shouldPlayPause = true;
+					mediaStore.set({shouldPlayPause: true});
 					break;
 				case 'ExpoAudioPlayer.stop':
 				case 'ExpoVideoPlayer.stop':
-					mediaStore.shouldStop = true;
+					mediaStore.set({shouldStop: true});
 					break;
 				case 'console.debug':
 					// console.debug('[Browser Console]', data);

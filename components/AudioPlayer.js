@@ -60,9 +60,11 @@ const AudioPlayer = () => {
 					) {
 						return;
 					}
-					mediaStore.isFinished = didJustFinish;
-					mediaStore.isPlaying = isPlaying;
-					mediaStore.positionTicks = msToTicks(positionMs);
+					mediaStore.set({
+						isFinished: didJustFinish,
+						isPlaying: isPlaying,
+						positionTicks: msToTicks(positionMs)
+					});
 				});
 				setPlayer(sound);
 			}
@@ -84,7 +86,7 @@ const AudioPlayer = () => {
 			} else {
 				player?.playAsync();
 			}
-			mediaStore.shouldPlayPause = false;
+			mediaStore.set({shouldPlayPause: false});
 		}
 	}, [ mediaStore.shouldPlayPause ]);
 
@@ -93,7 +95,7 @@ const AudioPlayer = () => {
 		if (mediaStore.type === MediaTypes.Audio && mediaStore.shouldStop) {
 			player?.stopAsync();
 			player?.unloadAsync();
-			mediaStore.shouldStop = false;
+			mediaStore.set({shouldStop: false});
 		}
 	}, [ mediaStore.shouldStop ]);
 

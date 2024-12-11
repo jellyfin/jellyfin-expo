@@ -137,9 +137,11 @@ const DownloadScreen = () => {
 						}}
 						onPlay={async () => {
 							item.isNew = false;
-							mediaStore.isLocalFile = true;
-							mediaStore.type = MediaTypes.Video;
-							mediaStore.uri = item.uri;
+							mediaStore.set({
+								isLocalFile: true,
+								type: MediaTypes.Video,
+								uri: item.uri
+							});
 						}}
 					/>
 				)}
