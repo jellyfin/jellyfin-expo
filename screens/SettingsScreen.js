@@ -48,7 +48,7 @@ const SettingsScreen = () => {
 					onPress: () => {
 						// Remove server and update active server
 						serverStore.removeServer(index);
-						settingStore.activeServer = 0;
+						settingStore.set({activeServer: 0});
 
 						if (serverStore.servers.length > 0) {
 							// More servers exist, navigate home
@@ -66,7 +66,7 @@ const SettingsScreen = () => {
 	};
 
 	const onSelectServer = (index) => {
-		settingStore.activeServer = index;
+		settingStore.set({activeServer: index});
 		navigation.replace(Screens.HomeScreen);
 		navigation.navigate(Screens.HomeTab);
 	};
@@ -106,7 +106,7 @@ const SettingsScreen = () => {
 			key: 'keep-awake-switch',
 			title: t('settings.keepAwake'),
 			value: settingStore.isScreenLockEnabled,
-			onValueChange: (value) => settingStore.isScreenLockEnabled = value
+			onValueChange: (value) => settingStore.set({isScreenLockEnabled: value})
 		}];
 
 		// Orientation lock is not supported on iPad without disabling multitasking
@@ -116,7 +116,7 @@ const SettingsScreen = () => {
 				key: 'rotation-lock-switch',
 				title: t('settings.rotationLock'),
 				value: settingStore.isRotationLockEnabled,
-				onValueChange: (value) => settingStore.isRotationLockEnabled = value
+				onValueChange: (value) => settingStore.set({isRotationLockEnabled: value})
 			});
 		}
 
@@ -132,7 +132,7 @@ const SettingsScreen = () => {
 				},
 				value: settingStore.isNativeVideoPlayerEnabled,
 				onValueChange: (value) => {
-					settingStore.isNativeVideoPlayerEnabled = value;
+					settingStore.set({isNativeVideoPlayerEnabled: value});
 					rootStore.isReloadRequired = true;
 				}
 			});
@@ -144,7 +144,7 @@ const SettingsScreen = () => {
 					value: settingStore.isFmp4Enabled,
 					disabled: !settingStore.isNativeVideoPlayerEnabled,
 					onValueChange: (value) => {
-						settingStore.isFmp4Enabled = value;
+						settingStore.set({isFmp4Enabled: value});
 						rootStore.isReloadRequired = true;
 					}
 				});
@@ -155,7 +155,7 @@ const SettingsScreen = () => {
 			key: 'tab-labels-switch',
 			title: t('settings.tabLabels'),
 			value: settingStore.isTabLabelsEnabled,
-			onValueChange: (value) => settingStore.isTabLabelsEnabled = value
+			onValueChange: (value) => settingStore.set({isTabLabelsEnabled: value})
 		}];
 
 		if (isSystemThemeSupported()) {
@@ -163,7 +163,7 @@ const SettingsScreen = () => {
 				key: 'system-theme-switch',
 				title: t('settings.systemTheme'),
 				value: settingStore.isSystemThemeEnabled,
-				onValueChange: (value) => settingStore.isSystemThemeEnabled = value
+				onValueChange: (value) => settingStore.set({isSystemThemeEnabled: value})
 			});
 		}
 
@@ -173,7 +173,7 @@ const SettingsScreen = () => {
 			title: t('settings.lightTheme'),
 			disabled: settingStore.isSystemThemeEnabled,
 			value: settingStore.themeId === 'light',
-			onValueChange: (value) => settingStore.themeId = value ? 'light' : 'dark'
+			onValueChange: (value) => settingStore.set({themeId: value ? 'light' : 'dark'})
 		});
 
 		return [

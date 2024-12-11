@@ -36,7 +36,7 @@ const DevSettingsScreen = () => {
 						},
 						value: settingStore.isExperimentalNativeAudioPlayerEnabled,
 						onValueChange: (value) => {
-							settingStore.isExperimentalNativeAudioPlayerEnabled = value;
+							settingStore.set({isExperimentalNativeAudioPlayerEnabled: value});
 							rootStore.isReloadRequired = true;
 						}
 					},
@@ -49,7 +49,7 @@ const DevSettingsScreen = () => {
 						},
 						value: settingStore.isExperimentalDownloadsEnabled,
 						onValueChange: (value) => {
-							settingStore.isExperimentalDownloadsEnabled = value;
+							settingStore.set({isExperimentalDownloadsEnabled: value});
 							rootStore.isReloadRequired = true;
 						}
 					}

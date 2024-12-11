@@ -38,7 +38,7 @@ const App = ({ skipLoadingScreen }) => {
 	const { rootStore, downloadStore, settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
-	settingStore.systemThemeId = useColorScheme();
+	settingStore.set({systemThemeId: useColorScheme()});
 
 	SplashScreen.preventAutoHideAsync();
 

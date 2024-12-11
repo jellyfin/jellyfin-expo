@@ -74,7 +74,7 @@ const ServerInput = function ServerInput({
 
 			// Save the server details
 			serverStore.addServer({ url });
-			settingStore.activeServer = serverStore.servers.length - 1;
+			settingStore.set({activeServer: serverStore.servers.length - 1});
 			// Call the success callback
 			onSuccess();
 
