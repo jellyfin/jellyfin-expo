@@ -19,7 +19,7 @@ import { openBrowser } from '../utils/WebBrowser';
 
 import RefreshWebView from './RefreshWebView';
 
-const NativeShellWebView = (props) => {
+const NativeShellWebView = (props, ref) => {
 	const { rootStore, downloadStore, serverStore, mediaStore, settingStore } = useStores();
 	const [ isRefreshing, setIsRefreshing ] = useState(false);
 
@@ -162,7 +162,7 @@ true;
 
 	return (
 		<RefreshWebView
-			// ref={ref}
+			ref={ref}
 			// Allow any origin blocking can break various things like book playback
 			originWhitelist={[ '*' ]}
 			source={{ uri: server.urlString }}
