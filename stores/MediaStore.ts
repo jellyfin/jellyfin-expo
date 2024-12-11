@@ -36,6 +36,8 @@ type State = {
 }
 
 type Actions = {
+	set: (v: Partial<State>) => void,
+
 	/** Current position in milliseconds */
 	getPositionMillis: () => number,
 
@@ -57,10 +59,11 @@ const initialState: State = {
 	shouldStop: false
 }
 
-export const useMediaStore = create<State & Actions>()((set, get) => ({
+export const useMediaStore = create<State & Actions>()((_set, _get) => ({
 	...initialState,
-	getPositionMillis: () => ticksToMs(get().positionTicks),
+	set: (state) => { _set({...state} )},
+	getPositionMillis: () => ticksToMs(_get().positionTicks),
 	reset: () => {
-		set({ ...initialState })
+		_set({ ...initialState })
 	}
 }))

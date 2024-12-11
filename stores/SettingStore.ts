@@ -45,6 +45,7 @@ type State = {
 }
 
 type Actions = {
+	set: (v: Partial<State>) => void,
 	getTheme: () => any, // TODO: get typing on themes and put it here
 	reset: () => void
 }
@@ -67,10 +68,11 @@ const initialState: () => State = () => ({
 	systemThemeId: null,
 })
 
-export const useSettingStore = create<SettingStore>()((set, get) => ({
+export const useSettingStore = create<SettingStore>()((_set, _get) => ({
 	...initialState(),
+	set: (state) => { _set({...state} )},
 	getTheme: () => {
-		const state = get()
+		const state = _get()
 		const id = state.isSystemThemeEnabled 
 			&& state.systemThemeId 
 			&& state.systemThemeId !== 'no-preference' 
@@ -80,6 +82,6 @@ export const useSettingStore = create<SettingStore>()((set, get) => ({
 		return Themes[id] || Themes.dark;
 	},
 	reset: () => {
-		set({ ...initialState() })
+		_set({ ...initialState() })
 	}
 }))

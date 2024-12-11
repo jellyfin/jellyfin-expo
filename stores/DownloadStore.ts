@@ -34,6 +34,7 @@ type State = {
 type Actions = {
 	getNewDownloadCount: () => number,
 	add: (v: DownloadModel) => void,
+	remove: (v: number) => void,
 	reset: () => void
 }
 
@@ -43,17 +44,18 @@ const initialState: State = {
 	downloads: new Map<String, DownloadModel>()
 }
 
-export const useDownloadStore = create<State & Actions>()((set, get) => ({
+export const useDownloadStore = create<State & Actions>()((_set, _get) => ({
 	...initialState,
 	getNewDownloadCount: () => Array
-		.from(get().downloads.values())
+		.from(_get().downloads.values())
 		.filter(d => d.isNew)
 		.length,
 	add: (download) => { 
-		const downloads = get().downloads
+		const downloads = _get().downloads
 		if (!downloads.has(download.key)) {
-			set({downloads: new Map([...downloads, [download.key, download]])})
+			_set({downloads: new Map([...downloads, [download.key, download]])})
 		}
 	},
-	reset: () => set({downloads: new Map()})
+	remove: (download) => {}, // TODO: Implement this
+	reset: () => _set({downloads: new Map()})
 }))

@@ -33,22 +33,22 @@ const initialState: State = {
 	servers: []
 }
 
-export const useServerStore = create<State & Actions>()((set, get) => ({
+export const useServerStore = create<State & Actions>()((_set, _get) => ({
 	...initialState,
 	addServer: (server) => {
-		const servers = get().servers
+		const servers = _get().servers
 		servers.push(new ServerModel(uuidv4(), server.url))
-		set({ servers })
+		_set({ servers })
 	},
 	removeServer: (index) => {
-		const servers = get().servers
+		const servers = _get().servers
 		servers.splice(index, 1)
-		set({ servers })
+		_set({ servers })
 	},
-	reset: () => set({servers: []}),
+	reset: () => _set({servers: []}),
 	fetchInfo: async () => {
 		await Promise.all(
-			get().servers.map(server => server.fetchInfo())
+			_get().servers.map(server => server.fetchInfo())
 		)
 	}
 }))

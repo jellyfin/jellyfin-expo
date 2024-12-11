@@ -23,6 +23,7 @@ type State = {
 }
 
 type Actions = {
+	set: (v: Partial<State>) => void,
 	getApi: () => Jellyfin,
 	reset: () => void,
 }
@@ -37,8 +38,9 @@ const initialState: State = {
 	didPlayerCloseManually: true,
 }
 
-export const useRootStore = create<State & Actions>()((set, get) => ({
+export const useRootStore = create<State & Actions>()((_set, _get) => ({
 	...initialState,
+	set: (state) => { _set({...state} )},
 	getApi: () => new Jellyfin({
 		clientInfo: {
 			name: getAppName(),
@@ -46,11 +48,11 @@ export const useRootStore = create<State & Actions>()((set, get) => ({
 		},
 		deviceInfo: {
 			name: getSafeDeviceName(),
-			id: get().deviceId
+			id: _get().deviceId
 		}
 	}),
 	reset: () => { // TODO: Confirm instances of this reset call reset all the other states as well
-		set({
+		_set({
 			deviceId: uuidv4(),
 			isFullscreen: false,
 			isReloadRequired: false,
