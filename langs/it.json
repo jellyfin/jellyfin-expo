@@ -70,7 +70,8 @@
         "source": "Codice Sorgente",
         "feature": "Richiedere una Funzionalità",
         "issue": "Segnala un Problema",
-        "translate": "Traduci"
+        "translate": "Traduci",
+        "help": "Richiedere Aiuto"
     },
     "alerts": {
         "deleteServer": {
