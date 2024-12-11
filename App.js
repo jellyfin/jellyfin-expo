@@ -17,7 +17,6 @@ import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { AsyncTrunk } from 'mobx-sync-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, useColorScheme } from 'react-native';
@@ -45,10 +44,6 @@ const App = ({ skipLoadingScreen }) => {
 	settingStore.systemThemeId = useColorScheme();
 
 	SplashScreen.preventAutoHideAsync();
-
-	const trunk = new AsyncTrunk(rootStore, {
-		storage: AsyncStorage
-	});
 
 	const hydrateStores = async () => {
 		// TODO: In release n+2 from this point, remove this conversion code.
