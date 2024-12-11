@@ -147,8 +147,8 @@ describe('SettingStore', () => {
 		expect(store.result.current.isFmp4Enabled).toBe(false);
 		expect(store.result.current.isExperimentalDownloadsEnabled).toBe(true);
 
-		act(() => { 
-			store.result.current.reset(); 
+		act(() => {
+			store.result.current.reset();
 		});
 
 		expect(store.result.current.activeServer).toBe(0);
