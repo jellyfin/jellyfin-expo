@@ -35,6 +35,6 @@ const SettingsNavigator = () => {
 			/>
 		</SettingsStack.Navigator>
 	);
-}
+};
 
 export default SettingsNavigator;

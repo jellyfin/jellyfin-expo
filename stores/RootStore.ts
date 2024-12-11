@@ -7,14 +7,14 @@
 import 'react-native-get-random-values';
 
 import { Jellyfin } from '@jellyfin/sdk';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { v4 as uuidv4 } from 'uuid';
 
-import { getAppName, getSafeDeviceName } from '../utils/Device';
-
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { getAppName, getSafeDeviceName } from '../utils/Device';
 
 type State = {
 	deviceId: string,
@@ -46,16 +46,16 @@ const initialState: State = {
 	isReloadRequired: false,
 
 	/** Was the native player closed manually */
-	didPlayerCloseManually: true,
-}
+	didPlayerCloseManually: true
+};
 
-const persistKeys = Object.keys(initialState)
+const persistKeys = Object.keys(initialState);
 
 export const useRootStore = create<State & Actions>()(
 	persist(
 		(_set, _get) => ({
 			...initialState,
-			set: (state) => { _set({ ...state }) },
+			set: (state) => { _set({ ...state }); },
 			getApi: () => new Jellyfin({
 				clientInfo: {
 					name: getAppName(),
@@ -72,15 +72,15 @@ export const useRootStore = create<State & Actions>()(
 					isFullscreen: false,
 					isReloadRequired: false,
 					didPlayerCloseManually: true,
-					storeLoaded: true,
-				})
-			},
+					storeLoaded: true
+				});
+			}
 		}), {
 			name: 'RootStore',
 			storage: createJSONStorage(() => AsyncStorage),
 			partialize: (state) => Object.fromEntries(
-				Object.entries(state).filter(([key]) => persistKeys.includes(key) ) 
+				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
 			)
 		}
 	)
-)
+);

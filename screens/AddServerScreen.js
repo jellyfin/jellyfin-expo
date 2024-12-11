@@ -18,7 +18,7 @@ import { getIconName } from '../utils/Icons';
 const AddServerScreen = () => {
 	const navigation = useNavigation();
 	const { t } = useTranslation();
-	const { rootStore, settingStore } = useStores();
+	const { settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	return (

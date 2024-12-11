@@ -2,15 +2,16 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- * 
+ *
  * @jest-environment jsdom
  * @jest-environment-options {"url": "https://jestjs.io/"}
  */
 
-import { act } from '@testing-library/react-native';
-import DownloadModel from '../../models/DownloadModel';
-import { useDownloadStore, DESERIALIZER, deserializer } from '../DownloadStore';
 import { renderHook } from '@testing-library/react';
+import { act } from '@testing-library/react-native';
+
+import DownloadModel from '../../models/DownloadModel';
+import { useDownloadStore, deserializer } from '../DownloadStore';
 
 const TEST_MODEL = new DownloadModel(
 	'item-id',
@@ -32,65 +33,73 @@ const TEST_MODEL_2 = new DownloadModel(
 	'https://test2.example.com/download'
 );
 
-let store
-
-beforeEach(() => {
-	store = renderHook(() => useDownloadStore((state => state)))
-	act(() => {
-		store.result.current.reset()
-	})
-})
-
 describe('DownloadStore', () => {
+	let store;
+	beforeEach(() => {
+		store = renderHook(() => useDownloadStore((state => state)));
+		act(() => {
+			store.result.current.reset();
+		});
+	});
+
 	it('should initialize with an empty map', () => {
 		expect(store.result.current.downloads.size).toBe(0);
 	});
 
 	it('should reset', () => {
 		act(() => {
-			store.result.current.add(TEST_MODEL)
-			store.result.current.add(TEST_MODEL_2)
-		})
+			store.result.current.add(TEST_MODEL);
+			store.result.current.add(TEST_MODEL_2);
+		});
+
 		expect(store.result.current.downloads.size).toBe(2);
-		act(() => { store.result.current.reset(); })
+
+		act(() => {
+			store.result.current.reset();
+		});
+
 		expect(store.result.current.downloads.size).toBe(0);
 	});
 
 	it('should allow models to be added', () => {
 		act(() => {
 			store.result.current.add(TEST_MODEL);
-		})
+		});
+
 		expect(store.result.current.downloads.size).toBe(1);
 		expect(store.result.current.downloads.get(TEST_MODEL.key)).toBe(TEST_MODEL);
 
-		act(() => { store.result.current.add(TEST_MODEL_2); })
+		act(() => {
+			store.result.current.add(TEST_MODEL_2);
+		});
 		expect(store.result.current.downloads.size).toBe(2);
 		expect(store.result.current.downloads.get(TEST_MODEL_2.key)).toBe(TEST_MODEL_2);
 	});
 
 	it('should prevent duplicate entries', () => {
 		act(() => {
-			store.result.current.add(TEST_MODEL)
-			store.result.current.add(TEST_MODEL_2)
-		})
+			store.result.current.add(TEST_MODEL);
+			store.result.current.add(TEST_MODEL_2);
+		});
 
 		expect(store.result.current.downloads.size).toBe(2);
-		act(() => { store.result.current.add(TEST_MODEL); })
+		act(() => {
+			store.result.current.add(TEST_MODEL);
+		});
 		expect(store.result.current.downloads.size).toBe(2);
 	});
 
 	it('should return the number of new downloads', () => {
 		act(() => {
-			store.result.current.add(TEST_MODEL)
-			store.result.current.add(TEST_MODEL_2)
-		})
+			store.result.current.add(TEST_MODEL);
+			store.result.current.add(TEST_MODEL_2);
+		});
 		expect(store.result.current.getNewDownloadCount()).toBe(2);
 		TEST_MODEL.isNew = false;
 		expect(store.result.current.getNewDownloadCount()).toBe(1);
 		TEST_MODEL_2.isNew = false;
 		expect(store.result.current.getNewDownloadCount()).toBe(0);
 	});
-
 });
 
 describe('DownloadStore deserializer', () => {

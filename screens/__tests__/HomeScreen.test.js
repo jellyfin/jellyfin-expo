@@ -62,7 +62,7 @@ describe('HomeScreen', () => {
 			},
 			settingStore: {},
 			mediaStore: {},
-			serverStore: {},
+			serverStore: {}
 		}));
 
 		const { toJSON } = render(

@@ -108,9 +108,9 @@ const DownloadScreen = () => {
 		}, [ downloadStore.downloads ])
 	);
 
-	const downloadList = []
-	console.log('downloads', downloadStore.downloads)
-	downloadStore.downloads.forEach(download => downloadList.push(download))
+	const downloadList = [];
+	console.log('downloads', downloadStore.downloads);
+	downloadStore.downloads.forEach(download => downloadList.push(download));
 
 	return (
 		<SafeAreaView

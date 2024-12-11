@@ -92,7 +92,7 @@ const HomeScreen = () => {
 	useEffect(() => {
 		if (rootStore.isReloadRequired) {
 			webview.current?.reload();
-			rootStore.set({isReloadRequired: false});
+			rootStore.set({ isReloadRequired: false });
 		}
 	}, [ rootStore.isReloadRequired ]);
 
@@ -220,7 +220,7 @@ const HomeScreen = () => {
 			)}
 		</SafeAreaView>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {

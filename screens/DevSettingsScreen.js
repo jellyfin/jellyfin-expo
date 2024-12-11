@@ -36,8 +36,8 @@ const DevSettingsScreen = () => {
 						},
 						value: settingStore.isExperimentalNativeAudioPlayerEnabled,
 						onValueChange: (value) => {
-							settingStore.set({isExperimentalNativeAudioPlayerEnabled: value});
-							rootStore.set({isReloadRequired: true});
+							settingStore.set({ isExperimentalNativeAudioPlayerEnabled: value });
+							rootStore.set({ isReloadRequired: true });
 						}
 					},
 					{
@@ -49,8 +49,8 @@ const DevSettingsScreen = () => {
 						},
 						value: settingStore.isExperimentalDownloadsEnabled,
 						onValueChange: (value) => {
-							settingStore.set({isExperimentalDownloadsEnabled: value});
-							rootStore.set({isReloadRequired: true});
+							settingStore.set({ isExperimentalDownloadsEnabled: value });
+							rootStore.set({ isReloadRequired: true });
 						}
 					}
 				]}
@@ -60,7 +60,7 @@ const DevSettingsScreen = () => {
 			/>
 		</SafeAreaView>
 	);
-}
+};
 
 const styles = StyleSheet.create({
 	container: {

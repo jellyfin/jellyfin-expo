@@ -3,13 +3,15 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import compareVersions from 'compare-versions';
 import { Platform } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import { create } from 'zustand';
+
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 import Themes from '../themes';
-import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
 
 type State = {
 	/** The id of the currently selected server */
@@ -68,35 +70,36 @@ const initialState: () => State = () => ({
 	isFmp4Enabled: true,
 	isExperimentalNativeAudioPlayerEnabled: false,
 	isExperimentalDownloadsEnabled: false,
-	systemThemeId: null,
-})
+	systemThemeId: null
+});
 
-const persistKeys = Object.keys(initialState())
+const persistKeys = Object.keys(initialState());
 
 export const useSettingStore = create<SettingStore>()(
 	persist(
 		(_set, _get) => ({
 			...initialState(),
-			set: (state) => { _set({ ...state }) },
+			set: (state) => { _set({ ...state }); },
 			getTheme: () => {
-				const state = _get()
+				const state = _get();
 				const id = state.isSystemThemeEnabled
 					&& state.systemThemeId
 					&& state.systemThemeId !== 'no-preference'
 					? state.systemThemeId
 					: state.themeId;
-				//@ts-ignore TODO: This is because Themes doesn't have type hints.
+				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+				// @ts-ignore TODO: This is because Themes doesn't have type hints.
 				return Themes[id] || Themes.dark;
 			},
 			reset: () => {
-				_set({ ...initialState() })
+				_set({ ...initialState() });
 			}
 		}), {
 			name: 'SettingStore',
 			storage: createJSONStorage(() => AsyncStorage),
 			partialize: (state) => Object.fromEntries(
-				Object.entries(state).filter(([key]) => persistKeys.includes(key) ) 
+				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
 			)
 		}
 	)
-)
+);

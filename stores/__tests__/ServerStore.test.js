@@ -2,18 +2,20 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
- * 
+ *
  * @jest-environment jsdom
  * @jest-environment-options {"url": "https://jestjs.io/"}
  */
 
 import { URL } from 'url';
 
+import { renderHook } from '@testing-library/react';
+
+import { act } from '@testing-library/react-native';
+
 import ServerModel from '../../models/ServerModel';
 
-import ServerStore, { deserializer, DESERIALIZER, useServerStore } from '../ServerStore';
-import { renderHook } from '@testing-library/react';
-import { act } from '@testing-library/react-native';
+import { deserializer, useServerStore } from '../ServerStore';
 
 const mockFetchInfo = jest.fn();
 jest.mock('../../models/ServerModel', () => {
@@ -31,37 +33,39 @@ jest.mock('../../models/ServerModel', () => {
 
 describe('ServerStore', () => {
 	it('should initialize with an empty array', () => {
-		const store = renderHook(() => useServerStore())
+		const store = renderHook(() => useServerStore());
 		expect(store.result.current.servers).toHaveLength(0);
 	});
 
 	it('should allow servers to be added', () => {
-		const store = renderHook(() => useServerStore())
+		const store = renderHook(() => useServerStore());
 		act(() => {
-			store.result.current.reset()
+			store.result.current.reset();
 			store.result.current.addServer({ url: new URL('https://foobar') });
-		})
+		});
 		expect(store.result.current.servers).toHaveLength(1);
 		expect(store.result.current.servers[0].id).toBeDefined();
 		expect(store.result.current.servers[0].url.host).toBe('foobar');
 
-		act(() => { store.result.current.addServer({ url: new URL('https://baz') }) })
+		act(() => {
+			store.result.current.addServer({ url: new URL('https://baz') });
+		});
 		expect(store.result.current.servers).toHaveLength(2);
 	});
 
 	it('should remove servers by index', () => {
-		const store = renderHook(() => useServerStore())
+		const store = renderHook(() => useServerStore());
 		act(() => {
-			store.result.current.reset()
+			store.result.current.reset();
 			store.result.current.addServer({ url: new URL('https://foobar') });
 			store.result.current.addServer({ url: new URL('https://baz') });
-		})
+		});
 
 		expect(store.result.current.servers).toHaveLength(2);
 
 		act(() => {
-			store.result.current.removeServer(0)
-		})
+			store.result.current.removeServer(0);
+		});
 
 		expect(store.result.current.servers).toHaveLength(1);
 		expect(store.result.current.servers[0].id).toBeDefined();
@@ -69,25 +73,27 @@ describe('ServerStore', () => {
 	});
 
 	it('should reset to an empty array', () => {
-		const store = renderHook(() => useServerStore())
+		const store = renderHook(() => useServerStore());
 		act(() => {
-			store.result.current.reset()
+			store.result.current.reset();
 			store.result.current.addServer({ url: new URL('https://foobar') });
-		})
+		});
 		expect(store.result.current.servers).toHaveLength(1);
 
-		act(() => { store.result.current.reset() })
+		act(() => {
+			store.result.current.reset();
+		});
 
 		expect(store.result.current.servers).toHaveLength(0);
 	});
 
 	it('should call fetchInfo for each server', () => {
-		const store = renderHook(() => useServerStore())
+		const store = renderHook(() => useServerStore());
 		act(() => {
 			store.result.current.addServer({ url: new URL('https://foobar') });
 			store.result.current.addServer({ url: new URL('https://baz') });
 			store.result.current.fetchInfo();
-		})
+		});
 
 		expect(mockFetchInfo).toHaveBeenCalledTimes(2);
 	});
@@ -111,7 +117,7 @@ describe('DESERIALIZER', () => {
 			}
 		};
 
-		const deserialized = deserializer(JSON.stringify(serialized)).state.servers
+		const deserialized = deserializer(JSON.stringify(serialized)).state.servers;
 
 		expect(deserialized).toHaveLength(2);
 

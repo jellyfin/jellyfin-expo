@@ -15,7 +15,7 @@ import { useStores } from '../hooks/useStores';
  * replaceTheme when the theme value in the store changes.
  */
 const ThemeSwitcher = () => {
-	const { rootStore, settingStore } = useStores();
+	const { settingStore } = useStores();
 	const { replaceTheme } = useContext(ThemeContext);
 
 	useEffect(() => {

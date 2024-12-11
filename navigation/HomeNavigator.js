@@ -35,6 +35,6 @@ const HomeNavigator = () => {
 			/>
 		</HomeStack.Navigator>
 	);
-}
+};
 
 export default HomeNavigator;

@@ -24,7 +24,7 @@ useStores.mockImplementation(() => ({
 				Version: '10.8.0'
 			}
 		}]
-	},
+	}
 }
 ));
 

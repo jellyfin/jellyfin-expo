@@ -31,7 +31,7 @@ const VideoPlayer = () => {
 	// Update the player when media type or uri changes
 	useEffect(() => {
 		if (mediaStore.type === MediaTypes.Video) {
-			rootStore.set({didPlayerCloseManually: true});
+			rootStore.set({ didPlayerCloseManually: true });
 			player.current?.loadAsync({
 				uri: mediaStore.uri
 			}, {
@@ -49,16 +49,16 @@ const VideoPlayer = () => {
 			} else {
 				player.current?.playAsync();
 			}
-			mediaStore.set({shouldPlayPause: false});
+			mediaStore.set({ shouldPlayPause: false });
 		}
 	}, [ mediaStore.shouldPlayPause ]);
 
 	// Close the player when the store indicates it should stop playback
 	useEffect(() => {
 		if (mediaStore.type === MediaTypes.Video && mediaStore.shouldStop) {
-			rootStore.set({didPlayerCloseManually: false});
+			rootStore.set({ didPlayerCloseManually: false });
 			closeFullscreen();
-			mediaStore.set({shouldStop: false});
+			mediaStore.set({ shouldStop: false });
 		}
 	}, [ mediaStore.shouldStop ]);
 
@@ -91,7 +91,7 @@ const VideoPlayer = () => {
 			onReadyForDisplay={openFullscreen}
 			onPlaybackStatusUpdate={({ isPlaying, positionMillis, didJustFinish }) => {
 				if (didJustFinish) {
-					rootStore.set({didPlayerCloseManually: false});
+					rootStore.set({ didPlayerCloseManually: false });
 					closeFullscreen();
 					return;
 				}
@@ -104,7 +104,7 @@ const VideoPlayer = () => {
 				switch (fullscreenUpdate) {
 					case VideoFullscreenUpdate.PLAYER_WILL_PRESENT:
 						setIsPresenting(true);
-						rootStore.set({isFullscreen: true});
+						rootStore.set({ isFullscreen: true });
 						break;
 					case VideoFullscreenUpdate.PLAYER_DID_PRESENT:
 						setIsPresenting(false);
@@ -114,7 +114,7 @@ const VideoPlayer = () => {
 						break;
 					case VideoFullscreenUpdate.PLAYER_DID_DISMISS:
 						setIsDismissing(false);
-						rootStore.set({isFullscreen: false});
+						rootStore.set({ isFullscreen: false });
 						mediaStore.reset();
 						player.current?.unloadAsync()
 							.catch(console.debug);
@@ -127,6 +127,6 @@ const VideoPlayer = () => {
 			}}
 		/>
 	);
-}
+};
 
 export default VideoPlayer;

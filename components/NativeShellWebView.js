@@ -67,7 +67,7 @@ true;
 		if (rootStore.isFullscreen) return;
 
 		// Stop media playback in native players
-		mediaStore.set({shouldStop: true});
+		mediaStore.set({ shouldStop: true });
 
 		setIsRefreshing(true);
 		ref.current?.reload();
@@ -82,10 +82,10 @@ true;
 					BackHandler.exitApp();
 					break;
 				case 'enableFullscreen':
-					rootStore.set({isFullscreen: true});
+					rootStore.set({ isFullscreen: true });
 					break;
 				case 'disableFullscreen':
-					rootStore.set({isFullscreen: false});
+					rootStore.set({ isFullscreen: false });
 					break;
 				case 'downloadFile':
 					console.log('Download item', data);
@@ -131,11 +131,11 @@ true;
 					break;
 				case 'ExpoAudioPlayer.playPause':
 				case 'ExpoVideoPlayer.playPause':
-					mediaStore.set({shouldPlayPause: true});
+					mediaStore.set({ shouldPlayPause: true });
 					break;
 				case 'ExpoAudioPlayer.stop':
 				case 'ExpoVideoPlayer.stop':
-					mediaStore.set({shouldStop: true});
+					mediaStore.set({ shouldStop: true });
 					break;
 				case 'console.debug':
 					// console.debug('[Browser Console]', data);
@@ -187,6 +187,6 @@ true;
 			showsHorizontalScrollIndicator={false}
 		/>
 	);
-}
+};
 
 export default React.forwardRef(NativeShellWebView);

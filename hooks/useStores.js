@@ -10,10 +10,10 @@ import { useServerStore } from '../stores/ServerStore';
 import { useSettingStore } from '../stores/SettingStore';
 
 // Compatibility for zustand conversion
-export const useStores = () => ({ 
-  rootStore: useRootStore(),
-  downloadStore: useDownloadStore(),
-  serverStore: useServerStore(),
-  mediaStore: useMediaStore(),
-  settingStore: useSettingStore()
-})
+export const useStores = () => ({
+	rootStore: useRootStore(),
+	downloadStore: useDownloadStore(),
+	serverStore: useServerStore(),
+	mediaStore: useMediaStore(),
+	settingStore: useSettingStore()
+});

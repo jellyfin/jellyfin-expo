@@ -3,10 +3,11 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { createJSONStorage, persist } from 'zustand/middleware';
-import { ticksToMs } from '../utils/Time';
-import { create } from 'zustand';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
+
+import { ticksToMs } from '../utils/Time';
 
 type State = {
 	/** The media type being played */
@@ -59,25 +60,25 @@ const initialState: State = {
 	positionTicks: 0,
 	shouldPlayPause: false,
 	shouldStop: false
-}
+};
 
-const persistKeys = Object.keys(initialState)
+const persistKeys = Object.keys(initialState);
 
 export const useMediaStore = create<State & Actions>()(
 	persist(
 		(_set, _get) => ({
 			...initialState,
-			set: (state) => { _set({ ...state }) },
+			set: (state) => { _set({ ...state }); },
 			getPositionMillis: () => ticksToMs(_get().positionTicks),
 			reset: () => {
-				_set({ ...initialState })
+				_set({ ...initialState });
 			}
 		}), {
 			name: 'MediaStore',
 			storage: createJSONStorage(() => AsyncStorage),
 			partialize: (state) => Object.fromEntries(
-				Object.entries(state).filter(([key]) => persistKeys.includes(key) ) 
+				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
 			)
 		}
 	)
-)
+);

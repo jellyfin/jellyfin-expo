@@ -10,41 +10,41 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { WebView } from 'react-native-webview';
 
 const RefreshWebView = function RefreshWebView({ isRefreshing, onRefresh, refreshControlProps, ...webViewProps }, ref) {
-		const [ height, setHeight ] = useState(Dimensions.get('screen').height);
-		const [ isEnabled, setEnabled ] = useState(typeof onRefresh === 'function');
+	const [ height, setHeight ] = useState(Dimensions.get('screen').height);
+	const [ isEnabled, setEnabled ] = useState(typeof onRefresh === 'function');
 
-		return (
-			<ScrollView
-				onLayout={(e) => setHeight(e.nativeEvent.layout.height)}
-				refreshControl={
-					<RefreshControl
-						onRefresh={onRefresh}
-						refreshing={isRefreshing}
-						enabled={isEnabled}
-						{...refreshControlProps}
-					/>
-				}
-				showsVerticalScrollIndicator={false}
-				showsHorizontalScrollIndicator={false}
-				style={styles.view}>
-				<WebView
-					ref={ref}
-					{...webViewProps}
-					onScroll={(e) =>
-						setEnabled(
-							typeof onRefresh === 'function' &&
-							e.nativeEvent.contentOffset.y === 0
-						)
-					}
-					style={{
-						...styles.view,
-						height,
-						...webViewProps.style
-					}}
+	return (
+		<ScrollView
+			onLayout={(e) => setHeight(e.nativeEvent.layout.height)}
+			refreshControl={
+				<RefreshControl
+					onRefresh={onRefresh}
+					refreshing={isRefreshing}
+					enabled={isEnabled}
+					{...refreshControlProps}
 				/>
-			</ScrollView>
-		);
-}
+			}
+			showsVerticalScrollIndicator={false}
+			showsHorizontalScrollIndicator={false}
+			style={styles.view}>
+			<WebView
+				ref={ref}
+				{...webViewProps}
+				onScroll={(e) =>
+					setEnabled(
+						typeof onRefresh === 'function' &&
+							e.nativeEvent.contentOffset.y === 0
+					)
+				}
+				style={{
+					...styles.view,
+					height,
+					...webViewProps.style
+				}}
+			/>
+		</ScrollView>
+	);
+};
 
 RefreshWebView.propTypes = {
 	isRefreshing: PropTypes.bool.isRequired,

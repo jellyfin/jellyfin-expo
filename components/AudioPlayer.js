@@ -86,7 +86,7 @@ const AudioPlayer = () => {
 			} else {
 				player?.playAsync();
 			}
-			mediaStore.set({shouldPlayPause: false});
+			mediaStore.set({ shouldPlayPause: false });
 		}
 	}, [ mediaStore.shouldPlayPause ]);
 
@@ -95,7 +95,7 @@ const AudioPlayer = () => {
 		if (mediaStore.type === MediaTypes.Audio && mediaStore.shouldStop) {
 			player?.stopAsync();
 			player?.unloadAsync();
-			mediaStore.set({shouldStop: false});
+			mediaStore.set({ shouldStop: false });
 		}
 	}, [ mediaStore.shouldStop ]);
 
