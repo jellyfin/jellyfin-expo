@@ -38,7 +38,9 @@ const App = ({ skipLoadingScreen }) => {
 	const { rootStore, downloadStore, settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
-	settingStore.set({systemThemeId: useColorScheme()});
+	// Using a hook here causes a render loop; what is the point of this setting?
+	// settingStore.set({systemThemeId: useColorScheme()});
+	settingStore.systemThemeId = useColorScheme();
 
 	SplashScreen.preventAutoHideAsync();
 
@@ -78,6 +80,7 @@ const App = ({ skipLoadingScreen }) => {
 	};
 
 	useEffect(() => {
+		// Set base app theme
 		// Hydrate mobx data stores
 		hydrateStores();
 
