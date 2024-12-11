@@ -23,7 +23,7 @@ import { useStores } from '../hooks/useStores';
 import { isSystemThemeSupported } from '../utils/Device';
 
 const SettingsScreen = () => {
-	const { rootStore, serverStore, settingStore } = useStores();
+	const { rootStore, serverStore, settingStore, mediaStore, downloadStore } = useStores();
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
@@ -81,8 +81,14 @@ const SettingsScreen = () => {
 					text: t('alerts.resetApplication.confirm'),
 					onPress: () => {
 						// Reset data in stores
+						mediaStore.reset();
+						downloadStore.reset();
+						serverStore.reset();
+						settingStore.reset();
 						rootStore.reset();
+
 						AsyncStorage.clear();
+
 						// Navigate to the loading screen
 						navigation.replace(Screens.AddServerScreen);
 					},
