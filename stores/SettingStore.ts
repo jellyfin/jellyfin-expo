@@ -5,9 +5,11 @@
  */
 import compareVersions from 'compare-versions';
 import { Platform } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Themes from '../themes';
 import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 type State = {
 	/** The id of the currently selected server */
@@ -52,11 +54,12 @@ type Actions = {
 
 export type SettingStore = State & Actions
 
+// This initial state must be a method because it has computed values that *might* change over time (tests & functionality broke without this)
 const initialState: () => State = () => ({
 	activeServer: 0,
 	isRotationLockEnabled: Platform.OS === 'ios' && !Platform.isPad,
-	isScreenLockEnabled: Platform.OS === 'ios' 
-		? !!Platform.Version && compareVersions.compare(Platform.Version, '14', '<') 
+	isScreenLockEnabled: Platform.OS === 'ios'
+		? !!Platform.Version && compareVersions.compare(Platform.Version, '14', '<')
 		: true,
 	isTabLabelsEnabled: true,
 	themeId: 'dark',
@@ -68,20 +71,32 @@ const initialState: () => State = () => ({
 	systemThemeId: null,
 })
 
-export const useSettingStore = create<SettingStore>()((_set, _get) => ({
-	...initialState(),
-	set: (state) => { _set({...state} )},
-	getTheme: () => {
-		const state = _get()
-		const id = state.isSystemThemeEnabled 
-			&& state.systemThemeId 
-			&& state.systemThemeId !== 'no-preference' 
-				? state.systemThemeId 
-				: state.themeId;
-		//@ts-ignore TODO: This is because Themes doesn't have type hints.
-		return Themes[id] || Themes.dark;
-	},
-	reset: () => {
-		_set({ ...initialState() })
-	}
-}))
+const persistKeys = Object.keys(initialState())
+
+export const useSettingStore = create<SettingStore>()(
+	persist(
+		(_set, _get) => ({
+			...initialState(),
+			set: (state) => { _set({ ...state }) },
+			getTheme: () => {
+				const state = _get()
+				const id = state.isSystemThemeEnabled
+					&& state.systemThemeId
+					&& state.systemThemeId !== 'no-preference'
+					? state.systemThemeId
+					: state.themeId;
+				//@ts-ignore TODO: This is because Themes doesn't have type hints.
+				return Themes[id] || Themes.dark;
+			},
+			reset: () => {
+				_set({ ...initialState() })
+			}
+		}), {
+			name: 'SettingStore',
+			storage: createJSONStorage(() => AsyncStorage),
+			partialize: (state) => Object.fromEntries(
+				Object.entries(state).filter(([key]) => persistKeys.includes(key) ) 
+			)
+		}
+	)
+)

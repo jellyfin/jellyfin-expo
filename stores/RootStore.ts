@@ -13,6 +13,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
 
 import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 type State = {
 	deviceId: string,
@@ -38,26 +40,38 @@ const initialState: State = {
 	didPlayerCloseManually: true,
 }
 
-export const useRootStore = create<State & Actions>()((_set, _get) => ({
-	...initialState,
-	set: (state) => { _set({...state} )},
-	getApi: () => new Jellyfin({
-		clientInfo: {
-			name: getAppName(),
-			version: Constants.nativeAppVersion
-		},
-		deviceInfo: {
-			name: getSafeDeviceName(),
-			id: _get().deviceId
+const persistKeys = Object.keys(initialState)
+
+export const useRootStore = create<State & Actions>()(
+	persist(
+		(_set, _get) => ({
+			...initialState,
+			set: (state) => { _set({ ...state }) },
+			getApi: () => new Jellyfin({
+				clientInfo: {
+					name: getAppName(),
+					version: Constants.nativeAppVersion
+				},
+				deviceInfo: {
+					name: getSafeDeviceName(),
+					id: _get().deviceId
+				}
+			}),
+			reset: () => { // TODO: Confirm instances of this reset call reset all the other states as well
+				_set({
+					deviceId: uuidv4(),
+					isFullscreen: false,
+					isReloadRequired: false,
+					didPlayerCloseManually: true,
+					storeLoaded: true,
+				})
+			},
+		}), {
+			name: 'RootStore',
+			storage: createJSONStorage(() => AsyncStorage),
+			partialize: (state) => Object.fromEntries(
+				Object.entries(state).filter(([key]) => persistKeys.includes(key) ) 
+			)
 		}
-	}),
-	reset: () => { // TODO: Confirm instances of this reset call reset all the other states as well
-		_set({
-			deviceId: uuidv4(),
-			isFullscreen: false,
-			isReloadRequired: false,
-			didPlayerCloseManually: true,
-			storeLoaded: true,
-		})
-	},
-}))
+	)
+)

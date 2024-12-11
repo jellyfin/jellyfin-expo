@@ -32,10 +32,12 @@ import StaticScriptLoader from './utils/StaticScriptLoader';
 
 // Import i18n configuration
 import './i18n';
+import ServerModel from './models/ServerModel';
+import DownloadModel from './models/DownloadModel';
 
 const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
-	const { rootStore, downloadStore, settingStore } = useStores();
+	const { rootStore, downloadStore, settingStore, mediaStore, serverStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	// Using a hook here causes a render loop; what is the point of this setting?
@@ -49,7 +51,72 @@ const App = ({ skipLoadingScreen }) => {
 	});
 
 	const hydrateStores = async () => {
-		await trunk.init();
+		// TODO: In release n+2 from this point, remove this conversion code.
+		const mobx_store_value = await AsyncStorage.getItem('__mobx_sync__') // Store will be null if it's not set
+
+		if (mobx_store_value !== null) {
+			console.info('Migrating mobx store to zustand')
+			const mobx_store = JSON.parse(mobx_store_value)
+
+			// Root Store
+			for (let key of Object.keys(mobx_store).filter(key => key.search('Store') === -1)) {
+				rootStore.set({key: mobx_store[key]})
+			}
+
+			// MediaStore
+			for (let key of Object.keys(mobx_store.mediaStore).filter(key => key.search('Store') === -1)) {
+				mediaStore.set({key: mobx_store.mediaStore[key]})
+			}
+
+			/**
+			 * Server store & download store need some special treatment because they
+			 * are not simple key-value pair stores.  Each contains one key which is a
+			 * list of Model objects that represent the contents of their respective
+			 * stores. 
+			 *
+			 * zustand requires a custom storage engine for these for proper
+			 * serialization and deserialization (written in each storage's module),
+			 * but this code is needed to get them over the hump from mobx to zustand.
+			 */
+			// DownloadStore
+			const mobxDownloads = mobx_store.downloadStore.downloads
+			const migratedDownloads = new Map()
+			if (Object.keys(mobxDownloads).length > 0) {
+				for (let [key, value] of Object.getEntries(mobxDownloads).filter(key => key.search('Store') === -1)) {
+					migratedDownloads.set(key, new DownloadModel(
+						value.itemId,
+						value.serverId,
+						value.serverUrl,
+						value.apiKey,
+						value.title,
+						value.fileName,
+						value.downloadUrl
+					))
+				}
+			}
+			downloadStore.set({downloads: migratedDownloads})
+
+			// ServerStore
+			const mobxServers = mobx_store.serverStore.servers
+			const migratedServers = []
+			if (Object.keys(mobxServers).length > 0) {
+				for (let item of mobxServers) {
+					const url = new URL(item.url)
+					migratedServers.push(new ServerModel(item.id, new URL(item.url), item.info))
+				}
+			}
+			serverStore.set({servers: migratedServers})
+
+			// SettingStore
+			for (let key of Object.keys(mobx_store.settingStore).filter(key => key.search('Store') === -1)) {
+				console.info('SettingStore', key)
+				settingStore.set({key: mobx_store.settingStore[key]})
+			}
+
+			// TODO: Confirm zustand has objects in async storage
+			// TODO: Remove mobx sync item from async storage
+			// AsyncStorage.removeItem('__mobx_sync__')
+		}
 
 		rootStore.set({storeLoaded: true});
 	};

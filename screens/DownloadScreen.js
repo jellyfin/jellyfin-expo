@@ -109,6 +109,7 @@ const DownloadScreen = () => {
 	);
 
 	const downloadList = []
+	console.log('downloads', downloadStore.downloads)
 	downloadStore.downloads.forEach(download => downloadList.push(download))
 
 	return (
