@@ -10,14 +10,6 @@ import { create } from 'zustand';
 import { createJSONStorage, persist, PersistStorage, StorageValue } from 'zustand/middleware';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-// TODO: `data: any[]` is probably not the best choice here.
-export const DESERIALIZER = (data: any[]) => data.map(server => {
-	// Migrate from old url format
-	// TODO: Remove migration in next minor release
-	const url = server.url.href || server.url;
-	return new ServerModel(server.id, new URL(url), server.info);
-});
-
 type State = {
 	servers: ServerModel[],
 }
@@ -32,34 +24,33 @@ type Actions = {
 
 export type ServerStore = State & Actions
 
+export function deserializer(str: string): Promise<StorageValue<State>> {
+	const data: any = JSON.parse(str).state
+
+	const deserialized: ServerModel[] = [];
+
+	for (const value of data.servers) {
+		// Migrate from old url format 
+		// TODO: Remove migration in next minor release
+		const url = value.url.href || value.url;
+
+		deserialized.push(new ServerModel(value.id, new URL(url), value.info));
+	}
+
+	return {
+		state: {
+			servers: deserialized
+		}
+	}
+}
+
 // This is needed to properly deserialize URL objects from their strings
 const storage: PersistStorage<State> = {
-	getItem: async function (name: string): Promise<StorageValue<State>> {
-		const data: any = JSON.parse(await AsyncStorage.getItem(name)).state
-		console.log('DownloadModel Deserializer, data', data)
-
-		const deserialized: ServerModel[] = [];
-
-		for (const value of data.servers) {
-			//@ts-ignore This is mostly to coerce the type and please the editor
-			// Migrate from old url format 
-
-			// TODO: Remove migration in next minor release
-
-			// TODO: I copied this from the old deserializer, unsure of the correct
-			// timeline on removing the deprecated code so I preserved it ~enigma
-			const url = value.url.href || value.url;
-
-			deserialized.push(new ServerModel(value.id, new URL(url), value.info));
-		}
-
-		return {
-			state: {
-				servers: deserialized
-			}
-		}
+	getItem: async (name: string): Promise<StorageValue<State>> => {
+		const data = await AsyncStorage.getItem(name)
+		return deserializer(data)
 	},
-	setItem: function (name: string, value: StorageValue<State>): void {
+	setItem: (name: string, value: StorageValue<State>) => {
 		const serialized = JSON.stringify({
 			servers: value.state.servers
 		})

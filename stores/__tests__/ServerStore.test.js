@@ -11,7 +11,7 @@ import { URL } from 'url';
 
 import ServerModel from '../../models/ServerModel';
 
-import ServerStore, { DESERIALIZER, useServerStore } from '../ServerStore';
+import ServerStore, { deserializer, DESERIALIZER, useServerStore } from '../ServerStore';
 import { renderHook } from '@testing-library/react';
 import { act } from '@testing-library/react-native';
 
@@ -37,9 +37,9 @@ describe('ServerStore', () => {
 
 	it('should allow servers to be added', () => {
 		const store = renderHook(() => useServerStore())
-		act(() => { 
+		act(() => {
 			store.result.current.reset()
-			store.result.current.addServer({ url: new URL('https://foobar') }); 
+			store.result.current.addServer({ url: new URL('https://foobar') });
 		})
 		expect(store.result.current.servers).toHaveLength(1);
 		expect(store.result.current.servers[0].id).toBeDefined();
@@ -51,10 +51,10 @@ describe('ServerStore', () => {
 
 	it('should remove servers by index', () => {
 		const store = renderHook(() => useServerStore())
-		act(() => { 
+		act(() => {
 			store.result.current.reset()
-			store.result.current.addServer({ url: new URL('https://foobar') }); 
-			store.result.current.addServer({ url: new URL('https://baz') }); 
+			store.result.current.addServer({ url: new URL('https://foobar') });
+			store.result.current.addServer({ url: new URL('https://baz') });
 		})
 
 		expect(store.result.current.servers).toHaveLength(2);
@@ -70,9 +70,9 @@ describe('ServerStore', () => {
 
 	it('should reset to an empty array', () => {
 		const store = renderHook(() => useServerStore())
-		act(() => { 
+		act(() => {
 			store.result.current.reset()
-			store.result.current.addServer({ url: new URL('https://foobar') }); 
+			store.result.current.addServer({ url: new URL('https://foobar') });
 		})
 		expect(store.result.current.servers).toHaveLength(1);
 
@@ -95,30 +95,33 @@ describe('ServerStore', () => {
 
 describe('DESERIALIZER', () => {
 	it('should deserialize to a list of ServerModels', () => {
-		const serialized = [
-			{
-				id: 'TEST1',
-				url: { href: 'https://1.example.com' },
-				info: null
-			},
-			{
-				id: 'TEST2',
-				url: 'https://2.example.com/',
-				info: null
+		const serialized = {
+			state: {
+				servers: [
+					{
+						id: 'TEST1',
+						url: { href: 'https://1.example.com' },
+						info: null
+					}, {
+						id: 'TEST2',
+						url: 'https://2.example.com/',
+						info: null
+					}
+				]
 			}
-		];
+		};
 
-		const deserialized = DESERIALIZER(serialized);
+		const deserialized = deserializer(JSON.stringify(serialized)).state.servers
 
 		expect(deserialized).toHaveLength(2);
 
 		expect(deserialized[0]).toBeInstanceOf(ServerModel);
-		expect(deserialized[0].id).toBe(serialized[0].id);
+		expect(deserialized[0].id).toBe(serialized.state.servers[0].id);
 		// expect(deserialized[0].url).toBeInstanceOf(URL); // URL != URL Jest (?)
 		expect(deserialized[0].url.href).toBe('https://1.example.com/');
 
 		expect(deserialized[1]).toBeInstanceOf(ServerModel);
-		expect(deserialized[1].id).toBe(serialized[1].id);
+		expect(deserialized[1].id).toBe(serialized.state.servers[1].id);
 		// expect(deserialized[1].url).toBeInstanceOf(URL); // URL != URL Jest (?)
 		expect(deserialized[1].url.href).toBe('https://2.example.com/');
 	});

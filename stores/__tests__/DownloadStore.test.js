@@ -9,7 +9,7 @@
 
 import { act } from '@testing-library/react-native';
 import DownloadModel from '../../models/DownloadModel';
-import { useDownloadStore, DESERIALIZER } from '../DownloadStore';
+import { useDownloadStore, DESERIALIZER, deserializer } from '../DownloadStore';
 import { renderHook } from '@testing-library/react';
 
 const TEST_MODEL = new DownloadModel(
@@ -55,8 +55,8 @@ describe('DownloadStore', () => {
 	});
 
 	it('should allow models to be added', () => {
-		act(() => { 
-			store.result.current.add(TEST_MODEL); 
+		act(() => {
+			store.result.current.add(TEST_MODEL);
 		})
 		expect(store.result.current.downloads.size).toBe(1);
 		expect(store.result.current.downloads.get(TEST_MODEL.key)).toBe(TEST_MODEL);
@@ -78,7 +78,7 @@ describe('DownloadStore', () => {
 	});
 
 	it('should return the number of new downloads', () => {
-		act(() => { 
+		act(() => {
 			store.result.current.add(TEST_MODEL)
 			store.result.current.add(TEST_MODEL_2)
 		})
@@ -91,34 +91,38 @@ describe('DownloadStore', () => {
 
 });
 
-describe('DESERIALIZER', () => {
+describe('DownloadStore deserializer', () => {
 	it('should deserialize to a Map of DownloadModels', () => {
 		const serialized = {
-			'server-id_item-id-1': {
-				itemId: 'item-id-1',
-				serverId: 'server-id',
-				serverUrl: 'https://example.com/',
-				apiKey: 'api-key',
-				title: 'title 1',
-				filename: 'file name 1.mkv',
-				downloadUrl: 'https://example.com/download',
-				isComplete: false,
-				isNew: true
-			},
-			'server-id_item-id-2': {
-				itemId: 'item-id-2',
-				serverId: 'server-id',
-				serverUrl: 'https://example.com/',
-				apiKey: 'api-key',
-				title: 'title 2',
-				filename: 'file name 2.mkv',
-				downloadUrl: 'https://example.com/download',
-				isComplete: true,
-				isNew: false
+			state: {
+				downloads: {
+					'server-id_item-id-1': {
+						itemId: 'item-id-1',
+						serverId: 'server-id',
+						serverUrl: 'https://example.com/',
+						apiKey: 'api-key',
+						title: 'title 1',
+						filename: 'file name 1.mkv',
+						downloadUrl: 'https://example.com/download',
+						isComplete: false,
+						isNew: true
+					},
+					'server-id_item-id-2': {
+						itemId: 'item-id-2',
+						serverId: 'server-id',
+						serverUrl: 'https://example.com/',
+						apiKey: 'api-key',
+						title: 'title 2',
+						filename: 'file name 2.mkv',
+						downloadUrl: 'https://example.com/download',
+						isComplete: true,
+						isNew: false
+					}
+				}
 			}
 		};
 
-		const deserialized = DESERIALIZER(serialized);
+		const deserialized = deserializer(JSON.stringify(serialized)).state.downloads;
 
 		expect(deserialized.size).toBe(2);
 

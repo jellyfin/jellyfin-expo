@@ -23,38 +23,42 @@ type Actions = {
 
 export type DownloadStore = State & Actions
 
+export function deserializer(str: string): {state: State} {
+	const data: any = JSON.parse(str).state
+
+	const deserialized = new Map<string, DownloadModel>();
+
+	for (const entry of Object.entries(data.downloads)) {
+		//@ts-ignore This is mostly to coerce the type and please the editor
+		const [key, value]: [string, DownloadModel] = entry
+		const model = new DownloadModel(
+			value.itemId,
+			value.serverId,
+			value.serverUrl,
+			value.apiKey,
+			value.title,
+			value.filename,
+			value.downloadUrl
+		)
+		// Ignore isDownloading
+		model.isComplete = value.isComplete
+		model.isNew = value.isNew
+
+		deserialized.set(key, model)
+	}
+
+	return {
+		state: {
+			downloads: deserialized
+		}
+	}
+}
+
 // This is needed to properly serialize/deserialize Map<String, DownloadModel>
 const storage: PersistStorage<State> = {
-	getItem: async function (name: string): Promise<StorageValue<State>> {
-		const data: any = JSON.parse(await AsyncStorage.getItem(name)).state
-		console.log('DownloadModel Deserializer, data', data)
-
-		const deserialized = new Map<string, DownloadModel>();
-
-		for (const entry of Object.entries(data.downloads)) {
-			//@ts-ignore This is mostly to coerce the type and please the editor
-			const [key, value]: [string, DownloadModel] = entry
-			const model = new DownloadModel(
-				value.itemId,
-				value.serverId,
-				value.serverUrl,
-				value.apiKey,
-				value.title,
-				value.filename,
-				value.downloadUrl
-			)
-			// Ignore isDownloading
-			model.isComplete = value.isComplete
-			model.isNew = value.isNew
-
-			deserialized.set(key, model)
-		}
-
-		return {
-			state: {
-				downloads: deserialized
-			}
-		}
+	getItem: async (name: string): Promise<StorageValue<State>> => {
+		const data = await AsyncStorage.getItem(name)
+		return deserializer(data)
 	},
 	setItem: function (name: string, value: StorageValue<State>): void {
 		const serialized = JSON.stringify({
