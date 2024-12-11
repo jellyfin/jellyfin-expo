@@ -36,7 +36,9 @@ let store
 
 beforeEach(() => {
 	store = renderHook(() => useDownloadStore((state => state)))
-	store.result.current.reset()
+	act(() => {
+		store.result.current.reset()
+	})
 })
 
 describe('DownloadStore', () => {
