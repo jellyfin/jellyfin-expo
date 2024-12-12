@@ -38,6 +38,11 @@
         ]
       }
     },
-    "description": "Jellyfin Mobile"
+    "description": "Jellyfin Mobile",
+    "plugins": [
+      "expo-asset",
+      "expo-font",
+      "expo-localization"
+    ]
   }
 }
