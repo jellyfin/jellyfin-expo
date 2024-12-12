@@ -1,6 +1,6 @@
 {
   "name": "jellyfin-expo",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "scripts": {
     "start": "expo start --dev-client",
     "android": "expo run:android",
@@ -80,6 +80,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/eslint-parser": "7.25.9",
+    "@react-native-community/cli": "15.1.3",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/jest-native": "4.0.13",
     "@testing-library/react": "16.1.0",
