@@ -6,11 +6,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import compareVersions from 'compare-versions';
 
-// TODO: Fix this import
-// Eslint was complaining about this import, maybe because it's coming from
-// an outdated module?  In any case, I think updating stuff is out of scope
-// for the PR in which this is being added.
-
+// TODO: Fix this import, this is a bandaid; issue #365
 // eslint-disable-next-line import/namespace
 import { Platform } from 'react-native';
 
