@@ -28,11 +28,10 @@
       "!**/babel.config.js",
       "!**/metro.config.js",
       "!**/jest.setup.js"
-    ],
-    "testEnvironment": "jsdom"
+    ]
   },
   "browserslist": [
-    "iOS > 11",
+    "iOS >= 15.1",
     "Android >= 5"
   ],
   "dependencies": {
@@ -84,7 +83,7 @@
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/jest-native": "4.0.13",
     "@testing-library/react": "16.1.0",
-    "@testing-library/react-native": "7.2.0",
+    "@testing-library/react-native": "12.9.0",
     "@types/jest": "27.5.2",
     "@types/react": "18.3.16",
     "@types/uuid": "8.3.4",
@@ -101,10 +100,11 @@
     "eslint-plugin-react": "7.32.2",
     "eslint-plugin-react-native": "3.11.0",
     "jest": "~29.7.0",
-    "jest-environment-jsdom": "26.6.2",
+    "jest-environment-jsdom": "~29.7.0",
     "jest-expo": "~52.0.2",
     "jest-fetch-mock": "3.0.3",
     "node-abort-controller": "3.1.1",
+    "react-test-renderer": "18.3.1",
     "ts-jest": "26.5.6",
     "typescript": "^5.3.3"
   },

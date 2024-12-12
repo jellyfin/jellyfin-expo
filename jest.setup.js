@@ -38,7 +38,10 @@ jest.mock('react-native-reanimated', () => {
 });
 
 // Silence the warning: Animated: `useNativeDriver` is not supported because the native animated module is missing
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+// jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+
+// Fix `TypeError: loadedNativeFonts.forEach is not a function`
+jest.mock("expo-font");
 
 // Workaround for process failing: https://github.com/react-navigation/react-navigation/issues/9568
 jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
