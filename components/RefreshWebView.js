@@ -4,12 +4,12 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { forwardRef, useState } from 'react';
 import { Dimensions, RefreshControl, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { WebView } from 'react-native-webview';
 
-const RefreshWebView = function RefreshWebView({ isRefreshing, onRefresh, refreshControlProps, ...webViewProps }, ref) {
+const RefreshWebView = forwardRef(({ isRefreshing, onRefresh, refreshControlProps, ...webViewProps }, ref) => {
 	const [ height, setHeight ] = useState(Dimensions.get('screen').height);
 	const [ isEnabled, setEnabled ] = useState(typeof onRefresh === 'function');
 
@@ -44,7 +44,7 @@ const RefreshWebView = function RefreshWebView({ isRefreshing, onRefresh, refres
 			/>
 		</ScrollView>
 	);
-};
+});
 
 RefreshWebView.propTypes = {
 	isRefreshing: PropTypes.bool.isRequired,
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default React.forwardRef(RefreshWebView);
+export default RefreshWebView;
