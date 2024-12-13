@@ -3,7 +3,7 @@
 exports[`ServerInput should render correctly 1`] = `
 <View
   style={
-    Object {
+    {
       "paddingHorizontal": 10,
       "width": "100%",
     }
@@ -12,7 +12,7 @@ exports[`ServerInput should render correctly 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#303337",
         "borderBottomWidth": 0,
@@ -21,8 +21,8 @@ exports[`ServerInput should render correctly 1`] = `
         "flexDirection": "row",
         "marginBottom": 12,
         "marginTop": 8,
-        "transform": Array [
-          Object {
+        "transform": [
+          {
             "translateX": 0,
           },
         ],
@@ -31,7 +31,7 @@ exports[`ServerInput should render correctly 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
@@ -43,7 +43,7 @@ exports[`ServerInput should render correctly 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "overflow": "hidden",
           }
         }
@@ -51,7 +51,7 @@ exports[`ServerInput should render correctly 1`] = `
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "transparent",
                 "justifyContent": "center",
@@ -76,7 +76,7 @@ exports[`ServerInput should render correctly 1`] = `
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
-        Object {
+        {
           "color": "#242424",
           "flex": 1,
           "fontSize": 18,
@@ -91,7 +91,7 @@ exports[`ServerInput should render correctly 1`] = `
   </View>
   <Text
     style={
-      Object {
+      {
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
@@ -230,7 +230,7 @@ exports[`ServerInput should show error if parseUrl throws 1`] = `
 exports[`ServerInput should show error if url is invalid 1`] = `
 <View
   style={
-    Object {
+    {
       "paddingHorizontal": 10,
       "width": "100%",
     }
@@ -239,7 +239,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#303337",
         "borderBottomWidth": 0,
@@ -248,8 +248,8 @@ exports[`ServerInput should show error if url is invalid 1`] = `
         "flexDirection": "row",
         "marginBottom": 12,
         "marginTop": 8,
-        "transform": Array [
-          Object {
+        "transform": [
+          {
             "translateX": 0,
           },
         ],
@@ -258,7 +258,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
@@ -270,7 +270,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "overflow": "hidden",
           }
         }
@@ -278,7 +278,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "transparent",
                 "justifyContent": "center",
@@ -289,25 +289,25 @@ exports[`ServerInput should show error if url is invalid 1`] = `
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#86939e",
                     "fontSize": 24,
                   },
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                   },
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="iconIcon"
             >
-              
+              ?
             </Text>
           </View>
         </View>
@@ -326,7 +326,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
-        Object {
+        {
           "color": "#242424",
           "flex": 1,
           "fontSize": 18,
@@ -341,7 +341,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
   </View>
   <Text
     style={
-      Object {
+      {
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
@@ -356,7 +356,7 @@ exports[`ServerInput should show error if url is invalid 1`] = `
 exports[`ServerInput should show error when input is blank 1`] = `
 <View
   style={
-    Object {
+    {
       "paddingHorizontal": 10,
       "width": "100%",
     }
@@ -365,7 +365,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#303337",
         "borderBottomWidth": 0,
@@ -374,8 +374,8 @@ exports[`ServerInput should show error when input is blank 1`] = `
         "flexDirection": "row",
         "marginBottom": 12,
         "marginTop": 8,
-        "transform": Array [
-          Object {
+        "transform": [
+          {
             "translateX": 0,
           },
         ],
@@ -384,7 +384,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
@@ -396,7 +396,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "overflow": "hidden",
           }
         }
@@ -404,7 +404,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "transparent",
                 "justifyContent": "center",
@@ -415,25 +415,25 @@ exports[`ServerInput should show error when input is blank 1`] = `
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#86939e",
                     "fontSize": 24,
                   },
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                   },
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="iconIcon"
             >
-              
+              ?
             </Text>
           </View>
         </View>
@@ -452,7 +452,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
-        Object {
+        {
           "color": "#242424",
           "flex": 1,
           "fontSize": 18,
@@ -467,7 +467,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
   </View>
   <Text
     style={
-      Object {
+      {
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
@@ -482,7 +482,7 @@ exports[`ServerInput should show error when input is blank 1`] = `
 exports[`ServerInput should show error when url is undefined 1`] = `
 <View
   style={
-    Object {
+    {
       "paddingHorizontal": 10,
       "width": "100%",
     }
@@ -491,7 +491,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#303337",
         "borderBottomWidth": 0,
@@ -500,8 +500,8 @@ exports[`ServerInput should show error when url is undefined 1`] = `
         "flexDirection": "row",
         "marginBottom": 12,
         "marginTop": 8,
-        "transform": Array [
-          Object {
+        "transform": [
+          {
             "translateX": 0,
           },
         ],
@@ -510,7 +510,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
@@ -522,7 +522,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "overflow": "hidden",
           }
         }
@@ -530,7 +530,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "transparent",
                 "justifyContent": "center",
@@ -541,25 +541,25 @@ exports[`ServerInput should show error when url is undefined 1`] = `
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#86939e",
                     "fontSize": 24,
                   },
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                   },
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="iconIcon"
             >
-              
+              ?
             </Text>
           </View>
         </View>
@@ -578,7 +578,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
-        Object {
+        {
           "color": "#242424",
           "flex": 1,
           "fontSize": 18,
@@ -593,7 +593,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
   </View>
   <Text
     style={
-      Object {
+      {
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
@@ -608,7 +608,7 @@ exports[`ServerInput should show error when url is undefined 1`] = `
 exports[`ServerInput should show error when url is whitespace 1`] = `
 <View
   style={
-    Object {
+    {
       "paddingHorizontal": 10,
       "width": "100%",
     }
@@ -617,7 +617,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#303337",
         "borderBottomWidth": 0,
@@ -626,8 +626,8 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
         "flexDirection": "row",
         "marginBottom": 12,
         "marginTop": 8,
-        "transform": Array [
-          Object {
+        "transform": [
+          {
             "translateX": 0,
           },
         ],
@@ -636,7 +636,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
@@ -648,7 +648,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "overflow": "hidden",
           }
         }
@@ -656,7 +656,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "transparent",
                 "justifyContent": "center",
@@ -667,25 +667,25 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#86939e",
                     "fontSize": 24,
                   },
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                   },
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="iconIcon"
             >
-              
+              ?
             </Text>
           </View>
         </View>
@@ -704,7 +704,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
-        Object {
+        {
           "color": "#242424",
           "flex": 1,
           "fontSize": 18,
@@ -719,7 +719,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
   </View>
   <Text
     style={
-      Object {
+      {
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
@@ -734,7 +734,7 @@ exports[`ServerInput should show error when url is whitespace 1`] = `
 exports[`ServerInput should succeed for valid urls 1`] = `
 <View
   style={
-    Object {
+    {
       "paddingHorizontal": 10,
       "width": "100%",
     }
@@ -743,7 +743,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "#303337",
         "borderBottomWidth": 0,
@@ -752,8 +752,8 @@ exports[`ServerInput should succeed for valid urls 1`] = `
         "flexDirection": "row",
         "marginBottom": 12,
         "marginTop": 8,
-        "transform": Array [
-          Object {
+        "transform": [
+          {
             "translateX": 0,
           },
         ],
@@ -762,7 +762,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
@@ -774,7 +774,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
     >
       <View
         style={
-          Object {
+          {
             "overflow": "hidden",
           }
         }
@@ -782,7 +782,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
         <View>
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "transparent",
                 "justifyContent": "center",
@@ -793,25 +793,25 @@ exports[`ServerInput should succeed for valid urls 1`] = `
               allowFontScaling={false}
               selectable={false}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#86939e",
                     "fontSize": 24,
                   },
-                  Object {
+                  {
                     "backgroundColor": "transparent",
                   },
-                  Object {
+                  {
                     "fontFamily": "ionicons",
                     "fontStyle": "normal",
                     "fontWeight": "normal",
                   },
-                  Object {},
+                  {},
                 ]
               }
               testID="iconIcon"
             >
-              
+              ?
             </Text>
           </View>
         </View>
@@ -830,7 +830,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
       returnKeyType="go"
       selectionColor="#2089dc"
       style={
-        Object {
+        {
           "color": "#242424",
           "flex": 1,
           "fontSize": 18,
@@ -844,7 +844,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
     />
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "height": 40,
           "justifyContent": "center",
@@ -858,7 +858,7 @@ exports[`ServerInput should succeed for valid urls 1`] = `
   </View>
   <Text
     style={
-      Object {
+      {
         "color": "#ff190c",
         "fontSize": 12,
         "margin": 5,
