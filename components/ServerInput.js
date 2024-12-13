@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useNavigationState } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,11 +18,11 @@ import { parseUrl, validateServer } from '../utils/ServerValidator';
 const sanitizeHost = (url = '') => url.trim();
 
 // FIXME: eslint fails to parse the propTypes properly here
-const ServerInput = function ServerInput({
+const ServerInput = React.forwardRef(({
 	onError = () => { /* noop */ }, // eslint-disable-line react/prop-types
 	onSuccess = () => { /* noop */ }, // eslint-disable-line react/prop-types
 	...props
-}, ref) {
+}, ref) => {
 	const [ host, setHost ] = useState('');
 	const [ isValidating, setIsValidating ] = useState(false);
 	const [ isValid, setIsValid ] = useState(true);
@@ -30,6 +30,7 @@ const ServerInput = function ServerInput({
 
 	const { serverStore, settingStore } = useStores();
 	const navigation = useNavigation();
+	const navigationState = useNavigationState((state) => state);
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
 
@@ -126,7 +127,7 @@ const ServerInput = function ServerInput({
 			{...props}
 		/>
 	);
-};
+});
 
 ServerInput.propTypes = {
 	onError: PropTypes.func,
@@ -145,4 +146,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default React.forwardRef(ServerInput);
+export default ServerInput;
