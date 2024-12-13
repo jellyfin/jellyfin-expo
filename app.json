@@ -1,5 +1,6 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "name": "Jellyfin",
     "slug": "jellyfin-expo",
     "owner": "jellyfin",
