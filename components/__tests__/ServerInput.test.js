@@ -18,10 +18,10 @@ parseUrl.mockImplementation(url => url);
 validateServer.mockResolvedValue({ isValid: true });
 
 describe('ServerInput', () => {
-	// beforeEach(() => { // These cause Cannot read properties of null (reading 'useRef')
-	// 	jest.resetModules();
-	// 	jest.clearAllMocks();
-	// });
+	beforeEach(() => { 
+		// jest.resetModules(); // this causes `Cannot read properties of null (reading 'useRef')`
+		jest.clearAllMocks();
+	});
 
 	it('should render correctly', async () => {
 		const { toJSON } = render( // Cannot read properties of 'null' (reading 'useRef')
