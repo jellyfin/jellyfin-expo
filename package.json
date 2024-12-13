@@ -35,7 +35,7 @@
     "Android >= 5"
   ],
   "dependencies": {
-    "@jellyfin/sdk": "0.7.0",
+    "@jellyfin/sdk": "0.11.0",
     "@react-native-async-storage/async-storage": "1.23.1",
     "@react-native-masked-view/masked-view": "0.3.2",
     "@react-navigation/bottom-tabs": "7",
@@ -93,7 +93,7 @@
     "babel-preset-expo": "~12.0.0",
     "domexception": "4.0.0",
     "eslint": "7.32.0",
-    "eslint-plugin-compat": "3.13.0",
+    "eslint-plugin-compat": "6.0.2",
     "eslint-plugin-eslint-comments": "3.2.0",
     "eslint-plugin-import": "2.27.5",
     "eslint-plugin-jest": "24.7.0",
