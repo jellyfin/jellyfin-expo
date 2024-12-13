@@ -44,10 +44,10 @@ jest.mock('react-native-reanimated', () => {
 jest.mock("expo-font");
 
 // Workaround for process failing: https://github.com/react-navigation/react-navigation/issues/9568
-jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
-	default: () => ({ getInitialState: { then: jest.fn() } }),
-	__esModule: true
-}));
+// jest.mock('@react-navigation/native/lib/commonjs/useLinking.native', () => ({
+// 	default: () => ({ getInitialState: { then: jest.fn() } }),
+// 	__esModule: true
+// }));
 
 /* Safe Area Context Mocks */
 import mockSafeAreaContext from 'react-native-safe-area-context/jest/mock';
