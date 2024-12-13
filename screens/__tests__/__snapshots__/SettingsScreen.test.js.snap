@@ -3,13 +3,15 @@
 exports[`SettingsScreen should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
-    Array [
-      "right",
-      "left",
-    ]
+    {
+      "bottom": "off",
+      "left": "additive",
+      "right": "additive",
+      "top": "off",
+    }
   }
   style={
-    Object {
+    {
       "backgroundColor": undefined,
       "flex": 1,
     }
@@ -18,16 +20,16 @@ exports[`SettingsScreen should render correctly 1`] = `
   <RCTScrollView
     ListFooterComponent={[Function]}
     data={
-      Array [
-        Object {
-          "data": Array [],
+      [
+        {
+          "data": [],
           "keyExtractor": [Function],
           "renderItem": [Function],
           "title": "Servers",
         },
-        Object {
-          "data": Array [
-            Object {
+        {
+          "data": [
+            {
               "key": "add-server-button",
               "onPress": [Function],
               "title": "Add Server",
@@ -37,15 +39,15 @@ exports[`SettingsScreen should render correctly 1`] = `
           "renderItem": [Function],
           "title": "Add Server",
         },
-        Object {
-          "data": Array [
-            Object {
+        {
+          "data": [
+            {
               "key": "keep-awake-switch",
               "onValueChange": [Function],
               "title": "Keep Screen Awake",
               "value": undefined,
             },
-            Object {
+            {
               "key": "rotation-lock-switch",
               "onValueChange": [Function],
               "title": "Rotation Lock",
@@ -55,10 +57,10 @@ exports[`SettingsScreen should render correctly 1`] = `
           "renderItem": [Function],
           "title": "Settings",
         },
-        Object {
-          "data": Array [
-            Object {
-              "badge": Object {
+        {
+          "data": [
+            {
+              "badge": {
                 "value": "BETA",
               },
               "key": "native-video-switch",
@@ -66,7 +68,7 @@ exports[`SettingsScreen should render correctly 1`] = `
               "title": "Use Native Video Player",
               "value": undefined,
             },
-            Object {
+            {
               "disabled": true,
               "key": "native-video-fmp4-switch",
               "onValueChange": [Function],
@@ -77,21 +79,21 @@ exports[`SettingsScreen should render correctly 1`] = `
           "renderItem": [Function],
           "title": "Playback",
         },
-        Object {
-          "data": Array [
-            Object {
+        {
+          "data": [
+            {
               "key": "tab-labels-switch",
               "onValueChange": [Function],
               "title": "Show Tab Labels",
               "value": undefined,
             },
-            Object {
+            {
               "key": "system-theme-switch",
               "onValueChange": [Function],
               "title": "Use System Theme",
               "value": undefined,
             },
-            Object {
+            {
               "disabled": undefined,
               "key": "theme-switch",
               "onValueChange": [Function],
@@ -102,28 +104,28 @@ exports[`SettingsScreen should render correctly 1`] = `
           "renderItem": [Function],
           "title": "Appearance",
         },
-        Object {
-          "data": Array [
-            Object {
-              "icon": Object {
-                "name": "ios-globe-outline",
+        {
+          "data": [
+            {
+              "icon": {
+                "name": "globe-outline",
                 "type": "ionicon",
               },
               "key": "links-website",
               "name": "Jellyfin Website",
               "url": "https://jellyfin.org/",
             },
-            Object {
-              "icon": Object {
-                "name": "ios-book",
+            {
+              "icon": {
+                "name": "book",
                 "type": "ionicon",
               },
               "key": "links-documentation",
               "name": "Documentation",
               "url": "https://jellyfin.org/docs/",
             },
-            Object {
-              "icon": Object {
+            {
+              "icon": {
                 "name": "logo-github",
                 "type": "ionicon",
               },
@@ -131,8 +133,8 @@ exports[`SettingsScreen should render correctly 1`] = `
               "name": "Source Code",
               "url": "https://github.com/jellyfin/jellyfin-expo",
             },
-            Object {
-              "icon": Object {
+            {
+              "icon": {
                 "name": "translate",
                 "type": "material",
               },
@@ -140,9 +142,9 @@ exports[`SettingsScreen should render correctly 1`] = `
               "name": "Translate",
               "url": "https://translate.jellyfin.org/projects/jellyfin/jellyfin-expo/",
             },
-            Object {
-              "icon": Object {
-                "name": "ios-help-buoy",
+            {
+              "icon": {
+                "name": "help-buoy",
                 "type": "ionicon",
               },
               "key": "links-help",
@@ -153,13 +155,13 @@ exports[`SettingsScreen should render correctly 1`] = `
           "renderItem": [Function],
           "title": "Links",
         },
-        Object {
-          "data": Array [
-            Object {
+        {
+          "data": [
+            {
               "key": "reset-app-button",
               "onPress": [Function],
               "title": "Reset Application",
-              "titleStyle": Object {
+              "titleStyle": {
                 "color": "#ff190c",
               },
             },
@@ -171,7 +173,7 @@ exports[`SettingsScreen should render correctly 1`] = `
       ]
     }
     extraData={
-      Object {
+      {
         "activeServer": undefined,
         "isFetching": undefined,
       }
@@ -187,10 +189,10 @@ exports[`SettingsScreen should render correctly 1`] = `
     onScrollBeginDrag={[Function]}
     onScrollEndDrag={[Function]}
     renderItem={[Function]}
-    scrollEventThrottle={50}
+    scrollEventThrottle={0.0001}
     showsVerticalScrollIndicator={false}
     stickyHeaderIndices={
-      Array [
+      [
         0,
         2,
         5,
@@ -200,26 +202,30 @@ exports[`SettingsScreen should render correctly 1`] = `
   >
     <View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       />
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       />
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View
           style={
-            Object {
+            {
               "marginTop": 15,
             }
           }
         />
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
@@ -229,7 +235,7 @@ exports[`SettingsScreen should render correctly 1`] = `
         >
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
                 "borderBottomWidth": 0.5,
@@ -243,8 +249,8 @@ exports[`SettingsScreen should render correctly 1`] = `
             <View
               replaceTheme={[Function]}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "flex-start",
                     "flex": 1,
                     "justifyContent": "center",
@@ -253,8 +259,8 @@ exports[`SettingsScreen should render correctly 1`] = `
                 ]
               }
               theme={
-                Object {
-                  "colors": Object {
+                {
+                  "colors": {
                     "black": "#242424",
                     "disabled": "hsl(208, 8%, 90%)",
                     "divider": "#bcbbc1",
@@ -266,8 +272,8 @@ exports[`SettingsScreen should render correctly 1`] = `
                     "grey4": "#bdc6cf",
                     "grey5": "#e1e8ee",
                     "greyOutline": "#bbb",
-                    "platform": Object {
-                      "android": Object {
+                    "platform": {
+                      "android": {
                         "error": "#f44336",
                         "grey": "rgba(0, 0, 0, 0.54)",
                         "primary": "#2196f3",
@@ -276,7 +282,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4caf50",
                         "warning": "#ffeb3b",
                       },
-                      "default": Object {
+                      "default": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -285,7 +291,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "ios": Object {
+                      "ios": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -294,7 +300,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "web": Object {
+                      "web": {
                         "error": "#ff190c",
                         "grey": "#393e42",
                         "primary": "#2089dc",
@@ -317,7 +323,7 @@ exports[`SettingsScreen should render correctly 1`] = `
             >
               <Button
                 buttonStyle={
-                  Object {
+                  {
                     "padding": 0,
                   }
                 }
@@ -325,7 +331,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                 testID="button"
                 title="Add Server"
                 titleStyle={
-                  Object {
+                  {
                     "textAlign": "auto",
                     "width": "100%",
                   }
@@ -337,24 +343,26 @@ exports[`SettingsScreen should render correctly 1`] = `
         </View>
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View
           style={
-            Object {
+            {
               "marginBottom": 15,
             }
           }
         />
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <Text
           style={
-            Object {
+            {
               "backgroundColor": undefined,
               "color": "#43484d",
               "fontWeight": "600",
@@ -368,6 +376,7 @@ exports[`SettingsScreen should render correctly 1`] = `
         </Text>
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
@@ -378,7 +387,7 @@ exports[`SettingsScreen should render correctly 1`] = `
         >
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
                 "borderBottomWidth": 0.5,
@@ -392,8 +401,8 @@ exports[`SettingsScreen should render correctly 1`] = `
             <View
               replaceTheme={[Function]}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "flex-start",
                     "flex": 1,
                     "justifyContent": "center",
@@ -402,8 +411,8 @@ exports[`SettingsScreen should render correctly 1`] = `
                 ]
               }
               theme={
-                Object {
-                  "colors": Object {
+                {
+                  "colors": {
                     "black": "#242424",
                     "disabled": "hsl(208, 8%, 90%)",
                     "divider": "#bcbbc1",
@@ -415,8 +424,8 @@ exports[`SettingsScreen should render correctly 1`] = `
                     "grey4": "#bdc6cf",
                     "grey5": "#e1e8ee",
                     "greyOutline": "#bbb",
-                    "platform": Object {
-                      "android": Object {
+                    "platform": {
+                      "android": {
                         "error": "#f44336",
                         "grey": "rgba(0, 0, 0, 0.54)",
                         "primary": "#2196f3",
@@ -425,7 +434,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4caf50",
                         "warning": "#ffeb3b",
                       },
-                      "default": Object {
+                      "default": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -434,7 +443,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "ios": Object {
+                      "ios": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -443,7 +452,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "web": Object {
+                      "web": {
                         "error": "#ff190c",
                         "grey": "#393e42",
                         "primary": "#2089dc",
@@ -466,14 +475,14 @@ exports[`SettingsScreen should render correctly 1`] = `
             >
               <View
                 style={
-                  Object {
+                  {
                     "flexDirection": "row",
                   }
                 }
               >
                 <Text
                   style={
-                    Object {
+                    {
                       "backgroundColor": "transparent",
                       "color": "#242424",
                     }
@@ -486,7 +495,7 @@ exports[`SettingsScreen should render correctly 1`] = `
             </View>
             <View
               style={
-                Object {
+                {
                   "paddingLeft": 16,
                 }
               }
@@ -497,7 +506,7 @@ exports[`SettingsScreen should render correctly 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={
-                Object {
+                {
                   "height": 31,
                   "width": 51,
                 }
@@ -509,6 +518,7 @@ exports[`SettingsScreen should render correctly 1`] = `
         </View>
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
@@ -519,7 +529,7 @@ exports[`SettingsScreen should render correctly 1`] = `
         >
           <View
             style={
-              Object {
+              {
                 "alignItems": "center",
                 "backgroundColor": "#ffffff",
                 "borderBottomWidth": 0.5,
@@ -532,8 +542,8 @@ exports[`SettingsScreen should render correctly 1`] = `
             <View
               replaceTheme={[Function]}
               style={
-                Array [
-                  Object {
+                [
+                  {
                     "alignItems": "flex-start",
                     "flex": 1,
                     "justifyContent": "center",
@@ -542,8 +552,8 @@ exports[`SettingsScreen should render correctly 1`] = `
                 ]
               }
               theme={
-                Object {
-                  "colors": Object {
+                {
+                  "colors": {
                     "black": "#242424",
                     "disabled": "hsl(208, 8%, 90%)",
                     "divider": "#bcbbc1",
@@ -555,8 +565,8 @@ exports[`SettingsScreen should render correctly 1`] = `
                     "grey4": "#bdc6cf",
                     "grey5": "#e1e8ee",
                     "greyOutline": "#bbb",
-                    "platform": Object {
-                      "android": Object {
+                    "platform": {
+                      "android": {
                         "error": "#f44336",
                         "grey": "rgba(0, 0, 0, 0.54)",
                         "primary": "#2196f3",
@@ -565,7 +575,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4caf50",
                         "warning": "#ffeb3b",
                       },
-                      "default": Object {
+                      "default": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -574,7 +584,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "ios": Object {
+                      "ios": {
                         "error": "#ff3b30",
                         "grey": "#7d7d7d",
                         "primary": "#007aff",
@@ -583,7 +593,7 @@ exports[`SettingsScreen should render correctly 1`] = `
                         "success": "#4cd964",
                         "warning": "#ffcc00",
                       },
-                      "web": Object {
+                      "web": {
                         "error": "#ff190c",
                         "grey": "#393e42",
                         "primary": "#2089dc",
@@ -606,14 +616,14 @@ exports[`SettingsScreen should render correctly 1`] = `
             >
               <View
                 style={
-                  Object {
+                  {
                     "flexDirection": "row",
                   }
                 }
               >
                 <Text
                   style={
-                    Object {
+                    {
                       "backgroundColor": "transparent",
                       "color": "#242424",
                     }
@@ -626,7 +636,7 @@ exports[`SettingsScreen should render correctly 1`] = `
             </View>
             <View
               style={
-                Object {
+                {
                   "paddingLeft": 16,
                 }
               }
@@ -637,7 +647,7 @@ exports[`SettingsScreen should render correctly 1`] = `
               onResponderTerminationRequest={[Function]}
               onStartShouldSetResponder={[Function]}
               style={
-                Object {
+                {
                   "height": 31,
                   "width": 51,
                 }
@@ -649,24 +659,26 @@ exports[`SettingsScreen should render correctly 1`] = `
         </View>
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <View
           style={
-            Object {
+            {
               "marginBottom": 15,
             }
           }
         />
       </View>
       <View
+        onFocusCapture={[Function]}
         onLayout={[Function]}
         style={null}
       >
         <Text
           style={
-            Object {
+            {
               "backgroundColor": undefined,
               "color": "#43484d",
               "fontWeight": "600",
@@ -681,7 +693,7 @@ exports[`SettingsScreen should render correctly 1`] = `
       </View>
       <View
         style={
-          Object {
+          {
             "height": 0,
           }
         }
@@ -691,7 +703,7 @@ exports[`SettingsScreen should render correctly 1`] = `
       >
         <View
           style={
-            Object {
+            {
               "margin": 15,
             }
           }
@@ -699,7 +711,7 @@ exports[`SettingsScreen should render correctly 1`] = `
           <Text
             onLongPress={[Function]}
             style={
-              Object {
+              {
                 "color": "#43484d",
                 "fontSize": 15,
               }
@@ -710,14 +722,14 @@ exports[`SettingsScreen should render correctly 1`] = `
           </Text>
           <Text
             style={
-              Object {
+              {
                 "color": "#43484d",
                 "fontSize": 15,
               }
             }
             testID="app-version"
           >
-            mock (mock)
+            undefined (undefined)
           </Text>
         </View>
       </View>
