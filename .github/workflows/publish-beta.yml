@@ -50,4 +50,4 @@ jobs:
           issuerID:${{ secrets.APP_STORE_ISSUER_ID }} \
           keyContents:${{ secrets.APP_STORE_KEY_CONTENTS_EXPO }} \
           codeSign64:${{ secrets.CODE_SIGN_64 }} \
-          profileName64:${{ secrets.PROFILE_NAME_64 }}
+          profileName64:${{ secrets.PROFILE_NAME_64_EXPO }}
