@@ -15,7 +15,7 @@ jobs:
       - name: Setup signing environment
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
-          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64 }}
+          BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64_EXPO }}
           KEYCHAIN_PASSWORD: "CI_PASSWORD"
           P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
         run: |
@@ -46,8 +46,8 @@ jobs:
       
       - name: Build and publish beta
         run: fastlane beta \
-          keyID:${{ secrets.APP_STORE_KEY_ID }} \
+          keyID:${{ secrets.APP_STORE_KEY_ID_EXPO }} \
           issuerID:${{ secrets.APP_STORE_ISSUER_ID }} \
-          keyContents:${{ secrets.APP_STORE_KEY_CONTENTS }} \
+          keyContents:${{ secrets.APP_STORE_KEY_CONTENTS_EXPO }} \
           codeSign64:${{ secrets.CODE_SIGN_64 }} \
-          profileName64:${{ secrets.PROFILE_NAME_64 }}
+          profileName64:${{ secrets.PROFILE_NAME_64_EXPO }}
