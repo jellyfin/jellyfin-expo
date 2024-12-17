@@ -20,11 +20,37 @@ end
 platform :ios do
   desc "Publish beta to TestFlight"
   lane :beta do |options|
+    ensure_env_vars(
+      env_vars: [
+        "APP_STORE_CONNECT_API_KEY_KEY_ID",
+        "APP_STORE_CONNECT_API_KEY_ISSUER_ID",
+        "APP_STORE_CONNECT_API_KEY_KEY",
+        "FL_CODE_SIGN_IDENTITY",
+        "FL_PROVISIONING_PROFILE_SPECIFIER"
+      ]
+    )
+
     xcodes(version: "15.4")
 
-    # FIXME: Build and publish the app
-    # build_app(scheme: "Jellyfin",
-    #           workspace: "ios/Jellyfin.xcworkspace",
-    #           configuration: "Release")
+    app_store_connect_api_key(
+      is_key_content_base64: true,
+      duration: 1200,
+      in_house: false
+    )
+
+    update_code_signing_settings(
+      path: "ios/Jellyfin.xcodeproj",
+      use_automatic_signing: false
+    )
+
+    build_app(
+      scheme: "Jellyfin",
+      workspace: "ios/Jellyfin.xcworkspace",
+      configuration: "Release"
+    )
+
+    if options[:upload]
+      upload_to_testflight()
+    end
   end
 end
