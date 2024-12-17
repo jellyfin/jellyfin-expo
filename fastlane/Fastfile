@@ -20,11 +20,18 @@ end
 platform :ios do
   desc "Publish beta to TestFlight"
   lane :beta do |options|
+    key_id = options[:keyID]
+    issuer_id = options[:issuerID]
+    key_content = options[:keyContents]
+
     xcodes(version: "15.4")
 
-    # FIXME: Build and publish the app
-    # build_app(scheme: "Jellyfin",
-    #           workspace: "ios/Jellyfin.xcworkspace",
-    #           configuration: "Release")
+    app_store_connect_api_key()
+
+    build_app(
+      scheme: "Jellyfin",
+      workspace: "ios/Jellyfin.xcworkspace",
+      configuration: "Release"
+    )
   end
 end
