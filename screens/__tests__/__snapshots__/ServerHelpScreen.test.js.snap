@@ -3,14 +3,15 @@
 exports[`ServerHelpScreen should render correctly 1`] = `
 <RNCSafeAreaView
   edges={
-    Array [
-      "right",
-      "bottom",
-      "left",
-    ]
+    {
+      "bottom": "additive",
+      "left": "additive",
+      "right": "additive",
+      "top": "off",
+    }
   }
   style={
-    Object {
+    {
       "flex": 1,
       "paddingHorizontal": 15,
       "paddingTop": 20,
@@ -19,9 +20,13 @@ exports[`ServerHelpScreen should render correctly 1`] = `
 >
   <Image
     fadeDuration={0}
-    source={1}
+    source={
+      {
+        "testUri": "../../../assets/images/icon-transparent.png",
+      }
+    }
     style={
-      Object {
+      {
         "alignSelf": "center",
         "height": 120,
         "marginVertical": 20,
@@ -32,7 +37,7 @@ exports[`ServerHelpScreen should render correctly 1`] = `
   />
   <Text
     style={
-      Object {
+      {
         "color": "#242424",
         "fontSize": 43.714285714285715,
         "marginBottom": 20,
@@ -44,7 +49,7 @@ exports[`ServerHelpScreen should render correctly 1`] = `
   </Text>
   <Text
     style={
-      Object {
+      {
         "color": "#242424",
         "flexGrow": 1,
         "lineHeight": 24,
@@ -60,12 +65,12 @@ In order to use this client, you need to host your own Jellyfin server.
   </Text>
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "borderRadius": 3,
           "overflow": "hidden",
         },
-        Object {
+        {
           "borderRadius": 3,
         },
         undefined,
@@ -76,9 +81,20 @@ In order to use this client, you need to host your own Jellyfin server.
     <View
       accessibilityRole="button"
       accessibilityState={
-        Object {
+        {
           "busy": false,
+          "checked": undefined,
           "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
         }
       }
       accessible={true}
@@ -92,7 +108,7 @@ In order to use this client, you need to host your own Jellyfin server.
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "marginHorizontal": 40,
           "marginVertical": 20,
           "opacity": 1,
@@ -101,7 +117,7 @@ In order to use this client, you need to host your own Jellyfin server.
     >
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "backgroundColor": "transparent",
             "borderColor": "#2089dc",
@@ -115,7 +131,7 @@ In order to use this client, you need to host your own Jellyfin server.
       >
         <Text
           style={
-            Object {
+            {
               "color": "#2089dc",
               "fontSize": 18,
               "paddingVertical": 1,
@@ -130,12 +146,12 @@ In order to use this client, you need to host your own Jellyfin server.
   </View>
   <View
     style={
-      Array [
-        Object {
+      [
+        {
           "borderRadius": 3,
           "overflow": "hidden",
         },
-        Object {
+        {
           "borderRadius": 3,
         },
         undefined,
@@ -146,9 +162,20 @@ In order to use this client, you need to host your own Jellyfin server.
     <View
       accessibilityRole="button"
       accessibilityState={
-        Object {
+        {
           "busy": false,
+          "checked": undefined,
           "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
         }
       }
       accessible={true}
@@ -162,14 +189,14 @@ In order to use this client, you need to host your own Jellyfin server.
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "opacity": 1,
         }
       }
     >
       <View
         style={
-          Object {
+          {
             "alignItems": "center",
             "backgroundColor": "#2089dc",
             "borderColor": "#2089dc",
@@ -183,7 +210,7 @@ In order to use this client, you need to host your own Jellyfin server.
       >
         <Text
           style={
-            Object {
+            {
               "color": "white",
               "fontSize": 18,
               "paddingVertical": 1,

@@ -3,7 +3,7 @@
 exports[`LoadingScreen should render correctly 1`] = `
 <View
   style={
-    Object {
+    {
       "backgroundColor": "#101010",
       "flex": 1,
     }
@@ -12,9 +12,13 @@ exports[`LoadingScreen should render correctly 1`] = `
   <Image
     fadeDuration={0}
     onLoad={[Function]}
-    source={1}
+    source={
+      {
+        "testUri": "../../../assets/images/splash.png",
+      }
+    }
     style={
-      Object {
+      {
         "flex": 1,
         "height": undefined,
         "resizeMode": "contain",
