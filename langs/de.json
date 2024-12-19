@@ -70,7 +70,8 @@
         "source": "Quellcode",
         "feature": "Neue Funktion vorschlagen",
         "issue": "Fehler melden",
-        "translate": "Übersetzen"
+        "translate": "Übersetzen",
+        "help": "Hilfe erhalten"
     },
     "alerts": {
         "deleteServer": {

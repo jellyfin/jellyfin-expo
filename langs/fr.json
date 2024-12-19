@@ -44,7 +44,8 @@
         "source": "Code source",
         "documentation": "Documentation",
         "website": "Site Internet de Jellyfin",
-        "translate": "Traduire"
+        "translate": "Traduire",
+        "help": "Obtenir de l'aide"
     },
     "settings": {
         "expoVersion": "Expo Version : {{version}}",
