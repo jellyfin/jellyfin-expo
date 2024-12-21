@@ -17,8 +17,6 @@ import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { observer } from 'mobx-react-lite';
-import { AsyncTrunk } from 'mobx-sync-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, useColorScheme } from 'react-native';
@@ -27,6 +25,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { useStores } from './hooks/useStores';
+import DownloadModel from './models/DownloadModel';
+import ServerModel from './models/ServerModel';
 import RootNavigator from './navigation/RootNavigator';
 import { ensurePathExists } from './utils/File';
 import StaticScriptLoader from './utils/StaticScriptLoader';
@@ -34,23 +34,85 @@ import StaticScriptLoader from './utils/StaticScriptLoader';
 // Import i18n configuration
 import './i18n';
 
-const App = observer(({ skipLoadingScreen }) => {
+const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
-	const { rootStore } = useStores();
+	const { rootStore, downloadStore, settingStore, mediaStore, serverStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
-	rootStore.settingStore.systemThemeId = useColorScheme();
+	// Using a hook here causes a render loop; what is the point of this setting?
+	// settingStore.set({systemThemeId: useColorScheme()});
+	settingStore.systemThemeId = useColorScheme();
 
 	SplashScreen.preventAutoHideAsync();
 
-	const trunk = new AsyncTrunk(rootStore, {
-		storage: AsyncStorage
-	});
-
 	const hydrateStores = async () => {
-		await trunk.init();
+		// TODO: In release n+2 from this point, remove this conversion code.
+		const mobx_store_value = await AsyncStorage.getItem('__mobx_sync__'); // Store will be null if it's not set
 
-		rootStore.storeLoaded = true;
+		if (mobx_store_value !== null) {
+			console.info('Migrating mobx store to zustand');
+			const mobx_store = JSON.parse(mobx_store_value);
+
+			// Root Store
+			for (const key of Object.keys(mobx_store).filter(k => k.search('Store') === -1)) {
+				rootStore.set({ key: mobx_store[key] });
+			}
+
+			// MediaStore
+			for (const key of Object.keys(mobx_store.mediaStore)) {
+				mediaStore.set({ key: mobx_store.mediaStore[key] });
+			}
+
+			/**
+			 * Server store & download store need some special treatment because they
+			 * are not simple key-value pair stores.  Each contains one key which is a
+			 * list of Model objects that represent the contents of their respective
+			 * stores.
+			 *
+			 * zustand requires a custom storage engine for these for proper
+			 * serialization and deserialization (written in each storage's module),
+			 * but this code is needed to get them over the hump from mobx to zustand.
+			 */
+			// DownloadStore
+			const mobxDownloads = mobx_store.downloadStore.downloads;
+			const migratedDownloads = new Map();
+			if (Object.keys(mobxDownloads).length > 0) {
+				for (const [ key, value ] of Object.getEntries(mobxDownloads)) {
+					migratedDownloads.set(key, new DownloadModel(
+						value.itemId,
+						value.serverId,
+						value.serverUrl,
+						value.apiKey,
+						value.title,
+						value.fileName,
+						value.downloadUrl
+					));
+				}
+			}
+			downloadStore.set({ downloads: migratedDownloads });
+
+			// ServerStore
+			const mobxServers = mobx_store.serverStore.servers;
+			const migratedServers = [];
+			if (Object.keys(mobxServers).length > 0) {
+				for (const item of mobxServers) {
+					migratedServers.push(new ServerModel(item.id, new URL(item.url), item.info));
+				}
+			}
+			serverStore.set({ servers: migratedServers });
+
+			// SettingStore
+			for (const key of Object.keys(mobx_store.settingStore)) {
+				console.info('SettingStore', key);
+				settingStore.set({ key: mobx_store.settingStore[key] });
+			}
+
+			// TODO: Confirm zustand has objects in async storage
+			// TODO: Remove mobx sync item from async storage
+			// AsyncStorage.removeItem('__mobx_sync__')
+		}
+
+		rootStore.set({ storeLoaded: true });
 	};
 
 	const loadImages = () => {
@@ -79,6 +141,7 @@ const App = observer(({ skipLoadingScreen }) => {
 	};
 
 	useEffect(() => {
+		// Set base app theme
 		// Hydrate mobx data stores
 		hydrateStores();
 
@@ -87,16 +150,16 @@ const App = observer(({ skipLoadingScreen }) => {
 	}, []);
 
 	useEffect(() => {
-		console.info('rotation lock setting changed!', rootStore.settingStore.isRotationLockEnabled);
-		if (rootStore.settingStore.isRotationLockEnabled) {
+		console.info('rotation lock setting changed!', settingStore.isRotationLockEnabled);
+		if (settingStore.isRotationLockEnabled) {
 			ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
 		} else {
 			ScreenOrientation.unlockAsync();
 		}
-	}, [ rootStore.settingStore.isRotationLockEnabled ]);
+	}, [ settingStore.isRotationLockEnabled ]);
 
 	const updateScreenOrientation = async () => {
-		if (rootStore.settingStore.isRotationLockEnabled) {
+		if (settingStore.isRotationLockEnabled) {
 			if (rootStore.isFullscreen) {
 				// Lock to landscape orientation
 				// For some reason video apps on iPhone use LANDSCAPE_RIGHT ¯\_(ツ)_/¯
@@ -163,13 +226,13 @@ const App = observer(({ skipLoadingScreen }) => {
 				});
 		};
 
-		rootStore.downloadStore.downloads
+		downloadStore.downloads
 			.forEach(download => {
 				if (!download.isComplete && !download.isDownloading) {
 					downloadFile(download);
 				}
 			});
-	}, [ rootStore.deviceId, rootStore.downloadStore.downloads.size ]);
+	}, [ rootStore.deviceId, downloadStore.downloads.size ]);
 
 	if (!(isSplashReady && rootStore.storeLoaded) && !skipLoadingScreen) {
 		return null;
@@ -177,20 +240,20 @@ const App = observer(({ skipLoadingScreen }) => {
 
 	return (
 		<SafeAreaProvider>
-			<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
+			<ThemeProvider theme={settingStore.getTheme().Elements}>
 				<ThemeSwitcher />
 				<StatusBar
 					style='light'
 					backgroundColor={theme.colors.grey0}
 					hidden={rootStore.isFullscreen}
 				/>
-				<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
+				<NavigationContainer theme={settingStore.getTheme().Navigation}>
 					<RootNavigator />
 				</NavigationContainer>
 			</ThemeProvider>
 		</SafeAreaProvider>
 	);
-});
+};
 
 App.propTypes = {
 	skipLoadingScreen: PropTypes.bool
