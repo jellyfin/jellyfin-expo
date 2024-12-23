@@ -14,12 +14,6 @@ jobs:
 
       - name: Setup signing environment
         env:
-          APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_KEY_ID_EXPO }}
-          APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_ISSUER_ID }}
-          APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_KEY_CONTENTS_EXPO }}
-          APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: true
-          APP_STORE_CONNECT_API_KEY_DURATION: 1200
-          APP_STORE_CONNECT_API_KEY_IN_HOUSE: false
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.BUILD_PROVISION_PROFILE_BASE64_EXPO }}
           KEYCHAIN_PASSWORD: "CI_PASSWORD"
@@ -51,6 +45,13 @@ jobs:
           sudo cp $PP_PATH /Library/MobileDevice/Provisioning\ Profiles
       
       - name: Build and publish beta
+        env:
+          APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_KEY_ID_EXPO }}
+          APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_ISSUER_ID }}
+          APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_KEY_CONTENTS_EXPO }}
+          APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: true
+          APP_STORE_CONNECT_API_KEY_DURATION: 1200
+          APP_STORE_CONNECT_API_KEY_IN_HOUSE: false
         run: fastlane beta \
           keyID:"${{ secrets.APP_STORE_KEY_ID_EXPO }}" \
           issuerID:"${{ secrets.APP_STORE_ISSUER_ID }}" \
