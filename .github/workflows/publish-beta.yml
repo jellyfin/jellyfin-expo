@@ -2,6 +2,20 @@ name: Publish Beta
 
 on:
   workflow_dispatch:
+    inputs:
+      upload:
+        description: Upload the build to TestFlight
+        type: boolean
+        default: false
+        required: true
+      changelog:
+        description: Changelog for TestFlight
+        type: string
+      notify_testers:
+        description: Notify TestFlight testers
+        type: boolean
+        default: true
+        required: true
 
 jobs:
   publish:
@@ -11,6 +25,20 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: 20
+          check-latest: true
+          cache: npm
+
+      - name: Install Node.js dependencies
+        run: npm ci --no-audit
+
+      - name: Install Pods
+        run: |
+          cd ios && pod install
 
       - name: Setup signing environment
         env:
@@ -43,18 +71,17 @@ jobs:
           sudo mkdir -p /Library/MobileDevice/Provisioning\ Profiles
           cp $PP_PATH ~/Library/MobileDevice/Provisioning\ Profiles
           sudo cp $PP_PATH /Library/MobileDevice/Provisioning\ Profiles
-      
+
+      - name: Decode signing profile secrets
+        run: |
+          echo "FL_CODE_SIGN_IDENTITY=$(echo ${{ secrets.CODE_SIGN_64 }} | base64 --decode)" >> $GITHUB_ENV
+          echo "FL_PROVISIONING_PROFILE_SPECIFIER=$(echo ${{ secrets.PROFILE_NAME_64_EXPO }} | base64 --decode)" >> $GITHUB_ENV
+
       - name: Build and publish beta
         env:
           APP_STORE_CONNECT_API_KEY_KEY_ID: ${{ secrets.APP_STORE_KEY_ID_EXPO }}
           APP_STORE_CONNECT_API_KEY_ISSUER_ID: ${{ secrets.APP_STORE_ISSUER_ID }}
           APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_KEY_CONTENTS_EXPO }}
-          APP_STORE_CONNECT_API_KEY_IS_KEY_CONTENT_BASE64: true
-          APP_STORE_CONNECT_API_KEY_DURATION: 1200
-          APP_STORE_CONNECT_API_KEY_IN_HOUSE: false
-        run: fastlane beta \
-          keyID:"${{ secrets.APP_STORE_KEY_ID_EXPO }}" \
-          issuerID:"${{ secrets.APP_STORE_ISSUER_ID }}" \
-          keyContents:"${{ secrets.APP_STORE_KEY_CONTENTS_EXPO }}" \
-          codeSign64:"${{ secrets.CODE_SIGN_64 }}" \
-          profileName64:"${{ secrets.PROFILE_NAME_64_EXPO }}"
+          PILOT_CHANGELOG: ${{ github.event.inputs.changelog }}
+          PILOT_NOTIFY_EXTERNAL_TESTERS: ${{ github.event.inputs.notify_testers }}
+        run: fastlane beta upload:${{ github.event.inputs.upload }}
