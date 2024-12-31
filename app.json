@@ -1,13 +1,13 @@
 {
   "expo": {
+    "newArchEnabled": true,
     "name": "Jellyfin",
     "slug": "jellyfin-expo",
     "owner": "jellyfin",
-    "privacy": "unlisted",
     "platforms": [
       "ios"
     ],
-    "version": "1.6.0",
+    "version": "1.7.0",
     "orientation": "default",
     "primaryColor": "#00a4dc",
     "backgroundColor": "#101010",
@@ -38,6 +38,11 @@
         ]
       }
     },
-    "description": "Jellyfin Mobile"
+    "description": "Jellyfin Mobile",
+    "plugins": [
+      "expo-asset",
+      "expo-font",
+      "expo-localization"
+    ]
   }
 }

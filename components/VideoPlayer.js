@@ -4,7 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { Audio, InterruptionModeAndroid, InterruptionModeIOS, Video, VideoFullscreenUpdate } from 'expo-av';
-import { observer } from 'mobx-react-lite';
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from 'react-native';
 
@@ -12,8 +11,8 @@ import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
 import { msToTicks } from '../utils/Time';
 
-const VideoPlayer = observer(() => {
-	const { rootStore } = useStores();
+const VideoPlayer = () => {
+	const { rootStore, mediaStore } = useStores();
 
 	const player = useRef(null);
 	// Local player fullscreen state
@@ -31,37 +30,37 @@ const VideoPlayer = observer(() => {
 
 	// Update the player when media type or uri changes
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Video) {
-			rootStore.didPlayerCloseManually = true;
+		if (mediaStore.type === MediaTypes.Video) {
+			rootStore.set({ didPlayerCloseManually: true });
 			player.current?.loadAsync({
-				uri: rootStore.mediaStore.uri
+				uri: mediaStore.uri
 			}, {
-				positionMillis: rootStore.mediaStore.positionMillis,
+				positionMillis: mediaStore.positionMillis,
 				shouldPlay: true
 			});
 		}
-	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri ]);
+	}, [ mediaStore.type, mediaStore.uri ]);
 
 	// Update the play/pause state when the store indicates it should
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.shouldPlayPause) {
-			if (rootStore.mediaStore.isPlaying) {
+		if (mediaStore.type === MediaTypes.Video && mediaStore.shouldPlayPause) {
+			if (mediaStore.isPlaying) {
 				player.current?.pauseAsync();
 			} else {
 				player.current?.playAsync();
 			}
-			rootStore.mediaStore.shouldPlayPause = false;
+			mediaStore.set({ shouldPlayPause: false });
 		}
-	}, [ rootStore.mediaStore.shouldPlayPause ]);
+	}, [ mediaStore.shouldPlayPause ]);
 
 	// Close the player when the store indicates it should stop playback
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Video && rootStore.mediaStore.shouldStop) {
-			rootStore.didPlayerCloseManually = false;
+		if (mediaStore.type === MediaTypes.Video && mediaStore.shouldStop) {
+			rootStore.set({ didPlayerCloseManually: false });
 			closeFullscreen();
-			rootStore.mediaStore.shouldStop = false;
+			mediaStore.set({ shouldStop: false });
 		}
-	}, [ rootStore.mediaStore.shouldStop ]);
+	}, [ mediaStore.shouldStop ]);
 
 	const openFullscreen = () => {
 		if (!isPresenting) {
@@ -86,24 +85,26 @@ const VideoPlayer = observer(() => {
 		<Video
 			ref={player}
 			usePoster
-			posterSource={{ uri: rootStore.mediaStore.backdropUri }}
+			posterSource={{ uri: mediaStore.backdropUri }}
 			resizeMode='contain'
 			useNativeControls
 			onReadyForDisplay={openFullscreen}
 			onPlaybackStatusUpdate={({ isPlaying, positionMillis, didJustFinish }) => {
 				if (didJustFinish) {
-					rootStore.didPlayerCloseManually = false;
+					rootStore.set({ didPlayerCloseManually: false });
 					closeFullscreen();
 					return;
 				}
-				rootStore.mediaStore.isPlaying = isPlaying;
-				rootStore.mediaStore.positionTicks = msToTicks(positionMillis);
+				mediaStore.set({
+					isPlaying: isPlaying,
+					positionTicks: msToTicks(positionMillis)
+				});
 			}}
 			onFullscreenUpdate={({ fullscreenUpdate }) => {
 				switch (fullscreenUpdate) {
 					case VideoFullscreenUpdate.PLAYER_WILL_PRESENT:
 						setIsPresenting(true);
-						rootStore.isFullscreen = true;
+						rootStore.set({ isFullscreen: true });
 						break;
 					case VideoFullscreenUpdate.PLAYER_DID_PRESENT:
 						setIsPresenting(false);
@@ -113,8 +114,8 @@ const VideoPlayer = observer(() => {
 						break;
 					case VideoFullscreenUpdate.PLAYER_DID_DISMISS:
 						setIsDismissing(false);
-						rootStore.isFullscreen = false;
-						rootStore.mediaStore.reset();
+						rootStore.set({ isFullscreen: false });
+						mediaStore.reset();
 						player.current?.unloadAsync()
 							.catch(console.debug);
 						break;
@@ -126,6 +127,6 @@ const VideoPlayer = observer(() => {
 			}}
 		/>
 	);
-});
+};
 
 export default VideoPlayer;

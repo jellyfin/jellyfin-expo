@@ -1,0 +1,59 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * 
+ * **NOTE** This test is currently disabled based on the following rationale
+ * 
+ * 1. There is a bug in the current version of react-native-webview which breaks
+ *    jest tests.
+ *    https://github.com/react-native-webview/react-native-webview/issues/3506
+ * 2. The downgraded version of react-native-webview (which fixes this test)
+ *    introduces compatibility issues with the current version of react native
+ *    and possibly expo, throwing this error when the home screen is loaded
+ *    (after server login)
+ *    ```
+ *    TypeError: _NativeRNCWebView.default.shouldStartLoadWithLockIdentifier is not a function (it is undefined)
+ *    ```
+ * 3. NativeShellWebView is a wrapper around RefreshWebView, which is suffering 
+ *    from this issue
+ */
+
+import { render } from '@testing-library/react-native';
+import React from 'react';
+
+import { useStores } from '../../hooks/useStores';
+import { getAppName, getDeviceProfile, getSafeDeviceName } from '../../utils/Device';
+import NativeShellWebView from '../NativeShellWebView';
+
+jest.mock('../../hooks/useStores');
+useStores.mockImplementation(() => ({
+	rootStore: {
+	},
+	settingStore: {
+		activeServer: 0
+	},
+	serverStore: {
+		servers: [{
+			info: {
+				Version: '10.8.0'
+			}
+		}]
+	}
+}
+));
+
+jest.mock('../../utils/Device');
+getAppName.mockImplementation(() => 'Jellyfin Mobile');
+getDeviceProfile.mockImplementation(() => ({}));
+getSafeDeviceName.mockImplementation(() => 'Test Device');
+
+describe('NativeShellWebView', () => {
+	it.skip('should render correctly', () => {
+		const result = render(
+			<NativeShellWebView />
+		);
+
+		expect(result.toJSON()).toMatchSnapshot(); // Invalid String Length
+	});
+});
