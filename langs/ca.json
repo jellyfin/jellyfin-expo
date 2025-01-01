@@ -73,7 +73,8 @@
         "documentation": "Documentació",
         "source": "Codi Font",
         "translate": "Traduir",
-        "issue": "Informar d'un problema"
+        "issue": "Informar d'un problema",
+        "help": "Obtenir ajuda"
     },
     "alerts": {
         "deleteServer": {

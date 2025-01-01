@@ -73,7 +73,8 @@
         "documentation": "Documentação",
         "source": "Código Fonte",
         "translate": "Traduzir",
-        "issue": "Reportar um problema"
+        "issue": "Reportar um problema",
+        "help": "Obter ajuda"
     },
     "alerts": {
         "deleteServer": {
