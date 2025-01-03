@@ -18,7 +18,7 @@ import { getIconName } from '../utils/Icons';
 const AddServerScreen = () => {
 	const navigation = useNavigation();
 	const { t } = useTranslation();
-	const { rootStore } = useStores();
+	const { settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	return (
@@ -37,7 +37,7 @@ const AddServerScreen = () => {
 					<Image
 						style={styles.logoImage}
 						source={
-							rootStore.settingStore.theme.dark ?
+							settingStore.getTheme().dark ?
 								require('../assets/images/logo-dark.png') :
 								require('../assets/images/logo-light.png')
 						}
