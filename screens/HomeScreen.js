@@ -1,7 +1,9 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
@@ -123,10 +125,6 @@ const HomeScreen = () => {
 	const safeAreaEdges = [ 'right', 'left' ];
 	if (Platform.OS !== 'ios' || rootStore.isFullscreen) {
 		safeAreaEdges.push('top');
-	}
-	// Bottom spacer is handled by tab bar except in fullscreen
-	if (rootStore.isFullscreen) {
-		safeAreaEdges.push('bottom');
 	}
 	// Hide webview until loaded
 	const webviewStyle = (isLoading || httpErrorStatus) ? StyleSheet.compose(styles.container, styles.loading) : styles.container;

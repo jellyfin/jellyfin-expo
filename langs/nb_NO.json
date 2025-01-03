@@ -70,7 +70,8 @@
         "source": "Kildekode",
         "feature": "Forespør en funksjon",
         "issue": "Rapportér en feil",
-        "translate": "Oversett"
+        "translate": "Oversett",
+        "help": "Få hjelp"
     },
     "alerts": {
         "deleteServer": {

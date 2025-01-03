@@ -74,7 +74,8 @@
         "source": "קוד מקור",
         "translate": "תרגם",
         "feature": "",
-        "issue": "דווח על בעיה"
+        "issue": "דווח על בעיה",
+        "help": "קבלת עזרה"
     },
     "alerts": {
         "deleteServer": {

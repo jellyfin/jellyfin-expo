@@ -1,10 +1,12 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -15,7 +17,7 @@ import AddServerScreen from '../screens/AddServerScreen';
 
 import TabNavigator from './TabNavigator';
 
-const AppStack = createStackNavigator();
+const AppStack = createNativeStackNavigator();
 
 const AppNavigator = () => {
 	const { serverStore } = useStores();
@@ -28,7 +30,7 @@ const AppNavigator = () => {
 		<AppStack.Navigator
 			initialRouteName={(serverStore.servers?.length > 0) ? Screens.MainScreen : Screens.AddServerScreen}
 			screenOptions={{
-				headerMode: 'screen',
+				autoHideHomeIndicator: rootStore.isFullscreen,
 				headerShown: false
 			}}
 		>
@@ -42,10 +44,9 @@ const AppNavigator = () => {
 						// If state doesn't exist, we need to default to `screen` param if available, or the initial screen
 						// In our case, it's "Main" as that's the first screen inside the navigator
 						route.params?.screen || Screens.MainScreen;
-					return ({
-						headerShown: false,
+					return {
 						title: t(`headings.${routeName.toLowerCase()}`)
-					});
+					};
 				}}
 			/>
 			<AppStack.Screen
