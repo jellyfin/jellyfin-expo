@@ -130,6 +130,8 @@ i18next
 	.init({
 		// debug: true,
 		fallbackLng: 'en',
+		// Use the fallback language for empty strings
+		returnEmptyString: false,
 		lng: Localization.locale,
 		interpolation: {
 			escapeValue: false
