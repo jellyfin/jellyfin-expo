@@ -59,7 +59,7 @@
         "expoVersion": "Expoversion: {{version}}",
         "minimumServerVersion": "Kräver serverversion 10.7+",
         "tabLabels": "Visa fliketiketter",
-        "systemTheme": "Andvänd systemtema",
+        "systemTheme": "Använd systemtema",
         "lightTheme": "Använd ljust tema",
         "fmp4Support": "Föredra fMP4 i HLS",
         "nativeVideoPlayer": "Använd inbyggd videospelare"
@@ -70,7 +70,8 @@
         "source": "Källkod",
         "feature": "Föreslå en funktion",
         "issue": "Rapportera ett problem",
-        "translate": "Översätt"
+        "translate": "Översätt",
+        "help": "Så får du hjälp"
     },
     "alerts": {
         "deleteServer": {
