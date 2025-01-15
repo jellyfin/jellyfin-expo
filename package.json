@@ -62,7 +62,7 @@
     "mobx-react-lite": "2.2.2",
     "mobx-sync-lite": "3.1.0",
     "mobx-task": "2.0.1",
-    "normalize-url": "7.2.0",
+    "normalize-url": "8.0.1",
     "prop-types": "15.8.1",
     "react": "18.0.0",
     "react-i18next": "11.18.6",
