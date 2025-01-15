@@ -30,9 +30,9 @@
       "supportsTablet": true,
       "requireFullScreen": false,
       "bundleIdentifier": "org.jellyfin.expo",
-      "entitlements": [
-        "com.apple.developer.device-information.user-assigned-device-name"
-      ],
+      "entitlements": {
+        "com.apple.developer.device-information.user-assigned-device-name": true
+      },
       "infoPlist": {
         "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera.",
         "UIBackgroundModes": [
