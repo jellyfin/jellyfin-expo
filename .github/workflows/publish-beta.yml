@@ -34,7 +34,9 @@ jobs:
           cache: npm
 
       - name: Install Node.js dependencies
-        run: npm ci --no-audit
+        run: |
+          npm ci --no-audit
+          git apply patches/boost1760.patch
 
       - name: Install Pods
         run: |
