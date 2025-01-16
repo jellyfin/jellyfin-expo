@@ -70,7 +70,8 @@
         "source": "Broncode",
         "translate": "Vertalen",
         "feature": "Verzoek nieuwe functionaliteit",
-        "issue": "Rapporteer een probleem"
+        "issue": "Rapporteer een probleem",
+        "help": "Hulp krijgen"
     },
     "alerts": {
         "deleteServer": {
