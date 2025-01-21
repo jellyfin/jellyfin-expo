@@ -1,17 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`HomeScreen should render ErrorView when invalid server exists 1`] = `
-<RNCSafeAreaView
-  edges={
-    Array [
-      "right",
-      "left",
-    ]
-  }
+<View
   style={
     Object {
       "backgroundColor": undefined,
       "flex": 1,
+      "paddingLeft": 0,
+      "paddingRight": 0,
     }
   }
 >
@@ -101,21 +97,17 @@ exports[`HomeScreen should render ErrorView when invalid server exists 1`] = `
       testID="error-view-details"
     />
   </View>
-</RNCSafeAreaView>
+</View>
 `;
 
 exports[`HomeScreen should render correctly 1`] = `
-<RNCSafeAreaView
-  edges={
-    Array [
-      "right",
-      "left",
-    ]
-  }
+<View
   style={
     Object {
       "backgroundColor": undefined,
       "flex": 1,
+      "paddingLeft": 0,
+      "paddingRight": 0,
     }
   }
 >
@@ -221,7 +213,7 @@ exports[`HomeScreen should render correctly 1`] = `
       }
     />
   </View>
-</RNCSafeAreaView>
+</View>
 `;
 
 exports[`HomeScreen should render null when no servers are present 1`] = `null`;
