@@ -72,7 +72,8 @@
         "documentation": "Doiciméadú",
         "source": "Cód Foinse",
         "translate": "Aistrigh",
-        "issue": "Saincheist a thuairisciú"
+        "issue": "Saincheist a thuairisciú",
+        "help": "Cabhair a Fháil"
     },
     "alerts": {
         "deleteServer": {
