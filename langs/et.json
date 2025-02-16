@@ -73,7 +73,8 @@
         "documentation": "Dokumentatsioon",
         "source": "Lähtekood",
         "translate": "Tõlgi",
-        "issue": "Teata probleemist"
+        "issue": "Teata probleemist",
+        "help": "Abi saamine"
     },
     "alerts": {
         "deleteServer": {
