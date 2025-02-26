@@ -82,7 +82,8 @@
         "documentation": "Documentación",
         "website": "Sitio web de Jellyfin",
         "feature": "Sugerir nuevas características",
-        "translate": "Traducir"
+        "translate": "Traducir",
+        "help": "Recibir ayuda"
     },
     "serverHelp": {
         "description": "Jellyfin es una solución multimedia hecha por voluntarios. Te permite hospedar tu propio contenido multimedia y acceder a el desde donde quieras.\n\n\nPara poder utilizar este cliente, necesitas hospedar tu propio servidor de Jellyfin.",
