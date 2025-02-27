@@ -70,7 +70,8 @@
         "source": "Codul Sursă",
         "translate": "Traduceți",
         "feature": "Solicitați o caracteristică",
-        "issue": "Raportați o problemă"
+        "issue": "Raportați o problemă",
+        "help": "Obține ajutor"
     },
     "alerts": {
         "deleteServer": {
