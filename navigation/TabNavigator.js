@@ -5,7 +5,6 @@
  */
 import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Platform } from 'react-native';
@@ -43,8 +42,8 @@ function TabIcon(routeName, focused, color, size) {
 
 const Tab = createBottomTabNavigator();
 
-const TabNavigator = observer(() => {
-	const { rootStore } = useStores();
+const TabNavigator = () => {
+	const { rootStore, downloadStore, settingStore } = useStores();
 	const insets = useSafeAreaInsets();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
@@ -55,7 +54,7 @@ const TabNavigator = observer(() => {
 		tabBarStyle.display = 'none';
 	}
 	// Use a smaller height for the tab bar when labels are disabled
-	if (!rootStore.settingStore.isTabLabelsEnabled && !Platform.isPad) {
+	if (!settingStore.isTabLabelsEnabled && !Platform.isPad) {
 		tabBarStyle.height = insets.bottom + 28;
 	}
 
@@ -65,7 +64,7 @@ const TabNavigator = observer(() => {
 				headerShown: false,
 				tabBarIcon: ({ focused, color, size }) => TabIcon(route.name, focused, color, size),
 				tabBarInactiveTintColor: theme.colors.grey1,
-				tabBarShowLabel: rootStore.settingStore.isTabLabelsEnabled,
+				tabBarShowLabel: settingStore.isTabLabelsEnabled,
 				tabBarStyle
 			})}
 		>
@@ -76,14 +75,14 @@ const TabNavigator = observer(() => {
 					title: t('headings.home')
 				}}
 			/>
-			{rootStore.settingStore.isExperimentalDownloadsEnabled && (
+			{settingStore.isExperimentalDownloadsEnabled && (
 				<Tab.Screen
 					name={Screens.DownloadsTab}
 					component={DownloadScreen}
 					options={{
 						title: t('headings.downloads'),
 						headerShown: true,
-						tabBarBadge: rootStore.downloadStore.newDownloadCount > 0 ? rootStore.downloadStore.newDownloadCount : null
+						tabBarBadge: downloadStore.newDownloadCount > 0 ? downloadStore.newDownloadCount : null
 					}}
 				/>
 			)}
@@ -96,6 +95,6 @@ const TabNavigator = observer(() => {
 			/>
 		</Tab.Navigator>
 	);
-});
+};
 
 export default TabNavigator;
