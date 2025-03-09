@@ -49,7 +49,7 @@
         },
         "errorCode": "Κωδικός σφάλματος: {{errorCode}}",
         "errorUrl": "URL: {{url}}",
-        "retry": "Προσπάθησε ξανά;"
+        "retry": "Δοκιμή ξανά;"
     },
     "serverHelp": {
         "heading": "Τι είναι το Jellyfin;",
