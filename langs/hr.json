@@ -73,7 +73,8 @@
         "documentation": "Dokumentacija",
         "source": "Izvorni kod",
         "translate": "Prevedi",
-        "issue": "Prijaviti problem"
+        "issue": "Prijaviti problem",
+        "help": "Pomoć"
     },
     "alerts": {
         "deleteServer": {

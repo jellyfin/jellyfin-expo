@@ -4,5 +4,7 @@
   <dict>
     <key>aps-environment</key>
     <string>development</string>
+    <key>com.apple.developer.device-information.user-assigned-device-name</key>
+    <true/>
   </dict>
 </plist>

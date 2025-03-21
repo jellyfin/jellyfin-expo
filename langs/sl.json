@@ -70,7 +70,8 @@
         "source": "Izvorna koda",
         "feature": "Predlagaj izboljšavo",
         "issue": "Prijavi napako",
-        "translate": "Prevedi"
+        "translate": "Prevedi",
+        "help": "Iskanje pomoči"
     },
     "alerts": {
         "deleteServer": {

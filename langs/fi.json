@@ -73,7 +73,8 @@
         "documentation": "Dokumentaatio",
         "source": "Lähdekoodi",
         "translate": "Käännä",
-        "issue": "Raportoi ongelmasta"
+        "issue": "Raportoi ongelmasta",
+        "help": "Apua"
     },
     "alerts": {
         "deleteServer": {

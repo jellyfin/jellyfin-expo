@@ -8,7 +8,7 @@
         "delete": "Elimina"
     },
     "headings": {
-        "addServer": "Aggiungi server",
+        "addServer": "Aggiungi Server",
         "home": "Home",
         "links": "Collegamenti",
         "servers": "Server",
@@ -18,7 +18,7 @@
         "downloads": "Scaricati"
     },
     "addServer": {
-        "address": "Indirizzo Del Server",
+        "address": "Indirizzo del Server",
         "validation": {
             "empty": "$t(addServer.address) non può essere vuoto",
             "invalid": "$t(addServer.address) non è valido",
@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "offline": {
-                "description": "Errore nel contattare il server Jellyfin.",
+                "description": "Errore nella comunicazione con il server Jellyfin.",
                 "heading": "Server offline?"
             },
             "http": {
@@ -54,7 +54,7 @@
     },
     "settings": {
         "version": "Versione: {{version}}",
-        "keepAwake": "Mantenere lo Schermo Acceso",
+        "keepAwake": "Mantieni lo Schermo Acceso",
         "rotationLock": "Blocco Della Rotazione",
         "expoVersion": "Expo Versione:{{version}}",
         "tabLabels": "Mostra le etichette delle schede",
@@ -71,7 +71,7 @@
         "feature": "Richiedere una Funzionalità",
         "issue": "Segnala un Problema",
         "translate": "Traduci",
-        "help": "Richiedere Aiuto"
+        "help": "Richiedi aiuto"
     },
     "alerts": {
         "deleteServer": {
@@ -80,7 +80,7 @@
             "confirm": "Elimina"
         },
         "resetApplication": {
-            "title": "Ripristinare l'Applicazione",
+            "title": "Ripristina l'applicazione",
             "description": "Sei sicuro di voler ripristinare tutte le impostazioni?",
             "confirm": "Ripristina"
         }

@@ -69,7 +69,8 @@
         "source": "Forráskód",
         "translate": "Fordítás",
         "feature": "Kérj egy új funkciót",
-        "issue": "Hiba jelentése"
+        "issue": "Hiba jelentése",
+        "help": "Súgó"
     },
     "alerts": {
         "deleteServer": {

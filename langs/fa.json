@@ -69,7 +69,8 @@
         "source": "کد منبع",
         "translate": "ترجمه",
         "feature": "درخواست یک قابلیت",
-        "issue": "گزارش یک مشکل"
+        "issue": "گزارش یک مشکل",
+        "help": "دریافت کمک"
     },
     "alerts": {
         "deleteServer": {

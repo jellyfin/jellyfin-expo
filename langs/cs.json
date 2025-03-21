@@ -70,7 +70,8 @@
         "source": "Zdrojový kód",
         "feature": "Zažádat o novou funkci",
         "issue": "Nahlásit problém",
-        "translate": "Přeložit"
+        "translate": "Přeložit",
+        "help": "Získání pomoc"
     },
     "alerts": {
         "deleteServer": {

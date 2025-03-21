@@ -7,7 +7,7 @@
     "platforms": [
       "ios"
     ],
-    "version": "1.6.0",
+    "version": "1.6.1",
     "orientation": "default",
     "primaryColor": "#00a4dc",
     "backgroundColor": "#101010",
@@ -26,10 +26,13 @@
       "**/*"
     ],
     "ios": {
-      "buildNumber": "5.6.0.0",
+      "buildNumber": "1.6.1.0",
       "supportsTablet": true,
       "requireFullScreen": false,
       "bundleIdentifier": "org.jellyfin.expo",
+      "entitlements": {
+        "com.apple.developer.device-information.user-assigned-device-name": true
+      },
       "infoPlist": {
         "NSCameraUsageDescription": "Allow $(PRODUCT_NAME) to access your camera.",
         "UIBackgroundModes": [

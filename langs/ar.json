@@ -70,7 +70,8 @@
         "source": "الشفرة المصدرية",
         "feature": "طلب خاصية",
         "issue": "أبلغ عن خطأ",
-        "translate": "الترجمة"
+        "translate": "الترجمة",
+        "help": "الحصول على مساعدة"
     },
     "alerts": {
         "deleteServer": {
