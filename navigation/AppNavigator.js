@@ -20,7 +20,7 @@ import TabNavigator from './TabNavigator';
 const AppStack = createNativeStackNavigator();
 
 const AppNavigator = () => {
-	const { serverStore } = useStores();
+	const { rootStore, serverStore } = useStores();
 	const { t } = useTranslation();
 
 	// Ensure the splash screen is hidden when loading is finished

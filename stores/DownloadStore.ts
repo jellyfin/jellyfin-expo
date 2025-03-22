@@ -24,7 +24,7 @@ type Actions = {
 
 export type DownloadStore = State & Actions
 
-export function deserializer(str: string): {state: State} {
+export function deserializer(str: string): StorageValue<State> {
 	const data: any = JSON.parse(str).state;
 
 	const deserialized = new Map<string, DownloadModel>();

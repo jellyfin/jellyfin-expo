@@ -7,7 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { v4 as uuidv4 } from 'uuid';
 
 import { create } from 'zustand';
-import { createJSONStorage, persist, PersistStorage, StorageValue } from 'zustand/middleware';
+import { persist, PersistStorage, StorageValue } from 'zustand/middleware';
 
 import ServerModel from '../models/ServerModel';
 
@@ -25,7 +25,7 @@ type Actions = {
 
 export type ServerStore = State & Actions
 
-export function deserializer(str: string): Promise<StorageValue<State>> {
+export function deserializer(str: string): StorageValue<State> {
 	const data: any = JSON.parse(str).state;
 
 	const deserialized: ServerModel[] = [];

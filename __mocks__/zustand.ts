@@ -1,4 +1,13 @@
-// __mocks__/zustand.ts
+/**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
+ */
+
+/// <reference types="@types/jest" />;
+
 import { act } from '@testing-library/react';
 import type * as ZustandExportedTypes from 'zustand';
 export * from 'zustand';
