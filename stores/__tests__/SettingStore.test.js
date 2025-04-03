@@ -36,6 +36,8 @@ describe('SettingStore', () => {
 		expect(store.result.current.isNativeVideoPlayerEnabled).toBe(false);
 		expect(store.result.current.isFmp4Enabled).toBe(true);
 		expect(store.result.current.isExperimentalDownloadsEnabled).toBe(false);
+
+		act(store.unmount);
 	});
 
 	it('should disable rotation lock for iPad devices', () => {

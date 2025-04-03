@@ -29,6 +29,8 @@ describe('MediaStore', () => {
 		expect(store.result.current.isPlaying).toBe(false);
 		expect(store.result.current.shouldPlayPause).toBe(false);
 		expect(store.result.current.shouldStop).toBe(false);
+
+		act(store.unmount);
 	});
 
 	it('should reset to the default values', () => {
@@ -77,5 +79,7 @@ describe('MediaStore', () => {
 		expect(store.result.current.isPlaying).toBe(false);
 		expect(store.result.current.shouldPlayPause).toBe(false);
 		expect(store.result.current.shouldStop).toBe(false);
+
+		act(store.unmount);
 	});
 });
