@@ -1,88 +1,88 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Kanselleer",
+        "delete": "Skrap",
+        "edit": "Redigeer",
+        "ok": "OK",
+        "unknown": "Onbekend"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Voeg Bediener By",
+        "appearance": "Voorkoms",
+        "downloads": "Aflaaiings",
+        "home": "Tuis",
+        "links": "Skakels",
+        "playback": "Speling",
+        "servers": "Bedieners",
+        "settings": "Instellings"
     },
     "addServer": {
-        "address": "",
+        "address": "Bedieneradres",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) kan nie leeg wees nie",
+            "invalid": "$t(addServer.address) is ongeldig",
+            "invalidProduct": "Nie 'n Jellyfin bediener nie",
+            "noConnection": "Kon nie na bediener koppel nie"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Kan nie die Jellyfin bediener bereik nie. Dit is gewoonlik as gevolg van 'n proxy-konfigurasiefout of Jellyfin is aflyn."
             },
             "504": {
-                "description": ""
+                "description": "Kan nie die Jellyfin bediener bereik nie. Dit is gewoonlik omdat die proxy uitgetel het terwyl dit na Jellyfin gekoppel het."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Iets het fout gegaan!",
+                "description": "Die Jellyfin bediener het 'n fout teruggegee."
             },
             "invalidServer": {
-                "heading": "",
-                "description": ""
+                "heading": "Bediener is ongeldig",
+                "description": "Iets het gebeur en die gestoorde bedienerinligting is ongeldig. Probeer om die bediener van die Instellings te verwyder en voeg dit weer by."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Bediener aflyn?",
+                "description": "Fout om kontak van Jellyfin bediener."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Foutkode: {{errorCode}}",
+        "errorUrl": "URL: {{url}}",
+        "retry": "Probeer weer?"
     },
     "serverHelp": {
-        "heading": "",
-        "description": "",
-        "learnMore": ""
+        "heading": "Wat is Jellyfin?",
+        "description": "Jellyfin is die vrywilliger-geboude mediaoplossing. Dit laat jou toe om jou eie media te huisves en toegang tot dit te kry van enige plek.\n\n\nOm hierdie kliënt te gebruik, moet jy jou eie Jellyfin bediener huisves.",
+        "learnMore": "Leer meer oor hoe om jou eie bediener te huisves"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": ""
+        "version": "Weergawe: {{version}}",
+        "keepAwake": "Hou Skerm Wakker",
+        "nativeVideoPlayer": "Gebruik Inheemse Videospeler",
+        "fmp4Support": "Verkies fMP4 in HLS",
+        "lightTheme": "Gebruik Ligtema",
+        "systemTheme": "Gebruik Stelseltema",
+        "rotationLock": "Rotasie Sluit",
+        "tabLabels": "Wys Oortjie-etikette"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "help": ""
+        "website": "Jellyfin Webtuiste",
+        "documentation": "Dokumentasie",
+        "source": "Bronkode",
+        "translate": "Vertaal",
+        "help": "Kry Hulp"
     },
     "alerts": {
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Skrap Bediener",
+            "description": "Is jy seker jy wil die bediener {{serverName}} skrap?",
+            "confirm": "Skrap"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Herstel Toepassing",
+            "description": "Is jy seker jy wil al die instellings herstel?",
+            "confirm": "Herstel"
         }
     }
 }
