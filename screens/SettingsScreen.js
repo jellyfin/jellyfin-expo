@@ -282,7 +282,6 @@ const SettingsScreen = () => {
 				}}
 				ListFooterComponent={AppInfoFooter}
 				showsVerticalScrollIndicator={false}
-				contentInsetAdjustmentBehavior='automatic'
 			/>
 		</SafeAreaView>
 	);
