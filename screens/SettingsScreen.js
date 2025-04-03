@@ -6,7 +6,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import compareVersions from 'compare-versions';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Alert, Platform, SectionList, StyleSheet, View } from 'react-native';
 import { Text, ThemeContext } from 'react-native-elements';
@@ -27,10 +27,16 @@ const SettingsScreen = () => {
 	const navigation = useNavigation();
 	const { t } = useTranslation();
 	const { theme } = useContext(ThemeContext);
+	const [ isServerInfoPending, setIsServerInfoPending ] = useState(true);
 
 	useEffect(() => {
-		// Fetch server info
-		serverStore.fetchInfo();
+		const fetchServerInfo = async () => {
+			// Fetch server info
+			await serverStore.fetchInfo();
+			setIsServerInfoPending(false);
+		};
+
+		fetchServerInfo();
 	}, []);
 
 	const onAddServer = () => {
@@ -250,7 +256,7 @@ const SettingsScreen = () => {
 				sections={getSections()}
 				extraData={{
 					activeServer: settingStore.activeServer,
-					isFetching: serverStore.fetchInfo.pending
+					isFetching: isServerInfoPending
 				}}
 				renderItem={({ item }) => <Text>{JSON.stringify(item)}</Text>}
 				renderSectionHeader={({ section: { data, title, hideHeader } }) => {
@@ -276,6 +282,7 @@ const SettingsScreen = () => {
 				}}
 				ListFooterComponent={AppInfoFooter}
 				showsVerticalScrollIndicator={false}
+				contentInsetAdjustmentBehavior='automatic'
 			/>
 		</SafeAreaView>
 	);

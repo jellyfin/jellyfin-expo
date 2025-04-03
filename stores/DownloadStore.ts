@@ -99,7 +99,7 @@ export const useDownloadStore = create<State & Actions>()(
 			reset: () => _set({ downloads: new Map() })
 		}), {
 			name: 'DownloadStore',
-			storage: storage,
+			storage,
 			partialize: (state) => Object.fromEntries(
 				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
 			)

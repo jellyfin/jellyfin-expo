@@ -23,7 +23,7 @@ type Actions = {
 	addServer: (v: ServerModel) => void,
 	removeServer: (v: number) => void,
 	reset: () => void,
-	fetchInfo: () => void,
+	fetchInfo: () => Promise<void>,
 }
 
 export type ServerStore = State & Actions
@@ -94,8 +94,7 @@ export const useServerStore = create<State & Actions>()(
 			}
 		}), {
 			name: 'ServerStore',
-			// storage: createJSONStorage(() => AsyncStorage),
-			storage: storage,
+			storage,
 			partialize: (state) => Object.fromEntries(
 				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
 			)
