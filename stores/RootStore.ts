@@ -6,6 +6,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
+// polyfill crypto.getRandomValues
 import 'react-native-get-random-values';
 
 import { Jellyfin } from '@jellyfin/sdk';
@@ -51,8 +52,6 @@ const initialState: State = {
 	didPlayerCloseManually: true
 };
 
-const persistKeys = Object.keys(initialState);
-
 export const useRootStore = create<State & Actions>()(
 	persist(
 		(_set, _get) => ({
@@ -80,9 +79,7 @@ export const useRootStore = create<State & Actions>()(
 		}), {
 			name: 'RootStore',
 			storage: createJSONStorage(() => AsyncStorage),
-			partialize: (state) => Object.fromEntries(
-				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
-			)
+			partialize: (state) => ({ deviceId: state.deviceId })
 		}
 	)
 );
