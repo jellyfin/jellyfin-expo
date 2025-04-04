@@ -6,9 +6,7 @@
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
 
 import { ticksToMs } from '../utils/Time';
 
@@ -65,23 +63,13 @@ const initialState: State = {
 	shouldStop: false
 };
 
-const persistKeys = Object.keys(initialState);
-
 export const useMediaStore = create<State & Actions>()(
-	persist(
-		(_set, _get) => ({
-			...initialState,
-			set: (state) => { _set({ ...state }); },
-			getPositionMillis: () => ticksToMs(_get().positionTicks),
-			reset: () => {
-				_set({ ...initialState });
-			}
-		}), {
-			name: 'MediaStore',
-			storage: createJSONStorage(() => AsyncStorage),
-			partialize: (state) => Object.fromEntries(
-				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
-			)
+	(_set, _get) => ({
+		...initialState,
+		set: (state) => { _set({ ...state }); },
+		getPositionMillis: () => ticksToMs(_get().positionTicks),
+		reset: () => {
+			_set({ ...initialState });
 		}
-	)
+	})
 );

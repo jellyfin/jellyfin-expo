@@ -38,11 +38,10 @@ import './i18n';
 
 const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
-	const { rootStore, downloadStore, settingStore, mediaStore, serverStore } = useStores();
+	const { rootStore, downloadStore, settingStore, serverStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
-	// Using a hook here causes a render loop; what is the point of this setting?
-	// settingStore.set({systemThemeId: useColorScheme()});
+	// Get the system color scheme for automatic theme switching
 	settingStore.systemThemeId = useColorScheme();
 
 	SplashScreen.preventAutoHideAsync();
@@ -55,19 +54,14 @@ const App = ({ skipLoadingScreen }) => {
 			console.info('Migrating mobx store to zustand');
 			const mobx_store = JSON.parse(mobx_store_value);
 
-			// Root Store
+			// RootStore
 			for (const key of Object.keys(mobx_store).filter(k => k.search('Store') === -1)) {
 				rootStore.set({ key: mobx_store[key] });
 			}
 
-			// MediaStore
-			for (const key of Object.keys(mobx_store.mediaStore)) {
-				mediaStore.set({ key: mobx_store.mediaStore[key] });
-			}
-
 			/**
 			 * Server store & download store need some special treatment because they
-			 * are not simple key-value pair stores.  Each contains one key which is a
+			 * are not simple key-value pair stores. Each contains one key which is a
 			 * list of Model objects that represent the contents of their respective
 			 * stores.
 			 *
@@ -110,7 +104,7 @@ const App = ({ skipLoadingScreen }) => {
 			}
 
 			// TODO: Confirm zustand has objects in async storage
-			// TODO: Remove mobx sync item from async storage
+			// TODO: Remove mobx sync item from async storage in a future release
 			// AsyncStorage.removeItem('__mobx_sync__')
 		}
 
