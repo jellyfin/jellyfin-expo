@@ -4,17 +4,18 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { render } from '@testing-library/react-native';
+import { act, render } from '@testing-library/react-native';
 import React from 'react';
 
 import DevSettingsScreen from '../DevSettingsScreen';
 
 describe('DevSettingsScreen', () => {
 	it('should render correctly', () => {
-		const { toJSON } = render(
+		const { toJSON, unmount } = render(
 			<DevSettingsScreen />
 		);
 
 		expect(toJSON()).toMatchSnapshot();
+		act(unmount);
 	});
 });
