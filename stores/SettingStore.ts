@@ -8,16 +8,15 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import compareVersions from 'compare-versions';
-
 // TODO: Fix this import, this is a bandaid; issue #365
 // eslint-disable-next-line import/namespace
 import { Platform } from 'react-native';
-
 import { create } from 'zustand';
-
 import { createJSONStorage, persist } from 'zustand/middleware';
 
 import Themes from '../themes';
+
+import { logger } from './middleware/logger';
 
 type State = {
 	/** The id of the currently selected server */
@@ -62,6 +61,8 @@ type Actions = {
 
 export type SettingStore = State & Actions
 
+const STORE_NAME = 'SettingStore';
+
 // This initial state must be a method because it has computed values that *might* change over time (tests & functionality broke without this)
 const initialState: () => State = () => ({
 	activeServer: 0,
@@ -82,30 +83,33 @@ const initialState: () => State = () => ({
 const persistKeys = Object.keys(initialState());
 
 export const useSettingStore = create<SettingStore>()(
-	persist(
-		(_set, _get) => ({
-			...initialState(),
-			set: (state) => { _set({ ...state }); },
-			getTheme: () => {
-				const state = _get();
-				const id = state.isSystemThemeEnabled
+	logger(
+		persist(
+			(_set, _get) => ({
+				...initialState(),
+				set: (state) => { _set({ ...state }); },
+				getTheme: () => {
+					const state = _get();
+					const id = state.isSystemThemeEnabled
 					&& state.systemThemeId
 					&& state.systemThemeId !== 'no-preference'
-					? state.systemThemeId
-					: state.themeId;
-				// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-				// @ts-ignore TODO: This is because Themes doesn't have type hints.
-				return Themes[id] || Themes.dark;
-			},
-			reset: () => {
-				_set({ ...initialState() });
+						? state.systemThemeId
+						: state.themeId;
+					// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+					// @ts-ignore TODO: This is because Themes doesn't have type hints.
+					return Themes[id] || Themes.dark;
+				},
+				reset: () => {
+					_set({ ...initialState() });
+				}
+			}), {
+				name: STORE_NAME,
+				storage: createJSONStorage(() => AsyncStorage),
+				partialize: (state) => Object.fromEntries(
+					Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
+				)
 			}
-		}), {
-			name: 'SettingStore',
-			storage: createJSONStorage(() => AsyncStorage),
-			partialize: (state) => Object.fromEntries(
-				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
-			)
-		}
+		),
+		STORE_NAME
 	)
 );

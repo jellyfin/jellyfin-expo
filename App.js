@@ -26,10 +26,12 @@ import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import ThemeSwitcher from './components/ThemeSwitcher';
+import { useIsHydrated } from './hooks/useHydrated';
 import { useStores } from './hooks/useStores';
 import DownloadModel from './models/DownloadModel';
 import ServerModel from './models/ServerModel';
 import RootNavigator from './navigation/RootNavigator';
+import { STORE_NAME as SERVER_STORE_NAME } from './stores/ServerStore';
 import { ensurePathExists } from './utils/File';
 import StaticScriptLoader from './utils/StaticScriptLoader';
 
@@ -40,21 +42,25 @@ const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
 	const { rootStore, downloadStore, settingStore, serverStore } = useStores();
 	const { theme } = useContext(ThemeContext);
+	const isHydrated = useIsHydrated();
 
 	// Get the system color scheme for automatic theme switching
 	settingStore.systemThemeId = useColorScheme();
 
 	SplashScreen.preventAutoHideAsync();
 
-	const hydrateStores = async () => {
+	const migrateStores = async () => {
 		// TODO: In release n+2 from this point, remove this conversion code.
-		const mobx_store_value = await AsyncStorage.getItem('__mobx_sync__'); // Store will be null if it's not set
+		const zustandStoreValue = await AsyncStorage.getItem(SERVER_STORE_NAME);
+		const mobxStoreValue = await AsyncStorage.getItem('__mobx_sync__'); // Store will be null if it's not set
 
-		if (mobx_store_value !== null) {
+		console.info('zustand RootStore', zustandStoreValue);
+
+		if (zustandStoreValue === null && mobxStoreValue !== null) {
 			console.info('Migrating mobx store to zustand');
-			const mobx_store = JSON.parse(mobx_store_value);
+			const mobx_store = JSON.parse(mobxStoreValue);
 
-			// RootStore
+			// Root Store
 			for (const key of Object.keys(mobx_store).filter(k => k.search('Store') === -1)) {
 				rootStore.set({ key: mobx_store[key] });
 			}
@@ -69,7 +75,7 @@ const App = ({ skipLoadingScreen }) => {
 			 * serialization and deserialization (written in each storage's module),
 			 * but this code is needed to get them over the hump from mobx to zustand.
 			 */
-			// DownloadStore
+			// Download Store
 			const mobxDownloads = mobx_store.downloadStore.downloads;
 			const migratedDownloads = new Map();
 			if (Object.keys(mobxDownloads).length > 0) {
@@ -87,7 +93,7 @@ const App = ({ skipLoadingScreen }) => {
 			}
 			downloadStore.set({ downloads: migratedDownloads });
 
-			// ServerStore
+			// Server Store
 			const mobxServers = mobx_store.serverStore.servers;
 			const migratedServers = [];
 			if (Object.keys(mobxServers).length > 0) {
@@ -97,7 +103,7 @@ const App = ({ skipLoadingScreen }) => {
 			}
 			serverStore.set({ servers: migratedServers });
 
-			// SettingStore
+			// Setting Store
 			for (const key of Object.keys(mobx_store.settingStore)) {
 				console.info('SettingStore', key);
 				settingStore.set({ key: mobx_store.settingStore[key] });
@@ -137,13 +143,14 @@ const App = ({ skipLoadingScreen }) => {
 	};
 
 	useEffect(() => {
-		// Set base app theme
-		// Hydrate mobx data stores
-		hydrateStores();
+		if (isHydrated) {
+			// Migrate mobx data stores
+			migrateStores();
 
-		// Load app resources
-		loadResources();
-	}, []);
+			// Load app resources
+			loadResources();
+		}
+	}, [ isHydrated ]);
 
 	useEffect(() => {
 		console.info('rotation lock setting changed!', settingStore.isRotationLockEnabled);

@@ -10,6 +10,8 @@ import { create } from 'zustand';
 
 import { ticksToMs } from '../utils/Time';
 
+import { logger } from './middleware/logger';
+
 type State = {
 	/** The media type being played */
 	type?: string,
@@ -51,6 +53,8 @@ type Actions = {
 
 export type MediaStore = State & Actions
 
+const STORE_NAME = 'MediaStore';
+
 const initialState: State = {
 	type: null,
 	uri: null,
@@ -64,12 +68,15 @@ const initialState: State = {
 };
 
 export const useMediaStore = create<State & Actions>()(
-	(_set, _get) => ({
-		...initialState,
-		set: (state) => { _set({ ...state }); },
-		getPositionMillis: () => ticksToMs(_get().positionTicks),
-		reset: () => {
-			_set({ ...initialState });
-		}
-	})
+	logger(
+		(_set, _get) => ({
+			...initialState,
+			set: (state) => { _set({ ...state }); },
+			getPositionMillis: () => ticksToMs(_get().positionTicks),
+			reset: () => {
+				_set({ ...initialState });
+			}
+		}),
+		STORE_NAME
+	)
 );

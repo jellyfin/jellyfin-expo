@@ -8,9 +8,11 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
-import { persist, PersistStorage, StorageValue } from 'zustand/middleware';
+import { createJSONStorage, persist, PersistStorage, StorageValue } from 'zustand/middleware';
 
 import DownloadModel from '../models/DownloadModel';
+
+import { logger } from './middleware/logger';
 
 type State = {
 	downloads: Map<string, DownloadModel>,
@@ -24,6 +26,8 @@ type Actions = {
 }
 
 export type DownloadStore = State & Actions
+
+const STORE_NAME = 'DownloadStore';
 
 export function deserializer(str: string): StorageValue<State> {
 	const data: any = JSON.parse(str).state;
@@ -82,27 +86,54 @@ const initialState: State = {
 const persistKeys = Object.keys(initialState);
 
 export const useDownloadStore = create<State & Actions>()(
-	persist(
-		(_set, _get) => ({
-			...initialState,
-			set: (state) => { _set({ ...state }); },
-			getNewDownloadCount: () => Array
-				.from(_get().downloads.values())
-				.filter(d => d.isNew)
-				.length,
-			add: (download) => {
-				const downloads = _get().downloads;
-				if (!downloads.has(download.key)) {
-					_set({ downloads: new Map([ ...downloads, [ download.key, download ]]) });
-				}
-			},
-			reset: () => _set({ downloads: new Map() })
-		}), {
-			name: 'DownloadStore',
-			storage,
-			partialize: (state) => Object.fromEntries(
-				Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
-			)
-		}
+	logger(
+		persist(
+			(_set, _get) => ({
+				...initialState,
+				set: (state) => { _set({ ...state }); },
+				getNewDownloadCount: () => Array
+					.from(_get().downloads.values())
+					.filter(d => d.isNew)
+					.length,
+				add: (download) => {
+					const downloads = _get().downloads;
+					if (!downloads.has(download.key)) {
+						_set({ downloads: new Map(downloads).set(download.key, download) });
+					}
+				},
+				reset: () => _set({ downloads: new Map() })
+			}), {
+				name: STORE_NAME,
+				storage: createJSONStorage(() => AsyncStorage, {
+					reviver: (key, value) => {
+						if (key === 'downloads') {
+							const downloads = new Map<string, DownloadModel>();
+
+							Object.entries(value).forEach(([ id, download ]) => {
+								const model = new DownloadModel(
+									download.itemId,
+									download.serverId,
+									download.serverUrl,
+									download.apiKey,
+									download.title,
+									download.filename,
+									download.downloadUrl
+								);
+								model.isComplete = download.isComplete;
+								model.isNew = download.isNew;
+
+								downloads.set(id, model);
+							});
+							return downloads;
+						}
+						return value;
+					}
+				}),
+				partialize: (state) => Object.fromEntries(
+					Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
+				)
+			}
+		),
+		STORE_NAME
 	)
 );

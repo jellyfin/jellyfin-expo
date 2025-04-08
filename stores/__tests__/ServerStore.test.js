@@ -1,7 +1,9 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  *
  * @jest-environment jsdom
  * @jest-environment-options {"url": "https://jestjs.io/"}
@@ -15,7 +17,7 @@ import { act } from '@testing-library/react-native';
 
 import ServerModel from '../../models/ServerModel';
 
-import { deserializer, useServerStore } from '../ServerStore';
+import { reviver, useServerStore } from '../ServerStore';
 
 const mockFetchInfo = jest.fn();
 jest.mock('../../models/ServerModel', () => {
@@ -99,36 +101,22 @@ describe('ServerStore', () => {
 	});
 });
 
-describe('DESERIALIZER', () => {
-	it('should deserialize to a list of ServerModels', () => {
-		const serialized = {
-			state: {
-				servers: [
-					{
-						id: 'TEST1',
-						url: { href: 'https://1.example.com' },
-						info: null
-					}, {
-						id: 'TEST2',
-						url: 'https://2.example.com/',
-						info: null
-					}
-				]
-			}
+describe('reviver', () => {
+	it('should convert values to the appropriate objects', () => {
+		const url = reviver('url', 'https://example.com');
+		expect(url.href).toBe('https://example.com/');
+
+		const serverValue = {
+			id: 'TEST',
+			url: new URL('https://example.com')
 		};
+		const server = reviver('0', serverValue);
+		expect(server).toBeInstanceOf(ServerModel);
+		expect(server.id).toBe(serverValue.id);
+		expect(server.url.href).toBe(serverValue.url.href);
+		expect(server.info).toBeUndefined();
 
-		const deserialized = deserializer(JSON.stringify(serialized)).state.servers;
-
-		expect(deserialized).toHaveLength(2);
-
-		expect(deserialized[0]).toBeInstanceOf(ServerModel);
-		expect(deserialized[0].id).toBe(serialized.state.servers[0].id);
-		// expect(deserialized[0].url).toBeInstanceOf(URL); // URL != URL Jest (?)
-		expect(deserialized[0].url.href).toBe('https://1.example.com/');
-
-		expect(deserialized[1]).toBeInstanceOf(ServerModel);
-		expect(deserialized[1].id).toBe(serialized.state.servers[1].id);
-		// expect(deserialized[1].url).toBeInstanceOf(URL); // URL != URL Jest (?)
-		expect(deserialized[1].url.href).toBe('https://2.example.com/');
+		const other = reviver('foo', 'bar');
+		expect(other).toBe('bar');
 	});
 });
