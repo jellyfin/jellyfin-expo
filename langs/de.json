@@ -30,7 +30,7 @@
         "errors": {
             "offline": {
                 "description": "Fehler bei der Verbindungsaufnahme mit dem Jellyfin-Server.",
-                "heading": "Ist der Server offline?"
+                "heading": "Server offline?"
             },
             "http": {
                 "description": "Der Jellyfin-Server hat einen Fehler zurückgegeben.",
