@@ -5,7 +5,7 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import { render } from '@testing-library/react-native';
+import { act, render } from '@testing-library/react-native';
 import React from 'react';
 
 import '../../i18n';
@@ -13,12 +13,13 @@ import AddServerScreen from '../AddServerScreen';
 
 describe('AddServerScreen', () => {
 	it('should render correctly', () => {
-		const { toJSON } = render(
+		const { toJSON, unmount } = render(
 			<NavigationContainer>
 				<AddServerScreen />
 			</NavigationContainer>
 		);
 
 		expect(toJSON()).toMatchSnapshot();
+		act(unmount);
 	});
 });

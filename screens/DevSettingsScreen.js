@@ -4,8 +4,6 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { action } from 'mobx';
-import { observer } from 'mobx-react-lite';
 import React, { useContext } from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 import { ThemeContext } from 'react-native-elements';
@@ -15,8 +13,8 @@ import SwitchListItem from '../components/SwitchListItem';
 
 import { useStores } from '../hooks/useStores';
 
-const DevSettingsScreen = observer(() => {
-	const { rootStore } = useStores();
+const DevSettingsScreen = () => {
+	const { rootStore, settingStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 
 	return (
@@ -36,11 +34,11 @@ const DevSettingsScreen = observer(() => {
 							value: 'Experimental',
 							status: 'error'
 						},
-						value: rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled,
-						onValueChange: action(value => {
-							rootStore.settingStore.isExperimentalNativeAudioPlayerEnabled = value;
-							rootStore.isReloadRequired = true;
-						})
+						value: settingStore.isExperimentalNativeAudioPlayerEnabled,
+						onValueChange: (value) => {
+							settingStore.set({ isExperimentalNativeAudioPlayerEnabled: value });
+							rootStore.set({ isReloadRequired: true });
+						}
 					},
 					{
 						key: 'experimental-downloads-switch',
@@ -49,11 +47,11 @@ const DevSettingsScreen = observer(() => {
 							value: 'Experimental',
 							status: 'error'
 						},
-						value: rootStore.settingStore.isExperimentalDownloadsEnabled,
-						onValueChange: action(value => {
-							rootStore.settingStore.isExperimentalDownloadsEnabled = value;
-							rootStore.isReloadRequired = true;
-						})
+						value: settingStore.isExperimentalDownloadsEnabled,
+						onValueChange: (value) => {
+							settingStore.set({ isExperimentalDownloadsEnabled: value });
+							rootStore.set({ isReloadRequired: true });
+						}
 					}
 				]}
 				renderItem={SwitchListItem}
@@ -62,7 +60,7 @@ const DevSettingsScreen = observer(() => {
 			/>
 		</SafeAreaView>
 	);
-});
+};
 
 const styles = StyleSheet.create({
 	container: {
