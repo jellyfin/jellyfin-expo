@@ -55,8 +55,8 @@ const App = observer(({ skipLoadingScreen }) => {
 
 	const loadImages = () => {
 		const images = [
-			require('./assets/images/splash.png'),
-			require('./assets/images/logo-dark.png')
+			require('@jellyfin/ux-ios/splash.png'),
+			require('@jellyfin/ux-ios/logo-dark.png')
 		];
 		return images.map(image => Asset.fromModule(image).downloadAsync());
 	};
