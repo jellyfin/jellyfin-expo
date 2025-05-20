@@ -17,6 +17,9 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
+    "moduleNameMapper": {
+      "@jellyfin/ux-ios/.+\\.png$": "<rootDir>/__mocks__/assetFileMock.js"
+    },
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|normalize-url|axios|@jellyfin/sdk(/.*)?)"
     ],
