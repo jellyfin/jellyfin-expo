@@ -73,7 +73,8 @@
         "documentation": "Dokumentācija",
         "source": "Avota Kods",
         "translate": "Tulkot",
-        "issue": "Ziņot par problēmu"
+        "issue": "Ziņot par problēmu",
+        "help": "Palīdzības saņemšana"
     },
     "alerts": {
         "deleteServer": {

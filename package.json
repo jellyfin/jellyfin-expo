@@ -17,6 +17,9 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
+    "moduleNameMapper": {
+      "@jellyfin/ux-ios/.+\\.png$": "<rootDir>/__mocks__/assetFileMock.js"
+    },
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|normalize-url|axios|@jellyfin/sdk(/.*)?)"
     ],
@@ -37,6 +40,7 @@
   ],
   "dependencies": {
     "@jellyfin/sdk": "0.7.0",
+    "@jellyfin/ux-ios": "1.0.0",
     "@react-native-async-storage/async-storage": "~1.17.3",
     "@react-native-community/masked-view": "0.1.11",
     "@react-navigation/bottom-tabs": "6.6.1",
