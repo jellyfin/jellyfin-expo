@@ -26,7 +26,7 @@ const ServerHelpScreen = () => {
 		>
 			{isCompact(window) ? null : <Image
 				style={styles.icon}
-				source={require('../assets/images/icon-transparent.png')}
+				source={require('@jellyfin/ux-ios/icon-transparent.png')}
 				fadeDuration={0} // we need to adjust Android devices (https://facebook.github.io/react-native/docs/image#fadeduration) fadeDuration prop to `0` as it's default value is `300`
 			/>}
 

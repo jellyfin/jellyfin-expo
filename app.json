@@ -11,10 +11,10 @@
     "orientation": "default",
     "primaryColor": "#00a4dc",
     "backgroundColor": "#101010",
-    "icon": "./assets/images/icon.png",
+    "icon": "./node_modules/@jellyfin/ux-ios/icon.png",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splash.png",
+      "image": "./node_modules/@jellyfin/ux-ios/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#101010"
     },
