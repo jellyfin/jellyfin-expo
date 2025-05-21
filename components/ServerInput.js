@@ -1,8 +1,11 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+
 import { useNavigation } from '@react-navigation/native';
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
@@ -17,10 +20,9 @@ import { parseUrl, validateServer } from '../utils/ServerValidator';
 
 const sanitizeHost = (url = '') => url.trim();
 
-// FIXME: eslint fails to parse the propTypes properly here
-const ServerInput = function ServerInput({
-	onError = () => { /* noop */ }, // eslint-disable-line react/prop-types
-	onSuccess = () => { /* noop */ }, // eslint-disable-line react/prop-types
+const ServerInput = React.forwardRef(function ServerInput({
+	onError = () => { /* noop */ },
+	onSuccess = () => { /* noop */ },
 	...props
 }, ref) {
 	const [ host, setHost ] = useState('');
@@ -126,7 +128,7 @@ const ServerInput = function ServerInput({
 			{...props}
 		/>
 	);
-};
+});
 
 ServerInput.propTypes = {
 	onError: PropTypes.func,
@@ -145,4 +147,4 @@ const styles = StyleSheet.create({
 	}
 });
 
-export default React.forwardRef(ServerInput);
+export default ServerInput;
