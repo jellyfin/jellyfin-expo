@@ -101,16 +101,13 @@ const DownloadScreen = () => {
 		useCallback(() => {
 			downloadStore.downloads
 				.forEach(download => {
-					if (download.isNew) {
+					if (download.isNew && download.isNew !== !download.isComplete) {
 						download.isNew = !download.isComplete;
+						downloadStore.update(download);
 					}
 				});
 		}, [ downloadStore.downloads ])
 	);
-
-	const downloadList = [];
-	console.log('downloads', downloadStore.downloads);
-	downloadStore.downloads.forEach(download => downloadList.push(download));
 
 	return (
 		<SafeAreaView
@@ -121,7 +118,7 @@ const DownloadScreen = () => {
 			edges={[ 'right', 'left' ]}
 		>
 			<FlatList
-				data={downloadList}
+				data={Array.from(downloadStore.downloads.values())}
 				extraData={downloadStore.downloads}
 				renderItem={({ item, index }) => (
 					<DownloadListItem
