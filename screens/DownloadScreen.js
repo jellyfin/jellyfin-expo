@@ -34,7 +34,7 @@ const DownloadScreen = () => {
 			// TODO: Add user messaging on errors
 			try {
 				await FileSystem.deleteAsync(download.localPath);
-				downloadStore.downloads.delete(download.key);
+				downloadStore.delete(download);
 				console.log('[DownloadScreen] download "%s" deleted', download.title);
 			} catch (e) {
 				console.error('[DownloadScreen] Failed to delete download', e);

@@ -21,8 +21,8 @@ describe('RootStore', () => {
 		expect(store.isReloadRequired).toBe(false);
 		expect(store.didPlayerCloseManually).toBe(true);
 
-		expect(store.getApi()).toBeInstanceOf(Jellyfin);
-		expect(store.getApi().deviceInfo.id).toBe(store.deviceId);
+		expect(store.getSdk()).toBeInstanceOf(Jellyfin);
+		expect(store.getSdk().deviceInfo.id).toBe(store.deviceId);
 	});
 
 	it('should reset to the default values', () => {

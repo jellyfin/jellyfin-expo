@@ -30,7 +30,7 @@ type State = {
 
 type Actions = {
 	set: (v: Partial<State>) => void,
-	getApi: () => Jellyfin,
+	getSdk: () => Jellyfin,
 	reset: () => void,
 }
 
@@ -61,7 +61,7 @@ export const useRootStore = create<State & Actions>()(
 			(_set, _get) => ({
 				...initialState,
 				set: (state) => { _set({ ...state }); },
-				getApi: () => new Jellyfin({
+				getSdk: () => new Jellyfin({
 					clientInfo: {
 						name: getAppName(),
 						version: Constants.nativeAppVersion

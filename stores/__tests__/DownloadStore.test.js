@@ -11,7 +11,7 @@ import { renderHook } from '@testing-library/react';
 import { act } from '@testing-library/react-native';
 
 import DownloadModel from '../../models/DownloadModel';
-import { useDownloadStore, deserializer } from '../DownloadStore';
+import { deserialize, useDownloadStore } from '../DownloadStore';
 
 const TEST_MODEL = new DownloadModel(
 	'item-id',
@@ -102,12 +102,13 @@ describe('DownloadStore', () => {
 	});
 });
 
-describe('DownloadStore deserializer', () => {
+describe('deserialize', () => {
 	it('should deserialize to a Map of DownloadModels', () => {
 		const serialized = {
 			state: {
-				downloads: {
-					'server-id_item-id-1': {
+				downloads: [[
+					'server-id_item-id-1',
+					{
 						itemId: 'item-id-1',
 						serverId: 'server-id',
 						serverUrl: 'https://example.com/',
@@ -117,8 +118,10 @@ describe('DownloadStore deserializer', () => {
 						downloadUrl: 'https://example.com/download',
 						isComplete: false,
 						isNew: true
-					},
-					'server-id_item-id-2': {
+					}
+				], [
+					'server-id_item-id-2',
+					{
 						itemId: 'item-id-2',
 						serverId: 'server-id',
 						serverUrl: 'https://example.com/',
@@ -129,11 +132,11 @@ describe('DownloadStore deserializer', () => {
 						isComplete: true,
 						isNew: false
 					}
-				}
+				]]
 			}
 		};
 
-		const deserialized = deserializer(JSON.stringify(serialized)).state.downloads;
+		const deserialized = deserialize(JSON.stringify(serialized)).state.downloads;
 
 		expect(deserialized.size).toBe(2);
 

@@ -82,7 +82,7 @@ const TabNavigator = () => {
 					options={{
 						title: t('headings.downloads'),
 						headerShown: true,
-						tabBarBadge: downloadStore.newDownloadCount > 0 ? downloadStore.newDownloadCount : null
+						tabBarBadge: downloadStore.getNewDownloadCount() > 0 ? downloadStore.getNewDownloadCount() : null
 					}}
 				/>
 			)}

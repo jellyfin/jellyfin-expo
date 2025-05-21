@@ -8,7 +8,7 @@
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { create } from 'zustand';
-import { createJSONStorage, persist, PersistStorage, StorageValue } from 'zustand/middleware';
+import { persist, type PersistStorage, type StorageValue } from 'zustand/middleware';
 
 import DownloadModel from '../models/DownloadModel';
 
@@ -19,9 +19,11 @@ type State = {
 }
 
 type Actions = {
-	set: (v: Partial<State>) => void,
+	set: (value: Partial<State>) => void,
 	getNewDownloadCount: () => number,
-	add: (v: DownloadModel) => void,
+	add: (download: DownloadModel) => void,
+	delete: (download: DownloadModel) => boolean,
+	update: (download: DownloadModel) => void,
 	reset: () => void
 }
 
@@ -29,58 +31,58 @@ export type DownloadStore = State & Actions
 
 const STORE_NAME = 'DownloadStore';
 
-export function deserializer(str: string): StorageValue<State> {
-	const data: any = JSON.parse(str).state;
+export const deserialize = (valueString: string | null): StorageValue<State> => {
+	if (!valueString) return null;
 
-	const deserialized = new Map<string, DownloadModel>();
+	const value = JSON.parse(valueString);
+	const downloads = new Map<string, DownloadModel>();
 
-	for (const entry of Object.entries(data.downloads)) {
-		// SMH...
-		// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-		// @ts-ignore This is mostly to coerce the type and please the editor
-		const [ key, value ]: [string, DownloadModel] = entry;
+	value.state.downloads.forEach(([ key, obj ]: [ string, DownloadModel ]) => {
 		const model = new DownloadModel(
-			value.itemId,
-			value.serverId,
-			value.serverUrl,
-			value.apiKey,
-			value.title,
-			value.filename,
-			value.downloadUrl
+			obj.itemId,
+			obj.serverId,
+			obj.serverUrl,
+			obj.apiKey,
+			obj.title,
+			obj.filename,
+			obj.downloadUrl
 		);
-		// Ignore isDownloading
-		model.isComplete = value.isComplete;
-		model.isNew = value.isNew;
+		model.isComplete = obj.isComplete;
+		model.isNew = obj.isNew;
 
-		deserialized.set(key, model);
-	}
+		downloads.set(key, model);
+	});
 
 	return {
+		...value,
 		state: {
-			downloads: deserialized
+			...value.state,
+			downloads
 		}
 	};
-}
+};
 
 // This is needed to properly serialize/deserialize Map<String, DownloadModel>
 const storage: PersistStorage<State> = {
 	getItem: async (name: string): Promise<StorageValue<State>> => {
 		const data = await AsyncStorage.getItem(name);
-		return deserializer(data);
+		return deserialize(data);
 	},
 	setItem: function(name: string, value: StorageValue<State>): void {
-		const serialized = JSON.stringify({
-			downloads: Array.from(value.state.downloads.entries())
+		const str = JSON.stringify({
+			...value,
+			state: {
+				...value.state,
+				downloads: Array.from(value.state.downloads.entries())
+			}
 		});
-		AsyncStorage.setItem(name, serialized);
+		AsyncStorage.setItem(name, str);
 	},
-	removeItem: function(name: string): void {
-		AsyncStorage.removeItem(name);
-	}
+	removeItem: (name: string) => AsyncStorage.removeItem(name)
 };
 
 const initialState: State = {
-	downloads: new Map<string, DownloadModel>()
+	downloads: new Map()
 };
 
 const persistKeys = Object.keys(initialState);
@@ -90,7 +92,7 @@ export const useDownloadStore = create<State & Actions>()(
 		persist(
 			(_set, _get) => ({
 				...initialState,
-				set: (state) => { _set({ ...state }); },
+				set: (state) => _set({ ...state }),
 				getNewDownloadCount: () => Array
 					.from(_get().downloads.values())
 					.filter(d => d.isNew)
@@ -101,34 +103,24 @@ export const useDownloadStore = create<State & Actions>()(
 						_set({ downloads: new Map(downloads).set(download.key, download) });
 					}
 				},
+				delete: (download) => {
+					const downloads = new Map(_get().downloads);
+					const isDeleted = downloads.delete(download.key);
+
+					// If the item was deleted, push the state change
+					if (isDeleted) _set({ downloads });
+
+					return isDeleted;
+				},
+				update: (download) => {
+					const downloads = new Map(_get().downloads)
+						.set(download.key, download);
+					_set({ downloads });
+				},
 				reset: () => _set({ downloads: new Map() })
 			}), {
 				name: STORE_NAME,
-				storage: createJSONStorage(() => AsyncStorage, {
-					reviver: (key, value) => {
-						if (key === 'downloads') {
-							const downloads = new Map<string, DownloadModel>();
-
-							Object.entries(value).forEach(([ id, download ]) => {
-								const model = new DownloadModel(
-									download.itemId,
-									download.serverId,
-									download.serverUrl,
-									download.apiKey,
-									download.title,
-									download.filename,
-									download.downloadUrl
-								);
-								model.isComplete = download.isComplete;
-								model.isNew = download.isNew;
-
-								downloads.set(id, model);
-							});
-							return downloads;
-						}
-						return value;
-					}
-				}),
+				storage,
 				partialize: (state) => Object.fromEntries(
 					Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
 				)

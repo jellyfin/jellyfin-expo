@@ -203,6 +203,7 @@ const App = ({ skipLoadingScreen }) => {
 			// Download the file
 			try {
 				download.isDownloading = true;
+				downloadStore.update(download);
 				await resumable.downloadAsync();
 				download.isComplete = true;
 				download.isDownloading = false;
@@ -214,9 +215,12 @@ const App = ({ skipLoadingScreen }) => {
 				download.isDownloading = false;
 			}
 
+			// Push the state update to the store
+			downloadStore.update(download);
+
 			// Report download has stopped
 			const serverUrl = download.serverUrl.endsWith('/') ? download.serverUrl.slice(0, -1) : download.serverUrl;
-			const api = rootStore.sdk.createApi(serverUrl, download.apiKey);
+			const api = rootStore.getSdk().createApi(serverUrl, download.apiKey);
 			console.log('[App] Reporting download stopped', download.sessionId);
 			getPlaystateApi(api)
 				.reportPlaybackStopped({
