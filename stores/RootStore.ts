@@ -22,7 +22,6 @@ import { logger } from './middleware/logger';
 
 type State = {
 	deviceId: string,
-	storeLoaded: boolean,
 	isFullscreen: boolean,
 	isReloadRequired: boolean,
 	didPlayerCloseManually: boolean,
@@ -41,9 +40,6 @@ const STORE_NAME = 'RootStore';
 const initialState: State = {
 	/** Generate a random unique device id */
 	deviceId: uuidv4(),
-
-	/** Has the store been loaded from storage */
-	storeLoaded: false,
 
 	/** Is the fullscreen interface active */
 	isFullscreen: false,
@@ -76,8 +72,7 @@ export const useRootStore = create<State & Actions>()(
 						deviceId: uuidv4(),
 						isFullscreen: false,
 						isReloadRequired: false,
-						didPlayerCloseManually: true,
-						storeLoaded: true
+						didPlayerCloseManually: true
 					});
 				}
 			}), {

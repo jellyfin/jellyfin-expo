@@ -40,6 +40,8 @@ import './i18n';
 
 const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
+	// NOTE: After the mobx migration is removed, we can just use isHydrated
+	const [ isStoresReady, setIsStoresReady ] = useState(false);
 	const { rootStore, downloadStore, settingStore, serverStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 	const isHydrated = useIsHydrated();
@@ -118,7 +120,7 @@ const App = ({ skipLoadingScreen }) => {
 			// AsyncStorage.removeItem('__mobx_sync__')
 		}
 
-		rootStore.set({ storeLoaded: true });
+		setIsStoresReady(true);
 	};
 
 	const loadImages = () => {
@@ -245,7 +247,7 @@ const App = ({ skipLoadingScreen }) => {
 			});
 	}, [ rootStore.deviceId, downloadStore.downloads.size ]);
 
-	if (!(isSplashReady && rootStore.storeLoaded) && !skipLoadingScreen) {
+	if (!(isSplashReady && isStoresReady) && !skipLoadingScreen) {
 		return null;
 	}
 
