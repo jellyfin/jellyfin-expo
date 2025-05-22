@@ -31,12 +31,16 @@ import { useStores } from './hooks/useStores';
 import DownloadModel from './models/DownloadModel';
 import ServerModel from './models/ServerModel';
 import RootNavigator from './navigation/RootNavigator';
-import { STORE_NAME as SERVER_STORE_NAME } from './stores/ServerStore';
 import { ensurePathExists } from './utils/File';
 import StaticScriptLoader from './utils/StaticScriptLoader';
 
 // Import i18n configuration
 import './i18n';
+
+// Storage key for the migration status
+const ZUSTAND_MIGRATED = '__zustand_migrated__';
+// Track migration state with a version in case we encounter errors with the migration
+const ZUSTAND_MIGRATION_VERSION = 1;
 
 const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
@@ -58,18 +62,18 @@ const App = ({ skipLoadingScreen }) => {
 
 	const migrateStores = async () => {
 		// TODO: In release n+2 from this point, remove this conversion code.
-		const zustandStoreValue = await AsyncStorage.getItem(SERVER_STORE_NAME);
+		const zustandMigratedVersion = parseInt(await AsyncStorage.getItem(ZUSTAND_MIGRATED) || '0', 10);
 		const mobxStoreValue = await AsyncStorage.getItem('__mobx_sync__'); // Store will be null if it's not set
 
-		console.info('zustand RootStore', zustandStoreValue);
+		console.info('zustand migration version', zustandMigratedVersion);
 
-		if (zustandStoreValue === null && mobxStoreValue !== null) {
+		if (zustandMigratedVersion < ZUSTAND_MIGRATION_VERSION && mobxStoreValue !== null) {
 			console.info('Migrating mobx store to zustand');
 			const mobx_store = JSON.parse(mobxStoreValue);
 
 			// Root Store
-			for (const key of Object.keys(mobx_store).filter(k => k.search('Store') === -1)) {
-				rootStore.set({ [key]: mobx_store[key] });
+			if (mobx_store.deviceId) {
+				rootStore.set({ deviceId: mobx_store.deviceId });
 			}
 
 			/**
@@ -117,7 +121,10 @@ const App = ({ skipLoadingScreen }) => {
 			}
 
 			// TODO: Remove mobx sync item from async storage in a future release
-			// AsyncStorage.removeItem('__mobx_sync__')
+			// AsyncStorage.removeItem('__mobx_sync__');
+
+			// Migration completed; store the migration version
+			await AsyncStorage.setItem(ZUSTAND_MIGRATED, `${ZUSTAND_MIGRATION_VERSION}`);
 		}
 
 		setIsStoresReady(true);
