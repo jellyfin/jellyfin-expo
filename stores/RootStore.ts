@@ -72,16 +72,14 @@ export const useRootStore = create<State & Actions>()(
 				}),
 				reset: () => {
 					_set({
-						deviceId: uuidv4(),
-						isFullscreen: false,
-						isReloadRequired: false,
-						didPlayerCloseManually: true
+						...initialState,
+						deviceId: uuidv4()
 					});
 				}
 			}), {
 				name: STORE_NAME,
 				storage: createJSONStorage(() => AsyncStorage),
-				partialize: (state) => ({ deviceId: state.deviceId })
+				partialize: state => ({ deviceId: state.deviceId })
 			}
 		),
 		STORE_NAME

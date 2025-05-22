@@ -70,21 +70,15 @@ export const useServerStore = create<State & Actions>()(
 					...prev,
 					...state
 				})),
-				addServer: (server) => {
-					const servers = _get().servers;
-					_set({
-						servers: [
-							...servers,
-							new ServerModel(uuidv4(), server.url)
-						]
-					});
-				},
-				removeServer: (index) => {
-					const servers = _get().servers;
-					_set({
-						servers: servers.filter((_, i) => i !== index)
-					});
-				},
+				addServer: server => _set(state => ({
+					servers: [
+						...state.servers,
+						new ServerModel(uuidv4(), server.url)
+					]
+				})),
+				removeServer: index => _set(state => ({
+					servers: state.servers.filter((_, i) => i !== index)
+				})),
 				reset: () => _set({ servers: [] }),
 				fetchInfo: async () => {
 					await Promise.all(
@@ -96,7 +90,7 @@ export const useServerStore = create<State & Actions>()(
 			}), {
 				name: STORE_NAME,
 				storage: createJSONStorage(() => AsyncStorage, { reviver }),
-				partialize: (state) => Object.fromEntries(
+				partialize: state => Object.fromEntries(
 					Object.entries(state).filter(([ key ]) => persistKeys.includes(key))
 				)
 			}
