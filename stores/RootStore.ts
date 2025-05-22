@@ -71,7 +71,7 @@ export const useRootStore = create<State & Actions>()(
 						id: _get().deviceId
 					}
 				}),
-				reset: () => { // TODO: Confirm instances of this reset call reset all the other states as well
+				reset: () => {
 					_set({
 						deviceId: uuidv4(),
 						isFullscreen: false,

@@ -87,12 +87,10 @@ true;
 				case 'disableFullscreen':
 					rootStore.set({ isFullscreen: false });
 					break;
-				case 'downloadFile':
+				case 'downloadFile': {
 					console.log('Download item', data);
-					/* eslint-disable no-case-declarations */
 					const url = new URL(data.item.url);
 					const apiKey = url.searchParams.get('api_key');
-					/* eslint-enable no-case-declarations */
 					downloadStore.add(new DownloadModel(
 						data.item.itemId,
 						data.item.serverId,
@@ -103,6 +101,7 @@ true;
 						data.item.url
 					));
 					break;
+				}
 				case 'openUrl':
 					console.log('Opening browser for external url', data.url);
 					openBrowser(data.url);

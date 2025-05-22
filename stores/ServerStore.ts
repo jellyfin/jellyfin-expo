@@ -65,13 +65,18 @@ export const useServerStore = create<State & Actions>()(
 				set: (state) => { _set({ ...state }); },
 				addServer: (server) => {
 					const servers = _get().servers;
-					servers.push(new ServerModel(uuidv4(), server.url));
-					_set({ servers });
+					_set({
+						servers: [
+							...servers,
+							new ServerModel(uuidv4(), server.url)
+						]
+					});
 				},
 				removeServer: (index) => {
 					const servers = _get().servers;
-					servers.splice(index, 1);
-					_set({ servers });
+					_set({
+						servers: servers.filter((_, i) => i !== index)
+					});
 				},
 				reset: () => _set({ servers: [] }),
 				fetchInfo: async () => {

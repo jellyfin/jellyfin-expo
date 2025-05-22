@@ -14,13 +14,13 @@ import { logger } from './middleware/logger';
 
 type State = {
 	/** The media type being played */
-	type?: string,
+	type: string | null,
 
 	/** URI of the current media file */
-	uri?: string,
+	uri: string | null,
 
 	/** URI of the backdrop image of the current media item */
-	backdropUri?: string,
+	backdropUri: string | null,
 
 	/** Current playback position (in ticks) */
 	positionTicks: number,

@@ -43,9 +43,14 @@ const App = ({ skipLoadingScreen }) => {
 	const { rootStore, downloadStore, settingStore, serverStore } = useStores();
 	const { theme } = useContext(ThemeContext);
 	const isHydrated = useIsHydrated();
+	const colorScheme = useColorScheme();
 
-	// Get the system color scheme for automatic theme switching
-	settingStore.systemThemeId = useColorScheme();
+	// Store the system color scheme for automatic theme switching
+	useEffect(() => {
+		settingStore.set({
+			systemThemeId: colorScheme
+		});
+	}, [ colorScheme ]);
 
 	SplashScreen.preventAutoHideAsync();
 
@@ -62,7 +67,7 @@ const App = ({ skipLoadingScreen }) => {
 
 			// Root Store
 			for (const key of Object.keys(mobx_store).filter(k => k.search('Store') === -1)) {
-				rootStore.set({ key: mobx_store[key] });
+				rootStore.set({ [key]: mobx_store[key] });
 			}
 
 			/**
@@ -79,14 +84,14 @@ const App = ({ skipLoadingScreen }) => {
 			const mobxDownloads = mobx_store.downloadStore.downloads;
 			const migratedDownloads = new Map();
 			if (Object.keys(mobxDownloads).length > 0) {
-				for (const [ key, value ] of Object.getEntries(mobxDownloads)) {
+				for (const [ key, value ] of Object.entries(mobxDownloads)) {
 					migratedDownloads.set(key, new DownloadModel(
 						value.itemId,
 						value.serverId,
 						value.serverUrl,
 						value.apiKey,
 						value.title,
-						value.fileName,
+						value.filename,
 						value.downloadUrl
 					));
 				}
@@ -106,10 +111,9 @@ const App = ({ skipLoadingScreen }) => {
 			// Setting Store
 			for (const key of Object.keys(mobx_store.settingStore)) {
 				console.info('SettingStore', key);
-				settingStore.set({ key: mobx_store.settingStore[key] });
+				settingStore.set({ [key]: mobx_store.settingStore[key] });
 			}
 
-			// TODO: Confirm zustand has objects in async storage
 			// TODO: Remove mobx sync item from async storage in a future release
 			// AsyncStorage.removeItem('__mobx_sync__')
 		}

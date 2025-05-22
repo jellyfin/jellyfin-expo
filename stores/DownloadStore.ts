@@ -37,21 +37,23 @@ export const deserialize = (valueString: string | null): StorageValue<State> => 
 	const value = JSON.parse(valueString);
 	const downloads = new Map<string, DownloadModel>();
 
-	value.state.downloads.forEach(([ key, obj ]: [ string, DownloadModel ]) => {
-		const model = new DownloadModel(
-			obj.itemId,
-			obj.serverId,
-			obj.serverUrl,
-			obj.apiKey,
-			obj.title,
-			obj.filename,
-			obj.downloadUrl
-		);
-		model.isComplete = obj.isComplete;
-		model.isNew = obj.isNew;
+	if (Array.isArray(value.state.downloads)) {
+		value.state.downloads.forEach(([ key, obj ]: [ string, DownloadModel ]) => {
+			const model = new DownloadModel(
+				obj.itemId,
+				obj.serverId,
+				obj.serverUrl,
+				obj.apiKey,
+				obj.title,
+				obj.filename,
+				obj.downloadUrl
+			);
+			model.isComplete = obj.isComplete;
+			model.isNew = obj.isNew;
 
-		downloads.set(key, model);
-	});
+			downloads.set(key, model);
+		});
+	}
 
 	return {
 		...value,
