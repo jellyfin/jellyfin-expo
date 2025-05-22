@@ -22,13 +22,14 @@ const AppStack = createNativeStackNavigator();
 const AppNavigator = () => {
 	const { rootStore, serverStore } = useStores();
 	const { t } = useTranslation();
+	const hasSavedServer = serverStore.servers.length > 0;
 
 	// Ensure the splash screen is hidden when loading is finished
 	SplashScreen.hideAsync().catch(console.debug);
 
 	return (
 		<AppStack.Navigator
-			initialRouteName={(serverStore.servers?.length > 0) ? Screens.MainScreen : Screens.AddServerScreen}
+			initialRouteName={hasSavedServer ? Screens.MainScreen : Screens.AddServerScreen}
 			screenOptions={{
 				autoHideHomeIndicator: rootStore.isFullscreen,
 				headerShown: false
@@ -53,7 +54,7 @@ const AppNavigator = () => {
 				name={Screens.AddServerScreen}
 				component={AddServerScreen}
 				options={{
-					headerShown: serverStore.servers?.length > 0,
+					headerShown: hasSavedServer,
 					title: t('headings.addServer')
 				}}
 			/>
