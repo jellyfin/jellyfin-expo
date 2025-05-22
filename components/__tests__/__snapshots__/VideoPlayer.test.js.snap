@@ -37,7 +37,7 @@ exports[`VideoPlayer should render correctly 1`] = `
   <Image
     source={
       Object {
-        "uri": undefined,
+        "uri": null,
       }
     }
     style={

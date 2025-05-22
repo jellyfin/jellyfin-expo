@@ -2,10 +2,16 @@
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ *
+ * @jest-environment jsdom
+ * @jest-environment-options {"url": "https://jestjs.io/"}
  */
 
+import { renderHook } from '@testing-library/react';
+import { act } from '@testing-library/react-native';
+
 import DownloadModel from '../../models/DownloadModel';
-import DownloadStore, { DESERIALIZER } from '../DownloadStore';
+import { deserialize, useDownloadStore } from '../DownloadStore';
 
 const TEST_MODEL = new DownloadModel(
 	'item-id',
@@ -28,82 +34,109 @@ const TEST_MODEL_2 = new DownloadModel(
 );
 
 describe('DownloadStore', () => {
-	const store = new DownloadStore();
+	let store;
+	beforeEach(() => {
+		store = renderHook(() => useDownloadStore((state => state)));
+		act(() => {
+			store.result.current.reset();
+		});
+	});
 
 	it('should initialize with an empty map', () => {
-		expect(store.downloads.size).toBe(0);
-	});
-
-	it('should allow models to be added', () => {
-		store.add(TEST_MODEL);
-		expect(store.downloads.size).toBe(1);
-		expect(store.downloads.get(TEST_MODEL.key)).toBe(TEST_MODEL);
-
-		store.add(TEST_MODEL_2);
-		expect(store.downloads.size).toBe(2);
-		expect(store.downloads.get(TEST_MODEL_2.key)).toBe(TEST_MODEL_2);
-	});
-
-	it('should prevent duplicate entries', () => {
-		const duplicate = new DownloadModel(
-			'item-id',
-			'server-id',
-			'https://example.com/',
-			'api-key',
-			'duplicate title',
-			'duplicate file name.mkv',
-			'https://example.com/download'
-		);
-
-		expect(store.downloads.size).toBe(2);
-		store.add(duplicate);
-		expect(store.downloads.size).toBe(2);
-		expect(store.downloads.get(duplicate.key)).toBe(TEST_MODEL);
-	});
-
-	it('should return the number of new downloads', () => {
-		expect(store.newDownloadCount).toBe(2);
-		TEST_MODEL.isNew = false;
-		expect(store.newDownloadCount).toBe(1);
-		TEST_MODEL_2.isNew = false;
-		expect(store.newDownloadCount).toBe(0);
+		expect(store.result.current.downloads.size).toBe(0);
 	});
 
 	it('should reset', () => {
-		expect(store.downloads.size).toBe(2);
-		store.reset();
-		expect(store.downloads.size).toBe(0);
+		act(() => {
+			store.result.current.add(TEST_MODEL);
+			store.result.current.add(TEST_MODEL_2);
+		});
+
+		expect(store.result.current.downloads.size).toBe(2);
+
+		act(() => {
+			store.result.current.reset();
+		});
+
+		expect(store.result.current.downloads.size).toBe(0);
+	});
+
+	it('should allow models to be added', () => {
+		act(() => {
+			store.result.current.add(TEST_MODEL);
+		});
+
+		expect(store.result.current.downloads.size).toBe(1);
+		expect(store.result.current.downloads.get(TEST_MODEL.key)).toBe(TEST_MODEL);
+
+		act(() => {
+			store.result.current.add(TEST_MODEL_2);
+		});
+		expect(store.result.current.downloads.size).toBe(2);
+		expect(store.result.current.downloads.get(TEST_MODEL_2.key)).toBe(TEST_MODEL_2);
+	});
+
+	it('should prevent duplicate entries', () => {
+		act(() => {
+			store.result.current.add(TEST_MODEL);
+			store.result.current.add(TEST_MODEL_2);
+		});
+
+		expect(store.result.current.downloads.size).toBe(2);
+		act(() => {
+			store.result.current.add(TEST_MODEL);
+		});
+		expect(store.result.current.downloads.size).toBe(2);
+	});
+
+	it('should return the number of new downloads', () => {
+		act(() => {
+			store.result.current.add(TEST_MODEL);
+			store.result.current.add(TEST_MODEL_2);
+		});
+		expect(store.result.current.getNewDownloadCount()).toBe(2);
+		TEST_MODEL.isNew = false;
+		expect(store.result.current.getNewDownloadCount()).toBe(1);
+		TEST_MODEL_2.isNew = false;
+		expect(store.result.current.getNewDownloadCount()).toBe(0);
 	});
 });
 
-describe('DESERIALIZER', () => {
+describe('deserialize', () => {
 	it('should deserialize to a Map of DownloadModels', () => {
 		const serialized = {
-			'server-id_item-id-1': {
-				itemId: 'item-id-1',
-				serverId: 'server-id',
-				serverUrl: 'https://example.com/',
-				apiKey: 'api-key',
-				title: 'title 1',
-				filename: 'file name 1.mkv',
-				downloadUrl: 'https://example.com/download',
-				isComplete: false,
-				isNew: true
-			},
-			'server-id_item-id-2': {
-				itemId: 'item-id-2',
-				serverId: 'server-id',
-				serverUrl: 'https://example.com/',
-				apiKey: 'api-key',
-				title: 'title 2',
-				filename: 'file name 2.mkv',
-				downloadUrl: 'https://example.com/download',
-				isComplete: true,
-				isNew: false
+			state: {
+				downloads: [[
+					'server-id_item-id-1',
+					{
+						itemId: 'item-id-1',
+						serverId: 'server-id',
+						serverUrl: 'https://example.com/',
+						apiKey: 'api-key',
+						title: 'title 1',
+						filename: 'file name 1.mkv',
+						downloadUrl: 'https://example.com/download',
+						isComplete: false,
+						isNew: true
+					}
+				], [
+					'server-id_item-id-2',
+					{
+						itemId: 'item-id-2',
+						serverId: 'server-id',
+						serverUrl: 'https://example.com/',
+						apiKey: 'api-key',
+						title: 'title 2',
+						filename: 'file name 2.mkv',
+						downloadUrl: 'https://example.com/download',
+						isComplete: true,
+						isNew: false
+					}
+				]]
 			}
 		};
 
-		const deserialized = DESERIALIZER(serialized);
+		const deserialized = deserialize(JSON.stringify(serialized)).state.downloads;
 
 		expect(deserialized.size).toBe(2);
 

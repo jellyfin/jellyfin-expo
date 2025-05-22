@@ -5,15 +5,14 @@
  */
 
 import { Audio, InterruptionModeAndroid, InterruptionModeIOS } from 'expo-av';
-import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
 
 import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
 import { msToTicks } from '../utils/Time';
 
-const AudioPlayer = observer(() => {
-	const { rootStore } = useStores();
+const AudioPlayer = () => {
+	const { mediaStore } = useStores();
 
 	const [ player, setPlayer ] = useState();
 
@@ -57,48 +56,50 @@ const AudioPlayer = observer(() => {
 						didJustFinish === undefined ||
 						isPlaying === undefined ||
 						positionMs === undefined ||
-						rootStore.mediaStore.isFinished
+						mediaStore.isFinished
 					) {
 						return;
 					}
-					rootStore.mediaStore.isFinished = didJustFinish;
-					rootStore.mediaStore.isPlaying = isPlaying;
-					rootStore.mediaStore.positionTicks = msToTicks(positionMs);
+					mediaStore.set({
+						isFinished: didJustFinish,
+						isPlaying: isPlaying,
+						positionTicks: msToTicks(positionMs)
+					});
 				});
 				setPlayer(sound);
 			}
 		};
 
-		if (rootStore.mediaStore.type === MediaTypes.Audio) {
+		if (mediaStore.type === MediaTypes.Audio) {
 			createPlayer({
-				uri: rootStore.mediaStore.uri,
-				positionMillis: rootStore.mediaStore.positionMillis
+				uri: mediaStore.uri,
+				positionMillis: mediaStore.positionMillis
 			});
 		}
-	}, [ rootStore.mediaStore.type, rootStore.mediaStore.uri ]);
+	}, [ mediaStore.type, mediaStore.uri ]);
 
 	// Update the play/pause state when the store indicates it should
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Audio && rootStore.mediaStore.shouldPlayPause) {
-			if (rootStore.mediaStore.isPlaying) {
+		if (mediaStore.type === MediaTypes.Audio && mediaStore.shouldPlayPause) {
+			if (mediaStore.isPlaying) {
 				player?.pauseAsync();
 			} else {
 				player?.playAsync();
 			}
-			rootStore.mediaStore.shouldPlayPause = false;
+			mediaStore.set({ shouldPlayPause: false });
 		}
-	}, [ rootStore.mediaStore.shouldPlayPause ]);
+	}, [ mediaStore.shouldPlayPause ]);
 
 	// Stop the player when the store indicates it should stop playback
 	useEffect(() => {
-		if (rootStore.mediaStore.type === MediaTypes.Audio && rootStore.mediaStore.shouldStop) {
+		if (mediaStore.type === MediaTypes.Audio && mediaStore.shouldStop) {
 			player?.stopAsync();
 			player?.unloadAsync();
-			rootStore.mediaStore.shouldStop = false;
+			mediaStore.set({ shouldStop: false });
 		}
-	}, [ rootStore.mediaStore.shouldStop ]);
+	}, [ mediaStore.shouldStop ]);
 
 	return <></>;
-});
+};
 
 export default AudioPlayer;

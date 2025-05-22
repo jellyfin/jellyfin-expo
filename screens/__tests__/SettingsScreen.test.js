@@ -5,7 +5,7 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import { render } from '@testing-library/react-native';
+import { act, render } from '@testing-library/react-native';
 import React from 'react';
 import { Platform } from 'react-native';
 import { ThemeProvider } from 'react-native-elements';
@@ -21,12 +21,11 @@ jest.mock('react-native-elements/dist/buttons/Button', () => 'Button');
 
 jest.mock('../../hooks/useStores');
 useStores.mockImplementation(() => ({
-	rootStore: {
-		serverStore: {
-			fetchInfo: jest.fn(),
-			servers: []
-		},
-		settingStore: {}
+	rootStore: {},
+	settingStore: {},
+	serverStore: {
+		fetchInfo: jest.fn(),
+		servers: []
 	}
 }));
 
@@ -34,7 +33,7 @@ describe('SettingsScreen', () => {
 	it('should render correctly', () => {
 		Platform.Version = '13';
 
-		const { toJSON } = render(
+		const { toJSON, unmount } = render(
 			<ThemeProvider>
 				<NavigationContainer>
 					<SettingsScreen />
@@ -43,5 +42,6 @@ describe('SettingsScreen', () => {
 		);
 
 		expect(toJSON()).toMatchSnapshot();
+		act(unmount);
 	});
 });

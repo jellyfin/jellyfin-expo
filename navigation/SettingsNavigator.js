@@ -5,7 +5,6 @@
  */
 
 import { createStackNavigator } from '@react-navigation/stack';
-import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -15,7 +14,7 @@ import SettingsScreen from '../screens/SettingsScreen';
 
 const SettingsStack = createStackNavigator();
 
-const SettingsNavigator = observer(() => {
+const SettingsNavigator = () => {
 	const { t } = useTranslation();
 
 	return (
@@ -36,6 +35,6 @@ const SettingsNavigator = observer(() => {
 			/>
 		</SettingsStack.Navigator>
 	);
-});
+};
 
 export default SettingsNavigator;

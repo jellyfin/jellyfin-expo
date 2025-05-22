@@ -3,7 +3,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import { ThemeContext } from 'react-native-elements';
 
 import { useStores } from '../hooks/useStores';
@@ -15,15 +15,16 @@ import { useStores } from '../hooks/useStores';
  * replaceTheme when the theme value in the store changes.
  */
 const ThemeSwitcher = () => {
-	const { rootStore } = useStores();
+	const { settingStore } = useStores();
 	const { replaceTheme } = useContext(ThemeContext);
+	const theme = settingStore.getTheme();
 
 	useEffect(() => {
 		console.info('theme changed!');
-		replaceTheme(rootStore.settingStore.theme.Elements);
-	}, [ rootStore.settingStore.theme ]);
+		replaceTheme(theme.Elements);
+	}, [ theme ]);
 
-	return <></>;
+	return null;
 };
 
 export default ThemeSwitcher;

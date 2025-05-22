@@ -14,18 +14,19 @@ import NativeShellWebView from '../NativeShellWebView';
 jest.mock('../../hooks/useStores');
 useStores.mockImplementation(() => ({
 	rootStore: {
-		serverStore: {
-			servers: [{
-				info: {
-					Version: '10.8.0'
-				}
-			}]
-		},
-		settingStore: {
-			activeServer: 0
-		}
+	},
+	settingStore: {
+		activeServer: 0
+	},
+	serverStore: {
+		servers: [{
+			info: {
+				Version: '10.8.0'
+			}
+		}]
 	}
-}));
+}
+));
 
 jest.mock('../../utils/Device');
 getAppName.mockImplementation(() => 'Jellyfin Mobile');

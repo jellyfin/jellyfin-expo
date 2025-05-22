@@ -8,7 +8,6 @@
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as SplashScreen from 'expo-splash-screen';
-import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -20,16 +19,17 @@ import TabNavigator from './TabNavigator';
 
 const AppStack = createNativeStackNavigator();
 
-const AppNavigator = observer(() => {
-	const { rootStore } = useStores();
+const AppNavigator = () => {
+	const { rootStore, serverStore } = useStores();
 	const { t } = useTranslation();
+	const hasSavedServer = serverStore.servers.length > 0;
 
 	// Ensure the splash screen is hidden when loading is finished
 	SplashScreen.hideAsync().catch(console.debug);
 
 	return (
 		<AppStack.Navigator
-			initialRouteName={(rootStore.serverStore.servers?.length > 0) ? Screens.MainScreen : Screens.AddServerScreen}
+			initialRouteName={hasSavedServer ? Screens.MainScreen : Screens.AddServerScreen}
 			screenOptions={{
 				autoHideHomeIndicator: rootStore.isFullscreen,
 				headerShown: false
@@ -54,12 +54,12 @@ const AppNavigator = observer(() => {
 				name={Screens.AddServerScreen}
 				component={AddServerScreen}
 				options={{
-					headerShown: rootStore.serverStore.servers?.length > 0,
+					headerShown: hasSavedServer,
 					title: t('headings.addServer')
 				}}
 			/>
 		</AppStack.Navigator>
 	);
-});
+};
 
 export default AppNavigator;

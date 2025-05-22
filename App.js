@@ -1,7 +1,9 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
 // polyfill whatwg URL globals
@@ -17,8 +19,6 @@ import * as Font from 'expo-font';
 import * as ScreenOrientation from 'expo-screen-orientation';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
-import { observer } from 'mobx-react-lite';
-import { AsyncTrunk } from 'mobx-sync-lite';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
 import { Alert, useColorScheme } from 'react-native';
@@ -26,7 +26,10 @@ import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import ThemeSwitcher from './components/ThemeSwitcher';
+import { useIsHydrated } from './hooks/useHydrated';
 import { useStores } from './hooks/useStores';
+import DownloadModel from './models/DownloadModel';
+import ServerModel from './models/ServerModel';
 import RootNavigator from './navigation/RootNavigator';
 import { ensurePathExists } from './utils/File';
 import StaticScriptLoader from './utils/StaticScriptLoader';
@@ -34,23 +37,97 @@ import StaticScriptLoader from './utils/StaticScriptLoader';
 // Import i18n configuration
 import './i18n';
 
-const App = observer(({ skipLoadingScreen }) => {
-	const [ isSplashReady, setIsSplashReady ] = useState(false);
-	const { rootStore } = useStores();
-	const { theme } = useContext(ThemeContext);
+// Storage key for the migration status
+const ZUSTAND_MIGRATED = '__zustand_migrated__';
+// Track migration state with a version in case we encounter errors with the migration
+const ZUSTAND_MIGRATION_VERSION = 1;
 
-	rootStore.settingStore.systemThemeId = useColorScheme();
+const App = ({ skipLoadingScreen }) => {
+	const [ isSplashReady, setIsSplashReady ] = useState(false);
+	// NOTE: After the mobx migration is removed, we can just use isHydrated
+	const [ isStoresReady, setIsStoresReady ] = useState(false);
+	const { rootStore, downloadStore, settingStore, serverStore } = useStores();
+	const { theme } = useContext(ThemeContext);
+	const isHydrated = useIsHydrated();
+	const colorScheme = useColorScheme();
+
+	// Store the system color scheme for automatic theme switching
+	useEffect(() => {
+		settingStore.set({
+			systemThemeId: colorScheme
+		});
+	}, [ colorScheme ]);
 
 	SplashScreen.preventAutoHideAsync();
 
-	const trunk = new AsyncTrunk(rootStore, {
-		storage: AsyncStorage
-	});
+	const migrateStores = async () => {
+		// TODO: In release n+2 from this point, remove this conversion code.
+		const zustandMigratedVersion = parseInt(await AsyncStorage.getItem(ZUSTAND_MIGRATED) || '0', 10);
+		const mobxStoreValue = await AsyncStorage.getItem('__mobx_sync__'); // Store will be null if it's not set
 
-	const hydrateStores = async () => {
-		await trunk.init();
+		console.info('zustand migration version', zustandMigratedVersion);
 
-		rootStore.storeLoaded = true;
+		if (zustandMigratedVersion < ZUSTAND_MIGRATION_VERSION && mobxStoreValue !== null) {
+			console.info('Migrating mobx store to zustand');
+			const mobx_store = JSON.parse(mobxStoreValue);
+
+			// Root Store
+			if (mobx_store.deviceId) {
+				rootStore.set({ deviceId: mobx_store.deviceId });
+			}
+
+			/**
+			 * Server store & download store need some special treatment because they
+			 * are not simple key-value pair stores. Each contains one key which is a
+			 * list of Model objects that represent the contents of their respective
+			 * stores.
+			 *
+			 * zustand requires a custom storage engine for these for proper
+			 * serialization and deserialization (written in each storage's module),
+			 * but this code is needed to get them over the hump from mobx to zustand.
+			 */
+			// Download Store
+			const mobxDownloads = mobx_store.downloadStore.downloads;
+			const migratedDownloads = new Map();
+			if (Object.keys(mobxDownloads).length > 0) {
+				for (const [ key, value ] of Object.entries(mobxDownloads)) {
+					migratedDownloads.set(key, new DownloadModel(
+						value.itemId,
+						value.serverId,
+						value.serverUrl,
+						value.apiKey,
+						value.title,
+						value.filename,
+						value.downloadUrl
+					));
+				}
+			}
+			downloadStore.set({ downloads: migratedDownloads });
+
+			// Server Store
+			const mobxServers = mobx_store.serverStore.servers;
+			const migratedServers = [];
+			if (Object.keys(mobxServers).length > 0) {
+				for (const item of mobxServers) {
+					migratedServers.push(new ServerModel(item.id, new URL(item.url), item.info));
+				}
+			}
+			serverStore.set({ servers: migratedServers });
+
+			// Setting Store
+			for (const key of Object.keys(mobx_store.settingStore)) {
+				console.info('SettingStore', key);
+				settingStore.set({ [key]: mobx_store.settingStore[key] });
+			}
+
+			// TODO: Remove mobx sync item from async storage in a future release
+			// AsyncStorage.removeItem('__mobx_sync__');
+
+			// Migration completed; store the migration version
+			await AsyncStorage.setItem(ZUSTAND_MIGRATED, `${ZUSTAND_MIGRATION_VERSION}`);
+		}
+
+		setIsStoresReady(true);
 	};
 
 	const loadImages = () => {
@@ -79,24 +156,26 @@ const App = observer(({ skipLoadingScreen }) => {
 	};
 
 	useEffect(() => {
-		// Hydrate mobx data stores
-		hydrateStores();
+		if (isHydrated) {
+			// Migrate mobx data stores
+			migrateStores();
 
-		// Load app resources
-		loadResources();
-	}, []);
+			// Load app resources
+			loadResources();
+		}
+	}, [ isHydrated ]);
 
 	useEffect(() => {
-		console.info('rotation lock setting changed!', rootStore.settingStore.isRotationLockEnabled);
-		if (rootStore.settingStore.isRotationLockEnabled) {
+		console.info('rotation lock setting changed!', settingStore.isRotationLockEnabled);
+		if (settingStore.isRotationLockEnabled) {
 			ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP);
 		} else {
 			ScreenOrientation.unlockAsync();
 		}
-	}, [ rootStore.settingStore.isRotationLockEnabled ]);
+	}, [ settingStore.isRotationLockEnabled ]);
 
 	const updateScreenOrientation = async () => {
-		if (rootStore.settingStore.isRotationLockEnabled) {
+		if (settingStore.isRotationLockEnabled) {
 			if (rootStore.isFullscreen) {
 				// Lock to landscape orientation
 				// For some reason video apps on iPhone use LANDSCAPE_RIGHT ¯\_(ツ)_/¯
@@ -137,6 +216,7 @@ const App = observer(({ skipLoadingScreen }) => {
 			// Download the file
 			try {
 				download.isDownloading = true;
+				downloadStore.update(download);
 				await resumable.downloadAsync();
 				download.isComplete = true;
 				download.isDownloading = false;
@@ -148,9 +228,12 @@ const App = observer(({ skipLoadingScreen }) => {
 				download.isDownloading = false;
 			}
 
+			// Push the state update to the store
+			downloadStore.update(download);
+
 			// Report download has stopped
 			const serverUrl = download.serverUrl.endsWith('/') ? download.serverUrl.slice(0, -1) : download.serverUrl;
-			const api = rootStore.sdk.createApi(serverUrl, download.apiKey);
+			const api = rootStore.getSdk().createApi(serverUrl, download.apiKey);
 			console.log('[App] Reporting download stopped', download.sessionId);
 			getPlaystateApi(api)
 				.reportPlaybackStopped({
@@ -163,34 +246,34 @@ const App = observer(({ skipLoadingScreen }) => {
 				});
 		};
 
-		rootStore.downloadStore.downloads
+		downloadStore.downloads
 			.forEach(download => {
 				if (!download.isComplete && !download.isDownloading) {
 					downloadFile(download);
 				}
 			});
-	}, [ rootStore.deviceId, rootStore.downloadStore.downloads.size ]);
+	}, [ rootStore.deviceId, downloadStore.downloads.size ]);
 
-	if (!(isSplashReady && rootStore.storeLoaded) && !skipLoadingScreen) {
+	if (!(isSplashReady && isStoresReady) && !skipLoadingScreen) {
 		return null;
 	}
 
 	return (
 		<SafeAreaProvider>
-			<ThemeProvider theme={rootStore.settingStore.theme.Elements}>
+			<ThemeProvider theme={settingStore.getTheme().Elements}>
 				<ThemeSwitcher />
 				<StatusBar
 					style='light'
 					backgroundColor={theme.colors.grey0}
 					hidden={rootStore.isFullscreen}
 				/>
-				<NavigationContainer theme={rootStore.settingStore.theme.Navigation}>
+				<NavigationContainer theme={settingStore.getTheme().Navigation}>
 					<RootNavigator />
 				</NavigationContainer>
 			</ThemeProvider>
 		</SafeAreaProvider>
 	);
-});
+};
 
 App.propTypes = {
 	skipLoadingScreen: PropTypes.bool
