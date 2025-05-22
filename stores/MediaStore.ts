@@ -71,7 +71,10 @@ export const useMediaStore = create<State & Actions>()(
 	logger(
 		(_set, _get) => ({
 			...initialState,
-			set: (state) => { _set({ ...state }); },
+			set: state => _set(prev => ({
+				...prev,
+				...state
+			})),
 			getPositionMillis: () => ticksToMs(_get().positionTicks),
 			reset: () => {
 				_set({ ...initialState });

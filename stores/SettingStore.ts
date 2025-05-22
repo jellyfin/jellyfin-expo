@@ -87,7 +87,10 @@ export const useSettingStore = create<SettingStore>()(
 		persist(
 			(_set, _get) => ({
 				...initialState(),
-				set: (state) => { _set({ ...state }); },
+				set: state => _set(prev => ({
+					...prev,
+					...state
+				})),
 				getTheme: () => {
 					const state = _get();
 					const id = state.isSystemThemeEnabled

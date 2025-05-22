@@ -56,7 +56,10 @@ export const useRootStore = create<State & Actions>()(
 		persist(
 			(_set, _get) => ({
 				...initialState,
-				set: (state) => { _set({ ...state }); },
+				set: state => _set(prev => ({
+					...prev,
+					...state
+				})),
 				getSdk: () => new Jellyfin({
 					clientInfo: {
 						name: getAppName(),

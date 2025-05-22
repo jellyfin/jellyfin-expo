@@ -62,7 +62,10 @@ export const useServerStore = create<State & Actions>()(
 		persist(
 			(_set, _get) => ({
 				...initialState,
-				set: (state) => { _set({ ...state }); },
+				set: state => _set(prev => ({
+					...prev,
+					...state
+				})),
 				addServer: (server) => {
 					const servers = _get().servers;
 					_set({

@@ -94,7 +94,10 @@ export const useDownloadStore = create<State & Actions>()(
 		persist(
 			(_set, _get) => ({
 				...initialState,
-				set: (state) => _set({ ...state }),
+				set: state => _set(prev => ({
+					...prev,
+					...state
+				})),
 				getNewDownloadCount: () => Array
 					.from(_get().downloads.values())
 					.filter(d => d.isNew)
