@@ -19,10 +19,14 @@ type State = {
 	servers: ServerModel[],
 }
 
+interface ServerInput {
+	url: URL
+}
+
 type Actions = {
-	set: (v: Partial<State>) => void,
-	addServer: (v: ServerModel) => void,
-	removeServer: (v: number) => void,
+	set: (value: Partial<State>) => void,
+	addServer: (input: ServerInput) => void,
+	removeServer: (index: number) => void,
 	reset: () => void,
 	fetchInfo: () => Promise<void>,
 }
@@ -86,6 +90,8 @@ export const useServerStore = create<State & Actions>()(
 					await Promise.all(
 						_get().servers.map(server => server.fetchInfo())
 					);
+					// notify subscribers
+					_set(state => ({ servers: [ ...state.servers ] }));
 				}
 			}), {
 				name: STORE_NAME,

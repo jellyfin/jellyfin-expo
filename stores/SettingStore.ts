@@ -35,7 +35,7 @@ type State = {
 	themeId: string,
 
 	/** The system level appearance/theme value */
-	systemThemeId?: string,
+	systemThemeId: string | null,
 
 	/** Should the app use system level theme */
 	isSystemThemeEnabled: boolean,
