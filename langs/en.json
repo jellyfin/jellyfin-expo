@@ -74,6 +74,11 @@
     "help": "Getting Help"
   },
   "alerts": {
+    "deleteDownloads": {
+        "title": "Delete Downloads",
+        "description": "These items will be permanently deleted from this device.",
+        "confirm": "Delete {{downloadCount}} Downloads"
+    },
     "deleteServer": {
       "title": "Delete Server",
       "description": "Are you sure you want to delete the server {{serverName}}?",

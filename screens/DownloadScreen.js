@@ -43,15 +43,15 @@ const DownloadScreen = () => {
 
 		function onDeleteItems(downloads) {
 			Alert.alert(
-				'Delete Downloads',
-				'These items will be permanently deleted from this device.',
+				t('alerts.deleteDownloads.title'),
+				t('alerts.deleteDownloads.description'),
 				[
 					{
 						text: t('common.cancel'),
 						onPress: exitEditMode
 					},
 					{
-						text: `Delete ${downloads.length} Downloads`,
+						text: t('alerts.deleteDownloads.confirm', { downloadCount: downloads.length }),
 						onPress: async () => {
 							await Promise.all(downloads.map(deleteItem));
 							exitEditMode();
