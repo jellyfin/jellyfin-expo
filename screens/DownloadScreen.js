@@ -13,6 +13,7 @@ import { Button, ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import DownloadListItem from '../components/DownloadListItem';
+import ErrorView from '../components/ErrorView';
 import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
 
@@ -117,35 +118,46 @@ const DownloadScreen = () => {
 			}}
 			edges={[ 'right', 'left' ]}
 		>
-			<FlatList
-				data={Array.from(downloadStore.downloads.values())}
-				extraData={downloadStore.downloads}
-				renderItem={({ item, index }) => (
-					<DownloadListItem
-						item={item}
-						index={index}
-						isEditMode={isEditMode}
-						isSelected={selectedItems.includes(item)}
-						onSelect={() => {
-							if (selectedItems.includes(item)) {
-								setSelectedItems(selectedItems.filter(selected => selected !== item));
-							} else {
-								setSelectedItems([ ...selectedItems, item ]);
-							}
-						}}
-						onPlay={async () => {
-							item.isNew = false;
-							mediaStore.set({
-								isLocalFile: true,
-								type: MediaTypes.Video,
-								uri: item.uri
-							});
-						}}
-					/>
-				)}
-				keyExtractor={(item, index) => `download-${index}-${item.key}`}
-				contentContainerStyle={styles.listContainer}
-			/>
+			{downloadStore.downloads.size > 0 ? (
+				<FlatList
+					data={Array.from(downloadStore.downloads.values())}
+					extraData={downloadStore.downloads}
+					renderItem={({ item, index }) => (
+						<DownloadListItem
+							item={item}
+							index={index}
+							isEditMode={isEditMode}
+							isSelected={selectedItems.includes(item)}
+							onSelect={() => {
+								if (selectedItems.includes(item)) {
+									setSelectedItems(selectedItems.filter(selected => selected !== item));
+								} else {
+									setSelectedItems([ ...selectedItems, item ]);
+								}
+							}}
+							onPlay={async () => {
+								item.isNew = false;
+								mediaStore.set({
+									isLocalFile: true,
+									type: MediaTypes.Video,
+									uri: item.uri
+								});
+							}}
+						/>
+					)}
+					keyExtractor={(item, index) => `download-${index}-${item.key}`}
+					contentContainerStyle={styles.listContainer}
+				/>
+			) : (
+				<ErrorView
+					icon={{
+						name: 'download-circle-outline',
+						type: 'material-community'
+					}}
+					heading={t('downloads.noDownloads.heading')}
+					message={t('downloads.noDownloads.description')}
+				/>
+			)}
 		</SafeAreaView>
 	);
 };

@@ -26,6 +26,12 @@
       "noConnection": "Could not connect to server"
     }
   },
+  "downloads": {
+    "noDownloads": {
+        "heading": "No downloads",
+        "description": "Content you download will appear here."
+    }
+  },
   "home": {
     "errors": {
         "502": {
