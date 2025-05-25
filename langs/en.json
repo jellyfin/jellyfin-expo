@@ -26,6 +26,12 @@
       "noConnection": "Could not connect to server"
     }
   },
+  "downloads": {
+    "noDownloads": {
+        "heading": "No downloads",
+        "description": "Content you download will appear here."
+    }
+  },
   "home": {
     "errors": {
         "502": {
@@ -74,6 +80,11 @@
     "help": "Getting Help"
   },
   "alerts": {
+    "deleteDownloads": {
+        "title": "Delete Downloads",
+        "description": "These items will be permanently deleted from this device.",
+        "confirm": "Delete {{downloadCount}} Downloads"
+    },
     "deleteServer": {
       "title": "Delete Server",
       "description": "Are you sure you want to delete the server {{serverName}}?",
