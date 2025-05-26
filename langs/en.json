@@ -90,6 +90,10 @@
       "description": "Are you sure you want to delete the server {{serverName}}?",
       "confirm": "Delete"
     },
+    "downloadUnsupported": {
+        "title": "Unsupported Type",
+        "description": "Downloading content of this type is not currently supported."
+    },
     "resetApplication": {
       "title": "Reset Application",
       "description": "Are you sure you want to reset all settings?",
