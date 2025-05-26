@@ -1,14 +1,17 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
 import compareVersions from 'compare-versions';
 import Constants from 'expo-constants';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import React, { useState } from 'react';
-import { BackHandler, Platform } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { Alert, BackHandler, Platform } from 'react-native';
 
 import MediaTypes from '../constants/MediaTypes';
 import { useStores } from '../hooks/useStores';
@@ -22,6 +25,7 @@ import RefreshWebView from './RefreshWebView';
 const NativeShellWebView = (props, ref) => {
 	const { rootStore, downloadStore, serverStore, mediaStore, settingStore } = useStores();
 	const [ isRefreshing, setIsRefreshing ] = useState(false);
+	const { t } = useTranslation();
 
 	const server = serverStore.servers[settingStore.activeServer];
 	const isPluginSupported = !!server.info?.Version && compareVersions.compare(server.info.Version, '10.7', '>=');
@@ -89,6 +93,14 @@ true;
 					break;
 				case 'downloadFile': {
 					console.log('Download item', data);
+					if (data.item.item?.MediaType !== MediaTypes.Video) {
+						Alert.alert(
+							t('alerts.downloadUnsupported.title'),
+							t('alerts.downloadUnsupported.description')
+						);
+						break;
+					}
+
 					const url = new URL(data.item.url);
 					const apiKey = url.searchParams.get('api_key');
 					downloadStore.add(new DownloadModel(
