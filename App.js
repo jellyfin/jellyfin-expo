@@ -21,6 +21,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import PropTypes from 'prop-types';
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Alert, useColorScheme } from 'react-native';
 import { ThemeContext, ThemeProvider } from 'react-native-elements';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -50,6 +51,7 @@ const App = ({ skipLoadingScreen }) => {
 	const { theme } = useContext(ThemeContext);
 	const isHydrated = useIsHydrated();
 	const colorScheme = useColorScheme();
+	const { t } = useTranslation();
 
 	// Store the system color scheme for automatic theme switching
 	useEffect(() => {
@@ -222,7 +224,10 @@ const App = ({ skipLoadingScreen }) => {
 				download.isDownloading = false;
 			} catch (e) {
 				console.error('[App] Download failed', e);
-				Alert.alert('Download Failed', `"${download.title}" failed to download.`);
+				Alert.alert(
+					t('alerts.downloadFailed.title'),
+					t('alerts.downloadFailed.description', { title: download.title })
+				);
 
 				// TODO: If a download fails, we should probably remove it from the queue
 				download.isDownloading = false;

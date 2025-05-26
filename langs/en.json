@@ -90,6 +90,10 @@
       "description": "Are you sure you want to delete the server {{serverName}}?",
       "confirm": "Delete"
     },
+    "downloadFailed": {
+        "title": "Download Failed",
+        "description": "\"{{title}}\" failed to download."
+    },
     "downloadUnsupported": {
         "title": "Unsupported Type",
         "description": "Downloading content of this type is not currently supported."
