@@ -32,8 +32,11 @@ export type DownloadStore = State & Actions
 const STORE_NAME = 'DownloadStore';
 
 export const deserialize = (valueString: string | null): StorageValue<State> => {
-	if (!valueString) return null;
-
+	if (!valueString) {
+		return {
+			state: initialState
+		};
+	}
 	const value = JSON.parse(valueString);
 	const downloads = new Map<string, DownloadModel>();
 
@@ -65,17 +68,18 @@ export const deserialize = (valueString: string | null): StorageValue<State> => 
 };
 
 // This is needed to properly serialize/deserialize Map<String, DownloadModel>
-const storage: PersistStorage<State> = {
+const storage: PersistStorage<unknown> = {
 	getItem: async (name: string): Promise<StorageValue<State>> => {
 		const data = await AsyncStorage.getItem(name);
 		return deserialize(data);
 	},
-	setItem: function(name: string, value: StorageValue<State>): void {
+	setItem: function(name, value): void {
+		const state = value.state as State;
 		const str = JSON.stringify({
 			...value,
 			state: {
-				...value.state,
-				downloads: Array.from(value.state.downloads.entries())
+				...state,
+				downloads: Array.from(state.downloads.entries())
 			}
 		});
 		AsyncStorage.setItem(name, str);

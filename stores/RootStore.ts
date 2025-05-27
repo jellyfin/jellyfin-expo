@@ -16,6 +16,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
+import pkg from '../package.json';
 import { getAppName, getSafeDeviceName } from '../utils/Device';
 
 import { logger } from './middleware/logger';
@@ -63,7 +64,7 @@ export const useRootStore = create<State & Actions>()(
 				getSdk: () => new Jellyfin({
 					clientInfo: {
 						name: getAppName(),
-						version: Constants.nativeAppVersion
+						version: Constants.nativeAppVersion || pkg.version
 					},
 					deviceInfo: {
 						name: getSafeDeviceName(),
