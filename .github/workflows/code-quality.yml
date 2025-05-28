@@ -78,7 +78,7 @@ jobs:
 
       - name: SonarCloud scan
         if: ${{ github.repository == 'jellyfin/jellyfin-expo' }}
-        uses: SonarSource/sonarcloud-github-action@383f7e52eae3ab0510c3cb0e7d9d150bbaeab838 # v3.1.0
+        uses: SonarSource/sonarcloud-github-action@ffc3010689be73b8e5ae0c57ce35968afd7909e8 # v5.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.JF_BOT_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
