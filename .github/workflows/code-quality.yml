@@ -68,7 +68,19 @@ jobs:
         run: npm ci --no-audit
 
       - name: Run jest
-        run: npx jest
+        run: npx jest --coverage
 
-      - name: Upload coverage
-        uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
+      - name: SonarCloud scan
+        if: ${{ github.repository == 'jellyfin/jellyfin-expo' }}
+        uses: SonarSource/sonarcloud-github-action@383f7e52eae3ab0510c3cb0e7d9d150bbaeab838 # v3.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.JF_BOT_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.pullrequest.provider=github
+            -Dsonar.pullrequest.github.repository=${{ github.repository }}
+            -Dsonar.pullrequest.github.token.secured=${{ secrets.GITHUB_TOKEN }}
+            -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
+            -Dsonar.pullrequest.branch=${{ github.event.pull_request.head.ref }}
+            -Dsonar.pullrequest.base=${{ github.event.pull_request.base.ref }}
