@@ -54,11 +54,12 @@ const DownloadScreen = () => {
 					{
 						text: t('alerts.deleteDownloads.confirm', { downloadCount: downloads.length }),
 						onPress: () => {
+							// eslint-disable-next-line promise/catch-or-return
 							Promise.all(downloads.map(deleteItem))
-								.then(exitEditMode)
 								.catch(err => {
 									console.error('[DownloadScreen] failed to delete download', err);
-								});
+								})
+								.finally(exitEditMode);
 						},
 						style: 'destructive'
 					}
