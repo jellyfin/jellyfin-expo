@@ -7,7 +7,7 @@
  */
 
 import compareVersions from 'compare-versions';
-import Constants from 'expo-constants';
+import { nativeApplicationVersion } from 'expo-application';
 import { activateKeepAwake, deactivateKeepAwake } from 'expo-keep-awake';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -33,7 +33,7 @@ const NativeShellWebView = (props, ref) => {
 	const injectedJavaScript = `
 window.ExpoAppInfo = {
 	appName: '${getAppName()}',
-	appVersion: '${Constants.nativeAppVersion}',
+	appVersion: '${nativeApplicationVersion}',
 	deviceId: '${rootStore.deviceId}',
 	deviceName: '${getSafeDeviceName().replace(/'/g, '\\\'')}'
 };

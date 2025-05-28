@@ -10,6 +10,7 @@
     "@types/react",
     "babel-preset-expo",
     "expo",
+    "expo-application",
     "expo-asset",
     "expo-av",
     "expo-constants",
