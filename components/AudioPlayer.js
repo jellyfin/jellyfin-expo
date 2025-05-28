@@ -37,7 +37,7 @@ const AudioPlayer = () => {
 	useEffect(() => {
 		const createPlayer = async ({ uri, positionMillis }) => {
 			const { isLoaded } = await player?.getStatusAsync() || { isLoaded: false };
-			if (isLoaded) {
+			if (player && isLoaded) {
 				// If the player is already loaded, seek to the correct position
 				player.setPositionAsync(positionMillis);
 			} else {

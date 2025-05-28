@@ -53,9 +53,13 @@ const DownloadScreen = () => {
 					},
 					{
 						text: t('alerts.deleteDownloads.confirm', { downloadCount: downloads.length }),
-						onPress: async () => {
-							await Promise.all(downloads.map(deleteItem));
-							exitEditMode();
+						onPress: () => {
+							// eslint-disable-next-line promise/catch-or-return
+							Promise.all(downloads.map(deleteItem))
+								.catch(err => {
+									console.error('[DownloadScreen] failed to delete download', err);
+								})
+								.finally(exitEditMode);
 						},
 						style: 'destructive'
 					}
