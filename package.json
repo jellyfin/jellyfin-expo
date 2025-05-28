@@ -81,11 +81,12 @@
     "react-native-web": "~0.18.7",
     "react-native-webview": "11.23.0",
     "uuid": "8.3.2",
-    "zustand": "5.0.2"
+    "zustand": "5.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/eslint-parser": "7.26.8",
+    "@testing-library/dom": "10.4.0",
     "@testing-library/jest-dom": "6.6.3",
     "@testing-library/jest-native": "4.0.13",
     "@testing-library/react": "16.1.0",
