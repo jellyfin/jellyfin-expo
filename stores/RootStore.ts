@@ -11,7 +11,7 @@ import 'react-native-get-random-values';
 
 import { Jellyfin } from '@jellyfin/sdk';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import Constants from 'expo-constants';
+import { nativeApplicationVersion } from 'expo-application';
 import { v4 as uuidv4 } from 'uuid';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
@@ -64,7 +64,7 @@ export const useRootStore = create<State & Actions>()(
 				getSdk: () => new Jellyfin({
 					clientInfo: {
 						name: getAppName(),
-						version: Constants.nativeAppVersion || pkg.version
+						version: nativeApplicationVersion || pkg.version
 					},
 					deviceInfo: {
 						name: getSafeDeviceName(),
