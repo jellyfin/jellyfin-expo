@@ -45,8 +45,8 @@ jobs:
           git apply patches/boost1760.patch
 
       - name: Install Pods
+        working-directory: ios
         run: |
-          cd ios
           bundle exec pod env
           bundle exec pod install
 
