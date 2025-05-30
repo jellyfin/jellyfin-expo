@@ -30,7 +30,7 @@ platform :ios do
       ]
     )
 
-    xcodes(version: "15.4")
+    xcodes(version: "16.2")
 
     app_store_connect_api_key(
       is_key_content_base64: true,
