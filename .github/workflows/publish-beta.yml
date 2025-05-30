@@ -26,16 +26,18 @@ jobs:
       - name: Check out Git repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@13e7a03dc3ac6c3798f4570bfead2aed4d96abfb # v1.244.0
+        with:
+          ruby-version: 3.1
+          bundler-cache: true
+
       - name: Set up Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 20
           check-latest: true
           cache: npm
-
-      - name: Install ruby dependencies
-        run: |
-          bundle install
 
       - name: Install Node.js dependencies
         run: |
@@ -44,7 +46,9 @@ jobs:
 
       - name: Install Pods
         run: |
-          cd ios && bundle exec pod install
+          cd ios
+          bundle exec pod env
+          bundle exec pod install
 
       - name: Setup signing environment
         env:
