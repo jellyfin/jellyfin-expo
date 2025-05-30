@@ -33,6 +33,10 @@ jobs:
           check-latest: true
           cache: npm
 
+      - name: Install ruby dependencies
+        run: |
+          bundle install
+
       - name: Install Node.js dependencies
         run: |
           npm ci --no-audit
@@ -40,7 +44,7 @@ jobs:
 
       - name: Install Pods
         run: |
-          cd ios && pod install
+          cd ios && bundle exec pod install
 
       - name: Setup signing environment
         env:
@@ -86,4 +90,4 @@ jobs:
           APP_STORE_CONNECT_API_KEY_KEY: ${{ secrets.APP_STORE_KEY_CONTENTS_EXPO }}
           PILOT_CHANGELOG: ${{ github.event.inputs.changelog }}
           PILOT_NOTIFY_EXTERNAL_TESTERS: ${{ github.event.inputs.notify_testers }}
-        run: fastlane beta upload:${{ github.event.inputs.upload }}
+        run: bundle exec fastlane beta upload:${{ github.event.inputs.upload }}
