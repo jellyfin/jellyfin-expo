@@ -41,7 +41,7 @@ import './i18n';
 // Storage key for the migration status
 const ZUSTAND_MIGRATED = '__zustand_migrated__';
 // Track migration state with a version in case we encounter errors with the migration
-const ZUSTAND_MIGRATION_VERSION = 1;
+const ZUSTAND_MIGRATION_VERSION = 2;
 
 const App = ({ skipLoadingScreen }) => {
 	const [ isSplashReady, setIsSplashReady ] = useState(false);
