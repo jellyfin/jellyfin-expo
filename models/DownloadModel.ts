@@ -74,3 +74,28 @@ export default class DownloadModel {
 		return new URL(`${this.serverUrl}Videos/${this.itemId}/stream.mp4?${streamParams.toString()}`);
 	}
 }
+
+export function fromStorageObject(value: {
+	itemId: string,
+	serverId: string,
+	serverUrl: string,
+	apiKey: string,
+	title: string,
+	filename: string,
+	downloadUrl: string,
+	isComplete: boolean,
+	isNew: boolean
+}): DownloadModel {
+	const model = new DownloadModel(
+		value.itemId,
+		value.serverId,
+		value.serverUrl,
+		value.apiKey,
+		value.title,
+		value.filename,
+		value.downloadUrl
+	);
+	model.isComplete = value.isComplete;
+	model.isNew = value.isNew;
+	return model;
+}

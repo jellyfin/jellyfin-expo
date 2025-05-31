@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import DownloadModel from '../DownloadModel';
+import DownloadModel, { fromStorageObject } from '../DownloadModel';
 
 const DOCUMENT_DIRECTORY = '/DOC_DIR/';
 
@@ -44,5 +44,31 @@ describe('DownloadModel', () => {
 		expect(download.localPath).toBe(`${DOCUMENT_DIRECTORY}server-id/item-id/`);
 		expect(download.uri).toBe(`${DOCUMENT_DIRECTORY}server-id/item-id/file%20name.mp4`);
 		expect(download.getStreamUrl('device-id').toString()).toBe('https://example.com/Videos/item-id/stream.mp4?deviceId=device-id&api_key=api-key&playSessionId=uuid-0&videoCodec=hevc%2Ch264&audioCodec=aac%2Cmp3%2Cac3%2Ceac3%2Cflac%2Calac&maxAudioChannels=6');
+	});
+
+	it('should create a DownloadModel from a storage object', () => {
+		const value = {
+			itemId: 'item-id',
+			serverId: 'server-id',
+			serverUrl: 'https://example.com/',
+			apiKey: 'api-key',
+			title: 'title',
+			filename: 'file name.mkv',
+			downloadUrl: 'https://example.com/download',
+			isComplete: true,
+			isNew: false
+		};
+		const download = fromStorageObject(value);
+
+		expect(download).toBeInstanceOf(DownloadModel);
+		expect(download.apiKey).toBe(value.apiKey);
+		expect(download.itemId).toBe(value.itemId);
+		expect(download.serverId).toBe(value.serverId);
+		expect(download.serverUrl).toBe(value.serverUrl);
+		expect(download.title).toBe(value.title);
+		expect(download.filename).toBe(value.filename);
+		expect(download.downloadUrl).toBe(value.downloadUrl);
+		expect(download.isComplete).toBe(value.isComplete);
+		expect(download.isNew).toBe(value.isNew);
 	});
 });

@@ -29,7 +29,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { useIsHydrated } from './hooks/useHydrated';
 import { useStores } from './hooks/useStores';
-import DownloadModel from './models/DownloadModel';
+import { fromStorageObject } from './models/DownloadModel';
 import ServerModel from './models/ServerModel';
 import RootNavigator from './navigation/RootNavigator';
 import { ensurePathExists } from './utils/File';
@@ -93,15 +93,7 @@ const App = ({ skipLoadingScreen }) => {
 			const migratedDownloads = new Map();
 			if (Object.keys(mobxDownloads).length > 0) {
 				for (const [ key, value ] of Object.entries(mobxDownloads)) {
-					migratedDownloads.set(key, new DownloadModel(
-						value.itemId,
-						value.serverId,
-						value.serverUrl,
-						value.apiKey,
-						value.title,
-						value.filename,
-						value.downloadUrl
-					));
+					migratedDownloads.set(key, fromStorageObject(value));
 				}
 			}
 			downloadStore.set({ downloads: migratedDownloads });
