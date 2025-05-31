@@ -44,12 +44,6 @@ jobs:
           npm ci --no-audit
           git apply patches/boost1760.patch
 
-      - name: Install Pods
-        working-directory: ios
-        run: |
-          bundle exec pod env
-          bundle exec pod install
-
       - name: Setup signing environment
         env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
