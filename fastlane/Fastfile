@@ -32,6 +32,11 @@ platform :ios do
 
     xcodes(version: "16.2")
 
+    cocoapods(
+      podfile: 'ios',
+      deployment: true
+    )
+
     app_store_connect_api_key(
       is_key_content_base64: true,
       duration: 1200,
