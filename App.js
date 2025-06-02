@@ -55,10 +55,14 @@ const App = ({ skipLoadingScreen }) => {
 
 	// Store the system color scheme for automatic theme switching
 	useEffect(() => {
+		// Don't set state while hydrating
+		if (!isHydrated) return;
+
+		console.debug('system theme changed:', colorScheme);
 		settingStore.set({
 			systemThemeId: colorScheme
 		});
-	}, [ colorScheme ]);
+	}, [ colorScheme, isHydrated ]);
 
 	SplashScreen.preventAutoHideAsync();
 
