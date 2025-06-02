@@ -28,10 +28,7 @@ export const useIsHydrated = () => {
 		const unsubDownloadFinishHydration = useDownloadStore.persist.onFinishHydration(() => setIsDownloadStoreHydrated(true));
 		setIsDownloadStoreHydrated(useDownloadStore.persist.hasHydrated());
 		// Server Store
-		const unsubServerFinishHydration = useServerStore.persist.onFinishHydration((state) => {
-			console.debug('>>> hydrated state', state);
-			setIsServerStoreHydrated(true);
-		});
+		const unsubServerFinishHydration = useServerStore.persist.onFinishHydration(() => setIsServerStoreHydrated(true));
 		setIsServerStoreHydrated(useServerStore.persist.hasHydrated());
 		// Settings Store
 		const unsubSettingFinishHydration = useSettingStore.persist.onFinishHydration(() => setIsSettingStoreHydrated(true));
