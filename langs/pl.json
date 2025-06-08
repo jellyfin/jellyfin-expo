@@ -83,11 +83,30 @@
             "title": "Zresetuj aplikację",
             "description": "Na pewno chcesz zresetować wszystkie ustawienia?",
             "confirm": "Resetuj"
+        },
+        "deleteDownloads": {
+            "title": "Usuń pobrania",
+            "description": "Te elementy zostaną trwale usunięte z tego urządzenia.",
+            "confirm": "Usuń pobrania: {{downloadCount}}"
+        },
+        "downloadFailed": {
+            "description": "Nie udało się pobrać „{{title}}”.",
+            "title": "Pobieranie nie powiodło się"
+        },
+        "downloadUnsupported": {
+            "description": "Pobieranie treści tego typu nie jest obecnie obsługiwane.",
+            "title": "Nieobsługiwany typ"
         }
     },
     "serverHelp": {
         "learnMore": "Dowiedz się więcej o tym, jak hostować własny serwer",
         "description": "Jellyfin to rozwiązanie multimedialne stworzone przez wolontariuszy. Pozwala na hostowanie własnych multimediów i dostęp do nich z dowolnego miejsca.\n\n\nAby korzystać z tego klienta, musisz hostować własny serwer Jellyfin.",
         "heading": "Czym jest Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Brak pobrań",
+            "description": "Tutaj pojawi się pobrana treść."
+        }
     }
 }
