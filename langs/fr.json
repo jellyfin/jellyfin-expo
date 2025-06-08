@@ -36,6 +36,19 @@
             "confirm": "Supprimer",
             "description": "Voulez-vous vraiment supprimer le serveur {{serverName}} ?",
             "title": "Supprimer le serveur"
+        },
+        "deleteDownloads": {
+            "description": "Ces éléments seront définitivement supprimés de cet appareil.",
+            "title": "Supprimer les téléchargements",
+            "confirm": "Supprimer {{downloadCount}} téléchargements"
+        },
+        "downloadUnsupported": {
+            "title": "Type non pris en charge",
+            "description": "Le téléchargement de contenu de ce type n'est actuellement pas pris en charge."
+        },
+        "downloadFailed": {
+            "title": "Échec du téléchargement",
+            "description": "Le téléchargement de « {{title}} » a échoué."
         }
     },
     "links": {
@@ -89,5 +102,11 @@
         "heading": "Qu'est-ce que Jellyfin ?",
         "learnMore": "En savoir plus sur la façon d'héberger votre propre serveur",
         "description": "Jellyfin est une solution multimédia libre et ouverte. Elle permet d'héberger vos médias pour y accéder de n'importe où.\n\n\nAfin d'utiliser ce client vous devez héberger votre propre serveur Jellyfin."
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Aucun téléchargement",
+            "description": "Le contenu que vous téléchargez apparaîtra ici."
+        }
     }
 }
