@@ -86,6 +86,25 @@
             "title": "Restableix l'aplicació",
             "description": "Estàs segur que vols restablir totes les configuracions?",
             "confirm": "Restablir"
+        },
+        "deleteDownloads": {
+            "description": "Aquests elements seran eliminats permanentment d'aquest dispositiu.",
+            "title": "Eliminar descàrregues",
+            "confirm": "Eliminar {{downloadCount}} Descàrregues"
+        },
+        "downloadFailed": {
+            "title": "Descàrrega fallida",
+            "description": "\"{{title}}\" no s'ha pogut descarregar."
+        },
+        "downloadUnsupported": {
+            "description": "Descarregar contingut d'aquest tipus no té suport actualment.",
+            "title": "Tipus sense suport"
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Sense descarregues",
+            "description": "El contingut que sigui descarregat apareixerà aquí."
         }
     }
 }
