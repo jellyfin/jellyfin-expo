@@ -83,11 +83,21 @@
             "title": "Applikation zurücksetzen",
             "description": "Sind Sie sicher, dass Sie alle Einstellungen zurücksetzen möchten?",
             "confirm": "Zurücksetzen"
+        },
+        "deleteDownloads": {
+            "title": "Downloads löschen",
+            "description": "Diese Elemente werden endgültig von diesem Gerät gelöscht."
         }
     },
     "serverHelp": {
         "learnMore": "Erfahre mehr darüber, wie du deinen eigenen Server betreiben kannst",
         "description": "Jellyfin ist die von Freiwilligen gebaute Medienlösung. Sie ermöglicht es dir, deine eigenen Medien zu hosten und von überall darauf zuzugreifen.\n\n\nUm diesen Client nutzen zu können, musst du deinen eigenen Jellyfin-Server betreiben.",
         "heading": "Was ist Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Keine Downloads",
+            "description": "Inhalte, die du herunterlädst, erscheinen hier."
+        }
     }
 }
