@@ -87,6 +87,19 @@
             "title": "Uygulamayı Sıfırla",
             "description": "Tüm ayarları sıfırlamak istediğinizden emin misiniz?",
             "confirm": "Sıfırla"
+        },
+        "deleteDownloads": {
+            "description": "Bu öğeler bu cihazdan kalıcı olarak silinecektir.",
+            "confirm": "{{downloadCount}} Silinecek İndirme"
+        },
+        "downloadFailed": {
+            "title": "Başarısız İndirme"
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "İndirme yok",
+            "description": "İndirdiğiniz içerik burada görünecektir."
         }
     }
 }
