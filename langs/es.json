@@ -74,6 +74,17 @@
             "confirm": "Eliminar",
             "description": "¿Estás seguro de que quieres eliminar {{serverName}}?",
             "title": "Eliminar servidor"
+        },
+        "deleteDownloads": {
+            "description": "Estos items serán eliminados permanentemente de este dispositivo.",
+            "confirm": "Eliminar {{downloadCount}} Descargas"
+        },
+        "downloadFailed": {
+            "description": "Falló la descarga de \"{{title}}\".",
+            "title": "Falló la descarga"
+        },
+        "downloadUnsupported": {
+            "description": "Actualmente no se admite la descarga de contenido de este tipo."
         }
     },
     "links": {
