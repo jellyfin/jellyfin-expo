@@ -83,11 +83,30 @@
             "title": "重置本应用",
             "description": "您确定要重置所有设置吗？",
             "confirm": "重置"
+        },
+        "downloadFailed": {
+            "description": "\"{{title}}\" 下载失败。",
+            "title": "下载失败"
+        },
+        "deleteDownloads": {
+            "description": "这些项目将从该设备中永久删除。",
+            "title": "删除下载",
+            "confirm": "删除 {{downloadCount}} 下载"
+        },
+        "downloadUnsupported": {
+            "title": "不支持的类型",
+            "description": "目前不支持下载此类内容。"
         }
     },
     "serverHelp": {
         "learnMore": "了解有关如何自建服务器的更多信息",
         "description": "Jellyfin 是由志愿者构建的媒体解决方案。 它允许您托管自己的媒体并从任何地方访问它。\n\n\n要使用此客户端，您需要拥有自己的 Jellyfin 服务器。",
         "heading": "什么是 Jellyfin？"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "无下载",
+            "description": "您下载的内容将显示在这里。"
+        }
     }
 }
