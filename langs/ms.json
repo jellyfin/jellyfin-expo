@@ -82,9 +82,16 @@
             "confirm": ""
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Set Semula Aplikasi",
+            "description": "Adakah anda masti mahu menetapkan semula semua tetapan?",
+            "confirm": "Set Semula"
+        },
+        "downloadFailed": {
+            "description": "\"{{title}}\" gagal untuk dimuat turun."
+        },
+        "downloadUnsupported": {
+            "description": "Memuat turun kandungan jenis ini tidak disokong buat masa sekarang.",
+            "title": "Jenis Tidak Disokongi"
         }
     }
 }
