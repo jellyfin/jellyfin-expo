@@ -1,51 +1,51 @@
 {
     "common": {
-        "beta": "",
-        "cancel": "",
-        "delete": "",
-        "edit": "",
-        "ok": "",
-        "unknown": ""
+        "beta": "BETA",
+        "cancel": "Ezeztatu",
+        "delete": "Ezabatu",
+        "edit": "Editatu",
+        "ok": "OK",
+        "unknown": "Ezezaguna"
     },
     "headings": {
-        "addServer": "",
-        "appearance": "",
-        "downloads": "",
-        "home": "",
-        "links": "",
-        "playback": "",
-        "servers": "",
-        "settings": ""
+        "addServer": "Zerbitzaria gehitu",
+        "appearance": "Itxura",
+        "downloads": "Deskargak",
+        "home": "Hasiera",
+        "links": "Estekak",
+        "playback": "Erreprodukzioa",
+        "servers": "Zerbitzariak",
+        "settings": "Ezarpenak"
     },
     "addServer": {
-        "address": "",
+        "address": "Zerbitzariaren helbidea",
         "validation": {
-            "empty": "",
-            "invalid": "",
-            "invalidProduct": "",
-            "noConnection": ""
+            "empty": "$t(addServer.address) ezin da hutsik egon",
+            "invalid": "$t(addServer.address) baliogabea da",
+            "invalidProduct": "Ez da Jellyfin zerbitzaria",
+            "noConnection": "Ezin izan da zerbitzarira konektatu"
         }
     },
     "downloads": {
         "noDownloads": {
-            "heading": "",
-            "description": ""
+            "heading": "Deskargarik ez",
+            "description": "Deskargatzen duzun edukia hemen agertuko da."
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": ""
+                "description": "Ezin da Jellyfin zerbitzarira sartu. Proxy konfigurazio-akats baten ondorioa izaten da, edo Jellyfin lineaz kanpo dagoelako."
             },
             "504": {
-                "description": ""
+                "description": "Ezin da Jellyfin zerbitzarira sartu. Proxia seguraski denbora-muga gainditu du Jellyfinera konektatzean."
             },
             "http": {
-                "heading": "",
-                "description": ""
+                "heading": "Zerbait gaizki joan da!",
+                "description": "Jellyfin zerbitzariak errore bat bueltatu du."
             },
             "invalidServer": {
-                "heading": "",
+                "heading": "Zerbitzaria baliogabea da",
                 "description": ""
             },
             "offline": {
@@ -59,7 +59,7 @@
     },
     "serverHelp": {
         "heading": "",
-        "description": "",
+        "description": "Jellyfin boluntarioek sortutako multimedia soluzioa da. Zure multimedia ostatatu eta edonondik ikusteko ahalmena ematen dizu.\n\n\nBezero hau erabiltzeko, Jellyfin zerbitzari bat ostatatu behar duzu.",
         "learnMore": ""
     },
     "settings": {
