@@ -1,16 +1,16 @@
 {
     "common": {
         "beta": "BETA",
-        "cancel": "Cancel·lar",
-        "delete": "Eliminar",
-        "edit": "Editar",
-        "ok": "OK",
+        "cancel": "Cancel·la",
+        "delete": "Elimina",
+        "edit": "Edita",
+        "ok": "D'acord",
         "unknown": "Desconegut"
     },
     "headings": {
-        "addServer": "Afegir servidor",
+        "addServer": "Afegeix un servidor",
         "appearance": "Aparença",
-        "downloads": "Descarregues",
+        "downloads": "Descàrregues",
         "home": "Inici",
         "links": "Enllaços",
         "playback": "Reproducció",
@@ -53,7 +53,7 @@
     },
     "serverHelp": {
         "heading": "Què és el Jellyfin?",
-        "description": "Jellyfin és la solució multimèdia creada per voluntaris. Us permet allotjar els vostres propis mitjans i accedir-hi des de qualsevol lloc.\n\n\nPer utilitzar aquest client, heu d'allotjar el vostre propi servidor Jellyfin.",
+        "description": "Jellyfin és la solució multimèdia creada per voluntaris. Us permet allotjar el vostre contingut multimèdia i accedir-hi des de qualsevol lloc.\n\n\nPer utilitzar aquest client, heu d'allotjar el vostre propi servidor Jellyfin.",
         "learnMore": "Obteniu més informació sobre com allotjar el vostre propi servidor"
     },
     "settings": {
@@ -103,7 +103,7 @@
     },
     "downloads": {
         "noDownloads": {
-            "heading": "Sense descarregues",
+            "heading": "Sense descàrregues",
             "description": "El contingut que sigui descarregat apareixerà aquí."
         }
     }
