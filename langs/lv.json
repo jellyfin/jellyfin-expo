@@ -83,9 +83,25 @@
             "confirm": "Izdzēst"
         },
         "resetApplication": {
-            "title": "Atiestatīt Aplikāciju",
+            "title": "Atiestatīt Lietojumprogrammu",
             "description": "Vai esat pārliecināts, ka vēlaties atiestatīt visus iestatījumus?",
             "confirm": "Atiestatīt"
+        },
+        "downloadUnsupported": {
+            "description": "Šī tipa satura lejupielāde patreiz nav iespējama.",
+            "title": "Tips nav atbalstīts"
+        },
+        "downloadFailed": {
+            "description": "\"{{title}}\" neizdevās lejuplādēt."
+        },
+        "deleteDownloads": {
+            "confirm": "Nodzēst {{downloadCount}} lejupielādes"
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Nav lejupielāžu",
+            "description": "Lejupielādētais saturs (faili) parādīsies šeit."
         }
     }
 }
