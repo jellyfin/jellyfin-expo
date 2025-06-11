@@ -2,8 +2,10 @@
     "common": {
         "beta": "БЕТА",
         "cancel": "Цуцлах",
-        "ok": "",
-        "unknown": "Тодорхойгүй"
+        "ok": "За",
+        "unknown": "Тодорхойгүй",
+        "delete": "Устгах",
+        "edit": "Засварлах"
     },
     "headings": {
         "addServer": "",
