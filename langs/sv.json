@@ -83,11 +83,30 @@
             "title": "Nollställ applikationen",
             "description": "Är du säker på att du vill nollställa alla inställningar?",
             "confirm": "Nollställ"
+        },
+        "deleteDownloads": {
+            "title": "Ta bort nedladdningar",
+            "description": "Det här materialet kommer att tas bort permanent från enheten.",
+            "confirm": "Radera {{downloadCount}} nedladdningar"
+        },
+        "downloadFailed": {
+            "title": "Nedladdning misslyckades",
+            "description": "Det gick inte att ladda ner {{title}}."
+        },
+        "downloadUnsupported": {
+            "title": "Typ stöds inte",
+            "description": "Nedladdning av innehåll av denna typ stöds för närvarande inte."
         }
     },
     "serverHelp": {
         "learnMore": "Lär dig mer om hur man skapar sin egna server",
         "description": "Jellyfin är den volontär-byggda medialösningen. Den låter dig göra din egen media tillgänglig från var som helst.\n\n\nFör att använda den här klient-appen behöver du skapa din egna Jellyfin-server.",
         "heading": "Vad är Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Inga nedladdningar",
+            "description": "Innehåll som du laddar ner visas här."
+        }
     }
 }
