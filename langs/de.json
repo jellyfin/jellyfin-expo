@@ -86,7 +86,16 @@
         },
         "deleteDownloads": {
             "title": "Downloads löschen",
-            "description": "Diese Elemente werden endgültig von diesem Gerät gelöscht."
+            "description": "Diese Elemente werden endgültig von diesem Gerät gelöscht.",
+            "confirm": "{{downloadCount}} Downloads löschen"
+        },
+        "downloadUnsupported": {
+            "description": "Das Herunterladen von Inhalten dieser Art wird derzeit nicht unterstützt.",
+            "title": "Nicht unterstützter Typ"
+        },
+        "downloadFailed": {
+            "title": "Download fehlgeschlagen",
+            "description": "Download von „{{title}}“ ist fehlgeschlagen."
         }
     },
     "serverHelp": {
