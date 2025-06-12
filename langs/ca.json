@@ -79,12 +79,12 @@
     "alerts": {
         "deleteServer": {
             "title": "Elimina el servidor",
-            "description": "Estàs segur que vols eliminar el servidor {{serverName}}?",
+            "description": "N'esteu segur, que voleu eliminar el servidor {{serverName}}?",
             "confirm": "Elimina"
         },
         "resetApplication": {
             "title": "Restableix l'aplicació",
-            "description": "Estàs segur que vols restablir totes les configuracions?",
+            "description": "N'esteu segur, que voleu restablir totes les configuracions?",
             "confirm": "Restableix"
         },
         "deleteDownloads": {
