@@ -43,27 +43,27 @@
                 "description": "Ha passat alguna cosa i la informació del servidor desada no és vàlida. Proveu d'eliminar el servidor des de la Configuració i afegiu-lo de nou."
             },
             "offline": {
-                "heading": "Servidor desconnectat?",
+                "heading": "Que el servidor està desconnectat?",
                 "description": "S'ha produït un error en contactar amb el servidor Jellyfin."
             }
         },
         "errorCode": "Codi d'error: {{errorCode}}",
         "errorUrl": "URL: {{url}}",
-        "retry": "Tornar a provar?"
+        "retry": "Desitgeu tornar-ho a provar?"
     },
     "serverHelp": {
-        "heading": "Què és el Jellyfin?",
+        "heading": "Què és Jellyfin?",
         "description": "Jellyfin és la solució multimèdia creada per voluntaris. Us permet allotjar el vostre contingut multimèdia i accedir-hi des de qualsevol lloc.\n\n\nPer utilitzar aquest client, heu d'allotjar el vostre propi servidor Jellyfin.",
-        "learnMore": "Obteniu més informació sobre com allotjar el vostre propi servidor"
+        "learnMore": "Obtingueu més informació sobre com allotjar el vostre propi servidor"
     },
     "settings": {
         "version": "Versió: {{version}}",
         "keepAwake": "Mantén la pantalla encesa",
         "nativeVideoPlayer": "Utilitzeu el reproductor de vídeo natiu",
         "minimumServerVersion": "Requereix la versió de servidor 10.7+",
-        "fmp4Support": "Preferir fMP4 en HLS",
-        "lightTheme": "Utilitzar Tema Clar",
-        "systemTheme": "Utilitzar el tema del sistema",
+        "fmp4Support": "Prefereix fMP4 en HLS",
+        "lightTheme": "Fes servir el tema clar",
+        "systemTheme": "Fes servir el tema del sistema",
         "rotationLock": "Bloqueig de rotació",
         "tabLabels": "Mostra les etiquetes de les pestanyes",
         "expoVersion": "Versió d'Expo: {{version}}"
@@ -72,33 +72,33 @@
         "website": "Lloc web de Jellyfin",
         "documentation": "Documentació",
         "source": "Codi Font",
-        "translate": "Traduir",
+        "translate": "Tradueix",
         "issue": "Informar d'un problema",
-        "help": "Obtenir ajuda"
+        "help": "Obtén ajuda"
     },
     "alerts": {
         "deleteServer": {
-            "title": "Eliminar servidor",
+            "title": "Elimina el servidor",
             "description": "Estàs segur que vols eliminar el servidor {{serverName}}?",
-            "confirm": "Eliminar"
+            "confirm": "Elimina"
         },
         "resetApplication": {
             "title": "Restableix l'aplicació",
             "description": "Estàs segur que vols restablir totes les configuracions?",
-            "confirm": "Restablir"
+            "confirm": "Restableix"
         },
         "deleteDownloads": {
             "description": "Aquests elements seran eliminats permanentment d'aquest dispositiu.",
-            "title": "Eliminar descàrregues",
-            "confirm": "Eliminar {{downloadCount}} Descàrregues"
+            "title": "Elimina les descàrregues",
+            "confirm": "Elimina {{downloadCount}} descàrregues"
         },
         "downloadFailed": {
             "title": "Descàrrega fallida",
             "description": "\"{{title}}\" no s'ha pogut descarregar."
         },
         "downloadUnsupported": {
-            "description": "Descarregar contingut d'aquest tipus no té suport actualment.",
-            "title": "Tipus sense suport"
+            "description": "Actualment no s'admet la descàrrega de contingut d'aquest tipus.",
+            "title": "Tipus no admès"
         }
     },
     "downloads": {
