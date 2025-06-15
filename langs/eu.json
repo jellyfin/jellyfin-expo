@@ -46,62 +46,62 @@
             },
             "invalidServer": {
                 "heading": "Zerbitzaria baliogabea da",
-                "description": ""
+                "description": "Zerbait gertatu da eta zerbitzarian gordetako informazioa baliogabea da. Saiatu zerbitzaria ezabatzen Ezarpenak ataletik eta saiatu berriro."
             },
             "offline": {
-                "heading": "",
-                "description": ""
+                "heading": "Zerbitzaria lineaz kanpo?",
+                "description": "Errorea Jellyfin zerbitzariarekin harremanetan jartzean."
             }
         },
-        "errorCode": "",
-        "errorUrl": "",
-        "retry": ""
+        "errorCode": "Errore kodea: {{errorCode}}",
+        "errorUrl": "URLa: {{url}}",
+        "retry": "Berriro saiatu?"
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "Zer da Jellyfin?",
         "description": "Jellyfin boluntarioek sortutako multimedia soluzioa da. Zure multimedia ostatatu eta edonondik ikusteko ahalmena ematen dizu.\n\n\nBezero hau erabiltzeko, Jellyfin zerbitzari bat ostatatu behar duzu.",
-        "learnMore": ""
+        "learnMore": "Ikusi zure zerbitzaria nola ostatatu dezakezun"
     },
     "settings": {
-        "version": "",
-        "keepAwake": "",
-        "nativeVideoPlayer": "",
-        "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
-        "tabLabels": ""
+        "version": "Bertsioa: {{version}}",
+        "keepAwake": "Mantendu pantaila esnatuta",
+        "nativeVideoPlayer": "Erabili bideo erreproduzitzaile natiboa",
+        "fmp4Support": "Hobetsi fMP4 HLS-n",
+        "lightTheme": "Erabili gai argia",
+        "systemTheme": "Erabili sistemaren gaia",
+        "rotationLock": "Biraketa blokeoa",
+        "tabLabels": "Erakutsi fitxen etiketak"
     },
     "links": {
-        "website": "",
-        "documentation": "",
-        "source": "",
-        "translate": "",
-        "help": ""
+        "website": "Jellyfin webgunea",
+        "documentation": "Dokumentazioa",
+        "source": "Iturburu-kodea",
+        "translate": "Itzuli",
+        "help": "Laguntza lortu"
     },
     "alerts": {
         "deleteDownloads": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ezabatu deskargak",
+            "description": "Elementu hauek betiko ezabatuko dira gailu honetatik.",
+            "confirm": "Ezabatu {{downloadCount}} deskarga"
         },
         "deleteServer": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Ezabatu zerbitzaria",
+            "description": "Ziur zaude {{serverName}} zerbitzaria ezabatu nahi duzula?",
+            "confirm": "Ezabatu"
         },
         "downloadFailed": {
-            "title": "",
-            "description": ""
+            "title": "Deskargak huts egin du",
+            "description": "\"{{title}}\" deskargatzeak huts egin du."
         },
         "downloadUnsupported": {
-            "title": "",
-            "description": ""
+            "title": "Mota ez da onartzen",
+            "description": "Mota honetako edukia deskargatzea ez da onartzen une honetan."
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
-            "confirm": ""
+            "title": "Berrezarri aplikazioa",
+            "description": "Ziur zaude ezarpen guztiak berrezarri nahi dituzula?",
+            "confirm": "Berrezarri"
         }
     }
 }
