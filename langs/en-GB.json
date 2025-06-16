@@ -84,5 +84,11 @@
             "description": "Are you sure you want to reset all settings?",
             "confirm": "Reset"
         }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "No downloads",
+            "description": "Content you download will appear here."
+        }
     }
 }
