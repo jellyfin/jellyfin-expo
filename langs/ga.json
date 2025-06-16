@@ -85,6 +85,25 @@
             "title": "Feidhmchlár a Athshocraigh",
             "description": "An bhfuil tú cinnte gur mhaith leat na socruithe go léir a athshocrú?",
             "confirm": "Athshocrú"
+        },
+        "deleteDownloads": {
+            "title": "Scrios Íoslódálacha",
+            "description": "Scriosfar na míreanna seo go buan ón ngléas seo.",
+            "confirm": "Scrios {{downloadCount}} Íoslódálacha"
+        },
+        "downloadFailed": {
+            "title": "Theip ar an Íoslódáil",
+            "description": "Theip ar \"{{title}}\" a íoslódáil."
+        },
+        "downloadUnsupported": {
+            "title": "Cineál Gan Tacaíocht",
+            "description": "Ní thacaítear le hábhar den chineál seo a íoslódáil faoi láthair."
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Gan aon íoslódálacha",
+            "description": "Beidh ábhar a íoslódálann tú le feiceáil anseo."
         }
     }
 }
