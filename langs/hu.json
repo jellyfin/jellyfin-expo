@@ -14,7 +14,7 @@
         "servers": "Szerverek",
         "settings": "Beállítások",
         "playback": "Lejátszás",
-        "appearance": "Kinézet",
+        "appearance": "Megjelenítés",
         "downloads": "Letöltések"
     },
     "addServer": {
@@ -44,7 +44,7 @@
             },
             "invalidServer": {
                 "heading": "Érvénytelen szerver",
-                "description": "Valami történt és így az elmett szerver információja érvénytelen. Próbáld meg kitörölni a szervert a Beállításokból, majd add ismét hozzá."
+                "description": "Valami történt és így az elmentett szerver információk érvénytelenek. Próbáld meg törölni a szervert a Beállításokból, majd add ismét hozzá."
             }
         },
         "errorCode": "Hibakód: {{errorCode}}",
@@ -82,11 +82,30 @@
             "title": "Alkalmazás alaphelyzetbe állítása",
             "description": "Biztos, hogy az összes beállítást alaphelyzetbe szeretnéd állítani?",
             "confirm": "Alaphelyzetbe állítás"
+        },
+        "deleteDownloads": {
+            "title": "Letöltések törlése",
+            "description": "Ezek az elemek véglegesen törlésre kerülnek erről az eszközről.",
+            "confirm": "{{downloadCount}} letöltés törlése"
+        },
+        "downloadFailed": {
+            "title": "Letöltés sikertelen",
+            "description": "A(z) \"{{title}}\" letöltése sikertelen."
+        },
+        "downloadUnsupported": {
+            "title": "Nem támogatott típus",
+            "description": "Az ilyen típusú tartalom letöltése jelenleg nem támogatott."
         }
     },
     "serverHelp": {
         "learnMore": "Tudj meg többet a saját szervered üzemeltetéséről",
         "description": "A Jellyfin az önkéntesek által épített média megoldás. Lehetővé teszi, hogy saját médiádat tárold, és bárhonnan elérhesd.\n\n\nEnnek a rendszernek a használatához saját Jellyfin szervert kell üzemeltetned.",
         "heading": "Mi az a Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Nincsenek letöltések",
+            "description": "A letöltéseid itt fognak megjelenni."
+        }
     }
 }
