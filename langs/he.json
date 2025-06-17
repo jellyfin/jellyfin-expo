@@ -87,6 +87,25 @@
             "title": "אפס את האפליקציה",
             "description": "האם אתה בטוח שברצונך לאפס את כל ההגדרות?",
             "confirm": "אפס"
+        },
+        "deleteDownloads": {
+            "title": "מחיקת הורדות",
+            "description": "פריטים אלה ימחקו לצמיתות מהמכשיר.",
+            "confirm": "מחיקת {{downloadCount}} הורדות"
+        },
+        "downloadFailed": {
+            "title": "ההורדה נכשלה",
+            "description": "הורדת \"{{title}}\" נכשלה."
+        },
+        "downloadUnsupported": {
+            "title": "סוג לא נתמך",
+            "description": "הורדת תוכן מסוג זה אינה נתמכת כרגע."
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "ללא הורדות",
+            "description": "תוכן שתוריד יופיע כאן."
         }
     }
 }
