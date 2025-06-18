@@ -90,10 +90,16 @@
         },
         "deleteDownloads": {
             "description": "Bu öğeler bu cihazdan kalıcı olarak silinecektir.",
-            "confirm": "{{downloadCount}} Silinecek İndirme"
+            "confirm": "{{downloadCount}} Silinecek İndirme",
+            "title": "İndirilenleri Sil"
         },
         "downloadFailed": {
-            "title": "Başarısız İndirme"
+            "title": "Başarısız İndirme",
+            "description": "\"{{title}}\" indirilemedi."
+        },
+        "downloadUnsupported": {
+            "title": "Desteklenmeyen Tür",
+            "description": "Bu tür içeriklerin indirilmesi şu anda desteklenmemektedir."
         }
     },
     "downloads": {
