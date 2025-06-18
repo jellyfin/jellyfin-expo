@@ -83,11 +83,30 @@
             "title": "Resetați Aplicația",
             "description": "Sigur doriți să resetați toate setările?",
             "confirm": "Reset"
+        },
+        "deleteDownloads": {
+            "title": "Șterge Descărcările",
+            "description": "Aceste obiecte vor fi șterse permanent din acest dispozitiv.",
+            "confirm": "Șterge{{downloadCount}}Descărcări"
+        },
+        "downloadFailed": {
+            "title": "Descărcare Eșuată",
+            "description": "\"{{title}}\" eșuat să descarce."
+        },
+        "downloadUnsupported": {
+            "title": "Tip Nesuportat",
+            "description": "Descărcarea conținutului de acest tip nu este suportată momentan."
         }
     },
     "serverHelp": {
         "learnMore": "Aflați mai multe despre cum să va găzduiți propriul server",
         "description": "Jellyfin este solutia media construită de voluntari. Acesta vă permite să gazduiți propriul conținut media de și să il accesați de oriunde.\n\n\nPentru a utiliza acest client, trebuie să vă găzduiți propriul server Jellyfin.",
         "heading": "Ce este Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Nu sunt descărcări",
+            "description": "Conținutul pe care îl descarci va apărea aici."
+        }
     }
 }
