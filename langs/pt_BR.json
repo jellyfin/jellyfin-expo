@@ -83,11 +83,30 @@
             "title": "Resetar aplicativo",
             "description": "Tem certeza que deseja restaurar todas as configurações?",
             "confirm": "Resetar"
+        },
+        "deleteDownloads": {
+            "title": "Excluir downloads",
+            "description": "Estes itens serão excluídos permanentemente deste dispositivo.",
+            "confirm": "Excluir {{downloadCount}} downloads"
+        },
+        "downloadFailed": {
+            "title": "Download falhou",
+            "description": "\"{{title}}\" falhou ao baixar."
+        },
+        "downloadUnsupported": {
+            "title": "Tipo não suportado",
+            "description": "O download deste tipo de conteúdo não é suportado atualmente."
         }
     },
     "serverHelp": {
         "learnMore": "Saiba mais sobre como hospedar seu próprio servidor",
         "description": "Jellyfin é a solução de mídia criada por voluntários. Ele permite que você hospede sua própria mídia e acesse de qualquer lugar.\n\n\nPara usar este cliente, você precisa hospedar seu próprio servidor Jellyfin.",
         "heading": "O que é Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Sem downloads",
+            "description": "O conteúdo que você baixar aparecerá aqui."
+        }
     }
 }
