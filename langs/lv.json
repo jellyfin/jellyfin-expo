@@ -92,10 +92,13 @@
             "title": "Tips nav atbalstīts"
         },
         "downloadFailed": {
-            "description": "\"{{title}}\" neizdevās lejuplādēt."
+            "description": "\"{{title}}\" neizdevās lejuplādēt.",
+            "title": "Lejupielāde neizdevās"
         },
         "deleteDownloads": {
-            "confirm": "Nodzēst {{downloadCount}} lejupielādes"
+            "confirm": "Nodzēst {{downloadCount}} lejupielādes",
+            "title": "Dzēst lejupielādes",
+            "description": "Šīs vienības tiks neatgriezeniski dzēstas no šīs ierīces."
         }
     },
     "downloads": {
