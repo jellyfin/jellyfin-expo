@@ -86,6 +86,25 @@
             "title": "Nollaa sovellus",
             "description": "Haluatko varmasti nollata kaikki asetukset?",
             "confirm": "Nollaa"
+        },
+        "deleteDownloads": {
+            "title": "Poista lataukset",
+            "description": "Nämä kohteet poistetaan pysyvästi tältä laitteelta.",
+            "confirm": "Poista {{downloadCount}} latausta"
+        },
+        "downloadFailed": {
+            "title": "Lataus epäonnistui",
+            "description": "{{title}}-lataus epäonnistui."
+        },
+        "downloadUnsupported": {
+            "title": "Ei tuettu tyyppi",
+            "description": "Tämän tyyppisen sisällön lataamista ei tällä hetkellä tueta."
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Ei ladattuja tiedostoja",
+            "description": "Lataamasi sisältö näkyy täällä."
         }
     }
 }
