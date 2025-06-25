@@ -21,7 +21,7 @@
         "address": "Server Address",
         "validation": {
             "empty": "",
-            "invalid": "",
+            "invalid": "tidak sah",
             "invalidProduct": "",
             "noConnection": ""
         }
