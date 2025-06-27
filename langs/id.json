@@ -73,7 +73,8 @@
         "documentation": "Dokumentasi",
         "source": "Kode Sumber",
         "translate": "Terjemahkan",
-        "issue": "Laporkan Masalah"
+        "issue": "Laporkan Masalah",
+        "help": "Bantuan"
     },
     "alerts": {
         "deleteServer": {
@@ -85,6 +86,25 @@
             "title": "Reset Aplikasi",
             "description": "Anda yakin ingin menyetel ulang semua setelan?",
             "confirm": "Reset"
+        },
+        "downloadFailed": {
+            "title": "Unduh Gagal",
+            "description": "\"{{title}}\" gagal diunduh."
+        },
+        "deleteDownloads": {
+            "title": "Hapus unduhan",
+            "description": "Item ini akan dihapus permanen dari alat ini.",
+            "confirm": "Hapus {{downloadCount}}Unduhan"
+        },
+        "downloadUnsupported": {
+            "title": "Format tidak dikenali",
+            "description": "Unduh jenis konten ini saat ini tidak didukung."
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Tanpa Unduh",
+            "description": "Konten yang anda unduh akan ditampilkan disini."
         }
     }
 }
