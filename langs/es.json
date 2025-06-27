@@ -77,14 +77,16 @@
         },
         "deleteDownloads": {
             "description": "Estos items serán eliminados permanentemente de este dispositivo.",
-            "confirm": "Eliminar {{downloadCount}} Descargas"
+            "confirm": "Eliminar {{downloadCount}} Descargas",
+            "title": "Borrar Descargas"
         },
         "downloadFailed": {
             "description": "Falló la descarga de \"{{title}}\".",
             "title": "Falló la descarga"
         },
         "downloadUnsupported": {
-            "description": "Actualmente no se admite la descarga de contenido de este tipo."
+            "description": "Actualmente no se admite la descarga de contenido de este tipo.",
+            "title": "Tipo no soportado"
         }
     },
     "links": {
@@ -100,5 +102,11 @@
         "description": "Jellyfin es una solución multimedia hecha por voluntarios. Te permite hospedar tu propio contenido multimedia y acceder a el desde donde quieras.\n\n\nPara poder utilizar este cliente, necesitas hospedar tu propio servidor de Jellyfin.",
         "learnMore": "Aprende más sobre como hospedar tu propio servidor",
         "heading": "¿Qué es Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "description": "El contenido que descargues aparecerá aquí.",
+            "heading": "No hay descargas"
+        }
     }
 }
