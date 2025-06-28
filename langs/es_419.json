@@ -82,11 +82,30 @@
             "title": "Restablecer aplicación",
             "description": "¿Estás seguro de querer restablecer toda la configuración?",
             "confirm": "Restablecer"
+        },
+        "downloadFailed": {
+            "description": "\"{{title}}\" falló al descargar.",
+            "title": "Descarga Fallida"
+        },
+        "deleteDownloads": {
+            "title": "Eliminar Descargas",
+            "description": "Estos elementos serán permanentemente eliminados de este dispositivo.",
+            "confirm": "Eliminar{{downloadCount}} Descargas"
+        },
+        "downloadUnsupported": {
+            "title": "Tipo no soportado",
+            "description": "Descargar contenido de este tipo no este actualmente soportado."
         }
     },
     "serverHelp": {
         "learnMore": "Aprenda mas acerca de tener su propio servidor",
         "description": "Jellyfin es la solución de medios creada por voluntarios. Este permite que usted administre su propios medios y los acceda desde cualquier lado.\n\n\nPara utilizar este cliente, usted necesita tener su propio servidor Jellyfin.",
         "heading": "¿Que es Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Sin descargas",
+            "description": "El contenido que descargues aparecerá aquí."
+        }
     }
 }
