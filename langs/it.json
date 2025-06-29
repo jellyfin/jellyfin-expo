@@ -83,11 +83,29 @@
             "title": "Ripristina l'applicazione",
             "description": "Sei sicuro di voler ripristinare tutte le impostazioni?",
             "confirm": "Ripristina"
+        },
+        "deleteDownloads": {
+            "title": "Elimina Download",
+            "description": "Questi elementi verranno permanentemente eliminati da questo dispositivo.",
+            "confirm": "Elimina {{downloadCount}} Download"
+        },
+        "downloadFailed": {
+            "title": "Download fallito"
+        },
+        "downloadUnsupported": {
+            "title": "Tipo non supportato",
+            "description": "Download di contenuti di questo tipo non sono al momento supportati."
         }
     },
     "serverHelp": {
         "learnMore": "Leggi come installare il tuo server",
         "description": "Jellyfin è la soluzione multimediale definitiva sviluppata da volontari. Ti permette di ospitare i tuoi file multimediali e renderli accessibili ovunque.\n\n\nPer utilizzare questo servizio, devi installare il tuo server Jellyfin.",
         "heading": "Cos’è Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Nessun download",
+            "description": "Contenuti scaricati appariranno qui."
+        }
     }
 }
