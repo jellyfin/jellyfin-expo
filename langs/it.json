@@ -90,7 +90,8 @@
             "confirm": "Elimina {{downloadCount}} Download"
         },
         "downloadFailed": {
-            "title": "Download fallito"
+            "title": "Download fallito",
+            "description": "Download di \"{{title}}\" fallito."
         },
         "downloadUnsupported": {
             "title": "Tipo non supportato",
