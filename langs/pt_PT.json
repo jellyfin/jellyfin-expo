@@ -86,6 +86,25 @@
             "title": "Restablecer a aplicação",
             "description": "Tem a certeza que deseja restaurar todas as definições?",
             "confirm": "Restaurar"
+        },
+        "deleteDownloads": {
+            "title": "Eliminar transferências",
+            "description": "Estes itens serão eliminados permanentemente deste dispositivo.",
+            "confirm": "Eliminar {{downloadCount}} transferências"
+        },
+        "downloadUnsupported": {
+            "description": "A transferência deste tipo de conteúdo não é suportado atualmente.",
+            "title": "Tipo não suportado"
+        },
+        "downloadFailed": {
+            "title": "Transferência falhou",
+            "description": "A transferência de \"{{title}}\" falhou."
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Sem transferências",
+            "description": "O conteúdo que transferir aparecerá aqui."
         }
     }
 }
