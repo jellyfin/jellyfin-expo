@@ -22,21 +22,21 @@
         "validation": {
             "empty": "$t(addServer.address) לא יכול להיות ריק",
             "invalid": "$t(addServer.address) לא תקין",
-            "invalidProduct": "לא שרת ג'ליפין",
+            "invalidProduct": "לא שרת Jellyfin",
             "noConnection": "אי אפשר להתחבר לשרת"
         }
     },
     "home": {
         "errors": {
             "502": {
-                "description": "לא יכול להגיע לשרת ג'ליפין. זה בדרך כלל קורה מכיוון שיש שגיאה בהגדרת המתווך או שג'ליפין מנותק."
+                "description": "לא ניתן להתחבר לשרת ה-Jellyfin. זה בדרך כלל קורה מכיוון שיש שגיאה בהגדרת המתווך או ש-Jellyfin מנותק."
             },
             "504": {
-                "description": "לא ניתן להגיע לשרת ג'ליפין. זה בדרך כלל קורה כיוון שהחיבור למתווך לא צלח בעת ההתחברות לג'ליפין."
+                "description": "לא ניתן להתחבר לשרת ה-Jellyfin. זה בדרך כלל קורה מכיוון שהחיבור למתווך לא צלח בעת ההתחברות ל-Jellyfin."
             },
             "http": {
                 "heading": "משהו השתבש!",
-                "description": "שרת ג'ליפין החזיר שגיאה."
+                "description": "שרת ה-Jellyfin החזיר שגיאה."
             },
             "invalidServer": {
                 "heading": "השרת אינו תקין",
@@ -44,7 +44,7 @@
             },
             "offline": {
                 "heading": "השרת במצב לא מקוון ?",
-                "description": "שגיאה ביצירת קשר עם שרת ג'ליפין."
+                "description": "שגיאה ביצירת קשר עם שרת ה-Jellyfin."
             }
         },
         "errorCode": "קוד שגיאה : {{errorCode}}",
@@ -52,8 +52,8 @@
         "retry": "לנסות שוב?"
     },
     "serverHelp": {
-        "heading": "מה זה ג'ליפין?",
-        "description": "ג'ליפין הוא פתרון המדיה שמבוסס על מאמצי מתנדבים. מאפשר לך לארח את המדיה שלך ולגשת אליה מכל מקום.\n\n\nכדי להשתמש בלקוח הזה, יש לארח שרת ג'ליפין משלך.",
+        "heading": "מה זה Jellyfin?",
+        "description": "Jellyfin הוא פתרון המדיה שמבוסס על מאמצי מתנדבים. הוא מאפשר לך לארח את המדיה שלך ולגשת אליה מכל מקום.\n\n\nכדי להשתמש בלקוח זה, יש לארח שרת Jellyfin משלך.",
         "learnMore": "למד עוד על איך לארח שרת משלך"
     },
     "settings": {
@@ -69,7 +69,7 @@
         "expoVersion": "גרסת Expo:‏ {{version}}"
     },
     "links": {
-        "website": "אתר ג'ליפין",
+        "website": "אתר Jellyfin",
         "documentation": "תיעוד",
         "source": "קוד מקור",
         "translate": "תרגם",
