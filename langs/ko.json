@@ -89,5 +89,10 @@
         "learnMore": "자신만의 서버를 호스트하는 방법에 대해 자세히 알아보기",
         "description": "젤리핀은 자원봉사자가 만든 미디어 솔루션입니다. 자신만의 미디어를 호스트하고 어디서나 액세스할 수 있습니다.\n\n\n이 클라이언트를 사용하려면 Jellyfin 서버를 직접 호스트해야 합니다.",
         "heading": "Jellyfin이란?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "다운로드 항목 없음"
+        }
     }
 }
