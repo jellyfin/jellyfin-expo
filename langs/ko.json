@@ -83,6 +83,9 @@
             "title": "애플리케이션 재설정",
             "description": "모든 설정을 재설정하시겠습니까?",
             "confirm": "재설정"
+        },
+        "deleteDownloads": {
+            "title": "다운로드 항목 지우기"
         }
     },
     "serverHelp": {
@@ -92,7 +95,8 @@
     },
     "downloads": {
         "noDownloads": {
-            "heading": "다운로드 항목 없음"
+            "heading": "다운로드 항목 없음",
+            "description": "다운로드 한 항목은 여기에 표시 됩니다."
         }
     }
 }
