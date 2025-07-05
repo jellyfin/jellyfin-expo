@@ -85,7 +85,8 @@
         },
         "deleteDownloads": {
             "title": "حذف دانلودها",
-            "description": "این آیتم ها کاملاً از این دستگاه حذف خواهند شد."
+            "description": "این آیتم ها کاملاً از این دستگاه حذف خواهند شد.",
+            "confirm": "حذف {{downloadCount}} دانلود"
         }
     },
     "serverHelp": {
