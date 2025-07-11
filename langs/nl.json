@@ -83,11 +83,30 @@
             "title": "Applicatie-instellingen wissen",
             "description": "Weet je zeker dat je alle instellingen wil wissen?",
             "confirm": "Wis"
+        },
+        "deleteDownloads": {
+            "title": "Verwijder Downloads",
+            "description": "Deze items zullen permanent van je apparaat worden verwijderd.",
+            "confirm": "Verwijder {{downloadCount}} Downloads"
+        },
+        "downloadFailed": {
+            "title": "Download mislukt",
+            "description": "Downloaden van \"{{title}}\" is mislukt."
+        },
+        "downloadUnsupported": {
+            "title": "Niet ondersteund type",
+            "description": "Het downloaden van dit type content wordt momenteel niet ondersteund."
         }
     },
     "serverHelp": {
         "learnMore": "Leer meer over hoe je een eigen server kan hosten",
         "description": "Jellyfin is de door vrijwilligers gebouwde media-oplossing. Het maakt het mogelijk om je eigen media-inhoud te hosten en vanaf overal te bereiken.\n\n\nOm deze client te kunnen gebruiken, moet je een eigen Jellyfin server hosten.",
         "heading": "Wat is Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Geen downloads",
+            "description": "De content die je download zal hier verschijnen."
+        }
     }
 }
