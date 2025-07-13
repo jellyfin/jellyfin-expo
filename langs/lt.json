@@ -53,7 +53,7 @@
     },
     "serverHelp": {
         "heading": "Kas yra Jellyfin?",
-        "description": "„Jellyfin“ yra savanorių sukurtas medijos sprendimas. Jame galite talpinti savo mediją ir pasiekti ją iš bet kurios vietos.\n\n\nKad galėtumėte naudoti šį klientą, turite turėti savo „Jellyfin“ serverį.",
+        "description": "Jellyfin yra savanorių sukurtas turinio valdymo sprendimas. Jis leidžia vadovauti savo turiniui ir jį pasiekti iš bet kur. Tam, kad naudotis šiuo naudotojų portalu jums reikia tūrėti savo Jellyfin serverį.",
         "learnMore": "Sužinokite daugiau kaip pasileisti savo serverį"
     },
     "settings": {
