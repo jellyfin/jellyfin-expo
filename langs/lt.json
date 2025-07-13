@@ -53,7 +53,7 @@
     },
     "serverHelp": {
         "heading": "Kas yra Jellyfin?",
-        "description": "",
+        "description": "„Jellyfin“ yra savanorių sukurtas medijos sprendimas. Jame galite talpinti savo mediją ir pasiekti ją iš bet kurios vietos.\n\n\nKad galėtumėte naudoti šį klientą, turite turėti savo „Jellyfin“ serverį.",
         "learnMore": "Sužinokite daugiau kaip pasileisti savo serverį"
     },
     "settings": {
@@ -61,7 +61,7 @@
         "keepAwake": "Neleisti ekranui užmigti",
         "nativeVideoPlayer": "Naudoti numatytą vaizdo grotuvą",
         "minimumServerVersion": "Reikalinga Serverio Versija 10.7+",
-        "fmp4Support": "",
+        "fmp4Support": "Pirmenybė fMP4 HLS",
         "lightTheme": "Naudoti šviesią temą",
         "systemTheme": "Naudoti Sisteminę temą",
         "rotationLock": "Neleisti apsiversti",
@@ -73,7 +73,8 @@
         "documentation": "Dokumentacija",
         "source": "Išnašų kodas",
         "translate": "Išversti",
-        "issue": "Pranešti apie problemą"
+        "issue": "Pranešti apie problemą",
+        "help": "Gauti pagalbą"
     },
     "alerts": {
         "deleteServer": {
@@ -85,6 +86,25 @@
             "title": "Nustatyti aplikaciją iš naujo",
             "description": "Ar jūs tikrai norite nustatyti visus nustatymus iš naujo?",
             "confirm": "Atstatyti"
+        },
+        "deleteDownloads": {
+            "title": "Ištrinti atsisiuntimus",
+            "description": "Šie elementai bus visam laikui ištrinti iš šio įrenginio.",
+            "confirm": "Ištrinti {{downloadCount}} atsisiuntimų"
+        },
+        "downloadFailed": {
+            "title": "Atsisiųsti nepavyko",
+            "description": "„{{title}}“ nepavyko atsisiųsti."
+        },
+        "downloadUnsupported": {
+            "title": "Nepalaikomas tipas",
+            "description": "Šiuo metu tokio tipo turinio atsisiuntimas nepalaikomas."
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Atsisiuntimų nėra",
+            "description": "Atsisiųstas turinys bus rodomas čia."
         }
     }
 }
