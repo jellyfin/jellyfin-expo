@@ -92,6 +92,9 @@
         "downloadFailed": {
             "title": "下載失敗",
             "description": "「{{title}}」下載失敗。"
+        },
+        "downloadUnsupported": {
+            "title": "不支援的類型"
         }
     },
     "serverHelp": {
