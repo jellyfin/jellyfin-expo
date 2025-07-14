@@ -4,11 +4,11 @@
         "cancel": "Atšaukti",
         "delete": "Ištrinti",
         "edit": "Redaguoti",
-        "ok": "OK",
+        "ok": "Gerai",
         "unknown": "Nežinomas"
     },
     "headings": {
-        "addServer": "Pridėti Serverį",
+        "addServer": "Pridėti serverį",
         "appearance": "Išvaizda",
         "downloads": "Atsiuntimai",
         "home": "Pagrindinis",
@@ -18,7 +18,7 @@
         "settings": "Nustatymai"
     },
     "addServer": {
-        "address": "Serverio Adresas",
+        "address": "Serverio adresas",
         "validation": {
             "empty": "$t(addServer.address) negali būti tuščias",
             "invalid": "$t(addServer.address) yra netinkamas",
@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "502": {
-                "description": "Nepavyko pasiekti Jellyfin serverio. Tai dažniausiai nutinka dėl tarpinio serverio konfigūracijos klaidos arba nes Jellyfin nėra paleista."
+                "description": "Nepavyko pasiekti Jellyfin serverio. Tai dažniausiai nutinka dėl tarpinio serverio konfigūracijos klaidos arba Jellyfin nėra paleista."
             },
             "504": {
                 "description": "Nepavyko pasiekti Jellyfin serverio. Tai dažniausiai nutinka nes baigėsi tarpinio serverio laikas skirtas prisijungti prie Jellyfin."
@@ -40,7 +40,7 @@
             },
             "invalidServer": {
                 "heading": "Serveris netinkamas",
-                "description": "Kažkas ne taip nutiko ir išsaugota serverio informacija yra netinkama. Pabandykite Nustatymuose pašalinti serverį ir pridėti jį iš naujo."
+                "description": "Kažkas nutiko ne taip, išsaugota serverio informacija yra netinkama. Pabandykite nustatymuose pašalinti serverį ir pridėti jį iš naujo."
             },
             "offline": {
                 "heading": "Serveris išjungtas?",
@@ -53,7 +53,7 @@
     },
     "serverHelp": {
         "heading": "Kas yra Jellyfin?",
-        "description": "Jellyfin yra savanorių sukurtas turinio valdymo sprendimas. Jis leidžia vadovauti savo turiniui ir jį pasiekti iš bet kur. Tam, kad naudotis šiuo naudotojų portalu jums reikia tūrėti savo Jellyfin serverį.",
+        "description": "Jellyfin yra savanorių sukurtas turinio valdymo sprendimas. Jis leidžia valdyti savo turinį ir jį pasiekti iš bet kur. \n\n\nTam, kad naudotis šiuo naudotojų portalu jums reikia turėti savo Jellyfin serverį.",
         "learnMore": "Sužinokite daugiau kaip pasileisti savo serverį"
     },
     "settings": {
@@ -63,15 +63,15 @@
         "minimumServerVersion": "Reikalinga Serverio Versija 10.7+",
         "fmp4Support": "Pirmenybė fMP4 HLS",
         "lightTheme": "Naudoti šviesią temą",
-        "systemTheme": "Naudoti Sisteminę temą",
-        "rotationLock": "Neleisti apsiversti",
-        "tabLabels": "Rodyti Skilčių Etiketes",
+        "systemTheme": "Naudoti sistemos temą",
+        "rotationLock": "Užrakinti pasukimą",
+        "tabLabels": "Rodyti skilčių etiketes",
         "expoVersion": "Expo Versija: {{version}}"
     },
     "links": {
-        "website": "Jellyfin Tinklalapis",
+        "website": "Jellyfin tinklalapis",
         "documentation": "Dokumentacija",
-        "source": "Išnašų kodas",
+        "source": "Išeities kodas",
         "translate": "Išversti",
         "issue": "Pranešti apie problemą",
         "help": "Gauti pagalbą"
@@ -79,12 +79,12 @@
     "alerts": {
         "deleteServer": {
             "title": "Ištrinti serverį",
-            "description": "Ar tikrai nori ištrinti serverį {{serverName}}?",
+            "description": "Ar tikrai norite ištrinti serverį {{serverName}}?",
             "confirm": "Ištrinti"
         },
         "resetApplication": {
-            "title": "Nustatyti aplikaciją iš naujo",
-            "description": "Ar jūs tikrai norite nustatyti visus nustatymus iš naujo?",
+            "title": "Nustatyti programą iš naujo",
+            "description": "Ar tikrai norite nustatyti visus nustatymus iš naujo?",
             "confirm": "Atstatyti"
         },
         "deleteDownloads": {
