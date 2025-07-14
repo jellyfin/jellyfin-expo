@@ -83,11 +83,26 @@
             "title": "重設應用程式",
             "description": "您確認要重設所有設定嗎？",
             "confirm": "重設"
+        },
+        "deleteDownloads": {
+            "title": "刪除下載",
+            "description": "這些項目會從此裝置中永久刪除。",
+            "confirm": "刪除 {{downloadCount}} 下載"
+        },
+        "downloadFailed": {
+            "title": "下載失敗",
+            "description": "「{{title}}」下載失敗。"
         }
     },
     "serverHelp": {
         "learnMore": "瞭解如何託管自己的伺服器",
         "description": "Jellyfin是志願者構建的媒體解決方案。 它允許您託管自己的媒體，並從任何地方存取。\n\n\n要使用此程式，您需要擁有自己的Jellyfin伺服器。",
         "heading": "Jellyfin 是什麼?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "沒有下載",
+            "description": "您下載的內容會顯示在這裡。"
+        }
     }
 }
