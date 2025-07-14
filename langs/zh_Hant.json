@@ -94,7 +94,8 @@
             "description": "「{{title}}」下載失敗。"
         },
         "downloadUnsupported": {
-            "title": "不支援的類型"
+            "title": "不支援的類型",
+            "description": "目前不支援下載此類型的內容。"
         }
     },
     "serverHelp": {
