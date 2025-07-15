@@ -29,7 +29,7 @@ useStores.mockImplementation(() => ({
 ));
 
 jest.mock('../../utils/Device');
-getAppName.mockImplementation(() => 'Jellyfin Mobile');
+getAppName.mockImplementation(() => 'Jellyfin');
 getDeviceProfile.mockImplementation(() => ({}));
 getSafeDeviceName.mockImplementation(() => 'Test Device');
 

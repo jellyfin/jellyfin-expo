@@ -1,5 +1,5 @@
 {
-  "name": "jellyfin-expo",
+  "name": "jellyfin-ios",
   "version": "1.7.0",
   "scripts": {
     "start": "expo start --dev-client",
