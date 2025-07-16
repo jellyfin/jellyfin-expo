@@ -86,7 +86,16 @@
         },
         "deleteDownloads": {
             "description": "Tieto položky budú z tohto zariadenia natrvalo odstránené.",
-            "title": "Odstránenie stiahnutí"
+            "title": "Odstránenie stiahnutí",
+            "confirm": "Odstrániť {{downloadCount}} stiahnutí"
+        },
+        "downloadFailed": {
+            "title": "Stiahnutie zlyhalo",
+            "description": "„{{title}}“ sa nepodarilo stiahnuť."
+        },
+        "downloadUnsupported": {
+            "title": "Nepodporovaný typ",
+            "description": "Sťahovanie obsahu tohto typu nie je v súčasnosti podporované."
         }
     },
     "serverHelp": {
