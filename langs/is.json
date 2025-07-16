@@ -39,25 +39,25 @@
                 "description": "Jellyfin vefþjóninn skilaði villu."
             },
             "invalidServer": {
-                "heading": "",
+                "heading": "Þjónn er rangur",
                 "description": ""
             },
             "offline": {
                 "heading": "Slökkt á vefþjón?",
-                "description": ""
+                "description": "Villa við að tengjast Jellyfin þjón."
             }
         },
         "errorCode": "Villukóði: {{errorCode}}",
-        "errorUrl": "",
+        "errorUrl": "URL:{{url}}",
         "retry": "Reyna aftur?"
     },
     "serverHelp": {
-        "heading": "",
+        "heading": "Hvað er Jellyfin?",
         "description": "",
-        "learnMore": ""
+        "learnMore": "Lærðu meira hvernig þú getur hýst þinn eiginn þjón"
     },
     "settings": {
-        "version": "",
+        "version": "Útgáfa: {{version}}",
         "keepAwake": "",
         "nativeVideoPlayer": "",
         "minimumServerVersion": "",
@@ -85,6 +85,12 @@
             "title": "",
             "description": "",
             "confirm": ""
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Engin gögn",
+            "description": "Gögn sem þú sækir munu birtast hér."
         }
     }
 }
