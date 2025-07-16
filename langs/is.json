@@ -62,29 +62,37 @@
         "nativeVideoPlayer": "",
         "minimumServerVersion": "",
         "fmp4Support": "",
-        "lightTheme": "",
-        "systemTheme": "",
-        "rotationLock": "",
+        "lightTheme": "Nota ljóst þema",
+        "systemTheme": "Nota þema kerfis",
+        "rotationLock": "Snúningslás",
         "tabLabels": "",
         "expoVersion": ""
     },
     "links": {
-        "website": "",
+        "website": "Jellyfin vefsíða",
         "documentation": "",
         "source": "",
-        "translate": "",
+        "translate": "Þýða",
         "issue": ""
     },
     "alerts": {
         "deleteServer": {
             "title": "",
             "description": "",
-            "confirm": ""
+            "confirm": "Eyða"
         },
         "resetApplication": {
-            "title": "",
-            "description": "",
+            "title": "Endurstilla forrit",
+            "description": "Ertu viss um að þú viljir endurstilla allar stillingar?",
             "confirm": ""
+        },
+        "deleteDownloads": {
+            "title": "Eyða niðurhlöðnum skjölum",
+            "description": "Þessi gögn verða varanlega fjarlægð af þessu tæki."
+        },
+        "downloadFailed": {
+            "title": "Niðurhal mistókst",
+            "description": "Mistókst að sækja \"{{title}}\"."
         }
     },
     "downloads": {
