@@ -58,7 +58,7 @@
     },
     "settings": {
         "version": "Útgáfa: {{version}}",
-        "keepAwake": "",
+        "keepAwake": "Ekki slökkva á skjá",
         "nativeVideoPlayer": "",
         "minimumServerVersion": "",
         "fmp4Support": "",
