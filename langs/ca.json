@@ -53,7 +53,7 @@
     },
     "serverHelp": {
         "heading": "Què és Jellyfin?",
-        "description": "Jellyfin és la solució multimèdia creada per voluntaris. Us permet allotjar el vostre contingut multimèdia i accedir-hi des de qualsevol lloc.\n\n\nPer utilitzar aquest client, heu d'allotjar el vostre propi servidor Jellyfin.",
+        "description": "Jellyfin és la solució multimèdia creada per voluntaris. Us permet allotjar el vostre contingut multimèdia i accedir-hi des de qualsevol lloc.\n\n\nPer a utilitzar aquest client, heu d'allotjar el vostre propi servidor Jellyfin.",
         "learnMore": "Obtingueu més informació sobre com allotjar el vostre propi servidor"
     },
     "settings": {
@@ -97,7 +97,7 @@
             "description": "\"{{title}}\" no s'ha pogut descarregar."
         },
         "downloadUnsupported": {
-            "description": "Actualment no s'admet la descàrrega de contingut d'aquest tipus.",
+            "description": "Actualment, no s'admet la descàrrega de contingut d'aquest tipus.",
             "title": "Tipus no admès"
         }
     },
