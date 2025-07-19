@@ -29,10 +29,10 @@
     "home": {
         "errors": {
             "502": {
-                "description": "No es pot accedir al servidor de Jellyfin. Normalment, això passa per algun error de configuració de proxy o perquè el Jellyfin està fora de línia."
+                "description": "No es pot accedir al servidor de Jellyfin. Normalment, això passa per algun error de configuració de l'intermediari o perquè Jellyfin està fora de línia."
             },
             "504": {
-                "description": "No es pot accedir al servidor de Jellyfin. Normalment, això passa perquè s'ha esgotat el temps de connexió entre el proxy i Jellyfin."
+                "description": "No es pot accedir al servidor de Jellyfin. Normalment, això passa perquè s'ha esgotat el temps de connexió entre l'intermediari i Jellyfin."
             },
             "http": {
                 "heading": "Alguna cosa ha anat malament!",
