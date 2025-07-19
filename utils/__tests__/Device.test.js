@@ -22,7 +22,7 @@ describe('Device', () => {
 
 	describe('getAppName()', () => {
 		it('should return the app name including the os name', () => {
-			expect(getAppName()).toBe('Jellyfin Mobile (mock)');
+			expect(getAppName()).toBe('Jellyfin (mock)');
 		});
 	});
 
