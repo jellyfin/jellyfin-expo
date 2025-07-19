@@ -83,11 +83,30 @@
             "title": "Ponastavi aplikacijo",
             "description": "Ali ste prepričani, da želite ponastaviti vse nastavitve?",
             "confirm": "Ponastavi"
+        },
+        "deleteDownloads": {
+            "title": "Izbriši prenose",
+            "description": "Izbrane vsebine bodo trajno izbrisane iz te naprave.",
+            "confirm": "Izbriši {{downloadCount}} prenosov"
+        },
+        "downloadFailed": {
+            "title": "Prenos ni uspel",
+            "description": "Prenos \"{{title}}\" ni uspel."
+        },
+        "downloadUnsupported": {
+            "title": "Nepodprta vrsta",
+            "description": "Prenosi vsebin te vrste trenutno niso podprti."
         }
     },
     "serverHelp": {
         "learnMore": "Preberite več o tem, kako lahko gostite svoj strežnik",
         "description": "Jellyfin je predstavnostni strežnik, ki ga ustvarja skupnost prostovoljcev. Omogoča vam gostovanje in dostop da vaše predstavnosti od kjerkoli.\n\n\nZa uporabo tega odjemalca potrebujete svoj Jellyfin strežnik.",
         "heading": "Kaj je Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Ni prenosov",
+            "description": "Vaši prenosi bodo na voljo tukaj."
+        }
     }
 }
