@@ -29,7 +29,7 @@
     "home": {
         "errors": {
             "502": {
-                "description": "Nem sikerült elérni a Jellyfin szervert. Ez általában hibás proxy beállításnak köszönhető, vagy leállított Jellyfin szervernek."
+                "description": "Nem sikerült elérni a Jellyfin szervert. Ez általában proxy beállítási hibára utal, vagy a Jellyfin szerver jelenleg nem fut."
             },
             "504": {
                 "description": "Nem sikerült elérni a Jellyfin szervert. Ez általában annak köszönhető, hogy a proxy nem válaszolt időben miközben a Jellyfin szerverhez csatlakozott."
