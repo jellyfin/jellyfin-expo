@@ -30,7 +30,7 @@
         "offline": "Er ging iets fout bij het verbinden met de Jellyfin-server.",
         "retry": "Opnieuw proberen?",
         "errorUrl": "URL: {{url}}",
-        "errorCode": "Errorcode: {{errorCode}}",
+        "errorCode": "Foutcode: {{errorCode}}",
         "errors": {
             "offline": {
                 "heading": "Server offline?",
