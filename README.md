@@ -1,4 +1,4 @@
-<h1 align="center">Jellyfin Mobile</h1>
+<h1 align="center">Jellyfin for iOS</h1>
 <h3 align="center">Part of the <a href="https://jellyfin.org">Jellyfin Project</a></h3>
 
 ---
@@ -22,7 +22,7 @@
 <a href="https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8"><img width="135" src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-02-09&kind=iossoftware&bubble=ios_apps" alt="Download on the App Store"/></a>
 </p>
 
-Jellyfin Mobile is a mobile app built with [Expo](https://expo.io/) primarily targeting iOS devices. We welcome all contributions and pull requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. We use [GitHub Projects](https://github.com/jellyfin/jellyfin-expo/projects) as a general roadmap for releases.
+Jellyfin for iOS is a mobile app built with [Expo](https://expo.io/) primarily targeting iOS devices. We welcome all contributions and pull requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. We use [GitHub Projects](https://github.com/jellyfin/jellyfin-expo/projects) as a general roadmap for releases.
 
 ## Translations
 
@@ -63,5 +63,5 @@ Translations can be improved very easily from our [Weblate](https://translate.je
 
 | App Name | Status | Platforms | Description |
 |:-:|:-:|:-:|-|
-| [Jellyfin Mobile](https://github.com/jellyfin/jellyfin-expo) | ✅ Active | iOS, iPadOS | The app in this repository. It is a web wrapper based on Expo (React Native) with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad. |
+| [Jellyfin for iOS](https://github.com/jellyfin/jellyfin-expo) | ✅ Active | iOS, iPadOS | The app in this repository. It is a web wrapper based on Expo (React Native) with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad. |
 | [Swiftfin](https://github.com/jellyfin/swiftfin) | ✅ Active | iOS, iPadOS, tvOS | Swiftfin is a modern video client. Designed in Swift to maximize direct play with the power of VLC and look native on all classes of Apple devices. The beta is available on the [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728). |

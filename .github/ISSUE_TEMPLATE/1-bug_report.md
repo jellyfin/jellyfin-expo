@@ -12,7 +12,7 @@ assignees: ''
 
 **System (please complete the following information):**
  - iOS Version:
- - Jellyfin Expo version:
+ - Jellyfin for iOS version:
  - Jellyfin Server version:
 
 **To Reproduce**
