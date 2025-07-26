@@ -83,11 +83,30 @@
             "title": "Nulstil applikation",
             "description": "Er du sikker på, at du vil nulstille alle indstillinger?",
             "confirm": "Nulstil"
+        },
+        "deleteDownloads": {
+            "title": "Slet Downloads",
+            "description": "Disse elementer vil blive permanent slettet fra denne enhed.",
+            "confirm": "Slet {{downloadCount}} Downloads"
+        },
+        "downloadUnsupported": {
+            "description": "Download af indhold af denne type understøttes ikke i øjeblikket.",
+            "title": "Ikke understøttet type"
+        },
+        "downloadFailed": {
+            "title": "Download Mislykkedes",
+            "description": "\"{{title}}\" kunne ikke downloades."
         }
     },
     "serverHelp": {
         "learnMore": "Lær mere om hvordan du hoster din egen server",
         "description": "Jellyfin er medie løsning bygget af frivillige. Den tillader dig at hoste dine egne medier og tilgå dem overalt.\n\n\nFor at bruge denne klient skal du hoste din egen Jellyfin server.",
         "heading": "Hvad er Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "ingen downloads",
+            "description": "Indhold, du downloader, vil blive vist her."
+        }
     }
 }
