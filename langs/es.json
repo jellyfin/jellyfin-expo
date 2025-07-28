@@ -78,7 +78,7 @@
         "deleteDownloads": {
             "description": "Estos items serán eliminados permanentemente de este dispositivo.",
             "confirm": "Eliminar {{downloadCount}} Descargas",
-            "title": "Borrar Descargas"
+            "title": "Eliminar descargas"
         },
         "downloadFailed": {
             "description": "Falló la descarga de \"{{title}}\".",
@@ -86,7 +86,7 @@
         },
         "downloadUnsupported": {
             "description": "Actualmente no se admite la descarga de contenido de este tipo.",
-            "title": "Tipo no soportado"
+            "title": "Tipo no compatible"
         }
     },
     "links": {
@@ -105,8 +105,8 @@
     },
     "downloads": {
         "noDownloads": {
-            "description": "El contenido que descargues aparecerá aquí.",
-            "heading": "No hay descargas"
+            "description": "El contenido que descargues se mostrará aquí.",
+            "heading": "Sin descargas"
         }
     }
 }
