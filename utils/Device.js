@@ -14,7 +14,7 @@ import iOS12Profile from './profiles/ios12';
 import iOSFmp4Profile from './profiles/iosFmp4';
 
 export function getAppName() {
-	return `Jellyfin Mobile (${Device.osName})`;
+	return `Jellyfin (${Device.osName})`;
 }
 
 export function getSafeDeviceName() {
@@ -29,7 +29,7 @@ export function getSafeDeviceName() {
 		return safeName;
 	}
 
-	return Device.modelName || 'Jellyfin Mobile Device';
+	return Device.modelName || 'Jellyfin iOS Device';
 }
 
 export function getDeviceProfile({ enableFmp4 = false } = {}) {

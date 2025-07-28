@@ -706,7 +706,7 @@ exports[`SettingsScreen should render correctly 1`] = `
             }
             testID="app-name"
           >
-            Jellyfin Mobile (mock)
+            Jellyfin (mock)
           </Text>
           <Text
             style={
