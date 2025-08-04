@@ -86,6 +86,25 @@
             "title": "Redefinir Aplicação",
             "description": "Tem a certeza que pretende redefinir todas as definições?",
             "confirm": "Redefinir"
+        },
+        "deleteDownloads": {
+            "title": "Deletar Downloads",
+            "description": "Esses itens serão excluídos permanentemente deste dispositivo.",
+            "confirm": "Deletar {{downloadCount}} Downloads"
+        },
+        "downloadFailed": {
+            "title": "Download falhou",
+            "description": "\"{{title}}\" falhou ao baixar."
+        },
+        "downloadUnsupported": {
+            "title": "Tipo não suportado",
+            "description": "O download do conteúdo deste tipo não é suportado."
+        }
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Sem downloads",
+            "description": "Conteúdo do download irá aparecer aqui."
         }
     }
 }
