@@ -83,6 +83,19 @@
             "title": "Reset Application",
             "description": "Are you sure you want to reset all settings?",
             "confirm": "Reset"
+        },
+        "deleteDownloads": {
+            "title": "Delete Downloads",
+            "confirm": "Delete {{downloadCount}} Downloads",
+            "description": "These items will be permanently deleted from this device."
+        },
+        "downloadFailed": {
+            "title": "Download Failed",
+            "description": "\"{{title}}\" failed to download."
+        },
+        "downloadUnsupported": {
+            "title": "Unsupported Type",
+            "description": "Downloading content of this type is not currently supported."
         }
     },
     "downloads": {
