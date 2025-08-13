@@ -1,0 +1,68 @@
+# CodeRabbit configuration for jellyfin-ios
+# Learn more: https://docs.coderabbit.ai/guides/review-instructions
+
+language: en-US
+early_access: false
+reviews:
+  profile: chill
+  request_changes_workflow: true
+  high_level_summary: true
+  poem: true
+  review_status: true
+  collapse_ellipsis: false
+  auto_review:
+    enabled: true
+    drafts: false
+  path_filters:
+    - "!node_modules/**"
+    - "!ios/build/**"
+    - "!ios/Pods/**"
+    - "!coverage/**"
+    - "!*.lock"
+    - "!package-lock.json"
+    - "!Gemfile.lock"
+    - "!fastlane/**"
+    - "!ios/Jellyfin.xcworkspace/**"
+    - "!ios/Jellyfin.xcodeproj/**"
+  path_instructions:
+    - path: "**/*.{js,jsx,ts,tsx}"
+      instructions: |
+        - Focus on React Native best practices and performance
+        - Check for proper prop validation and TypeScript types
+        - Look for potential memory leaks in useEffect hooks
+        - Ensure proper error handling in async operations
+        - Verify accessibility considerations for mobile apps
+        - Check for proper state management patterns with Zustand
+    - path: "stores/**"
+      instructions: |
+        - Review Zustand store implementations for proper state management
+        - Check for proper serialization/deserialization patterns
+        - Ensure stores follow the established patterns in the codebase
+        - Verify that async operations are properly handled
+    - path: "components/**"
+      instructions: |
+        - Focus on component reusability and composition
+        - Check for proper prop types and default values
+        - Ensure components follow React Native styling patterns
+        - Verify accessibility props are properly implemented
+    - path: "**/*.test.{js,jsx,ts,tsx}"
+      instructions: |
+        - Review test coverage and quality
+        - Ensure tests follow Jest and React Native Testing Library best practices
+        - Check for proper mocking of native modules
+        - Verify async operations are properly tested
+  ast_instructions:
+    - pattern: "useEffect($_, $_)"
+      instructions: |
+        - Check that dependency arrays are complete and correct
+        - Verify cleanup functions are provided where needed (subscriptions, timers)
+        - Look for potential infinite loops or unnecessary re-renders
+        - Ensure async operations are properly handled with cleanup
+    - pattern: "fetch($_)"
+      instructions: |
+        - Ensure proper error handling for network requests
+        - Check that loading states are managed appropriately
+        - Verify timeout handling and retry logic where needed
+        - Consider using the Jellyfin SDK instead of direct fetch calls
+chat:
+  auto_reply: true
