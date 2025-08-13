@@ -22,7 +22,7 @@
 <a href="https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8"><img width="135" src="https://linkmaker.itunes.apple.com/en-us/badge-lrg.svg?releaseDate=2020-02-09&kind=iossoftware&bubble=ios_apps" alt="Download on the App Store"/></a>
 </p>
 
-Jellyfin for iOS is a mobile app built with [Expo](https://expo.io/) primarily targeting iOS devices. We welcome all contributions and pull requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. We use [GitHub Projects](https://github.com/jellyfin/jellyfin-expo/projects) as a general roadmap for releases.
+Jellyfin for iOS is a mobile app built with [Expo](https://expo.io/) primarily targeting iOS devices. We welcome all contributions and pull requests! If you have a larger feature in mind please open an issue so we can discuss the implementation before you start. We use [GitHub Projects](https://github.com/jellyfin/jellyfin-ios/projects) as a general roadmap for releases.
 
 ## Translations
 
