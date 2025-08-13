@@ -6,8 +6,8 @@
 <p align="center">
 <img alt="Logo banner" src="https://raw.githubusercontent.com/jellyfin/jellyfin-ux/master/branding/SVG/banner-logo-solid.svg?sanitize=true"/>
 <br/><br/>
-<a href="https://github.com/jellyfin/jellyfin-expo/blob/master/LICENSE"><img alt="MPL-2.0 license" src="https://img.shields.io/github/license/jellyfin/jellyfin-expo"></a>
-<a href="https://github.com/jellyfin/jellyfin-expo/releases"><img alt="Current Release" src="https://img.shields.io/github/release/jellyfin/jellyfin-expo.svg"/></a>
+<a href="https://github.com/jellyfin/jellyfin-ios/blob/master/LICENSE"><img alt="MPL-2.0 license" src="https://img.shields.io/github/license/jellyfin/jellyfin-ios"></a>
+<a href="https://github.com/jellyfin/jellyfin-ios/releases"><img alt="Current Release" src="https://img.shields.io/github/release/jellyfin/jellyfin-ios.svg"/></a>
 <a href="https://translate.jellyfin.org/projects/jellyfin/jellyfin-expo/?utm_source=widget">
 <img alt="Translation Status" src="https://translate.jellyfin.org/widgets/jellyfin/-/jellyfin-expo/svg-badge.svg"/>
 </a>
@@ -39,8 +39,8 @@ Translations can be improved very easily from our [Weblate](https://translate.je
 1. Clone or download this repository.
 
    ```sh
-   git clone https://github.com/jellyfin/jellyfin-expo.git
-   cd jellyfin-expo
+   git clone https://github.com/jellyfin/jellyfin-ios.git
+   cd jellyfin-ios
    ```
 
 2. Install build dependencies using **npm** in the project directory.
@@ -63,5 +63,5 @@ Translations can be improved very easily from our [Weblate](https://translate.je
 
 | App Name | Status | Platforms | Description |
 |:-:|:-:|:-:|-|
-| [Jellyfin for iOS](https://github.com/jellyfin/jellyfin-expo) | ✅ Active | iOS, iPadOS | The app in this repository. It is a web wrapper based on Expo (React Native) with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad. |
+| [Jellyfin for iOS](https://github.com/jellyfin/jellyfin-ios) | ✅ Active | iOS, iPadOS | The app in this repository. It is a web wrapper based on Expo (React Native) with some native enhancements. It is available on the [App Store](https://apps.apple.com/us/app/jellyfin-mobile/id1480192618?mt=8) for iPhone and iPad. |
 | [Swiftfin](https://github.com/jellyfin/swiftfin) | ✅ Active | iOS, iPadOS, tvOS | Swiftfin is a modern video client. Designed in Swift to maximize direct play with the power of VLC and look native on all classes of Apple devices. The beta is available on the [App Store](https://apps.apple.com/us/app/swiftfin/id1604098728). |

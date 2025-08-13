@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Jellyfin",
-    "slug": "jellyfin-expo",
+    "slug": "jellyfin-ios",
     "owner": "jellyfin",
     "privacy": "unlisted",
     "platforms": [

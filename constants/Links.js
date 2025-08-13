@@ -29,7 +29,7 @@ export default [
 	{
 		key: 'links-source',
 		name: 'links.source',
-		url: 'https://github.com/jellyfin/jellyfin-expo',
+		url: 'https://github.com/jellyfin/jellyfin-ios',
 		icon: {
 			name: 'logo-github',
 			type: 'ionicon'
