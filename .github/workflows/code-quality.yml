@@ -77,7 +77,7 @@ jobs:
         run: npx jest --coverage
 
       - name: SonarCloud scan
-        if: ${{ github.repository == 'jellyfin/jellyfin-expo' }}
+        if: ${{ github.repository == 'jellyfin/jellyfin-ios' }}
         uses: SonarSource/sonarqube-scan-action@8c71dc039c2dd71d3821e89a2b58ecc7fee6ced9 # v5.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.JF_BOT_TOKEN }}

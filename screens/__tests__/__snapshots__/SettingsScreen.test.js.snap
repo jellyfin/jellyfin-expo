@@ -129,7 +129,7 @@ exports[`SettingsScreen should render correctly 1`] = `
               },
               "key": "links-source",
               "name": "Source Code",
-              "url": "https://github.com/jellyfin/jellyfin-expo",
+              "url": "https://github.com/jellyfin/jellyfin-ios",
             },
             Object {
               "icon": Object {
