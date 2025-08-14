@@ -9,6 +9,6 @@ import { QuickStartUrl } from '../Links';
 // I don't understand why jest thinks this needs test coverage, but it does =/
 describe('Links', () => {
 	it('should return the right url', () => {
-		expect(QuickStartUrl).toBe('https://jellyfin.org/docs/general/quick-start.html');
+		expect(QuickStartUrl).toBe('https://jellyfin.org/docs/general/quick-start');
 	});
 });
