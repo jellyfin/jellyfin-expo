@@ -697,7 +697,6 @@ exports[`SettingsScreen should render correctly 1`] = `
           }
         >
           <Text
-            onLongPress={[Function]}
             style={
               Object {
                 "color": "#43484d",
@@ -709,6 +708,8 @@ exports[`SettingsScreen should render correctly 1`] = `
             Jellyfin (mock)
           </Text>
           <Text
+            onLongPress={[Function]}
+            onPress={[Function]}
             style={
               Object {
                 "color": "#43484d",
