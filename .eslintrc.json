@@ -32,6 +32,13 @@
         },
         "jest": {
             "version": "detect"
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true,
+                "project": "./tsconfig.json"
+            },
+            "node": true
         }
     },
     "rules": {
@@ -43,6 +50,8 @@
         "react-native/no-color-literals": ["error"],
         "react-native/no-raw-text": ["error"],
 
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
         "import/order": ["error", {
             "alphabetize": { "order": "asc", "caseInsensitive": true },
             "newlines-between": "always-and-inside-groups"
@@ -154,7 +163,12 @@
                 "plugin:import/warnings",
                 "plugin:import/typescript",
                 "plugin:eslint-comments/recommended"
-            ]
+            ],
+            "rules": {
+                "import/named": "off",
+                "import/namespace": "off",
+                "import/default": "off"
+            }
         }
     ]
 }
