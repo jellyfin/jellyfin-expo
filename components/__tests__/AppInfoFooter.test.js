@@ -14,10 +14,12 @@ import React from 'react';
 
 import '../../i18n';
 import Screens from '../../constants/Screens';
+import { openBrowser } from '../../utils/WebBrowser';
 import AppInfoFooter from '../AppInfoFooter';
 
 jest.mock('expo-application');
 jest.mock('expo-device');
+jest.mock('../../utils/WebBrowser');
 
 const mockNavigate = jest.fn();
 jest.mock('@react-navigation/native', () => {
@@ -42,10 +44,13 @@ describe('AppInfoFooter', () => {
 			</NavigationContainer>
 		);
 
-		const appName = getByTestId('app-name');
-		expect(appName).toHaveTextContent('Jellyfin (Test OS)');
-		fireEvent(appName, 'onLongPress');
+		expect(getByTestId('app-name')).toHaveTextContent('Jellyfin (Test OS)');
+
+		const appVersion = getByTestId('app-version');
+		expect(appVersion).toHaveTextContent('1.0.0 (1.0.0.0)');
+		fireEvent.press(appVersion);
+		expect(openBrowser).toHaveBeenCalledWith('https://github.com/jellyfin/jellyfin-ios/releases/v1.0.0.0');
+		fireEvent(appVersion, 'onLongPress');
 		expect(mockNavigate).toHaveBeenCalledWith(Screens.DevSettingsScreen);
-		expect(getByTestId('app-version')).toHaveTextContent('1.0.0 (1.0.0.0)');
 	});
 });

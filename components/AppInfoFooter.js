@@ -14,6 +14,12 @@ import { Text, ThemeContext } from 'react-native-elements';
 
 import Screens from '../constants/Screens';
 import { getAppName } from '../utils/Device';
+import { openBrowser } from '../utils/WebBrowser';
+
+// NOTE: eslint randomly started blowing up with this inline in the JSX
+const getDisplayVersion = (appVersion, buildVersion) => `${appVersion} (${buildVersion})`;
+
+const getReleaseUrl = version => encodeURI(`https://github.com/jellyfin/jellyfin-ios/releases/v${version}`);
 
 const AppInfoFooter = () => {
 	const navigation = useNavigation();
@@ -29,14 +35,16 @@ const AppInfoFooter = () => {
 			<Text
 				testID='app-name'
 				style={textStyle}
-				onLongPress={() => {
-					navigation.navigate(Screens.DevSettingsScreen);
-				}}
 			>
 				{getAppName()}
 			</Text>
-			<Text testID='app-version' style={textStyle}>
-				{`${nativeApplicationVersion} (${nativeBuildVersion})`}
+			<Text
+				testID='app-version'
+				style={textStyle}
+				onPress={() => openBrowser(getReleaseUrl(nativeBuildVersion))}
+				onLongPress={() => navigation.navigate(Screens.DevSettingsScreen)}
+			>
+				{getDisplayVersion(nativeApplicationVersion, nativeBuildVersion)}
 			</Text>
 		</View>
 	);
