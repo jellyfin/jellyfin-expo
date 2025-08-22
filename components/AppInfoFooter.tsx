@@ -12,14 +12,13 @@ import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, ThemeContext } from 'react-native-elements';
 
-import Screens from '../constants/Screens';
 import { getAppName } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
 // NOTE: eslint randomly started blowing up with this inline in the JSX
-const getDisplayVersion = (appVersion, buildVersion) => `${appVersion} (${buildVersion})`;
+const getDisplayVersion = (appVersion: string, buildVersion: string) => `${appVersion} (${buildVersion})`;
 
-const getReleaseUrl = version => encodeURI(`https://github.com/jellyfin/jellyfin-ios/releases/v${version}`);
+const getReleaseUrl = (version: string) => encodeURI(`https://github.com/jellyfin/jellyfin-ios/releases/v${version}`);
 
 const AppInfoFooter = () => {
 	const navigation = useNavigation();
@@ -27,7 +26,7 @@ const AppInfoFooter = () => {
 
 	const textStyle = {
 		...styles.text,
-		color: theme.colors.grey1
+		color: theme.colors?.grey1
 	};
 
 	return (
@@ -41,10 +40,12 @@ const AppInfoFooter = () => {
 			<Text
 				testID='app-version'
 				style={textStyle}
-				onPress={() => openBrowser(getReleaseUrl(nativeBuildVersion))}
-				onLongPress={() => navigation.navigate(Screens.DevSettingsScreen)}
+				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+				onPress={() => openBrowser(getReleaseUrl(nativeBuildVersion!))}
+				onLongPress={() => navigation.navigate('DevSettingsScreen')}
 			>
-				{getDisplayVersion(nativeApplicationVersion, nativeBuildVersion)}
+				{/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
+				{getDisplayVersion(nativeApplicationVersion!, nativeBuildVersion!)}
 			</Text>
 		</View>
 	);
