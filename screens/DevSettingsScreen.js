@@ -1,7 +1,9 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
 
 import React, { useContext } from 'react';
@@ -10,7 +12,7 @@ import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import SwitchListItem from '../components/SwitchListItem';
-
+import { DEV_SETTINGS_SCREEN_NAME } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 
 const DevSettingsScreen = () => {
@@ -70,5 +72,7 @@ const styles = StyleSheet.create({
 		marginTop: 1
 	}
 });
+
+DevSettingsScreen.displayName = DEV_SETTINGS_SCREEN_NAME;
 
 export default DevSettingsScreen;

@@ -1,8 +1,11 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native';
 import compareVersions from 'compare-versions';
@@ -18,7 +21,7 @@ import ButtonListItem from '../components/ButtonListItem';
 import ServerListItem from '../components/ServerListItem';
 import SwitchListItem from '../components/SwitchListItem';
 import Links from '../constants/Links';
-import Screens from '../constants/Screens';
+import Screens, { SETTINGS_SCREEN_NAME } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 import { isSystemThemeSupported } from '../utils/Device';
 
@@ -304,5 +307,7 @@ const styles = StyleSheet.create({
 		marginBottom: 15
 	}
 });
+
+SettingsScreen.displayName = SETTINGS_SCREEN_NAME;
 
 export default SettingsScreen;
