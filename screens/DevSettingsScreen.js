@@ -12,7 +12,7 @@ import { ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import SwitchListItem from '../components/SwitchListItem';
-import { DEV_SETTINGS_SCREEN_NAME } from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 
 const DevSettingsScreen = () => {
@@ -73,6 +73,6 @@ const styles = StyleSheet.create({
 	}
 });
 
-DevSettingsScreen.displayName = DEV_SETTINGS_SCREEN_NAME;
+DevSettingsScreen.displayName = Screens.DevSettingsScreen;
 
 export default DevSettingsScreen;

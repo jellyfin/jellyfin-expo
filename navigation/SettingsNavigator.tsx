@@ -10,13 +10,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { DEV_SETTINGS_SCREEN_NAME, SETTINGS_SCREEN_NAME } from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 import DevSettingsScreen from '../screens/DevSettingsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 export type SettingsStackParams = {
-	[SETTINGS_SCREEN_NAME]: undefined;
-	[DEV_SETTINGS_SCREEN_NAME]: undefined;
+	[Screens.SettingsScreen]: undefined;
+	[Screens.DevSettingsScreen]: undefined;
 };
 
 const SettingsStack = createStackNavigator<SettingsStackParams>();
@@ -27,14 +27,14 @@ const SettingsNavigator = () => {
 	return (
 		<SettingsStack.Navigator>
 			<SettingsStack.Screen
-				name={SETTINGS_SCREEN_NAME}
+				name={Screens.SettingsScreen}
 				component={SettingsScreen}
 				options={{
 					title: t('headings.settings')
 				}}
 			/>
 			<SettingsStack.Screen
-				name={DEV_SETTINGS_SCREEN_NAME}
+				name={Screens.DevSettingsScreen}
 				component={DevSettingsScreen}
 				options={{
 					title: 'Developers, Developers, Developers!'

@@ -1,8 +1,11 @@
 /**
+ * Copyright (c) 2025 Jellyfin Contributors
+ *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
- * file, You can obtain one at http://mozilla.org/MPL/2.0/.
+ * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+
 import { useNavigation, useRoute } from '@react-navigation/native';
 import React, { useContext, useState } from 'react';
 import { Platform, RefreshControl, StyleSheet, View } from 'react-native';
@@ -11,7 +14,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import ErrorView from '../components/ErrorView';
-import Screens from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 
 const ErrorScreen = () => {
 	const [ isRefreshing, setIsRefreshing ] = useState(false);
@@ -88,5 +91,7 @@ const styles = StyleSheet.create({
 		flex: 1
 	}
 });
+
+ErrorScreen.displayName = Screens.ErrorScreen;
 
 export default ErrorScreen;

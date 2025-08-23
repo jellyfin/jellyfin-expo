@@ -12,7 +12,7 @@ import React, { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Text, ThemeContext } from 'react-native-elements';
 
-import { DEV_SETTINGS_SCREEN_NAME } from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 import { getAppName } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
@@ -43,7 +43,7 @@ const AppInfoFooter = () => {
 				style={textStyle}
 				// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 				onPress={() => openBrowser(getReleaseUrl(nativeBuildVersion!))}
-				onLongPress={() => navigation.navigate(DEV_SETTINGS_SCREEN_NAME)}
+				onLongPress={() => navigation.navigate(Screens.DevSettingsScreen)}
 			>
 				{/* eslint-disable-next-line @typescript-eslint/no-non-null-assertion */}
 				{getDisplayVersion(nativeApplicationVersion!, nativeBuildVersion!)}
