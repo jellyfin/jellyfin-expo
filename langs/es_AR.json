@@ -70,7 +70,8 @@
         "source": "Código fuente",
         "feature": "Solicitar una función",
         "issue": "Reportar un problema",
-        "translate": "Traducir"
+        "translate": "Traducir",
+        "help": "Conseguir ayuda"
     },
     "alerts": {
         "deleteServer": {
@@ -82,11 +83,30 @@
             "title": "Restablecer aplicación",
             "description": "¿Estás seguro que quieres restablecer todas las configuraciones?",
             "confirm": "Restablecer"
+        },
+        "deleteDownloads": {
+            "title": "Borrar descargas",
+            "description": "Estos elementos van a ser borrados de forma permanente de este dispositivo.",
+            "confirm": "Borrar {{downloadCount}} Descargas"
+        },
+        "downloadFailed": {
+            "title": "Descarga fallida",
+            "description": "Fallo la descarga de \"{{title}}\"."
+        },
+        "downloadUnsupported": {
+            "title": "Tipo no soportado",
+            "description": "Por el momento no se puede descargar contenido de este tipo."
         }
     },
     "serverHelp": {
         "learnMore": "Aprenda mas acerca de tener su propio servidor",
         "description": "Jellyfin es la solución de medios creada por voluntarios. Este permite que usted administre su propios medios y los acceda desde cualquier lado.\n\n\nPara utilizar este cliente, usted necesita tener su propio servidor Jellyfin.",
         "heading": "¿Que es Jellyfin?"
+    },
+    "downloads": {
+        "noDownloads": {
+            "heading": "Sin descargas",
+            "description": "El contenido que descargues se va a ver acá."
+        }
     }
 }
