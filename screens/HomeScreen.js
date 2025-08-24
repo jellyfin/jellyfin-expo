@@ -5,6 +5,7 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at https://mozilla.org/MPL/2.0/.
  */
+
 import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import React, { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,7 +19,7 @@ import NativeShellWebView from '../components/NativeShellWebView';
 import VideoPlayer from '../components/VideoPlayer';
 import Colors from '../constants/Colors';
 import MediaTypes from '../constants/MediaTypes';
-import Screens from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 import { getIconName } from '../utils/Icons';
 
@@ -235,5 +236,7 @@ const styles = StyleSheet.create({
 		opacity: 0
 	}
 });
+
+HomeScreen.displayName = Screens.HomeScreen;
 
 export default HomeScreen;

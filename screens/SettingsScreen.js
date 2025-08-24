@@ -21,7 +21,7 @@ import ButtonListItem from '../components/ButtonListItem';
 import ServerListItem from '../components/ServerListItem';
 import SwitchListItem from '../components/SwitchListItem';
 import Links from '../constants/Links';
-import Screens, { SETTINGS_SCREEN_NAME } from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 import { isSystemThemeSupported } from '../utils/Device';
 
@@ -308,6 +308,6 @@ const styles = StyleSheet.create({
 	}
 });
 
-SettingsScreen.displayName = SETTINGS_SCREEN_NAME;
+SettingsScreen.displayName = Screens.SettingsScreen;
 
 export default SettingsScreen;
