@@ -83,7 +83,8 @@ const TabNavigator = () => {
 				name={Screens.HomeTab}
 				component={HomeNavigator}
 				options={{
-					title: t('headings.home')
+					title: t('headings.home'),
+					tabBarAccessibilityLabel: t('headings.home')
 				}}
 			/>
 			{settingStore.isExperimentalDownloadsEnabled && (
@@ -93,6 +94,7 @@ const TabNavigator = () => {
 					options={{
 						title: t('headings.downloads'),
 						headerShown: true,
+						tabBarAccessibilityLabel: t('headings.downloads'),
 						tabBarBadge: downloadStore.getNewDownloadCount() > 0 ? downloadStore.getNewDownloadCount() : undefined
 					}}
 				/>
@@ -101,7 +103,8 @@ const TabNavigator = () => {
 				name={Screens.SettingsTab}
 				component={SettingsNavigator}
 				options={{
-					title: t('headings.settings')
+					title: t('headings.settings'),
+					tabBarAccessibilityLabel: t('headings.settings')
 				}}
 			/>
 		</Tab.Navigator>
