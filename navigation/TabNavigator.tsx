@@ -111,4 +111,6 @@ const TabNavigator = () => {
 	);
 };
 
+TabNavigator.displayName = Screens.MainScreen;
+
 export default TabNavigator;

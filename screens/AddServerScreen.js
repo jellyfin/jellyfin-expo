@@ -11,7 +11,7 @@ import { Icon, Text, ThemeContext } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import ServerInput from '../components/ServerInput';
-import Screens from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 import { getIconName } from '../utils/Icons';
 
@@ -107,5 +107,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 10
 	}
 });
+
+AddServerScreen.displayName = Screens.AddServerScreen;
 
 export default AddServerScreen;
