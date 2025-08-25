@@ -12,7 +12,6 @@ import type { TabNavigatorParams } from '../navigation/TabNavigator';
 
 declare global {
   namespace ReactNavigation {
-    // eslint-disable-next-line @typescript-eslint/no-empty-interface
     interface RootParamList extends HomeStackParams, SettingsStackParams, TabNavigatorParams { }
   }
 }
