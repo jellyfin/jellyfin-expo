@@ -11,6 +11,7 @@ import { Button, Text } from 'react-native-elements';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { QuickStartUrl } from '../constants/Links';
+import { Screens } from '../constants/Screens';
 import { isCompact } from '../utils/Device';
 import { openBrowser } from '../utils/WebBrowser';
 
@@ -85,5 +86,7 @@ const styles = StyleSheet.create({
 		marginVertical: 20
 	}
 });
+
+ServerHelpScreen.displayName = Screens.ServerHelpScreen;
 
 export default ServerHelpScreen;

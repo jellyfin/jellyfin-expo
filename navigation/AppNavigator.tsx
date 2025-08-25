@@ -69,4 +69,6 @@ const AppNavigator = () => {
 	);
 };
 
+AppNavigator.displayName = 'AppNavigator';
+
 export default AppNavigator;
