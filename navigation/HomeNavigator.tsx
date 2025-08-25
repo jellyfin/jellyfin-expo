@@ -45,4 +45,6 @@ const HomeNavigator = () => {
 	);
 };
 
+HomeNavigator.displayName = Screens.HomeTab;
+
 export default HomeNavigator;
