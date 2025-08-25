@@ -44,4 +44,6 @@ const SettingsNavigator = () => {
 	);
 };
 
+SettingsNavigator.displayName = Screens.SettingsTab;
+
 export default SettingsNavigator;

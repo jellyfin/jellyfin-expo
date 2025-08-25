@@ -15,6 +15,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import DownloadListItem from '../components/DownloadListItem';
 import ErrorView from '../components/ErrorView';
 import MediaTypes from '../constants/MediaTypes';
+import { Screens } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 
 const DownloadScreen = () => {
@@ -180,5 +181,7 @@ const styles = StyleSheet.create({
 		marginRight: 8
 	}
 });
+
+DownloadScreen.displayName = Screens.DownloadsTab;
 
 export default DownloadScreen;
