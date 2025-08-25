@@ -43,13 +43,11 @@ function TabIcon(routeName: string, focused: boolean, color: string, size: numbe
 	}
 
 	return (
-		iconName ? (
-			<Ionicons
-				name={iconName as keyof typeof Ionicons.glyphMap}
-				color={color}
-				size={size}
-			/>
-		) : null
+		<Ionicons
+			name={iconName as keyof typeof Ionicons.glyphMap}
+			color={color}
+			size={size}
+		/>
 	);
 }
 
