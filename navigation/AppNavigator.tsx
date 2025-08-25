@@ -11,13 +11,20 @@ import * as SplashScreen from 'expo-splash-screen';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Screens from '../constants/Screens';
+import { Screens } from '../constants/Screens';
 import { useStores } from '../hooks/useStores';
 import AddServerScreen from '../screens/AddServerScreen';
 
 import TabNavigator from './TabNavigator';
 
-const AppStack = createNativeStackNavigator();
+export type AppStackParams = {
+	[Screens.MainScreen]: {
+		screen?: string;
+	};
+	[Screens.AddServerScreen]: undefined;
+};
+
+const AppStack = createNativeStackNavigator<AppStackParams>();
 
 const AppNavigator = () => {
 	const { rootStore, serverStore } = useStores();
@@ -61,5 +68,7 @@ const AppNavigator = () => {
 		</AppStack.Navigator>
 	);
 };
+
+AppNavigator.displayName = 'AppNavigator';
 
 export default AppNavigator;

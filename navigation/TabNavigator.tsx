@@ -111,4 +111,6 @@ const TabNavigator = () => {
 	);
 };
 
+TabNavigator.displayName = 'TabNavigator';
+
 export default TabNavigator;
